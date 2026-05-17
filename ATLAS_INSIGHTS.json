@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "pattern_type": "structural_universality",
+        "trigger_conditions": "[\"El sistema es de naturaleza iterativa discreta\", \"Se evalua la transición al caos por periodo duplicado\"]",
+        "recommended_strategy": "Calcular la constante de Feigenbaum (delta_n) y comparar si el límite es 4.6692016... ya que esto trasciende la forma algebraica del mapa (polinómico vs trascendental).",
+        "confidence": 0.99,
+        "supporting_nodes": "[2]",
+        "counterexamples": "[]",
+        "domains": "[\"nonlinear_dynamics\", \"universality\", \"chaos_theory\"]"
+    },
+    {
+        "id": 2,
+        "pattern_type": "Generacion de embeddings estructurales",
+        "trigger_conditions": "[\"Extraccion de firmas matematicas\"]",
+        "recommended_strategy": "extraer el espectro de Lyapunov y la FFT permite crear firmas numéricas independientes de la ecuación original, facilitando el clustering de sistemas dinámicos",
+        "confidence": 0.9,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "[\"Topologia\"]"
+    },
+    {
+        "id": 3,
+        "pattern_type": "topological_family_detection",
+        "trigger_conditions": "[\"embedding_similarity\", \"cross_equation_clustering\"]",
+        "recommended_strategy": "classify_by_structural_embedding_not_equation",
+        "confidence": 0.95,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "[\"nonlinear_dynamics\", \"topology\", \"chaos_theory\"]"
+    },
+    {
+        "id": 4,
+        "pattern_type": "Universalidad Topologica de Feigenbaum",
+        "trigger_conditions": "[\"Colision de clusters latentes\", \"Similitud coseno > 0.85\"]",
+        "recommended_strategy": "Las variaciones polinomiales de mapas discretos con máximos unimodales colisionan en el mismo clúster latente. El espacio de 8D actúa como invariante topológico. Clasificar universalidad vía proximidad coseno en lugar de análisis algebraico.",
+        "confidence": 0.99,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "[\"Topologia y Caos\"]"
+    },
+    {
+        "id": 5,
+        "pattern_type": "Universalidad Topologica de Feigenbaum",
+        "trigger_conditions": "[\"Colision de clusters latentes\", \"Similitud coseno > 0.85\"]",
+        "recommended_strategy": "Las variaciones polinomiales de mapas discretos con máximos unimodales colisionan en el mismo clúster latente. El espacio de 8D actúa como invariante topológico. Clasificar universalidad vía proximidad coseno en lugar de análisis algebraico.",
+        "confidence": 0.99,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "[\"Topologia y Caos\"]"
+    },
+    {
+        "id": 6,
+        "pattern_type": "latent_deformation_geometry",
+        "trigger_conditions": "Continuous structural deformation applied to maps",
+        "recommended_strategy": "classify_dynamic_systems_by_geometric_flow_not_static_equation",
+        "confidence": 0.95,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['topology_flow']"
+    },
+    {
+        "id": 7,
+        "pattern_type": "latent_deformation_geometry",
+        "trigger_conditions": "Continuous structural deformation applied to maps",
+        "recommended_strategy": "classify_dynamic_systems_by_geometric_flow_not_static_equation",
+        "confidence": 0.95,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['topology_flow']"
+    },
+    {
+        "id": 8,
+        "pattern_type": "latent_deformation_geometry",
+        "trigger_conditions": "Continuous structural deformation applied to maps",
+        "recommended_strategy": "classify_dynamic_systems_by_geometric_flow_not_static_equation",
+        "confidence": 0.95,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['topology_flow']"
+    },
+    {
+        "id": 9,
+        "pattern_type": "latent_metric_curvature",
+        "trigger_conditions": "High phase transitions corresponding to singular regions in latent space",
+        "recommended_strategy": "detect_phase_transitions_via_geometric_curvature",
+        "confidence": 0.98,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['differential_geometry']"
+    },
+    {
+        "id": 10,
+        "pattern_type": "latent_metric_curvature",
+        "trigger_conditions": "High phase transitions corresponding to singular regions in latent space",
+        "recommended_strategy": "detect_phase_transitions_via_geometric_curvature",
+        "confidence": 0.98,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['differential_geometry']"
+    },
+    {
+        "id": 11,
+        "pattern_type": "chaos_as_geodesic_divergence",
+        "trigger_conditions": "Exponential divergence of discrete geodesics on latent PCA graph",
+        "recommended_strategy": "detect_chaos_via_latent_geodesic_instability",
+        "confidence": 0.99,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['differential_geometry']"
+    },
+    {
+        "id": 12,
+        "pattern_type": "chaos_as_geodesic_divergence",
+        "trigger_conditions": "Exponential divergence of discrete geodesics on latent PCA graph",
+        "recommended_strategy": "detect_chaos_via_latent_geodesic_instability",
+        "confidence": 0.99,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['differential_geometry']"
+    },
+    {
+        "id": 13,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 14,
+        "pattern_type": "physics_of_embeddings",
+        "trigger_conditions": "Continuous predictability and definable Jacobian across latent space deformations",
+        "recommended_strategy": "model_dynamics_via_latent_vector_fields",
+        "confidence": 0.99,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['latent_physics']"
+    }
+]

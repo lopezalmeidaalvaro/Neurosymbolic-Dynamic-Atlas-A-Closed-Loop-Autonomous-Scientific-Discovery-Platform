@@ -1,0 +1,5 @@
+{
+  "job_id": "test_quintic_001",
+  "target_expression": "x^5 - x + 1",
+  "active_plugins": ["galois_group", "sturm_roots", "bring_jerrard"]
+}

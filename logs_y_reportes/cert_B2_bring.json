@@ -1,0 +1,12 @@
+{
+  "branch": "B2_bring_jerrard",
+  "status": "TIMEOUT",
+  "invariants": {},
+  "metrics": {
+    "execution_time_sec": 15.0259,
+    "peak_ram_mb": 0.0
+  },
+  "errors": [
+    "Timeout de 15 segundos excedido debido a Expression Swell."
+  ]
+}

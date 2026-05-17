@@ -1,0 +1,25 @@
+{
+  "plugin": "bring_jerrard",
+  "status": "success",
+  "input": {
+    "target_expression": "x^5 - x + 1"
+  },
+  "output": {
+    "depressed_polynomial": "y**5 - y + 1",
+    "coefficient_map": {
+      "coeff_x^5": "1",
+      "coeff_x^4": "0",
+      "coeff_x^3": "0",
+      "coeff_x^2": "0",
+      "coeff_x^1": "-1",
+      "coeff_x^0": "1"
+    },
+    "is_already_bring_jerrard": true,
+    "note": "Polynomial is already in Bring-Jerrard form (no x^4, x^3, x^2 terms). No further Tschirnhaus substitutions required."
+  },
+  "metrics": {
+    "runtime_sec": 0.1023,
+    "peak_ram_mb": 1.75
+  },
+  "errors": []
+}

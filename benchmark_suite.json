@@ -1,0 +1,7 @@
+[
+  {"id": "test_01_poly", "cat": "Simbólico Denso", "problem": "x^6 - 4x^5 + 2x^4 - 7x^3 + x^2 - x + 3 = 0"},
+  {"id": "test_02_transc", "cat": "Trascendental", "problem": "sin(x) = log(x) para x > 0"},
+  {"id": "test_03_illcond", "cat": "Mal Condicionado", "problem": "Resolver H*x = [1,1,1,1,1]^T donde H es la matriz de Hilbert 5x5"},
+  {"id": "test_04_dioph", "cat": "Diofántica No Lineal", "problem": "Soluciones enteras para x^3 + y^3 + z^3 = 33"},
+  {"id": "test_05_overconst", "cat": "Sobrestringido", "problem": "x + y = 2, x - y = 0, x^2 + y^2 = 5"}
+]

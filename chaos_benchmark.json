@@ -1,0 +1,26 @@
+[
+  {
+    "id": "duffing_oscillator",
+    "domain": "nonlinear_dynamics",
+    "type": "Forced Oscillator",
+    "description": "Detectar caos en el oscilador de Duffing (x'' + delta*x' + alpha*x + beta*x^3 = gamma*cos(omega*t)) con parámetros alpha=-1, beta=1, delta=0.3, gamma=0.5, omega=1.2."
+  },
+  {
+    "id": "logistic_map",
+    "domain": "discrete_dynamics",
+    "type": "Bifurcation Pure",
+    "description": "Mapear la cascada de duplicación de periodo en el mapa logístico x_{n+1} = r*x_n(1-x_n) para r entre 2.5 y 4.0."
+  },
+  {
+    "id": "van_der_pol",
+    "domain": "nonlinear_dynamics",
+    "type": "Limit Cycle",
+    "description": "Identificar el ciclo límite de relajación en el oscilador de Van der Pol (x'' - mu*(1-x^2)*x' + x = 0) para mu=5."
+  },
+  {
+    "id": "kuramoto_model",
+    "domain": "network_dynamics",
+    "type": "Synchronization",
+    "description": "Simular la transición de fase hacia la sincronización en una red de 5 osciladores de Kuramoto acoplados."
+  }
+]

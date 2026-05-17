@@ -1,0 +1,42 @@
+{
+  "plugin": "sturm_roots",
+  "status": "success",
+  "input": {
+    "target_expression": "x^5 - x + 1"
+  },
+  "output": {
+    "sturm_sequence_length": 4,
+    "sturm_sequence": [
+      "Poly(x**5 - x + 1, x, domain='QQ')",
+      "Poly(5*x**4 - 1, x, domain='QQ')",
+      "Poly(4/5*x - 1, x, domain='QQ')",
+      "Poly(-2869/256, x, domain='QQ')"
+    ],
+    "n_real_roots": 1,
+    "isolation_intervals": [
+      [
+        -2,
+        -1
+      ]
+    ],
+    "bisection_results": [
+      {
+        "interval_initial": [
+          -2,
+          -1
+        ],
+        "interval_refined": [
+          "-21769785707/17179869184",
+          "-10884892853/8589934592"
+        ],
+        "midpoint_float64": -1.2671683045628015
+      }
+    ],
+    "first_real_root_30dec": "-1.16730397826141868425604589985"
+  },
+  "metrics": {
+    "runtime_sec": 0.653,
+    "peak_ram_mb": 2.6
+  },
+  "errors": []
+}

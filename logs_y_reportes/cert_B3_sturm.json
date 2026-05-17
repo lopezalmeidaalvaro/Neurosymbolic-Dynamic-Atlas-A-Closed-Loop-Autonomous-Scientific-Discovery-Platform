@@ -1,0 +1,33 @@
+{
+  "branch": "B3_sturm",
+  "status": "SUCCESS",
+  "invariants": {
+    "polynomial": "x^5 + 3x^4 - 2x^3 + 7x^2 - x + 1",
+    "sturm_sequence_length": 6,
+    "n_real_roots_sturm": 1,
+    "isolation_intervals_found": [
+      [
+        -4,
+        -3
+      ]
+    ],
+    "bisection_results": [
+      {
+        "interval_initial": [
+          -4,
+          -3
+        ],
+        "interval_refined": [
+          "-17057126307/4294967296",
+          "-68228505227/17179869184"
+        ],
+        "midpoint_float64": -3.9714216969150584
+      }
+    ]
+  },
+  "metrics": {
+    "execution_time_sec": 1.023,
+    "peak_ram_mb": 2.74
+  },
+  "errors": []
+}

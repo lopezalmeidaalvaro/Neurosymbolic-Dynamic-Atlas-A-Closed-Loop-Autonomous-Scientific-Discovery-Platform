@@ -1,0 +1,190 @@
+{
+  "system": "Orquestador Matemático Neurosimbólico (Stress Test)",
+  "polynomial": "x^5 + 3x^4 - 2x^3 + 7x^2 - x + 1",
+  "timestamp": "2026-05-14T21:51:32Z",
+  "branch_certificates": [
+    {
+      "branch": "B1_galois",
+      "status": "SUCCESS",
+      "invariants": {
+        "polynomial": "x^5 + 3x^4 - 2x^3 + 7x^2 - x + 1",
+        "is_irreducible_over_Q": true,
+        "factorization_over_Q": "x**5 + 3*x**4 - 2*x**3 + 7*x**2 - x + 1",
+        "discriminant": 1623609,
+        "discriminant_sign": "positive",
+        "discriminant_is_perfect_square": false,
+        "frobenius_patterns_mod_p": {
+          "2": [
+            5
+          ],
+          "3": [
+            1,
+            3
+          ],
+          "5": [
+            5
+          ],
+          "7": [
+            1,
+            1,
+            3
+          ],
+          "11": [
+            1,
+            1,
+            3
+          ],
+          "13": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "17": [
+            1,
+            4
+          ],
+          "19": [
+            1,
+            4
+          ]
+        },
+        "has_5_cycle_in_frobenius": true,
+        "galois_group": "S5",
+        "galois_group_confidence": "high",
+        "solvable_by_radicals": false
+      },
+      "metrics": {
+        "execution_time_sec": 0.1869,
+        "peak_ram_mb": 2.32
+      },
+      "errors": []
+    },
+    {
+      "branch": "B2_bring_jerrard",
+      "status": "TIMEOUT",
+      "invariants": {},
+      "metrics": {
+        "execution_time_sec": 15.0259,
+        "peak_ram_mb": 0.0
+      },
+      "errors": [
+        "Timeout de 15 segundos excedido debido a Expression Swell."
+      ]
+    },
+    {
+      "branch": "B3_sturm",
+      "status": "SUCCESS",
+      "invariants": {
+        "polynomial": "x^5 + 3x^4 - 2x^3 + 7x^2 - x + 1",
+        "sturm_sequence_length": 6,
+        "n_real_roots_sturm": 1,
+        "isolation_intervals_found": [
+          [
+            -4,
+            -3
+          ]
+        ],
+        "bisection_results": [
+          {
+            "interval_initial": [
+              -4,
+              -3
+            ],
+            "interval_refined": [
+              "-17057126307/4294967296",
+              "-68228505227/17179869184"
+            ],
+            "midpoint_float64": -3.9714216969150584
+          }
+        ]
+      },
+      "metrics": {
+        "execution_time_sec": 1.023,
+        "peak_ram_mb": 2.74
+      },
+      "errors": []
+    }
+  ],
+  "merged_invariants": {
+    "B1_galois": {
+      "polynomial": "x^5 + 3x^4 - 2x^3 + 7x^2 - x + 1",
+      "is_irreducible_over_Q": true,
+      "factorization_over_Q": "x**5 + 3*x**4 - 2*x**3 + 7*x**2 - x + 1",
+      "discriminant": 1623609,
+      "discriminant_sign": "positive",
+      "discriminant_is_perfect_square": false,
+      "frobenius_patterns_mod_p": {
+        "2": [
+          5
+        ],
+        "3": [
+          1,
+          3
+        ],
+        "5": [
+          5
+        ],
+        "7": [
+          1,
+          1,
+          3
+        ],
+        "11": [
+          1,
+          1,
+          3
+        ],
+        "13": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "17": [
+          1,
+          4
+        ],
+        "19": [
+          1,
+          4
+        ]
+      },
+      "has_5_cycle_in_frobenius": true,
+      "galois_group": "S5",
+      "galois_group_confidence": "high",
+      "solvable_by_radicals": false
+    },
+    "B3_sturm": {
+      "polynomial": "x^5 + 3x^4 - 2x^3 + 7x^2 - x + 1",
+      "sturm_sequence_length": 6,
+      "n_real_roots_sturm": 1,
+      "isolation_intervals_found": [
+        [
+          -4,
+          -3
+        ]
+      ],
+      "bisection_results": [
+        {
+          "interval_initial": [
+            -4,
+            -3
+          ],
+          "interval_refined": [
+            "-17057126307/4294967296",
+            "-68228505227/17179869184"
+          ],
+          "midpoint_float64": -3.9714216969150584
+        }
+      ]
+    }
+  },
+  "conclusions": {
+    "galois_group": "S5",
+    "solvable_by_radicals": false,
+    "n_real_roots": 1,
+    "real_root_approx": -3.9714216969150584,
+    "bring_jerrard": "FAILED/TIMEOUT - Inferencia basada solo en B1 y B3"
+  }
+}

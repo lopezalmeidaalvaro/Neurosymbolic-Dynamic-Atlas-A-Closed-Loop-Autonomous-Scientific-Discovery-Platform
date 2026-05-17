@@ -1,0 +1,10 @@
+{
+    "spectral_entropy": 13.390311475795464,
+    "dominant_frequency": 0.3740833333333333,
+    "variance": 0.08992934285434727,
+    "autocorr_decay": 2.0,
+    "kurtosis": -1.4214073091200814,
+    "skewness": -0.18047382664466186,
+    "energy": 0.6632336935189648,
+    "lyapunov_max": 0.49805584955643734
+}
