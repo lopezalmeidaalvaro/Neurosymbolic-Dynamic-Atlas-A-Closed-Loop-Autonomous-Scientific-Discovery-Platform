@@ -34,11 +34,15 @@ def main():
     print_step("PASO 3: Generación de Artefactos Visuales")
     run_cmd(["python", "experiments_archive/universal_atlas_visualization.py"])
     
-    # PASO 4: Congelar el conocimiento en el JSON maestro
-    print_step("PASO 4: Exportando Memoria Semántica (ATLAS_INSIGHTS)")
+    # PASO 4: Benchmark formal vs Estado del Arte (ROCKET / DTW)
+    print_step("PASO 4: Benchmark vs Estado del Arte (ROCKET/DTW)")
+    run_cmd(["python", "experiments_archive/baseline_benchmark.py"])
+    
+    # PASO 5: Congelar el conocimiento en el JSON maestro
+    print_step("PASO 5: Exportando Memoria Semántica (ATLAS_INSIGHTS)")
     run_cmd(["python", "export_knowledge.py"])
     
-    print_step("🎉 PIPELINE COMPLETADO. Revisa la carpeta 'artifacts/'.")
+    print_step("PASO 6: PIPELINE COMPLETADO. Revisa la carpeta 'artifacts/'.")
 
 if __name__ == "__main__":
     main()
