@@ -20,7 +20,7 @@ def main():
     print("  FASE 13 - GEOMETRÍA COMPARADA CONTINUO-DISCRETA")
     print("=====================================================")
     
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(DB_PATH, timeout=15.0)
     features = ["lyapunov_max", "spectral_entropy", "dominant_frequency", "variance", "autocorr_decay", "kurtosis", "skewness", "energy"]
     
     # Extraer datos de sistemas de interés
@@ -109,7 +109,7 @@ def main():
         cluster_report[int(lbl)] = list(set(sys_in_cluster))
         
     print("4. Generando Reporte Científico...")
-    report_content = f"""# Reporte de Universalidad Topológica (Atractores 3D y Mapas 1D)
+    report_content = rf"""# Reporte de Universalidad Topológica (Atractores 3D y Mapas 1D)
 
 ## Métrica y Geometría
 - Total de trayectorias en Atlas Conjunto: {len(names)}
@@ -156,7 +156,7 @@ Las regiones caóticas exhiben curvatura negativa y alta expansión métrica loc
         cmd = [
             sys.executable, EVALUATOR_PATH,
             "eval", "none", "differential_geometry", "scipy",
-            os.path.join("temp_scripts", "continuous_geometry.py"),
+            os.path.join("experiments_archive", "continuous_geometry.py"),
             "--artifact", "universal_atlas|artifacts/universal_atlas_report.md",
             "--notes", "Fase 13: Integración de atractores caóticos continuos y búsqueda de universalidad geométrica entre sistemas dinámicos."
         ]

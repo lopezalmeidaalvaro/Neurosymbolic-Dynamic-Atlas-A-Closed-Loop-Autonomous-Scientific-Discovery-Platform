@@ -24,4 +24,4 @@ Las regiones caóticas exhiben curvatura negativa y alta expansión métrica loc
 - Familia 8: ['logistic_sweep']
 - Familia 9: ['logistic_sweep']
 - Familia 10: ['logistic_sweep']
-- Familia Singular/Aislada: ['chua', 'lorenz', 'rossler', 'van_der_pol', 'logistic_sweep']
+- Familia Singular/Aislada: ['rossler', 'lorenz', 'van_der_pol', 'logistic_sweep', 'chua']

@@ -6,56 +6,65 @@
   <img src="https://img.shields.io/badge/Memory-SQLite%20Episodic-0ea5e9?style=for-the-badge&logo=sqlite&logoColor=white" alt="Memory: SQLite"/>
 </p>
 
-<h1 align="center">🌌 Neurosymbolic Automated Discovery Engine</h1>
-<h3 align="center">Geometric Latent Analysis of Dynamical Systems</h3>
+<h1 align="center">🌌 Neurosymbolic Pipeline for Dynamical Systems Analysis</h1>
+<h3 align="center">Latent Feature Extraction, Clustering, and Experimental Heuristic Evaluation</h3>
 
 <p align="center">
-  <em>An autonomous scientific agent that formulates, tests, and falsifies hypotheses about chaos and universality — using geometry as its primary language.</em>
+  <em>An experimental computational framework for exploring geometric organization in nonlinear dynamical systems through latent feature embeddings.</em>
 </p>
 
 ---
 
-## 🧠 Overview
+# 🧠 Overview
 
-This project is an experimental **neurosymbolic research framework** designed to explore whether complex dynamical systems can be classified *geometrically* rather than *algebraically*.
+This repository contains an experimental **neurosymbolic research pipeline** for studying nonlinear dynamical systems using statistical feature extraction, latent-space projections, and automated experiment tracking.
 
-Instead of analyzing equations directly, the engine transforms dynamical trajectories into **latent structural embeddings** and studies their geometry using an interdisciplinary toolkit:
+Rather than analyzing systems exclusively through their explicit equations, the framework transforms simulated trajectories into **fixed-dimensional structural embeddings** and studies how different dynamical regimes organize in feature space.
+
+The project combines:
 
 | Domain | Role |
 | :--- | :--- |
-| Dynamical Systems Theory | System simulation & trajectory generation |
-| Differential Geometry | Curvature, geodesics, metric tensors |
-| Statistical Physics | Universality, phase transitions, scaling |
-| Topological Analysis | Manifold structure, clustering, continuity |
-| Machine Learning | Embedding, projection (PCA, DBSCAN), prediction |
-| Autonomous Epistemic Falsification | Hypothesis generation & stress testing |
+| Dynamical Systems Theory | Simulation of chaotic and periodic systems |
+| Time-Series Feature Engineering | Extraction of structural descriptors |
+| Statistical Analysis | Similarity, clustering, robustness tests |
+| Manifold Learning | PCA projections and neighborhood structure |
+| Experiment Tracking | SQLite-based episodic memory |
+| Automated Evaluation | Sandboxed execution and artifact persistence |
 
-The system operates as a **closed scientific loop**: it simulates, embeds, geometrizes, conjectures, falsifies, and updates its own knowledge base — without human intervention.
-
----
-
-## 🔬 Core Hypothesis
-
-> **Dynamical systems may be more naturally classified by the geometry they induce in latent representation spaces than by their explicit algebraic form.**
-
-The framework experimentally investigates whether **chaotic behavior, bifurcations, synchronization, and universality classes** emerge as intrinsic geometric properties of latent manifolds — not as features of the underlying equations.
-
-> *"Equations may not be the fundamental identity of dynamical systems. Geometry may be."*
+The repository is best understood as a **computational experimentation platform** rather than a fully autonomous scientific discovery agent.
 
 ---
 
-## ⚙️ Architecture — The Epistemological Loop
+# 🔬 Research Goal
 
-The engine's core is an **autonomous epistemological cycle**. Every experimental session traverses the following pipeline:
+The central research question explored in this project is:
+
+> **Can families of dynamical systems exhibit meaningful geometric organization in latent feature space independently of their explicit algebraic form?**
+
+The framework investigates whether:
+
+- chaotic systems,
+- periodic systems,
+- bifurcation regimes,
+- and continuous vs. discrete dynamics
+
+can be separated or clustered using structural descriptors extracted directly from trajectories.
+
+---
+
+# ⚙️ Architecture
+
+The system operates as an automated experimental pipeline:
 
 ```mermaid
 flowchart TD
-    A([🖥️ System Simulation\nLorenz · Duffing · Logistic · Rössler...]) --> B
-    B([📐 Structural Embedding\n8D Latent Fingerprint]) --> C
-    C([🌐 Geometric Analysis\nCurvature · Geodesics · Jacobians]) --> D
-    D([⚡ Hypothesis Generation\nConjecture Engine]) --> E
-    E([🔥 Falsification\nStochastic & Structural Perturbations]) --> F
-    F([🧠 Memory Update\nmeta_insights · SQLite]) --> A
+    A([🖥️ Dynamical Simulation]) --> B
+    B([📐 Feature Extraction]) --> C
+    C([🌐 Latent Projection & Clustering]) --> D
+    D([⚡ Heuristic Analysis]) --> E
+    E([🔥 Perturbation / Robustness Tests]) --> F
+    F([🧠 SQLite Memory & Artifact Storage])
 
     style A fill:#1e1b4b,color:#c7d2fe,stroke:#6366f1
     style B fill:#1e3a5f,color:#bae6fd,stroke:#0ea5e9
@@ -65,160 +74,179 @@ flowchart TD
     style F fill:#2e1065,color:#e9d5ff,stroke:#a855f7
 ```
 
-### The Four Memory Pillars
+---
 
-| Pillar | Implementation | Role |
+# 🧱 Core Components
+
+| Component | Implementation | Role |
 | :--- | :--- | :--- |
-| **Episodic Memory** | `runs/math_search.db` — SQLite nodes | Chronological log of all executions & costs |
-| **Semantic Memory** | `meta_insights` table | Heuristics, structural rules, confidence scores |
-| **Topological Miner** | `experiments_archive/topology_miner_v2.py` | Extracts geometric fingerprints from trajectories |
-| **Isolated Evaluator** | `core/evaluator_db.py` | Sandboxed execution & telemetry engine |
+| **Episodic Memory** | `runs/math_search.db` | Stores experiment history and metadata |
+| **Semantic Memory** | `meta_insights` table | Stores heuristic observations and experiment summaries |
+| **Feature Extraction Engine** | `topology_miner_v2.py` | Computes structural descriptors from trajectories |
+| **Sandboxed Evaluator** | `core/evaluator_db.py` | Runs and audits experiments |
+| **Artifact System** | `artifacts/` | Persists plots, reports, JSON outputs |
 
 ---
 
-## 📊 Main Contributions
+# 📊 Structural Embedding Space (Embedding v2)
 
-### 1 · Structural Embedding Space *(Embedding v2)*
+Each trajectory is represented by an 8-dimensional feature vector built from classical dynamical and statistical descriptors:
 
-Each dynamical system is transformed into an **8-dimensional structural representation** — a geometric fingerprint of its behavior:
-
-| Feature | Physical / Mathematical Interpretation |
+| Feature | Interpretation |
 | :--- | :--- |
-| **Max. Lyapunov Exponent** | Sensitivity to initial conditions — the signature of chaos |
-| **Spectral Entropy** | Frequency disorder and turbulence degree |
-| **Dominant Frequency** | Principal oscillatory mode of the attractor |
-| **Variance** | Spatial spread of trajectories in phase space |
-| **Autocorrelation Decay** | Memory loss rate / ergodicity index |
-| **Kurtosis** | Extreme-event structure and heavy-tail behavior |
-| **Skewness** | Symmetry breaking in the trajectory distribution |
-| **RMS Energy** | Global dynamical power of the system |
+| Max Lyapunov Exponent | Sensitivity to initial conditions |
+| Spectral Entropy | Frequency-domain disorder |
+| Dominant Frequency | Main oscillatory mode |
+| Variance | Spatial spread |
+| Autocorrelation Decay | Temporal memory loss |
+| Kurtosis | Heavy-tail behavior |
+| Skewness | Distribution asymmetry |
+| RMS Energy | Global signal energy |
 
-### 2 · Latent Kinematics
+These descriptors are then used for:
 
-Continuous parametric sweeps across dynamical families revealed **latent velocity fields, acceleration discontinuities, bifurcation walls, and topological phase transitions**. The onset of chaos manifests as *explosive geometric displacement* inside the embedding manifold.
-
-### 3 · Geometric Differential Analysis
-
-The latent manifold is treated as a **discrete Riemannian variety**. The engine computes:
-- Local curvature & metric tensor expansion
-- Geodesic divergence & flow fields
-- Jacobian collapse near singular geometric regions
-
-> **Key observation:** Chaotic regimes consistently correspond to regions of **negative curvature** and **exponential geodesic divergence**.
-
-### 4 · Autonomous Epistemological Engine
-
-The conjecture engine autonomously:
-1. Detects structural correlations across system families
-2. Clusters dynamical universality classes
-3. Generates formal conjectures with confidence scores
-4. Designs targeted falsification experiments
-5. Updates semantic memory (`meta_insights`) with validated rules
-
-### 5 · Universal Dynamical Atlas
-
-The system mapped and geometrically separated multiple dynamical families in a unified latent space:
-
-`Logistic Map` · `Duffing Oscillator` · `Van der Pol` · `Kuramoto Network` · `Lorenz Attractor` · `Rössler Attractor` · `Chua Circuit`
-
-> **Experimental evidence:** Continuous strange attractors form **coherent latent topological continents**, while discrete chaotic maps inhabit geometrically distinct, isolated regions.
+- PCA projections
+- clustering (DBSCAN)
+- cosine similarity analysis
+- neighborhood graph analysis
+- perturbation experiments
 
 ---
 
-## 🌌 The Chaos Atlas — Visual Evidence
+# 🌌 Experimental Findings
 
-Key visualizations produced autonomously by the engine during experimental sessions:
+The experiments conducted so far suggest several reproducible patterns inside the embedding space.
 
-| Latent Curvature Map | Geodesic Divergence Field |
+## 1 · Continuous vs. Discrete Separation
+
+Continuous attractors (Lorenz, Rössler, Chua) and discrete maps (logistic family) tend to occupy distinct regions in PCA projections of the embedding space.
+
+This result is empirical and depends on the selected features and scaling strategy.
+
+---
+
+## 2 · Robustness Under Structural Perturbations
+
+Parametric deformation experiments showed that some dynamical families preserve neighborhood structure under moderate perturbations.
+
+Examples explored include:
+
+- logistic map deformations,
+- asymmetric polynomial variants,
+- continuous parameter sweeps.
+
+---
+
+## 3 · Latent Neighborhood Dynamics
+
+k-NN graph analysis and shortest-path measurements reveal that transitions between regimes often correspond to abrupt changes in local neighborhood structure.
+
+These analyses currently operate on:
+
+- Euclidean distances,
+- PCA embeddings,
+- and graph shortest paths,
+
+rather than formally defined Riemannian geometry.
+
+---
+
+## 4 · Heuristic Geometric Proxies
+
+Several exploratory scripts estimate:
+
+- local trajectory curvature,
+- velocity/acceleration changes in latent projections,
+- Jacobian-like neighborhood deformation metrics.
+
+These should be interpreted as **heuristic geometric proxies**, not rigorous differential-geometric quantities.
+
+---
+
+# 🖼️ Visual Outputs
+
+The framework generates visual artifacts automatically during experiments.
+
+| Latent Curvature Projection | Neighborhood Divergence |
 | :---: | :---: |
 | ![Latent Curvature](artifacts/latent_curvature.png) | ![Geodesic Divergence](artifacts/geodesic_divergence.png) |
-| *Negative curvature zones correlate with chaotic onset* | *Exponential geodesic separation defines chaos geometrically* |
 
-| Universal Atlas (PCA) | Deformation Flow |
+| Universal PCA Atlas | Deformation Flow |
 | :---: | :---: |
 | ![Universal Atlas](artifacts/universal_atlas_pca.png) | ![Deformation Flow](artifacts/deformation_flow_pca.png) |
-| *Continuous attractors cluster into distinct manifold regions* | *Parametric deformation reveals topological phase transitions* |
 
-### 🏆 Autonomous Discoveries
-
-The engine independently formalized the following structural findings:
-
-- ✅ **Feigenbaum Universality** — Scaling constants in period-doubling bifurcations survive across structurally different map families (logistic, sine).
-- ✅ **Continuous/Discrete Separation** — Strange attractors and discrete chaotic maps are geometrically separable in the 8D latent space without using algebraic labels.
-- ✅ **Geodesic Divergence as Chaos** — Exponential separation of geodesic trajectories on the latent manifold provides a geometry-native definition of chaotic behavior.
-- ⚠️ **GP Prediction Failure** — Gaussian Process models fail globally due to latent caustics and manifold folding — indicating non-trivial topological structure.
+These visualizations are intended as exploratory analysis tools rather than formal proofs.
 
 ---
 
-## ⚙️ How It Works
+# ⚙️ How It Works
 
-A typical experimental cycle from the command line:
+## 1. Query stored insights
 
-**1. Query the knowledge base:**
 ```bash
 python core/evaluator_db.py read_insights
 ```
 
-**2. Run a sandboxed experiment:**
+## 2. Execute an experiment
+
 ```bash
 python core/evaluator_db.py eval none ode_integration scipy \
-    experiments_archive/geodesic_flow.py --notes "Geodesic divergence test"
+    experiments_archive/geodesic_flow.py \
+    --notes "Neighborhood divergence experiment"
 ```
 
-**3. Export the semantic brain:**
+## 3. Export stored experiment summaries
+
 ```bash
 python export_knowledge.py
-# → Writes ATLAS_INSIGHTS.json with all validated meta-insights
 ```
 
-The engine then:
-1. **Extracts embeddings** — computes 8D latent structural signatures from generated trajectories
-2. **Projects geometrically** — applies PCA, DBSCAN, cosine similarity, curvature tensors, and Jacobian dynamics
-3. **Updates memory** — promotes surviving structural rules into `meta_insights` with updated confidence scores
+This exports the contents of `meta_insights` into:
+
+```text
+ATLAS_INSIGHTS.json
+```
 
 ---
 
-<details>
-<summary>📁 Repository Structure — <em>Click to expand</em></summary>
+# 📁 Repository Structure
 
 ```text
 📦 root/
 ├── 🧠 core/
-│   ├── evaluator_db.py          # Sandboxed execution engine + SQLite memory interface
-│   └── ...                      # Orchestrator, insight injection, telemetry
+│   ├── evaluator_db.py
+│   ├── orchestrator.py
+│   └── ...
 │
 ├── 🗂️ experiments_archive/
-│   ├── geodesic_flow.py         # Geodesic divergence analysis
-│   ├── latent_curvature.py      # Riemannian curvature estimation
-│   ├── topology_miner_v2.py     # Core topological feature extractor
-│   ├── feigenbaum_hunt.py       # Universality constant verification
-│   ├── lorenz_sim.py            # Lorenz attractor simulation
-│   ├── continuous_attractors.py # Rössler, Duffing, Van der Pol
-│   ├── conjecture_engine.py     # Autonomous hypothesis generation
-│   └── ...                      # 40+ archived research scripts
+│   ├── topology_miner_v2.py
+│   ├── latent_curvature.py
+│   ├── geodesic_flow.py
+│   ├── continuous_attractors.py
+│   ├── feigenbaum_hunt.py
+│   ├── conjecture_engine.py
+│   └── ...
 │
 ├── 📊 artifacts/
-│   ├── latent_curvature.png     # Curvature manifold visualization
-│   ├── geodesic_divergence.png  # Geodesic flow divergence map
-│   ├── universal_atlas_pca.png  # Multi-system latent projection
-│   ├── universal_atlas_data.json
-│   └── ...                      # All generated reports, images, datasets
+│   ├── latent_curvature.png
+│   ├── geodesic_divergence.png
+│   ├── universal_atlas_pca.png
+│   └── ...
 │
-├── 🔬 temp_scripts/             # Active sandbox — current experiments
+├── 🔬 temp_scripts/
 ├── 🗄️ runs/
-│   └── math_search.db           # SQLite: episodic memory + meta_insights
+│   └── math_search.db
 │
-├── export_knowledge.py          # Exports meta_insights → ATLAS_INSIGHTS.json
-├── ATLAS_INSIGHTS.json          # 📦 The exported semantic brain of the engine
+├── export_knowledge.py
+├── ATLAS_INSIGHTS.json
 └── README.md
 ```
 
-</details>
+---
 
-<details>
-<summary>📦 Dependencies — <em>Click to expand</em></summary>
+# 📦 Dependencies
 
-**Core requirements:**
+## Core Requirements
 
 ```bash
 pip install numpy scipy sympy scikit-learn matplotlib networkx
@@ -226,32 +254,95 @@ pip install numpy scipy sympy scikit-learn matplotlib networkx
 
 | Package | Purpose |
 | :--- | :--- |
-| `numpy` | Numerical arrays, linear algebra |
-| `scipy` | ODE integration, signal analysis, optimization |
-| `sympy` | Symbolic mathematics, formal verification |
-| `scikit-learn` | PCA, DBSCAN, Gaussian Process, manifold tools |
-| `matplotlib` | Visualization and plot generation |
-| `networkx` | Execution graph construction |
-| `sqlite3` | Built-in — episodic and semantic memory |
+| `numpy` | Numerical computing |
+| `scipy` | ODE integration & signal analysis |
+| `sympy` | Symbolic mathematics |
+| `scikit-learn` | PCA, clustering, ML utilities |
+| `matplotlib` | Visualization |
+| `networkx` | Graph operations |
+| `sqlite3` | Built-in database backend |
 
-**Optional (enhanced visualization):**
+## Optional Packages
 
 ```bash
 pip install pandas seaborn plotly
 ```
 
-</details>
+---
+
+# 🔬 Current Limitations
+
+This repository should be interpreted carefully.
+
+## Important limitations include
+
+- The feature space is manually engineered.
+- Similarity metrics depend heavily on feature scaling.
+- PCA projections are heuristic visualizations.
+- The system does **not** autonomously derive mathematical theories.
+- The "semantic memory" stores experiment summaries and heuristics, not formal symbolic reasoning.
+- Geometric terminology in early experiments (e.g. "geodesics", "metric tensor") should be interpreted as graph- or embedding-based approximations rather than rigorous differential geometry.
 
 ---
 
-## ⚠️ Scientific Disclaimer
+# 🚧 Future Work
 
-> This repository is an **experimental computational research framework**. The geometric interpretations and latent-space hypotheses are exploratory in nature and should not be interpreted as formally established physical laws.
+Several directions are planned to improve rigor and reproducibility.
+
+## 1 · Benchmarking Against Baselines
+
+Compare the embedding pipeline against:
+
+- ROCKET
+- DTW + kNN
+- catch22
+- TDA-based descriptors
+
+using standardized time-series datasets.
+
+---
+
+## 2 · True Topological Data Analysis (TDA)
+
+Replace heuristic geometric proxies with:
+
+- persistent homology,
+- Betti numbers,
+- persistence landscapes,
+- Ollivier-Ricci curvature on graphs.
+
+Potential libraries:
+
+- `giotto-tda`
+- `ripser`
+- `GraphRicciCurvature`
+
+---
+
+## 3 · Generative Experiment Design
+
+Future versions may integrate LLM-driven experiment generation where:
+
+- hypotheses,
+- perturbation strategies,
+- and falsification scripts
+
+are generated dynamically rather than manually authored.
+
+---
+
+# ⚠️ Scientific Disclaimer
+
+> This repository is an experimental computational research framework intended for exploratory analysis in nonlinear dynamics and representation learning.
 >
-> The project investigates whether geometric latent representations can reveal meaningful organizational structures in nonlinear dynamics. Further mathematical formalization, theoretical validation, and peer-reviewed analysis would be required before drawing strong scientific conclusions.
+> The results presented here are heuristic and empirical in nature. They should not be interpreted as formal physical laws or rigorous differential-geometric proofs.
+>
+> Many analyses rely on feature engineering, dimensionality reduction, and neighborhood-based approximations whose mathematical interpretation remains an open research problem.
 
 ---
 
-## 📄 License & Status
+# 📄 License & Status
 
-**License:** MIT © 2026 Alvaro &nbsp;|&nbsp; **Status:** `Experimental Research Prototype — Actively Evolving`
+**License:** MIT © 2026 Alvaro
+
+**Status:** `Experimental Research Prototype — Active Development`
