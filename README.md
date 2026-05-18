@@ -43,7 +43,6 @@ The central research question explored in this project is:
 > **Can families of dynamical systems exhibit meaningful geometric organization in latent feature space independently of their explicit algebraic form?**
 
 The framework investigates whether:
-
 - chaotic systems,
 - periodic systems,
 - bifurcation regimes,
@@ -104,7 +103,6 @@ Each trajectory is represented by an 8-dimensional feature vector built from cla
 | RMS Energy | Global signal energy |
 
 These descriptors are then used for:
-
 - PCA projections
 - clustering (DBSCAN)
 - cosine similarity analysis
@@ -130,7 +128,6 @@ This result is empirical and depends on the selected features and scaling strate
 Parametric deformation experiments showed that some dynamical families preserve neighborhood structure under moderate perturbations.
 
 Examples explored include:
-
 - logistic map deformations,
 - asymmetric polynomial variants,
 - continuous parameter sweeps.
@@ -142,7 +139,6 @@ Examples explored include:
 k-NN graph analysis and shortest-path measurements reveal that transitions between regimes often correspond to abrupt changes in local neighborhood structure.
 
 These analyses currently operate on:
-
 - Euclidean distances,
 - PCA embeddings,
 - and graph shortest paths,
@@ -154,7 +150,6 @@ rather than formally defined Riemannian geometry.
 ## 4 · Heuristic Geometric Proxies
 
 Several exploratory scripts estimate:
-
 - local trajectory curvature,
 - velocity/acceleration changes in latent projections,
 - Jacobian-like neighborhood deformation metrics.
@@ -274,7 +269,7 @@ pip install pandas seaborn plotly
 
 This repository should be interpreted carefully.
 
-## Important limitations include
+## Important limitations include:
 
 - The feature space is manually engineered.
 - Similarity metrics depend heavily on feature scaling.
@@ -292,7 +287,6 @@ Several directions are planned to improve rigor and reproducibility.
 ## 1 · Benchmarking Against Baselines
 
 Compare the embedding pipeline against:
-
 - ROCKET
 - DTW + kNN
 - catch22
@@ -305,14 +299,12 @@ using standardized time-series datasets.
 ## 2 · True Topological Data Analysis (TDA)
 
 Replace heuristic geometric proxies with:
-
 - persistent homology,
 - Betti numbers,
 - persistence landscapes,
 - Ollivier-Ricci curvature on graphs.
 
 Potential libraries:
-
 - `giotto-tda`
 - `ripser`
 - `GraphRicciCurvature`
@@ -322,7 +314,6 @@ Potential libraries:
 ## 3 · Generative Experiment Design
 
 Future versions may integrate LLM-driven experiment generation where:
-
 - hypotheses,
 - perturbation strategies,
 - and falsification scripts
