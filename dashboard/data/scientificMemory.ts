@@ -1,43 +1,4 @@
-import type { LiteratureReference, ScientificMemoryEntry } from '@/types';
-
-export const literatureReferences: LiteratureReference[] = [
-  {
-    id: 'rocket-2020',
-    title: 'ROCKET: exceptionally fast and accurate time series classification using random convolutional kernels',
-    authors: ['Angus Dempster', 'Francois Petitjean', 'Geoffrey I. Webb'],
-    year: 2020,
-    venue: 'Data Mining and Knowledge Discovery',
-    url: 'https://arxiv.org/abs/1910.13051',
-    note: {
-      en: 'Reference baseline for fast random convolutional kernels in time-series classification.',
-      es: 'Baseline de referencia para kernels convolucionales aleatorios rapidos en clasificacion de series temporales.',
-    },
-  },
-  {
-    id: 'dtw-1978',
-    title: 'Dynamic programming algorithm optimization for spoken word recognition',
-    authors: ['Hiroaki Sakoe', 'Seibi Chiba'],
-    year: 1978,
-    venue: 'IEEE Transactions on Acoustics, Speech, and Signal Processing',
-    url: 'https://jeffe.cs.illinois.edu/teaching/compgeom/2022/refs/Sakoe-Chiba-DTW.pdf',
-    note: {
-      en: 'Classical source for dynamic time warping style sequence alignment.',
-      es: 'Fuente clasica para alineamiento de secuencias tipo dynamic time warping.',
-    },
-  },
-  {
-    id: 'ucr-2019',
-    title: 'The UCR Time Series Archive',
-    authors: ['Hoang Anh Dau', 'Anthony Bagnall', 'Kaveh Kamgar', 'Chin-Chia Michael Yeh', 'Yan Zhu', 'Shaghayegh Gharghabi', 'Chotirat Ann Ratanamahatana', 'Eamonn Keogh'],
-    year: 2019,
-    venue: 'IEEE/CAA Journal of Automatica Sinica',
-    url: 'https://arxiv.org/abs/1810.07758',
-    note: {
-      en: 'External validation target for time-series classification generalization.',
-      es: 'Objetivo de validacion externa para generalizacion en clasificacion de series temporales.',
-    },
-  },
-];
+import type { ScientificMemoryEntry } from '@/types';
 
 export const scientificMemory: ScientificMemoryEntry[] = [
   {
@@ -98,7 +59,7 @@ export const scientificMemory: ScientificMemoryEntry[] = [
         es: 'La evidencia de benchmark apoya un fuerte compromiso precision-coste para clasificacion basada en descriptores.',
       },
     },
-    linkedIds: ['embedding-v2-speed-parity', 'rocket-2020', 'dtw-1978'],
+    linkedIds: ['embedding-v2-speed-parity', 'rocket', 'dtw-sakoe-chiba'],
   },
   {
     id: 'memory-invariance',

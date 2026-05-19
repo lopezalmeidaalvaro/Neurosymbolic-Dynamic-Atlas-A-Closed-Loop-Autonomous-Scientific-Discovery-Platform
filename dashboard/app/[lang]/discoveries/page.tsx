@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import { BookMarked, FileCheck2 } from 'lucide-react';
+import { FileCheck2 } from 'lucide-react';
 import { hypotheses } from '@/data/hypotheses';
 import { openQuestions } from '@/data/openQuestions';
+import { scientificReferences } from '@/data/references';
 import { researchFindings } from '@/data/researchFindings';
-import { literatureReferences, scientificMemory } from '@/data/scientificMemory';
+import { scientificMemory } from '@/data/scientificMemory';
 import { DiscoveryCard } from '@/components/scientific/DiscoveryCard';
 import { DiscoveryHero } from '@/components/scientific/DiscoveryHero';
 import { EvidencePanel } from '@/components/scientific/EvidencePanel';
 import { HypothesisTracker } from '@/components/scientific/HypothesisTracker';
 import { InsightCard } from '@/components/scientific/InsightCard';
+import { RelatedResearchPanel } from '@/components/scientific/RelatedResearchPanel';
 import { ResearchNarrative } from '@/components/scientific/ResearchNarrative';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { FocusContainer } from '@/components/ui/FocusContainer';
@@ -47,7 +49,7 @@ export default async function DiscoveriesPage({
       {primaryFinding && (
         <ScrollReveal className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
           <EvidencePanel finding={primaryFinding} lang={lang} />
-          <InsightCard finding={primaryFinding} references={literatureReferences} lang={lang} />
+          <InsightCard finding={primaryFinding} references={scientificReferences} lang={lang} />
         </ScrollReveal>
       )}
 
@@ -90,32 +92,7 @@ export default async function DiscoveriesPage({
           </div>
         </GlassPanel>
 
-        <GlassPanel density="spacious">
-          <div className="mb-5 flex items-center gap-3">
-            <BookMarked size={17} className="text-violet-100" />
-            <div>
-              <p className="metric-label">{lang === 'es' ? 'Memoria bibliografica' : 'Literature memory'}</p>
-              <h2 className="mt-1 text-2xl font-semibold text-white/90">
-                {lang === 'es' ? 'Referencias conectadas' : 'Connected references'}
-              </h2>
-            </div>
-          </div>
-          <div className="space-y-3">
-            {literatureReferences.map((ref) => (
-              <a
-                key={ref.id}
-                href={ref.url}
-                target="_blank"
-                rel="noreferrer"
-                className="block rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4 transition-colors hover:bg-white/[0.05]"
-              >
-                <h3 className="text-sm font-semibold leading-snug text-white/90">{ref.title}</h3>
-                <p className="mt-2 text-xs text-slate-500">{ref.authors.slice(0, 4).join(', ')} · {ref.year} · {ref.venue}</p>
-                <p className="mt-3 text-sm leading-7 text-slate-300/70">{ref.note[lang]}</p>
-              </a>
-            ))}
-          </div>
-        </GlassPanel>
+        <RelatedResearchPanel references={scientificReferences} lang={lang} />
       </ScrollReveal>
     </FocusContainer>
   );

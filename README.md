@@ -262,6 +262,16 @@ El sistema presenta una secuencia interactiva estructurada por fases de descubri
 * **Separabilidad de Manifolds**: El agrupamiento DBSCAN en el espacio de características 8D separa con precisión dinámica continua (flujos de Lorenz/Rössler) de dinámica discreta iterativa (mapa Logístico).
 * **Robustez bajo Deformación**: Los coeficientes del espacio latente demuestran resiliencia estructural bajo perturbaciones paramétricas moderadas antes de romper su homología de vecindad.
 
+### 5. Bibliografía Canónica y Research Memory
+La capa `dashboard/data/references.ts` centraliza las referencias científicas usadas por discoveries, evidence panels y related research. Cada entrada incluye `id`, `title`, `authors`, `year`, `venue`, `doi`, `arxiv`, `url`, `tags` y `category`.
+
+Referencias iniciales canónicas:
+* **ROCKET**: Dempster, Petitjean & Webb, *Data Mining and Knowledge Discovery*, 2020. DOI `10.1007/s10618-020-00701-z`, arXiv `1910.13051`, URL `https://arxiv.org/abs/1910.13051`.
+* **UCR Time Series Archive**: Dau et al., *IEEE/CAA Journal of Automatica Sinica*, 2019. DOI `10.1109/JAS.2019.1911747`, arXiv `1810.07758`, URL `https://arxiv.org/abs/1810.07758`.
+* **DTW / Sakoe-Chiba**: Sakoe & Chiba, *IEEE Transactions on Acoustics, Speech, and Signal Processing*, 1978. DOI `10.1109/TASSP.1978.1163055`, IEEE Xplore `https://ieeexplore.ieee.org/document/1163055`.
+* **Distill**: canonical visual scientific communication reference, URL `https://distill.pub/`.
+* **3Blue1Brown**: canonical mathematical visualization reference, URL `https://www.3blue1brown.com/`.
+
 ---
 
 ## 🔒 Variables de Entorno Necesarias

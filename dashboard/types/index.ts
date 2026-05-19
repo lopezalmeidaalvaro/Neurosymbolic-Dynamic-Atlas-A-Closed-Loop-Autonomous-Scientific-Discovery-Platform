@@ -213,14 +213,18 @@ export interface ScientificMemoryEntry {
   linkedIds: string[];
 }
 
-export interface LiteratureReference {
+export interface ScientificReference {
   id: string;
   title: string;
   authors: string[];
   year: number;
   venue: string;
+  doi: string | null;
+  arxiv: string | null;
   url: string;
-  note: MultilingualText;
+  tags: string[];
+  category: 'benchmark' | 'methodology' | 'dataset' | 'theory';
+  context: SemanticText;
 }
 
 // ── i18n ────────────────────────────────────────────────────────

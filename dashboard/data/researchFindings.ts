@@ -71,7 +71,7 @@ export const researchFindings: ResearchFinding[] = [
       { label: { en: 'Runtime', es: 'Runtime' }, value: 0.127, unit: 's' },
       { label: { en: 'Speedup vs ROCKET', es: 'Aceleracion vs ROCKET' }, value: 79, unit: 'x' },
     ],
-    literatureRefs: ['rocket-2020', 'dtw-1978', 'ucr-2019'],
+    literatureRefs: ['rocket', 'dtw-sakoe-chiba', 'ucr-archive', 'ucr-official-repository'],
     nextStep: {
       simple: {
         en: 'Test the same idea on broader public datasets, not only controlled synthetic signals.',
@@ -142,7 +142,7 @@ export const researchFindings: ResearchFinding[] = [
       { label: { en: 'Embedding dimensions', es: 'Dimensiones del embedding' }, value: 8 },
       { label: { en: 'Atlas systems', es: 'Sistemas del atlas' }, value: 6 },
     ],
-    literatureRefs: ['ucr-2019'],
+    literatureRefs: ['ucr-archive', 'ucr-official-repository'],
     nextStep: {
       simple: {
         en: 'Check whether the same map stays organized when the systems get noisier or structurally different.',
@@ -284,7 +284,7 @@ export const researchFindings: ResearchFinding[] = [
       { label: { en: 'Known gap', es: 'Brecha conocida' }, value: 1 },
       { label: { en: 'Required sweeps', es: 'Barridos requeridos' }, value: 5 },
     ],
-    literatureRefs: ['ucr-2019'],
+    literatureRefs: ['ucr-archive', 'ucr-official-repository'],
     nextStep: {
       simple: {
         en: 'Run targeted tests that change the rules of the system and measure when the map breaks.',

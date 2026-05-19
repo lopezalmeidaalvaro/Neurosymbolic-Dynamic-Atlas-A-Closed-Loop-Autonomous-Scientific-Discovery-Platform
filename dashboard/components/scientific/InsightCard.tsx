@@ -4,11 +4,11 @@ import { ArrowUpRight, BookMarked } from 'lucide-react';
 import { useAppStore } from '@/stores/appStore';
 import { GlassPanel } from '@/components/ui/GlassPanel';
 import { ConfidenceBadge } from './ConfidenceBadge';
-import type { Language, LiteratureReference, ResearchFinding } from '@/types';
+import type { Language, ResearchFinding, ScientificReference } from '@/types';
 
 interface InsightCardProps {
   finding: ResearchFinding;
-  references: LiteratureReference[];
+  references: ScientificReference[];
   lang: Language;
 }
 
@@ -42,7 +42,15 @@ export function InsightCard({ finding, references, lang }: InsightCardProps) {
                   <BookMarked size={13} className="shrink-0 text-cyan-100" />
                   <span className="line-clamp-1">{ref.title}</span>
                 </span>
-                <span className="mt-1 block text-xs text-slate-500">{ref.authors.slice(0, 3).join(', ')} · {ref.year}</span>
+                <span className="mt-1 block text-xs text-slate-500">{ref.authors.slice(0, 3).join(', ')} · {ref.year} · {ref.venue}</span>
+                <span className="mt-2 block text-xs leading-5 text-slate-400">{ref.context[complexityMode][lang]}</span>
+                {complexityMode === 'advanced' && (
+                  <span className="mt-2 flex flex-wrap gap-1.5">
+                    {ref.doi && <span className="rounded-full border border-white/[0.08] px-2 py-0.5 text-[10px] text-slate-400">DOI {ref.doi}</span>}
+                    {ref.arxiv && <span className="rounded-full border border-white/[0.08] px-2 py-0.5 text-[10px] text-slate-400">arXiv {ref.arxiv}</span>}
+                    <span className="rounded-full border border-white/[0.08] px-2 py-0.5 text-[10px] text-slate-400">{ref.category}</span>
+                  </span>
+                )}
               </span>
               <ArrowUpRight size={14} className="shrink-0 text-slate-500" />
             </a>

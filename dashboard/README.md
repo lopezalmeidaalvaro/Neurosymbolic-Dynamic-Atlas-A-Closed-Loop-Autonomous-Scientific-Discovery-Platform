@@ -22,10 +22,23 @@ Root redirects:
 All files in `data/` are static and JSON-serializable TypeScript objects. They must not contain JSX, hooks, runtime persistence, or non-serializable values.
 
 - `learningData.ts`: educational concepts and guided learning steps.
+- `references.ts`: canonical scientific references with DOI, arXiv, canonical URL, tags, and category.
 - `researchFindings.ts`: validated, observed, uncertain, rejected, and hypothesis-state findings.
 - `hypotheses.ts`: active research hypotheses.
 - `openQuestions.ts`: unresolved scientific questions.
-- `scientificMemory.ts`: narrative memory and literature references.
+- `scientificMemory.ts`: narrative memory entries linked to findings, hypotheses, questions, and references.
+
+## Canonical References
+
+The dashboard uses `data/references.ts` as the single source of truth for research references. Do not link random mirrors, secondary PDFs, blogs, or tutorial copies from discovery components.
+
+Current canonical sources:
+
+- ROCKET: arXiv `1910.13051`, DOI `10.1007/s10618-020-00701-z`.
+- UCR Archive: arXiv `1810.07758`, DOI `10.1109/JAS.2019.1911747`.
+- DTW/Sakoe-Chiba: IEEE Xplore `https://ieeexplore.ieee.org/document/1163055`, DOI `10.1109/TASSP.1978.1163055`.
+- Distill: `https://distill.pub/`.
+- 3Blue1Brown: `https://www.3blue1brown.com/`.
 
 ## UI Systems
 
