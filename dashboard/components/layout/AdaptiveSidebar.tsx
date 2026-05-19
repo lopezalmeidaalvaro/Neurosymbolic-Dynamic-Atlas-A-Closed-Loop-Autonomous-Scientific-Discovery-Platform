@@ -52,7 +52,7 @@ export function AdaptiveSidebar({ lang }: AdaptiveSidebarProps) {
       }}
       transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
-        'relative z-30 flex h-screen shrink-0 flex-col overflow-hidden border-r border-white/[0.08] bg-[rgba(3,6,14,0.72)] backdrop-blur-2xl',
+        'relative z-30 hidden h-screen shrink-0 flex-col overflow-hidden border-r border-white/[0.08] bg-[rgba(3,6,14,0.72)] backdrop-blur-2xl md:flex',
         focusModeEnabled && 'pointer-events-none'
       )}
     >

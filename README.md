@@ -46,8 +46,8 @@ Rastreamos el progreso científico y técnico del sistema a través de las sigui
   Implementación del soporte multiidioma nativo (i18n) y selector de complejidad (Simple/Advanced).
 
 * **Fase 2.5C: Narrativa Científica (Scientific Storytelling)**  
-  `⏳ EN DESARROLLO`  
-  Visualización interactiva y guiada del proceso de descubrimiento científico.
+  `✅ COMPLETADA`  
+  Sistema `/discoveries` con findings, evidence panels, hypotheses, open questions y memoria científica serializable para narrar el proceso de descubrimiento.
 
 * **Fase 2.5D: Capa de Ciencia Interactiva**  
   `📅 PLANIFICADA`  
@@ -127,7 +127,8 @@ flowchart TD
 │   ├── app/                         # Enrutamiento basado en App Router
 │   │   ├── [lang]/                  # Enrutamiento localizado (EN/ES)
 │   │   │   ├── dashboard/           # Páginas de analíticas, logs y roadmap
-│   │   │   └── learn/               # Secciones de aprendizaje interactivo
+│   │   │   ├── learn/               # Secciones de aprendizaje interactivo
+│   │   │   └── discoveries/         # Narrativa de discoveries, evidencia e hipótesis
 │   │   └── globals.css              # Estilos base y variables CSS variables
 │   ├── components/                  # Componentes reutilizables (KPIs, Motion, UI)
 │   ├── data/                        # Datos estáticos y serializados

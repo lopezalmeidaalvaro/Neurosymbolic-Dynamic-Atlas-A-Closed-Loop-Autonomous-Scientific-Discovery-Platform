@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Neurosymbolic Atlas Dashboard
 
-## Getting Started
+Next.js 16 App Router frontend for the Neurosymbolic Dynamic Atlas.
 
-First, run the development server:
+## Routes
+
+- `/en/dashboard` and `/es/dashboard`: cinematic scientific overview.
+- `/en/learn` and `/es/learn`: educational UX with Simple/Advanced explanations.
+- `/en/discoveries` and `/es/discoveries`: scientific storytelling, findings, evidence, hypotheses, open questions, and literature memory.
+- `/en/dashboard/benchmark`: benchmark comparison against DTW and ROCKET.
+- `/en/dashboard/scientific-log`: scientific log view.
+- `/en/dashboard/timeline`: research timeline.
+- `/en/dashboard/roadmap`: roadmap.
+
+Root redirects:
+
+- `/learn` -> `/en/learn`
+- `/discoveries` -> `/en/discoveries`
+
+## Data Layers
+
+All files in `data/` are static and JSON-serializable TypeScript objects. They must not contain JSX, hooks, runtime persistence, or non-serializable values.
+
+- `learningData.ts`: educational concepts and guided learning steps.
+- `researchFindings.ts`: validated, observed, uncertain, rejected, and hypothesis-state findings.
+- `hypotheses.ts`: active research hypotheses.
+- `openQuestions.ts`: unresolved scientific questions.
+- `scientificMemory.ts`: narrative memory and literature references.
+
+## UI Systems
+
+- `components/cinematic`: ambient scientific background.
+- `components/educational`: explainability and learning components.
+- `components/scientific`: equations, discovery cards, evidence panels, hypotheses, and research narrative.
+- `components/motion`: reveal, scroll, and counter motion primitives.
+- `components/ui`: glass surfaces, panels, controls, and shared visual primitives.
+
+## Commands
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Validation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Use `npm run build` for type and production build validation. For visual checks, run the app and inspect `/en/discoveries`, `/es/discoveries`, `/en/learn`, and `/es/learn` across desktop and mobile viewports.
