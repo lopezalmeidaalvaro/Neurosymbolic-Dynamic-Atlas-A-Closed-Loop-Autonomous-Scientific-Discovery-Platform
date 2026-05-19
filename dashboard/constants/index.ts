@@ -25,6 +25,12 @@ export const NAV_ITEMS: NavItem[] = [
     icon: 'BookOpen',
   },
   {
+    id: 'discoveries',
+    label: { en: 'Discoveries', es: 'Descubrimientos' },
+    href: '/discoveries',
+    icon: 'Sparkles',
+  },
+  {
     id: 'timeline',
     label: { en: 'Timeline', es: 'Línea de Tiempo' },
     href: '/dashboard/timeline',

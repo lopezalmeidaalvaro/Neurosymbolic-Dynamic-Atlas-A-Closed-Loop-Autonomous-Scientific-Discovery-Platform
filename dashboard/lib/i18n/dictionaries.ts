@@ -7,6 +7,7 @@ const en: Dictionary = {
   nav: {
     overview: 'Overview',
     learn: 'Learn',
+    discoveries: 'Discoveries',
     timeline: 'Timeline',
     benchmark: 'Benchmark',
     scientificLog: 'Scientific Log',
@@ -83,6 +84,7 @@ const es: Dictionary = {
   nav: {
     overview: 'Resumen',
     learn: 'Aprender',
+    discoveries: 'Descubrimientos',
     timeline: 'Línea de Tiempo',
     benchmark: 'Benchmark',
     scientificLog: 'Log Científico',

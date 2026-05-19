@@ -17,6 +17,7 @@ export function Breadcrumbs({ lang, dict }: BreadcrumbsProps) {
     const labels: Record<string, string> = {
       dashboard: dict.breadcrumbs.dashboard,
       learn: dict.nav.learn,
+      discoveries: dict.nav.discoveries,
       benchmark: dict.nav.benchmark,
       roadmap: dict.nav.roadmap,
       timeline: dict.nav.timeline,

@@ -11,6 +11,7 @@ import { ScientificGrid } from './ScientificGrid';
 function toneFromPath(pathname: string) {
   if (pathname.includes('/benchmark')) return 'benchmark' as const;
   if (pathname.includes('/learn')) return 'active' as const;
+  if (pathname.includes('/discoveries')) return 'validated' as const;
   if (pathname.includes('/log') || pathname.includes('/scientific-log')) return 'active' as const;
   if (pathname.includes('/roadmap')) return 'validated' as const;
   return 'neutral' as const;

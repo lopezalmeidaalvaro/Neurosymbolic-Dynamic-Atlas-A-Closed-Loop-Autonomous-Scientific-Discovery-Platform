@@ -14,6 +14,7 @@ import {
   Map,
   Orbit,
   ScrollText,
+  Sparkles,
 } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 import { APP_NAME, GITHUB_URL, NAV_ITEMS, SIDEBAR_COLLAPSED_WIDTH, SIDEBAR_WIDTH } from '@/constants';
@@ -23,6 +24,7 @@ import type { Language } from '@/types';
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   LayoutDashboard,
   BookOpen,
+  Sparkles,
   GitBranch,
   BarChart3,
   ScrollText,

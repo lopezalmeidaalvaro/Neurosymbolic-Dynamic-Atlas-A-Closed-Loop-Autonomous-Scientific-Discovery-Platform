@@ -155,6 +155,74 @@ export interface ScientificStoryStep {
   signal: MultilingualText;
 }
 
+// Research discovery memory
+export type DiscoveryState = 'validated' | 'observed' | 'hypothesis' | 'uncertain' | 'rejected';
+
+export interface DiscoveryMetric {
+  label: MultilingualText;
+  value: number;
+  unit?: string;
+}
+
+export interface ResearchFinding {
+  id: string;
+  state: DiscoveryState;
+  title: MultilingualText;
+  summary: SemanticText;
+  whyItMatters: SemanticText;
+  methodology: SemanticText;
+  evidence: SemanticText[];
+  linkedExperiments: string[];
+  metrics: {
+    significance: number;
+    confidence: number;
+    reproducibility: number;
+  };
+  quantitativeSignals: DiscoveryMetric[];
+  literatureRefs: string[];
+  nextStep: SemanticText;
+}
+
+export interface ResearchHypothesis {
+  id: string;
+  state: DiscoveryState;
+  title: MultilingualText;
+  claim: SemanticText;
+  rationale: SemanticText;
+  evidenceIds: string[];
+  blocker: SemanticText;
+  nextExperiment: SemanticText;
+  confidence: number;
+}
+
+export interface OpenQuestion {
+  id: string;
+  title: MultilingualText;
+  question: SemanticText;
+  whyOpen: SemanticText;
+  priority: 'high' | 'medium' | 'low';
+  relatedFindingIds: string[];
+}
+
+export interface ScientificMemoryEntry {
+  id: string;
+  date: string;
+  type: 'experiment' | 'finding' | 'hypothesis' | 'question' | 'literature';
+  title: MultilingualText;
+  narrative: SemanticText;
+  linkedIds: string[];
+}
+
+export interface LiteratureReference {
+  id: string;
+  title: string;
+  authors: string[];
+  year: number;
+  venue: string;
+  url: string;
+  note: MultilingualText;
+}
+
 // ── i18n ────────────────────────────────────────────────────────
 export type Language = 'en' | 'es';
 
@@ -162,6 +230,7 @@ export interface Dictionary {
   nav: {
     overview: string;
     learn: string;
+    discoveries: string;
     timeline: string;
     benchmark: string;
     scientificLog: string;
