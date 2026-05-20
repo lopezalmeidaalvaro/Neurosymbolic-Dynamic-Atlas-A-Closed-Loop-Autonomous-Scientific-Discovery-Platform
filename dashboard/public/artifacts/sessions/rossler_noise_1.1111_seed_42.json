@@ -1,7 +1,7 @@
 {
   "metadata": {
     "id": "rossler_noise_1.1111_seed_42",
-    "timestamp": "2026-05-20T22:13:24Z",
+    "timestamp": "2026-05-20T22:29:01Z",
     "modelo": "Gemini 3.5 Flash",
     "versión": "1.0.0",
     "noiseLevel": 1.1111,
@@ -14,7 +14,7 @@
       "framework_family": "NUMERICAL",
       "framework": "scipy",
       "status": "SUCCESS",
-      "cost_metric": 1.0821,
+      "cost_metric": 0.7518,
       "redundancy_flag": 0,
       "redundant_to_id": null,
       "semantic_notes": "Integración de atractores continuos en 3D"
@@ -25,7 +25,7 @@
       "framework_family": "NUMERICAL",
       "framework": "scikit-learn",
       "status": "SUCCESS",
-      "cost_metric": 3.3884,
+      "cost_metric": 1.3196,
       "redundancy_flag": 0,
       "redundant_to_id": null,
       "semantic_notes": "PCA, cálculo de curvatura geodésica local y clustering DBSCAN"
@@ -36,7 +36,7 @@
       "framework_family": "VISUALIZATION",
       "framework": "matplotlib",
       "status": "SUCCESS",
-      "cost_metric": 2.3721,
+      "cost_metric": 1.6721,
       "redundancy_flag": 0,
       "redundant_to_id": null,
       "semantic_notes": "Generación de gráficos del atlas universal"
@@ -47,7 +47,7 @@
       "framework_family": "BENCHMARK",
       "framework": "sktime",
       "status": "SUCCESS",
-      "cost_metric": 2.5193,
+      "cost_metric": 1.8963,
       "redundancy_flag": 0,
       "redundant_to_id": null,
       "semantic_notes": "Evaluación comparativa contra modelos de referencia"
@@ -65,16 +65,6 @@
     }
   ],
   "embeddings": {
-    "lorenz": {
-      "lyapunov_max": 0.5,
-      "spectral_entropy": 11.707081649815503,
-      "dominant_frequency": 0.027999066666666666,
-      "variance": 138.45710662372477,
-      "autocorr_decay": 0.12000400013333778,
-      "kurtosis": -0.09441908523129516,
-      "skewness": -0.033441127636415074,
-      "energy": 11.767280806883395
-    },
     "rossler": {
       "lyapunov_max": 0.5,
       "spectral_entropy": 9.262296035484887,
@@ -92,15 +82,15 @@
     "comparisons": {
       "ROCKET": {
         "accuracy": 0.625,
-        "time_seconds": 0.002366781234741211
+        "time_seconds": 0.003000020980834961
       },
       "DTW": {
         "accuracy": 0.5,
-        "time_seconds": 0.10383105278015137
+        "time_seconds": 0.09080171585083008
       },
       "Embedding_V2": {
         "accuracy": 0.625,
-        "time_seconds": 0.036360979080200195
+        "time_seconds": 0.02900075912475586
       }
     }
   }

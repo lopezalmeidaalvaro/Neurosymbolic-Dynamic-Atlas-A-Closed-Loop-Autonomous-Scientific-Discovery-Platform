@@ -6,8 +6,8 @@
 - Divergencia Geodésica media ($\lambda_g$): 1.1969
 
 ## Test de Universalidad Continua-Discreta
-- Similitud Coseno (Lorenz vs Rössler): 0.9291
-- Similitud Coseno (Lorenz vs Mapa Discreto Caótico): -0.0201
+- Similitud Coseno (Lorenz vs Rössler): 0.9173
+- Similitud Coseno (Lorenz vs Mapa Discreto Caótico): -0.1894
 
 **Conclusión:** Se confirma universalidad compartida (Clases Topológicas Profundas).
 Las regiones caóticas exhiben curvatura negativa y alta expansión métrica local ($\lambda_g > 0$).
@@ -24,5 +24,5 @@ Las regiones caóticas exhiben curvatura negativa y alta expansión métrica loc
 - Familia 8: ['logistic_sweep']
 - Familia 9: ['logistic_sweep']
 - Familia 10: ['logistic_sweep']
-- Familia 11: ['lorenz', 'rossler']
-- Familia Singular/Aislada: ['logistic_sweep', 'chua', 'van_der_pol']
+- Familia 11: ['rossler', 'lorenz']
+- Familia Singular/Aislada: ['chua', 'van_der_pol', 'logistic_sweep']

@@ -135,11 +135,21 @@ def main():
             rows = cursor.fetchall()
             if not rows:
                 # Fallback: read any row for this system (old schema without noise/seed cols)
-                cursor.execute(
-                    "SELECT system_name, lyapunov_max, spectral_entropy, dominant_frequency, "
-                    "variance, autocorr_decay, kurtosis, skewness, energy FROM structural_embeddings"
-                )
+                if args.system:
+                    cursor.execute(
+                        "SELECT system_name, lyapunov_max, spectral_entropy, dominant_frequency, "
+                        "variance, autocorr_decay, kurtosis, skewness, energy FROM structural_embeddings "
+                        "WHERE system_name=?",
+                        (args.system,)
+                    )
+                else:
+                    cursor.execute(
+                        "SELECT system_name, lyapunov_max, spectral_entropy, dominant_frequency, "
+                        "variance, autocorr_decay, kurtosis, skewness, energy FROM structural_embeddings"
+                    )
                 rows = cursor.fetchall()
+            if args.system:
+                rows = [r for r in rows if r[0] == args.system]
             for r in rows:
                 name = r[0]
                 embeddings_dict[name] = {
