@@ -24,7 +24,9 @@ def print_step(step_name):
 def run_cmd(command):
     print(f"Ejecutando: {' '.join(command)}")
     t0 = time.time()
-    result = subprocess.run(command)
+    env = os.environ.copy()
+    env["EVAL_CALLED"] = "1"
+    result = subprocess.run(command, env=env)
     duration = time.time() - t0
     status = "SUCCESS" if result.returncode == 0 else "ERROR"
     if result.returncode != 0:
