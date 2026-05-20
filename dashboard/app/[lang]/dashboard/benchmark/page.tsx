@@ -12,6 +12,7 @@ import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { FocusContainer } from '@/components/ui/FocusContainer';
 import { GlassPanel } from '@/components/ui/GlassPanel';
 import { ScientificSurface } from '@/components/ui/ScientificSurface';
+import { NoiseRobustnessObservatory } from '@/components/scientific/NoiseRobustnessObservatory';
 import type { Language } from '@/types';
 
 export const metadata: Metadata = { title: 'Benchmark' };
@@ -95,6 +96,10 @@ export default async function BenchmarkPage({
               : 'Synthetic dataset: 150 time series, 50 per class, length 200 steps. Classes: chaos, periodic, and noise. 70/30 train/test split. ROCKET uses 1000 kernels with RidgeClassifierCV; DTW uses 1-NN; Embedding V2 uses variance, skewness, kurtosis, and lag-1 autocorrelation with RandomForest.'}
           </p>
         </GlassPanel>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <NoiseRobustnessObservatory lang={lang} />
       </ScrollReveal>
 
       <ScrollReveal>

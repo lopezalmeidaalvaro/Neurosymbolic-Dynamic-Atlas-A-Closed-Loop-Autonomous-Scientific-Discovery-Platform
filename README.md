@@ -50,8 +50,12 @@ Rastreamos el progreso científico y técnico del sistema a través de las sigui
   Sistema `/discoveries` con findings, evidence panels, hypotheses, open questions y memoria científica serializable para narrar el proceso de descubrimiento.
 
 * **Fase 2.5D: Capa de Ciencia Interactiva**  
-  `📅 PLANIFICADA`  
-  Simuladores en tiempo real interactivos en la interfaz.
+  `✅ COMPLETADA`  
+  Integración de simuladores físicos 3D interactivos y atlas geométrico de atractores caóticos.
+
+* **Fase 2.6: Consolidación y Endurecimiento Científico**  
+  `✅ COMPLETADA`  
+  Estabilización de TypeScript sin warnings, registro de datos unificado `/data/index.ts`, base bibliográfica canónica `/data/bibliography.ts` con BibTeX y DOIs, puente de telemetría dinámica con SWR hooks y suite de QA end-to-end con Playwright.
 
 * **Fase 3A: Memoria de Investigación y Visualización Científica**  
   `📅 PLANIFICADA`  
@@ -263,14 +267,15 @@ El sistema presenta una secuencia interactiva estructurada por fases de descubri
 * **Robustez bajo Deformación**: Los coeficientes del espacio latente demuestran resiliencia estructural bajo perturbaciones paramétricas moderadas antes de romper su homología de vecindad.
 
 ### 5. Bibliografía Canónica y Research Memory
-La capa `dashboard/data/references.ts` centraliza las referencias científicas usadas por discoveries, evidence panels y related research. Cada entrada incluye `id`, `title`, `authors`, `year`, `venue`, `doi`, `arxiv`, `url`, `tags` y `category`.
+La capa `dashboard/data/bibliography.ts` centraliza las referencias científicas usadas por discoveries, evidence panels y related research. Cada entrada incluye tipado estricto con `id`, `title`, `authors`, `year`, `venue`, `doi`, `arxiv`, `url`, `tags`, `category`, `citation` y bloques completos de `bibtex`.
 
-Referencias iniciales canónicas:
-* **ROCKET**: Dempster, Petitjean & Webb, *Data Mining and Knowledge Discovery*, 2020. DOI `10.1007/s10618-020-00701-z`, arXiv `1910.13051`, URL `https://arxiv.org/abs/1910.13051`.
-* **UCR Time Series Archive**: Dau et al., *IEEE/CAA Journal of Automatica Sinica*, 2019. DOI `10.1109/JAS.2019.1911747`, arXiv `1810.07758`, URL `https://arxiv.org/abs/1810.07758`.
-* **DTW / Sakoe-Chiba**: Sakoe & Chiba, *IEEE Transactions on Acoustics, Speech, and Signal Processing*, 1978. DOI `10.1109/TASSP.1978.1163055`, IEEE Xplore `https://ieeexplore.ieee.org/document/1163055`.
-* **Distill**: canonical visual scientific communication reference, URL `https://distill.pub/`.
-* **3Blue1Brown**: canonical mathematical visualization reference, URL `https://www.3blue1brown.com/`.
+Referencias iniciales de revisión por pares (Peer-Reviewed):
+* **ROCKET (Clasificación Rápida)**: Dempster, Petitjean & Webb, *Data Mining and Knowledge Discovery*, 2020. DOI `10.1007/s10618-020-00701-z`, arXiv `1910.13051`.
+* **UCR Time Series Archive (Validación)**: Dau et al., *IEEE/CAA Journal of Automatica Sinica*, 2019. DOI `10.1109/JAS.2019.1911747`, arXiv `1810.07758`.
+* **DTW / Sakoe-Chiba (Alineamiento)**: Sakoe & Chiba, *IEEE Transactions on Acoustics, Speech, and Signal Processing*, 1978. DOI `10.1109/TASSP.1978.1163055`.
+* **Atractor Caótico de Lorenz (Teoría de Caos)**: Lorenz, *Journal of the Atmospheric Sciences*, 1963. DOI `10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2`.
+* **Universalidad de Feigenbaum (Cascadas de Bifurcación)**: Feigenbaum, *Journal of Statistical Physics*, 1978. DOI `10.1007/BF01020332`.
+* **Fundamentos de IA Neurosimbólica (Integración Lógica-Redes)**: Besold et al., *AAAI Survey*, 2015. arXiv `1711.03902`.
 
 ---
 
@@ -294,3 +299,9 @@ Dentro de la carpeta `dashboard/`, tienes a tu disposición los siguientes coman
 | `npm run build` | Compila la aplicación Next.js y genera la build optimizada para producción. |
 | `npm run start` | Arranca el servidor Next.js de producción utilizando la build previa. |
 | `npm run lint` | Ejecuta el análisis de linter para verificar errores de código TypeScript/React. |
+
+---
+
+## Fase 3.1 - Runtime Hardening
+
+El dashboard Next.js fue estabilizado sin reconstruir arquitectura: `lib/realtime` carga `socket.io-client` de forma opcional y cae a polling si no esta disponible, los timers de replay/telemetria/export limpian sus recursos al pausar o desmontar, los graficos interactivos usan ruido determinista para evitar hydration mismatches, y la suite Playwright cubre compare, replay, telemetry, export, overflow responsive y ausencia de console errors/warnings.

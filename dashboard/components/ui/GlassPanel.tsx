@@ -1,8 +1,8 @@
 import { cn } from '@/lib/utils/cn';
+import type { HTMLAttributes, ReactNode } from 'react';
 
-interface GlassPanelProps {
-  children: React.ReactNode;
-  className?: string;
+interface GlassPanelProps extends HTMLAttributes<HTMLDivElement> {
+  children: ReactNode;
   density?: 'compact' | 'normal' | 'spacious';
   tone?: 'neutral' | 'active' | 'success' | 'warning';
 }
@@ -25,9 +25,11 @@ export function GlassPanel({
   className,
   density = 'normal',
   tone = 'neutral',
+  ...rest
 }: GlassPanelProps) {
   return (
     <div
+      {...rest}
       className={cn(
         'relative overflow-hidden rounded-[1.35rem] border bg-[rgba(9,13,24,0.62)]',
         'backdrop-blur-2xl shadow-[0_24px_80px_rgba(0,0,0,0.28)]',

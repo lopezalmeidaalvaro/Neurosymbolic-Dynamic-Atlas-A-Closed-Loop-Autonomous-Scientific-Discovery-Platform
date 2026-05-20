@@ -1,0 +1,130 @@
+{
+  "core/orchestrator.py": {
+    "reads": [
+      "job.json",
+      "galois_group_result.json",
+      "sturm_roots_result.json",
+      "bring_jerrard_result.json"
+    ],
+    "writes": [
+      "final_report.json"
+    ]
+  },
+  "core/evaluator_db.py": {
+    "reads": [
+      "artifacts/duffing_signature.json",
+      "artifacts/duffing_oscillator_signature_v2.json",
+      "artifacts/logistic_map_signature_v2.json",
+      "artifacts/van_der_pol_signature_v2.json",
+      "artifacts/kuramoto_model_signature_v2.json"
+    ],
+    "writes": []
+  },
+  "experiments_archive/baseline_benchmark.py": {
+    "reads": [],
+    "writes": [
+      "artifacts/benchmark_results.json"
+    ]
+  },
+  "experiments_archive/continuous_geometry.py": {
+    "reads": [],
+    "writes": [
+      "artifacts/universal_atlas_data.json"
+    ]
+  },
+  "experiments_archive/deformation_flow.py": {
+    "reads": [],
+    "writes": [
+      "artifacts/deformation_flow_projection.json"
+    ]
+  },
+  "experiments_archive/deformation_flow_visualization.py": {
+    "reads": [
+      "artifacts/deformation_flow_projection.json"
+    ],
+    "writes": []
+  },
+  "experiments_archive/falsification_001.py": {
+    "reads": [],
+    "writes": [
+      "artifacts/falsification_001_results.json"
+    ]
+  },
+  "experiments_archive/falsification_002.py": {
+    "reads": [],
+    "writes": [
+      "artifacts/falsification_002_results.json"
+    ]
+  },
+  "experiments_archive/geodesic_flow.py": {
+    "reads": [
+      "artifacts/deformation_flow_projection.json"
+    ],
+    "writes": [
+      "artifacts/geodesic_flow_data.json"
+    ]
+  },
+  "experiments_archive/geodesic_visualization.py": {
+    "reads": [
+      "artifacts/geodesic_flow_data.json"
+    ],
+    "writes": []
+  },
+  "experiments_archive/latent_curvature.py": {
+    "reads": [
+      "artifacts/deformation_flow_projection.json"
+    ],
+    "writes": [
+      "artifacts/latent_curvature_data.json"
+    ]
+  },
+  "experiments_archive/latent_curvature_visualization.py": {
+    "reads": [
+      "artifacts/latent_curvature_data.json"
+    ],
+    "writes": []
+  },
+  "experiments_archive/latent_dynamics.py": {
+    "reads": [
+      "artifacts/deformation_flow_projection.json"
+    ],
+    "writes": [
+      "artifacts/latent_dynamics_data.json"
+    ]
+  },
+  "experiments_archive/latent_dynamics_visualization.py": {
+    "reads": [
+      "artifacts/latent_dynamics_data.json"
+    ],
+    "writes": []
+  },
+  "experiments_archive/topology_miner.py": {
+    "reads": [],
+    "writes": [
+      "artifacts/duffing_signature.json"
+    ]
+  },
+  "experiments_archive/topology_miner_v2.py": {
+    "reads": [
+      "chaos_benchmark.json"
+    ],
+    "writes": [
+      "artifacts/duffing_oscillator_signature_v2.json",
+      "artifacts/logistic_map_signature_v2.json",
+      "artifacts/van_der_pol_signature_v2.json",
+      "artifacts/kuramoto_model_signature_v2.json"
+    ]
+  },
+  "experiments_archive/universal_atlas_visualization.py": {
+    "reads": [
+      "artifacts/universal_atlas_data.json"
+    ],
+    "writes": []
+  },
+  "export_knowledge.py": {
+    "reads": [],
+    "writes": [
+      "ATLAS_INSIGHTS.json"
+    ]
+  }
+}

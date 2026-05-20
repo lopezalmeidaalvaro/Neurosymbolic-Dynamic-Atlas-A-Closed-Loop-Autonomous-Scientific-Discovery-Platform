@@ -31,6 +31,12 @@ export const NAV_ITEMS: NavItem[] = [
     icon: 'Sparkles',
   },
   {
+    id: 'interactive',
+    label: { en: 'Interactive Lab', es: 'Laboratorio' },
+    href: '/interactive',
+    icon: 'Orbit',
+  },
+  {
     id: 'timeline',
     label: { en: 'Timeline', es: 'Línea de Tiempo' },
     href: '/dashboard/timeline',
@@ -48,6 +54,13 @@ export const NAV_ITEMS: NavItem[] = [
     label: { en: 'Scientific Log', es: 'Log Científico' },
     href: '/dashboard/scientific-log',
     icon: 'ScrollText',
+  },
+  {
+    id: 'compare',
+    label: { en: 'Compare', es: 'Comparar' },
+    href: '/compare',
+    icon: 'GitCompare',
+    badge: '3.0',
   },
   {
     id: 'roadmap',

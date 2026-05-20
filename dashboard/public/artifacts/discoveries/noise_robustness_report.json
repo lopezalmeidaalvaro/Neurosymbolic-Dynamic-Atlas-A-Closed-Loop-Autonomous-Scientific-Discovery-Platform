@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "title": "Autonomous Noise Robustness & Topological Collapse Report",
+    "timestamp": "2026-05-20T19:41:58Z",
+    "pipeline_model": "Gemini 3.5 Flash"
+  },
+  "analysis_results": {
+    "baseline_session_id": "lorenz_noise_0.0",
+    "systems_analyzed": [
+      "duffing_oscillator",
+      "logistic_map",
+      "van_der_pol",
+      "kuramoto_model",
+      "logistic_sweep",
+      "lorenz",
+      "rossler",
+      "chua"
+    ],
+    "runs": [
+      {
+        "session_id": "lorenz_noise_0.0",
+        "noise_level": 0.0,
+        "accuracy": 1.0,
+        "rocket_accuracy": 1.0,
+        "dtw_accuracy": 1.0,
+        "average_drift": 0.0,
+        "drift_by_system": {
+          "duffing_oscillator": 0.0,
+          "logistic_map": 0.0,
+          "van_der_pol": 0.0,
+          "kuramoto_model": 0.0,
+          "logistic_sweep": 0.0,
+          "lorenz": 0.0,
+          "rossler": 0.0,
+          "chua": 0.0
+        }
+      },
+      {
+        "session_id": "lorenz_noise_0.2",
+        "noise_level": 0.2,
+        "accuracy": 1.0,
+        "rocket_accuracy": 0.9777777777777777,
+        "dtw_accuracy": 1.0,
+        "average_drift": 0.512611,
+        "drift_by_system": {
+          "duffing_oscillator": 0.0,
+          "logistic_map": 0.0,
+          "van_der_pol": 0.0,
+          "kuramoto_model": 0.0,
+          "logistic_sweep": 0.0,
+          "lorenz": 2.197267,
+          "rossler": 1.379637,
+          "chua": 0.523981
+        }
+      },
+      {
+        "session_id": "lorenz_noise_0.5",
+        "noise_level": 0.5,
+        "accuracy": 1.0,
+        "rocket_accuracy": 0.8,
+        "dtw_accuracy": 0.9777777777777777,
+        "average_drift": 3.113451,
+        "drift_by_system": {
+          "duffing_oscillator": 0.0,
+          "logistic_map": 0.0,
+          "van_der_pol": 0.0,
+          "kuramoto_model": 0.0,
+          "logistic_sweep": 0.0,
+          "lorenz": 14.921012,
+          "rossler": 7.69329,
+          "chua": 2.293305
+        }
+      }
+    ]
+  },
+  "hypotheses_evaluation": {
+    "H1_stability": {
+      "hypothesis": "Geometric Drift remains low (<= 2.0) under minor perturbations (sigma <= 0.1)",
+      "status": "VALIDATED",
+      "evidence": "Low noise drift bounds: sigma=0.0 drift=0.0"
+    },
+    "H2_collapse": {
+      "hypothesis": "Dynamic systems exhibit topological collapse (Accuracy < 0.90 and Drift > 3.0) at critical noise boundaries",
+      "status": "NO_COLLAPSE_OBSERVED",
+      "evidence": "Accuracy remained >= 0.9 or drift <= 3.0 for all tested noise levels.",
+      "critical_collapse_points": []
+    },
+    "H3_dominance": {
+      "hypothesis": "Embedding_V2 maintains topological classification parity or superiority vs DTW under noise",
+      "status": "VALIDATED",
+      "evidence": "Embedding_V2 maintained accuracy >= DTW accuracy across all noise levels."
+    }
+  }
+}

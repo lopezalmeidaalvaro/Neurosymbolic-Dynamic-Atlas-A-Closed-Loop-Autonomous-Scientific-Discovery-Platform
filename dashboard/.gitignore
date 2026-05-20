@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# agent and playwright hardening
+.agent/
+playwright-report/
+test-results/
+screenshots/
+videos/
+*.db
+*.sqlite
+dist/
+

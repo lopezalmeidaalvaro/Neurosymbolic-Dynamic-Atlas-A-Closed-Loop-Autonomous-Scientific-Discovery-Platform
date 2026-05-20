@@ -1,0 +1,1108 @@
+{
+  "metadata": {
+    "title": "Massive Topological Sweep & Attractor Stability Report",
+    "timestamp": "2026-05-20T21:39:41Z",
+    "pipeline_model": "Gemini 3.5 Flash",
+    "certification_schema_version": "1.2.0",
+    "confidence_method": "confidence_v2",
+    "systems": [
+      "chua",
+      "duffing_oscillator",
+      "kuramoto_model",
+      "logistic_map",
+      "logistic_sweep",
+      "lorenz",
+      "rossler",
+      "van_der_pol"
+    ],
+    "seeds": [
+      42,
+      1337,
+      9001
+    ],
+    "noise_levels": [
+      0.0,
+      0.2222,
+      0.4444,
+      0.6667,
+      0.8889,
+      1.1111,
+      1.3333,
+      1.5556,
+      1.7778,
+      2.0
+    ]
+  },
+  "results": {
+    "chua": {
+      "noise": [
+        0.0
+      ],
+      "mean_drift": [
+        0.0
+      ],
+      "std_drift": [
+        0.0
+      ],
+      "velocity": [
+        0.0
+      ],
+      "acceleration": [
+        0.0
+      ],
+      "mean_accuracy": [
+        1.0
+      ],
+      "std_accuracy": [
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.7556
+      ],
+      "std_rocket_accuracy": [
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0
+      ],
+      "std_dtw_accuracy": [
+        0.0
+      ]
+    },
+    "duffing_oscillator": {
+      "noise": [
+        0.0
+      ],
+      "mean_drift": [
+        0.0
+      ],
+      "std_drift": [
+        0.0
+      ],
+      "velocity": [
+        0.0
+      ],
+      "acceleration": [
+        0.0
+      ],
+      "mean_accuracy": [
+        1.0
+      ],
+      "std_accuracy": [
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.7556
+      ],
+      "std_rocket_accuracy": [
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0
+      ],
+      "std_dtw_accuracy": [
+        0.0
+      ]
+    },
+    "kuramoto_model": {
+      "noise": [
+        0.0
+      ],
+      "mean_drift": [
+        0.0
+      ],
+      "std_drift": [
+        0.0
+      ],
+      "velocity": [
+        0.0
+      ],
+      "acceleration": [
+        0.0
+      ],
+      "mean_accuracy": [
+        1.0
+      ],
+      "std_accuracy": [
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.7556
+      ],
+      "std_rocket_accuracy": [
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0
+      ],
+      "std_dtw_accuracy": [
+        0.0
+      ]
+    },
+    "logistic_map": {
+      "noise": [
+        0.0
+      ],
+      "mean_drift": [
+        0.0
+      ],
+      "std_drift": [
+        0.0
+      ],
+      "velocity": [
+        0.0
+      ],
+      "acceleration": [
+        0.0
+      ],
+      "mean_accuracy": [
+        1.0
+      ],
+      "std_accuracy": [
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.7556
+      ],
+      "std_rocket_accuracy": [
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0
+      ],
+      "std_dtw_accuracy": [
+        0.0
+      ]
+    },
+    "logistic_sweep": {
+      "noise": [
+        0.0
+      ],
+      "mean_drift": [
+        0.0
+      ],
+      "std_drift": [
+        0.0
+      ],
+      "velocity": [
+        0.0
+      ],
+      "acceleration": [
+        0.0
+      ],
+      "mean_accuracy": [
+        1.0
+      ],
+      "std_accuracy": [
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.7556
+      ],
+      "std_rocket_accuracy": [
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0
+      ],
+      "std_dtw_accuracy": [
+        0.0
+      ]
+    },
+    "lorenz": {
+      "noise": [
+        0.0,
+        0.2222,
+        0.4444,
+        0.6667,
+        0.8889,
+        1.1111,
+        1.3333,
+        1.5556,
+        1.7778,
+        2.0
+      ],
+      "mean_drift": [
+        0.0,
+        3.163057,
+        12.506647,
+        28.007824,
+        49.65296,
+        76.852297,
+        111.420075,
+        151.568555,
+        197.865486,
+        247.723784
+      ],
+      "std_drift": [
+        0.0,
+        0.328011,
+        0.616965,
+        0.868718,
+        1.086123,
+        1.159136,
+        1.438776,
+        1.58926,
+        1.73562,
+        0.0
+      ],
+      "velocity": [
+        14.235179,
+        28.14277,
+        55.887512,
+        83.574985,
+        109.911056,
+        138.989907,
+        168.084937,
+        194.48411,
+        216.370902,
+        224.384779
+      ],
+      "acceleration": [
+        62.590421,
+        93.727123,
+        124.706967,
+        121.536426,
+        124.696043,
+        130.904323,
+        124.849092,
+        108.625284,
+        67.283233,
+        36.066054
+      ],
+      "mean_accuracy": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9889,
+        0.9407,
+        0.9185,
+        0.8963,
+        0.9111
+      ],
+      "std_accuracy": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0111,
+        0.0419,
+        0.0277,
+        0.0105,
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.763,
+        0.7407,
+        0.7778,
+        0.7333,
+        0.7037,
+        0.7111,
+        0.7111,
+        0.5778,
+        0.5185,
+        0.4889
+      ],
+      "std_rocket_accuracy": [
+        0.0105,
+        0.1048,
+        0.0907,
+        0.048,
+        0.0378,
+        0.0444,
+        0.1257,
+        0.0363,
+        0.021,
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9852,
+        0.9333,
+        0.763,
+        0.6148,
+        0.5556,
+        0.5333
+      ],
+      "std_dtw_accuracy": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.021,
+        0.0667,
+        0.1676,
+        0.0931,
+        0.0654,
+        0.0
+      ]
+    },
+    "rossler": {
+      "noise": [
+        0.0,
+        0.2222,
+        0.4444,
+        0.6667,
+        0.8889,
+        1.1111,
+        1.3333,
+        1.5556,
+        1.7778,
+        2.0
+      ],
+      "mean_drift": [
+        0.0,
+        1.586665,
+        5.958266,
+        12.907256,
+        22.401798,
+        34.634764,
+        49.241325,
+        66.65841,
+        86.145546,
+        110.97066
+      ],
+      "std_drift": [
+        0.0,
+        0.077624,
+        0.159412,
+        0.24829,
+        0.346972,
+        0.505427,
+        0.581212,
+        0.721493,
+        0.23167,
+        0.0
+      ],
+      "velocity": [
+        7.140706,
+        13.40744,
+        25.465539,
+        36.995901,
+        48.891782,
+        60.394976,
+        72.041361,
+        83.026223,
+        99.712534,
+        111.724187
+      ],
+      "acceleration": [
+        28.203124,
+        41.234998,
+        53.067944,
+        52.702834,
+        52.653182,
+        52.091762,
+        50.914618,
+        62.258137,
+        64.576876,
+        54.057841
+      ],
+      "mean_accuracy": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9889,
+        0.9407,
+        0.9185,
+        0.9,
+        0.9111
+      ],
+      "std_accuracy": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0111,
+        0.0419,
+        0.0277,
+        0.0111,
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.763,
+        0.7407,
+        0.7778,
+        0.7333,
+        0.7037,
+        0.7111,
+        0.7111,
+        0.5778,
+        0.5111,
+        0.4889
+      ],
+      "std_rocket_accuracy": [
+        0.0105,
+        0.1048,
+        0.0907,
+        0.048,
+        0.0378,
+        0.0444,
+        0.1257,
+        0.0363,
+        0.0222,
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9852,
+        0.9333,
+        0.763,
+        0.6148,
+        0.5889,
+        0.5333
+      ],
+      "std_dtw_accuracy": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.021,
+        0.0667,
+        0.1676,
+        0.0931,
+        0.0556,
+        0.0
+      ]
+    },
+    "van_der_pol": {
+      "noise": [
+        0.0
+      ],
+      "mean_drift": [
+        0.0
+      ],
+      "std_drift": [
+        0.0
+      ],
+      "velocity": [
+        0.0
+      ],
+      "acceleration": [
+        0.0
+      ],
+      "mean_accuracy": [
+        1.0
+      ],
+      "std_accuracy": [
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.7556
+      ],
+      "std_rocket_accuracy": [
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0
+      ],
+      "std_dtw_accuracy": [
+        0.0
+      ]
+    }
+  },
+  "certified_results": [
+    {
+      "system": "chua",
+      "noise": [
+        0.0
+      ],
+      "mean_drift": [
+        0.0
+      ],
+      "std_drift": [
+        0.0
+      ],
+      "velocity": [
+        0.0
+      ],
+      "acceleration": [
+        0.0
+      ],
+      "mean_accuracy": [
+        1.0
+      ],
+      "std_accuracy": [
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.7556
+      ],
+      "std_rocket_accuracy": [
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0
+      ],
+      "std_dtw_accuracy": [
+        0.0
+      ],
+      "certification": {
+        "version": "1.2.0",
+        "critical_level": "none",
+        "critical_score": 0.0,
+        "confidence_score": 0.3,
+        "confidence_method": "confidence_v2",
+        "reproducibility_status": "preliminary",
+        "evidence": {
+          "acceleration": 0.0,
+          "acceleration_std": 0.0,
+          "seed_count": 3.0
+        }
+      }
+    },
+    {
+      "system": "duffing_oscillator",
+      "noise": [
+        0.0
+      ],
+      "mean_drift": [
+        0.0
+      ],
+      "std_drift": [
+        0.0
+      ],
+      "velocity": [
+        0.0
+      ],
+      "acceleration": [
+        0.0
+      ],
+      "mean_accuracy": [
+        1.0
+      ],
+      "std_accuracy": [
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.7556
+      ],
+      "std_rocket_accuracy": [
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0
+      ],
+      "std_dtw_accuracy": [
+        0.0
+      ],
+      "certification": {
+        "version": "1.2.0",
+        "critical_level": "none",
+        "critical_score": 0.0,
+        "confidence_score": 0.3,
+        "confidence_method": "confidence_v2",
+        "reproducibility_status": "preliminary",
+        "evidence": {
+          "acceleration": 0.0,
+          "acceleration_std": 0.0,
+          "seed_count": 3.0
+        }
+      }
+    },
+    {
+      "system": "kuramoto_model",
+      "noise": [
+        0.0
+      ],
+      "mean_drift": [
+        0.0
+      ],
+      "std_drift": [
+        0.0
+      ],
+      "velocity": [
+        0.0
+      ],
+      "acceleration": [
+        0.0
+      ],
+      "mean_accuracy": [
+        1.0
+      ],
+      "std_accuracy": [
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.7556
+      ],
+      "std_rocket_accuracy": [
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0
+      ],
+      "std_dtw_accuracy": [
+        0.0
+      ],
+      "certification": {
+        "version": "1.2.0",
+        "critical_level": "none",
+        "critical_score": 0.0,
+        "confidence_score": 0.3,
+        "confidence_method": "confidence_v2",
+        "reproducibility_status": "preliminary",
+        "evidence": {
+          "acceleration": 0.0,
+          "acceleration_std": 0.0,
+          "seed_count": 3.0
+        }
+      }
+    },
+    {
+      "system": "logistic_map",
+      "noise": [
+        0.0
+      ],
+      "mean_drift": [
+        0.0
+      ],
+      "std_drift": [
+        0.0
+      ],
+      "velocity": [
+        0.0
+      ],
+      "acceleration": [
+        0.0
+      ],
+      "mean_accuracy": [
+        1.0
+      ],
+      "std_accuracy": [
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.7556
+      ],
+      "std_rocket_accuracy": [
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0
+      ],
+      "std_dtw_accuracy": [
+        0.0
+      ],
+      "certification": {
+        "version": "1.2.0",
+        "critical_level": "none",
+        "critical_score": 0.0,
+        "confidence_score": 0.3,
+        "confidence_method": "confidence_v2",
+        "reproducibility_status": "preliminary",
+        "evidence": {
+          "acceleration": 0.0,
+          "acceleration_std": 0.0,
+          "seed_count": 3.0
+        }
+      }
+    },
+    {
+      "system": "logistic_sweep",
+      "noise": [
+        0.0
+      ],
+      "mean_drift": [
+        0.0
+      ],
+      "std_drift": [
+        0.0
+      ],
+      "velocity": [
+        0.0
+      ],
+      "acceleration": [
+        0.0
+      ],
+      "mean_accuracy": [
+        1.0
+      ],
+      "std_accuracy": [
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.7556
+      ],
+      "std_rocket_accuracy": [
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0
+      ],
+      "std_dtw_accuracy": [
+        0.0
+      ],
+      "certification": {
+        "version": "1.2.0",
+        "critical_level": "none",
+        "critical_score": 0.0,
+        "confidence_score": 0.3,
+        "confidence_method": "confidence_v2",
+        "reproducibility_status": "preliminary",
+        "evidence": {
+          "acceleration": 0.0,
+          "acceleration_std": 0.0,
+          "seed_count": 3.0
+        }
+      }
+    },
+    {
+      "system": "lorenz",
+      "noise": [
+        0.0,
+        0.2222,
+        0.4444,
+        0.6667,
+        0.8889,
+        1.1111,
+        1.3333,
+        1.5556,
+        1.7778,
+        2.0
+      ],
+      "mean_drift": [
+        0.0,
+        3.163057,
+        12.506647,
+        28.007824,
+        49.65296,
+        76.852297,
+        111.420075,
+        151.568555,
+        197.865486,
+        247.723784
+      ],
+      "std_drift": [
+        0.0,
+        0.328011,
+        0.616965,
+        0.868718,
+        1.086123,
+        1.159136,
+        1.438776,
+        1.58926,
+        1.73562,
+        0.0
+      ],
+      "velocity": [
+        14.235179,
+        28.14277,
+        55.887512,
+        83.574985,
+        109.911056,
+        138.989907,
+        168.084937,
+        194.48411,
+        216.370902,
+        224.384779
+      ],
+      "acceleration": [
+        62.590421,
+        93.727123,
+        124.706967,
+        121.536426,
+        124.696043,
+        130.904323,
+        124.849092,
+        108.625284,
+        67.283233,
+        36.066054
+      ],
+      "mean_accuracy": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9889,
+        0.9407,
+        0.9185,
+        0.8963,
+        0.9111
+      ],
+      "std_accuracy": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0111,
+        0.0419,
+        0.0277,
+        0.0105,
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.763,
+        0.7407,
+        0.7778,
+        0.7333,
+        0.7037,
+        0.7111,
+        0.7111,
+        0.5778,
+        0.5185,
+        0.4889
+      ],
+      "std_rocket_accuracy": [
+        0.0105,
+        0.1048,
+        0.0907,
+        0.048,
+        0.0378,
+        0.0444,
+        0.1257,
+        0.0363,
+        0.021,
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9852,
+        0.9333,
+        0.763,
+        0.6148,
+        0.5556,
+        0.5333
+      ],
+      "std_dtw_accuracy": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.021,
+        0.0667,
+        0.1676,
+        0.0931,
+        0.0654,
+        0.0
+      ],
+      "certification": {
+        "version": "1.2.0",
+        "critical_level": "strong",
+        "critical_score": 3.15822997,
+        "confidence_score": 0.009229,
+        "confidence_method": "confidence_v2",
+        "reproducibility_status": "preliminary",
+        "evidence": {
+          "acceleration": 99.4984966,
+          "acceleration_std": 31.50451286,
+          "seed_count": 3.0
+        }
+      }
+    },
+    {
+      "system": "rossler",
+      "noise": [
+        0.0,
+        0.2222,
+        0.4444,
+        0.6667,
+        0.8889,
+        1.1111,
+        1.3333,
+        1.5556,
+        1.7778,
+        2.0
+      ],
+      "mean_drift": [
+        0.0,
+        1.586665,
+        5.958266,
+        12.907256,
+        22.401798,
+        34.634764,
+        49.241325,
+        66.65841,
+        86.145546,
+        110.97066
+      ],
+      "std_drift": [
+        0.0,
+        0.077624,
+        0.159412,
+        0.24829,
+        0.346972,
+        0.505427,
+        0.581212,
+        0.721493,
+        0.23167,
+        0.0
+      ],
+      "velocity": [
+        7.140706,
+        13.40744,
+        25.465539,
+        36.995901,
+        48.891782,
+        60.394976,
+        72.041361,
+        83.026223,
+        99.712534,
+        111.724187
+      ],
+      "acceleration": [
+        28.203124,
+        41.234998,
+        53.067944,
+        52.702834,
+        52.653182,
+        52.091762,
+        50.914618,
+        62.258137,
+        64.576876,
+        54.057841
+      ],
+      "mean_accuracy": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9889,
+        0.9407,
+        0.9185,
+        0.9,
+        0.9111
+      ],
+      "std_accuracy": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0111,
+        0.0419,
+        0.0277,
+        0.0111,
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.763,
+        0.7407,
+        0.7778,
+        0.7333,
+        0.7037,
+        0.7111,
+        0.7111,
+        0.5778,
+        0.5111,
+        0.4889
+      ],
+      "std_rocket_accuracy": [
+        0.0105,
+        0.1048,
+        0.0907,
+        0.048,
+        0.0378,
+        0.0444,
+        0.1257,
+        0.0363,
+        0.0222,
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9852,
+        0.9333,
+        0.763,
+        0.6148,
+        0.5889,
+        0.5333
+      ],
+      "std_dtw_accuracy": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.021,
+        0.0667,
+        0.1676,
+        0.0931,
+        0.0556,
+        0.0
+      ],
+      "certification": {
+        "version": "1.2.0",
+        "critical_level": "strong",
+        "critical_score": 5.26087488,
+        "confidence_score": 0.027965,
+        "confidence_method": "confidence_v2",
+        "reproducibility_status": "preliminary",
+        "evidence": {
+          "acceleration": 51.1761316,
+          "acceleration_std": 9.72768461,
+          "seed_count": 3.0
+        }
+      }
+    },
+    {
+      "system": "van_der_pol",
+      "noise": [
+        0.0
+      ],
+      "mean_drift": [
+        0.0
+      ],
+      "std_drift": [
+        0.0
+      ],
+      "velocity": [
+        0.0
+      ],
+      "acceleration": [
+        0.0
+      ],
+      "mean_accuracy": [
+        1.0
+      ],
+      "std_accuracy": [
+        0.0
+      ],
+      "mean_rocket_accuracy": [
+        0.7556
+      ],
+      "std_rocket_accuracy": [
+        0.0
+      ],
+      "mean_dtw_accuracy": [
+        1.0
+      ],
+      "std_dtw_accuracy": [
+        0.0
+      ],
+      "certification": {
+        "version": "1.2.0",
+        "critical_level": "none",
+        "critical_score": 0.0,
+        "confidence_score": 0.3,
+        "confidence_method": "confidence_v2",
+        "reproducibility_status": "preliminary",
+        "evidence": {
+          "acceleration": 0.0,
+          "acceleration_std": 0.0,
+          "seed_count": 3.0
+        }
+      }
+    }
+  ]
+}

@@ -23,6 +23,7 @@ export function Breadcrumbs({ lang, dict }: BreadcrumbsProps) {
       timeline: dict.nav.timeline,
       log: dict.nav.scientificLog,
       'scientific-log': dict.nav.scientificLog,
+      interactive: dict.nav.interactive,
     };
 
     return labels[seg] ?? seg.charAt(0).toUpperCase() + seg.slice(1).replace(/-/g, ' ');

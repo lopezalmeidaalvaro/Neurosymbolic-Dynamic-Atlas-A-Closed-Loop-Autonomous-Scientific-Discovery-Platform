@@ -13,6 +13,7 @@ const en: Dictionary = {
     scientificLog: 'Scientific Log',
     roadmap: 'Roadmap',
     settings: 'Settings',
+    interactive: 'Interactive Lab',
   },
   header: {
     status: 'System Status',
@@ -90,6 +91,7 @@ const es: Dictionary = {
     scientificLog: 'Log Científico',
     roadmap: 'Hoja de Ruta',
     settings: 'Ajustes',
+    interactive: 'Laboratorio',
   },
   header: {
     status: 'Estado del Sistema',

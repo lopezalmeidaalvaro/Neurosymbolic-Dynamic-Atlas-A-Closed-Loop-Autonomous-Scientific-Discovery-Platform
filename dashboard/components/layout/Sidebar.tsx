@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  LayoutDashboard, BookOpen, Sparkles, GitBranch, BarChart3, ScrollText,
-  Map, ChevronLeft, ChevronRight, Zap, ExternalLink,
+  LayoutDashboard, BookOpen, Sparkles, Orbit, GitBranch, BarChart3, ScrollText,
+  Map, ChevronLeft, ChevronRight, Zap, ExternalLink, GitCompare,
 } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 import { useAppStore } from '@/stores/appStore';
@@ -13,7 +13,7 @@ import { NAV_ITEMS, APP_NAME, SIDEBAR_WIDTH, SIDEBAR_COLLAPSED_WIDTH, GITHUB_URL
 import type { Language } from '@/types';
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  LayoutDashboard, BookOpen, Sparkles, GitBranch, BarChart3, ScrollText, Map,
+  LayoutDashboard, BookOpen, Sparkles, Orbit, GitBranch, BarChart3, ScrollText, Map, GitCompare,
 };
 
 interface SidebarProps {
