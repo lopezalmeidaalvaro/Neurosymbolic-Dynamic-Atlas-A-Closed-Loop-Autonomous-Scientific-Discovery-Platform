@@ -6,7 +6,7 @@
 - Divergencia Geodésica media ($\lambda_g$): 1.1991
 
 ## Test de Universalidad Continua-Discreta
-- Similitud Coseno (Lorenz vs Rössler): 0.3829
+- Similitud Coseno (Lorenz vs Rössler): 0.7226
 - Similitud Coseno (Lorenz vs Mapa Discreto Caótico): -0.1844
 
 **Conclusión:** Sistemas independientes geométrica y topológicamente.
@@ -25,4 +25,4 @@ Las regiones caóticas exhiben curvatura negativa y alta expansión métrica loc
 - Familia 9: ['logistic_sweep']
 - Familia 10: ['logistic_sweep']
 - Familia 11: ['rossler', 'lorenz']
-- Familia Singular/Aislada: ['logistic_sweep', 'van_der_pol', 'chua']
+- Familia Singular/Aislada: ['chua', 'logistic_sweep', 'van_der_pol']
