@@ -1,7 +1,7 @@
 {
   "metadata": {
     "id": "rossler_noise_1.3333_seed_9001",
-    "timestamp": "2026-05-20T22:29:30Z",
+    "timestamp": "2026-05-20T23:01:29Z",
     "modelo": "Gemini 3.5 Flash",
     "versión": "1.0.0",
     "noiseLevel": 1.3333,
@@ -14,7 +14,7 @@
       "framework_family": "NUMERICAL",
       "framework": "scipy",
       "status": "SUCCESS",
-      "cost_metric": 0.7667,
+      "cost_metric": 0.7799,
       "redundancy_flag": 0,
       "redundant_to_id": null,
       "semantic_notes": "Integración de atractores continuos en 3D"
@@ -25,7 +25,7 @@
       "framework_family": "NUMERICAL",
       "framework": "scikit-learn",
       "status": "SUCCESS",
-      "cost_metric": 1.3059,
+      "cost_metric": 1.2591,
       "redundancy_flag": 0,
       "redundant_to_id": null,
       "semantic_notes": "PCA, cálculo de curvatura geodésica local y clustering DBSCAN"
@@ -36,7 +36,7 @@
       "framework_family": "VISUALIZATION",
       "framework": "matplotlib",
       "status": "SUCCESS",
-      "cost_metric": 1.6419,
+      "cost_metric": 1.6208,
       "redundancy_flag": 0,
       "redundant_to_id": null,
       "semantic_notes": "Generación de gráficos del atlas universal"
@@ -47,7 +47,7 @@
       "framework_family": "BENCHMARK",
       "framework": "sktime",
       "status": "SUCCESS",
-      "cost_metric": 1.9243,
+      "cost_metric": 1.9989,
       "redundancy_flag": 0,
       "redundant_to_id": null,
       "semantic_notes": "Evaluación comparativa contra modelos de referencia"
@@ -58,7 +58,7 @@
       "framework_family": "KNOWLEDGE_EXPORT",
       "framework": "sqlite3",
       "status": "SUCCESS",
-      "cost_metric": 0.0555,
+      "cost_metric": 0.0411,
       "redundancy_flag": 0,
       "redundant_to_id": null,
       "semantic_notes": "Exportación de meta_insights guardados en base de datos"
@@ -86,11 +86,11 @@
       },
       "DTW": {
         "accuracy": 0.75,
-        "time_seconds": 0.08994746208190918
+        "time_seconds": 0.10124516487121582
       },
       "Embedding_V2": {
         "accuracy": 0.875,
-        "time_seconds": 0.02776312828063965
+        "time_seconds": 0.02794051170349121
       }
     }
   }

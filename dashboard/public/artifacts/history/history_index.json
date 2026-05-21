@@ -1,0 +1,58 @@
+{
+  "reports": [
+    {
+      "timestamp": "2026-05-20T22:56:14Z",
+      "file": "massive_sweep_2026-05-20T22-56-14Z.json",
+      "systems": [
+        "lorenz",
+        "rossler"
+      ],
+      "seeds": [
+        42,
+        1337,
+        9001
+      ],
+      "noise_levels": [
+        0.0,
+        0.2222,
+        0.4444,
+        0.6667,
+        0.8889,
+        1.1111,
+        1.3333,
+        1.5556,
+        1.7778,
+        2.0
+      ],
+      "certification_schema_version": "1.2.0",
+      "confidence_method": "confidence_v2"
+    },
+    {
+      "timestamp": "2026-05-20T23:02:23Z",
+      "file": "massive_sweep_2026-05-20T23-02-23Z.json",
+      "systems": [
+        "lorenz",
+        "rossler"
+      ],
+      "seeds": [
+        42,
+        1337,
+        9001
+      ],
+      "noise_levels": [
+        0.0,
+        0.2222,
+        0.4444,
+        0.6667,
+        0.8889,
+        1.1111,
+        1.3333,
+        1.5556,
+        1.7778,
+        2.0
+      ],
+      "certification_schema_version": "1.2.0",
+      "confidence_method": "confidence_v2"
+    }
+  ]
+}

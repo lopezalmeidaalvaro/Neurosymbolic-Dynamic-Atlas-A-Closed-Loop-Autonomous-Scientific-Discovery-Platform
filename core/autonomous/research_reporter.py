@@ -1,7 +1,42 @@
 import json
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, Any, List
 from core.io import ARTIFACTS_DIR
+
+
+def _write_json(path: Path, payload: Dict[str, Any]) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2)
+
+
+def _history_filename(timestamp: str) -> str:
+    safe_timestamp = timestamp.replace(":", "-")
+    return f"massive_sweep_{safe_timestamp}.json"
+
+
+def _build_history_index(history_dir: Path) -> Dict[str, List[Dict[str, Any]]]:
+    reports: List[Dict[str, Any]] = []
+
+    for report_path in sorted(history_dir.glob("massive_sweep_*.json")):
+        try:
+            with open(report_path, "r", encoding="utf-8") as f:
+                report = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            continue
+
+        metadata = report.get("metadata", {})
+        reports.append({
+            "timestamp": metadata.get("timestamp", ""),
+            "file": report_path.name,
+            "systems": metadata.get("systems", []),
+            "seeds": metadata.get("seeds", []),
+            "noise_levels": metadata.get("noise_levels", []),
+            "certification_schema_version": metadata.get("certification_schema_version", ""),
+            "confidence_method": metadata.get("confidence_method", ""),
+        })
+
+    reports.sort(key=lambda item: item.get("timestamp", ""))
+    return {"reports": reports}
 
 def save_research_report(analysis_results: Dict[str, Any], hypotheses_results: Dict[str, Any]) -> Path:
     """
@@ -62,10 +97,19 @@ def save_massive_sweep_report(analysis_results: Dict[str, Any]) -> Path:
     }
 
     output_path = discoveries_dir / "massive_sweep_report.json"
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(report, f, indent=2)
+    _write_json(output_path, report)
+
+    history_dir = ARTIFACTS_DIR / "history"
+    history_dir.mkdir(parents=True, exist_ok=True)
+
+    snapshot_path = history_dir / _history_filename(report["metadata"]["timestamp"])
+    if snapshot_path.exists():
+        snapshot_path = history_dir / f"{snapshot_path.stem}_duplicate{snapshot_path.suffix}"
+
+    _write_json(snapshot_path, report)
+    _write_json(history_dir / "history_index.json", _build_history_index(history_dir))
 
     print(f"[REPORTER] Massive sweep report successfully saved to {output_path}")
+    print(f"[REPORTER] Historical massive sweep snapshot saved to {snapshot_path}")
     return output_path
-
 

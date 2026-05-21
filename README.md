@@ -1,307 +1,471 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10+"/>
   <img src="https://img.shields.io/badge/Next.js-16.2.6-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js 16.2.6"/>
-  <img src="https://img.shields.io/badge/React-19.0.0-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19.0.0"/>
+  <img src="https://img.shields.io/badge/React-19.2.4-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19.2.4"/>
   <img src="https://img.shields.io/badge/TailwindCSS-v4-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="TailwindCSS v4"/>
   <img src="https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge" alt="License MIT"/>
   <img src="https://img.shields.io/badge/Status-Experimental-f59e0b?style=for-the-badge" alt="Status: Experimental"/>
 </p>
 
-<h1 align="center">🌌 Neurosymbolic Dynamic Atlas (ATLAS DINÁMICO)</h1>
-<h3 align="center">Latent Feature Extraction, Differential Geometry Projection, and Adaptive Scientific Storytelling</h3>
+<h1 align="center">Neurosymbolic Dynamic Atlas</h1>
+<h3 align="center">Latent feature extraction, differential geometry analysis, scientific certification, and an interactive research dashboard</h3>
 
 <p align="center">
-  <em>An advanced computational platform mapping the structural organization of nonlinear dynamical systems in latent feature spaces combined with a premium localized educational dashboard.</em>
+  <em>An experimental platform for studying nonlinear dynamical systems through structural embeddings, geometric drift analysis, reproducible sweep reports, and a localized Next.js dashboard.</em>
 </p>
 
 ---
 
-## 🔬 Proyecto y Visión General
+# Project Overview
 
-El **Neurosymbolic Dynamic Atlas** es un entorno experimental para el análisis y clasificación de sistemas dinámicos no lineales. En lugar de limitarse a ecuaciones matemáticas explícitas, el pipeline traduce trayectorias integradas numéricamente en **vectores de características estructurales de dimensión fija** (structural embeddings) y studies su organización geométrica, estabilidad y agrupamiento en un espacio latente de baja dimensión.
+The **Neurosymbolic Dynamic Atlas** is an experimental research environment for analyzing nonlinear dynamical systems. Instead of relying only on explicit equations, the backend integrates trajectories numerically, extracts fixed-size structural embeddings, analyzes their organization in latent space, and exports typed artifacts for a dashboard.
 
-El objetivo central es responder:
-> **¿Pueden familias distintas de sistemas dinámicos exhibir una organización geométrica coherente en el espacio latente de características, independientemente de su forma algebraica explícita?**
+The project is built around one central question:
 
----
+> Can different families of dynamical systems exhibit coherent geometric organization in latent feature space, even when their algebraic definitions are different?
 
-## ⚡ Estado Actual del Proyecto (Roadmap)
+The current backend also includes a scientific certification layer for massive sweep reports. It produces:
 
-Rastreamos el progreso científico y técnico del sistema a través de las siguientes fases:
+```text
+dashboard/public/artifacts/discoveries/massive_sweep_report.json
+```
 
-* **Fase 1: Arquitectura de Base**  
-  `✅ COMPLETADA`  
-  Definición del pipeline de simulación e integración de ecuaciones y sistema inicial de almacenamiento en base de datos.
-  
-* **Fase 2: Interfaz Científica Avanzada**  
-  `✅ COMPLETADA`  
-  Creación del panel Next.js, carga de datos y despliegue inicial de KPIs y layouts interactivos.
-
-* **Fase 2.5A: Identidad Visual Cinemática**  
-  `✅ COMPLETADA`  
-  Estilo de diseño premium con paneles de cristal (glassmorphism), tipografía Google Fonts (Outfit/Inter) y microanimaciones optimizadas.
-
-* **Fase 2.5B: Capa de UX Educativa**  
-  `✅ COMPLETADA`  
-  Implementación del soporte multiidioma nativo (i18n) y selector de complejidad (Simple/Advanced).
-
-* **Fase 2.5C: Narrativa Científica (Scientific Storytelling)**  
-  `✅ COMPLETADA`  
-  Sistema `/discoveries` con findings, evidence panels, hypotheses, open questions y memoria científica serializable para narrar el proceso de descubrimiento.
-
-* **Fase 2.5D: Capa de Ciencia Interactiva**  
-  `✅ COMPLETADA`  
-  Integración de simuladores físicos 3D interactivos y atlas geométrico de atractores caóticos.
-
-* **Fase 2.6: Consolidación y Endurecimiento Científico**  
-  `✅ COMPLETADA`  
-  Estabilización de TypeScript sin warnings, registro de datos unificado `/data/index.ts`, base bibliográfica canónica `/data/bibliography.ts` con BibTeX y DOIs, puente de telemetría dinámica con SWR hooks y suite de QA end-to-end con Playwright.
-
-* **Fase 3A: Memoria de Investigación y Visualización Científica**  
-  `📅 PLANIFICADA`  
-  Herramientas tridimensionales de persistencia de homología y proyecciones geodésicas avanzadas.
-
-* **Fase 3B: Infraestructura de Telemetría y Watchers**  
-  `📅 PLANIFICADA`  
-  Monitoreo en tiempo real de experimentos del pipeline mediante WebSockets y watchers dedicados.
+with `certified_results`, per-system certification metadata, confidence scores, reproducibility status, and evidence derived from the sweep analysis.
 
 ---
 
-## 📐 Principios de la Arquitectura (Architectural Principles)
+# Features
 
-Para evitar la degradación técnica y garantizar un crecimiento limpio, el proyecto se rige por las siguientes directrices:
-
-1. **Desacoplamiento UI/Lógica**: La visualización del frontend no debe computar trayectorias físicas complejas; estas se calculan en el pipeline de Python y se exponen en JSONs serializables.
-2. **Serializabilidad estricta en `/data`**: Todos los datos cargados estáticamente por el frontend deben almacenarse en esquemas JSON tipados sin código lógico ni JSX incrustado.
-3. **i18n Nativa e Integrada**: Todo texto científico o educativo en los componentes debe estar traducido al inglés (EN) y español (ES) usando diccionarios.
-4. **Coexistencia de Complejidad**: Los modos *Simple* y *Advanced* deben convivir en el mismo layout, adaptando dinámicamente la profundidad conceptual desde analogías sencillas hasta formalismo matemático.
-5. **Telemetría no Intrusiva**: El registro del estado del backend se realiza directamente en SQLite (`math_search.db`) y se exporta a un archivo de conocimiento unificado para su renderizado.
-6. **Frontend Amigable con Agentes**: El código HTML y TSX debe estructurarse de manera semántica con IDs únicos para facilitar el testeo automatizado de interfaces.
+- Python pipeline for integrating nonlinear dynamical systems and extracting structural embeddings.
+- SQLite-backed experiment telemetry in `runs/math_search.db`.
+- Latent geometry analysis with PCA, local curvature estimates, DBSCAN clustering, drift, velocity, and acceleration over noise levels.
+- Massive sweep execution through `run_massive_sweep.py`.
+- Backend certification layer in `core/validation/`.
+- JSON artifact export for frontend consumption.
+- Next.js dashboard under `dashboard/` with localized routes in `dashboard/app/[lang]`.
+- TypeScript types for scientific discovery artifacts in `dashboard/types/discoveries.ts`.
+- Playwright test setup for dashboard QA.
 
 ---
 
-## ⚙️ Arquitectura de Integración (Python ↔ Frontend)
+# Architecture
 
-El flujo de ejecución de datos sigue una arquitectura unidireccional desacoplada:
+The system is organized as a one-way research data pipeline: Python computes and certifies scientific artifacts; the dashboard reads exported JSON and renders the results.
 
 ```mermaid
 flowchart TD
-    A[🐍 Integradores ODE de Python] -->|Trayectorias| B[📐 Topology Miner v2]
-    B -->|Cálculo de Características| C[📊 PCA, Curvatura & DBSCAN]
-    C -->|Registro de Experimento| D[🧠 SQLite Memory runs/math_search.db]
-    D -->|Exportador de Conocimiento| E[📄 export_knowledge.py]
-    E -->|JSON Unificado| F[💾 ATLAS_INSIGHTS.json]
-    F -->|Consumo Estático/Dinámico| G[🖥️ Next.js Dashboard App]
-    G -->|Toggles e i18n| H[👤 Usuario Científico / Lector]
-
-    style A fill:#1e1b4b,color:#c7d2fe,stroke:#6366f1
-    style B fill:#1e3a5f,color:#bae6fd,stroke:#0ea5e9
-    style C fill:#14532d,color:#bbf7d0,stroke:#22c55e
-    style D fill:#451a03,color:#fed7aa,stroke:#f97316
-    style E fill:#450a0a,color:#fecaca,stroke:#ef4444
-    style F fill:#2e1065,color:#e9d5ff,stroke:#a855f7
-    style G fill:#0f172a,color:#f8fafc,stroke:#f1f5f9
+    A[run_pipeline.py] --> B[Trajectory integration and structural embeddings]
+    B --> C[SQLite telemetry: runs/math_search.db]
+    C --> D[session_analyzer.py]
+    D --> E[core/validation/]
+    E --> F[research_reporter.py]
+    F --> G[massive_sweep_report.json]
+    G --> H[Next.js dashboard]
 ```
 
-1. **Pipeline Científico (Python)**: Integra las ecuaciones diferenciales (ode), calcula 8 características estructurales clave, aplica agrupamiento DBSCAN y proyecta mediante PCA.
-2. **Persistencia (SQLite)**: La información de los experimentos se almacena estructuradamente en la tabla `meta_insights` en `runs/math_search.db`.
-3. **Paso de Mensajes**: El script `export_knowledge.py` compila la información de la base de datos a un formato JSON (`ATLAS_INSIGHTS.json`).
-4. **Visualización (Next.js Dashboard)**: El frontend lee los insights científicos exportados y los renderiza en un dashboard responsivo adaptado al usuario.
-
----
-
-## 📁 Estructura del Repositorio
+Primary backend flow:
 
 ```text
-📦 root/
-├── 🧠 core/
-│   ├── evaluator_db.py              # Evaluador y auditor de experimentos en base de datos
-│   └── orchestrator.py              # Orquestación de ejecuciones del backend
-│
-├── 🗂️ experiments_archive/          # Biblioteca de experimentos y scripts de simulación
-│   ├── topology_miner_v2.py         # Extracción de descriptores de trayectorias
-│   ├── continuous_attractors.py     # Integración de Lorenz, Rössler, Chua, etc.
-│   ├── continuous_geometry.py       # Cálculo de curvatura latente y métricas geodésicas
-│   ├── universal_atlas_visualization.py # Generación de gráficos y proyecciones
-│   ├── baseline_benchmark.py        # Comparaciones contra ROCKET/DTW
-│   ├── conjecture_engine.py         # Generador de conjeturas del sistema
-│   └── ...
-│
-├── 🖥️ dashboard/                     # Aplicación Next.js 16.2 (React 19)
-│   ├── app/                         # Enrutamiento basado en App Router
-│   │   ├── [lang]/                  # Enrutamiento localizado (EN/ES)
-│   │   │   ├── dashboard/           # Páginas de analíticas, logs y roadmap
-│   │   │   ├── learn/               # Secciones de aprendizaje interactivo
-│   │   │   └── discoveries/         # Narrativa de discoveries, evidencia e hipótesis
-│   │   └── globals.css              # Estilos base y variables CSS variables
-│   ├── components/                  # Componentes reutilizables (KPIs, Motion, UI)
-│   ├── data/                        # Datos estáticos y serializados
-│   ├── lib/                         # Librerías de traducción (i18n) y utils
-│   ├── package.json                 # Configuración del frontend y scripts npm
-│   └── tsconfig.json                # Configuración de TypeScript
-│
-├── 📊 artifacts/                    # Artefactos visuales e informes generados
-│   ├── latent_curvature.png         # Proyección de curvatura en espacio de embeddings
-│   ├── universal_atlas_pca.png      # Atlas universal de atractores mediante PCA
-│   └── ...
-│
-├── 🗄️ runs/                         # Historial de ejecuciones y base de datos
-│   └── math_search.db               # SQLite central de telemetría de experimentos
-│
-├── 🔬 temp_scripts/                 # Scripts auxiliares temporales (ignorados en git)
-├── export_knowledge.py              # Exporta meta_insights de la BD sqlite a JSON
-├── ATLAS_INSIGHTS.json              # Insights estructurados generados para el frontend
-├── README.md                        # Documentación principal del sistema
-└── .gitignore                       # Configuración de archivos excluidos
+run_pipeline.py
+|
+v
+core/autonomous/session_analyzer.py
+|
+v
+core/validation/
+|
+v
+core/autonomous/research_reporter.py
+|
+v
+dashboard/public/artifacts/discoveries/massive_sweep_report.json
+|
+v
+dashboard
 ```
 
----
+Core responsibilities:
 
-## 🛠️ Stack Tecnológico & Dependencias
-
-### Backend y Entorno de Simulación
-* **Lenguaje**: Python 3.10+
-* **Paquetes Requeridos**:
-  * `numpy` (Álgebra lineal y computación numérica)
-  * `scipy` (Integración ODE y procesamiento de señales)
-  * `sympy` (Cálculo algebraico y simbólico)
-  * `scikit-learn` (Agrupamiento DBSCAN y reducción PCA)
-  * `matplotlib` (Renderizado de gráficos científicos)
-  * `networkx` (Cálculo de grafos de vecindad latente)
-  * `sqlite3` (Persistencia relacional de telemetría)
-
-### Frontend Dashboard
-* **Framework**: Next.js 16.2.6 (App Router) con React 19.2.4
-* **Lenguaje**: TypeScript 5+
-* **Estilo**: TailwindCSS v4 y Vanilla CSS
-* **Animaciones**: Framer Motion 12+, Animejs 4+
-* **Gestión de Estado**: Zustand 5.0+
-* **Visualización de Ecuaciones**: KaTeX 0.16+
-* **Iconografía**: Lucide React 1.16+
+- `run_pipeline.py`: runs one experiment session, exports validated session JSON, and records embeddings and benchmark summaries.
+- `run_massive_sweep.py`: runs a grid of systems, noise levels, and seeds, then exports a massive sweep report.
+- `core/autonomous/session_analyzer.py`: loads session artifacts and computes noise drift, velocity, acceleration, and aggregate accuracy vectors.
+- `core/validation/`: assigns reproducibility and certification metadata.
+- `core/autonomous/research_reporter.py`: writes report artifacts into `dashboard/public/artifacts/discoveries/`.
+- `dashboard/`: renders the generated scientific artifacts.
 
 ---
 
-## 🚀 Guía de Ejecución y Configuración
+# Installation
 
-### 1. Requisitos Previos
-Asegúrate de contar con Python 3.10+ y Node.js 18+ instalados en tu sistema.
+## Backend
 
-### 2. Configuración del Backend (Python)
-Se recomienda utilizar un entorno virtual para instalar los paquetes de Python:
+Python 3.10+ is recommended.
 
 ```bash
-# Crear entorno virtual
+# Create a virtual environment
 python -m venv .venv
 
-# Activar entorno virtual
-# En Windows:
+# Activate the virtual environment
+# Windows:
 .venv\Scripts\activate
-# En Linux/macOS:
+
+# Linux/macOS:
 source .venv/bin/activate
 
-# Instalar dependencias requeridas
+# Install required Python packages
 pip install numpy scipy sympy scikit-learn matplotlib networkx
 ```
 
-### 3. Ejecución del Pipeline Científico
-Puedes ejecutar el pipeline científico completo que genera las simulaciones, las proyecciones y exporta el conocimiento al frontend:
+The project uses Python's built-in `sqlite3` module for local telemetry persistence.
+
+## Dashboard
+
+Node.js 18+ is recommended.
 
 ```bash
-python run_pipeline.py
+cd dashboard
+npm install
 ```
 
-Esto generará nuevos gráficos en `artifacts/` y actualizará el archivo `ATLAS_INSIGHTS.json`.
+---
 
-### 4. Configuración y Ejecución del Dashboard (Frontend)
-El servidor de desarrollo de Next.js incluye HMR (Hot Module Replacement / Watchers automáticos) que compila y actualiza la página instantáneamente conforme editas el código:
+# Usage
+
+## Run a single pipeline session
 
 ```bash
-# Entrar al directorio del frontend
+python run_pipeline.py --experiment smoke_test --noise 0.5 --seed 42 --system lorenz
+```
+
+This writes a session artifact under:
+
+```text
+dashboard/public/artifacts/sessions/
+```
+
+## Run a controlled massive sweep
+
+```bash
+python run_massive_sweep.py --seeds 3 --noise-levels 10
+```
+
+This generates:
+
+```text
+dashboard/public/artifacts/discoveries/massive_sweep_report.json
+```
+
+The reduced default sweep uses `lorenz` and `rossler`. The `--full` mode is available in `run_massive_sweep.py` and expands the configured system and noise grid.
+
+## Inspect accumulated telemetry
+
+```bash
+python core/evaluator_db.py read_insights
+```
+
+## Start the dashboard
+
+```bash
 cd dashboard
-
-# Instalar dependencias de Node
-npm install
-
-# Iniciar servidor de desarrollo con HMR habilitado
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el dashboard interactivo en tiempo real.
+Open:
 
-### 5. Ejecución de Pruebas de Integración (Playwright)
-Si el proyecto cuenta con test suites de Playwright configurados para auditorías de UI, puedes correrlos de la siguiente manera:
+```text
+http://localhost:3000
+```
+
+## Run dashboard tests
 
 ```bash
-# Entrar al directorio del frontend
 cd dashboard
-
-# Instalar y correr los tests de Playwright
 npx playwright test
+```
 
-# Para abrir la interfaz interactiva de Playwright
+Interactive Playwright UI:
+
+```bash
 npx playwright test --ui
 ```
 
 ---
 
-## 🧠 Características Avanzadas del Sistema
+# Scientific Pipeline
 
-### 1. Telemetría y Gestión de Insights
-El sistema registra de forma persistente cada ejecución de experimento mediante `core/evaluator_db.py`. Almacena las configuraciones de parámetros (atractor, pasos de integración, ruido, etc.) y los resultados heurísticos.  
-Para consultar los insights recopilados actualmente directamente en terminal:
-```bash
-python core/evaluator_db.py read_insights
-```
+The backend combines numerical integration, latent feature extraction, geometric analysis, and artifact export.
 
-### 2. Sistema Localizado en Multiidioma (i18n)
-La interfaz del frontend está estructurada bajo el directorio `dashboard/app/[lang]`. Soporta de manera nativa los idiomas **inglés (`en`)** y **español (`es`)**. Las rutas se resuelven dinámicamente basándose en la URL (por ejemplo `/en/dashboard` frente a `/es/dashboard`). Las claves y textos se extraen del diccionario ubicado en `dashboard/lib/i18n/dictionaries.ts`.
+Typical session flow:
 
-### 3. Selector de Complejidad (Simple vs. Advanced)
-El panel cuenta con un switch de nivel de complejidad en la barra superior. Su estado se almacena globalmente a través de Zustand (`useAppStore`):
-* **Modo Simple**: Minimiza la jerga técnica. Usa explicaciones por analogía (por ejemplo, comparando un atractor caótico con el clima) a través de componentes como `ExplainLikeIm15`.
-* **Modo Advanced**: Revela fórmulas matemáticas formateadas con KaTeX, detalles de integradores Runge-Kutta y métricas de curvatura Riemanniana estimadas.
+1. `experiments_archive/continuous_attractors.py` integrates the selected dynamical system and stores structural embedding rows.
+2. `experiments_archive/continuous_geometry.py` reads stored embeddings and computes latent-space geometry artifacts.
+3. `experiments_archive/universal_atlas_visualization.py` writes visualization artifacts.
+4. `experiments_archive/baseline_benchmark.py` writes benchmark summary artifacts used by session export.
+5. `export_knowledge.py` exports accumulated SQLite insights to `ATLAS_INSIGHTS.json`.
+6. `run_pipeline.py` exports a validated session JSON under `dashboard/public/artifacts/sessions/`.
 
-### 4. Descubrimientos Científicos y Narrativa (Storytelling)
-El sistema presenta una secuencia interactiva estructurada por fases de descubrimiento que guía al lector a través de animaciones interactivas (`ScientificStory` y `StepByStepDiscovery`). Las principales conclusiones científicas actuales documentadas en la memoria del atlas son:
-* **Separabilidad de Manifolds**: El agrupamiento DBSCAN en el espacio de características 8D separa con precisión dinámica continua (flujos de Lorenz/Rössler) de dinámica discreta iterativa (mapa Logístico).
-* **Robustez bajo Deformación**: Los coeficientes del espacio latente demuestran resiliencia estructural bajo perturbaciones paramétricas moderadas antes de romper su homología de vecindad.
+Massive sweep flow:
 
-### 5. Bibliografía Canónica y Research Memory
-La capa `dashboard/data/bibliography.ts` centraliza las referencias científicas usadas por discoveries, evidence panels y related research. Cada entrada incluye tipado estricto con `id`, `title`, `authors`, `year`, `venue`, `doi`, `arxiv`, `url`, `tags`, `category`, `citation` y bloques completos de `bibtex`.
-
-Referencias iniciales de revisión por pares (Peer-Reviewed):
-* **ROCKET (Clasificación Rápida)**: Dempster, Petitjean & Webb, *Data Mining and Knowledge Discovery*, 2020. DOI `10.1007/s10618-020-00701-z`, arXiv `1910.13051`.
-* **UCR Time Series Archive (Validación)**: Dau et al., *IEEE/CAA Journal of Automatica Sinica*, 2019. DOI `10.1109/JAS.2019.1911747`, arXiv `1810.07758`.
-* **DTW / Sakoe-Chiba (Alineamiento)**: Sakoe & Chiba, *IEEE Transactions on Acoustics, Speech, and Signal Processing*, 1978. DOI `10.1109/TASSP.1978.1163055`.
-* **Atractor Caótico de Lorenz (Teoría de Caos)**: Lorenz, *Journal of the Atmospheric Sciences*, 1963. DOI `10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2`.
-* **Universalidad de Feigenbaum (Cascadas de Bifurcación)**: Feigenbaum, *Journal of Statistical Physics*, 1978. DOI `10.1007/BF01020332`.
-* **Fundamentos de IA Neurosimbólica (Integración Lógica-Redes)**: Besold et al., *AAAI Survey*, 2015. arXiv `1711.03902`.
+1. `run_massive_sweep.py` creates a grid of systems, noise levels, and seeds.
+2. `core/autonomous/experiment_scheduler.py` runs the required `run_pipeline.py` sessions.
+3. `core/autonomous/session_analyzer.py` compares each noisy session against the same-seed baseline.
+4. Drift vectors are converted into velocity and acceleration vectors over the noise axis.
+5. `core/validation/confidence_certifier.py` certifies each system result.
+6. `core/autonomous/research_reporter.py` writes `massive_sweep_report.json`.
 
 ---
 
-## 🔒 Variables de Entorno Necesarias
-El frontend de Next.js está diseñado para correr por defecto sin variables obligatorias en desarrollo. Sin embargo, para integraciones personalizadas de bases de datos o adaptaciones en producción, puedes crear un archivo `dashboard/.env.local`:
+# Scientific Certification Layer
+
+The certification layer lives in:
 
 ```text
-# Ejemplo de configuración local
+core/validation/
+```
+
+It is the backend source of truth for scientific certification. The dashboard should read certification fields from the generated report, not recompute them.
+
+The massive sweep report uses a single certified data source:
+
+```json
+{
+  "certified_results": [
+    {
+      "system": "lorenz",
+      "noise": [],
+      "mean_drift": [],
+      "velocity": [],
+      "acceleration": [],
+      "certification": {}
+    }
+  ]
+}
+```
+
+There is no separate top-level `certification` object in the final report. Each system carries its own inline `certification` block inside `certified_results`.
+
+## Certification fields
+
+### `critical_score`
+
+`critical_score` measures the signal-to-noise ratio of geometric collapse in the acceleration vector:
+
+```text
+critical_score = abs(mean(acceleration)) / max(acceleration_std, EPSILON)
+```
+
+The implementation uses `EPSILON = 1e-8` through `max(acceleration_std, 1e-8)`.
+
+### `critical_level`
+
+`critical_level` is derived from `critical_score`:
+
+```text
+critical_score > 3.0  -> strong
+critical_score > 2.0  -> moderate
+otherwise             -> none
+```
+
+### `reproducibility_status`
+
+`reproducibility_status` is derived only from seed count in `core/validation/reproducibility.py`:
+
+```text
+seed_count < 3   -> uncertain
+seed_count >= 10 -> validated
+seed_count >= 5  -> replicated
+seed_count >= 3  -> preliminary
+```
+
+The low-coverage guard is the first condition, so sweeps with fewer than three seeds are not promoted.
+
+### `confidence_score`
+
+The current confidence method is `confidence_v2`:
+
+```text
+seed_factor = min(seed_count / 10.0, 1.0)
+stability_factor = 1.0 / (1.0 + acceleration_std)
+confidence_score = seed_factor * stability_factor
+```
+
+This score is intentionally independent of `critical_score`. It combines seed coverage with the stability of the acceleration vector.
+
+### `evidence`
+
+Each certification block includes an `evidence` object:
+
+```json
+{
+  "acceleration": 106.0905506,
+  "acceleration_std": 24.88939582,
+  "seed_count": 3.0
+}
+```
+
+These values are exported for auditability and frontend display.
+
+---
+
+# Dashboard
+
+The dashboard is a Next.js application located in:
+
+```text
+dashboard/
+```
+
+It uses:
+
+- Next.js 16.2.6 with App Router.
+- React 19.2.4.
+- TypeScript 5.
+- TailwindCSS v4.
+- Framer Motion, Anime.js, Recharts, SWR, Zustand, KaTeX, and Lucide React.
+
+Localized routes are under:
+
+```text
+dashboard/app/[lang]/
+```
+
+Scientific discovery and sweep types are declared in:
+
+```text
+dashboard/types/discoveries.ts
+```
+
+The dashboard reads generated artifacts from:
+
+```text
+dashboard/public/artifacts/
+```
+
+---
+
+# Project Structure
+
+```text
+root/
+|-- core/
+|   |-- autonomous/
+|   |   |-- experiment_scheduler.py
+|   |   |-- session_analyzer.py
+|   |   `-- research_reporter.py
+|   |-- io/
+|   |   |-- artifact_manager.py
+|   |   `-- session_exporter.py
+|   |-- schemas/
+|   |-- validation/
+|   |   |-- confidence_certifier.py
+|   |   `-- reproducibility.py
+|   |-- evaluator_db.py
+|   `-- orchestrator.py
+|
+|-- experiments_archive/
+|   |-- continuous_attractors.py
+|   |-- continuous_geometry.py
+|   |-- universal_atlas_visualization.py
+|   |-- baseline_benchmark.py
+|   |-- topology_miner_v2.py
+|   `-- ...
+|
+|-- dashboard/
+|   |-- app/
+|   |   `-- [lang]/
+|   |-- components/
+|   |-- data/
+|   |-- hooks/
+|   |-- lib/
+|   |-- public/
+|   |   `-- artifacts/
+|   |-- types/
+|   |   `-- discoveries.ts
+|   |-- package.json
+|   `-- tsconfig.json
+|
+|-- artifacts/
+|-- runs/
+|   `-- math_search.db
+|-- temp_scripts/
+|-- export_knowledge.py
+|-- run_pipeline.py
+|-- run_massive_sweep.py
+|-- run_autonomous_sweep.py
+|-- ATLAS_INSIGHTS.json
+|-- LIMITATIONS.md
+|-- LICENSE
+`-- README.md
+```
+
+---
+
+# Development
+
+## Backend development notes
+
+- Keep backend computation in Python and export serializable artifacts for the dashboard.
+- Keep certification logic in `core/validation/`.
+- Do not duplicate certification sources between top-level report keys and per-system certification blocks.
+- Treat `certified_results` as the frontend-facing source of certified sweep data.
+- Use session artifacts in `dashboard/public/artifacts/sessions/` for reproducible analysis.
+
+## Frontend development notes
+
+- Keep localized UI routes under `dashboard/app/[lang]/`.
+- Keep static scientific data and bibliography modules under `dashboard/data/`.
+- Keep generated artifacts under `dashboard/public/artifacts/`.
+- Prefer typed access through `dashboard/types/`.
+
+## Available dashboard scripts
+
+Inside `dashboard/`:
+
+| Command | Description |
+| :--- | :--- |
+| `npm run dev` | Starts the Next.js development server. |
+| `npm run build` | Builds the production dashboard. |
+| `npm run start` | Starts the production server after a build. |
+
+## Environment variables
+
+The dashboard can run locally without required environment variables. For custom deployments, create:
+
+```text
+dashboard/.env.local
+```
+
+Example:
+
+```text
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_DEFAULT_LANG=en
 ```
 
 ---
 
-## 📦 Scripts NPM Disponibles
-Dentro de la carpeta `dashboard/`, tienes a tu disposición los siguientes comandos npm:
+# Roadmap Status
 
-| Comando | Descripción |
-| :--- | :--- |
-| `npm run dev` | Lanza el servidor de Next.js en modo desarrollo con HMR en el puerto 3000. |
-| `npm run build` | Compila la aplicación Next.js y genera la build optimizada para producción. |
-| `npm run start` | Arranca el servidor Next.js de producción utilizando la build previa. |
-| `npm run lint` | Ejecuta el análisis de linter para verificar errores de código TypeScript/React. |
+The project is experimental and actively evolving.
+
+Completed areas include:
+
+- Base Python simulation and telemetry architecture.
+- Next.js dashboard foundation.
+- Localized dashboard routing.
+- Scientific storytelling and discovery artifact types.
+- Interactive scientific UI components.
+- Runtime hardening for dashboard timers, optional realtime loading, deterministic interactive charts, and Playwright coverage.
+- Phase 3.3B persistence and scientific consistency audit for the massive sweep report.
+
+Planned or future work should be documented in issue tracking or roadmap files before being presented as implemented functionality.
 
 ---
 
-## Fase 3.1 - Runtime Hardening
+# License
 
-El dashboard Next.js fue estabilizado sin reconstruir arquitectura: `lib/realtime` carga `socket.io-client` de forma opcional y cae a polling si no esta disponible, los timers de replay/telemetria/export limpian sus recursos al pausar o desmontar, los graficos interactivos usan ruido determinista para evitar hydration mismatches, y la suite Playwright cubre compare, replay, telemetry, export, overflow responsive y ausencia de console errors/warnings.
+This project is licensed under the MIT License. See:
+
+```text
+LICENSE
+```

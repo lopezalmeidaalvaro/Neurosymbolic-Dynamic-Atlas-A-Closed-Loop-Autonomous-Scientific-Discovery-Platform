@@ -27,7 +27,6 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer
 } from 'recharts';
 
 interface NoiseRobustnessObservatoryProps {
@@ -161,10 +160,11 @@ export function NoiseRobustnessObservatory({ lang }: NoiseRobustnessObservatoryP
                 </p>
               </div>
 
-              <div className="w-full flex-1 min-h-[300px]">
+              <div className="w-full min-w-0 flex-1 min-h-[300px] overflow-x-auto">
                 {isMounted ? (
-                  <ResponsiveContainer width="100%" height="100%">
                     <ComposedChart
+                      width={760}
+                      height={300}
                       data={chartData}
                       margin={{ top: 10, right: 10, bottom: 0, left: -20 }}
                     >
@@ -272,7 +272,6 @@ export function NoiseRobustnessObservatory({ lang }: NoiseRobustnessObservatoryP
                         name="DTW SOTA"
                       />
                     </ComposedChart>
-                  </ResponsiveContainer>
                 ) : (
                   <div className="h-full w-full bg-slate-950/20 animate-pulse rounded-lg" />
                 )}

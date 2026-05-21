@@ -92,21 +92,26 @@ export interface NoiseRobustnessReport {
 // certified_results is an ARRAY — each element carries a "system" key.
 // Verified against real JSON output on 2026-05-20.
 
+export type CriticalLevel = 'strong' | 'moderate' | 'none';
+export type ReproducibilityStatus = 'validated' | 'replicated' | 'preliminary' | 'uncertain';
+
 export interface CertificationEvidence {
   acceleration: number;
   acceleration_std: number;
   seed_count: number;
 }
 
-export interface CertificationBlock {
+export interface Certification {
   version: string;                    // e.g. "1.2.0"
-  critical_level: 'strong' | 'moderate' | 'none';
+  critical_level: CriticalLevel;
   critical_score: number;
   confidence_score: number;           // confidence_v2 = seed_factor * stability_factor
   confidence_method: string;          // e.g. "confidence_v2"
-  reproducibility_status: 'validated' | 'replicated' | 'preliminary' | 'uncertain';
+  reproducibility_status: ReproducibilityStatus;
   evidence: CertificationEvidence;
 }
+
+export type CertificationBlock = Certification;
 
 export interface CertifiedSystemResult {
   system: string;
@@ -121,7 +126,7 @@ export interface CertifiedSystemResult {
   std_rocket_accuracy: number[];
   mean_dtw_accuracy: number[];
   std_dtw_accuracy: number[];
-  certification: CertificationBlock;
+  certification: Certification;
 }
 
 export interface MassiveSweepReport {
@@ -139,4 +144,18 @@ export interface MassiveSweepReport {
   results: Record<string, Omit<CertifiedSystemResult, 'system' | 'certification'>>;
   /** Single source of truth for certified data — typed as ARRAY, not dict */
   certified_results: CertifiedSystemResult[];
+}
+
+export interface HistoricalReport {
+  timestamp: string;
+  file: string;
+  systems: string[];
+  seeds: number[];
+  noise_levels: number[];
+  certification_schema_version?: string;
+  confidence_method?: string;
+}
+
+export interface HistoryIndex {
+  reports: HistoricalReport[];
 }

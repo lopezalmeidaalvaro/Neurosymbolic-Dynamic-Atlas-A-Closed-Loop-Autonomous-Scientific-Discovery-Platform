@@ -13,6 +13,7 @@ import { FocusContainer } from '@/components/ui/FocusContainer';
 import { GlassPanel } from '@/components/ui/GlassPanel';
 import { ScientificSurface } from '@/components/ui/ScientificSurface';
 import { NoiseRobustnessObservatory } from '@/components/scientific/NoiseRobustnessObservatory';
+import { ScientificObservabilityDashboard } from '@/components/scientific/ScientificObservabilityDashboard';
 import type { Language } from '@/types';
 
 export const metadata: Metadata = { title: 'Benchmark' };
@@ -100,6 +101,10 @@ export default async function BenchmarkPage({
 
       <ScrollReveal>
         <NoiseRobustnessObservatory lang={lang} />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <ScientificObservabilityDashboard lang={lang} />
       </ScrollReveal>
 
       <ScrollReveal>
