@@ -1,0 +1,9 @@
+{
+  "baselines": [
+    {
+      "name": "phase_3_5_reference",
+      "timestamp": "2026-05-20T23:02:23Z",
+      "source": "massive_sweep_2026-05-20T23-02-23Z.json"
+    }
+  ]
+}

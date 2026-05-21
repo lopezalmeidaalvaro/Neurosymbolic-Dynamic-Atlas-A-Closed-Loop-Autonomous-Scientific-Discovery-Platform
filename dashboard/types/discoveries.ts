@@ -159,3 +159,85 @@ export interface HistoricalReport {
 export interface HistoryIndex {
   reports: HistoricalReport[];
 }
+
+// ── Scientific Regression Guardrail Types ─────────────────────────────────────
+export interface ScientificRegressionMetric {
+  baseline: number;
+  current: number;
+  delta: number;
+  pct_change: number;
+  status: 'pass' | 'warning' | 'failure';
+}
+
+export interface ScientificRegressionReproducibilityMetric {
+  baseline: string;
+  current: string;
+  status: 'pass' | 'warning' | 'failure';
+}
+
+export interface ScientificRegressionSystem {
+  system: string;
+  status: 'pass' | 'warning' | 'failure';
+  message?: string;
+  metrics?: {
+    critical_score: ScientificRegressionMetric;
+    confidence_score: ScientificRegressionMetric;
+    acceleration: ScientificRegressionMetric;
+    acceleration_std: ScientificRegressionMetric;
+    reproducibility_status: ScientificRegressionReproducibilityMetric;
+  };
+}
+
+export interface ScientificRegressionReport {
+  summary: {
+    status: 'pass' | 'warning' | 'failure';
+    baseline_name: string;
+    baseline_timestamp: string;
+    current_timestamp: string;
+  };
+  systems: ScientificRegressionSystem[];
+}
+
+// ── Latent Manifold Snapshot Types ─────────────────────────────────────
+export interface LatentPoint {
+  x: number;
+  y: number;
+}
+
+export interface QuantitativeMetrics {
+  centroid_displacement: number;
+  point_count: number;
+  spread_x: number;
+  spread_y: number;
+  convex_hull_area: number;
+  covariance_determinant: number;
+  nearest_neighbor_distance_mean: number;
+  nearest_neighbor_distance_std: number;
+  cluster_count: number;
+}
+
+export interface LatentSnapshot {
+  noise: number;
+  seed: number;
+  quantitative_metrics: QuantitativeMetrics;
+  points: LatentPoint[];
+}
+
+export interface SystemSnapshots {
+  system: string;
+  snapshots: LatentSnapshot[];
+}
+
+export interface ManifoldSnapshotsMetadata {
+  projection: string;
+  dimensions: number;
+  alignment: string;
+  explained_variance_ratio: number[];
+}
+
+export interface ManifoldSnapshotsReport {
+  metadata: ManifoldSnapshotsMetadata;
+  systems: SystemSnapshots[];
+}
+
+

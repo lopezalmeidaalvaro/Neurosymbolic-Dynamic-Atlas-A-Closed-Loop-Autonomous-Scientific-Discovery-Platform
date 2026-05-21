@@ -1,14 +1,14 @@
 {
     "ROCKET": {
         "accuracy": 0.375,
-        "time_seconds": 0.000896453857421875
+        "time_seconds": 0.0031409263610839844
     },
     "DTW": {
         "accuracy": 0.75,
-        "time_seconds": 0.09432315826416016
+        "time_seconds": 0.09754467010498047
     },
     "Embedding_V2": {
         "accuracy": 0.75,
-        "time_seconds": 0.015679121017456055
+        "time_seconds": 0.03044724464416504
     }
 }

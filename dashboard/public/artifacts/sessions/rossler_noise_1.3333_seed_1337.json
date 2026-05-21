@@ -1,7 +1,7 @@
 {
   "metadata": {
     "id": "rossler_noise_1.3333_seed_1337",
-    "timestamp": "2026-05-20T23:01:23Z",
+    "timestamp": "2026-05-21T10:08:21Z",
     "modelo": "Gemini 3.5 Flash",
     "versión": "1.0.0",
     "noiseLevel": 1.3333,
@@ -14,7 +14,7 @@
       "framework_family": "NUMERICAL",
       "framework": "scipy",
       "status": "SUCCESS",
-      "cost_metric": 0.81,
+      "cost_metric": 0.8258,
       "redundancy_flag": 0,
       "redundant_to_id": null,
       "semantic_notes": "Integración de atractores continuos en 3D"
@@ -25,7 +25,7 @@
       "framework_family": "NUMERICAL",
       "framework": "scikit-learn",
       "status": "SUCCESS",
-      "cost_metric": 1.3119,
+      "cost_metric": 1.4025,
       "redundancy_flag": 0,
       "redundant_to_id": null,
       "semantic_notes": "PCA, cálculo de curvatura geodésica local y clustering DBSCAN"
@@ -36,7 +36,7 @@
       "framework_family": "VISUALIZATION",
       "framework": "matplotlib",
       "status": "SUCCESS",
-      "cost_metric": 1.6146,
+      "cost_metric": 1.7475,
       "redundancy_flag": 0,
       "redundant_to_id": null,
       "semantic_notes": "Generación de gráficos del atlas universal"
@@ -47,7 +47,7 @@
       "framework_family": "BENCHMARK",
       "framework": "sktime",
       "status": "SUCCESS",
-      "cost_metric": 1.9042,
+      "cost_metric": 2.0179,
       "redundancy_flag": 0,
       "redundant_to_id": null,
       "semantic_notes": "Evaluación comparativa contra modelos de referencia"
@@ -82,15 +82,15 @@
     "comparisons": {
       "ROCKET": {
         "accuracy": 0.375,
-        "time_seconds": 0.0
+        "time_seconds": 0.003155946731567383
       },
       "DTW": {
         "accuracy": 0.625,
-        "time_seconds": 0.09321093559265137
+        "time_seconds": 0.10183072090148926
       },
       "Embedding_V2": {
         "accuracy": 0.625,
-        "time_seconds": 0.022792577743530273
+        "time_seconds": 0.03092646598815918
       }
     }
   }

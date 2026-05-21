@@ -14,7 +14,9 @@ from sklearn.neighbors import NearestNeighbors
 from sklearn.cluster import DBSCAN
 from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 from sklearn.feature_selection import mutual_info_regression
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import (
+    roc_auc_score, precision_score, recall_score, f1_score, confusion_matrix
+)
 from sklearn.model_selection import train_test_split
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
@@ -156,22 +158,25 @@ def extract_embeddings_for_signal(x_signal, dt=0.01):
     trajectory_length = len(x_signal)
     window_size = min(max(500, int(trajectory_length * 0.1)), 2000)
     stride = max(1, min(window_size // 2, (trajectory_length - window_size) // 330))
-    
+
+    # V3 feature order
+    V3_KEYS = [
+        "perm_entropy", "spectral_entropy", "svd_entropy",
+        "fractal_dim", "autocorr_decay", "robust_skewness",
+        "robust_kurtosis", "temporal_irreversibility"
+    ]
+
     embeddings = []
     start = 0
     while start + window_size <= trajectory_length:
-        x_window = x_signal[start:start+window_size]
+        x_window = x_signal[start:start + window_size]
         emb = compute_embedding_vector(x_window, dt)
-        emb["lyapunov_max"] = 0.0  # Constant dimensionality rule
-        
+
         for k in emb:
             if not np.isfinite(emb[k]):
                 emb[k] = 0.0
-                
-        vector = [
-            emb["lyapunov_max"], emb["spectral_entropy"], emb["dominant_frequency"],
-            emb["variance"], emb["autocorr_decay"], emb["kurtosis"], emb["skewness"], emb["energy"]
-        ]
+
+        vector = [emb[k] for k in V3_KEYS]
         embeddings.append(vector)
         start += stride
     return embeddings
@@ -789,7 +794,12 @@ def main():
     test3_passed = True
     test3_details = {}
     
-    feature_names = ["spectral_entropy", "dominant_frequency", "variance", "autocorr_decay", "kurtosis", "skewness", "energy"]
+    # V3 feature names (8 amplitude-invariant features, no lyapunov_max placeholder)
+    feature_names = [
+        "perm_entropy", "spectral_entropy", "svd_entropy",
+        "fractal_dim", "autocorr_decay", "robust_skewness",
+        "robust_kurtosis", "temporal_irreversibility"
+    ]
     
     for sys in physical_systems:
         print(f"  Auditing feature leakage for {sys}...")
@@ -800,8 +810,8 @@ def main():
         for noise, seed in configs:
             embs = physical_data[sys][(noise, seed)]
             for e in embs:
-                # e is 8D, column 0 is lyapunov_max (constant 0.0). We extract columns 1 to 7.
-                all_feats.append(e[1:])
+                # V3: all 8 columns are meaningful, no zero-padded lyapunov_max at index 0
+                all_feats.append(e)
                 noises.append(noise)
                 
         X_feats = np.array(all_feats, dtype=float)
@@ -1085,54 +1095,105 @@ def main():
     # TEST 6 — BLIND LABEL TEST
     # ─────────────────────────────────────────────────────────────────────────────
     print("\n--- Running Test 6: Blind Label Test ---")
-    # Mix physical vs null window level embeddings
-    X_phys_list = []
-    for sys in physical_systems:
-        for cfg, embs in physical_data[sys].items():
-            X_phys_list.extend(embs)
-            
-    X_null_list = []
-    for nm in null_models:
-        for cfg, embs in null_data[nm].items():
-            X_null_list.extend(embs)
-            
-    X_phys_arr = np.array(X_phys_list, dtype=float)
-    X_null_arr = np.array(X_null_list, dtype=float)
-    
-    # Subsample to keep memory and compute footprints low
-    np.random.seed(42)
-    n_samples = min(len(X_phys_arr), len(X_null_arr), 10000)
-    idx_phys = np.random.choice(len(X_phys_arr), n_samples, replace=False)
-    idx_null = np.random.choice(len(X_null_arr), n_samples, replace=False)
-    
-    # Extracted columns 1-7 represent the 7 non-constant window features
-    X_class = np.vstack([X_phys_arr[idx_phys][:, 1:], X_null_arr[idx_null][:, 1:]])
-    y_class = np.hstack([np.ones(n_samples), np.zeros(n_samples)])
-    
-    # Split train/test (70/30)
-    X_train, X_test, y_train, y_test = train_test_split(X_class, y_class, test_size=0.3, random_state=42)
-    
-    # Train RandomForestClassifier
-    clf = RandomForestClassifier(n_estimators=100, random_state=42)
-    clf.fit(X_train, y_train)
-    
-    y_prob = clf.predict_proba(X_test)[:, 1]
-    auc_score = float(roc_auc_score(y_test, y_prob))
-    
-    print(f"  Classifier ROC AUC: {auc_score:.6f}")
-    
-    test6_passed = auc_score > 0.85
-    if not test6_passed:
-        global_reasons.append(f"Test 6: Classifier failed to distinguish physical vs null models with AUC > 0.85 (AUC = {auc_score:.6f})")
+    try:
+        import traceback as _tb_module
+        X_phys_list = []
+        for sys in physical_systems:
+            for cfg, embs in physical_data[sys].items():
+                X_phys_list.extend(embs)
+
+        X_null_list = []
+        for nm in null_models:
+            for cfg, embs in null_data[nm].items():
+                X_null_list.extend(embs)
+
+        X_phys_arr = np.array(X_phys_list, dtype=float)
+        X_null_arr = np.array(X_null_list, dtype=float)
+
+        # Subsample to keep memory and compute footprints low
+        np.random.seed(42)
+        n_samples = min(len(X_phys_arr), len(X_null_arr), 10000)
+        idx_phys = np.random.choice(len(X_phys_arr), n_samples, replace=False)
+        idx_null = np.random.choice(len(X_null_arr), n_samples, replace=False)
+
+        # V3: all 8 columns are valid features — use full vector
+        X_class = np.vstack([X_phys_arr[idx_phys], X_null_arr[idx_null]])
+        y_class = np.hstack([np.ones(n_samples), np.zeros(n_samples)])
+
+        # Split train/test (70/30)
+        X_train, X_test, y_train, y_test = train_test_split(
+            X_class, y_class, test_size=0.3, random_state=42
+        )
+
+        # ── Single-class guard ──────────────────────────────────────────────
+        unique_test_classes = np.unique(y_test)
+        if len(unique_test_classes) < 2:
+            print(f"  [INVALID_SPLIT] Test set contains only classes: {unique_test_classes.tolist()}")
+            print("  Cannot compute ROC AUC on a single-class test set.")
+            audit_results["test6_blind_label"] = {
+                "status": "INVALID_SPLIT",
+                "reason": f"single-class test set: classes={unique_test_classes.tolist()}",
+                "roc_auc": None,
+                "precision": None,
+                "recall": None,
+                "f1": None,
+                "confusion_matrix": None
+            }
+            global_passed = False
+            global_reasons.append("Test 6: INVALID_SPLIT — single-class test set. Cannot evaluate classifier.")
+            print("  ❌ TEST 6 FAILED (INVALID_SPLIT)")
+        else:
+            # Train RandomForestClassifier
+            clf = RandomForestClassifier(n_estimators=100, random_state=42)
+            clf.fit(X_train, y_train)
+
+            y_pred = clf.predict(X_test)
+            y_prob = clf.predict_proba(X_test)[:, 1]
+
+            auc_score = float(roc_auc_score(y_test, y_prob))
+            prec      = float(precision_score(y_test, y_pred, zero_division=0))
+            rec       = float(recall_score(y_test, y_pred, zero_division=0))
+            f1        = float(f1_score(y_test, y_pred, zero_division=0))
+            cm        = confusion_matrix(y_test, y_pred).tolist()
+
+            print(f"  Classifier ROC AUC:  {auc_score:.6f}")
+            print(f"  Precision:           {prec:.6f}")
+            print(f"  Recall:              {rec:.6f}")
+            print(f"  F1-score:            {f1:.6f}")
+            print(f"  Confusion matrix:    {cm}")
+
+            test6_passed = auc_score > 0.85
+            if not test6_passed:
+                global_reasons.append(
+                    f"Test 6: Classifier failed AUC > 0.85 threshold (AUC = {auc_score:.6f})"
+                )
+                global_passed = False
+                print("  ❌ TEST 6 FAILED")
+            else:
+                print("  ✅ TEST 6 PASSED")
+
+            audit_results["test6_blind_label"] = {
+                "status": "PASSED" if test6_passed else "FAILED",
+                "roc_auc": auc_score,
+                "precision": prec,
+                "recall": rec,
+                "f1": f1,
+                "confusion_matrix": cm
+            }
+
+    except SystemExit:
+        raise
+    except Exception as _exc:
+        _tb_str = _tb_module.format_exc()
+        print(f"  [ERROR] Test 6 raised an exception:\n{_tb_str}")
+        audit_results["test6_blind_label"] = {
+            "status": "ERROR",
+            "exception": str(_exc),
+            "traceback": _tb_str
+        }
         global_passed = False
-        print("  ❌ TEST 6 FAILED")
-    else:
-        print("  ✅ TEST 6 PASSED")
-        
-    audit_results["test6_blind_label"] = {
-        "status": "PASSED" if test6_passed else "FAILED",
-        "roc_auc": auc_score
-    }
+        global_reasons.append(f"Test 6: Exception — {str(_exc)}")
+        print("  ❌ TEST 6 FAILED (EXCEPTION)")
 
     # ─────────────────────────────────────────────────────────────────────────────
     # TEST 7 — TEMPORAL GENERALIZATION TEST

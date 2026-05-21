@@ -3178,5 +3178,1175 @@
         "supporting_nodes": "[]",
         "counterexamples": "[]",
         "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 319,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 320,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 321,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 322,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 323,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 324,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 325,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 326,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 327,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 328,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 329,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 330,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 331,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 332,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 333,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 334,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 335,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 336,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 337,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 338,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 339,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 340,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 341,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 342,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 343,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 344,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 345,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 346,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 347,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 348,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 349,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 350,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 351,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 352,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 353,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 354,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 355,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 356,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 357,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 358,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 359,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 360,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 361,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 362,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 363,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 364,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 365,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 366,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 367,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 368,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 369,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 370,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 371,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 372,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 373,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 374,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 375,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 376,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 377,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 378,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 379,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 380,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 381,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 382,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 383,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 384,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 385,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 386,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 387,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 388,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 389,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 390,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 391,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 392,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 393,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 394,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 395,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 396,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 397,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 398,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 399,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 400,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 401,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 402,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 403,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 404,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 405,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 406,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 407,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 408,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 409,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 410,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 411,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 412,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 413,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 414,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 415,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 416,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 417,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 418,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 419,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 420,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 421,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 422,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 423,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 424,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 425,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 426,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 427,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 428,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 429,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 430,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 431,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 432,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 433,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 434,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 435,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
     }
 ]

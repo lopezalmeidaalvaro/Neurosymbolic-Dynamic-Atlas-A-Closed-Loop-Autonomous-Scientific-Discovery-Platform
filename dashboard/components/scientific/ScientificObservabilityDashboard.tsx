@@ -8,6 +8,9 @@ import { ExperimentMetadataPanel } from '@/components/scientific/ExperimentMetad
 import { KinematicDerivativesChart } from '@/components/scientific/KinematicDerivativesChart';
 import { ScientificTrendChart } from '@/components/scientific/ScientificTrendChart';
 import { SweepComparisonPanel } from '@/components/scientific/SweepComparisonPanel';
+import { ScientificRegressionPanel } from '@/components/scientific/ScientificRegressionPanel';
+import { StabilityHeatmap } from '@/components/scientific/StabilityHeatmap';
+import { ManifoldCollapsePlayer } from '@/components/scientific/ManifoldCollapsePlayer';
 import { GlassPanel } from '@/components/ui/GlassPanel';
 import { ScientificSurface } from '@/components/ui/ScientificSurface';
 import type { Language } from '@/types';
@@ -104,6 +107,12 @@ export function ScientificObservabilityDashboard({ lang }: ScientificObservabili
       </ScientificSurface>
 
       <ExperimentMetadataPanel metadata={report.metadata} lang={lang} />
+
+      <ScientificRegressionPanel lang={lang} />
+
+      <StabilityHeatmap lang={lang} />
+
+      <ManifoldCollapsePlayer lang={lang} />
 
       <SweepComparisonPanel lang={lang} />
 
