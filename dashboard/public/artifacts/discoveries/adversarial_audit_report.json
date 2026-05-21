@@ -1,0 +1,824 @@
+{
+  "metadata": {
+    "timestamp": "2026-05-21T17:10:55Z",
+    "approval_status": "FAILED",
+    "approval_global": "FAILED",
+    "global_failed_reasons": [
+      "Test 1: UMAP projections for 'rossler' show weak average correlation with noise (0.5586 < 0.75)",
+      "Test 2: Null model 'white_noise' passed physical threshold for 'covariance_determinant' (rho=1.0000, p_adj=5.3175e-63, d=2.6333)",
+      "Test 2: Null model 'white_noise' passed physical threshold for 'nearest_neighbor_distance_mean' (rho=1.0000, p_adj=5.3175e-63, d=6.6732)",
+      "Test 2: Null model 'ar1' passed physical threshold for 'covariance_determinant' (rho=-0.9030, p_adj=5.4978e-04, d=2.5586)",
+      "Test 2: Null model 'ar1' passed physical threshold for 'nearest_neighbor_distance_mean' (rho=-0.8788, p_adj=1.0851e-03, d=3.4247)",
+      "Test 2: Null model 'phase_surrogate' passed physical threshold for 'covariance_determinant' (rho=-0.8909, p_adj=8.1322e-04, d=1.2524)",
+      "Test 2: Null model 'phase_surrogate' passed physical threshold for 'nearest_neighbor_distance_mean' (rho=-0.9152, p_adj=3.5052e-04, d=4.5434)",
+      "Test 2: Null model 'iaaft_surrogate' passed physical threshold for 'covariance_determinant' (rho=-0.9515, p_adj=4.5597e-05, d=2.6936)",
+      "Test 2: Null model 'iaaft_surrogate' passed physical threshold for 'nearest_neighbor_distance_mean' (rho=-0.9515, p_adj=4.5597e-05, d=6.3244)",
+      "Test 2: Null model 'logistic_map' passed physical threshold for 'covariance_determinant' (rho=0.9879, p_adj=4.4676e-07, d=3.3426)",
+      "Test 2: Null model 'logistic_map' passed physical threshold for 'nearest_neighbor_distance_mean' (rho=0.9758, p_adj=4.4026e-06, d=9.7019)",
+      "Test 2: Null model 'shuffled_blocks' passed physical threshold for 'covariance_determinant' (rho=-0.8788, p_adj=1.0851e-03, d=2.0707)",
+      "Test 2: Null model 'shuffled_blocks' passed physical threshold for 'nearest_neighbor_distance_mean' (rho=-0.9636, p_adj=1.7570e-05, d=6.0992)",
+      "Test 2: Null model 'ou' passed physical threshold for 'covariance_determinant' (rho=-1.0000, p_adj=5.3175e-63, d=2.7678)",
+      "Test 2: Null model 'ou' passed physical threshold for 'nearest_neighbor_distance_mean' (rho=-0.9879, p_adj=4.4676e-07, d=6.5496)",
+      "Test 3: Feature 'energy' in system 'lorenz' has excessive importance (0.9984 > 0.70)",
+      "Test 3: Feature 'variance' in system 'rossler' has excessive importance (0.8248 > 0.70)",
+      "Test 4: System 'lorenz' failed validation under Raw scaling for 'covariance_determinant' (rho=0.6713, p=1.6831e-02, d=1.3689)",
+      "Test 4: System 'lorenz' failed validation under MinMax scaling for 'covariance_determinant' (rho=-0.3636, p=2.4527e-01, d=4.8741)",
+      "Test 4: System 'lorenz' failed validation under MinMax scaling for 'nearest_neighbor_distance_mean' (rho=-0.6853, p=1.3906e-02, d=4.7637)",
+      "Test 4: System 'lorenz' failed validation under QuantileTransform scaling for 'covariance_determinant' (rho=-0.7413, p=5.8012e-03, d=8.8388)",
+      "Test 4: System 'rossler' failed validation under QuantileTransform scaling for 'covariance_determinant' (rho=-0.3697, p=2.9305e-01, d=2.4493)",
+      "Test 4: System 'rossler' failed validation under QuantileTransform scaling for 'nearest_neighbor_distance_mean' (rho=-0.0667, p=8.5481e-01, d=1.0090)",
+      "Test 5: System 'rossler' metric 'nearest_neighbor_distance_mean' 95% CI for rho crossed -0.8 ([-0.6962, -0.5600])",
+      "Test 7: Out-of-sample temporal validation failed for system 'rossler' metric 'nearest_neighbor_distance_mean' (rho=-0.6848, p=2.8883e-02, d=2.8272)"
+    ]
+  },
+  "audit_results": {
+    "test1_dimensionality_reduction": {
+      "status": "FAILED",
+      "details": {
+        "lorenz": {
+          "umap_sweep": [
+            {
+              "n_neighbors": 15,
+              "min_dist": 0.01,
+              "pairwise_distance_correlation": 0.8268104795714982,
+              "trustworthiness": 0.9838433981576253,
+              "continuity": 0.9710210167178437,
+              "PCA_UMAP_spearman_cov_det": 0.8461538461538463,
+              "PCA_UMAP_spearman_nn_mean": 0.5174825174825175,
+              "noise_spearman_cov_det": -0.8251748251748254,
+              "noise_spearman_nn_mean": -0.44055944055944063
+            },
+            {
+              "n_neighbors": 15,
+              "min_dist": 0.1,
+              "pairwise_distance_correlation": 0.8829650180240883,
+              "trustworthiness": 0.9878101671784374,
+              "continuity": 0.9689574206755374,
+              "PCA_UMAP_spearman_cov_det": 0.9930069930069931,
+              "PCA_UMAP_spearman_nn_mean": 0.3706293706293707,
+              "noise_spearman_cov_det": -0.9300699300699302,
+              "noise_spearman_nn_mean": -0.4685314685314686
+            },
+            {
+              "n_neighbors": 15,
+              "min_dist": 0.5,
+              "pairwise_distance_correlation": 0.8969559351058949,
+              "trustworthiness": 0.983656021835551,
+              "continuity": 0.9804025247355851,
+              "PCA_UMAP_spearman_cov_det": 0.9860139860139862,
+              "PCA_UMAP_spearman_nn_mean": 0.7552447552447553,
+              "noise_spearman_cov_det": -0.9230769230769231,
+              "noise_spearman_nn_mean": -0.7062937062937064
+            },
+            {
+              "n_neighbors": 30,
+              "min_dist": 0.01,
+              "pairwise_distance_correlation": 0.889435082820696,
+              "trustworthiness": 0.9887721596724668,
+              "continuity": 0.9804119413169566,
+              "PCA_UMAP_spearman_cov_det": 0.9300699300699302,
+              "PCA_UMAP_spearman_nn_mean": 0.5594405594405596,
+              "noise_spearman_cov_det": -0.8881118881118882,
+              "noise_spearman_nn_mean": -0.4265734265734266
+            },
+            {
+              "n_neighbors": 30,
+              "min_dist": 0.1,
+              "pairwise_distance_correlation": 0.9411783070655149,
+              "trustworthiness": 0.9867861480723302,
+              "continuity": 0.9843413851927669,
+              "PCA_UMAP_spearman_cov_det": 0.9580419580419581,
+              "PCA_UMAP_spearman_nn_mean": 0.6223776223776225,
+              "noise_spearman_cov_det": -0.8951048951048951,
+              "noise_spearman_nn_mean": -0.5454545454545455
+            },
+            {
+              "n_neighbors": 30,
+              "min_dist": 0.5,
+              "pairwise_distance_correlation": 0.9237297207652041,
+              "trustworthiness": 0.9795464346639372,
+              "continuity": 0.9888349368816104,
+              "PCA_UMAP_spearman_cov_det": 0.9930069930069931,
+              "PCA_UMAP_spearman_nn_mean": 0.6503496503496504,
+              "noise_spearman_cov_det": -0.9300699300699302,
+              "noise_spearman_nn_mean": -0.5944055944055945
+            },
+            {
+              "n_neighbors": 50,
+              "min_dist": 0.01,
+              "pairwise_distance_correlation": 0.9235761795740399,
+              "trustworthiness": 0.9871492323439099,
+              "continuity": 0.982695735243944,
+              "PCA_UMAP_spearman_cov_det": 0.9020979020979022,
+              "PCA_UMAP_spearman_nn_mean": 0.5734265734265735,
+              "noise_spearman_cov_det": -0.8391608391608393,
+              "noise_spearman_nn_mean": -0.6153846153846154
+            },
+            {
+              "n_neighbors": 50,
+              "min_dist": 0.1,
+              "pairwise_distance_correlation": 0.9218087345769127,
+              "trustworthiness": 0.9864498123507336,
+              "continuity": 0.9848309791879905,
+              "PCA_UMAP_spearman_cov_det": 0.9090909090909092,
+              "PCA_UMAP_spearman_nn_mean": 0.6083916083916086,
+              "noise_spearman_cov_det": -0.8461538461538463,
+              "noise_spearman_nn_mean": -0.6363636363636365
+            },
+            {
+              "n_neighbors": 50,
+              "min_dist": 0.5,
+              "pairwise_distance_correlation": 0.9595162469300408,
+              "trustworthiness": 0.9778405322415558,
+              "continuity": 0.9904343909928353,
+              "PCA_UMAP_spearman_cov_det": 1.0,
+              "PCA_UMAP_spearman_nn_mean": 0.7972027972027973,
+              "noise_spearman_cov_det": -0.9370629370629372,
+              "noise_spearman_nn_mean": -0.8111888111888113
+            },
+            {
+              "n_neighbors": 100,
+              "min_dist": 0.01,
+              "pairwise_distance_correlation": 0.9221128177479675,
+              "trustworthiness": 0.9865984988058683,
+              "continuity": 0.9808039576936199,
+              "PCA_UMAP_spearman_cov_det": 0.9860139860139862,
+              "PCA_UMAP_spearman_nn_mean": 0.5384615384615385,
+              "noise_spearman_cov_det": -0.9230769230769231,
+              "noise_spearman_nn_mean": -0.49650349650349657
+            },
+            {
+              "n_neighbors": 100,
+              "min_dist": 0.1,
+              "pairwise_distance_correlation": 0.9401918568526355,
+              "trustworthiness": 0.9843503241214603,
+              "continuity": 0.9867400204708291,
+              "PCA_UMAP_spearman_cov_det": 0.9790209790209792,
+              "PCA_UMAP_spearman_nn_mean": 0.5804195804195805,
+              "noise_spearman_cov_det": -0.9160839160839163,
+              "noise_spearman_nn_mean": -0.5594405594405596
+            },
+            {
+              "n_neighbors": 100,
+              "min_dist": 0.5,
+              "pairwise_distance_correlation": 0.9543465971726574,
+              "trustworthiness": 0.9736589559877175,
+              "continuity": 0.9877091095189355,
+              "PCA_UMAP_spearman_cov_det": 0.9860139860139862,
+              "PCA_UMAP_spearman_nn_mean": 0.7692307692307694,
+              "noise_spearman_cov_det": -0.9370629370629372,
+              "noise_spearman_nn_mean": -0.7972027972027973
+            }
+          ],
+          "tsne_sweep": [
+            {
+              "perplexity": 20,
+              "pairwise_distance_correlation": 0.9511217628913342,
+              "trustworthiness": 0.9936441487546912,
+              "continuity": 0.9817715455475947,
+              "PCA_tSNE_spearman_cov_det": 0.8741258741258742,
+              "PCA_tSNE_spearman_nn_mean": 0.5104895104895105,
+              "noise_spearman_cov_det": -0.8321678321678322,
+              "noise_spearman_nn_mean": -0.3636363636363637
+            },
+            {
+              "perplexity": 30,
+              "pairwise_distance_correlation": 0.9534912197149732,
+              "trustworthiness": 0.9931737973387922,
+              "continuity": 0.9830536335721597,
+              "PCA_tSNE_spearman_cov_det": 0.9230769230769231,
+              "PCA_tSNE_spearman_nn_mean": 0.6433566433566434,
+              "noise_spearman_cov_det": -0.8601398601398602,
+              "noise_spearman_nn_mean": -0.5034965034965035
+            },
+            {
+              "perplexity": 50,
+              "pairwise_distance_correlation": 0.958090596148307,
+              "trustworthiness": 0.9924395087001023,
+              "continuity": 0.9851031047424087,
+              "PCA_tSNE_spearman_cov_det": 0.9020979020979022,
+              "PCA_tSNE_spearman_nn_mean": 0.5104895104895105,
+              "noise_spearman_cov_det": -0.8391608391608393,
+              "noise_spearman_nn_mean": -0.5244755244755246
+            }
+          ],
+          "mean_umap_noise_rho": 0.8991841491841494,
+          "mean_tsne_noise_rho": 0.8438228438228439
+        },
+        "rossler": {
+          "umap_sweep": [
+            {
+              "n_neighbors": 15,
+              "min_dist": 0.01,
+              "pairwise_distance_correlation": 0.7935915593544817,
+              "trustworthiness": 0.9941378369157284,
+              "continuity": 0.9803694984646878,
+              "PCA_UMAP_spearman_cov_det": 0.8545454545454544,
+              "PCA_UMAP_spearman_nn_mean": 0.10303030303030303,
+              "noise_spearman_cov_det": -0.8666666666666665,
+              "noise_spearman_nn_mean": -0.19999999999999998
+            },
+            {
+              "n_neighbors": 15,
+              "min_dist": 0.1,
+              "pairwise_distance_correlation": 0.906207087772513,
+              "trustworthiness": 0.9948585465711361,
+              "continuity": 0.9899744796997612,
+              "PCA_UMAP_spearman_cov_det": 0.709090909090909,
+              "PCA_UMAP_spearman_nn_mean": 0.19999999999999998,
+              "noise_spearman_cov_det": -0.6484848484848483,
+              "noise_spearman_nn_mean": -0.28484848484848485
+            },
+            {
+              "n_neighbors": 15,
+              "min_dist": 0.5,
+              "pairwise_distance_correlation": 0.8048996798984475,
+              "trustworthiness": 0.9947913340156943,
+              "continuity": 0.9904767656090072,
+              "PCA_UMAP_spearman_cov_det": 0.6,
+              "PCA_UMAP_spearman_nn_mean": 0.41818181818181815,
+              "noise_spearman_cov_det": -0.6363636363636362,
+              "noise_spearman_nn_mean": -0.4424242424242424
+            },
+            {
+              "n_neighbors": 30,
+              "min_dist": 0.01,
+              "pairwise_distance_correlation": 0.7584820304705606,
+              "trustworthiness": 0.9944140566359604,
+              "continuity": 0.9842524735585124,
+              "PCA_UMAP_spearman_cov_det": -0.09090909090909088,
+              "PCA_UMAP_spearman_nn_mean": 0.6484848484848483,
+              "noise_spearman_cov_det": 0.16363636363636364,
+              "noise_spearman_nn_mean": -0.5272727272727272
+            },
+            {
+              "n_neighbors": 30,
+              "min_dist": 0.1,
+              "pairwise_distance_correlation": 0.9008866619441556,
+              "trustworthiness": 0.9939200955305356,
+              "continuity": 0.9911654042988741,
+              "PCA_UMAP_spearman_cov_det": 0.406060606060606,
+              "PCA_UMAP_spearman_nn_mean": 0.6606060606060605,
+              "noise_spearman_cov_det": -0.4424242424242424,
+              "noise_spearman_nn_mean": -0.5393939393939393
+            },
+            {
+              "n_neighbors": 30,
+              "min_dist": 0.5,
+              "pairwise_distance_correlation": 0.8889546155684952,
+              "trustworthiness": 0.9914778573865575,
+              "continuity": 0.9952954622995565,
+              "PCA_UMAP_spearman_cov_det": 0.7575757575757575,
+              "PCA_UMAP_spearman_nn_mean": 0.7818181818181817,
+              "noise_spearman_cov_det": -0.6848484848484848,
+              "noise_spearman_nn_mean": -0.7939393939393938
+            },
+            {
+              "n_neighbors": 50,
+              "min_dist": 0.01,
+              "pairwise_distance_correlation": 0.926726820940589,
+              "trustworthiness": 0.9935888092801092,
+              "continuity": 0.9916844762879563,
+              "PCA_UMAP_spearman_cov_det": 0.5757575757575757,
+              "PCA_UMAP_spearman_nn_mean": 0.5636363636363636,
+              "noise_spearman_cov_det": -0.5636363636363636,
+              "noise_spearman_nn_mean": -0.5878787878787878
+            },
+            {
+              "n_neighbors": 50,
+              "min_dist": 0.1,
+              "pairwise_distance_correlation": 0.8795304012285216,
+              "trustworthiness": 0.9935313544865234,
+              "continuity": 0.9929531900375298,
+              "PCA_UMAP_spearman_cov_det": 0.8060606060606059,
+              "PCA_UMAP_spearman_nn_mean": 0.6606060606060605,
+              "noise_spearman_cov_det": -0.8303030303030302,
+              "noise_spearman_nn_mean": -0.6606060606060605
+            },
+            {
+              "n_neighbors": 50,
+              "min_dist": 0.5,
+              "pairwise_distance_correlation": 0.8665355329956915,
+              "trustworthiness": 0.990379802115319,
+              "continuity": 0.9956418287273968,
+              "PCA_UMAP_spearman_cov_det": -0.33333333333333326,
+              "PCA_UMAP_spearman_nn_mean": 0.9393939393939393,
+              "noise_spearman_cov_det": 0.5878787878787878,
+              "noise_spearman_nn_mean": -0.8909090909090909
+            },
+            {
+              "n_neighbors": 100,
+              "min_dist": 0.01,
+              "pairwise_distance_correlation": 0.9029415620215667,
+              "trustworthiness": 0.992696417604913,
+              "continuity": 0.9922127601501194,
+              "PCA_UMAP_spearman_cov_det": -0.2121212121212121,
+              "PCA_UMAP_spearman_nn_mean": 0.7818181818181817,
+              "noise_spearman_cov_det": 0.5151515151515151,
+              "noise_spearman_nn_mean": -0.7575757575757575
+            },
+            {
+              "n_neighbors": 100,
+              "min_dist": 0.1,
+              "pairwise_distance_correlation": 0.9016742482334213,
+              "trustworthiness": 0.9922506994199932,
+              "continuity": 0.9937144319344934,
+              "PCA_UMAP_spearman_cov_det": 0.6,
+              "PCA_UMAP_spearman_nn_mean": 0.9272727272727272,
+              "noise_spearman_cov_det": -0.6848484848484848,
+              "noise_spearman_nn_mean": -0.8666666666666665
+            },
+            {
+              "n_neighbors": 100,
+              "min_dist": 0.5,
+              "pairwise_distance_correlation": 0.9113961843299754,
+              "trustworthiness": 0.9891791879904469,
+              "continuity": 0.9956665984305698,
+              "PCA_UMAP_spearman_cov_det": 0.18787878787878787,
+              "PCA_UMAP_spearman_nn_mean": 0.8303030303030302,
+              "noise_spearman_cov_det": 0.07878787878787878,
+              "noise_spearman_nn_mean": -0.7818181818181817
+            }
+          ],
+          "tsne_sweep": [
+            {
+              "perplexity": 20,
+              "pairwise_distance_correlation": 0.8214138459198097,
+              "trustworthiness": 0.9965052200614125,
+              "continuity": 0.9920393722279086,
+              "PCA_tSNE_spearman_cov_det": 0.8666666666666665,
+              "PCA_tSNE_spearman_nn_mean": 0.05454545454545454,
+              "noise_spearman_cov_det": -0.9151515151515152,
+              "noise_spearman_nn_mean": -0.09090909090909088
+            },
+            {
+              "perplexity": 30,
+              "pairwise_distance_correlation": 0.9399604614892746,
+              "trustworthiness": 0.9966107813033095,
+              "continuity": 0.9932583418628455,
+              "PCA_tSNE_spearman_cov_det": 0.6,
+              "PCA_tSNE_spearman_nn_mean": -0.04242424242424241,
+              "noise_spearman_cov_det": -0.7333333333333332,
+              "noise_spearman_nn_mean": 0.11515151515151514
+            },
+            {
+              "perplexity": 50,
+              "pairwise_distance_correlation": 0.9622434131603016,
+              "trustworthiness": 0.9963694984646878,
+              "continuity": 0.9942635960423064,
+              "PCA_tSNE_spearman_cov_det": 0.6121212121212121,
+              "PCA_tSNE_spearman_nn_mean": 0.19999999999999998,
+              "noise_spearman_cov_det": -0.6484848484848483,
+              "noise_spearman_nn_mean": -0.2121212121212121
+            }
+          ],
+          "mean_umap_noise_rho": 0.5585858585858586,
+          "mean_tsne_noise_rho": 0.7656565656565656
+        }
+      }
+    },
+    "test2_null_purity": {
+      "status": "FAILED",
+      "physical_systems": {
+        "lorenz": {
+          "covariance_determinant": {
+            "rho": -0.9370629370629372,
+            "adjusted_p": 1.7570339542871812e-05,
+            "cohen_d": 391.0513931134571
+          },
+          "nearest_neighbor_distance_mean": {
+            "rho": -0.9720279720279721,
+            "adjusted_p": 5.147246300598005e-07,
+            "cohen_d": 22.124723808790517
+          }
+        },
+        "rossler": {
+          "covariance_determinant": {
+            "rho": -0.9393939393939393,
+            "adjusted_p": 0.00010124405535717538,
+            "cohen_d": 10.039041270078329
+          },
+          "nearest_neighbor_distance_mean": {
+            "rho": -0.9757575757575757,
+            "adjusted_p": 4.4026385622126585e-06,
+            "cohen_d": 21.87988752438679
+          }
+        }
+      },
+      "null_models": {
+        "white_noise": {
+          "covariance_determinant": {
+            "rho": 0.9999999999999999,
+            "adjusted_p": 5.31751793762561e-63,
+            "cohen_d": 2.6332521717301582
+          },
+          "nearest_neighbor_distance_mean": {
+            "rho": 0.9999999999999999,
+            "adjusted_p": 5.31751793762561e-63,
+            "cohen_d": 6.673181845378982
+          }
+        },
+        "pink_noise": {
+          "covariance_determinant": {
+            "rho": -0.709090909090909,
+            "adjusted_p": 0.025999108041038922,
+            "cohen_d": 1.672728178839243
+          },
+          "nearest_neighbor_distance_mean": {
+            "rho": -0.7939393939393938,
+            "adjusted_p": 0.007705166290985572,
+            "cohen_d": 4.568998740737864
+          }
+        },
+        "brown_noise": {
+          "covariance_determinant": {
+            "rho": -0.5030303030303029,
+            "adjusted_p": 0.13833369839449197,
+            "cohen_d": 2.4287137851671394
+          },
+          "nearest_neighbor_distance_mean": {
+            "rho": -0.6969696969696969,
+            "adjusted_p": 0.02737819187154745,
+            "cohen_d": 6.962125299484541
+          }
+        },
+        "random_walk": {
+          "covariance_determinant": {
+            "rho": -0.5030303030303029,
+            "adjusted_p": 0.13833369839449197,
+            "cohen_d": 2.4287137851671394
+          },
+          "nearest_neighbor_distance_mean": {
+            "rho": -0.6969696969696969,
+            "adjusted_p": 0.02737819187154745,
+            "cohen_d": 6.962125299484541
+          }
+        },
+        "ar1": {
+          "covariance_determinant": {
+            "rho": -0.9030303030303028,
+            "adjusted_p": 0.0005497795164212516,
+            "cohen_d": 2.5586275647439902
+          },
+          "nearest_neighbor_distance_mean": {
+            "rho": -0.8787878787878788,
+            "adjusted_p": 0.0010851494823096134,
+            "cohen_d": 3.4246635466776434
+          }
+        },
+        "phase_surrogate": {
+          "covariance_determinant": {
+            "rho": -0.8909090909090909,
+            "adjusted_p": 0.0008132163372507998,
+            "cohen_d": 1.2524223509797767
+          },
+          "nearest_neighbor_distance_mean": {
+            "rho": -0.9151515151515152,
+            "adjusted_p": 0.0003505241248265696,
+            "cohen_d": 4.54335508245064
+          }
+        },
+        "iaaft_surrogate": {
+          "covariance_determinant": {
+            "rho": -0.9515151515151514,
+            "adjusted_p": 4.559709841283378e-05,
+            "cohen_d": 2.6935825163580405
+          },
+          "nearest_neighbor_distance_mean": {
+            "rho": -0.9515151515151514,
+            "adjusted_p": 4.559709841283378e-05,
+            "cohen_d": 6.32444763825112
+          }
+        },
+        "logistic_map": {
+          "covariance_determinant": {
+            "rho": 0.9878787878787878,
+            "adjusted_p": 4.467580794698648e-07,
+            "cohen_d": 3.342576870403207
+          },
+          "nearest_neighbor_distance_mean": {
+            "rho": 0.9757575757575757,
+            "adjusted_p": 4.4026385622126585e-06,
+            "cohen_d": 9.70191767664259
+          }
+        },
+        "shuffled_blocks": {
+          "covariance_determinant": {
+            "rho": -0.8787878787878788,
+            "adjusted_p": 0.0010851494823096134,
+            "cohen_d": 2.0707001728467276
+          },
+          "nearest_neighbor_distance_mean": {
+            "rho": -0.9636363636363635,
+            "adjusted_p": 1.7570339542871812e-05,
+            "cohen_d": 6.099211903464934
+          }
+        },
+        "ou": {
+          "covariance_determinant": {
+            "rho": -0.9999999999999999,
+            "adjusted_p": 5.31751793762561e-63,
+            "cohen_d": 2.7678245154948495
+          },
+          "nearest_neighbor_distance_mean": {
+            "rho": -0.9878787878787878,
+            "adjusted_p": 4.467580794698648e-07,
+            "cohen_d": 6.549584055008712
+          }
+        }
+      }
+    },
+    "test3_feature_leakage": {
+      "status": "FAILED",
+      "details": {
+        "lorenz": {
+          "spearman": {
+            "spectral_entropy": 0.9887303684454257,
+            "dominant_frequency": 0.0118609928194741,
+            "variance": 0.9919091552964081,
+            "autocorr_decay": -0.9583831640102851,
+            "kurtosis": 0.6793519704112132,
+            "skewness": 0.060344789364497525,
+            "energy": 0.9957411159788645
+          },
+          "mutual_information": {
+            "spectral_entropy": 1.905783758624544,
+            "dominant_frequency": 0.00573639789609004,
+            "variance": 2.2274528904564086,
+            "autocorr_decay": 1.359041758478737,
+            "kurtosis": 0.6305478227967374,
+            "skewness": 0.4494749975228842,
+            "energy": 2.3761700786523345
+          },
+          "rf_importance": {
+            "spectral_entropy": 0.0010776692827446333,
+            "dominant_frequency": 2.858463333669542e-05,
+            "variance": 0.00024203948835011473,
+            "autocorr_decay": 0.0001124022846690182,
+            "kurtosis": 5.281966247834394e-05,
+            "skewness": 9.35346097386995e-05,
+            "energy": 0.9983929500386826
+          },
+          "max_importance_value": 0.9983929500386826,
+          "max_importance_feature": "energy"
+        },
+        "rossler": {
+          "spearman": {
+            "spectral_entropy": 0.9844055061855107,
+            "dominant_frequency": 0.005703524009276012,
+            "variance": 0.980496534668572,
+            "autocorr_decay": -0.959990501260975,
+            "kurtosis": 0.8463454954817806,
+            "skewness": -0.665075181214546,
+            "energy": 0.9801450867558673
+          },
+          "mutual_information": {
+            "spectral_entropy": 1.7683810789367804,
+            "dominant_frequency": 0.0007930692306965526,
+            "variance": 1.9252666858939413,
+            "autocorr_decay": 1.3428262316707071,
+            "kurtosis": 0.8149613340261794,
+            "skewness": 0.546717089186636,
+            "energy": 1.9152386342425682
+          },
+          "rf_importance": {
+            "spectral_entropy": 0.1178412209458832,
+            "dominant_frequency": 8.206040347040904e-05,
+            "variance": 0.8248457005694299,
+            "autocorr_decay": 0.001775832891006157,
+            "kurtosis": 0.0011719743554292354,
+            "skewness": 0.0005745034182107198,
+            "energy": 0.05370870741657047
+          },
+          "max_importance_value": 0.8248457005694299,
+          "max_importance_feature": "variance"
+        }
+      }
+    },
+    "test4_scale_normalization": {
+      "status": "FAILED",
+      "details": {
+        "Raw": {
+          "lorenz": {
+            "covariance_determinant": {
+              "spearman_rho": 0.6713286713286714,
+              "spearman_pvalue": 0.016831456186893395,
+              "cohen_d": 1.368852904760781
+            },
+            "nearest_neighbor_distance_mean": {
+              "spearman_rho": 1.0,
+              "spearman_pvalue": 0.0,
+              "cohen_d": 4.396074327110156
+            }
+          },
+          "rossler": {
+            "covariance_determinant": {
+              "spearman_rho": -0.9999999999999999,
+              "spearman_pvalue": 6.646897422032013e-64,
+              "cohen_d": 13.55093028846141
+            },
+            "nearest_neighbor_distance_mean": {
+              "spearman_rho": -0.8666666666666665,
+              "spearman_pvalue": 0.0011735381801554687,
+              "cohen_d": 1.7512366679578528
+            }
+          }
+        },
+        "Z-score": {
+          "lorenz": {
+            "covariance_determinant": {
+              "spearman_rho": -0.9370629370629372,
+              "spearman_pvalue": 6.99316495321054e-06,
+              "cohen_d": 391.0513931134571
+            },
+            "nearest_neighbor_distance_mean": {
+              "spearman_rho": -0.9720279720279721,
+              "spearman_pvalue": 1.2868115751495013e-07,
+              "cohen_d": 22.124723808790517
+            }
+          },
+          "rossler": {
+            "covariance_determinant": {
+              "spearman_rho": -0.9393939393939393,
+              "spearman_pvalue": 5.484052998513666e-05,
+              "cohen_d": 10.039041270078329
+            },
+            "nearest_neighbor_distance_mean": {
+              "spearman_rho": -0.9757575757575757,
+              "spearman_pvalue": 1.4675461874042197e-06,
+              "cohen_d": 21.87988752438679
+            }
+          }
+        },
+        "RobustScaler": {
+          "lorenz": {
+            "covariance_determinant": {
+              "spearman_rho": -1.0,
+              "spearman_pvalue": 0.0,
+              "cohen_d": 1449.3310321919043
+            },
+            "nearest_neighbor_distance_mean": {
+              "spearman_rho": -1.0,
+              "spearman_pvalue": 0.0,
+              "cohen_d": 37.1893628412123
+            }
+          },
+          "rossler": {
+            "covariance_determinant": {
+              "spearman_rho": -0.9515151515151514,
+              "spearman_pvalue": 2.279854920641689e-05,
+              "cohen_d": 124.90116478637412
+            },
+            "nearest_neighbor_distance_mean": {
+              "spearman_rho": -0.9757575757575757,
+              "spearman_pvalue": 1.4675461874042197e-06,
+              "cohen_d": 22.33969994660929
+            }
+          }
+        },
+        "MinMax": {
+          "lorenz": {
+            "covariance_determinant": {
+              "spearman_rho": -0.3636363636363637,
+              "spearman_pvalue": 0.2452650007307772,
+              "cohen_d": 4.874073445702652
+            },
+            "nearest_neighbor_distance_mean": {
+              "spearman_rho": -0.6853146853146854,
+              "spearman_pvalue": 0.013905968814362752,
+              "cohen_d": 4.763732062776265
+            }
+          },
+          "rossler": {
+            "covariance_determinant": {
+              "spearman_rho": -0.8909090909090909,
+              "spearman_pvalue": 0.0005421442248338665,
+              "cohen_d": 32.422899078626955
+            },
+            "nearest_neighbor_distance_mean": {
+              "spearman_rho": -0.9151515151515152,
+              "spearman_pvalue": 0.0002044724061488323,
+              "cohen_d": 12.328402421925897
+            }
+          }
+        },
+        "QuantileTransform": {
+          "lorenz": {
+            "covariance_determinant": {
+              "spearman_rho": -0.7412587412587414,
+              "spearman_pvalue": 0.005801150474478243,
+              "cohen_d": 8.838770745160136
+            },
+            "nearest_neighbor_distance_mean": {
+              "spearman_rho": -0.8951048951048951,
+              "spearman_pvalue": 8.36658642909172e-05,
+              "cohen_d": 9.420882622226761
+            }
+          },
+          "rossler": {
+            "covariance_determinant": {
+              "spearman_rho": -0.3696969696969697,
+              "spearman_pvalue": 0.2930500752928223,
+              "cohen_d": 2.44925761637154
+            },
+            "nearest_neighbor_distance_mean": {
+              "spearman_rho": -0.06666666666666665,
+              "spearman_pvalue": 0.8548130882487426,
+              "cohen_d": 1.008985697003155
+            }
+          }
+        }
+      }
+    },
+    "test5_seed_robustness": {
+      "status": "FAILED",
+      "details": {
+        "lorenz": {
+          "covariance_determinant": {
+            "spearman_rho": {
+              "mean": -0.9524475524475524,
+              "lower": -0.9597202797202797,
+              "upper": -0.9451730769230771
+            },
+            "cohen_d": {
+              "mean": 0.0,
+              "lower": 0.0,
+              "upper": 0.0
+            }
+          },
+          "nearest_neighbor_distance_mean": {
+            "spearman_rho": {
+              "mean": -0.9674125874125873,
+              "lower": -0.9713304195804198,
+              "upper": -0.9627272727272728
+            },
+            "cohen_d": {
+              "mean": 0.0,
+              "lower": 0.0,
+              "upper": 0.0
+            }
+          }
+        },
+        "rossler": {
+          "covariance_determinant": {
+            "spearman_rho": {
+              "mean": -0.9061818181818182,
+              "lower": -0.9191575757575757,
+              "upper": -0.8911484848484849
+            },
+            "cohen_d": {
+              "mean": 0.0,
+              "lower": 0.0,
+              "upper": 0.0
+            }
+          },
+          "nearest_neighbor_distance_mean": {
+            "spearman_rho": {
+              "mean": -0.6336969696969696,
+              "lower": -0.696242424242424,
+              "upper": -0.56
+            },
+            "cohen_d": {
+              "mean": 0.0,
+              "lower": 0.0,
+              "upper": 0.0
+            }
+          }
+        }
+      }
+    },
+    "test6_blind_label": {
+      "status": "PASSED",
+      "roc_auc": 1.0
+    },
+    "test7_temporal_generalization": {
+      "status": "FAILED",
+      "details": {
+        "lorenz": {
+          "covariance_determinant": {
+            "spearman_rho": -0.9720279720279721,
+            "spearman_pvalue": 1.2868115751495013e-07,
+            "cohen_d": 1595.5290068958827
+          },
+          "nearest_neighbor_distance_mean": {
+            "spearman_rho": -0.9510489510489512,
+            "spearman_pvalue": 2.0384246324655723e-06,
+            "cohen_d": 20.991161539044427
+          }
+        },
+        "rossler": {
+          "covariance_determinant": {
+            "spearman_rho": -0.9393939393939393,
+            "spearman_pvalue": 5.484052998513666e-05,
+            "cohen_d": 40.68520475717088
+          },
+          "nearest_neighbor_distance_mean": {
+            "spearman_rho": -0.6848484848484848,
+            "spearman_pvalue": 0.02888279750673276,
+            "cohen_d": 2.8272180178760093
+          }
+        }
+      }
+    }
+  }
+}
