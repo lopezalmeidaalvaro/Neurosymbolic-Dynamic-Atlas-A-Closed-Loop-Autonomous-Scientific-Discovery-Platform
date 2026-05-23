@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "timestamp": "2026-05-23T00:19:13Z",
+    "audit_type": "Dataset Bias Elimination Audit",
+    "certification_status": "INSUFFICIENT_PHYSICAL_GENERALIZATION",
+    "final_diagnosis": "POOR_CALIBRATION"
+  },
+  "test1_local_standardization": {
+    "means_before": {
+      "mean": 0.16074056093489875,
+      "std": 1.675665066584291
+    },
+    "means_after": {
+      "mean": -7.968766320363181e-19,
+      "std": 6.136836508753537e-17
+    },
+    "vars_before": {
+      "mean": 24.134103039337205,
+      "std": 22.050282511309348
+    },
+    "vars_after": {
+      "mean": 0.9999999999989346,
+      "std": 1.0103264795805524e-12
+    }
+  },
+  "test2_iaaft_diagnostics": {
+    "mean_iterations": 92.51851851851852,
+    "convergence_rate": 0.4444444444444444,
+    "mean_power_spectral_error": 0.0001901970135403691,
+    "mean_amplitude_match_error": 0.0
+  },
+  "test3_bias_verification": {
+    "baseline_auc": 0.5857744458327548,
+    "v3_auc": 0.9984530255250789,
+    "v3_pr_auc": 0.9987850589721893,
+    "v3_f1": 0.9097651421508035,
+    "v3_ece": 0.13448979591836735,
+    "delta_auc_baseline": 0.41422555416724516,
+    "delta_auc_v3": -0.024177025525078832
+  },
+  "test4_negative_control": {
+    "mean_perm_auc": 0.5066005235913608,
+    "std_perm_auc": 0.057720367697526,
+    "z_score": 8.521298833562348
+  }
+}
