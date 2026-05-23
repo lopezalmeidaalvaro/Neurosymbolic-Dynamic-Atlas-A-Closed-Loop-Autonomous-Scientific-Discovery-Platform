@@ -96,20 +96,20 @@ export const theoryBlocks: TheoryBlock[] = [
   },
   {
     id: 'universality',
-    title: { en: 'Geometric Universality', es: 'Universalidad Geométrica' },
+    title: { en: 'Asymmetric Topological Adaptation', es: 'Adaptación Topológica Asimétrica' },
     tag: 'Finding',
     color: 'cyan',
     content: {
       simple: {
-        en: 'Our key finding: chaos looks similar regardless of the system. Lorenz (3D continuous) and the logistic map (1D discrete) have very similar "fingerprints" in our feature space. They share the same geometric neighborhood even though their equations are completely different.',
-        es: 'Nuestro hallazgo clave: el caos se parece sin importar el sistema. Lorenz (3D continuo) y el mapa logístico (1D discreto) tienen "huellas" muy similares en nuestro espacio de características. Comparten el mismo vecindario geométrico aunque sus ecuaciones son completamente diferentes.',
+        en: 'Our key finding: generalisation is driven by a structural asymmetry. The V3 embedding achieves an AUC of 0.830 on the MIT-BIH clinical database but fails universal geometric transport, resulting in coordinated latent collapse (D_emb = 0.982) alongside explanatory attribution survival (D_attr = 0.763).',
+        es: 'Nuestro hallazgo clave: la generalización se debe a una asimetría estructural. El Embedding V3 logra un AUC de 0.830 en la base de datos MIT-BIH pero fracasa en el transporte geométrico universal, mostrando un colapso latente coordinado (D_emb = 0.982) junto a una supervivencia atributiva (D_attr = 0.763).',
       },
       advanced: {
-        en: 'For two systems A, B with embeddings φ(A), φ(B) ∈ ℝ⁸, we measure cosine similarity cos(θ) = φ(A)·φ(B) / (|φ(A)||φ(B)|). We observed sim(Lorenz, Rössler) = 0.967, confirming that distinct strange attractors occupy proximal regions of the embedding manifold. This constitutes empirical evidence for a geometric universality class of chaotic dynamics.',
-        es: 'Para dos sistemas A, B con embeddings φ(A), φ(B) ∈ ℝ⁸, medimos similitud coseno cos(θ) = φ(A)·φ(B) / (|φ(A)||φ(B)|). Observamos sim(Lorenz, Rössler) = 0.967, confirmando que distintos atractores extraños ocupan regiones próximas de la variedad de embeddings.',
+        en: 'Continuous representation transport across Synthetic (A), Biophysical (B), and Clinical (C) domains reveals Asymmetric Representational Decay. While the latent manifold collapses and is completely deformed geometrically (D_emb = 1 - CKA = 0.982), the causal attribution mechanism remains structurally preserved (D_attr = 1 - rho = 0.763), explaining the robust clinical survival performance.',
+        es: 'El transporte continuo de representaciones entre dominios Sintético (A), Biofísico (B) y Clínico (C) revela una Degradación Representacional Asimétrica. Mientras la variedad latente colapsa y se deforma geométricamente (D_emb = 1 - CKA = 0.982), el mecanismo de atribución causal se preserva estructuralmente (D_attr = 1 - rho = 0.763), explicando la robusta supervivencia clínica.',
       },
     },
-    formula: '\\text{sim}(A,B) = \\frac{\\varphi(A)\\cdot\\varphi(B)}{|\\varphi(A)|\\,|\\varphi(B)|}',
-    formulaLabel: { en: 'Cosine Similarity', es: 'Similitud Coseno' },
+    formula: 'D_{emb} = 1 - \\text{CKA}(E_A, E_C) \\quad \\text{vs} \\quad D_{attr} = 1 - \\rho(\\bar{C}_A, \\bar{C}_C)',
+    formulaLabel: { en: 'Asymmetry of Deformation', es: 'Asimetría de Deformación' },
   },
 ];

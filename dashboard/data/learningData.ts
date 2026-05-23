@@ -408,8 +408,8 @@ export const educationalConcepts: EducationalConcept[] = [
         es: 'Cuando Lorenz y sistemas caoticos similares caen cerca, el mapa aprendio algo real.',
       },
       advanced: {
-        en: 'Proximity between strange attractors supports a geometric universality hypothesis.',
-        es: 'La proximidad entre atractores extranos apoya una hipotesis de universalidad geometrica.',
+        en: 'Structural asymmetry under continuous domain shifts supports an asymmetric topological adaptation hypothesis.',
+        es: 'La asimetría estructural bajo cambios de dominio continuos apoya una hipótesis de adaptación topológica asimétrica.',
       },
     },
     keywords: ['clusters', 'latent space', 'geometry'],

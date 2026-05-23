@@ -1,0 +1,51 @@
+name: Dashboard Auto Sync & Build Validation
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'logs_y_reportes/**'
+      - 'figures/**'
+      - 'dashboard/public/artifacts/**'
+
+jobs:
+  validate_and_build:
+    name: Validate and Build Next.js Dashboard
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # FUTURE EXTENSION STEP:
+      # If we add a Python telemetry generator in the future to dynamically update JSON reports,
+      # uncomment this block to automatically rebuild the mathematical manifolds before building the dashboard.
+      # - name: Run Telemetry and Causal Audit Reports
+      #   run: |
+      #     pip install numpy scipy scikit-learn shap wfdb
+      #     python core/empirical/mit_bih_bifurcated_audit.py
+      #     python core/empirical/causal_continuity_audit.py
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: dashboard/package-lock.json
+
+      - name: Install Node.js Dependencies
+        run: |
+          cd dashboard
+          npm install
+
+      - name: Validate Next.js Dashboard Build
+        run: |
+          cd dashboard
+          npm run build

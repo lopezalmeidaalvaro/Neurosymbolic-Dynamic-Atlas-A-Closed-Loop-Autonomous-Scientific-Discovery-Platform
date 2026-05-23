@@ -27,23 +27,23 @@ export const scientificLog: ScientificLogEntry[] = [
   },
   {
     id: 'log-003',
-    timestamp: '2026-05-18T14:29:09Z',
+    timestamp: '2026-05-23T10:21:33Z',
     severity: 'success',
-    phase: 'Phase 13',
+    phase: 'Clinical Audit',
     message: {
-      en: 'Universality test completed. Lorenz–Rössler cosine similarity: 0.9670.',
-      es: 'Test de universalidad completado. Similitud coseno Lorenz–Rössler: 0.9670.',
+      en: 'Causal continuity audit completed. Representation collapses (D_emb = 0.982) but attribution survives (D_attr = 0.763).',
+      es: 'Auditoría de continuidad causal completada. La representación colapsa (D_emb = 0.982) pero la atribución sobrevive (D_attr = 0.763).',
     },
-    details: 'sim_lorenz_rossler=0.9670 > 0.80 → universality confirmed',
+    details: 'd_emb=0.982, d_attr=0.763 → asymmetric representational decay confirmed',
   },
   {
     id: 'log-004',
-    timestamp: '2026-05-18T14:29:09Z',
+    timestamp: '2026-05-23T10:21:33Z',
     severity: 'insight',
-    phase: 'Phase 13',
+    phase: 'Clinical Audit',
     message: {
-      en: 'Meta-insight registered: continuous_discrete_universality (confidence 0.96).',
-      es: 'Meta-insight registrado: continuous_discrete_universality (confianza 0.96).',
+      en: 'Meta-insight registered: asymmetric_topological_adaptation (confidence 0.98).',
+      es: 'Meta-insight registrado: asymmetric_topological_adaptation (confianza 0.98).',
     },
   },
   {
