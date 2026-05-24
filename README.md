@@ -7,7 +7,9 @@
 [![License MIT](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
 
 An advanced scientific computing environment and research dashboard investigating the limits of cross-domain representation transport. We expose the **Asymmetric Representational Decay** (Asymmetric Topological Adaptation) paradox: the mathematical decoupling of strange attractors from biological cardiac dynamics at the latent manifold level, alongside the survival of causal explanation ordering that drives robust clinical generalisation.
-
+## 📄 Preprint
+Preprint available on Zenodo:
+https://doi.org/10.5281/zenodo.20366363
 ---
 
 ## 1. The Cross-Domain Transfer Paradox
