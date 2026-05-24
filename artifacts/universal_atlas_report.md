@@ -1,15 +1,15 @@
 # Reporte de Universalidad Topológica (Atractores 3D y Mapas 1D)
 
 ## Métrica y Geometría
-- Total de trayectorias en Atlas Conjunto: 214
-- Curvatura media en el hiperespacio: 41.7965
-- Divergencia Geodésica media ($\lambda_g$): 1.1969
+- Total de trayectorias en Atlas Conjunto: 215
+- Curvatura media en el hiperespacio: 42.1325
+- Divergencia Geodésica media ($\lambda_g$): 1.2011
 
 ## Test de Universalidad Continua-Discreta
-- Similitud Coseno (Lorenz vs Rössler): 0.9173
-- Similitud Coseno (Lorenz vs Mapa Discreto Caótico): -0.1894
+- Similitud Coseno (Lorenz vs Rössler): 0.5124
+- Similitud Coseno (Lorenz vs Mapa Discreto Caótico): 0.0503
 
-**Conclusión:** Se confirma universalidad compartida (Clases Topológicas Profundas).
+**Conclusión:** Sistemas independientes geométrica y topológicamente.
 Las regiones caóticas exhiben curvatura negativa y alta expansión métrica local ($\lambda_g > 0$).
 
 ## Clases Topológicas Detectadas
@@ -24,5 +24,6 @@ Las regiones caóticas exhiben curvatura negativa y alta expansión métrica loc
 - Familia 8: ['logistic_sweep']
 - Familia 9: ['logistic_sweep']
 - Familia 10: ['logistic_sweep']
-- Familia 11: ['lorenz', 'rossler']
-- Familia Singular/Aislada: ['van_der_pol', 'logistic_sweep', 'chua']
+- Familia 11: ['rossler', 'lorenz']
+- Familia 12: ['duffing', 'chua']
+- Familia Singular/Aislada: ['van_der_pol', 'logistic_sweep']

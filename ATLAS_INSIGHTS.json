@@ -4348,5 +4348,25 @@
         "supporting_nodes": "[]",
         "counterexamples": "[]",
         "domains": "['universal_dynamics']"
+    },
+    {
+        "id": 436,
+        "pattern_type": "structural_universality",
+        "trigger_conditions": "[\"El sistema es de naturaleza iterativa discreta\", \"Se evalua la transición al caos por periodo duplicado\"]",
+        "recommended_strategy": "Calcular la constante de Feigenbaum (delta_n) y comparar si el límite es 4.6692016... ya que esto trasciende la forma algebraica del mapa (polinómico vs trascendental).",
+        "confidence": 0.99,
+        "supporting_nodes": "[2]",
+        "counterexamples": "[]",
+        "domains": "[\"nonlinear_dynamics\", \"universality\", \"chaos_theory\"]"
+    },
+    {
+        "id": 437,
+        "pattern_type": "continuous_discrete_universality",
+        "trigger_conditions": "High cosine similarity > 0.80 between continuous 3D attractors and discrete chaotic maps",
+        "recommended_strategy": "classify_chaotic_systems_via_intrinsic_geometry",
+        "confidence": 0.96,
+        "supporting_nodes": "[]",
+        "counterexamples": "[]",
+        "domains": "['universal_dynamics']"
     }
 ]

@@ -23,6 +23,11 @@ interface AppState {
   setComplexityMode: (mode: ComplexityMode) => void;
   toggleComplexityMode: () => void;
 
+  // ── Teenager Mode (ELI15) ──────────────────────────────────
+  isTeenagerMode: boolean;
+  setIsTeenagerMode: (value: boolean) => void;
+  toggleTeenagerMode: () => void;
+
   // ── Cinematic Effects ──────────────────────────────────────────
   cinematicEffectsEnabled: boolean;
   setCinematicEffectsEnabled: (value: boolean) => void;
@@ -62,6 +67,12 @@ export const useAppStore = create<AppState>()(
           complexityMode: state.complexityMode === 'simple' ? 'advanced' : 'simple',
         })),
 
+      // Teenager Mode (ELI15)
+      isTeenagerMode: false,
+      setIsTeenagerMode: (value) => set({ isTeenagerMode: value }),
+      toggleTeenagerMode: () =>
+        set((state) => ({ isTeenagerMode: !state.isTeenagerMode })),
+
       // Cinematic Effects (Disabled by default for CPU/GPU efficiency in dev)
       cinematicEffectsEnabled: false,
       setCinematicEffectsEnabled: (value) => set({ cinematicEffectsEnabled: value }),
@@ -84,6 +95,7 @@ export const useAppStore = create<AppState>()(
         focusModeEnabled: state.focusModeEnabled,
         language: state.language,
         complexityMode: state.complexityMode,
+        isTeenagerMode: state.isTeenagerMode,
         cinematicEffectsEnabled: state.cinematicEffectsEnabled,
       }),
     }

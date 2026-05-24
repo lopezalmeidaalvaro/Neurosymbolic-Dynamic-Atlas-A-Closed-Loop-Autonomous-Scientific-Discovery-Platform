@@ -1,0 +1,22 @@
+{
+  "system": "duffing",
+  "method": "sindy",
+  "discovered_equations": {
+    "dx": " 0.490 1 + -0.977 x0 +  1.340 x1 + -0.453 x0^2 +  0.556 x0 x1 + -0.111 x1^2",
+    "dv": " 17.523 1 + -0.998 x0 + -23.640 x1 +  0.125 x0^2 +  6.998 x0 x1 +  0.519 x1^2 + -0.143 x0 x1^2"
+  },
+  "penalties": {
+    "dx": 2.0,
+    "dv": 2.0
+  },
+  "evaluation": {
+    "match": false,
+    "simplified_diff": {
+      "x": "-0.111*v**2 + 0.34*v - 0.453*x**2 - 0.977*x + 0.4901",
+      "v": "0.519*v**2 - 23.44*v - 1.0*x**3 + 0.125*x**2 + 0.002*x - 0.3*cos(1.2*t) + 17.5231"
+    },
+    "jaccard_terms": 0.24285714285714285,
+    "coefficient_error": 0.0
+  },
+  "success": false
+}

@@ -1,0 +1,25 @@
+{
+  "system": "lorenz",
+  "method": "sindy",
+  "discovered_equations": {
+    "dx": "-9.978 x0 +  9.978 x1",
+    "dy": " 27.809 x0 + -0.964 x1 + -0.995 x0 x2",
+    "dz": "-2.659 x2 +  0.997 x0 x1"
+  },
+  "penalties": {
+    "dx": 2.0,
+    "dy": 2.0,
+    "dz": 2.0
+  },
+  "evaluation": {
+    "match": false,
+    "simplified_diff": {
+      "x": "0.0220000000000002*x - 0.0220000000000002*y",
+      "y": "x*z - 0.190999999999999*x + 0.036*y",
+      "z": "-x*y + 0.00766666666667026*z"
+    },
+    "jaccard_terms": 0.7222222222222222,
+    "coefficient_error": 0.0
+  },
+  "success": false
+}

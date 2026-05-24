@@ -1,0 +1,19 @@
+{
+  "system": "logistic",
+  "method": "pysr",
+  "discovered_equations": {
+    "x_next": "sin(sqrt(x * (x / (sqrt(cos(cos(cos(sqrt(cos(sqrt(sqrt(x + 0.07271545)))) - x)) * 1.6400324)) * 0.13300146)))) / 1.018604"
+  },
+  "penalties": {
+    "x_next": 0.0
+  },
+  "evaluation": {
+    "match": false,
+    "simplified_diff": {
+      "x": "3.9*x*(x - 1) + 0.981735787411006*sin(2.74202743535094*sqrt(x**2/sqrt(cos(1.6400324*cos(cos(x - sqrt(cos((x + 0.07271545)**(1/4)))))))))"
+    },
+    "jaccard_terms": 0.0,
+    "coefficient_error": 0.0
+  },
+  "success": false
+}

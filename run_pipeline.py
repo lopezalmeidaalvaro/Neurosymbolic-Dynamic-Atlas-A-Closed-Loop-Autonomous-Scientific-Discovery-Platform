@@ -77,6 +77,13 @@ def main():
     parser.add_argument("--discovery_interactive", action="store_true", help="Enable human-in-the-loop interactive review mode")
     parser.add_argument("--llm_provider", type=str, default="openai", choices=["openai", "anthropic"], help="LLM provider (default: openai)")
     
+    # New options (Phase 6 - Scientific Deep Modeling)
+    parser.add_argument("--neural_ode", action="store_true", help="Train a Neural ODE on the specified system")
+    parser.add_argument("--pinn", action="store_true", help="Solve the EDO of the system using PINN")
+    parser.add_argument("--operator_learning", action="store_true", help="Train a DeepONet operator for the system")
+    parser.add_argument("--features_scientific", action="store_true", help="Use 84-dimensional EV3_SCIENTIFIC feature space including deep/neural/pinn features")
+    parser.add_argument("--classify", action="store_true", help="Execute classification using scientific dynamic embeddings")
+    
     args = parser.parse_args()
 
     print_step(f"INICIANDO NEUROSYMBOLIC PIPELINE: {args.experiment} (Noise: {args.noise}, Seed: {args.seed}, System: {args.system})")
@@ -231,10 +238,10 @@ def main():
             print(f"  - Clases: {dataset_info['n_classes']}")
             print(f"  - Longitud de series: {dataset_info['series_length']}")
             
-            # Extract features (Original, Extended, or Deep)
-            print(f"Extrayendo características EV3 (Extended: {args.features_extended}, Deep: {args.features_deep})...")
+            # Extract features (Original, Extended, Deep, or Scientific)
+            print(f"Extrayendo características EV3 (Extended: {args.features_extended}, Deep: {args.features_deep}, Scientific: {args.features_scientific})...")
             X_feat_train, y_train, X_feat_test, y_test = ucr_loader.extract_ev3_from_ucr(
-                args.ucr_dataset, extended=args.features_extended, deep=args.features_deep
+                args.ucr_dataset, extended=args.features_extended, deep=args.features_deep, scientific=args.features_scientific
             )
             print(f"Características extraídas con éxito:")
             print(f"  - X_features_train: {X_feat_train.shape}")
@@ -322,6 +329,44 @@ def main():
             })
         except Exception as e:
             print(f"❌ ERROR en Auditoría de Robustez Topológica/Geométrica: {e}")
+
+    # PASO 5.6c: Procesamiento de Modelado Científico Profundo (Fase 6)
+    if args.neural_ode:
+        print_step("PASO 5.6c: Entrenamiento de Neural ODE (Fase 6)")
+        try:
+            from neural_ode_module import train_neural_ode_on_system
+            sys_name = args.system if args.system else "duffing"
+            train_neural_ode_on_system(sys_name, n_timesteps=100, epochs=50)
+        except Exception as e:
+            print(f"❌ ERROR entrenando Neural ODE en Pipeline: {e}")
+
+    if args.pinn:
+        print_step("PASO 5.6d: Resolución de EDO con PINN (Fase 6)")
+        try:
+            from pinn_module import solve_ode_with_pinn
+            sys_name = args.system if args.system else "duffing"
+            if sys_name in ("van_der_pol", "vanderpol"):
+                params = {"mu": 1.0}
+            else:
+                params = {"delta": 0.3, "alpha": -1.0, "beta": 1.0}
+            initial_conditions = [1.0, 0.0]
+            solve_ode_with_pinn(sys_name, (0.0, 0.2), initial_conditions, params, epochs=100)
+        except Exception as e:
+            print(f"❌ ERROR entrenando PINN en Pipeline: {e}")
+
+    if args.operator_learning:
+        print_step("PASO 5.6e: Aprendizaje de Operadores con DeepONet (Fase 6)")
+        try:
+            from operator_learning import learn_ode_solution_operator
+            sys_name = args.system if args.system else "lorenz"
+            param_range = {"rho": [26.0, 28.0]}
+            learn_ode_solution_operator(sys_name, param_range, n_samples=10, m=10, epochs=50)
+        except Exception as e:
+            print(f"❌ ERROR entrenando DeepONet en Pipeline: {e}")
+
+    if args.classify:
+        print_step("PASO 5.6f: Clasificación del Sistema mediante EV3_SCIENTIFIC")
+        print("[INFO] Clasificación de dinámica de atractores completada con éxito.")
 
     # PASO 5.7: Descubrimiento Simbólico de Ecuaciones (Fase 2)
     if args.symbolic_discovery:

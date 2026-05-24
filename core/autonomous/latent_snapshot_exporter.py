@@ -24,6 +24,21 @@ DB_PATH = os.path.join(ROOT_DIR, "runs", "math_search.db")
 OUTPUT_DIR = os.path.join(ROOT_DIR, "dashboard", "public", "artifacts", "embeddings")
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "manifold_snapshots.json")
 
+# Add root directory to sys.path for importing Phase 4 modules
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
+try:
+    import topological_analysis as tda
+    import geometric_analysis as geom
+    import koopman_analysis as koop
+except ImportError:
+    # Failsafe path injection if invoked from elsewhere
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
+    import topological_analysis as tda
+    import geometric_analysis as geom
+    import koopman_analysis as koop
+
 # ─────────────────────────────────────────────────────────────────────────────
 # CONTINUOUS DYNAMICAL SYSTEM VECTOR FIELDS
 # ─────────────────────────────────────────────────────────────────────────────
@@ -324,6 +339,428 @@ def _temporal_irreversibility(x):
     if sigma < 1e-10:
         return 0.0
     return float(np.mean(diffs ** 3) / (sigma ** 3))
+
+
+# ── EXTENDED MATH & DENSE FEATURE MODULES ────────────────────────────────────
+
+def compute_perm_entropy(signal, m=5, delay=1):
+    return _permutation_entropy(signal, m, delay)
+
+def compute_svd_entropy(signal, m=10, delay=1):
+    return _svd_entropy(signal, m, delay)
+
+def compute_autocorr_decay(signal, dt, max_lag=10000):
+    return _autocorr_decay(signal, dt, max_lag)
+
+def compute_higuchi_fd(signal, k_max=10):
+    return _higuchi_fd(signal, k_max)
+
+def compute_robust_skewness(signal):
+    return _robust_skewness(signal)
+
+def compute_robust_kurtosis(signal):
+    return _robust_kurtosis(signal)
+
+def compute_sample_entropy(signal, m=2, r=0.15):
+    """
+    Compute Sample Entropy (SampEn) of a 1D signal.
+    """
+    try:
+        x = np.asarray(signal, dtype=float)
+        N = len(x)
+        if N <= m + 1:
+            return np.nan
+        
+        sigma = np.std(x)
+        r_thresh = r * sigma
+        if r_thresh < 1e-10:
+            return 0.0
+        
+        def _count_matches(dim):
+            emb = np.array([x[i:i+dim] for i in range(N - dim + 1)])
+            count = 0
+            L = len(emb)
+            for i in range(L):
+                diffs = np.max(np.abs(emb[i+1:] - emb[i]), axis=1)
+                count += np.sum(diffs < r_thresh)
+            return count
+
+        B = _count_matches(m)
+        A = _count_matches(m + 1)
+        
+        if B == 0 or A == 0:
+            return np.nan
+        
+        return -np.log(A / B)
+    except Exception:
+        return np.nan
+
+def compute_lyapunov_exponent(signal, emb_dim=3, lag=1, dt=0.01):
+    """
+    Compute the maximum Lyapunov exponent using the Rosenstein algorithm.
+    """
+    try:
+        x = np.asarray(signal, dtype=float)
+        n = len(x)
+        m = emb_dim
+        n_emb = n - (m - 1) * lag
+        if n_emb <= 15:
+            return np.nan
+        
+        # Delay embedding
+        Y = np.array([x[i:i+m*lag:lag] for i in range(n_emb)])
+        
+        # Nearest neighbors exclusion (Theiler window)
+        theiler_w = int(lag * m)
+        nn_indices = []
+        for i in range(n_emb):
+            dists = np.linalg.norm(Y - Y[i], axis=1)
+            dists[max(0, i-theiler_w):min(n_emb, i+theiler_w+1)] = np.inf
+            if np.all(np.isinf(dists)):
+                nn_indices.append(-1)
+            else:
+                nn_indices.append(np.argmin(dists))
+        
+        max_k = min(30, n_emb - 1)
+        if max_k < 3:
+            return np.nan
+        
+        divergences = []
+        steps = []
+        for k in range(max_k):
+            d_list = []
+            for i in range(n_emb - k):
+                j = nn_indices[i]
+                if j != -1 and j + k < n_emb:
+                    d = np.linalg.norm(Y[i + k] - Y[j + k])
+                    if d > 0:
+                        d_list.append(np.log(d))
+            if len(d_list) > 0:
+                divergences.append(np.mean(d_list))
+                steps.append(k)
+        
+        if len(divergences) < 3:
+            return np.nan
+        
+        valid_len = min(15, len(divergences))
+        if valid_len < 3:
+            return np.nan
+        
+        y_fit = np.array(divergences[:valid_len])
+        t_fit = np.array(steps[:valid_len]) * dt
+        
+        slope, _ = np.polyfit(t_fit, y_fit, 1)
+        return float(slope) if np.isfinite(slope) else np.nan
+    except Exception:
+        return np.nan
+
+def compute_correlation_dimension(signal, emb_dim=3, lag=1, radius_range=None):
+    """
+    Compute the correlation dimension using Grassberger-Procaccia style linear fit.
+    """
+    try:
+        x = np.asarray(signal, dtype=float)
+        n = len(x)
+        m = emb_dim
+        n_emb = n - (m - 1) * lag
+        if n_emb <= 5:
+            return np.nan
+        
+        Y = np.array([x[i:i+m*lag:lag] for i in range(n_emb)])
+        
+        if n_emb > 300:
+            np.random.seed(42)
+            indices = np.random.choice(n_emb, size=300, replace=False)
+            Y_sub = Y[indices]
+        else:
+            Y_sub = Y
+            
+        from scipy.spatial.distance import pdist
+        dists = pdist(Y_sub)
+        dists = dists[dists > 0]
+        if len(dists) < 5:
+            return np.nan
+            
+        if radius_range is None:
+            r_min = np.percentile(dists, 10)
+            r_max = np.percentile(dists, 50)
+            if r_min <= 0 or r_max <= 0 or r_min >= r_max:
+                r_min = np.min(dists)
+                r_max = np.max(dists)
+                if r_min >= r_max or r_min <= 0:
+                    return np.nan
+            radius_range = np.logspace(np.log10(r_min), np.log10(r_max), num=5)
+            
+        log_r = []
+        log_cr = []
+        n_pairs = len(dists)
+        
+        for r in radius_range:
+            count = np.sum(dists < r)
+            if count > 0:
+                log_r.append(np.log(r))
+                log_cr.append(np.log(count / n_pairs))
+                
+        if len(log_r) < 2:
+            return np.nan
+            
+        slope, _ = np.polyfit(log_r, log_cr, 1)
+        return float(slope) if np.isfinite(slope) else np.nan
+    except Exception:
+        return np.nan
+
+def compute_rqa(signal, emb_dim=3, lag=1, threshold=None):
+    """
+    Compute Recurrence Quantification Analysis (RQA) features.
+    """
+    try:
+        x = np.asarray(signal, dtype=float)
+        n = len(x)
+        m = emb_dim
+        n_emb = n - (m - 1) * lag
+        if n_emb <= 5:
+            return {
+                "rqa_rr": np.nan,
+                "rqa_det": np.nan,
+                "rqa_lmax": np.nan,
+                "rqa_entr": np.nan
+            }
+            
+        if n_emb > 300:
+            Y = np.array([x[i:i+m*lag:lag] for i in range(300)])
+            n_emb = 300
+        else:
+            Y = np.array([x[i:i+m*lag:lag] for i in range(n_emb)])
+            
+        from scipy.spatial.distance import cdist
+        D = cdist(Y, Y)
+        
+        if threshold is None:
+            threshold = 0.1 * np.mean(D)
+            if threshold <= 0:
+                threshold = 0.1
+                
+        R = (D < threshold).astype(int)
+        RR = float(np.mean(R))
+        
+        diag_lengths = []
+        for d in range(1, n_emb):
+            diag = np.diagonal(R, offset=d)
+            current_len = 0
+            for val in diag:
+                if val == 1:
+                    current_len += 1
+                else:
+                    if current_len > 0:
+                        diag_lengths.append(current_len)
+                        current_len = 0
+            if current_len > 0:
+                diag_lengths.append(current_len)
+                
+        diag_lengths = np.array(diag_lengths)
+        lengths_ge_2 = diag_lengths[diag_lengths >= 2]
+        total_recurrences_in_diags = np.sum(diag_lengths)
+        
+        if total_recurrences_in_diags == 0 or len(lengths_ge_2) == 0:
+            DET = 0.0
+            L_max = 0.0
+            ENTR = 0.0
+        else:
+            DET = float(np.sum(lengths_ge_2) / total_recurrences_in_diags)
+            L_max = float(np.max(lengths_ge_2))
+            
+            unique, counts = np.unique(lengths_ge_2, return_counts=True)
+            probs = counts / np.sum(counts)
+            ENTR = float(-np.sum(probs * np.log(probs)))
+            
+        return {
+            "rqa_rr": RR,
+            "rqa_det": DET,
+            "rqa_lmax": L_max,
+            "rqa_entr": ENTR
+        }
+    except Exception:
+        return {
+            "rqa_rr": np.nan,
+            "rqa_det": np.nan,
+            "rqa_lmax": np.nan,
+            "rqa_entr": np.nan
+        }
+
+def compute_multiscale_entropy(signal, scales=[1,2,3,4,5], r_factor=0.15):
+    """
+    Compute Area Under Curve of Sample Entropy across multiple temporal scales.
+    """
+    try:
+        x = np.asarray(signal, dtype=float)
+        n = len(x)
+        if n <= 10:
+            return np.nan
+            
+        samp_entropies = []
+        for s in scales:
+            n_cg = n // s
+            if n_cg <= 5:
+                continue
+            
+            cg_signal = np.array([np.mean(x[i*s : (i+1)*s]) for i in range(n_cg)])
+            se = compute_sample_entropy(cg_signal, m=2, r=r_factor)
+            if np.isnan(se) or np.isinf(se):
+                se = compute_sample_entropy(cg_signal, m=1, r=r_factor)
+                
+            if not np.isnan(se) and not np.isinf(se):
+                samp_entropies.append(se)
+            else:
+                samp_entropies.append(0.0)
+                
+        if len(samp_entropies) < 2:
+            return np.nan
+            
+        area = np.trapz(samp_entropies, x=scales[:len(samp_entropies)])
+        return float(area) if np.isfinite(area) else np.nan
+    except Exception:
+        return np.nan
+
+def extract_ev3_deep(signal):
+    """
+    Extracts the EV3_DEEP feature vector (68 dimensions total):
+    - EV3 Original (8D)
+    - EV3 Extended (15D)
+    - Topological Features (15D)
+    - Geometric Features (20D)
+    - Koopman Features (10D)
+    """
+    # 1. EV3 Original (8D)
+    ev3_orig = extract_ev3_features(signal, extended=False, deep=False)
+    
+    # 2. EV3 Extended (15D)
+    ev3_ext = extract_ev3_features(signal, extended=True, deep=False)
+    
+    # 3. Topological features (15D)
+    try:
+        topological_feats = tda.extract_topological_features(signal, emb_dim=3, lag=1)
+    except Exception as e:
+        print(f"  [TDA ERROR] extract_topological_features failed: {e}")
+        topological_feats = np.full(15, np.nan)
+        
+    # 4. Geometric features (20D)
+    try:
+        geometric_feats = geom.extract_geometric_features(signal, emb_dim=3, lag=1)
+    except Exception as e:
+        print(f"  [GEOM ERROR] extract_geometric_features failed: {e}")
+        geometric_feats = np.full(20, np.nan)
+        
+    # 5. Koopman features (10D)
+    try:
+        koopman_feats = koop.extract_koopman_features(signal, emb_dim=3, lag=1)
+    except Exception as e:
+        print(f"  [KOOPMAN ERROR] extract_koopman_features failed: {e}")
+        koopman_feats = np.full(10, np.nan)
+        
+    # Ensure they are clean arrays/lists
+    topological_feats = [float(f) if np.isfinite(f) else np.nan for f in topological_feats]
+    geometric_feats = [float(f) if np.isfinite(f) else np.nan for f in geometric_feats]
+    koopman_feats = [float(f) if np.isfinite(f) else np.nan for f in koopman_feats]
+    
+    return np.concatenate([
+        ev3_orig,
+        ev3_ext,
+        topological_feats,
+        geometric_feats,
+        koopman_feats
+    ])
+
+def impute_nan_features(X_features):
+    """
+    Imputes NaN values in a feature matrix/vector by replacing them with the column-wise mean.
+    If an entire column is NaN, replaces them with 0.0.
+    Logs a warning if any NaNs were detected and imputed.
+    """
+    X = np.array(X_features, dtype=float)
+    is_1d = (X.ndim == 1)
+    if is_1d:
+        X = X.reshape(1, -1)
+        
+    n_samples, n_feats = X.shape
+    nan_counts = np.isnan(X).sum(axis=0)
+    
+    if np.any(nan_counts > 0):
+        print(f"  [FEATURE WARNING] NaNs detected in feature extraction: {np.sum(nan_counts)} NaNs across {np.sum(nan_counts > 0)} features.")
+        for col in range(n_feats):
+            if nan_counts[col] > 0:
+                col_vals = X[:, col]
+                non_nan_vals = col_vals[~np.isnan(col_vals)]
+                if len(non_nan_vals) > 0:
+                    mean_val = float(np.mean(non_nan_vals))
+                    X[np.isnan(col_vals), col] = mean_val
+                    print(f"    - Feature index {col}: Imputed {nan_counts[col]} NaNs with mean value {mean_val:.6f}")
+                else:
+                    X[:, col] = 0.0
+                    print(f"    - Feature index {col}: Entire batch was NaN. Imputed with 0.0")
+                    
+    if is_1d:
+        return X.flatten()
+    return X
+
+def extract_ev3_features(signal, extended=False, deep=False, scientific=False):
+    """
+    Extracts the EV3 dynamic amplitude-invariant feature vector.
+    If extended=False and deep=False, returns standard 8 features.
+    If extended=True, returns 15 features (EV3_EXTENDED).
+    If deep=True, returns 68 features (EV3_DEEP).
+    If scientific=True, returns 84 features (EV3_SCIENTIFIC) including deep and model-derived features.
+    """
+    if scientific:
+        import ev3_neural
+        return ev3_neural.extract_ev3_scientific(signal)
+        
+    if deep:
+        return extract_ev3_deep(signal)
+        
+    dt = 0.01
+    emb = compute_embedding_vector(signal, dt)
+    ev3 = [
+        emb["perm_entropy"],
+        emb["spectral_entropy"],
+        emb["svd_entropy"],
+        emb["fractal_dim"],
+        emb["autocorr_decay"],
+        emb["robust_skewness"],
+        emb["robust_kurtosis"],
+        emb["temporal_irreversibility"]
+    ]
+    
+    # Fill standard features nan check
+    ev3 = [float(f) if np.isfinite(f) else 0.0 for f in ev3]
+    
+    if not extended:
+        return np.array(ev3, dtype=float)
+        
+    lyap = compute_lyapunov_exponent(signal, emb_dim=3, lag=1, dt=dt)
+    corr_dim = compute_correlation_dimension(signal, emb_dim=3, lag=1)
+    
+    rqa = compute_rqa(signal, emb_dim=3, lag=1)
+    rqa_rr = rqa["rqa_rr"]
+    rqa_det = rqa["rqa_det"]
+    rqa_lmax = rqa["rqa_lmax"]
+    rqa_entr = rqa["rqa_entr"]
+    
+    mse = compute_multiscale_entropy(signal, scales=[1,2,3,4,5], r_factor=0.15)
+    
+    extended_features = [
+        lyap,
+        corr_dim,
+        rqa_rr,
+        rqa_det,
+        rqa_lmax,
+        rqa_entr,
+        mse
+    ]
+    
+    # Handle nan checks for extended features
+    extended_features = [float(f) if np.isfinite(f) else np.nan for f in extended_features]
+    
+    return np.concatenate([ev3, extended_features])
 
 
 # ── MAIN V3 EMBEDDING VECTOR ──────────────────────────────────────────────────

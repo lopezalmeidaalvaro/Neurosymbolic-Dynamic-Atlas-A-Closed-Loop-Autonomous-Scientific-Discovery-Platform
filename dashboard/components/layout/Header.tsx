@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { GraduationCap, Smile } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 import { useAppStore } from '@/stores/appStore';
 import { StatusIndicator } from '@/components/ui/StatusIndicator';
@@ -16,7 +17,7 @@ interface HeaderProps {
 }
 
 export function Header({ lang, dict }: HeaderProps) {
-  const { systemStatus } = useAppStore();
+  const { systemStatus, isTeenagerMode, toggleTeenagerMode } = useAppStore();
 
   return (
     <motion.header
@@ -31,6 +32,31 @@ export function Header({ lang, dict }: HeaderProps) {
       <div className="flex items-center gap-2 sm:gap-3">
         <FocusMode />
         <ComplexitySwitcher dict={dict} />
+        
+        <button
+          type="button"
+          onClick={toggleTeenagerMode}
+          className={cn(
+            'flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border transition-all duration-150 text-xs font-medium cursor-pointer',
+            isTeenagerMode
+              ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/20 shadow-[0_0_12px_rgba(16,185,129,0.12)]'
+              : 'border-white/10 bg-white/[0.03] text-white/30 hover:text-white/60'
+          )}
+          title={isTeenagerMode ? 'Switch to Scientific Mode' : 'Switch to Teenager Mode (ELI15)'}
+        >
+          {isTeenagerMode ? (
+            <>
+              <Smile size={13} className="text-emerald-400" />
+              <span className="hidden sm:inline">{lang === 'es' ? 'Modo ELI15' : 'ELI15 Mode'}</span>
+            </>
+          ) : (
+            <>
+              <GraduationCap size={13} />
+              <span className="hidden sm:inline">{lang === 'es' ? 'Modo Científico' : 'Scientific Mode'}</span>
+            </>
+          )}
+        </button>
+
         <div className={cn('hidden h-4 w-px bg-white/10 sm:block')} />
         <StatusIndicator status={systemStatus} dict={dict} />
         <div className={cn('h-4 w-px bg-white/10')} />

@@ -1,0 +1,22 @@
+{
+  "system": "van_der_pol",
+  "method": "sindy",
+  "discovered_equations": {
+    "dx": " 1.000 x1",
+    "dv": "-1.000 x0 +  1.499 x1 + -1.499 x0^2 x1"
+  },
+  "penalties": {
+    "dx": 2.0,
+    "dv": 2.0
+  },
+  "evaluation": {
+    "match": true,
+    "simplified_diff": {
+      "x": "0",
+      "v": "0.00099999999999989*v*(x**2 - 1)"
+    },
+    "jaccard_terms": 1.0,
+    "coefficient_error": 0.0
+  },
+  "success": true
+}

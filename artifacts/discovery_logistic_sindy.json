@@ -1,0 +1,19 @@
+{
+  "system": "logistic",
+  "method": "sindy",
+  "discovered_equations": {
+    "x_next": "-0.67*x**3 + 0.15*sin(x)"
+  },
+  "penalties": {
+    "x_next": 2.0
+  },
+  "evaluation": {
+    "match": false,
+    "simplified_diff": {
+      "x": "-0.67*x**3 + 3.9*x*(x - 1) + 0.15*sin(x)"
+    },
+    "jaccard_terms": 0.0,
+    "coefficient_error": 0.0
+  },
+  "success": false
+}

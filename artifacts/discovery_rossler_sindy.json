@@ -1,0 +1,25 @@
+{
+  "system": "rossler",
+  "method": "sindy",
+  "discovered_equations": {
+    "dx": "-1.000 x1 + -1.000 x2",
+    "dy": " 1.000 x0 +  0.200 x1",
+    "dz": " 0.200 1 + -5.697 x2 +  0.999 x0 x2"
+  },
+  "penalties": {
+    "dx": 2.0,
+    "dy": 2.0,
+    "dz": 2.0
+  },
+  "evaluation": {
+    "match": true,
+    "simplified_diff": {
+      "x": "0",
+      "y": "0",
+      "z": "-x*z + 0.00300000000000011*z + 9.9999999999989e-5"
+    },
+    "jaccard_terms": 0.8888888888888888,
+    "coefficient_error": 0.02
+  },
+  "success": true
+}
