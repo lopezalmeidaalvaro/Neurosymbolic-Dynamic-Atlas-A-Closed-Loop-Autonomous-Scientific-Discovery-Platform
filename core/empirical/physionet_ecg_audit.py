@@ -255,9 +255,9 @@ def main():
     print(f"  Validation Set: {len(X_val_v3)} biological ECG window embeddings")
     
     # ─────────────────────────────────────────────────────────────────────────────
-    # TEST 3: EPISTEMOLOGICAL CAUSAL RE-AUDIT ON BIOLOGICAL DATA
-    # ─────────────────────────────────────────────────────────────────────────────
-    print("\n[TEST 3] Running Epistemological Causal Re-Audit on ECG classification...")
+    # TEST 3: STATISTICAL CAUSAL RE-AUDIT ON BIOLOGICAL DATA
+    # Medir si C_i (importancia de las variables) se preserva
+    print("\n[TEST 3] Running Statistical Causal Re-Audit on ECG classification...")
     
     clf_ecg = RandomForestClassifier(n_estimators=100, random_state=42)
     clf_ecg.fit(X_train_v3, y_train)

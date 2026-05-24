@@ -167,12 +167,12 @@ def compute_nmi(x, y, bins=20):
     return float(mi / denom)
 
 # ─────────────────────────────────────────────────────────────────────────────
-# MAIN EPISTEMOLOGICAL AUDIT
+# MAIN CROSS-DOMAIN VALIDITY AUDIT
 # ─────────────────────────────────────────────────────────────────────────────
 
 def main():
     print("=" * 75)
-    print("🕵️‍♂️ PRINCIPAL COMPUTATIONAL PHYSICS AUDITOR — EPISTEMOLOGICAL VALIDITY AUDIT")
+    print("🕵️‍♂️ PRINCIPAL COMPUTATIONAL PHYSICS AUDITOR — CROSS-DOMAIN VALIDITY AUDIT")
     print("=" * 75)
     print("PURIFYING CAUSAL METRICS USING TREESHAP & MUTUAL INFORMATION...")
     
@@ -359,7 +359,7 @@ def main():
     # ─────────────────────────────────────────────────────────────────────────────
     # STEP 5: CAUSAL RE-CLASSIFICATION & SCORES (TEST 4)
     # ─────────────────────────────────────────────────────────────────────────────
-    print("\n[TEST 4] Calculating purified Causal Scores C_i & Epistemological roles...")
+    print("\n[TEST 4] Calculating purified Causal Scores C_i & Statistical roles...")
     
     # We obtain the isolated sufficiency AUC_i by training on single features
     sufficiency_aucs = {}
@@ -463,7 +463,7 @@ def main():
     report = {
         "metadata": {
             "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-            "audit_type": "Epistemological Validity Audit",
+            "audit_type": "Cross-Domain Validity Audit",
             "ranking_changed": ranking_changed,
             "full_val_auc": auc_full
         },
@@ -491,7 +491,7 @@ def main():
     
     # ── REQUIRED TERMINAL DUMP ────────────────────────────────────────────────
     print("\n" + "=" * 75)
-    print("🏁 FINAL EPISTEMOLOGICAL AUDIT REPORT SUMMARY")
+    print("🏁 FINAL CROSS-DOMAIN AUDIT REPORT SUMMARY")
     print("=" * 75)
     print("CRITICAL_COMPONENT     = " + (", ".join(critical_comp) if critical_comp else "NONE"))
     print("SUPPORTING_COMPONENT   = " + (", ".join(supporting_comp) if supporting_comp else "NONE"))
@@ -500,7 +500,7 @@ def main():
     print("AUXILIARY_COMPONENT    = " + (", ".join(auxiliary_comp) if auxiliary_comp else "NONE"))
     print("UNSTABLE_COMPONENT     = " + (", ".join(unstable_comp) if unstable_comp else "NONE"))
     print("")
-    print(f"Epistemological Audit completed in {t_end - t_start:.2f} seconds.")
+    print(f"Cross-Domain Audit completed in {t_end - t_start:.2f} seconds.")
     print("Report saved to: " + REPORT_FILE)
     print("=" * 75)
 

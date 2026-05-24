@@ -62,10 +62,10 @@ export function NoiseRobustnessObservatory({ lang }: NoiseRobustnessObservatoryP
           <h3 className="text-lg font-semibold text-slate-100">
             {lang === 'es' ? 'Reporte no disponible' : 'Report Unavailable'}
           </h3>
-          <p className="max-w-md text-sm leading-6 text-slate-400">
-            {lang === 'es'
-              ? 'El reporte de resistencia al ruido no está disponible. Ejecuta un barrido de ruido autónomo (python run_autonomous_sweep.py) en el backend para generar la telemetría.'
-              : 'The noise robustness report is not available. Run an autonomous noise sweep (python run_autonomous_sweep.py) in the backend to generate the telemetry.'}
+          <p className="text-gray-400 mt-2 text-sm max-w-xl mx-auto">
+            {lang === 'es' 
+              ? 'El reporte de resistencia al ruido no está disponible. Ejecuta un barrido de ruido automatizado (python run_autonomous_sweep.py) en el backend para generar la telemetría.' 
+              : 'The noise robustness report is not available. Run an automated noise sweep (python run_autonomous_sweep.py) in the backend to generate the telemetry.'}
           </p>
         </div>
       </GlassPanel>
@@ -114,7 +114,7 @@ export function NoiseRobustnessObservatory({ lang }: NoiseRobustnessObservatoryP
           <div>
             <span className="research-kicker mb-3">
               <Activity size={13} />
-              {lang === 'es' ? 'BARRIDO AUTÓNOMO DE RUIDO' : 'AUTONOMOUS NOISE SWEEP'}
+              {lang === 'es' ? 'BARRIDO AUTOMATIZADO DE RUIDO' : 'AUTOMATED NOISE SWEEP'}
             </span>
             <h2 className="cinematic-heading text-3xl sm:text-4xl">
               {lang === 'es'

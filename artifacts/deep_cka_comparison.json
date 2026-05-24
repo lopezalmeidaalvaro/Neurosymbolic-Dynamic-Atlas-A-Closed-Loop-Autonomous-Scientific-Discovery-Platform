@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "timestamp": "2026-05-24T00:06:52Z",
+        "audit_type": "Deep vs EV3 Representational CKA Comparison",
+        "model_architecture": "ResNet18-1D",
+        "extracted_layer": "AdaptiveAvgPool1d"
+    },
+    "deep_representation_shift": {
+        "CKA_A_C": 0.03865678608417511,
+        "D_emb_A_C": 0.9613432139158249,
+        "CKA_B_C": 0.1667594313621521,
+        "D_emb_B_C": 0.8332405686378479
+    },
+    "ev3_representation_shift": {
+        "CKA_A_C": 0.017540938867348546,
+        "D_emb_A_C": 0.9824590611326515,
+        "CKA_B_C": 0.007278798694456187,
+        "D_emb_B_C": 0.9927212013055439
+    },
+    "comparison_analysis": {
+        "difference_D_emb_A_C": 0.021115847216826578,
+        "difference_D_emb_B_C": 0.15948063266769597,
+        "degradation_in_deep_space": false
+    }
+}

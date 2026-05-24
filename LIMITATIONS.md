@@ -1,6 +1,6 @@
-# Methodological and Scientific Limitations
+# Threats to Validity
 
-This document outlines the current limitations of the Neurosymbolic Automated Discovery Engine. It serves as a statement of intellectual transparency for researchers, reviewers, and contributors.
+This document outlines the current limitations of the Neurosymbolic Automated Discovery Engine.
 
 ## 1. Geometric and Topological Proxies
 
@@ -9,7 +9,7 @@ This document outlines the current limitations of the Neurosymbolic Automated Di
 
 ## 2. Hypothesis Generation and Autonomy
 
-- **Hardcoded Falsification:** The current epistemic engine uses pre-programmed statistical thresholds (e.g., Pearson correlation constraints and fixed noise perturbations). It does not autonomously design the mathematical logic of the statistical tests.
+- **Hardcoded Falsification:** The current automated statistical pipeline uses pre-programmed statistical thresholds (e.g., Pearson correlation constraints and fixed noise perturbations). It does not autonomously design the mathematical logic of the statistical tests.
 - **Human-in-the-Loop:** While the execution, artifact generation, and SQLite tracking are automated, the initial feature selection and the interpretation of the semantic `meta_insights` rely heavily on human design and prompting.
 
 ## 3. Benchmarking and Baselines

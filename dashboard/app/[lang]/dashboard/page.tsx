@@ -36,7 +36,7 @@ export default async function DashboardPage({
           <Reveal className="max-w-3xl self-center">
             <span className="research-kicker mb-6">
               <RadioTower size={13} />
-              {lang === 'es' ? 'Observatorio autonomo' : 'Autonomous observatory'}
+              {lang === 'es' ? 'Observatorio automatizado' : 'Automated observatory'}
             </span>
             <h1 className="cinematic-heading text-5xl sm:text-6xl lg:text-7xl">
               <Balancer>{projectInfo.name}</Balancer>

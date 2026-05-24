@@ -8,7 +8,7 @@ This document traces the mathematical and empirical evolution of our strange att
 
 In the early phases of this project, the strange attractor classification was heavily dependent on traditional deep sequential architectures (such as ROCKET and Dynamic Time Warping 1-NN). While these SOTA baselines yielded 100.00% accuracy on synthetic, noise-free time series (e.g., separating clean Lorenz, Rössler, and Chua trajectories), they suffered from severe methodological limitations:
 - **Inference Latency:** DTW requires $O(N^2)$ sequence alignments, while ROCKET projects signals through 10,000 random convolutional kernels, making them computationally prohibitive for real-time biological telemetry.
-- **Explainability Deficit:** These models operated as epistemological "black boxes." They could separate chaotic attractors, but could not describe the underlying physical or dynamical invariants (e.g., entropy, fractal scaling, time-reversal asymmetry) driving the classification.
+- **Explainability Deficit:** These models operated as statistical "black boxes." They could separate chaotic attractors, but could not describe the underlying physical or dynamical invariants (e.g., entropy, fractal scaling, time-reversal asymmetry) driving the classification.
 - **Instrumental Fragility:** High performance on synthetic maps collapsed completely under non-stationary noise, baseline wanders, and amplitude transformations.
 
 To address this, we developed **Embedding V2** and subsequently **Embedding V3 (8D Amplitude-Invariant feature space)**. None of the V3 features scale with signal amplitude, variance, or energy:
@@ -61,7 +61,7 @@ We discovered a fundamental structural asymmetry in how the representation gener
 ```
 
 ### The Analytical Paradox
-1. **Clinical Success:** The 8D V3 features trained on patient ECGs achieve a high classification performance (**ROC-AUC = 0.830 on raw signals**, and **0.847 on filtered signals**), with a positive epistemological robustness ($\Delta AUC_{noise} = +0.0171$).
+1. **Clinical Success:** The 8D V3 features trained on patient ECGs achieve a high classification performance (**ROC-AUC = 0.830 on raw signals**, and **0.847 on filtered signals**), with a positive statistical robustness ($\Delta AUC_{noise} = +0.0171$).
 2. **Geometric Collapse:** Linear Centered Kernel Alignment (CKA) between the synthetic and clinical representations reveals a near-total geometric deformation:
    $$D_{emb} = 1 - CKA(E_A, E_C) = 0.982$$
    This proves that there is **zero universal geometric transport** ($p = 0.1688$). The latent manifold completely shifts and deforms between theory and clinic.

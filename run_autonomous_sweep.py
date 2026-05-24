@@ -15,7 +15,7 @@ from core.autonomous import (
 
 def main():
     print("=" * 60)
-    print("🚀 INICIANDO BARRIDO AUTÓNOMO DE RUIDO (AUTONOMOUS SWEEP)")
+    print("🚀 INICIANDO BARRIDO AUTOMATIZADO DE RUIDO (AUTOMATED SWEEP)")
     print("=" * 60)
     
     # Noise grid levels (short sweep for testing as specified by user)

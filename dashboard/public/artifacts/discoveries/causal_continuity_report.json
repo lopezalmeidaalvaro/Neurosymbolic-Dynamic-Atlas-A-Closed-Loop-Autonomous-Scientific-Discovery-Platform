@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "timestamp": "2026-05-23T10:21:33Z",
+    "timestamp": "2026-05-24T00:01:23Z",
     "audit_type": "causal representational continuity validation",
     "version": "V3",
     "weights": {
@@ -16,6 +16,12 @@
     "domain_b_samples": 1000,
     "domain_c_samples": 590,
     "domain_n_samples": 1000
+  },
+  "permutation_test": {
+    "p_value": 1.0,
+    "K_obs": 0.6190476190476192,
+    "ci_null_lower": 0.9523809523809526,
+    "ci_null_upper": 1.0
   },
   "test2_bootstrap_attributions": {
     "domain_a": {

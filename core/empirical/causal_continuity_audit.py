@@ -424,6 +424,136 @@ def run_bootstrap_attributions(X, y, domain_name, M=50):
         
     return C_bar, feature_details
 
+def permutation_test_continuity(X_domA, X_domC, X_domN, n_perm=10000, random_state=42, y_domA=None, y_domC=None, y_domN=None):
+    """
+    Executes a rigorous permutation test for the geometric continuity hypothesis.
+    """
+    print(f"  Initiating Permutation Test with n_perm={n_perm}...")
+    
+    if y_domA is None or y_domC is None or y_domN is None:
+        # Fallback to standard labels if not provided
+        y_domA = np.concatenate([np.ones(len(X_domA) // 2), np.zeros(len(X_domA) // 2)])
+        y_domC = np.concatenate([np.ones(len(X_domC) // 2), np.zeros(len(X_domC) // 2)])
+        y_domN = np.concatenate([np.ones(len(X_domN) // 2), np.zeros(len(X_domN) // 2)])
+        
+    # Align domains by class count to keep samples coupled
+    n_class_A_1 = np.sum(y_domA == 1)
+    n_class_A_0 = np.sum(y_domA == 0)
+    n_class_C_1 = np.sum(y_domC == 1)
+    n_class_C_0 = np.sum(y_domC == 0)
+    n_class_N_1 = np.sum(y_domN == 1)
+    n_class_N_0 = np.sum(y_domN == 0)
+
+    n_samples_per_class = min(
+        n_class_A_1, n_class_A_0,
+        n_class_C_1, n_class_C_0,
+        n_class_N_1, n_class_N_0
+    )
+
+    def align_domain(X, y, n_samples):
+        idx_1 = np.where(y == 1)[0][:n_samples]
+        idx_0 = np.where(y == 0)[0][:n_samples]
+        idx_all = np.concatenate([idx_1, idx_0])
+        return X[idx_all], y[idx_all]
+
+    X_A_aligned, y_aligned = align_domain(X_domA, y_domA, n_samples_per_class)
+    X_C_aligned, _ = align_domain(X_domC, y_domC, n_samples_per_class)
+    X_N_aligned, _ = align_domain(X_domN, y_domN, n_samples_per_class)
+    
+    # Train 100-tree RF models on each domain
+    clf_A = RandomForestClassifier(n_estimators=100, random_state=random_state)
+    clf_A.fit(X_A_aligned, y_aligned)
+
+    clf_C = RandomForestClassifier(n_estimators=100, random_state=random_state)
+    clf_C.fit(X_C_aligned, y_aligned)
+
+    clf_N = RandomForestClassifier(n_estimators=100, random_state=random_state)
+    clf_N.fit(X_N_aligned, y_aligned)
+    
+    # Extract TreeSHAP attributions
+    explainer_A = shap.TreeExplainer(clf_A)
+    shap_values_A = explainer_A.shap_values(X_A_aligned)
+
+    explainer_C = shap.TreeExplainer(clf_C)
+    shap_values_C = explainer_C.shap_values(X_C_aligned)
+
+    explainer_N = shap.TreeExplainer(clf_N)
+    shap_values_N = explainer_N.shap_values(X_N_aligned)
+    
+    def get_shap_c1(vals):
+        if isinstance(vals, list):
+            return vals[1]
+        elif len(vals.shape) == 3:
+            return vals[:, :, 1]
+        else:
+            return vals
+
+    shap_A = get_shap_c1(shap_values_A)
+    shap_C = get_shap_c1(shap_values_C)
+    shap_N = get_shap_c1(shap_values_N)
+    
+    def compute_K_from_shap(s_A, s_C, s_N):
+        mean_A = np.mean(np.abs(s_A), axis=0)
+        mean_C = np.mean(np.abs(s_C), axis=0)
+        mean_N = np.mean(np.abs(s_N), axis=0)
+        
+        s1 = spearmanr(mean_A, mean_C)[0]
+        s2 = spearmanr(mean_C, mean_N)[0]
+        s3 = spearmanr(mean_A, mean_N)[0]
+        return float(s1 + s2 - s3)
+        
+    K_obs = compute_K_from_shap(shap_A, shap_C, shap_N)
+    print(f"    - Observed Continuity K: {K_obs:.6f}")
+    
+    # Run shuffling permutations
+    np.random.seed(random_state)
+    null_K = []
+    N = len(y_aligned)
+    
+    shap_all = np.stack([shap_A, shap_C, shap_N], axis=1) # shape (N, 3, 8)
+    
+    perms = np.array([
+        [0, 1, 2],
+        [0, 2, 1],
+        [1, 0, 2],
+        [1, 2, 0],
+        [2, 0, 1],
+        [2, 1, 0]
+    ])
+    
+    print("    - Computing permuted null distribution...")
+    for _ in range(n_perm):
+        idx = np.random.randint(6, size=N)
+        row_perms = perms[idx]
+        shap_perm = shap_all[np.arange(N)[:, None], row_perms]
+        
+        K_perm = compute_K_from_shap(shap_perm[:, 0, :], shap_perm[:, 1, :], shap_perm[:, 2, :])
+        null_K.append(K_perm)
+        
+    null_K = np.array(null_K)
+    p_value = float(np.sum(null_K >= K_obs) / n_perm)
+    ci_lower = float(np.percentile(null_K, 2.5))
+    ci_upper = float(np.percentile(null_K, 97.5))
+    
+    print(f"    - Permutation test results: p_val={p_value:.4f}, CI_null=[{ci_lower:.4f}, {ci_upper:.4f}]")
+    
+    # Export results to json
+    results = {
+        "p_value": p_value,
+        "ΔK_obs": K_obs,
+        "CI_null_lower": ci_lower,
+        "CI_null_upper": ci_upper
+    }
+    
+    out_dir = os.path.join(ROOT_DIR, "artifacts")
+    os.makedirs(out_dir, exist_ok=True)
+    out_file = os.path.join(out_dir, "permutation_results.json")
+    with open(out_file, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=4)
+    print(f"  Permutation results exported to: {out_file}")
+    
+    return p_value, K_obs, ci_lower, ci_upper
+
 # ─────────────────────────────────────────────────────────────────────────────
 # MAIN CONTINUITY PROCESSOR
 # ─────────────────────────────────────────────────────────────────────────────
@@ -435,13 +565,19 @@ def main():
     print("🔮 PRINCIPAL COMPUTATIONAL PHYSICS AUDITOR — CAUSAL CONTINUITY AUDIT")
     print("=" * 80)
     
-    # TEST 1 — DOMAIN CONSTRUCTION
+    # TEST 1 — DOMAIN CONSTRUCTION & PERMUTATION TEST
     print("\n[TEST 1] Slicing and constructing domain structures...")
     
     X_A, y_A = build_domain_a_synthetic()
     X_B, y_B = build_domain_b_composite()
     X_C, y_C = build_domain_c_clinical()
     X_N, y_N = build_domain_n_null()
+    
+    print("\n⚡ Running Rigorous Permutation Test for Geometric Continuity Hypothesis...")
+    p_value, K_obs, ci_lower, ci_upper = permutation_test_continuity(
+        X_A, X_C, X_N, n_perm=10000, random_state=42,
+        y_domA=y_A, y_domC=y_C, y_domN=y_N
+    )
     
     print(f"\n  Successfully compiled domain points:")
     print(f"    - Domain A (Synthetic) : {X_A.shape[0]} windows")
@@ -454,6 +590,101 @@ def main():
     C_bar_B, details_B = run_bootstrap_attributions(X_B, y_B, "B — Composite Biophysical")
     C_bar_C, details_C = run_bootstrap_attributions(X_C, y_C, "C — Clinical")
     C_bar_N, details_N = run_bootstrap_attributions(X_N, y_N, "N — Null Control")
+    
+    # ── 1000 BOOTSTRAP RESAMPLES FOR GEOMETRIC DEFORMATION ────────────────────
+    print("\n⚡ Running 1000 Bootstrap Resamples for D_emb and D_attr distributions...")
+    D_emb_samples = []
+    D_attr_samples = []
+    
+    # Train/test split exactly like in run_bootstrap_attributions
+    X_A_train, X_A_test, y_A_train, y_A_test = train_test_split(X_A, y_A, test_size=0.3, random_state=42)
+    X_C_train, X_C_test, y_C_train, y_C_test = train_test_split(X_C, y_C, test_size=0.3, random_state=42)
+    
+    min_samples = min(len(X_A), len(X_C))
+    
+    def get_shap_c1_local(vals):
+        if isinstance(vals, list):
+            return vals[1]
+        elif len(vals.shape) == 3:
+            return vals[:, :, 1]
+        else:
+            return vals
+            
+    for m in range(1000):
+        # 1. Bootstrap A
+        np.random.seed(m)
+        idx_A = np.random.choice(len(X_A_train), len(X_A_train), replace=True)
+        X_A_boot = X_A_train[idx_A]
+        y_A_boot = y_A_train[idx_A]
+        
+        clf_A = RandomForestClassifier(n_estimators=100, random_state=42, max_depth=None, n_jobs=-1)
+        clf_A.fit(X_A_boot, y_A_boot)
+        
+        exp_A = shap.TreeExplainer(clf_A)
+        vals_A = exp_A.shap_values(X_A_test)
+        shap_mean_A = np.mean(np.abs(get_shap_c1_local(vals_A)), axis=0)
+        
+        # 2. Bootstrap C
+        idx_C = np.random.choice(len(X_C_train), len(X_C_train), replace=True)
+        X_C_boot = X_C_train[idx_C]
+        y_C_boot = y_C_train[idx_C]
+        
+        clf_C = RandomForestClassifier(n_estimators=100, random_state=42, max_depth=None, n_jobs=-1)
+        clf_C.fit(X_C_boot, y_C_boot)
+        
+        exp_C = shap.TreeExplainer(clf_C)
+        vals_C = exp_C.shap_values(X_C_test)
+        shap_mean_C = np.mean(np.abs(get_shap_c1_local(vals_C)), axis=0)
+        
+        # 3. D_emb (Linear CKA) on bootstrapped input features
+        idx_A_all = np.random.choice(len(X_A), len(X_A), replace=True)
+        idx_C_all = np.random.choice(len(X_C), len(X_C), replace=True)
+        X_A_all_boot = X_A[idx_A_all][:min_samples]
+        X_C_all_boot = X_C[idx_C_all][:min_samples]
+        
+        cka_boot = compute_linear_cka(X_A_all_boot, X_C_all_boot)
+        D_emb_samples.append(1.0 - cka_boot)
+        
+        # 4. D_attr (Spearman) on SHAP importances
+        s3_boot = spearmanr(shap_mean_A, shap_mean_C)[0]
+        D_attr_samples.append(1.0 - s3_boot)
+        
+        if (m + 1) % 200 == 0:
+            print(f"    - Completed {m + 1}/1000 bootstrap iterations...")
+
+    # Calculate statistics and CIs
+    D_emb_samples = np.array(D_emb_samples)
+    D_attr_samples = np.array(D_attr_samples)
+    
+    D_emb_mean = float(np.mean(D_emb_samples))
+    D_emb_ci_lower = float(np.percentile(D_emb_samples, 2.5))
+    D_emb_ci_upper = float(np.percentile(D_emb_samples, 97.5))
+    
+    D_attr_mean = float(np.mean(D_attr_samples))
+    D_attr_ci_lower = float(np.percentile(D_attr_samples, 2.5))
+    D_attr_ci_upper = float(np.percentile(D_attr_samples, 97.5))
+    
+    print(f"  D_emb (CKA)      : {D_emb_mean:.6f} (95% CI: [{D_emb_ci_lower:.6f}, {D_emb_ci_upper:.6f}])")
+    print(f"  D_attr (Spearman): {D_attr_mean:.6f} (95% CI: [{D_attr_ci_lower:.6f}, {D_attr_ci_upper:.6f}])")
+    
+    # Export bootstrap results to artifacts/bootstrap_results.json
+    boot_results = {
+        "D_emb_mean": D_emb_mean,
+        "D_emb_ci_lower": D_emb_ci_lower,
+        "D_emb_ci_upper": D_emb_ci_upper,
+        "D_attr_mean": D_attr_mean,
+        "D_attr_ci_lower": D_attr_ci_lower,
+        "D_attr_ci_upper": D_attr_ci_upper,
+        "D_emb_samples": D_emb_samples.tolist(),
+        "D_attr_samples": D_attr_samples.tolist()
+    }
+    
+    boot_out_dir = os.path.join(ROOT_DIR, "artifacts")
+    os.makedirs(boot_out_dir, exist_ok=True)
+    boot_out_file = os.path.join(boot_out_dir, "bootstrap_results.json")
+    with open(boot_out_file, "w", encoding="utf-8") as f:
+        json.dump(boot_results, f, indent=4)
+    print(f"  Bootstrap results exported to: {boot_out_file}")
     
     # TEST 3 — TRANSITION MATRICES
     print("\n[TEST 3] Calculating Transition Matrix Correlations...")
@@ -536,6 +767,12 @@ def main():
             "domain_c_samples": len(X_C),
             "domain_n_samples": len(X_N)
         },
+        "permutation_test": {
+            "p_value": p_value,
+            "K_obs": K_obs,
+            "ci_null_lower": ci_lower,
+            "ci_null_upper": ci_upper
+        },
         "test2_bootstrap_attributions": {
             "domain_a": details_A,
             "domain_b": details_B,
@@ -587,6 +824,16 @@ def main():
     print(f"  REPRESENTATIONAL CONTINUITY STATUS   : {continuity_status}")
     print("═" * 80)
     
+    # Regenerate Fig 5 KDE plot dynamically
+    print("\n📈 Regenerating Fig 5 KDE plot with real bootstrap results...")
+    try:
+        import subprocess
+        plot_script = os.path.join(ROOT_DIR, "temp_scripts", "fig5_bootstrap_kde.py")
+        subprocess.run(["python", plot_script], check=True)
+        print("  Fig 5 KDE plot successfully regenerated!")
+    except Exception as e:
+        print(f"  Warning: Could not regenerate Fig 5 KDE plot: {e}")
+
     t_end = time.time()
     print(f"Audit completed in {t_end - t_start:.2f} seconds.\n")
 

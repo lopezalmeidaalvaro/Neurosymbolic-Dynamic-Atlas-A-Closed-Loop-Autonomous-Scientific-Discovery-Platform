@@ -424,8 +424,8 @@ def main():
     audit_raw = run_causal_audit(X_train_raw, X_test_raw, y_train, y_test, "CANAL A (RAW_CLINICAL)")
     audit_filt = run_causal_audit(X_train_filt, X_test_filt, y_train, y_test, "CANAL B (MINIMAL_PHYSIOLOGICAL)")
     
-    # TEST 4: Robustness & Epistemological Metrics
-    print("\n[TEST 4] Calculating Robustness & Epistemological Metrics...")
+    # TEST 4: Robustness & Statistical Metrics
+    print("\n[TEST 4] Calculating Robustness & Statistical Metrics...")
     delta_auc = audit_filt["auc"] - audit_raw["auc"]
     s_causal_raw = audit_raw["s_causal"]
     s_causal_filtered = audit_filt["s_causal"]
@@ -502,7 +502,7 @@ def main():
     print("═" * 80)
     print(f"  Survival AUC (Raw)           : {audit_raw['auc']:.6f}")
     print(f"  Survival AUC (Filtered)      : {audit_filt['auc']:.6f}")
-    print(f"  Epistemological ΔAUC         : {delta_auc:+.6f}")
+    print(f"  Statistical ΔAUC         : {delta_auc:+.6f}")
     print(f"  Causal Spearman (Raw)        : {s_causal_raw:.6f}")
     print(f"  Causal Spearman (Filtered)   : {s_causal_filtered:.6f}")
     print("  " + "─" * 76)

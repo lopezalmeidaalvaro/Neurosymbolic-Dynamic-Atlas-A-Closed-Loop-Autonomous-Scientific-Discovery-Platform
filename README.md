@@ -10,14 +10,14 @@ An advanced scientific computing environment and research dashboard investigatin
 
 ---
 
-## 1. The Epistemological Paradox
+## 1. The Cross-Domain Transfer Paradox
 
 A central goal in dynamical systems theory is finding universal representations capable of generalizing from mathematical models (Domain A) to clinical settings (Domain C). 
 
 We audited the **8D Amplitude-Invariant Embedding V3** using a strict patient-level **AAMI clinical partition** on real patient waveforms from the **MIT-BIH Arrhythmia Database (PhysioNet)**. 
 
 ### Key Findings
-- **High Clinical Survivability:** The V3 embedding achieves an ROC-AUC of **0.830** on raw clinical patient waveforms and **0.847** under minimal zero-phase physiological bandpass filtering, yielding an epistemological robustness of $\Delta AUC_{noise} = +0.0171$.
+- **High Clinical Survivability:** The V3 embedding achieves an ROC-AUC of **0.830** on raw clinical patient waveforms and **0.847** under minimal zero-phase physiological bandpass filtering, yielding a statistical robustness of $\Delta AUC_{noise} = +0.0171$.
 - **Universal Geometric Transport Failure ($p = 0.1688$):** Linear Centered Kernel Alignment (CKA) between the synthetic chaotic manifold ($E_A$) and the real clinical manifold ($E_C$) shows near-complete geometric deformation:
   $$D_{emb} = 1 - \text{CKA}(E_A, E_C) = 0.982459$$
 - **Causal Explanation Survival:** Despite the near-total latent space collapse, the global feature attributions remain structurally preserved:
@@ -36,9 +36,9 @@ The core empirical proof of **Asymmetric Representational Decay**. While the lat
 
 ### Additional Figures
 
-*   **Fig 1: Epistemological Validation Pipeline:** Maps the bifurcated continuous data flow from Domain A (Synthetic) and Domain B (Composite Biophysical) into clinical datasets (Domain C).
+*   **Fig 1: Cross-Domain Validation Pipeline:** Maps the bifurcated continuous data flow from Domain A (Synthetic) and Domain B (Composite Biophysical) into clinical datasets (Domain C).
     
-    ![Epistemological Pipeline](figures/fig1_epistemological_pipeline.png)
+    ![Cross-Domain Pipeline](figures/fig1_epistemological_pipeline.png)
 *   **Fig 2: Causal Re-ranking Dynamics:** Displays how feature attributions reorganize when moving from clean mathematical attractors to clinical ECG waveforms.
     
     ![Causal Reranking](figures/fig2_causal_reranking.png)
@@ -79,7 +79,7 @@ Real patient ECG recordings from the **MIT-BIH Arrhythmia Database**, segmented 
 
 ### 3.4 RandomForest Classifier Architecture
 In both audits, we train a `RandomForestClassifier` with `n_estimators=100` and **`max_depth=None`** (unconstrained depth).
-> **Epistemological Rationale:** In high-dimensional datasets, unconstrained depth typically triggers overfitting. However, our **8D Amplitude-Invariant V3 Feature Space** acts as a strong geometric regularizer. By compressing long, noisy time series into exactly 8 low-dimensional dimensionless ratios and normalized entropies, we eliminate the need for depth limits, enabling the decision boundaries to generalize directly to real clinical physiology without structural overfitting.
+> **Statistical Rationale:** In high-dimensional datasets, unconstrained depth typically triggers overfitting. However, our **8D Amplitude-Invariant V3 Feature Space** acts as a strong geometric regularizer. By compressing long, noisy time series into exactly 8 low-dimensional dimensionless ratios and normalized entropies, we eliminate the need for depth limits, enabling the decision boundaries to generalize directly to real clinical physiology without structural overfitting.
 
 ---
 
@@ -89,7 +89,7 @@ In both audits, we train a `RandomForestClassifier` with `n_estimators=100` and 
 root/
 ├── .github/workflows/          # GitHub Actions CI/CD workflows
 ├── core/
-│   ├── autonomous/             # Scheduler, analyzer, and report generators
+│   ├── autonomous/             # Automated execution, analyzer, and report generators
 │   ├── empirical/              # Clinical and continuity audit pipelines
 │   │   ├── mit_bih_bifurcated_audit.py     # RAW vs Filtered ECG Validation
 │   │   └── causal_continuity_audit.py     # Causal Representational Continuity
