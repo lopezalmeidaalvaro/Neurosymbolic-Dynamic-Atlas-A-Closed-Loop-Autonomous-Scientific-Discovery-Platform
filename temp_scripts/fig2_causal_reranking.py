@@ -2,31 +2,35 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-plt.rcParams.update({
-    "text.usetex": True,
-    "font.family": "serif",
-    "font.serif": ["Computer Modern Roman"],
-    # AÑADIDO: Cargar paquetes matemáticos para \mathbb
-    "text.latex.preamble": r"\usepackage{amsfonts} \usepackage{amsmath}",
-    "axes.spines.top": False,
-    "axes.spines.right": False,
-    "axes.labelsize": 12,
-    "xtick.labelsize": 11,
-    "ytick.labelsize": 11,
-    "lines.linewidth": 2.5,
-    "lines.markersize": 8
-})
+plt.rcParams.update(
+    {
+        "text.usetex": True,
+        "font.family": "serif",
+        "font.serif": ["Computer Modern Roman"],
+        # AÑADIDO: Cargar paquetes matemáticos para \mathbb
+        "text.latex.preamble": r"\usepackage{amsfonts} \usepackage{amsmath}",
+        "axes.spines.top": False,
+        "axes.spines.right": False,
+        "axes.labelsize": 12,
+        "xtick.labelsize": 11,
+        "ytick.labelsize": 11,
+        "lines.linewidth": 2.5,
+        "lines.markersize": 8,
+    }
+)
 
 COLORS = {
     "Synthetic": "#1f77b4",
     "Biophysical": "#ff7f0e",
     "Clinical": "#d62728",
-    "Null": "#7f7f7f"
+    "Null": "#7f7f7f",
 }
 
-domains = [r"\textbf{Synthetic}" + "\n" + r"\textbf{Chaos}", 
-           r"\textbf{Composite}" + "\n" + r"\textbf{Biophysical}", 
-           r"\textbf{Clinical}" + "\n" + r"\textbf{ECG}"]
+domains = [
+    r"\textbf{Synthetic}" + "\n" + r"\textbf{Chaos}",
+    r"\textbf{Composite}" + "\n" + r"\textbf{Biophysical}",
+    r"\textbf{Clinical}" + "\n" + r"\textbf{ECG}",
+]
 x = np.array([0, 1, 2])
 
 features = {
@@ -34,7 +38,7 @@ features = {
     r"$H_{SVD}$": [0.10, 0.35, 0.40],
     r"$\tau_{acf}$": [0.05, 0.20, 0.25],
     r"$I_{temp}$": [0.20, 0.15, 0.10],
-    r"Others": [0.20, 0.15, 0.20]
+    r"Others": [0.20, 0.15, 0.20],
 }
 
 fig, ax = plt.subplots(figsize=(8, 6))
@@ -49,10 +53,10 @@ for feat, vals in features.items():
     else:
         color, alpha, lw = COLORS["Null"], 0.5, 1.5
 
-    ax.plot(x, vals, marker='o', color=color, alpha=alpha, linewidth=lw)
-    
+    ax.plot(x, vals, marker="o", color=color, alpha=alpha, linewidth=lw)
+
     label = rf"\textbf{{{feat}}}" if alpha == 1.0 else feat
-    ax.text(x[-1] + 0.05, vals[-1], label, color=color, fontsize=12, va='center')
+    ax.text(x[-1] + 0.05, vals[-1], label, color=color, fontsize=12, va="center")
 
 ax.set_xticks(x)
 ax.set_xticklabels(domains)

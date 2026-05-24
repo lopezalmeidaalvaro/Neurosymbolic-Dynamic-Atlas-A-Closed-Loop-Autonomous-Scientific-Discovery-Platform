@@ -4,10 +4,10 @@ import time
 from datetime import datetime
 
 # ─── CONFIG ───────────────────────────────────────────────────────────────────
-API_KEY      = "AIzaSyAfNHwUYw5YLfK-Mnf7kNnqrK6EyupQ_JE"
-MAX_ITER     = 3
-PAUSA        = 5   # segundos entre iteraciones
-OUTPUT_FILE  = f"investigacion_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+API_KEY = "AIzaSyAfNHwUYw5YLfK-Mnf7kNnqrK6EyupQ_JE"
+MAX_ITER = 3
+PAUSA = 5  # segundos entre iteraciones
+OUTPUT_FILE = f"investigacion_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
 
 genai.configure(api_key=API_KEY)
 
@@ -57,6 +57,7 @@ Problema: cuantización canónica del campo gravitatorio.
 4. Analiza divergencias UV e incluye el bloque JSON al final.
 """
 
+
 def prompt_critica(prev: dict) -> str:
     # Mejora 2: cada iteración recibe los fallos ESPECÍFICOS de la anterior,
     # no un genérico "critica tu propio trabajo".
@@ -77,6 +78,7 @@ TAREA PARA ESTA ITERACIÓN:
 4. Devuelve el bloque JSON actualizado con stability revisada.
 """
 
+
 # ─── PARSERS ──────────────────────────────────────────────────────────────────
 def extraer_json(texto: str) -> dict | None:
     """
@@ -90,7 +92,7 @@ def extraer_json(texto: str) -> dict | None:
         if inicio != -1:
             fin = texto.find("```", inicio + 7)
             if fin != -1:
-                return json.loads(texto[inicio + 7:fin].strip())
+                return json.loads(texto[inicio + 7 : fin].strip())
     except json.JSONDecodeError:
         pass
 
@@ -115,9 +117,12 @@ def extraer_code_execution(response) -> str:
     partes = []
     try:
         for part in response.candidates[0].content.parts:
-            if hasattr(part, 'executable_code') and part.executable_code.code:
+            if hasattr(part, "executable_code") and part.executable_code.code:
                 partes.append(f"[CÓDIGO EJECUTADO]\n{part.executable_code.code}")
-            if hasattr(part, 'code_execution_result') and part.code_execution_result.output:
+            if (
+                hasattr(part, "code_execution_result")
+                and part.code_execution_result.output
+            ):
                 partes.append(f"[OUTPUT]\n{part.code_execution_result.output}")
     except (IndexError, AttributeError):
         pass
@@ -127,11 +132,12 @@ def extraer_code_execution(response) -> str:
 # ─── DISPLAY ──────────────────────────────────────────────────────────────────
 SEP = "─" * 64
 
+
 def imprimir_iteracion(num: int, r: dict, codigo: str):
     estabilidad_label = {
         "UNSTABLE": "✗ INESTABLE",
-        "PARTIAL":  "~ PARCIAL",
-        "STABLE":   "✓ ESTABLE",
+        "PARTIAL": "~ PARCIAL",
+        "STABLE": "✓ ESTABLE",
     }.get(r.get("stability", ""), "? DESCONOCIDO")
 
     print(f"\n{SEP}")
@@ -141,7 +147,7 @@ def imprimir_iteracion(num: int, r: dict, codigo: str):
     print(f"  Hamiltoniano: {r.get('hamiltonian', '')}")
     if codigo:
         print(f"\n{codigo}")
-    print(f"\n  Anomalías detectadas:")
+    print("\n  Anomalías detectadas:")
     for a in r.get("anomalies", []):
         print(f"    • {a}")
     print(f"\n  Punto débil:  {r.get('weak_point', '')}")
@@ -187,7 +193,7 @@ def ejecutar_investigador():
     )
     chat = model.start_chat(history=[])
 
-    resultados    = []
+    resultados = []
     ultimo_result = None
     prompt_actual = PROMPT_INICIAL
 
@@ -195,9 +201,9 @@ def ejecutar_investigador():
         print(f"\n[→] Enviando iteración {intento} / {MAX_ITER}...")
 
         try:
-            response        = chat.send_message(prompt_actual)
+            response = chat.send_message(prompt_actual)
             texto_respuesta = response.text
-            codigo          = extraer_code_execution(response)
+            codigo = extraer_code_execution(response)
 
             resultado = extraer_json(texto_respuesta)
 
@@ -207,7 +213,7 @@ def ejecutar_investigador():
                 time.sleep(PAUSA)
                 continue
 
-            resultado["iteracion"]        = intento
+            resultado["iteracion"] = intento
             resultado["codigo_ejecutado"] = codigo
             ultimo_result = resultado
             resultados.append(resultado)

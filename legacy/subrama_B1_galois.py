@@ -1,18 +1,21 @@
-import json, time, sys
+import json
+import time
+import sys
 import tracemalloc
 import sympy as sp
 from sympy import Poly, Symbol, discriminant, factor, ZZ
 
 OUTPUT = "cert_B1_galois.json"
 
+
 def run():
     tracemalloc.start()
     t0 = time.time()
     errors = []
-    
+
     try:
-        x = Symbol('x')
-        p = x**5 + 3*x**4 - 2*x**3 + 7*x**2 - x + 1
+        x = Symbol("x")
+        p = x**5 + 3 * x**4 - 2 * x**3 + 7 * x**2 - x + 1
         poly = Poly(p, x, domain=ZZ)
 
         is_irreducible = poly.is_irreducible
@@ -37,10 +40,11 @@ def run():
                 frobenius_patterns[str(prime)] = "error"
 
         has_5_cycle = any(p == (5,) for p in cycle_patterns)
-        
+
         import math
+
         sqrt_disc = math.isqrt(abs(disc_val))
-        disc_is_square = (sqrt_disc * sqrt_disc == abs(disc_val))
+        disc_is_square = sqrt_disc * sqrt_disc == abs(disc_val)
 
         if is_irreducible and has_5_cycle and not disc_is_square:
             galois_group = "S5"
@@ -70,7 +74,7 @@ def run():
             "has_5_cycle_in_frobenius": bool(has_5_cycle),
             "galois_group": galois_group,
             "galois_group_confidence": galois_confidence,
-            "solvable_by_radicals": solvable_by_radicals
+            "solvable_by_radicals": solvable_by_radicals,
         }
         status = "SUCCESS"
     except Exception as e:
@@ -88,13 +92,14 @@ def run():
         "invariants": invariants,
         "metrics": {
             "execution_time_sec": round(elapsed, 4),
-            "peak_ram_mb": round(peak / (1024 * 1024), 2)
+            "peak_ram_mb": round(peak / (1024 * 1024), 2),
         },
-        "errors": errors
+        "errors": errors,
     }
 
     with open(OUTPUT, "w") as f:
         json.dump(cert, f, indent=2)
+
 
 if __name__ == "__main__":
     run()

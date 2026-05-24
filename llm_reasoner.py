@@ -14,34 +14,42 @@ if sys.platform.startswith("win"):
     except Exception:
         pass
 
+
 class LLMReasoner:
     """
     Manages communication with reasoning LLMs (OpenAI o1/o3, Anthropic Claude).
     Includes a resilient mock simulation mode when API keys are absent.
     """
+
     def __init__(self, provider="openai", model=None, temperature=0.1):
         self.provider = provider.lower()
         self.temperature = temperature
         self.simulation_mode = False
         self.sessions = {}
-        
+
         if self.provider == "openai":
             self.model = model or "o3-mini"
             self.api_key = os.environ.get("OPENAI_API_KEY")
             if not self.api_key:
-                print("[WARNING] OPENAI_API_KEY is missing. LLMReasoner is running in Mock Simulation Mode.")
+                print(
+                    "[WARNING] OPENAI_API_KEY is missing. LLMReasoner is running in Mock Simulation Mode."
+                )
                 self.simulation_mode = True
             else:
                 from openai import OpenAI
+
                 self.client = OpenAI(api_key=self.api_key)
         elif self.provider == "anthropic":
             self.model = model or "claude-3-5-sonnet-20241022"
             self.api_key = os.environ.get("ANTHROPIC_API_KEY")
             if not self.api_key:
-                print("[WARNING] ANTHROPIC_API_KEY is missing. LLMReasoner is running in Mock Simulation Mode.")
+                print(
+                    "[WARNING] ANTHROPIC_API_KEY is missing. LLMReasoner is running in Mock Simulation Mode."
+                )
                 self.simulation_mode = True
             else:
                 from anthropic import Anthropic
+
                 self.client = Anthropic(api_key=self.api_key)
         else:
             raise ValueError(f"Unknown provider: {self.provider}")
@@ -53,15 +61,19 @@ class LLMReasoner:
         """
         if self.simulation_mode:
             return self._mock_query(system_prompt, user_prompt)
-        
+
         return self._query_api_with_retry(system_prompt, user_prompt, max_tokens)
 
-    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10), reraise=True)
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+        reraise=True,
+    )
     def _query_api_with_retry(self, system_prompt, user_prompt, max_tokens):
         if self.provider == "openai":
             messages = [
                 {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
+                {"role": "user", "content": user_prompt},
             ]
             kwargs = {
                 "model": self.model,
@@ -73,7 +85,7 @@ class LLMReasoner:
             else:
                 kwargs["temperature"] = self.temperature
                 kwargs["max_tokens"] = max_tokens
-            
+
             response = self.client.chat.completions.create(**kwargs)
             return response.choices[0].message.content
         elif self.provider == "anthropic":
@@ -82,9 +94,7 @@ class LLMReasoner:
                 max_tokens=max_tokens,
                 temperature=self.temperature,
                 system=system_prompt,
-                messages=[
-                    {"role": "user", "content": user_prompt}
-                ]
+                messages=[{"role": "user", "content": user_prompt}],
             )
             return response.content[0].text
 
@@ -94,38 +104,44 @@ class LLMReasoner:
         Auto-corrects malformed JSON by feeding back parsing errors to the LLM.
         """
         current_user_prompt = user_prompt
-        
+
         for attempt in range(max_retries):
             try:
                 response_text = self.query(system_prompt, current_user_prompt)
-                
+
                 # Extract JSON block using regex
                 json_match = re.search(r"\{.*\}", response_text, re.DOTALL)
                 if not json_match:
-                    raise ValueError("No JSON block (delimited by '{' and '}') found in the LLM response.")
-                
+                    raise ValueError(
+                        "No JSON block (delimited by '{' and '}') found in the LLM response."
+                    )
+
                 json_str = json_match.group(0)
-                
+
                 # Parse with json5 to be highly permissive with trailing commas and comments
                 parsed_data = json5.loads(json_str)
-                
+
                 # Ensure it is a dictionary
                 if not isinstance(parsed_data, dict):
                     raise ValueError("Parsed JSON is not a dictionary / JSON object.")
-                
+
                 # Verify expected keys
                 missing_keys = [k for k in expected_keys if k not in parsed_data]
                 if missing_keys:
                     raise ValueError(f"Missing required JSON keys: {missing_keys}")
-                
+
                 return parsed_data
-                
+
             except Exception as e:
                 error_msg = str(e)
-                print(f"[LLM Correction Attempt {attempt + 1}/{max_retries}] JSON parsing failed: {error_msg}")
+                print(
+                    f"[LLM Correction Attempt {attempt + 1}/{max_retries}] JSON parsing failed: {error_msg}"
+                )
                 if attempt == max_retries - 1:
-                    raise RuntimeError(f"Failed to obtain valid JSON from LLM after {max_retries} attempts. Last error: {error_msg}")
-                
+                    raise RuntimeError(
+                        f"Failed to obtain valid JSON from LLM after {max_retries} attempts. Last error: {error_msg}"
+                    )
+
                 # Update user prompt with error details for the correction loop
                 current_user_prompt = (
                     f"{user_prompt}\n\n"
@@ -141,32 +157,45 @@ class LLMReasoner:
         scientifically rich JSON objects or textual responses.
         """
         user_prompt_lower = user_prompt.lower()
-        
+
         # 1. Hypothesis Generation Prompt
-        if "genera una hipótesis" in user_prompt_lower or "generate_hypothesis" in user_prompt_lower or "confidence_prior" in user_prompt_lower or "falsable" in user_prompt_lower:
+        if (
+            "genera una hipótesis" in user_prompt_lower
+            or "generate_hypothesis" in user_prompt_lower
+            or "confidence_prior" in user_prompt_lower
+            or "falsable" in user_prompt_lower
+        ):
             # Check domain
             domain = "Lorenz"
             if "ecg" in user_prompt_lower or "electrocardiogram" in user_prompt_lower:
                 domain = "ECG"
-            
+
             if domain == "ECG":
                 data = {
                     "hypothesis_text": "The topological persistence of ECG phase space reconstructions exhibits a reduction in H1 dimension during arrhythmic episodes compared to normal sinus rhythm.",
                     "prediction": "The Wasserstein distance between persistent homology diagrams of normal vs arrhythmic states is greater than 0.25, and mean Betti-1 curvature is lower.",
-                    "variables_involved": ["arrhythmia_indicator", "wasserstein_distance", "betti_1_curvature"],
-                    "confidence_prior": 0.82
+                    "variables_involved": [
+                        "arrhythmia_indicator",
+                        "wasserstein_distance",
+                        "betti_1_curvature",
+                    ],
+                    "confidence_prior": 0.82,
                 }
             else:
                 data = {
                     "hypothesis_text": "The maximum Lyapunov exponent of the Lorenz system increases monotonically as a function of the bifurcation parameter rho in the chaotic regime [20, 28].",
                     "prediction": "Lyapunov exponent lambda_max is positive and shows a positive correlation with rho (Pearson correlation > 0.8).",
                     "variables_involved": ["rho", "lyapunov_exponent"],
-                    "confidence_prior": 0.78
+                    "confidence_prior": 0.78,
                 }
             return json.dumps(data, indent=2)
-            
+
         # 2. Experiment Design Prompt
-        elif "diseña un experimento" in user_prompt_lower or "design_experiment" in user_prompt_lower or "python_code" in user_prompt_lower:
+        elif (
+            "diseña un experimento" in user_prompt_lower
+            or "design_experiment" in user_prompt_lower
+            or "python_code" in user_prompt_lower
+        ):
             python_code = """import numpy as np
 import json
 import sys
@@ -218,21 +247,25 @@ print(json.dumps(results))
                 "method": "koopman",
                 "metrics": ["pearson_correlation", "mean_lyapunov"],
                 "falsification_criterion": "Pearson correlation coefficient between rho and Lyapunov exponents is <= 0.8.",
-                "python_code": python_code
+                "python_code": python_code,
             }
             return json.dumps(data, indent=2)
 
         # 3. Interpret Results Prompt
-        elif "analiza los resultados" in user_prompt_lower or "interpret_results" in user_prompt_lower or "verdict" in user_prompt_lower:
+        elif (
+            "analiza los resultados" in user_prompt_lower
+            or "interpret_results" in user_prompt_lower
+            or "verdict" in user_prompt_lower
+        ):
             data = {
                 "verdict": "validated",
                 "confidence_posterior": 0.91,
                 "reasoning": "The experiment showed a strong positive linear correlation (Pearson coefficient = 0.94) between the bifurcation parameter rho and the maximum Lyapunov exponent, which exceeded our falsification threshold of 0.8.",
                 "refined_hypothesis": "The maximum Lyapunov exponent of the Lorenz system scales power-law-like in the transition to chaos before saturating.",
-                "next_steps": "Analyze the scaling exponent at the boundary of chaos (rho = 22 to 24.5) with a finer grid resolution."
+                "next_steps": "Analyze the scaling exponent at the boundary of chaos (rho = 22 to 24.5) with a finer grid resolution.",
             }
             return json.dumps(data, indent=2)
-            
+
         else:
             return "This is a mock response from the simulated LLM Reasoner. Please configure your API keys to enable live responses."
 
@@ -247,14 +280,14 @@ print(json.dumps(results))
             "Tu tarea es proponer una hipótesis científica rigurosa, cuantitativa y original basándote en el contexto.\n"
             "Debes responder en formato JSON con la siguiente estructura exacta:\n"
             "{\n"
-            "  \"hypothesis_text\": \"Texto detallado de la hipótesis.\",\n"
-            "  \"prediction\": \"Predicción matemática o estadística clara y contrastable.\",\n"
-            "  \"variables_involved\": [\"lista\", \"de\", \"variables\"],\n"
-            "  \"confidence_prior\": 0.75\n"
+            '  "hypothesis_text": "Texto detallado de la hipótesis.",\n'
+            '  "prediction": "Predicción matemática o estadística clara y contrastable.",\n'
+            '  "variables_involved": ["lista", "de", "variables"],\n'
+            '  "confidence_prior": 0.75\n'
             "}\n"
             "Asegúrate de que la hipótesis sea falsable mediante un experimento empírico."
         )
-        
+
         user_prompt = (
             f"Por favor, genera una hipótesis basada en este contexto:\n"
             f"Domain: {context.get('domain')}\n"
@@ -263,8 +296,13 @@ print(json.dumps(results))
             f"Previous Hypotheses: {context.get('previous_hypotheses')}\n"
             f"Goal: {context.get('goal')}\n"
         )
-        
-        expected_keys = ["hypothesis_text", "prediction", "variables_involved", "confidence_prior"]
+
+        expected_keys = [
+            "hypothesis_text",
+            "prediction",
+            "variables_involved",
+            "confidence_prior",
+        ]
         return self._query_json(system_prompt, user_prompt, expected_keys)
 
     def design_experiment(self, hypothesis, available_data, available_methods):
@@ -282,15 +320,15 @@ print(json.dumps(results))
             "4. Asegura que el JSON de salida contenga una clave 'success': true/false y las métricas numéricas calculadas.\n"
             "Debes responder en formato JSON con la siguiente estructura exacta:\n"
             "{\n"
-            "  \"experiment_description\": \"Explicación del diseño del experimento.\",\n"
-            "  \"dataset\": \"nombre_del_dataset_o_synthetic\",\n"
-            "  \"method\": \"método_seleccionado\",\n"
-            "  \"metrics\": [\"metricas\", \"a\", \"evaluar\"],\n"
-            "  \"falsification_criterion\": \"Regla lógica de falsación (ej: pearson_correlation <= 0.8)\",\n"
-            "  \"python_code\": \"Código Python completo formateado como una única cadena de texto con escapes correctos.\"\n"
+            '  "experiment_description": "Explicación del diseño del experimento.",\n'
+            '  "dataset": "nombre_del_dataset_o_synthetic",\n'
+            '  "method": "método_seleccionado",\n'
+            '  "metrics": ["metricas", "a", "evaluar"],\n'
+            '  "falsification_criterion": "Regla lógica de falsación (ej: pearson_correlation <= 0.8)",\n'
+            '  "python_code": "Código Python completo formateado como una única cadena de texto con escapes correctos."\n'
             "}"
         )
-        
+
         user_prompt = (
             f"Diseña un experimento para contrastar esta hipótesis:\n"
             f"Hypothesis: {hypothesis.get('hypothesis_text')}\n"
@@ -299,8 +337,15 @@ print(json.dumps(results))
             f"Datasets disponibles: {available_data}\n"
             f"Métodos analíticos disponibles: {available_methods}\n"
         )
-        
-        expected_keys = ["experiment_description", "dataset", "method", "metrics", "falsification_criterion", "python_code"]
+
+        expected_keys = [
+            "experiment_description",
+            "dataset",
+            "method",
+            "metrics",
+            "falsification_criterion",
+            "python_code",
+        ]
         return self._query_json(system_prompt, user_prompt, expected_keys)
 
     def interpret_results(self, hypothesis, experiment, results):
@@ -313,14 +358,14 @@ print(json.dumps(results))
             "Debes dar un veredicto científico honesto y proponer refinamientos.\n"
             "Debes responder en formato JSON con la siguiente estructura exacta:\n"
             "{\n"
-            "  \"verdict\": \"validated\" | \"rejected\" | \"inconclusive\",\n"
-            "  \"confidence_posterior\": 0.85,\n"
-            "  \"reasoning\": \"Explicación detallada respaldada por los datos de por qué se toma la decisión.\",\n"
+            '  "verdict": "validated" | "rejected" | "inconclusive",\n'
+            '  "confidence_posterior": 0.85,\n'
+            '  "reasoning": "Explicación detallada respaldada por los datos de por qué se toma la decisión.",\n'
             "  \"refined_hypothesis\": \"Si el veredicto es 'rejected' o 'validated', una versión mejorada, más precisa o expandida de la hipótesis (opcional).\",\n"
-            "  \"next_steps\": \"Sugerencias metodológicas para experimentos subsiguientes.\"\n"
+            '  "next_steps": "Sugerencias metodológicas para experimentos subsiguientes."\n'
             "}"
         )
-        
+
         user_prompt = (
             f"Analiza los resultados del experimento:\n"
             f"Hypothesis: {hypothesis.get('hypothesis_text')}\n"
@@ -329,7 +374,7 @@ print(json.dumps(results))
             f"Falsification Criterion: {experiment.get('falsification_criterion')}\n"
             f"Results of execution:\n{json.dumps(results, indent=2)}\n"
         )
-        
+
         expected_keys = ["verdict", "confidence_posterior", "reasoning", "next_steps"]
         return self._query_json(system_prompt, user_prompt, expected_keys)
 

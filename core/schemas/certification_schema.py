@@ -17,17 +17,16 @@ class CertificationEvidence(BaseModel):
     Raw numerical evidence underpinning the certification verdict.
     All values are preserved at full floating-point precision.
     """
+
     acceleration: float = Field(
-        ...,
-        description="Mean of the d²Δ/dσ² (acceleration) vector across noise levels"
+        ..., description="Mean of the d²Δ/dσ² (acceleration) vector across noise levels"
     )
     acceleration_std: float = Field(
         ...,
-        description="Standard deviation of the acceleration vector; lower → steadier regime"
+        description="Standard deviation of the acceleration vector; lower → steadier regime",
     )
     seed_count: float = Field(
-        ...,
-        description="Number of independent random seeds used in the sweep"
+        ..., description="Number of independent random seeds used in the sweep"
     )
 
 
@@ -57,28 +56,20 @@ class Certification(BaseModel):
     """
 
     version: str = Field(
-        default="1.0.0",
-        description="Certification schema version (semver)"
+        default="1.0.0", description="Certification schema version (semver)"
     )
     critical_level: str = Field(
-        ...,
-        description="Qualitative signal strength: 'strong', 'moderate', or 'none'"
+        ..., description="Qualitative signal strength: 'strong', 'moderate', or 'none'"
     )
     critical_score: float = Field(
-        ...,
-        description="Signal-to-noise ratio of the acceleration vector"
+        ..., description="Signal-to-noise ratio of the acceleration vector"
     )
     confidence_score: float = Field(
-        ...,
-        ge=0.0,
-        le=1.0,
-        description="Composite confidence score ∈ [0, 1]"
+        ..., ge=0.0, le=1.0, description="Composite confidence score ∈ [0, 1]"
     )
     reproducibility_status: str = Field(
-        ...,
-        description="Reproducibility tier based on seed coverage"
+        ..., description="Reproducibility tier based on seed coverage"
     )
     evidence: CertificationEvidence = Field(
-        ...,
-        description="Raw numerical evidence supporting this certification verdict"
+        ..., description="Raw numerical evidence supporting this certification verdict"
     )

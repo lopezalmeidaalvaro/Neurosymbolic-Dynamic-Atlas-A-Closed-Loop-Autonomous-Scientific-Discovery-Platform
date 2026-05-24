@@ -11,6 +11,7 @@ if sys.platform.startswith("win"):
     except Exception:
         pass
 
+
 def check_and_install(package, import_name):
     """
     Checks if a package is installed. If not, installs it via pip.
@@ -34,6 +35,7 @@ def check_and_install(package, import_name):
             print(f"  [ERROR] Failed to install '{package}': {e}")
             return False, str(e)
 
+
 def print_neo4j_installation_guide():
     """
     Prints a friendly, detailed Neo4j local setup guide for Windows.
@@ -53,13 +55,17 @@ def print_neo4j_installation_guide():
     print("6. La base de datos estara disponible en bolt://localhost:7687")
     print("=" * 70 + "\n")
 
-def test_neo4j_connection(uri="bolt://localhost:7687", user="neo4j", password="password"):
+
+def test_neo4j_connection(
+    uri="bolt://localhost:7687", user="neo4j", password="password"
+):
     """
     Attempts to connect to Neo4j and execute a simple test query.
     """
     print(f"Testing Neo4j connection at '{uri}'...")
     try:
         from neo4j import GraphDatabase
+
         # Perform a quick socket check to avoid hanging if the server is completely down
         host = "localhost"
         port = 7687
@@ -69,7 +75,9 @@ def test_neo4j_connection(uri="bolt://localhost:7687", user="neo4j", password="p
             sock.connect((host, port))
             sock.close()
         except Exception:
-            print(f"  [CONNECTION TIMEOUT] Socket connection failed on host {host}:{port}.")
+            print(
+                f"  [CONNECTION TIMEOUT] Socket connection failed on host {host}:{port}."
+            )
             return False, "Neo4j local server is not listening on port 7687."
 
         # Actual driver connection test
@@ -78,7 +86,9 @@ def test_neo4j_connection(uri="bolt://localhost:7687", user="neo4j", password="p
             result = session.run("RETURN 1 AS val")
             record = result.single()
             if record and record["val"] == 1:
-                print("  [SUCCESS] Successfully connected to Neo4j and executed 'RETURN 1'!")
+                print(
+                    "  [SUCCESS] Successfully connected to Neo4j and executed 'RETURN 1'!"
+                )
                 driver.close()
                 return True, "Connected successfully"
         driver.close()
@@ -87,27 +97,28 @@ def test_neo4j_connection(uri="bolt://localhost:7687", user="neo4j", password="p
         print(f"  [ERROR] Connection failed: {e}")
         return False, str(e)
 
+
 def main():
     print("=" * 60)
     print("STARTING FASE 3 ENVIRONMENT SETUP")
     print("=" * 60)
-    
+
     dependencies = [
         ("neo4j>=5.0", "neo4j"),
         ("networkx", "networkx"),
-        ("matplotlib", "matplotlib")
+        ("matplotlib", "matplotlib"),
     ]
-    
+
     success_list = []
     failed_list = []
-    
+
     for pkg, imp_name in dependencies:
         success, info = check_and_install(pkg, imp_name)
         if success:
             success_list.append((pkg, info))
         else:
             failed_list.append((pkg, info))
-            
+
     print("\n" + "=" * 60)
     print("INSTALLATION SUMMARY:")
     print("=" * 60)
@@ -115,23 +126,27 @@ def main():
         print(f"  - {pkg}: INSTALLED (version: {ver})")
     for pkg, err in failed_list:
         print(f"  - {pkg}: FAILED ({err})")
-        
+
     print("\n" + "=" * 60)
     print("CHECKING NEO4J SERVER STATUS:")
     print("=" * 60)
-    
+
     # Check status with command line (optional fallback check)
     try:
         # On Windows, we can query tasklist or services, but socket/bolt driver is much more reliable
-        res = subprocess.run(["neo4j", "status"], capture_output=True, text=True, timeout=5)
+        res = subprocess.run(
+            ["neo4j", "status"], capture_output=True, text=True, timeout=5
+        )
         print("Neo4j status command output:")
         print(res.stdout or res.stderr or "No output.")
     except Exception:
-        print("Neo4j CLI command is not available in PATH (normal if installing via Desktop app).")
-        
+        print(
+            "Neo4j CLI command is not available in PATH (normal if installing via Desktop app)."
+        )
+
     # Main driver connection test
     connected, conn_msg = test_neo4j_connection()
-    
+
     print("\n" + "=" * 60)
     if not failed_list:
         if connected:
@@ -143,6 +158,7 @@ def main():
         failed_names = [f[0] for f in failed_list]
         print(f"Algunas dependencias fallaron: {failed_names}")
     print("=" * 60)
+
 
 if __name__ == "__main__":
     main()

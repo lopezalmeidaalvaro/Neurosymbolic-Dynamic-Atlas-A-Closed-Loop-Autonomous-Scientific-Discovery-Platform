@@ -25,26 +25,33 @@ def _build_history_index(history_dir: Path) -> Dict[str, List[Dict[str, Any]]]:
             continue
 
         metadata = report.get("metadata", {})
-        reports.append({
-            "timestamp": metadata.get("timestamp", ""),
-            "file": report_path.name,
-            "systems": metadata.get("systems", []),
-            "seeds": metadata.get("seeds", []),
-            "noise_levels": metadata.get("noise_levels", []),
-            "certification_schema_version": metadata.get("certification_schema_version", ""),
-            "confidence_method": metadata.get("confidence_method", ""),
-        })
+        reports.append(
+            {
+                "timestamp": metadata.get("timestamp", ""),
+                "file": report_path.name,
+                "systems": metadata.get("systems", []),
+                "seeds": metadata.get("seeds", []),
+                "noise_levels": metadata.get("noise_levels", []),
+                "certification_schema_version": metadata.get(
+                    "certification_schema_version", ""
+                ),
+                "confidence_method": metadata.get("confidence_method", ""),
+            }
+        )
 
     reports.sort(key=lambda item: item.get("timestamp", ""))
     return {"reports": reports}
 
-def save_research_report(analysis_results: Dict[str, Any], hypotheses_results: Dict[str, Any]) -> Path:
+
+def save_research_report(
+    analysis_results: Dict[str, Any], hypotheses_results: Dict[str, Any]
+) -> Path:
     """
     Aggregates findings and exports them to discoveries/noise_robustness_report.json
     """
     discoveries_dir = ARTIFACTS_DIR / "discoveries"
     discoveries_dir.mkdir(parents=True, exist_ok=True)
-    
+
     report = {
         "metadata": {
             "title": "Autonomous Noise Robustness & Topological Collapse Report",
@@ -52,19 +59,23 @@ def save_research_report(analysis_results: Dict[str, Any], hypotheses_results: D
             "pipeline_model": "Gemini 3.5 Flash",
         },
         "analysis_results": analysis_results,
-        "hypotheses_evaluation": hypotheses_results
+        "hypotheses_evaluation": hypotheses_results,
     }
-    
+
     # Populate timestamp
     from datetime import datetime, timezone
-    report["metadata"]["timestamp"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    
+
+    report["metadata"]["timestamp"] = datetime.now(timezone.utc).strftime(
+        "%Y-%m-%dT%H:%M:%SZ"
+    )
+
     output_path = discoveries_dir / "noise_robustness_report.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
-        
+
     print(f"[REPORTER] Research report successfully saved to {output_path}")
     return output_path
+
 
 def save_massive_sweep_report(analysis_results: Dict[str, Any]) -> Path:
     """
@@ -79,6 +90,7 @@ def save_massive_sweep_report(analysis_results: Dict[str, Any]) -> Path:
     discoveries_dir.mkdir(parents=True, exist_ok=True)
 
     from datetime import datetime, timezone
+
     report = {
         "metadata": {
             "title": "Massive Topological Sweep & Attractor Stability Report",
@@ -88,7 +100,9 @@ def save_massive_sweep_report(analysis_results: Dict[str, Any]) -> Path:
             "confidence_method": "confidence_v2",
             "systems": analysis_results.get("metadata", {}).get("systems", []),
             "seeds": analysis_results.get("metadata", {}).get("seeds", []),
-            "noise_levels": analysis_results.get("metadata", {}).get("noise_levels", [])
+            "noise_levels": analysis_results.get("metadata", {}).get(
+                "noise_levels", []
+            ),
         },
         # Raw mathematical results dict (unchanged vectors, for tooling that reads "results" key)
         "results": analysis_results.get("results", {}),
@@ -104,7 +118,9 @@ def save_massive_sweep_report(analysis_results: Dict[str, Any]) -> Path:
 
     snapshot_path = history_dir / _history_filename(report["metadata"]["timestamp"])
     if snapshot_path.exists():
-        snapshot_path = history_dir / f"{snapshot_path.stem}_duplicate{snapshot_path.suffix}"
+        snapshot_path = (
+            history_dir / f"{snapshot_path.stem}_duplicate{snapshot_path.suffix}"
+        )
 
     _write_json(snapshot_path, report)
     _write_json(history_dir / "history_index.json", _build_history_index(history_dir))
@@ -112,4 +128,3 @@ def save_massive_sweep_report(analysis_results: Dict[str, Any]) -> Path:
     print(f"[REPORTER] Massive sweep report successfully saved to {output_path}")
     print(f"[REPORTER] Historical massive sweep snapshot saved to {snapshot_path}")
     return output_path
-

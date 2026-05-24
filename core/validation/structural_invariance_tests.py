@@ -38,17 +38,22 @@ sys.path.insert(0, ROOT_DIR)
 from core.autonomous.latent_snapshot_exporter import compute_embedding_vector
 
 # ── Constants ────────────────────────────────────────────────────────────────
-EPSILON = 1e-10          # Denominator guard
-MEAN_THRESHOLD = 1e-3    # Max mean relative delta for amplitude/offset tests
-MAX_THRESHOLD  = 1e-2    # Max individual relative delta
-SHIFT_CORR_MIN = 0.95    # Min Pearson correlation for time-shifted embeddings
-REVERSAL_IRREV_MIN = 0.1 # Min |A - A_rev| for time-reversal sensitivity
-REVERSAL_NORM_MIN  = 0.05 # Min ||E - E_rev|| (L2 / sqrt(d)) for reversal sensitivity
+EPSILON = 1e-10  # Denominator guard
+MEAN_THRESHOLD = 1e-3  # Max mean relative delta for amplitude/offset tests
+MAX_THRESHOLD = 1e-2  # Max individual relative delta
+SHIFT_CORR_MIN = 0.95  # Min Pearson correlation for time-shifted embeddings
+REVERSAL_IRREV_MIN = 0.1  # Min |A - A_rev| for time-reversal sensitivity
+REVERSAL_NORM_MIN = 0.05  # Min ||E - E_rev|| (L2 / sqrt(d)) for reversal sensitivity
 
 V3_FEATURE_NAMES = [
-    "perm_entropy", "spectral_entropy", "svd_entropy",
-    "fractal_dim", "autocorr_decay", "robust_skewness",
-    "robust_kurtosis", "temporal_irreversibility",
+    "perm_entropy",
+    "spectral_entropy",
+    "svd_entropy",
+    "fractal_dim",
+    "autocorr_decay",
+    "robust_skewness",
+    "robust_kurtosis",
+    "temporal_irreversibility",
 ]
 
 REPORT_DIR = os.path.join(ROOT_DIR, "dashboard", "public", "artifacts", "discoveries")
@@ -58,6 +63,7 @@ REPORT_FILE = os.path.join(REPORT_DIR, "structural_invariance_report.json")
 # ─────────────────────────────────────────────────────────────────────────────
 # LORENZ SIMULATOR (clean, noise=0)
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 def lorenz_rhs(t, state):
     x, y, z = state
@@ -80,6 +86,7 @@ def simulate_lorenz_clean(seed=42):
 # EMBEDDING HELPERS
 # ─────────────────────────────────────────────────────────────────────────────
 
+
 def embedding_to_vector(emb_dict):
     """Convert ordered V3 embedding dict to numpy array."""
     vec = np.array([emb_dict[k] for k in V3_FEATURE_NAMES], dtype=float)
@@ -96,7 +103,11 @@ def compute_window_embedding(x, dt, window_size=2000):
 def _check_finite(vec, label):
     """Hard abort if any NaN or inf found."""
     if not np.all(np.isfinite(vec)):
-        bad = [(V3_FEATURE_NAMES[i], float(vec[i])) for i in range(len(vec)) if not np.isfinite(vec[i])]
+        bad = [
+            (V3_FEATURE_NAMES[i], float(vec[i]))
+            for i in range(len(vec))
+            if not np.isfinite(vec[i])
+        ]
         msg = f"[ABORT] Non-finite values in embedding '{label}': {bad}"
         print(msg)
         sys.exit(1)
@@ -113,6 +124,7 @@ def _relative_delta(e_ref, e_transformed):
 # ─────────────────────────────────────────────────────────────────────────────
 # TEST 1 — AMPLITUDE INVARIANCE
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 def test_amplitude_invariance(x, dt, alphas=(0.5, 1.0, 2.0, 10.0)):
     """
@@ -131,7 +143,9 @@ def test_amplitude_invariance(x, dt, alphas=(0.5, 1.0, 2.0, 10.0)):
     rows = []
     passed = True
 
-    print(f"\n  {'Feature':<28} | {'E (α=1)':<12} | {'α':>6} | {'E_α':<12} | {'Δᵢ':<12}")
+    print(
+        f"\n  {'Feature':<28} | {'E (α=1)':<12} | {'α':>6} | {'E_α':<12} | {'Δᵢ':<12}"
+    )
     print(f"  {'-'*28}-+-{'-'*12}-+-{'-'*6}-+-{'-'*12}-+-{'-'*12}")
 
     for alpha in alphas:
@@ -141,7 +155,7 @@ def test_amplitude_invariance(x, dt, alphas=(0.5, 1.0, 2.0, 10.0)):
 
         delta = _relative_delta(E_ref, E_alpha)
         mean_d = float(np.mean(delta))
-        max_d  = float(np.max(delta))
+        max_d = float(np.max(delta))
         ok = (mean_d < MEAN_THRESHOLD) and (max_d < MAX_THRESHOLD)
 
         if not ok:
@@ -149,18 +163,28 @@ def test_amplitude_invariance(x, dt, alphas=(0.5, 1.0, 2.0, 10.0)):
 
         status = "✅" if ok else "❌"
         for i, name in enumerate(V3_FEATURE_NAMES):
-            print(f"  {name:<28} | {E_ref[i]:12.6f} | {alpha:6.1f} | {E_alpha[i]:12.6f} | {delta[i]:12.2e}")
+            print(
+                f"  {name:<28} | {E_ref[i]:12.6f} | {alpha:6.1f} | {E_alpha[i]:12.6f} | {delta[i]:12.2e}"
+            )
         print(f"  {'>>> mean_Δ':<28} = {mean_d:.2e}  max_Δ = {max_d:.2e}  {status}")
         print()
 
-        rows.append({
-            "alpha": alpha,
-            "mean_delta": mean_d,
-            "max_delta": max_d,
-            "passed": ok,
-            "per_feature": {name: {"E_ref": float(E_ref[i]), "E_alpha": float(E_alpha[i]), "delta": float(delta[i])}
-                            for i, name in enumerate(V3_FEATURE_NAMES)}
-        })
+        rows.append(
+            {
+                "alpha": alpha,
+                "mean_delta": mean_d,
+                "max_delta": max_d,
+                "passed": ok,
+                "per_feature": {
+                    name: {
+                        "E_ref": float(E_ref[i]),
+                        "E_alpha": float(E_alpha[i]),
+                        "delta": float(delta[i]),
+                    }
+                    for i, name in enumerate(V3_FEATURE_NAMES)
+                },
+            }
+        )
 
     return {"status": "PASSED" if passed else "FAILED", "rows": rows}
 
@@ -168,6 +192,7 @@ def test_amplitude_invariance(x, dt, alphas=(0.5, 1.0, 2.0, 10.0)):
 # ─────────────────────────────────────────────────────────────────────────────
 # TEST 2 — OFFSET INVARIANCE
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 def test_offset_invariance(x, dt, offsets=(-100.0, -10.0, 10.0, 100.0)):
     """
@@ -184,7 +209,9 @@ def test_offset_invariance(x, dt, offsets=(-100.0, -10.0, 10.0, 100.0)):
     rows = []
     passed = True
 
-    print(f"\n  {'Feature':<28} | {'E (b=0)':<12} | {'b':>7} | {'E_b':<12} | {'Δᵢ':<12}")
+    print(
+        f"\n  {'Feature':<28} | {'E (b=0)':<12} | {'b':>7} | {'E_b':<12} | {'Δᵢ':<12}"
+    )
     print(f"  {'-'*28}-+-{'-'*12}-+-{'-'*7}-+-{'-'*12}-+-{'-'*12}")
 
     for b in offsets:
@@ -194,7 +221,7 @@ def test_offset_invariance(x, dt, offsets=(-100.0, -10.0, 10.0, 100.0)):
 
         delta = _relative_delta(E_ref, E_b)
         mean_d = float(np.mean(delta))
-        max_d  = float(np.max(delta))
+        max_d = float(np.max(delta))
         ok = (mean_d < MEAN_THRESHOLD) and (max_d < MAX_THRESHOLD)
 
         if not ok:
@@ -202,18 +229,28 @@ def test_offset_invariance(x, dt, offsets=(-100.0, -10.0, 10.0, 100.0)):
 
         status = "✅" if ok else "❌"
         for i, name in enumerate(V3_FEATURE_NAMES):
-            print(f"  {name:<28} | {E_ref[i]:12.6f} | {b:7.1f} | {E_b[i]:12.6f} | {delta[i]:12.2e}")
+            print(
+                f"  {name:<28} | {E_ref[i]:12.6f} | {b:7.1f} | {E_b[i]:12.6f} | {delta[i]:12.2e}"
+            )
         print(f"  {'>>> mean_Δ':<28} = {mean_d:.2e}  max_Δ = {max_d:.2e}  {status}")
         print()
 
-        rows.append({
-            "offset": b,
-            "mean_delta": mean_d,
-            "max_delta": max_d,
-            "passed": ok,
-            "per_feature": {name: {"E_ref": float(E_ref[i]), "E_b": float(E_b[i]), "delta": float(delta[i])}
-                            for i, name in enumerate(V3_FEATURE_NAMES)}
-        })
+        rows.append(
+            {
+                "offset": b,
+                "mean_delta": mean_d,
+                "max_delta": max_d,
+                "passed": ok,
+                "per_feature": {
+                    name: {
+                        "E_ref": float(E_ref[i]),
+                        "E_b": float(E_b[i]),
+                        "delta": float(delta[i]),
+                    }
+                    for i, name in enumerate(V3_FEATURE_NAMES)
+                },
+            }
+        )
 
     return {"status": "PASSED" if passed else "FAILED", "rows": rows}
 
@@ -221,6 +258,7 @@ def test_offset_invariance(x, dt, offsets=(-100.0, -10.0, 10.0, 100.0)):
 # ─────────────────────────────────────────────────────────────────────────────
 # TEST 3 — TIME SHIFT ROBUSTNESS
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 def test_time_shift_robustness(x, dt, shifts=(50, 100, 500, 1000)):
     """
@@ -250,21 +288,31 @@ def test_time_shift_robustness(x, dt, shifts=(50, 100, 500, 1000)):
     # Per-feature tolerances (relative delta thresholds)
     # Calibrated from observed Lorenz quarter-to-quarter variability
     MEAN_TOL = {
-        "perm_entropy": 8e-2,     "spectral_entropy": 12e-2,  "svd_entropy": 8e-2,
-        "fractal_dim": 15e-2,     "robust_skewness": 10000e-2, "robust_kurtosis": 20e-2,
-        "autocorr_decay": 200e-2, "temporal_irreversibility": 10000e-2,
+        "perm_entropy": 8e-2,
+        "spectral_entropy": 12e-2,
+        "svd_entropy": 8e-2,
+        "fractal_dim": 15e-2,
+        "robust_skewness": 10000e-2,
+        "robust_kurtosis": 20e-2,
+        "autocorr_decay": 200e-2,
+        "temporal_irreversibility": 10000e-2,
     }
     STD_TOL = {
-        "perm_entropy": 50e-2,    "spectral_entropy": 200e-2,  "svd_entropy": 150e-2,
-        "fractal_dim": 40e-2,     "robust_skewness": 300e-2,   "robust_kurtosis": 100e-2,
-        "autocorr_decay": 1000e-2, "temporal_irreversibility": 1000e-2,
+        "perm_entropy": 50e-2,
+        "spectral_entropy": 200e-2,
+        "svd_entropy": 150e-2,
+        "fractal_dim": 40e-2,
+        "robust_skewness": 300e-2,
+        "robust_kurtosis": 100e-2,
+        "autocorr_decay": 1000e-2,
+        "temporal_irreversibility": 1000e-2,
     }
 
     def extract_windows(signal):
         vecs = []
         s = 0
         while s + window_size <= len(signal):
-            emb = compute_embedding_vector(signal[s:s + window_size], dt)
+            emb = compute_embedding_vector(signal[s : s + window_size], dt)
             vec = embedding_to_vector(emb)
             _check_finite(vec, f"stationarity window s={s}")
             vecs.append(vec)
@@ -275,25 +323,27 @@ def test_time_shift_robustness(x, dt, shifts=(50, 100, 500, 1000)):
 
     # Split into 4 quarters
     q = len(x) // 4
-    quarter_embs  = [extract_windows(x[i*q:(i+1)*q]) for i in range(4)]
+    quarter_embs = [extract_windows(x[i * q : (i + 1) * q]) for i in range(4)]
     quarter_means = [E.mean(axis=0) for E in quarter_embs]
-    quarter_stds  = [E.std(axis=0)  for E in quarter_embs]
+    quarter_stds = [E.std(axis=0) for E in quarter_embs]
     ref_mean = np.mean(quarter_means, axis=0)
-    ref_std  = np.mean(quarter_stds,  axis=0)
+    ref_std = np.mean(quarter_stds, axis=0)
 
     per_feat = {}
     passed = True
     n_passed = 0
 
-    print(f"\n  {'Feature':<28} | {'max|Δmean|':>10} | {'tol_m':>7} | {'max|Δstd|':>10} | {'tol_s':>7} | OK")
+    print(
+        f"\n  {'Feature':<28} | {'max|Δmean|':>10} | {'tol_m':>7} | {'max|Δstd|':>10} | {'tol_s':>7} | OK"
+    )
     print(f"  {'-'*28}-+-{'-'*10}-+-{'-'*7}-+-{'-'*10}-+-{'-'*7}-+----")
 
     for i, name in enumerate(V3_FEATURE_NAMES):
         feat_means = np.array([qm[i] for qm in quarter_means])
-        feat_stds  = np.array([qs[i] for qs in quarter_stds])
+        feat_stds = np.array([qs[i] for qs in quarter_stds])
 
         mean_diffs = np.abs(feat_means - ref_mean[i]) / max(abs(ref_mean[i]), EPSILON)
-        std_diffs  = np.abs(feat_stds  - ref_std[i])  / max(abs(ref_std[i]),  EPSILON)
+        std_diffs = np.abs(feat_stds - ref_std[i]) / max(abs(ref_std[i]), EPSILON)
 
         max_m = float(np.max(mean_diffs))
         max_s = float(np.max(std_diffs))
@@ -306,30 +356,37 @@ def test_time_shift_robustness(x, dt, shifts=(50, 100, 500, 1000)):
             n_passed += 1
 
         marker = "✅" if ok_feat else "❌"
-        print(f"  {name:<28} | {max_m:10.4e} | {tol_m:7.0%} | {max_s:10.4e} | {tol_s:7.0%} | {marker}")
+        print(
+            f"  {name:<28} | {max_m:10.4e} | {tol_m:7.0%} | {max_s:10.4e} | {tol_s:7.0%} | {marker}"
+        )
 
         per_feat[name] = {
-            "max_mean_rel_delta": max_m, "tol_mean": tol_m,
-            "max_std_rel_delta":  max_s, "tol_std":  tol_s,
+            "max_mean_rel_delta": max_m,
+            "tol_mean": tol_m,
+            "max_std_rel_delta": max_s,
+            "tol_std": tol_s,
             "passed": ok_feat,
             "quarter_means": [float(v) for v in feat_means],
-            "quarter_stds":  [float(v) for v in feat_stds],
+            "quarter_stds": [float(v) for v in feat_stds],
         }
 
     status_str = "✅" if passed else "❌"
-    print(f"\n  Overall: {status_str}  ({n_passed}/{len(V3_FEATURE_NAMES)} features passed)")
+    print(
+        f"\n  Overall: {status_str}  ({n_passed}/{len(V3_FEATURE_NAMES)} features passed)"
+    )
 
     return {
         "status": "PASSED" if passed else "FAILED",
         "n_quarters": 4,
         "n_features_passed": n_passed,
-        "per_feature": per_feat
+        "per_feature": per_feat,
     }
 
 
 # ─────────────────────────────────────────────────────────────────────────────
 # TEST 4 — TIME REVERSAL SENSITIVITY
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 def test_time_reversal_sensitivity(x, dt):
     """
@@ -359,10 +416,10 @@ def test_time_reversal_sensitivity(x, dt):
     A_fwd = E_fwd[V3_FEATURE_NAMES.index("temporal_irreversibility")]
     A_rev = E_rev[V3_FEATURE_NAMES.index("temporal_irreversibility")]
     irrev_diff = abs(A_fwd - A_rev)
-    IRREV_ABS_MIN = 1e-9   # A_fwd must be non-trivially non-zero
+    IRREV_ABS_MIN = 1e-9  # A_fwd must be non-trivially non-zero
     IRREV_ANTISYMM_MIN = 1.5  # |A - A_rev| / |A_fwd| must be > 1.5 (antisymmetry)
 
-    ok_sign     = (A_fwd * A_rev < 0)          # Must have opposite signs
+    ok_sign = A_fwd * A_rev < 0  # Must have opposite signs
     ok_nontrivial = abs(A_fwd) > IRREV_ABS_MIN  # Must be non-zero
     irrev_antisymm = irrev_diff / max(abs(A_fwd), 1e-12)
     ok_antisymm = irrev_antisymm > IRREV_ANTISYMM_MIN
@@ -375,22 +432,32 @@ def test_time_reversal_sensitivity(x, dt):
     ok_norm = l2_norm > 1e-8
     passed = ok_irrev and ok_norm
 
-    print(f"\n  {'Feature':<28} | {'E_forward':<14} | {'E_reversed':<14} | {'Diff':<12}")
+    print(
+        f"\n  {'Feature':<28} | {'E_forward':<14} | {'E_reversed':<14} | {'Diff':<12}"
+    )
     print(f"  {'-'*28}-+-{'-'*14}-+-{'-'*14}-+-{'-'*12}")
     for i, name in enumerate(V3_FEATURE_NAMES):
         diff = E_fwd[i] - E_rev[i]
         marker = " <-- IRREV" if name == "temporal_irreversibility" else ""
-        print(f"  {name:<28} | {E_fwd[i]:14.6f} | {E_rev[i]:14.6f} | {diff:+12.8f}{marker}")
+        print(
+            f"  {name:<28} | {E_fwd[i]:14.6f} | {E_rev[i]:14.6f} | {diff:+12.8f}{marker}"
+        )
 
     print()
     print(f"  A_fwd = {A_fwd:.2e}, A_rev = {A_rev:.2e}")
-    sign_status   = "\u2705" if ok_sign     else "\u274c"
-    trivial_status= "\u2705" if ok_nontrivial else "\u274c"
-    antisymm_status="\u2705" if ok_antisymm  else "\u274c"
-    norm_status   = "\u2705" if ok_norm     else "\u274c"
-    print(f"  Sign flip (A_fwd * A_rev < 0): {sign_status}  ({A_fwd:.2e} * {A_rev:.2e} = {A_fwd*A_rev:.2e})")
-    print(f"  Non-trivial (|A| > {IRREV_ABS_MIN}):       {trivial_status}  (|A_fwd| = {abs(A_fwd):.2e})")
-    print(f"  Antisymmetry ratio > {IRREV_ANTISYMM_MIN}:      {antisymm_status}  (ratio = {irrev_antisymm:.4f})")
+    sign_status = "\u2705" if ok_sign else "\u274c"
+    trivial_status = "\u2705" if ok_nontrivial else "\u274c"
+    antisymm_status = "\u2705" if ok_antisymm else "\u274c"
+    norm_status = "\u2705" if ok_norm else "\u274c"
+    print(
+        f"  Sign flip (A_fwd * A_rev < 0): {sign_status}  ({A_fwd:.2e} * {A_rev:.2e} = {A_fwd*A_rev:.2e})"
+    )
+    print(
+        f"  Non-trivial (|A| > {IRREV_ABS_MIN}):       {trivial_status}  (|A_fwd| = {abs(A_fwd):.2e})"
+    )
+    print(
+        f"  Antisymmetry ratio > {IRREV_ANTISYMM_MIN}:      {antisymm_status}  (ratio = {irrev_antisymm:.4f})"
+    )
     print(f"  L2 norm > 1e-8:                {norm_status}  (L2 = {l2_norm:.2e})")
 
     return {
@@ -403,15 +470,18 @@ def test_time_reversal_sensitivity(x, dt):
         "criterion_sign_flip_passed": bool(ok_sign),
         "criterion_nontrivial_passed": bool(ok_nontrivial),
         "criterion_antisymmetry_passed": bool(ok_antisymm),
-        "criterion_norm_passed":  bool(ok_norm),
-        "per_feature": {name: {"E_fwd": float(E_fwd[i]), "E_rev": float(E_rev[i])}
-                        for i, name in enumerate(V3_FEATURE_NAMES)}
+        "criterion_norm_passed": bool(ok_norm),
+        "per_feature": {
+            name: {"E_fwd": float(E_fwd[i]), "E_rev": float(E_rev[i])}
+            for i, name in enumerate(V3_FEATURE_NAMES)
+        },
     }
 
 
 # ─────────────────────────────────────────────────────────────────────────────
 # MAIN RUNNER
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 def main():
     print("=" * 60)
@@ -546,13 +616,13 @@ def _write_report(report, global_status):
             "embedding_version": "V3",
             "test_system": "Lorenz (noise=0, seed=42)",
             "criteria": {
-                "amplitude_invariance":  f"mean_delta < {MEAN_THRESHOLD}, max_delta < {MAX_THRESHOLD}",
-                "offset_invariance":     f"mean_delta < {MEAN_THRESHOLD}, max_delta < {MAX_THRESHOLD}",
-                "time_stationarity":     "per-feature adaptive tolerances (4-quarter split)",
-                "time_reversal":         "temporal_irreversibility must flip sign under reversal",
-            }
+                "amplitude_invariance": f"mean_delta < {MEAN_THRESHOLD}, max_delta < {MAX_THRESHOLD}",
+                "offset_invariance": f"mean_delta < {MEAN_THRESHOLD}, max_delta < {MAX_THRESHOLD}",
+                "time_stationarity": "per-feature adaptive tolerances (4-quarter split)",
+                "time_reversal": "temporal_irreversibility must flip sign under reversal",
+            },
         },
-        "results": report
+        "results": report,
     }
     with open(REPORT_FILE, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2, default=_json_default)

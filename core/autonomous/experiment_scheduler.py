@@ -13,13 +13,17 @@ def run_noise_sweep(base_experiment: str, noise_levels: List[float]) -> List[str
     session_ids = []
     for noise in noise_levels:
         session_id = f"{base_experiment}_noise_{noise}"
-        print(f"\n[SCHEDULER] Running pipeline for session {session_id} with noise level {noise}...")
+        print(
+            f"\n[SCHEDULER] Running pipeline for session {session_id} with noise level {noise}..."
+        )
 
         cmd = [
             sys.executable,
             "run_pipeline.py",
-            "--experiment", session_id,
-            "--noise", str(noise),
+            "--experiment",
+            session_id,
+            "--noise",
+            str(noise),
         ]
 
         result = subprocess.run(cmd)
@@ -27,7 +31,9 @@ def run_noise_sweep(base_experiment: str, noise_levels: List[float]) -> List[str
             session_ids.append(session_id)
             print(f"[SCHEDULER] Session {session_id} completed successfully.")
         else:
-            print(f"[SCHEDULER] Error running session {session_id}. Exit code: {result.returncode}")
+            print(
+                f"[SCHEDULER] Error running session {session_id}. Exit code: {result.returncode}"
+            )
 
     return session_ids
 
@@ -38,10 +44,14 @@ def run_single_pipeline_task(task_args: Tuple[str, float, int]) -> Tuple[str, in
     cmd = [
         sys.executable,
         "run_pipeline.py",
-        "--experiment", session_id,
-        "--noise", f"{noise:.4f}",
-        "--seed", str(seed),
-        "--system", system,
+        "--experiment",
+        session_id,
+        "--noise",
+        f"{noise:.4f}",
+        "--seed",
+        str(seed),
+        "--system",
+        system,
     ]
     # Capture stdout and stderr to avoid interleaving in console.
     result = subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -81,8 +91,7 @@ def run_massive_sweep(
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         future_to_task = {
-            executor.submit(run_single_pipeline_task, task): task
-            for task in tasks
+            executor.submit(run_single_pipeline_task, task): task for task in tasks
         }
 
         for future in concurrent.futures.as_completed(future_to_task):
@@ -94,18 +103,26 @@ def run_massive_sweep(
                 returned_session_id, returncode = future.result()
             except Exception as exc:
                 failed_sessions.append(session_id)
-                print(f"[SCHEDULER] [{completed_count}/{total_tasks}] FAILED {session_id}: {exc}")
+                print(
+                    f"[SCHEDULER] [{completed_count}/{total_tasks}] FAILED {session_id}: {exc}"
+                )
                 continue
 
             if returncode == 0:
                 session_ids.append(returned_session_id)
-                print(f"[SCHEDULER] [{completed_count}/{total_tasks}] Session {returned_session_id} completed successfully.")
+                print(
+                    f"[SCHEDULER] [{completed_count}/{total_tasks}] Session {returned_session_id} completed successfully."
+                )
             else:
                 failed_sessions.append(returned_session_id)
-                print(f"[SCHEDULER] [{completed_count}/{total_tasks}] FAILED {returned_session_id} with exit status {returncode}.")
+                print(
+                    f"[SCHEDULER] [{completed_count}/{total_tasks}] FAILED {returned_session_id} with exit status {returncode}."
+                )
 
     if failed_sessions:
         failed = ", ".join(failed_sessions)
-        raise RuntimeError(f"Massive sweep failed for {len(failed_sessions)} session(s): {failed}")
+        raise RuntimeError(
+            f"Massive sweep failed for {len(failed_sessions)} session(s): {failed}"
+        )
 
     return session_ids

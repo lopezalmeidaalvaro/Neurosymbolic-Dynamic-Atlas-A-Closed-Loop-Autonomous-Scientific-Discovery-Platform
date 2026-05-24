@@ -38,7 +38,6 @@ from sklearn.metrics import (
 )
 from sklearn.preprocessing import StandardScaler
 
-
 if sys.platform.startswith("win"):
     try:
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -50,8 +49,9 @@ if sys.platform.startswith("win"):
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT_DIR)
 
-from core.autonomous.latent_snapshot_exporter import compute_embedding_vector  # noqa: E402
-
+from core.autonomous.latent_snapshot_exporter import (
+    compute_embedding_vector,
+)  # noqa: E402
 
 REPORT_DIR = os.path.join(ROOT_DIR, "dashboard", "public", "artifacts", "discoveries")
 REPORT_FILE = os.path.join(REPORT_DIR, "cross_system_generalization_report.json")
@@ -67,7 +67,14 @@ V3_KEYS = [
     "temporal_irreversibility",
 ]
 
-PHYSICAL_SYSTEMS = ["lorenz", "rossler", "henon", "duffing", "van_der_pol", "logistic_map"]
+PHYSICAL_SYSTEMS = [
+    "lorenz",
+    "rossler",
+    "henon",
+    "duffing",
+    "van_der_pol",
+    "logistic_map",
+]
 NULL_MODELS = ["ar1", "ou", "iaaft", "fourier_surrogate", "block_bootstrap"]
 
 DATASET_SEEDS = [42, 1337, 9001]
@@ -163,7 +170,9 @@ def _simulate_ode(
     return Signal(_inject_noise(x, noise, seed), dt)
 
 
-def _simulate_henon(noise: float, seed: int, n_points: int = 18000, transient: int = 3000) -> Signal:
+def _simulate_henon(
+    noise: float, seed: int, n_points: int = 18000, transient: int = 3000
+) -> Signal:
     a = 1.4
     b = 0.3
     x = 0.1
@@ -178,7 +187,9 @@ def _simulate_henon(noise: float, seed: int, n_points: int = 18000, transient: i
     return Signal(_inject_noise(np.asarray(values, dtype=float), noise, seed), 1.0)
 
 
-def _simulate_logistic_map(noise: float, seed: int, n_points: int = 18000, transient: int = 3000) -> Signal:
+def _simulate_logistic_map(
+    noise: float, seed: int, n_points: int = 18000, transient: int = 3000
+) -> Signal:
     r = 3.9
     x = 0.37
     values = []
@@ -191,15 +202,21 @@ def _simulate_logistic_map(noise: float, seed: int, n_points: int = 18000, trans
 
 def simulate_physical(system: str, noise: float, seed: int) -> Signal:
     if system == "lorenz":
-        return _simulate_ode(_lorenz_rhs, [1.0, 1.0, 1.0], 220.0, 22000, 4000, noise, seed)
+        return _simulate_ode(
+            _lorenz_rhs, [1.0, 1.0, 1.0], 220.0, 22000, 4000, noise, seed
+        )
     if system == "rossler":
-        return _simulate_ode(_rossler_rhs, [1.0, 1.0, 1.0], 260.0, 22000, 4000, noise, seed)
+        return _simulate_ode(
+            _rossler_rhs, [1.0, 1.0, 1.0], 260.0, 22000, 4000, noise, seed
+        )
     if system == "henon":
         return _simulate_henon(noise, seed)
     if system == "duffing":
         return _simulate_ode(_duffing_rhs, [0.1, 0.0], 500.0, 26000, 5000, noise, seed)
     if system == "van_der_pol":
-        return _simulate_ode(_van_der_pol_rhs, [0.5, 0.0], 320.0, 24000, 4000, noise, seed)
+        return _simulate_ode(
+            _van_der_pol_rhs, [0.5, 0.0], 320.0, 24000, 4000, noise, seed
+        )
     if system == "logistic_map":
         return _simulate_logistic_map(noise, seed)
     raise ValueError(f"Unknown physical system: {system}")
@@ -214,15 +231,23 @@ def generate_ar1(length: int, seed: int, phi: float = 0.85) -> Signal:
     return Signal(_standardize_signal(x), 1.0)
 
 
-def generate_ou(length: int, seed: int, theta: float = 0.25, sigma: float = 0.5, dt: float = 0.01) -> Signal:
+def generate_ou(
+    length: int, seed: int, theta: float = 0.25, sigma: float = 0.5, dt: float = 0.01
+) -> Signal:
     rng = np.random.default_rng(seed)
     x = np.zeros(length, dtype=float)
     for t in range(1, length):
-        x[t] = x[t - 1] + theta * (0.0 - x[t - 1]) * dt + sigma * np.sqrt(dt) * rng.normal()
+        x[t] = (
+            x[t - 1]
+            + theta * (0.0 - x[t - 1]) * dt
+            + sigma * np.sqrt(dt) * rng.normal()
+        )
     return Signal(_standardize_signal(x), dt)
 
 
-def generate_iaaft(base_signal: np.ndarray, seed: int, max_iter: int = 100) -> np.ndarray:
+def generate_iaaft(
+    base_signal: np.ndarray, seed: int, max_iter: int = 100
+) -> np.ndarray:
     rng = np.random.default_rng(seed)
     x = np.asarray(base_signal, dtype=float)
     x_sorted = np.sort(x)
@@ -251,12 +276,14 @@ def generate_fourier_surrogate(base_signal: np.ndarray, seed: int) -> np.ndarray
     return _standardize_signal(y)
 
 
-def generate_block_bootstrap(base_signal: np.ndarray, seed: int, block_size: int = 400) -> np.ndarray:
+def generate_block_bootstrap(
+    base_signal: np.ndarray, seed: int, block_size: int = 400
+) -> np.ndarray:
     rng = np.random.default_rng(seed)
     x = np.asarray(base_signal, dtype=float)
     n_blocks = int(np.ceil(len(x) / block_size))
     starts = rng.integers(0, max(1, len(x) - block_size + 1), size=n_blocks)
-    blocks = [x[start:start + block_size] for start in starts]
+    blocks = [x[start : start + block_size] for start in starts]
     y = np.concatenate(blocks)[: len(x)]
     return _standardize_signal(y)
 
@@ -277,12 +304,18 @@ def simulate_null(model: str, seed: int, length: int) -> Signal:
     raise ValueError(f"Unknown null model: {model}")
 
 
-def extract_v3(signal: Signal, standardize_before_embedding: bool = False) -> np.ndarray:
-    x = _standardize_signal(signal.values) if standardize_before_embedding else np.asarray(signal.values, dtype=float)
+def extract_v3(
+    signal: Signal, standardize_before_embedding: bool = False
+) -> np.ndarray:
+    x = (
+        _standardize_signal(signal.values)
+        if standardize_before_embedding
+        else np.asarray(signal.values, dtype=float)
+    )
     stride = max(1, int(WINDOW_SIZE * (1.0 - WINDOW_OVERLAP)))
     rows = []
     for start in range(0, len(x) - WINDOW_SIZE + 1, stride):
-        emb = compute_embedding_vector(x[start:start + WINDOW_SIZE], signal.dt)
+        emb = compute_embedding_vector(x[start : start + WINDOW_SIZE], signal.dt)
         rows.append([_finite_float(emb[key]) for key in V3_KEYS])
     if not rows:
         raise RuntimeError("No V3 windows extracted")
@@ -293,7 +326,9 @@ def extract_v3(signal: Signal, standardize_before_embedding: bool = False) -> np
     return arr[mask]
 
 
-def build_physical_dataset(noise: float = 0.0, standardize_before_embedding: bool = False) -> dict[str, np.ndarray]:
+def build_physical_dataset(
+    noise: float = 0.0, standardize_before_embedding: bool = False
+) -> dict[str, np.ndarray]:
     dataset = {}
     for system in PHYSICAL_SYSTEMS:
         system_rows = []
@@ -301,11 +336,15 @@ def build_physical_dataset(noise: float = 0.0, standardize_before_embedding: boo
             signal = simulate_physical(system, noise=noise, seed=seed)
             system_rows.append(extract_v3(signal, standardize_before_embedding))
         dataset[system] = np.vstack(system_rows)
-        print(f"  physical {system:<13} noise={noise:.2f}: {len(dataset[system])} V3 windows")
+        print(
+            f"  physical {system:<13} noise={noise:.2f}: {len(dataset[system])} V3 windows"
+        )
     return dataset
 
 
-def build_null_dataset(seeds: list[int], standardize_before_embedding: bool = False) -> dict[str, np.ndarray]:
+def build_null_dataset(
+    seeds: list[int], standardize_before_embedding: bool = False
+) -> dict[str, np.ndarray]:
     dataset = {}
     length = 18000
     for model in NULL_MODELS:
@@ -322,17 +361,30 @@ def stack_nulls(null_dataset: dict[str, np.ndarray]) -> np.ndarray:
     return np.vstack([null_dataset[name] for name in NULL_MODELS])
 
 
-def evaluate_loso(physical_dataset: dict[str, np.ndarray], train_nulls: np.ndarray, test_nulls: np.ndarray) -> dict:
+def evaluate_loso(
+    physical_dataset: dict[str, np.ndarray],
+    train_nulls: np.ndarray,
+    test_nulls: np.ndarray,
+) -> dict:
     folds = {}
     auc_values = []
     for excluded in PHYSICAL_SYSTEMS:
-        x_train_phys = np.vstack([physical_dataset[name] for name in PHYSICAL_SYSTEMS if name != excluded])
+        x_train_phys = np.vstack(
+            [physical_dataset[name] for name in PHYSICAL_SYSTEMS if name != excluded]
+        )
         x_train = np.vstack([x_train_phys, train_nulls])
-        y_train = np.concatenate([np.ones(len(x_train_phys), dtype=int), np.zeros(len(train_nulls), dtype=int)])
+        y_train = np.concatenate(
+            [
+                np.ones(len(x_train_phys), dtype=int),
+                np.zeros(len(train_nulls), dtype=int),
+            ]
+        )
 
         x_test_phys = physical_dataset[excluded]
         x_test = np.vstack([x_test_phys, test_nulls])
-        y_test = np.concatenate([np.ones(len(x_test_phys), dtype=int), np.zeros(len(test_nulls), dtype=int)])
+        y_test = np.concatenate(
+            [np.ones(len(x_test_phys), dtype=int), np.zeros(len(test_nulls), dtype=int)]
+        )
 
         scaler = StandardScaler()
         x_train_scaled = scaler.fit_transform(x_train)
@@ -379,7 +431,11 @@ def evaluate_loso(physical_dataset: dict[str, np.ndarray], train_nulls: np.ndarr
         )
 
     return {
-        "status": "PASSED" if all(fold["status"] == "PASSED" for fold in folds.values()) else "FAILED",
+        "status": (
+            "PASSED"
+            if all(fold["status"] == "PASSED" for fold in folds.values())
+            else "FAILED"
+        ),
         "criterion": f"AUC > {TEST1_AUC_MIN} for all folds",
         "mean_auc": float(np.mean(auc_values)),
         "min_auc": float(np.min(auc_values)),
@@ -394,8 +450,12 @@ def compute_distance_correlation(x: np.ndarray, y: np.ndarray) -> float:
         return 0.0
     a = squareform(pdist(x))
     b = squareform(pdist(y))
-    a_centered = a - a.mean(axis=0, keepdims=True) - a.mean(axis=1, keepdims=True) + a.mean()
-    b_centered = b - b.mean(axis=0, keepdims=True) - b.mean(axis=1, keepdims=True) + b.mean()
+    a_centered = (
+        a - a.mean(axis=0, keepdims=True) - a.mean(axis=1, keepdims=True) + a.mean()
+    )
+    b_centered = (
+        b - b.mean(axis=0, keepdims=True) - b.mean(axis=1, keepdims=True) + b.mean()
+    )
     dcov2 = np.maximum(0.0, np.mean(a_centered * b_centered))
     dvarx2 = np.maximum(0.0, np.mean(a_centered * a_centered))
     dvary2 = np.maximum(0.0, np.mean(b_centered * b_centered))
@@ -405,7 +465,11 @@ def compute_distance_correlation(x: np.ndarray, y: np.ndarray) -> float:
     return float(np.sqrt(dcov2 / denom))
 
 
-def run_test1(physical_dataset: dict[str, np.ndarray], train_nulls: np.ndarray, test_nulls: np.ndarray) -> dict:
+def run_test1(
+    physical_dataset: dict[str, np.ndarray],
+    train_nulls: np.ndarray,
+    test_nulls: np.ndarray,
+) -> dict:
     print("\nTEST 1 - LEAVE-ONE-SYSTEM-OUT GENERALIZATION")
     result = evaluate_loso(physical_dataset, train_nulls, test_nulls)
     if result["status"] == "FAILED":
@@ -421,10 +485,12 @@ def run_test1(physical_dataset: dict[str, np.ndarray], train_nulls: np.ndarray, 
 def run_test2(physical_dataset: dict[str, np.ndarray]) -> dict:
     print("\nTEST 2 - LATENT MANIFOLD COHERENCE")
     x = np.vstack([physical_dataset[name] for name in PHYSICAL_SYSTEMS])
-    labels = np.concatenate([
-        np.full(len(physical_dataset[name]), idx, dtype=int)
-        for idx, name in enumerate(PHYSICAL_SYSTEMS)
-    ])
+    labels = np.concatenate(
+        [
+            np.full(len(physical_dataset[name]), idx, dtype=int)
+            for idx, name in enumerate(PHYSICAL_SYSTEMS)
+        ]
+    )
 
     scaled = StandardScaler().fit_transform(x)
     n_pca = min(5, scaled.shape[1], scaled.shape[0] - 1)
@@ -467,9 +533,15 @@ def run_test2(physical_dataset: dict[str, np.ndarray]) -> dict:
     }
     passed = all(item["passed"] for item in criteria.values())
 
-    print(f"  Silhouette={sil:.6f} criterion>{TEST2_SILHOUETTE_MIN} delta={sil - TEST2_SILHOUETTE_MIN:.6f}")
-    print(f"  Trustworthiness={trust:.6f} criterion>{TEST2_TRUSTWORTHINESS_MIN} delta={trust - TEST2_TRUSTWORTHINESS_MIN:.6f}")
-    print(f"  Distance Correlation={dcor:.6f} criterion>{TEST2_DISTANCE_CORRELATION_MIN} delta={dcor - TEST2_DISTANCE_CORRELATION_MIN:.6f}")
+    print(
+        f"  Silhouette={sil:.6f} criterion>{TEST2_SILHOUETTE_MIN} delta={sil - TEST2_SILHOUETTE_MIN:.6f}"
+    )
+    print(
+        f"  Trustworthiness={trust:.6f} criterion>{TEST2_TRUSTWORTHINESS_MIN} delta={trust - TEST2_TRUSTWORTHINESS_MIN:.6f}"
+    )
+    print(
+        f"  Distance Correlation={dcor:.6f} criterion>{TEST2_DISTANCE_CORRELATION_MIN} delta={dcor - TEST2_DISTANCE_CORRELATION_MIN:.6f}"
+    )
 
     for name, item in criteria.items():
         if not item["passed"]:
@@ -495,8 +567,12 @@ def run_test3(
     test_nulls_standardized: np.ndarray,
 ) -> dict:
     print("\nTEST 3 - HIDDEN LEAKAGE AUDIT")
-    standardized_physical = build_physical_dataset(noise=0.0, standardize_before_embedding=True)
-    standardized_result = evaluate_loso(standardized_physical, train_nulls_standardized, test_nulls_standardized)
+    standardized_physical = build_physical_dataset(
+        noise=0.0, standardize_before_embedding=True
+    )
+    standardized_result = evaluate_loso(
+        standardized_physical, train_nulls_standardized, test_nulls_standardized
+    )
 
     folds = {}
     deltas = []
@@ -528,7 +604,11 @@ def run_test3(
             )
 
     return {
-        "status": "PASSED" if all(fold["status"] == "PASSED" for fold in folds.values()) else "FAILED",
+        "status": (
+            "PASSED"
+            if all(fold["status"] == "PASSED" for fold in folds.values())
+            else "FAILED"
+        ),
         "criterion": f"|delta_auc| < {TEST3_DELTA_AUC_MAX} for all folds",
         "max_abs_delta_auc": float(np.max(deltas)),
         "folds": folds,
@@ -541,13 +621,17 @@ def run_test4(train_nulls: np.ndarray, test_nulls: np.ndarray) -> dict:
     mean_aucs = []
     for noise in TEST4_NOISE_LEVELS:
         print(f"  Evaluating perturbation noise={noise:.2%}")
-        physical_dataset = build_physical_dataset(noise=noise, standardize_before_embedding=False)
+        physical_dataset = build_physical_dataset(
+            noise=noise, standardize_before_embedding=False
+        )
         result = evaluate_loso(physical_dataset, train_nulls, test_nulls)
         by_noise[f"{noise:.2f}"] = {
             "status": result["status"],
             "mean_auc": result["mean_auc"],
             "min_auc": result["min_auc"],
-            "fold_auc": {name: fold["roc_auc"] for name, fold in result["folds"].items()},
+            "fold_auc": {
+                name: fold["roc_auc"] for name, fold in result["folds"].items()
+            },
         }
         mean_aucs.append(float(result["mean_auc"]))
 
@@ -556,15 +640,17 @@ def run_test4(train_nulls: np.ndarray, test_nulls: np.ndarray) -> dict:
         mean_aucs[:-1], mean_aucs[1:], TEST4_NOISE_LEVELS[:-1], TEST4_NOISE_LEVELS[1:]
     ):
         jump = abs(curr - prev) / max(abs(prev), 1e-12)
-        jumps.append({
-            "from_noise": prev_noise,
-            "to_noise": curr_noise,
-            "from_mean_auc": prev,
-            "to_mean_auc": curr,
-            "relative_jump": float(jump),
-            "passed": bool(jump <= TEST4_MAX_JUMP),
-            "delta_to_criterion": float(TEST4_MAX_JUMP - jump),
-        })
+        jumps.append(
+            {
+                "from_noise": prev_noise,
+                "to_noise": curr_noise,
+                "from_mean_auc": prev,
+                "to_mean_auc": curr,
+                "relative_jump": float(jump),
+                "passed": bool(jump <= TEST4_MAX_JUMP),
+                "delta_to_criterion": float(TEST4_MAX_JUMP - jump),
+            }
+        )
         marker = "PASS" if jump <= TEST4_MAX_JUMP else "FAIL"
         print(
             f"  jump {prev_noise:.2%}->{curr_noise:.2%}: {jump:.6f}; "
@@ -583,7 +669,9 @@ def run_test4(train_nulls: np.ndarray, test_nulls: np.ndarray) -> dict:
         "noise_levels": TEST4_NOISE_LEVELS,
         "by_noise": by_noise,
         "jumps": jumps,
-        "max_relative_jump": float(max([j["relative_jump"] for j in jumps], default=0.0)),
+        "max_relative_jump": float(
+            max([j["relative_jump"] for j in jumps], default=0.0)
+        ),
     }
 
 
@@ -601,7 +689,9 @@ def run_test5() -> dict:
             rng = np.random.default_rng(seed + 100000)
             shuffled_values = np.asarray(signal.values, dtype=float).copy()
             rng.shuffle(shuffled_values)
-            shuffled = extract_v3(Signal(shuffled_values, signal.dt), standardize_before_embedding=False)
+            shuffled = extract_v3(
+                Signal(shuffled_values, signal.dt), standardize_before_embedding=False
+            )
 
             n = min(len(original), len(shuffled))
             original_rows.append(original[:n])
@@ -612,10 +702,12 @@ def run_test5() -> dict:
         scaler = StandardScaler()
         combined = scaler.fit_transform(np.vstack([original_all, shuffled_all]))
         original_scaled = combined[: len(original_all)]
-        shuffled_scaled = combined[len(original_all):]
+        shuffled_scaled = combined[len(original_all) :]
         original_mean = np.mean(original_scaled, axis=0)
         shuffled_mean = np.mean(shuffled_scaled, axis=0)
-        distance = float(np.linalg.norm(original_mean - shuffled_mean) / np.sqrt(len(V3_KEYS)))
+        distance = float(
+            np.linalg.norm(original_mean - shuffled_mean) / np.sqrt(len(V3_KEYS))
+        )
         passed = distance > TEST5_DISTANCE_MIN
         distances.append(distance)
         per_system[system] = {
@@ -638,7 +730,11 @@ def run_test5() -> dict:
             )
 
     return {
-        "status": "PASSED" if all(item["status"] == "PASSED" for item in per_system.values()) else "FAILED",
+        "status": (
+            "PASSED"
+            if all(item["status"] == "PASSED" for item in per_system.values())
+            else "FAILED"
+        ),
         "criterion": f"distance > {TEST5_DISTANCE_MIN} for all physical systems",
         "min_distance": float(np.min(distances)),
         "per_system": per_system,
@@ -688,11 +784,17 @@ def main() -> int:
 
     try:
         print("\n[DATA] Building baseline physical dataset")
-        physical_dataset = build_physical_dataset(noise=0.0, standardize_before_embedding=False)
+        physical_dataset = build_physical_dataset(
+            noise=0.0, standardize_before_embedding=False
+        )
         print("\n[DATA] Building train null dataset")
-        train_null_dataset = build_null_dataset(DATASET_SEEDS, standardize_before_embedding=False)
+        train_null_dataset = build_null_dataset(
+            DATASET_SEEDS, standardize_before_embedding=False
+        )
         print("\n[DATA] Building held-out null dataset")
-        test_null_dataset = build_null_dataset(HELD_OUT_NULL_SEEDS, standardize_before_embedding=False)
+        test_null_dataset = build_null_dataset(
+            HELD_OUT_NULL_SEEDS, standardize_before_embedding=False
+        )
 
         train_nulls = stack_nulls(train_null_dataset)
         test_nulls = stack_nulls(test_null_dataset)
@@ -715,11 +817,14 @@ def main() -> int:
             train_nulls_standardized,
             test_nulls_standardized,
         )
-        report["tests"]["test4_perturbation_robustness"] = run_test4(train_nulls, test_nulls)
+        report["tests"]["test4_perturbation_robustness"] = run_test4(
+            train_nulls, test_nulls
+        )
         report["tests"]["test5_temporal_causality_sanity_check"] = run_test5()
 
         failed = [
-            name for name, result in report["tests"].items()
+            name
+            for name, result in report["tests"].items()
             if result.get("status") != "PASSED"
         ]
         report["metadata"]["runtime_seconds"] = float(time.time() - started)

@@ -1,7 +1,7 @@
 import sympy as sp
 from sympy.solvers.diophantine import diophantine
 
-x, y, z = sp.symbols('x y z', integer=True)
+x, y, z = sp.symbols("x y z", integer=True)
 eq = x**3 + y**3 + z**3 - 33
 try:
     sols = diophantine(eq)

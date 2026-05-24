@@ -34,7 +34,7 @@ import json
 # -- Rutas --
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RUNS_DIR = os.path.join(ROOT_DIR, "runs")
-DB_PATH  = os.path.join(RUNS_DIR, "math_search.db")
+DB_PATH = os.path.join(RUNS_DIR, "math_search.db")
 
 EXEC_TIMEOUT = 15
 
@@ -42,8 +42,10 @@ EXEC_TIMEOUT = 15
 # UTILIDADES DE CONEXION
 # ===========================================================================
 
+
 def _ensure_runs_dir():
     os.makedirs(RUNS_DIR, exist_ok=True)
+
 
 def _get_connection() -> sqlite3.Connection:
     _ensure_runs_dir()
@@ -51,9 +53,11 @@ def _get_connection() -> sqlite3.Connection:
     conn.row_factory = sqlite3.Row
     return conn
 
+
 # ===========================================================================
 # ESQUEMA DE BASE DE DATOS (Fase 6A: incluye artifacts)
 # ===========================================================================
+
 
 def _create_schema(conn: sqlite3.Connection):
     """Crea todas las tablas si no existen. Idempotente."""
@@ -125,6 +129,7 @@ def _create_schema(conn: sqlite3.Connection):
     """)
     conn.commit()
 
+
 def _drop_and_recreate(conn: sqlite3.Connection):
     """Borra y recrea todas las tablas. Usado por `init`."""
     conn.executescript("""
@@ -136,15 +141,17 @@ def _drop_and_recreate(conn: sqlite3.Connection):
     conn.commit()
     _create_schema(conn)
 
+
 # ===========================================================================
 # VISUALIZACION DEL ARBOL DE NODOS
 # ===========================================================================
 
 STATUS_ICON = {
     "SUCCESS": "[OK]",
-    "ERROR":   "[ER]",
+    "ERROR": "[ER]",
     "TIMEOUT": "[TO]",
 }
+
 
 def _print_tree(conn: sqlite3.Connection):
     rows = conn.execute(
@@ -154,7 +161,7 @@ def _print_tree(conn: sqlite3.Connection):
     problem_row = conn.execute(
         "SELECT value FROM config WHERE key='problem'"
     ).fetchone()
-    
+
     # Obtener el conteo de artefactos por nodo
     artifacts_rows = conn.execute(
         "SELECT node_id, COUNT(*) as count FROM artifacts GROUP BY node_id"
@@ -182,11 +189,15 @@ def _print_tree(conn: sqlite3.Connection):
         children.setdefault(pid, []).append(r)
 
     print()
-    print(f"  {'ID':>4}  {'PARENT':>6}  {'STATUS':^9}  {'COST(s)':>7}  FRAMEWORK_FAMILY / FRAMEWORK / REDUNDANCY")
-    print(f"  {'----':>4}  {'------':>6}  {'---------':^9}  {'-------':>7}  {'--------------------------------------------------'}")
+    print(
+        f"  {'ID':>4}  {'PARENT':>6}  {'STATUS':^9}  {'COST(s)':>7}  FRAMEWORK_FAMILY / FRAMEWORK / REDUNDANCY"
+    )
+    print(
+        f"  {'----':>4}  {'------':>6}  {'---------':^9}  {'-------':>7}  {'--------------------------------------------------'}"
+    )
 
     for r in rows:
-        icon   = STATUS_ICON.get(r["status"], "?")
+        icon = STATUS_ICON.get(r["status"], "?")
         parent = str(r["parent_id"]) if r["parent_id"] is not None else "ROOT"
 
         red_str = ""
@@ -206,34 +217,36 @@ def _print_tree(conn: sqlite3.Connection):
     def _draw_node(node_id_or_none, prefix="  ", is_last=True):
         kids = children.get(node_id_or_none, [])
         for i, kid in enumerate(kids):
-            last   = (i == len(kids) - 1)
+            last = i == len(kids) - 1
             branch = "`-" if last else "+-"
-            icon   = STATUS_ICON.get(kid["status"], "?")
+            icon = STATUS_ICON.get(kid["status"], "?")
 
             red_str = ""
             if kid["redundancy_flag"] == 1:
                 red_str = f" [R -> Nodo {kid['redundant_to_id']}]"
-                
+
             art_count = artifacts_count.get(kid["id"], 0)
             art_str = f" [+ {art_count} Artifacts]" if art_count > 0 else ""
 
-            print(f"{prefix}{branch} [{kid['id']}] {icon} {kid['framework_family']} ({kid['framework']})  ({kid['status']}, {kid['cost_metric']:.2f}s){red_str}{art_str}")
+            print(
+                f"{prefix}{branch} [{kid['id']}] {icon} {kid['framework_family']} ({kid['framework']})  ({kid['status']}, {kid['cost_metric']:.2f}s){red_str}{art_str}"
+            )
             next_prefix = prefix + ("   " if last else "|  ")
             _draw_node(kid["id"], next_prefix, last)
 
     _draw_node(None)
     print()
 
+
 # ===========================================================================
 # CMD: init
 # ===========================================================================
 
+
 def cmd_init(problema: str):
     conn = _get_connection()
     _drop_and_recreate(conn)
-    conn.execute(
-        "INSERT INTO config (key, value) VALUES ('problem', ?)", (problema,)
-    )
+    conn.execute("INSERT INTO config (key, value) VALUES ('problem', ?)", (problema,))
     conn.commit()
 
     SEP = "=" * 64
@@ -248,18 +261,30 @@ def cmd_init(problema: str):
 
     conn.close()
 
+
 # ===========================================================================
 # CMD: eval
 # ===========================================================================
 
-def cmd_eval(parent_id_str: str, framework_family: str, framework: str, filepath: str, notes: str, artifacts: list, signatures: list = None):
+
+def cmd_eval(
+    parent_id_str: str,
+    framework_family: str,
+    framework: str,
+    filepath: str,
+    notes: str,
+    artifacts: list,
+    signatures: list = None,
+):
     # -- Resolver parent_id --
     parent_id = None
     if parent_id_str.upper() not in ("NONE", "NULL", "0", "ROOT"):
         try:
             parent_id = int(parent_id_str)
         except ValueError:
-            print(f"[ERROR] parent_id debe ser entero o 'none'. Recibido: {parent_id_str!r}")
+            print(
+                f"[ERROR] parent_id debe ser entero o 'none'. Recibido: {parent_id_str!r}"
+            )
             sys.exit(1)
 
     # -- Truncar semantic notes --
@@ -287,7 +312,9 @@ def cmd_eval(parent_id_str: str, framework_family: str, framework: str, filepath
         redundant_to_id = row["id"]
 
     # -- Leer el codigo fuente --
-    abs_filepath = filepath if os.path.isabs(filepath) else os.path.join(ROOT_DIR, filepath)
+    abs_filepath = (
+        filepath if os.path.isabs(filepath) else os.path.join(ROOT_DIR, filepath)
+    )
     if not os.path.isfile(abs_filepath):
         print(f"[ERROR] Archivo no encontrado: {abs_filepath}")
         sys.exit(1)
@@ -296,7 +323,9 @@ def cmd_eval(parent_id_str: str, framework_family: str, framework: str, filepath
         source_code = f.read()
 
     print()
-    print(f"  [EVAL] family={framework_family!r}  framework={framework!r}  parent={parent_id}  file={filepath}")
+    print(
+        f"  [EVAL] family={framework_family!r}  framework={framework!r}  parent={parent_id}  file={filepath}"
+    )
     if redundancy_flag == 1:
         print(f"  [WARN] Redundancia detectada con el Nodo {redundant_to_id}.")
 
@@ -311,7 +340,7 @@ def cmd_eval(parent_id_str: str, framework_family: str, framework: str, filepath
             capture_output=True,
             text=True,
             timeout=EXEC_TIMEOUT,
-            cwd=ROOT_DIR
+            cwd=ROOT_DIR,
         )
         elapsed = time.time() - t0
 
@@ -325,17 +354,21 @@ def cmd_eval(parent_id_str: str, framework_family: str, framework: str, filepath
                 parts.append(f"STDOUT:\n{result.stdout}")
             if result.stderr:
                 parts.append(f"STDERR:\n{result.stderr}")
-            output = "\n".join(parts) if parts else f"(exit code {result.returncode}, sin output)"
+            output = (
+                "\n".join(parts)
+                if parts
+                else f"(exit code {result.returncode}, sin output)"
+            )
 
     except subprocess.TimeoutExpired:
         elapsed = time.time() - t0
-        status  = "TIMEOUT"
-        output  = f"Proceso eliminado tras {EXEC_TIMEOUT}s sin respuesta."
+        status = "TIMEOUT"
+        output = f"Proceso eliminado tras {EXEC_TIMEOUT}s sin respuesta."
 
     except Exception as exc:
         elapsed = time.time() - t0
-        status  = "ERROR"
-        output  = f"Excepcion al lanzar proceso: {exc}"
+        status = "ERROR"
+        output = f"Excepcion al lanzar proceso: {exc}"
 
     cost_metric = round(elapsed, 4)
 
@@ -345,10 +378,21 @@ def cmd_eval(parent_id_str: str, framework_family: str, framework: str, filepath
         INSERT INTO nodes (parent_id, framework_family, framework, code, output, status, cost_metric, redundancy_flag, redundant_to_id, semantic_notes)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
-        (parent_id, framework_family, framework, source_code, output, status, cost_metric, redundancy_flag, redundant_to_id, semantic_notes)
+        (
+            parent_id,
+            framework_family,
+            framework,
+            source_code,
+            output,
+            status,
+            cost_metric,
+            redundancy_flag,
+            redundant_to_id,
+            semantic_notes,
+        ),
     )
     new_id = cursor.lastrowid
-    
+
     # -- Insertar artefactos --
     if artifacts:
         for art in artifacts:
@@ -360,14 +404,22 @@ def cmd_eval(parent_id_str: str, framework_family: str, framework: str, filepath
                     INSERT INTO artifacts (node_id, artifact_type, file_path, metadata_json)
                     VALUES (?, ?, ?, ?)
                     """,
-                    (new_id, art_type, art_path, None)
+                    (new_id, art_type, art_path, None),
                 )
             else:
                 print(f"[WARN] Formato de artefacto invalido (ignorando): {art}")
 
     # -- Ingestar Embeddings Estructurales (--signature) --
-    embedding_fields = ["lyapunov_max", "spectral_entropy", "dominant_frequency",
-                        "variance", "autocorr_decay", "kurtosis", "skewness", "energy"]
+    embedding_fields = [
+        "lyapunov_max",
+        "spectral_entropy",
+        "dominant_frequency",
+        "variance",
+        "autocorr_decay",
+        "kurtosis",
+        "skewness",
+        "energy",
+    ]
     if signatures and status == "SUCCESS":
         for sig_entry in signatures:
             sig_parts = sig_entry.split("|", 1)
@@ -375,7 +427,11 @@ def cmd_eval(parent_id_str: str, framework_family: str, framework: str, filepath
                 print(f"[WARN] Formato de signature invalido (ignorando): {sig_entry}")
                 continue
             sig_name, sig_path = sig_parts
-            abs_sig = sig_path if os.path.isabs(sig_path) else os.path.join(ROOT_DIR, sig_path)
+            abs_sig = (
+                sig_path
+                if os.path.isabs(sig_path)
+                else os.path.join(ROOT_DIR, sig_path)
+            )
             if not os.path.isfile(abs_sig):
                 print(f"[WARN] Archivo de signature no encontrado: {abs_sig}")
                 continue
@@ -391,9 +447,11 @@ def cmd_eval(parent_id_str: str, framework_family: str, framework: str, filepath
                          skewness, energy, embedding_json)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """,
-                    (new_id, sig_name, *vals, json.dumps(sig_data, ensure_ascii=False))
+                    (new_id, sig_name, *vals, json.dumps(sig_data, ensure_ascii=False)),
                 )
-                print(f"  [EMB] Embedding ingestado para '{sig_name}' (node_id={new_id})")
+                print(
+                    f"  [EMB] Embedding ingestado para '{sig_name}' (node_id={new_id})"
+                )
             except Exception as exc:
                 print(f"[WARN] Error al ingestar signature '{sig_name}': {exc}")
     conn.commit()
@@ -420,19 +478,21 @@ def cmd_eval(parent_id_str: str, framework_family: str, framework: str, filepath
     _print_tree(conn)
     conn.close()
 
+
 # ===========================================================================
 # CMD: add_insight  (Fase 5B)
 # ===========================================================================
 
 INSIGHT_FIELDS = {
-    "pattern_type":         str,
-    "trigger_conditions":   (list, str),  # acepta lista o string JSON
+    "pattern_type": str,
+    "trigger_conditions": (list, str),  # acepta lista o string JSON
     "recommended_strategy": str,
-    "confidence":           float,
-    "supporting_nodes":     (list, str),
-    "counterexamples":      (list, str),
-    "domains":              (list, str),
+    "confidence": float,
+    "supporting_nodes": (list, str),
+    "counterexamples": (list, str),
+    "domains": (list, str),
 }
+
 
 def _coerce_json_field(value, field_name: str) -> str:
     """Convierte listas Python o strings JSON a string JSON normalizado."""
@@ -448,6 +508,7 @@ def _coerce_json_field(value, field_name: str) -> str:
     # Si es otro tipo escalar, envuelve en lista
     return json.dumps([value], ensure_ascii=False)
 
+
 def cmd_add_insight(json_string: str):
     """Inserta una nueva regla heuristica en meta_insights."""
     try:
@@ -457,21 +518,34 @@ def cmd_add_insight(json_string: str):
         sys.exit(1)
 
     # Validar campos obligatorios
-    required = ["pattern_type", "trigger_conditions", "recommended_strategy", "confidence"]
+    required = [
+        "pattern_type",
+        "trigger_conditions",
+        "recommended_strategy",
+        "confidence",
+    ]
     for field in required:
         if field not in data:
             print(f"[ERROR] Campo obligatorio ausente: '{field}'")
             sys.exit(1)
 
     # Normalizar campos JSON
-    trigger_conditions = _coerce_json_field(data.get("trigger_conditions", []), "trigger_conditions")
-    supporting_nodes   = _coerce_json_field(data.get("supporting_nodes", []),   "supporting_nodes")
-    counterexamples    = _coerce_json_field(data.get("counterexamples", []),     "counterexamples")
-    domains            = _coerce_json_field(data.get("domains", []),             "domains")
+    trigger_conditions = _coerce_json_field(
+        data.get("trigger_conditions", []), "trigger_conditions"
+    )
+    supporting_nodes = _coerce_json_field(
+        data.get("supporting_nodes", []), "supporting_nodes"
+    )
+    counterexamples = _coerce_json_field(
+        data.get("counterexamples", []), "counterexamples"
+    )
+    domains = _coerce_json_field(data.get("domains", []), "domains")
 
     confidence = float(data["confidence"])
     if not (0.0 <= confidence <= 1.0):
-        print(f"[WARN] confidence={confidence} esta fuera del rango [0,1]. Se permite, pero revisa.")
+        print(
+            f"[WARN] confidence={confidence} esta fuera del rango [0,1]. Se permite, pero revisa."
+        )
 
     conn = _get_connection()
     _create_schema(conn)
@@ -491,7 +565,7 @@ def cmd_add_insight(json_string: str):
             supporting_nodes,
             counterexamples,
             domains,
-        )
+        ),
     )
     new_id = cursor.lastrowid
     conn.commit()
@@ -511,9 +585,11 @@ def cmd_add_insight(json_string: str):
     print(f"  counterexamples      : {counterexamples}")
     print()
 
+
 # ===========================================================================
 # CMD: read_insights  (Fase 5B)
 # ===========================================================================
+
 
 def cmd_read_insights(domain: str | None):
     """Consulta meta_insights y los imprime como JSON legible."""
@@ -523,11 +599,12 @@ def cmd_read_insights(domain: str | None):
     if domain:
         # Buscar dominio como elemento dentro del JSON array
         rows = conn.execute(
-            "SELECT * FROM meta_insights WHERE domains LIKE ?",
-            (f'%"{domain}"%',)
+            "SELECT * FROM meta_insights WHERE domains LIKE ?", (f'%"{domain}"%',)
         ).fetchall()
     else:
-        rows = conn.execute("SELECT * FROM meta_insights ORDER BY confidence DESC").fetchall()
+        rows = conn.execute(
+            "SELECT * FROM meta_insights ORDER BY confidence DESC"
+        ).fetchall()
 
     conn.close()
 
@@ -549,14 +626,14 @@ def cmd_read_insights(domain: str | None):
     insights = []
     for r in rows:
         entry = {
-            "id":                   r["id"],
-            "pattern_type":         r["pattern_type"],
-            "trigger_conditions":   json.loads(r["trigger_conditions"]),
+            "id": r["id"],
+            "pattern_type": r["pattern_type"],
+            "trigger_conditions": json.loads(r["trigger_conditions"]),
             "recommended_strategy": r["recommended_strategy"],
-            "confidence":           r["confidence"],
-            "supporting_nodes":     json.loads(r["supporting_nodes"]),
-            "counterexamples":      json.loads(r["counterexamples"]),
-            "domains":              json.loads(r["domains"]),
+            "confidence": r["confidence"],
+            "supporting_nodes": json.loads(r["supporting_nodes"]),
+            "counterexamples": json.loads(r["counterexamples"]),
+            "domains": json.loads(r["domains"]),
         }
         insights.append(entry)
 
@@ -564,51 +641,97 @@ def cmd_read_insights(domain: str | None):
     print(json.dumps(insights, indent=2, ensure_ascii=False))
     print()
 
+
 # ===========================================================================
 # ENTRY POINT
 # ===========================================================================
 
+
 def main():
     parser = argparse.ArgumentParser(
         prog="evaluator_db.py",
-        description="Herramienta de memoria local HIBRIDA para investigacion matematica (Fase 6A)."
+        description="Herramienta de memoria local HIBRIDA para investigacion matematica (Fase 6A).",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     # -- Sub-comando: init --
-    p_init = subparsers.add_parser("init", help="Inicializa (o reinicia) la base de datos.")
-    p_init.add_argument("problema", type=str, help="Descripcion del problema de investigacion.")
+    p_init = subparsers.add_parser(
+        "init", help="Inicializa (o reinicia) la base de datos."
+    )
+    p_init.add_argument(
+        "problema", type=str, help="Descripcion del problema de investigacion."
+    )
 
     # -- Sub-comando: eval --
-    p_eval = subparsers.add_parser("eval", help="Evalua un script Python y registra el resultado.")
-    p_eval.add_argument("parent_id",        type=str, help="ID del nodo padre o 'none'/'root'.")
-    p_eval.add_argument("framework_family", type=str, help="Familia del framework (e.g. SYMBOLIC).")
-    p_eval.add_argument("framework",        type=str, help="Framework especifico (e.g. sympy).")
-    p_eval.add_argument("filepath",         type=str, help="Ruta al archivo .py a ejecutar.")
-    p_eval.add_argument("--notes",      type=str, default="", help="Notas semanticas (max 300 chars).")
-    p_eval.add_argument("--artifact",   type=str, action="append", help="Vincula un artefacto en formato 'tipo|ruta'")
-    p_eval.add_argument("--signature",  type=str, action="append", help="Ingestión de embedding en formato 'system_name|ruta/al/json'")
+    p_eval = subparsers.add_parser(
+        "eval", help="Evalua un script Python y registra el resultado."
+    )
+    p_eval.add_argument(
+        "parent_id", type=str, help="ID del nodo padre o 'none'/'root'."
+    )
+    p_eval.add_argument(
+        "framework_family", type=str, help="Familia del framework (e.g. SYMBOLIC)."
+    )
+    p_eval.add_argument(
+        "framework", type=str, help="Framework especifico (e.g. sympy)."
+    )
+    p_eval.add_argument("filepath", type=str, help="Ruta al archivo .py a ejecutar.")
+    p_eval.add_argument(
+        "--notes", type=str, default="", help="Notas semanticas (max 300 chars)."
+    )
+    p_eval.add_argument(
+        "--artifact",
+        type=str,
+        action="append",
+        help="Vincula un artefacto en formato 'tipo|ruta'",
+    )
+    p_eval.add_argument(
+        "--signature",
+        type=str,
+        action="append",
+        help="Ingestión de embedding en formato 'system_name|ruta/al/json'",
+    )
 
     # -- Sub-comando: read_insights (Fase 5B) --
-    p_read = subparsers.add_parser("read_insights", help="Muestra las leyes heuristicas almacenadas.")
-    p_read.add_argument("--domain", type=str, default=None,
-                        help="Filtrar por dominio matematico (opcional).")
+    p_read = subparsers.add_parser(
+        "read_insights", help="Muestra las leyes heuristicas almacenadas."
+    )
+    p_read.add_argument(
+        "--domain",
+        type=str,
+        default=None,
+        help="Filtrar por dominio matematico (opcional).",
+    )
 
     # -- Sub-comando: add_insight (Fase 5B) --
-    p_add = subparsers.add_parser("add_insight", help="Inserta una nueva regla heuristica en JSON.")
-    p_add.add_argument("json_string", type=str,
-                       help="String JSON con los campos de meta_insights (sin 'id').")
+    p_add = subparsers.add_parser(
+        "add_insight", help="Inserta una nueva regla heuristica en JSON."
+    )
+    p_add.add_argument(
+        "json_string",
+        type=str,
+        help="String JSON con los campos de meta_insights (sin 'id').",
+    )
 
     args = parser.parse_args()
 
     if args.command == "init":
         cmd_init(args.problema)
     elif args.command == "eval":
-        cmd_eval(args.parent_id, args.framework_family, args.framework, args.filepath, args.notes, args.artifact, args.signature)
+        cmd_eval(
+            args.parent_id,
+            args.framework_family,
+            args.framework,
+            args.filepath,
+            args.notes,
+            args.artifact,
+            args.signature,
+        )
     elif args.command == "read_insights":
         cmd_read_insights(args.domain)
     elif args.command == "add_insight":
         cmd_add_insight(args.json_string)
+
 
 if __name__ == "__main__":
     main()

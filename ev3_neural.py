@@ -17,6 +17,7 @@ if sys.platform.startswith("win"):
 
 from neural_ode_module import NeuralODEModel
 
+
 def extract_neural_ode_features(signal, t=None, model_path=None):
     """
     Fits a minimal Neural ODE on a 1D signal and extracts 8 deep structural features:
@@ -45,7 +46,7 @@ def extract_neural_ode_features(signal, t=None, model_path=None):
         # Initialize lightweight Neural ODE
         torch.manual_seed(42)
         model = NeuralODEModel(input_dim=1, hidden_dim=16, num_layers=2)
-        
+
         # Fit for a tiny number of epochs for high-speed feature extraction
         model.fit(t, X_obs, epochs=50, lr=0.01)
 
@@ -93,13 +94,14 @@ def extract_neural_ode_features(signal, t=None, model_path=None):
             pred_mean,
             pred_std,
             first_norm,
-            eff_dim_first
+            eff_dim_first,
         ]
         return np.array(features, dtype=np.float64)
 
     except Exception as e:
         print(f"  [ev3_neural WARNING] Neural ODE feature extraction failed: {e}")
         return np.full(8, np.nan)
+
 
 def extract_pinn_features(signal, t=None, system_hint=None):
     """
@@ -143,7 +145,9 @@ def extract_pinn_features(signal, t=None, system_hint=None):
         bc = dde.icbc.PointSetBC(t_2d, X_obs, component=0)
 
         # 5. PDE Data Setup
-        data = dde.data.PDE(geom, decay_pde, [bc], num_domain=30, num_boundary=2, anchors=t_2d)
+        data = dde.data.PDE(
+            geom, decay_pde, [bc], num_domain=30, num_boundary=2, anchors=t_2d
+        )
 
         # 6. Network and Model (FNN with 1 hidden layer)
         net = dde.nn.FNN([1, 16, 1], "tanh", "Glorot normal")
@@ -191,7 +195,7 @@ def extract_pinn_features(signal, t=None, system_hint=None):
             start_error,
             end_error,
             pred_std,
-            deriv_var
+            deriv_var,
         ]
         return np.array(features, dtype=np.float64)
 
@@ -199,13 +203,14 @@ def extract_pinn_features(signal, t=None, system_hint=None):
         print(f"  [ev3_neural WARNING] PINN feature extraction failed: {e}")
         return np.full(8, np.nan)
 
+
 def extract_ev3_scientific(signal, use_neural_ode=True, use_pinn=True):
     """
     Combines EV3_DEEP (68D) with Neural ODE features (8D) and PINN features (8D)
     to obtain a comprehensive space of ~84 dimensions (EV3_SCIENTIFIC).
     """
     from core.autonomous.latent_snapshot_exporter import extract_ev3_deep
-    
+
     # 1. Base EV3_DEEP vector (68D)
     try:
         ev3_deep = extract_ev3_deep(signal)
@@ -229,8 +234,4 @@ def extract_ev3_scientific(signal, use_neural_ode=True, use_pinn=True):
     node_feats = [float(f) if np.isfinite(f) else np.nan for f in node_feats]
     pinn_feats = [float(f) if np.isfinite(f) else np.nan for f in pinn_feats]
 
-    return np.concatenate([
-        ev3_deep,
-        node_feats,
-        pinn_feats
-    ])
+    return np.concatenate([ev3_deep, node_feats, pinn_feats])

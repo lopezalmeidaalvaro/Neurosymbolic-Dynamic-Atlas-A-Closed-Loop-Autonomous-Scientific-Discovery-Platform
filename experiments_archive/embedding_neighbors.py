@@ -24,15 +24,22 @@ from sklearn.metrics.pairwise import cosine_similarity, euclidean_distances
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RUNS_DIR = os.path.join(ROOT_DIR, "runs")
-DB_PATH  = os.path.join(RUNS_DIR, "math_search.db")
+DB_PATH = os.path.join(RUNS_DIR, "math_search.db")
 EVALUATOR = os.path.join(ROOT_DIR, "core", "evaluator_db.py")
 
 FEATURE_COLS = [
-    "lyapunov_max", "spectral_entropy", "dominant_frequency",
-    "variance", "autocorr_decay", "kurtosis", "skewness", "energy"
+    "lyapunov_max",
+    "spectral_entropy",
+    "dominant_frequency",
+    "variance",
+    "autocorr_decay",
+    "kurtosis",
+    "skewness",
+    "energy",
 ]
 
 SEP = "=" * 62
+
 
 def connect():
     if not os.path.isfile(DB_PATH):
@@ -65,19 +72,19 @@ def print_neighbors(names, sim_matrix, dist_matrix, k=2):
     n = len(names)
     results = {}
     for i in range(n):
-        cos_row  = [(sim_matrix[i, j],  names[j]) for j in range(n) if j != i]
+        cos_row = [(sim_matrix[i, j], names[j]) for j in range(n) if j != i]
         dist_row = [(dist_matrix[i, j], names[j]) for j in range(n) if j != i]
-        top_cos  = sorted(cos_row,  key=lambda x: -x[0])[:k]
-        top_dist = sorted(dist_row, key=lambda x:  x[0])[:k]
+        top_cos = sorted(cos_row, key=lambda x: -x[0])[:k]
+        top_dist = sorted(dist_row, key=lambda x: x[0])[:k]
         print(f"\n  Sistema: {names[i]}")
-        print(f"    Vecinos por Similitud Coseno:")
+        print("    Vecinos por Similitud Coseno:")
         for rank, (score, name) in enumerate(top_cos, 1):
             print(f"      #{rank}: {name:<25}  cos={score:.4f}")
-        print(f"    Vecinos por Distancia Euclidiana:")
+        print("    Vecinos por Distancia Euclidiana:")
         for rank, (dist, name) in enumerate(top_dist, 1):
             print(f"      #{rank}: {name:<25}  dist={dist:.4f}")
         results[names[i]] = {
-            "nearest_cosine":    top_cos[0][1] if top_cos else None,
+            "nearest_cosine": top_cos[0][1] if top_cos else None,
             "nearest_euclidean": top_dist[0][1] if top_dist else None,
         }
     return results
@@ -105,10 +112,12 @@ def inject_insight():
         "confidence": 0.95,
         "domains": ["nonlinear_dynamics", "topology", "chaos_theory"],
         "supporting_nodes": [],
-        "counterexamples": []
+        "counterexamples": [],
     }
     cmd = [sys.executable, EVALUATOR, "add_insight", json.dumps(insight)]
-    result = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT_DIR, timeout=15)
+    result = subprocess.run(
+        cmd, capture_output=True, text=True, cwd=ROOT_DIR, timeout=15
+    )
     if result.returncode == 0:
         print(f"\n{SEP}")
         print("  META-INSIGHT INYECTADO AUTOMÁTICAMENTE")
@@ -135,11 +144,11 @@ def main():
     norm_matrix = scaler.fit_transform(raw_matrix)
 
     # Matrices de distancia
-    cos_sim   = cosine_similarity(norm_matrix)      # (n, n) — más alto = más similar
-    euc_dist  = euclidean_distances(norm_matrix)    # (n, n) — más bajo = más cercano
+    cos_sim = cosine_similarity(norm_matrix)  # (n, n) — más alto = más similar
+    euc_dist = euclidean_distances(norm_matrix)  # (n, n) — más bajo = más cercano
 
     # Imprimir matrices completas
-    print_full_matrix(names, cos_sim,  "Similitud Coseno (normalizada)")
+    print_full_matrix(names, cos_sim, "Similitud Coseno (normalizada)")
     print_full_matrix(names, euc_dist, "Distancia Euclidiana (normalizada)")
 
     # Vecinos más cercanos
@@ -147,7 +156,7 @@ def main():
 
     # Resumen de clustering automático
     print(f"\n{SEP}")
-    print(f"  FAMILIAS DETECTADAS (clustering por MLE y Similitud Coseno)")
+    print("  FAMILIAS DETECTADAS (clustering por MLE y Similitud Coseno)")
     print(f"{SEP}")
     chaotic = [n for n in names if "duffing" in n.lower() or "logistic" in n.lower()]
     periodic = [n for n in names if "van_der_pol" in n.lower()]

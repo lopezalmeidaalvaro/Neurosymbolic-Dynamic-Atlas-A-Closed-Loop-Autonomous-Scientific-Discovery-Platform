@@ -1,6 +1,7 @@
 import numpy as np
 from scipy.optimize import root
 
+
 def get_bifurcation(f, df, period, x_guess, p_guess):
     def system(vars):
         x, p = vars
@@ -10,22 +11,23 @@ def get_bifurcation(f, df, period, x_guess, p_guess):
             curr_df *= df(curr_x, p)
             curr_x = f(curr_x, p)
         return [curr_x - x, curr_df + 1.0]
-        
-    res = root(system, [x_guess, p_guess], method='lm') # lm is often robust
+
+    res = root(system, [x_guess, p_guess], method="lm")  # lm is often robust
     if res.success:
         return res.x[0], res.x[1]
-    
+
     # Try hybr if lm fails
     res = root(system, [x_guess, p_guess])
     if res.success:
         return res.x[0], res.x[1]
-        
+
     return None, None
+
 
 def find_all_bifurcations(f, df, name, p1_guess, x1_guess, p2_guess):
     print(f"--- Explorando {name} ---")
     bifs = []
-    
+
     # Bifurcation 1 (period 1 -> 2)
     x1, p1 = get_bifurcation(f, df, 1, x1_guess, p1_guess)
     if p1 is None:
@@ -33,13 +35,13 @@ def find_all_bifurcations(f, df, name, p1_guess, x1_guess, p2_guess):
         return []
     bifs.append(p1)
     print(f"Bifurcación 1: p1 = {p1:.6f}")
-    
+
     def get_x_guess(p, x_start):
         x = x_start
         for _ in range(2000):
             x = f(x, p)
         return x
-        
+
     # Bifurcation 2 (period 2 -> 4)
     x2_guess = get_x_guess(p2_guess - 0.01, 0.5)
     x2, p2 = get_bifurcation(f, df, 2, x2_guess, p2_guess)
@@ -48,28 +50,29 @@ def find_all_bifurcations(f, df, name, p1_guess, x1_guess, p2_guess):
         return []
     bifs.append(p2)
     print(f"Bifurcación 2: p2 = {p2:.6f}")
-    
+
     ratios = []
-    
+
     # Bifurcation 3 and 4
     for n in range(3, 5):
-        period = 2**(n-1)
+        period = 2 ** (n - 1)
         p_guess = bifs[-1] + (bifs[-1] - bifs[-2]) / 4.669
-        x_guess = get_x_guess(p_guess - 1e-4, 0.5) 
-        
+        x_guess = get_x_guess(p_guess - 1e-4, 0.5)
+
         x_n, p_n = get_bifurcation(f, df, period, x_guess, p_guess)
         if p_n is None:
             print(f"Error hallando bifurcación {n}")
             break
         bifs.append(p_n)
         print(f"Bifurcación {n}: p{n} = {p_n:.6f}")
-        
-    for i in range(len(bifs)-2):
-        delta = (bifs[i+1] - bifs[i]) / (bifs[i+2] - bifs[i+1])
+
+    for i in range(len(bifs) - 2):
+        delta = (bifs[i + 1] - bifs[i]) / (bifs[i + 2] - bifs[i + 1])
         ratios.append(delta)
         print(f"Delta {i+1}: {delta:.5f}")
-        
+
     return ratios
+
 
 f_log = lambda x, r: r * x * (1 - x)
 df_log = lambda x, r: r * (1 - 2 * x)
@@ -85,4 +88,6 @@ ratios_sin = find_all_bifurcations(f_sin, df_sin, "Mapa Senoidal", 0.72, 0.6, 0.
 if len(ratios_log) >= 2 and len(ratios_sin) >= 2:
     if abs(ratios_log[-1] - ratios_sin[-1]) < 0.2:
         print("\n*** POSIBLE UNIVERSALIDAD DETECTADA ***")
-        print("Ambos sistemas convergen hacia el mismo ratio estructural geométrico (Constante de Feigenbaum).")
+        print(
+            "Ambos sistemas convergen hacia el mismo ratio estructural geométrico (Constante de Feigenbaum)."
+        )

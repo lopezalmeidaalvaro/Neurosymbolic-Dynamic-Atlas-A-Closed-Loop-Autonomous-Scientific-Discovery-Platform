@@ -12,28 +12,29 @@ if sys.platform.startswith("win"):
 from core.autonomous import (
     run_massive_sweep,
     analyze_massive_sweep,
-    save_massive_sweep_report
+    save_massive_sweep_report,
 )
+
 
 def main():
     parser = argparse.ArgumentParser(description="Run Massive Topological Sweep Engine")
     parser.add_argument(
         "--full",
         action="store_true",
-        help="Run full sweep (25 noise levels x 4 systems x 3 seeds) instead of reduced test"
+        help="Run full sweep (25 noise levels x 4 systems x 3 seeds) instead of reduced test",
     )
     parser.add_argument(
         "--seeds",
         type=int,
         default=None,
-        help="Number of seeds to use (overrides --full default). Seeds will be [42, 1337, 9001, ...]"
+        help="Number of seeds to use (overrides --full default). Seeds will be [42, 1337, 9001, ...]",
     )
     parser.add_argument(
         "--noise-levels",
         type=int,
         default=None,
         dest="noise_levels",
-        help="Number of noise levels (overrides --full default)."
+        help="Number of noise levels (overrides --full default).",
     )
     args = parser.parse_args()
 
@@ -94,25 +95,30 @@ def main():
     print("\n" + "=" * 60)
     print("🏆 RESUMEN CINEMÁTICO DEL COLAPSO GEOMÉTRICO")
     print("=" * 60)
-    
+
     for sys_name, data in analysis_results.get("results", {}).items():
         print(f"\nSistema Dinámico: {sys_name.upper()}")
         print("-" * 75)
-        print(f"{'Noise (σ)':<10} | {'Mean Drift (Δ)':<15} | {'Std Drift':<10} | {'Velocity (dΔ/dσ)':<16} | {'Accel (d²Δ/dσ²)':<15}")
+        print(
+            f"{'Noise (σ)':<10} | {'Mean Drift (Δ)':<15} | {'Std Drift':<10} | {'Velocity (dΔ/dσ)':<16} | {'Accel (d²Δ/dσ²)':<15}"
+        )
         print("-" * 75)
-        
+
         noises = data["noise"]
         drifts = data["mean_drift"]
         stds = data["std_drift"]
         vels = data["velocity"]
         accs = data["acceleration"]
-        
+
         for i in range(len(noises)):
-            print(f"{noises[i]:<10.4f} | {drifts[i]:<15.6f} | {stds[i]:<10.6f} | {vels[i]:<16.6f} | {accs[i]:<15.6f}")
+            print(
+                f"{noises[i]:<10.4f} | {drifts[i]:<15.6f} | {stds[i]:<10.6f} | {vels[i]:<16.6f} | {accs[i]:<15.6f}"
+            )
         print("-" * 75)
 
     print(f"\n✅ Sweep completado con éxito. Reporte guardado en {report_path}")
     print("=" * 60)
+
 
 if __name__ == "__main__":
     main()

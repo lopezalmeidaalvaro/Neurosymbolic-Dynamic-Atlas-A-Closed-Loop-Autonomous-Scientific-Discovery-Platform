@@ -6,12 +6,14 @@ from typing import Dict, Any, List
 from core.io import ARTIFACTS_DIR
 from core.validation import certify_session
 
+
 def load_session(session_id: str) -> Dict[str, Any]:
     file_path = ARTIFACTS_DIR / "sessions" / f"{session_id}.json"
     if not file_path.exists():
         raise FileNotFoundError(f"Session file not found: {file_path}")
     with open(file_path, "r", encoding="utf-8") as f:
         return json.load(f)
+
 
 def extract_embedding_vector(session: Dict[str, Any], system_name: str) -> List[float]:
     """
@@ -21,15 +23,23 @@ def extract_embedding_vector(session: Dict[str, Any], system_name: str) -> List[
     if not emb:
         return []
     fields = [
-        "lyapunov_max", "spectral_entropy", "dominant_frequency", "variance",
-        "autocorr_decay", "kurtosis", "skewness", "energy"
+        "lyapunov_max",
+        "spectral_entropy",
+        "dominant_frequency",
+        "variance",
+        "autocorr_decay",
+        "kurtosis",
+        "skewness",
+        "energy",
     ]
     return [float(emb.get(f, 0.0)) for f in fields]
+
 
 def compute_euclidean_distance(v1: List[float], v2: List[float]) -> float:
     if not v1 or not v2 or len(v1) != len(v2):
         return 0.0
     return math.sqrt(sum((x - y) ** 2 for x, y in zip(v1, v2)))
+
 
 def analyze_noise_drift(session_ids: List[str]) -> Dict[str, Any]:
     """
@@ -42,25 +52,25 @@ def analyze_noise_drift(session_ids: List[str]) -> Dict[str, Any]:
             sessions.append(load_session(s_id))
         except Exception as e:
             print(f"[ANALYZER] Warning: Failed to load session {s_id}: {e}")
-            
+
     if not sessions:
         return {}
 
     sessions.sort(key=lambda s: s.get("metadata", {}).get("noiseLevel", 0.0))
     baseline_session = sessions[0]
     systems = list(baseline_session.get("embeddings", {}).keys())
-    
+
     results_by_noise = []
-    
+
     for s in sessions:
         noise = s.get("metadata", {}).get("noiseLevel", 0.0)
         s_id = s.get("metadata", {}).get("id")
-        
+
         comparisons = s.get("benchmarks", {}).get("comparisons", {})
         emb_v2_acc = comparisons.get("Embedding_V2", {}).get("accuracy", 1.0)
         rocket_acc = comparisons.get("ROCKET", {}).get("accuracy", 1.0)
         dtw_acc = comparisons.get("DTW", {}).get("accuracy", 1.0)
-        
+
         drift_by_system = {}
         total_drift = 0.0
         count = 0
@@ -72,24 +82,27 @@ def analyze_noise_drift(session_ids: List[str]) -> Dict[str, Any]:
                 drift_by_system[sys_name] = round(d, 6)
                 total_drift += d
                 count += 1
-                
+
         avg_drift = total_drift / count if count > 0 else 0.0
-        
-        results_by_noise.append({
-            "session_id": s_id,
-            "noise_level": noise,
-            "accuracy": emb_v2_acc,
-            "rocket_accuracy": rocket_acc,
-            "dtw_accuracy": dtw_acc,
-            "average_drift": round(avg_drift, 6),
-            "drift_by_system": drift_by_system
-        })
-        
+
+        results_by_noise.append(
+            {
+                "session_id": s_id,
+                "noise_level": noise,
+                "accuracy": emb_v2_acc,
+                "rocket_accuracy": rocket_acc,
+                "dtw_accuracy": dtw_acc,
+                "average_drift": round(avg_drift, 6),
+                "drift_by_system": drift_by_system,
+            }
+        )
+
     return {
         "baseline_session_id": baseline_session.get("metadata", {}).get("id"),
         "systems_analyzed": systems,
-        "runs": results_by_noise
+        "runs": results_by_noise,
     }
+
 
 def analyze_massive_sweep(session_ids: List[str]) -> Dict[str, Any]:
     """
@@ -102,7 +115,7 @@ def analyze_massive_sweep(session_ids: List[str]) -> Dict[str, Any]:
             sessions.append(load_session(s_id))
         except Exception as e:
             print(f"[ANALYZER] Warning: Failed to load session {s_id}: {e}")
-            
+
     if not sessions:
         return {}
 
@@ -128,10 +141,10 @@ def analyze_massive_sweep(session_ids: List[str]) -> Dict[str, Any]:
                 seed = int(str(s_id).split("_seed_")[-1])
             except (ValueError, IndexError):
                 seed = 42
-        
+
         noise_set.add(noise)
         seeds_set.add(seed)
-        
+
         # Systems present in this session
         session_systems = list(s.get("embeddings", {}).keys())
         for sys_name in session_systems:
@@ -170,27 +183,41 @@ def analyze_massive_sweep(session_ids: List[str]) -> Dict[str, Any]:
                 if curr_s and base_s:
                     v_curr = extract_embedding_vector(curr_s, sys_name)
                     v_base = extract_embedding_vector(base_s, sys_name)
-                    
+
                     if v_curr and v_base:
                         drift = compute_euclidean_distance(v_base, v_curr)
                         drifts_at_noise.append(drift)
-                        
-                        comparisons = curr_s.get("benchmarks", {}).get("comparisons", {})
-                        accuracies_at_noise.append(float(comparisons.get("Embedding_V2", {}).get("accuracy", 1.0)))
-                        rocket_accuracies_at_noise.append(float(comparisons.get("ROCKET", {}).get("accuracy", 1.0)))
-                        dtw_accuracies_at_noise.append(float(comparisons.get("DTW", {}).get("accuracy", 1.0)))
+
+                        comparisons = curr_s.get("benchmarks", {}).get(
+                            "comparisons", {}
+                        )
+                        accuracies_at_noise.append(
+                            float(
+                                comparisons.get("Embedding_V2", {}).get("accuracy", 1.0)
+                            )
+                        )
+                        rocket_accuracies_at_noise.append(
+                            float(comparisons.get("ROCKET", {}).get("accuracy", 1.0))
+                        )
+                        dtw_accuracies_at_noise.append(
+                            float(comparisons.get("DTW", {}).get("accuracy", 1.0))
+                        )
 
             if drifts_at_noise:
                 sys_noise_levels.append(noise)
                 sys_mean_drifts.append(float(np.mean(drifts_at_noise)))
                 sys_std_drifts.append(float(np.std(drifts_at_noise)))
-                
+
                 sys_mean_accuracies.append(float(np.mean(accuracies_at_noise)))
                 sys_std_accuracies.append(float(np.std(accuracies_at_noise)))
-                
-                sys_mean_rocket_accuracies.append(float(np.mean(rocket_accuracies_at_noise)))
-                sys_std_rocket_accuracies.append(float(np.std(rocket_accuracies_at_noise)))
-                
+
+                sys_mean_rocket_accuracies.append(
+                    float(np.mean(rocket_accuracies_at_noise))
+                )
+                sys_std_rocket_accuracies.append(
+                    float(np.std(rocket_accuracies_at_noise))
+                )
+
                 sys_mean_dtw_accuracies.append(float(np.mean(dtw_accuracies_at_noise)))
                 sys_std_dtw_accuracies.append(float(np.std(dtw_accuracies_at_noise)))
 
@@ -213,17 +240,13 @@ def analyze_massive_sweep(session_ids: List[str]) -> Dict[str, Any]:
             "mean_rocket_accuracy": [round(x, 4) for x in sys_mean_rocket_accuracies],
             "std_rocket_accuracy": [round(x, 4) for x in sys_std_rocket_accuracies],
             "mean_dtw_accuracy": [round(x, 4) for x in sys_mean_dtw_accuracies],
-            "std_dtw_accuracy": [round(x, 4) for x in sys_std_dtw_accuracies]
+            "std_dtw_accuracy": [round(x, 4) for x in sys_std_dtw_accuracies],
         }
 
     # ── Phase 3.3: Mathematical analysis complete. Now certify results. ────
     raw_analysis = {
-        "metadata": {
-            "systems": systems,
-            "noise_levels": noise_levels,
-            "seeds": seeds
-        },
-        "results": results
+        "metadata": {"systems": systems, "noise_levels": noise_levels, "seeds": seeds},
+        "results": results,
     }
 
     print("[CERTIFIER] Certifying statistical validity of analysis results...")

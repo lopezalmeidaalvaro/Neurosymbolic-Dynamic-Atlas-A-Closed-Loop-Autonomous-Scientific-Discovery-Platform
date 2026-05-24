@@ -1,4 +1,7 @@
-import sys, os, json
+import sys
+import os
+import json
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from core.evaluator_db import cmd_add_insight
@@ -10,7 +13,7 @@ payload = {
     "confidence": 0.98,
     "supporting_nodes": [1, 2],
     "counterexamples": [],
-    "domains": ["nonlinear_dynamics", "differential_equations"]
+    "domains": ["nonlinear_dynamics", "differential_equations"],
 }
 
 # The user prompt: "... documente un patrón que hayas descubierto (por ejemplo, cómo los métodos puramente analíticos escalan al buscar bifurcaciones, o la necesidad de alta resolución temporal en la integración ODE)."
@@ -22,8 +25,10 @@ payload = {
     "confidence": 0.95,
     "supporting_nodes": [1, 2],
     "counterexamples": [],
-    "domains": ["nonlinear_dynamics", "chaos_theory"]
+    "domains": ["nonlinear_dynamics", "chaos_theory"],
 }
 
 cmd_add_insight(json.dumps(payload))
-print("Insight inyectado en meta_insights documentando la complementariedad entre los metodos numericos y simbolicos.")
+print(
+    "Insight inyectado en meta_insights documentando la complementariedad entre los metodos numericos y simbolicos."
+)

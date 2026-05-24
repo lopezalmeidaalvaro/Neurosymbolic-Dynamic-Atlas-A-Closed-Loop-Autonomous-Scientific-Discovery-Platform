@@ -1,6 +1,6 @@
 import sympy as sp
 
-x = sp.Symbol('x')
+x = sp.Symbol("x")
 eq = sp.sin(x) - sp.log(x)
 try:
     roots = sp.solve(eq, x)

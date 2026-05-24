@@ -4,7 +4,7 @@ import os
 from scipy.stats import spearmanr
 
 # -------------------------------------------------------------------
-# INYECCIÓN DE DATOS REALES: 
+# INYECCIÓN DE DATOS REALES:
 # Aquí debes cargar las matrices de tus 50 iteraciones bootstrap reales
 # -------------------------------------------------------------------
 # Mock data (generada para cuadrar con tus medias observadas)
@@ -36,11 +36,14 @@ Delta_K_boot = K_boot - K_null_boot
 # H0: Delta K ~ Delta K_perm (El dominio puente no aporta más estructura que el azar)
 # -------------------------------------------------------------------
 # Simulamos la distribución nula permutando aleatoriamente las etiquetas de los dominios
-Delta_K_perm = np.random.normal(loc=0.0, scale=0.05, size=N_PERMUTATIONS) # Distribución centrada en 0
+Delta_K_perm = np.random.normal(
+    loc=0.0, scale=0.05, size=N_PERMUTATIONS
+)  # Distribución centrada en 0
 observed_delta_K = np.mean(Delta_K_boot)
 
 # p-value exacto: Proporción de permutaciones que dieron un Delta K igual o más extremo (negativo)
 p_value_perm = (np.sum(Delta_K_perm <= observed_delta_K) + 1) / (N_PERMUTATIONS + 1)
+
 
 # -------------------------------------------------------------------
 # CÁLCULO DE INTERVALOS DE CONFIANZA (95%)
@@ -48,31 +51,27 @@ p_value_perm = (np.sum(Delta_K_perm <= observed_delta_K) + 1) / (N_PERMUTATIONS 
 def get_ci(data):
     return [round(np.percentile(data, 2.5), 3), round(np.percentile(data, 97.5), 3)]
 
+
 def get_mean(data):
     return round(np.mean(data), 3)
 
+
 audit_results = {
-    "D_emb": {
-        "mean": get_mean(D_emb_boot),
-        "ci95": get_ci(D_emb_boot)
-    },
-    "D_attr": {
-        "mean": get_mean(D_attr_boot),
-        "ci95": get_ci(D_attr_boot)
-    },
+    "D_emb": {"mean": get_mean(D_emb_boot), "ci95": get_ci(D_emb_boot)},
+    "D_attr": {"mean": get_mean(D_attr_boot), "ci95": get_ci(D_attr_boot)},
     "Transitions": {
         "S1": {"mean": get_mean(S1_boot), "ci95": get_ci(S1_boot)},
         "S2": {"mean": get_mean(S2_boot), "ci95": get_ci(S2_boot)},
     },
     "Continuity": {
         "K_observed": {"mean": get_mean(K_boot), "ci95": get_ci(K_boot)},
-        "K_null": {"mean": get_mean(K_null_boot), "ci95": get_ci(K_null_boot)}
+        "K_null": {"mean": get_mean(K_null_boot), "ci95": get_ci(K_null_boot)},
     },
     "delta_K": {
         "observed": get_mean(Delta_K_boot),
         "ci95": get_ci(Delta_K_boot),
-        "p_perm": round(p_value_perm, 4)
-    }
+        "p_perm": round(p_value_perm, 4),
+    },
 }
 
 # Exportación del JSON
@@ -80,7 +79,7 @@ out_dir = "artifacts"
 os.makedirs(out_dir, exist_ok=True)
 json_path = os.path.join(out_dir, "continuity_significance_audit.json")
 
-with open(json_path, 'w') as f:
+with open(json_path, "w") as f:
     json.dump(audit_results, f, indent=2)
 
 print(f"✅ Statistical audit completed. Results saved to {json_path}")

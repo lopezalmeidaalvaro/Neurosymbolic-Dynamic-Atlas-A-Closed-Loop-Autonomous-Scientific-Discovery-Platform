@@ -1,0 +1,13 @@
+# Minimal runtime requirements. Use requirements_lock.txt for exact versions.
+numpy>=1.26
+pandas>=2.2
+scipy>=1.13
+scikit-learn>=1.5
+sympy>=1.12
+matplotlib>=3.8
+torch>=2.3
+torchdiffeq>=0.2
+PyYAML>=6.0
+pytest>=8.0
+black>=24.0
+ruff>=0.8

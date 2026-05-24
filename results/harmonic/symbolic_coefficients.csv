@@ -1,0 +1,7 @@
+target,term,coefficient
+dx/dt,1,0.0
+dx/dt,x,0.0
+dx/dt,v,1.0
+dv/dt,1,0.0
+dv/dt,x,-0.9999999999999996
+dv/dt,v,0.0

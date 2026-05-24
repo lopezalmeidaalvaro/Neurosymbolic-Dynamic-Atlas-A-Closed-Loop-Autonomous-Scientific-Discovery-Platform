@@ -4,11 +4,17 @@ Calcula irreducibilidad, discriminante y grupo de Galois.
 Contrato: lee la expresion matematica de sys.argv[1].
 Emite: galois_group_result.json
 """
-import json, sys, time, math, tracemalloc
+
+import json
+import sys
+import time
+import math
+import tracemalloc
 import sympy as sp
 from sympy import Poly, Symbol, discriminant, factor, ZZ
 
 OUTPUT = "galois_group_result.json"
+
 
 def run(expr_str):
     tracemalloc.start()
@@ -17,9 +23,9 @@ def run(expr_str):
     output = {}
 
     try:
-        x = Symbol('x')
+        x = Symbol("x")
         # Parse expression: replace ^ with ** for SymPy
-        p = sp.sympify(expr_str.replace('^', '**'))
+        p = sp.sympify(expr_str.replace("^", "**"))
         poly = Poly(p, x, domain=ZZ)
 
         is_irreducible = poly.is_irreducible
@@ -42,7 +48,7 @@ def run(expr_str):
 
         has_5_cycle = any(pat == (5,) for pat in cycle_patterns)
         sqrt_disc = math.isqrt(abs(disc_val))
-        disc_is_square = (sqrt_disc * sqrt_disc == abs(disc_val))
+        disc_is_square = sqrt_disc * sqrt_disc == abs(disc_val)
 
         if is_irreducible and has_5_cycle and not disc_is_square:
             galois_group, solvable, confidence = "S5", False, "high"
@@ -63,7 +69,7 @@ def run(expr_str):
             "has_5_cycle_in_frobenius": bool(has_5_cycle),
             "galois_group": galois_group,
             "galois_group_confidence": confidence,
-            "solvable_by_radicals": solvable
+            "solvable_by_radicals": solvable,
         }
         status = "success"
 
@@ -82,9 +88,9 @@ def run(expr_str):
         "output": output,
         "metrics": {
             "runtime_sec": round(elapsed, 4),
-            "peak_ram_mb": round(peak / (1024 * 1024), 2)
+            "peak_ram_mb": round(peak / (1024 * 1024), 2),
         },
-        "errors": errors
+        "errors": errors,
     }
 
     with open(OUTPUT, "w", encoding="utf-8") as f:

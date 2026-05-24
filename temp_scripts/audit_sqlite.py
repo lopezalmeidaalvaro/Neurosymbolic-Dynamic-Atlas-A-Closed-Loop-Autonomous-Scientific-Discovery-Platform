@@ -2,9 +2,11 @@
 Auditoría completa del esquema SQLite de structural_embeddings.
 Muestra: columnas, índices, constraints, PK, y filas de muestra.
 """
-import sqlite3, json
 
-conn = sqlite3.connect('runs/math_search.db')
+import sqlite3
+import json
+
+conn = sqlite3.connect("runs/math_search.db")
 
 # 1. DDL completo de la tabla
 print("=== CREATE SQL ===")
@@ -17,7 +19,9 @@ print()
 # 2. PRAGMA columns
 print("=== PRAGMA table_info ===")
 cols = conn.execute("PRAGMA table_info(structural_embeddings)").fetchall()
-print(f"{'cid':<4} {'name':<22} {'type':<12} {'notnull':<8} {'dflt_value':<12} {'pk':<4}")
+print(
+    f"{'cid':<4} {'name':<22} {'type':<12} {'notnull':<8} {'dflt_value':<12} {'pk':<4}"
+)
 print("-" * 65)
 for c in cols:
     print(f"{c[0]:<4} {c[1]:<22} {c[2]:<12} {c[3]:<8} {str(c[4]):<12} {c[5]:<4}")
@@ -39,7 +43,7 @@ print()
 
 # 4. Check presence of noise_level and seed
 print("=== COLUMN PRESENCE ===")
-for needed in ['noise_level', 'seed']:
+for needed in ["noise_level", "seed"]:
     present = needed in col_names
     print(f"  {needed:<15}: {'PRESENT [OK]' if present else 'MISSING [!!]'}")
 print()
@@ -51,6 +55,8 @@ header = [c[1] for c in cols]
 print("  " + " | ".join(f"{h:<18}" for h in header))
 for r in rows:
     print("  " + " | ".join(f"{str(v):<18}" for v in r))
-print(f"\n  Total rows: {conn.execute('SELECT COUNT(*) FROM structural_embeddings').fetchone()[0]}")
+print(
+    f"\n  Total rows: {conn.execute('SELECT COUNT(*) FROM structural_embeddings').fetchone()[0]}"
+)
 
 conn.close()

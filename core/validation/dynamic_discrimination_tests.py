@@ -32,8 +32,13 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split, StratifiedKFold
 from sklearn.metrics import (
-    roc_auc_score, precision_score, recall_score,
-    f1_score, confusion_matrix, precision_recall_curve, auc
+    roc_auc_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    confusion_matrix,
+    precision_recall_curve,
+    auc,
 )
 
 warnings.filterwarnings("ignore")
@@ -52,33 +57,45 @@ sys.path.insert(0, ROOT_DIR)
 
 from core.autonomous.latent_snapshot_exporter import (
     compute_embedding_vector,
-    lorenz_rhs, rossler_rhs,
+    lorenz_rhs,
+    rossler_rhs,
 )
 
-REPORT_DIR  = os.path.join(ROOT_DIR, "dashboard", "public", "artifacts", "discoveries")
+REPORT_DIR = os.path.join(ROOT_DIR, "dashboard", "public", "artifacts", "discoveries")
 REPORT_FILE = os.path.join(REPORT_DIR, "dynamic_discrimination_report.json")
 
 V3_KEYS = [
-    "perm_entropy", "spectral_entropy", "svd_entropy",
-    "fractal_dim", "autocorr_decay", "robust_skewness",
-    "robust_kurtosis", "temporal_irreversibility",
+    "perm_entropy",
+    "spectral_entropy",
+    "svd_entropy",
+    "fractal_dim",
+    "autocorr_decay",
+    "robust_skewness",
+    "robust_kurtosis",
+    "temporal_irreversibility",
 ]
 
 # ──────────────────────────────────────────────────────────────────────────────
 # JSON SERIALIZER (numpy-safe)
 # ──────────────────────────────────────────────────────────────────────────────
 
+
 def _json_default(obj):
-    if isinstance(obj, (np.bool_,)):       return bool(obj)
-    if isinstance(obj, (np.integer,)):     return int(obj)
-    if isinstance(obj, (np.floating,)):    return float(obj)
-    if isinstance(obj, np.ndarray):        return obj.tolist()
+    if isinstance(obj, (np.bool_,)):
+        return bool(obj)
+    if isinstance(obj, (np.integer,)):
+        return int(obj)
+    if isinstance(obj, (np.floating,)):
+        return float(obj)
+    if isinstance(obj, np.ndarray):
+        return obj.tolist()
     raise TypeError(f"Not serializable: {type(obj).__name__}")
 
 
 # ──────────────────────────────────────────────────────────────────────────────
 # SIGNAL GENERATORS
 # ──────────────────────────────────────────────────────────────────────────────
+
 
 def _simulate_lorenz(noise=0.0, seed=42, n_points=30000, transient=5000):
     t_span = (0, 300)
@@ -118,7 +135,9 @@ def _ou_process(N=25000, theta=0.5, mu=0.0, sigma=1.0, dt=0.01, seed=42):
     x = np.zeros(N)
     sq_dt = np.sqrt(dt)
     for t in range(1, N):
-        x[t] = x[t - 1] + theta * (mu - x[t - 1]) * dt + sigma * sq_dt * np.random.normal()
+        x[t] = (
+            x[t - 1] + theta * (mu - x[t - 1]) * dt + sigma * sq_dt * np.random.normal()
+        )
     return x, dt
 
 
@@ -163,6 +182,7 @@ def _fourier_surrogate(x, seed=42):
 # SLIDING WINDOW EMBEDDING EXTRACTOR
 # ──────────────────────────────────────────────────────────────────────────────
 
+
 def extract_window_embeddings(x, dt, window_size=1500, overlap=0.5):
     """
     Extract V3 embedding vectors over sliding windows.
@@ -173,7 +193,7 @@ def extract_window_embeddings(x, dt, window_size=1500, overlap=0.5):
     N = len(x)
     s = 0
     while s + window_size <= N:
-        win = x[s:s + window_size]
+        win = x[s : s + window_size]
         emb = compute_embedding_vector(win, dt)
         vec = np.array([emb[k] for k in V3_KEYS], dtype=float)
         vecs.append(vec)
@@ -189,13 +209,17 @@ def extract_window_embeddings(x, dt, window_size=1500, overlap=0.5):
 # LOCAL LYAPUNOV via ROSENSTEIN (nolds)
 # ──────────────────────────────────────────────────────────────────────────────
 
-def _local_lyapunov_rosenstein(x_win, dt, emb_dim=3, lag=1, min_tsep=None, trajectory_len=20):
+
+def _local_lyapunov_rosenstein(
+    x_win, dt, emb_dim=3, lag=1, min_tsep=None, trajectory_len=20
+):
     """
     Compute max Lyapunov exponent via Rosenstein algorithm using nolds.lyap_r().
     Returns float or NaN on failure.
     """
     try:
         import nolds
+
         val = nolds.lyap_r(
             x_win,
             emb_dim=emb_dim,
@@ -217,18 +241,26 @@ def _local_lyapunov_rosenstein(x_win, dt, emb_dim=3, lag=1, min_tsep=None, traje
 # BOOTSTRAP CI
 # ──────────────────────────────────────────────────────────────────────────────
 
+
 def _bootstrap_ci(values, n_boot=500, ci=0.95, seed=42):
     """Return (mean, lower_ci, upper_ci) via bootstrap."""
     rng = np.random.default_rng(seed)
     vals = np.array(values)
-    means = np.array([rng.choice(vals, size=len(vals), replace=True).mean() for _ in range(n_boot)])
+    means = np.array(
+        [rng.choice(vals, size=len(vals), replace=True).mean() for _ in range(n_boot)]
+    )
     alpha = (1 - ci) / 2
-    return float(vals.mean()), float(np.percentile(means, alpha * 100)), float(np.percentile(means, (1 - alpha) * 100))
+    return (
+        float(vals.mean()),
+        float(np.percentile(means, alpha * 100)),
+        float(np.percentile(means, (1 - alpha) * 100)),
+    )
 
 
 # ══════════════════════════════════════════════════════════════════════════════
 # TEST 1 — LOCAL LYAPUNOV CONSISTENCY
 # ══════════════════════════════════════════════════════════════════════════════
+
 
 def test1_local_lyapunov_consistency():
     """
@@ -259,14 +291,14 @@ def test1_local_lyapunov_consistency():
         print("  [SKIP] nolds not installed.")
         return {"status": "SKIPPED", "reason": "nolds not installed"}
 
-    WINDOW_SIZE     = 1500
-    OVERLAP         = 0.50
-    LYAP_EMB        = 3
-    LYAP_TRAJ       = 20
-    NOISE_LEVELS    = [0.0, 0.1, 0.3, 0.5]
-    PHYSICAL_CRIT   = 0.40
-    NULL_INFO_THRESH= 0.40
-    MAX_WINDOWS_PER_COND = 20   # Cap per (system, noise) to keep runtime bounded
+    WINDOW_SIZE = 1500
+    OVERLAP = 0.50
+    LYAP_EMB = 3
+    LYAP_TRAJ = 20
+    NOISE_LEVELS = [0.0, 0.1, 0.3, 0.5]
+    PHYSICAL_CRIT = 0.40
+    NULL_INFO_THRESH = 0.40
+    MAX_WINDOWS_PER_COND = 20  # Cap per (system, noise) to keep runtime bounded
 
     # ── Helper: extract windows + local Lyapunov ─────────────────────────────
     def collect_pairs(x, dt, label):
@@ -276,21 +308,30 @@ def test1_local_lyapunov_consistency():
         s = 0
         count = 0
         while s + WINDOW_SIZE <= N and count < MAX_WINDOWS_PER_COND:
-            win = x[s:s + WINDOW_SIZE]
+            win = x[s : s + WINDOW_SIZE]
             emb = compute_embedding_vector(win, dt)
             vec = np.array([emb[k] for k in V3_KEYS], dtype=float)
             if not np.all(np.isfinite(vec)):
-                s += stride; continue
+                s += stride
+                continue
             import nolds as _nolds
+
             try:
-                lam = _nolds.lyap_r(win, emb_dim=LYAP_EMB, lag=1,
-                                    trajectory_len=LYAP_TRAJ,
-                                    fit="poly", debug_plot=False, debug_data=False)
+                lam = _nolds.lyap_r(
+                    win,
+                    emb_dim=LYAP_EMB,
+                    lag=1,
+                    trajectory_len=LYAP_TRAJ,
+                    fit="poly",
+                    debug_plot=False,
+                    debug_data=False,
+                )
                 lam = float(lam) if np.isfinite(lam) else None
             except Exception:
                 lam = None
             if lam is None:
-                s += stride; continue
+                s += stride
+                continue
             embs_list.append(vec)
             lyap_list.append(lam)
             s += stride
@@ -304,7 +345,8 @@ def test1_local_lyapunov_consistency():
         for sim_fn in [_simulate_lorenz, _simulate_rossler]:
             x, dt = sim_fn(noise=noise, seed=42)
             e, l = collect_pairs(x, dt, label=f"noise={noise}")
-            phys_embs.extend(e); phys_lyap.extend(l)
+            phys_embs.extend(e)
+            phys_lyap.extend(l)
 
     # ── Build null pool ───────────────────────────────────────────────────────
     print("  [POOL] Building null pool (AR1 + OU + WN + IAAFT × 4 seeds)...")
@@ -318,9 +360,12 @@ def test1_local_lyapunov_consistency():
         ]:
             x, dt = gen_fn()
             e, l = collect_pairs(x, dt, label="null")
-            null_embs.extend(e); null_lyap.extend(l)
+            null_embs.extend(e)
+            null_lyap.extend(l)
 
-    print(f"  Physical pool: {len(phys_embs)} windows | Null pool: {len(null_embs)} windows")
+    print(
+        f"  Physical pool: {len(phys_embs)} windows | Null pool: {len(null_embs)} windows"
+    )
 
     # ── Global PCA on physical pool ──────────────────────────────────────────
     if len(phys_embs) < 10:
@@ -344,7 +389,9 @@ def test1_local_lyapunov_consistency():
     phys_marker = "✅" if phys_ok else "❌"
     print(f"\n  Physical pool: n={len(phys_embs)}, PC₁ variance={pc1_var:.1%}")
     print(f"  λ: mean={lam_mean_p:.4f}, CI95=[{lam_lo_p:.4f}, {lam_hi_p:.4f}]")
-    print(f"  ρ(PC₁, λ) = {rho_phys:.4f}  (p={pval_phys:.4f})  |ρ|>0.40 → {phys_marker}")
+    print(
+        f"  ρ(PC₁, λ) = {rho_phys:.4f}  (p={pval_phys:.4f})  |ρ|>0.40 → {phys_marker}"
+    )
 
     # ── Null pool ρ ───────────────────────────────────────────────────────────
     null_result = {}
@@ -395,10 +442,10 @@ def test1_local_lyapunov_consistency():
     }
 
 
-
 # ══════════════════════════════════════════════════════════════════════════════
 # TEST 2 — NOISE DEGRADATION CURVE
 # ══════════════════════════════════════════════════════════════════════════════
+
 
 def test2_noise_degradation_curve():
     """
@@ -413,7 +460,12 @@ def test2_noise_degradation_curve():
     print("═" * 66)
 
     noise_levels = [0.0, 0.05, 0.1, 0.2, 0.3, 0.5]
-    features_to_check = ["perm_entropy", "svd_entropy", "fractal_dim", "temporal_irreversibility"]
+    features_to_check = [
+        "perm_entropy",
+        "svd_entropy",
+        "fractal_dim",
+        "temporal_irreversibility",
+    ]
     MAX_DELTA = 0.30
     WINDOW_SIZE = 1500
     OVERLAP = 0.5
@@ -422,7 +474,9 @@ def test2_noise_degradation_curve():
 
     for sigma in noise_levels:
         x, dt = _simulate_lorenz(noise=sigma, seed=42)
-        embs, valid = extract_window_embeddings(x, dt, window_size=WINDOW_SIZE, overlap=OVERLAP)
+        embs, valid = extract_window_embeddings(
+            x, dt, window_size=WINDOW_SIZE, overlap=OVERLAP
+        )
         embs_valid = embs[valid]
         if len(embs_valid) == 0:
             for feat in V3_KEYS:
@@ -455,19 +509,25 @@ def test2_noise_degradation_curve():
             deltas.append(float(delta))
             if delta > MAX_DELTA:
                 anomaly_indices.append(i)
-                anomalies_all.append({
-                    "feature": feat,
-                    "sigma_from": noise_levels[i - 1],
-                    "sigma_to": noise_levels[i],
-                    "delta": float(delta),
-                })
+                anomalies_all.append(
+                    {
+                        "feature": feat,
+                        "sigma_from": noise_levels[i - 1],
+                        "sigma_to": noise_levels[i],
+                        "delta": float(delta),
+                    }
+                )
 
-        max_delta = float(np.nanmax(deltas)) if any(np.isfinite(deltas)) else float("nan")
+        max_delta = (
+            float(np.nanmax(deltas)) if any(np.isfinite(deltas)) else float("nan")
+        )
         feat_passed = max_delta <= MAX_DELTA if np.isfinite(max_delta) else False
 
         if not feat_passed:
             passed = False
-            fail_reasons.append(f"Test2 {feat}: max_delta={max_delta:.3f} > {MAX_DELTA}")
+            fail_reasons.append(
+                f"Test2 {feat}: max_delta={max_delta:.3f} > {MAX_DELTA}"
+            )
 
         marker = "✅" if feat_passed else "❌"
         vals_str = " | ".join(f"{v:.4f}" if np.isfinite(v) else "  NaN " for v in vals)
@@ -483,7 +543,9 @@ def test2_noise_degradation_curve():
 
     print(f"\n  Anomalies detected: {len(anomalies_all)}")
     for a in anomalies_all:
-        print(f"    ⚠️  {a['feature']}: σ {a['sigma_from']} → {a['sigma_to']}, Δ = {a['delta']:.3f}")
+        print(
+            f"    ⚠️  {a['feature']}: σ {a['sigma_from']} → {a['sigma_to']}, Δ = {a['delta']:.3f}"
+        )
 
     # Also report full curves for informational use
     return {
@@ -493,7 +555,10 @@ def test2_noise_degradation_curve():
         "criterion": f"Δᵢ < {MAX_DELTA} for all consecutive noise levels",
         "features_checked": features_to_check,
         "per_feature": per_feature_results,
-        "full_curves": {feat: [float(v) if np.isfinite(v) else None for v in curves[feat]] for feat in V3_KEYS},
+        "full_curves": {
+            feat: [float(v) if np.isfinite(v) else None for v in curves[feat]]
+            for feat in V3_KEYS
+        },
         "anomalies": anomalies_all,
     }
 
@@ -501,6 +566,7 @@ def test2_noise_degradation_curve():
 # ══════════════════════════════════════════════════════════════════════════════
 # TEST 3 — NULL MODEL SEPARABILITY
 # ══════════════════════════════════════════════════════════════════════════════
+
 
 def test3_null_model_separability():
     """
@@ -512,10 +578,10 @@ def test3_null_model_separability():
     print("TEST 3 — NULL MODEL SEPARABILITY")
     print("═" * 66)
 
-    AUC_MIN       = 0.75
+    AUC_MIN = 0.75
     AUC_HIGH_FLAG = 0.97
-    WINDOW_SIZE   = 1500
-    OVERLAP       = 0.5
+    WINDOW_SIZE = 1500
+    OVERLAP = 0.5
     N_SAMPLES_CAP = 8000  # cap per class to keep runtime tractable
 
     # ── Generate physical trajectories ──────────────────────────────────────
@@ -524,7 +590,9 @@ def test3_null_model_separability():
     for seed in [42, 123]:
         for sim_fn in [_simulate_lorenz, _simulate_rossler]:
             x, dt = sim_fn(noise=0.0, seed=seed)
-            embs, valid = extract_window_embeddings(x, dt, window_size=WINDOW_SIZE, overlap=OVERLAP)
+            embs, valid = extract_window_embeddings(
+                x, dt, window_size=WINDOW_SIZE, overlap=OVERLAP
+            )
             phys_signals.append(embs[valid])
     X_phys = np.vstack(phys_signals)
 
@@ -539,7 +607,9 @@ def test3_null_model_separability():
             lambda s=seed: _fourier_surrogate(_simulate_lorenz(seed=s)[0], seed=s),
         ]:
             x, dt = gen_fn()
-            embs, valid = extract_window_embeddings(x, dt, window_size=WINDOW_SIZE, overlap=OVERLAP)
+            embs, valid = extract_window_embeddings(
+                x, dt, window_size=WINDOW_SIZE, overlap=OVERLAP
+            )
             null_signals.append(embs[valid])
     X_null = np.vstack(null_signals)
 
@@ -574,17 +644,19 @@ def test3_null_model_separability():
         }
 
     # ── Fit RandomForest ─────────────────────────────────────────────────────
-    clf = RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=1, max_depth=10)
+    clf = RandomForestClassifier(
+        n_estimators=200, random_state=42, n_jobs=1, max_depth=10
+    )
     clf.fit(X_train, y_train)
 
     y_pred = clf.predict(X_test)
     y_prob = clf.predict_proba(X_test)[:, 1]
 
     auc_score = float(roc_auc_score(y_test, y_prob))
-    prec      = float(precision_score(y_test, y_pred, zero_division=0))
-    rec       = float(recall_score(y_test, y_pred, zero_division=0))
-    f1        = float(f1_score(y_test, y_pred, zero_division=0))
-    cm        = confusion_matrix(y_test, y_pred).tolist()
+    prec = float(precision_score(y_test, y_pred, zero_division=0))
+    rec = float(recall_score(y_test, y_pred, zero_division=0))
+    f1 = float(f1_score(y_test, y_pred, zero_division=0))
+    cm = confusion_matrix(y_test, y_pred).tolist()
 
     # PR curve
     prec_curve, rec_curve, _ = precision_recall_curve(y_test, y_prob)
@@ -607,39 +679,49 @@ def test3_null_model_separability():
         # 1. RF feature importances
         importances = clf.feature_importances_
         top3_sum_rf = float(np.sort(importances)[::-1][:3].sum())
-        audit["rf_importances"] = {V3_KEYS[i]: float(importances[i]) for i in range(len(V3_KEYS))}
+        audit["rf_importances"] = {
+            V3_KEYS[i]: float(importances[i]) for i in range(len(V3_KEYS))
+        }
         audit["top3_importance_sum"] = top3_sum_rf
 
         if top3_sum_rf > 0.80:
-            trivial_sep_flags.append(f"RF top-3 importance sum = {top3_sum_rf:.3f} > 0.80")
+            trivial_sep_flags.append(
+                f"RF top-3 importance sum = {top3_sum_rf:.3f} > 0.80"
+            )
 
         # 2. Amplitude range per class
         x_phys_amp = np.std(X_phys, axis=0)
         x_null_amp = np.std(X_null, axis=0)
         amp_ratio = x_phys_amp / np.maximum(x_null_amp, 1e-10)
         max_amp_ratio = float(np.max(amp_ratio))
-        audit["amplitude_range_ratio"] = {V3_KEYS[i]: float(amp_ratio[i]) for i in range(len(V3_KEYS))}
+        audit["amplitude_range_ratio"] = {
+            V3_KEYS[i]: float(amp_ratio[i]) for i in range(len(V3_KEYS))
+        }
         audit["max_amplitude_ratio"] = max_amp_ratio
 
         if max_amp_ratio > 10:
-            trivial_sep_flags.append(f"Max amplitude ratio per feature = {max_amp_ratio:.2f} > 10")
+            trivial_sep_flags.append(
+                f"Max amplitude ratio per feature = {max_amp_ratio:.2f} > 10"
+            )
 
         # 3. Dynamic range check
         phys_ranges = np.ptp(X_phys[idx_p], axis=0)
         null_ranges = np.ptp(X_null[idx_n], axis=0)
         range_ratio = phys_ranges / np.maximum(null_ranges, 1e-10)
-        audit["dynamic_range_ratio"] = {V3_KEYS[i]: float(range_ratio[i]) for i in range(len(V3_KEYS))}
+        audit["dynamic_range_ratio"] = {
+            V3_KEYS[i]: float(range_ratio[i]) for i in range(len(V3_KEYS))
+        }
 
         trivial_separation = len(trivial_sep_flags) > 0
         audit["trivial_separation_detected"] = trivial_separation
         audit["trivial_separation_flags"] = trivial_sep_flags
 
         if trivial_separation:
-            print(f"  🚨 POSSIBLE TRIVIAL SEPARATION detected:")
+            print("  🚨 POSSIBLE TRIVIAL SEPARATION detected:")
             for f in trivial_sep_flags:
                 print(f"     - {f}")
         else:
-            print(f"  ✅ High AUC but no trivial separation evidence found.")
+            print("  ✅ High AUC but no trivial separation evidence found.")
     else:
         audit["trivial_separation_detected"] = False
         audit["trivial_separation_flags"] = []
@@ -675,6 +757,7 @@ def test3_null_model_separability():
 # TEST 4 — FEATURE DOMINANCE
 # ══════════════════════════════════════════════════════════════════════════════
 
+
 def test4_feature_dominance():
     """
     Extract RF feature importances and SHAP mean absolute values.
@@ -693,17 +776,19 @@ def test4_feature_dominance():
     print("═" * 66)
 
     WINDOW_SIZE = 1500
-    OVERLAP     = 0.5
-    N_SAMPLES   = 4000   # Per class — enough for SHAP without timeout
+    OVERLAP = 0.5
+    N_SAMPLES = 4000  # Per class — enough for SHAP without timeout
 
-    SOFT_MAX   = 0.60
-    HARD_MAX   = 0.80
+    SOFT_MAX = 0.60
+    HARD_MAX = 0.80
 
     # ── Generate balanced dataset ─────────────────────────────────────────────
     phys_embs = []
     for sim_fn in [_simulate_lorenz, _simulate_rossler]:
         x, dt = sim_fn(noise=0.0, seed=42)
-        embs, valid = extract_window_embeddings(x, dt, window_size=WINDOW_SIZE, overlap=OVERLAP)
+        embs, valid = extract_window_embeddings(
+            x, dt, window_size=WINDOW_SIZE, overlap=OVERLAP
+        )
         phys_embs.append(embs[valid])
     X_phys = np.vstack(phys_embs)
 
@@ -715,18 +800,22 @@ def test4_feature_dominance():
         lambda: _fourier_surrogate(_simulate_lorenz()[0], seed=42),
     ]:
         x, dt = gen_fn()
-        embs, valid = extract_window_embeddings(x, dt, window_size=WINDOW_SIZE, overlap=OVERLAP)
+        embs, valid = extract_window_embeddings(
+            x, dt, window_size=WINDOW_SIZE, overlap=OVERLAP
+        )
         null_embs.append(embs[valid])
     X_null = np.vstack(null_embs)
 
     rng = np.random.default_rng(42)
     n_use = min(len(X_phys), len(X_null), N_SAMPLES)
     X_phys_sub = X_phys[rng.choice(len(X_phys), n_use, replace=False)]
-    X_null_sub  = X_null[rng.choice(len(X_null), n_use, replace=False)]
+    X_null_sub = X_null[rng.choice(len(X_null), n_use, replace=False)]
     X = np.vstack([X_phys_sub, X_null_sub])
     y = np.hstack([np.ones(n_use), np.zeros(n_use)])
 
-    clf = RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=1, max_depth=10)
+    clf = RandomForestClassifier(
+        n_estimators=200, random_state=42, n_jobs=1, max_depth=10
+    )
     clf.fit(X, y)
 
     importances = clf.feature_importances_
@@ -748,6 +837,7 @@ def test4_feature_dominance():
 
     try:
         import shap
+
         # Use TreeExplainer on a subsample for speed
         n_shap = min(500, len(X))
         shap_idx = rng.choice(len(X), n_shap, replace=False)
@@ -779,7 +869,9 @@ def test4_feature_dominance():
         top3_shap = sorted_idx_shap[:3]
         R_SHAP = float(mean_abs_shap[top3_shap].sum() / max(mean_abs_shap.sum(), 1e-10))
 
-        shap_values_mean = {V3_KEYS[i]: float(mean_abs_shap[i]) for i in range(len(V3_KEYS))}
+        shap_values_mean = {
+            V3_KEYS[i]: float(mean_abs_shap[i]) for i in range(len(V3_KEYS))
+        }
         shap_available = True
         shap_status = "computed"
 
@@ -816,16 +908,22 @@ def test4_feature_dominance():
             passed = False
             fail_reasons.append(f"Test4: R_SHAP={R_SHAP:.4f} > HARD_MAX={HARD_MAX}")
         elif R_SHAP > SOFT_MAX:
-            warnings_list.append(f"R_SHAP={R_SHAP:.4f} > SOFT_MAX={SOFT_MAX} (warning only)")
+            warnings_list.append(
+                f"R_SHAP={R_SHAP:.4f} > SOFT_MAX={SOFT_MAX} (warning only)"
+            )
 
     rf_soft_ok = R_RF <= SOFT_MAX
     shap_soft_ok = (R_SHAP <= SOFT_MAX) if R_SHAP is not None else None
 
-    print(f"\n  R_RF  = {R_RF:.4f}  {'✅' if rf_soft_ok else '⚠️ ' if R_RF <= HARD_MAX else '❌'}  "
-          f"(soft < {SOFT_MAX}, hard < {HARD_MAX})")
+    print(
+        f"\n  R_RF  = {R_RF:.4f}  {'✅' if rf_soft_ok else '⚠️ ' if R_RF <= HARD_MAX else '❌'}  "
+        f"(soft < {SOFT_MAX}, hard < {HARD_MAX})"
+    )
     if R_SHAP is not None:
-        print(f"  R_SHAP= {R_SHAP:.4f}  {'✅' if shap_soft_ok else '⚠️ ' if R_SHAP <= HARD_MAX else '❌'}  "
-              f"(soft < {SOFT_MAX}, hard < {HARD_MAX})")
+        print(
+            f"  R_SHAP= {R_SHAP:.4f}  {'✅' if shap_soft_ok else '⚠️ ' if R_SHAP <= HARD_MAX else '❌'}  "
+            f"(soft < {SOFT_MAX}, hard < {HARD_MAX})"
+        )
     if warnings_list:
         for w in warnings_list:
             print(f"  ⚠️  {w}")
@@ -842,7 +940,9 @@ def test4_feature_dominance():
         "warnings": warnings_list,
         "R_RF": R_RF,
         "R_SHAP": R_SHAP,
-        "rf_importances": {V3_KEYS[i]: float(importances[i]) for i in range(len(V3_KEYS))},
+        "rf_importances": {
+            V3_KEYS[i]: float(importances[i]) for i in range(len(V3_KEYS))
+        },
         "shap_mean_abs": shap_values_mean,
         "shap_status": shap_status,
         "soft_criterion": f"R < {SOFT_MAX}",
@@ -853,6 +953,7 @@ def test4_feature_dominance():
 # ══════════════════════════════════════════════════════════════════════════════
 # REPORT WRITER
 # ══════════════════════════════════════════════════════════════════════════════
+
 
 def _write_report(results, global_status, start_time):
     os.makedirs(REPORT_DIR, exist_ok=True)
@@ -875,6 +976,7 @@ def _write_report(results, global_status, start_time):
 # MAIN
 # ══════════════════════════════════════════════════════════════════════════════
 
+
 def main():
     print("=" * 66)
     print("🔬 FASE 4.7 — DYNAMIC DISCRIMINATION TESTS (V3 EMBEDDING)")
@@ -885,12 +987,15 @@ def main():
     all_passed = True
     all_fail_reasons = []
 
-    for test_num, (label, test_fn) in enumerate([
-        ("test1_local_lyapunov", test1_local_lyapunov_consistency),
-        ("test2_noise_degradation", test2_noise_degradation_curve),
-        ("test3_null_separability", test3_null_model_separability),
-        ("test4_feature_dominance", test4_feature_dominance),
-    ], start=1):
+    for test_num, (label, test_fn) in enumerate(
+        [
+            ("test1_local_lyapunov", test1_local_lyapunov_consistency),
+            ("test2_noise_degradation", test2_noise_degradation_curve),
+            ("test3_null_separability", test3_null_model_separability),
+            ("test4_feature_dominance", test4_feature_dominance),
+        ],
+        start=1,
+    ):
         try:
             result = test_fn()
             results[label] = result
@@ -927,7 +1032,9 @@ def main():
             print(f"\n  [ERROR] Test {test_num} raised exception:\n{tb_str}")
             results[label] = {"status": "ERROR", "traceback": tb_str}
             all_passed = False
-            all_fail_reasons.append(f"Test {test_num}: exception — {tb_str.splitlines()[-1]}")
+            all_fail_reasons.append(
+                f"Test {test_num}: exception — {tb_str.splitlines()[-1]}"
+            )
             global_status = "FAILED"
             _write_report(results, global_status, start_time)
             print(f"\n{'=' * 66}")

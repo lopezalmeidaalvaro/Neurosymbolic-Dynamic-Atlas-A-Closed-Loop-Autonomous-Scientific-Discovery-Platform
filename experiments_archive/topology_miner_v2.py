@@ -32,12 +32,21 @@ DB_PATH = os.path.join(ROOT_DIR, "runs", "math_search.db")
 
 os.makedirs(ARTIFACTS_DIR, exist_ok=True)
 
-FIELD_ORDER = ["lyapunov_max", "spectral_entropy", "dominant_frequency",
-               "variance", "autocorr_decay", "kurtosis", "skewness", "energy"]
+FIELD_ORDER = [
+    "lyapunov_max",
+    "spectral_entropy",
+    "dominant_frequency",
+    "variance",
+    "autocorr_decay",
+    "kurtosis",
+    "skewness",
+    "energy",
+]
 
 # ─────────────────────────────────────────────────────────────────────────────
 # UTILIDADES DE ANÁLISIS
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 def compute_embedding(series: np.ndarray, dt: float) -> dict:
     x = np.asarray(series, dtype=float)
@@ -45,8 +54,8 @@ def compute_embedding(series: np.ndarray, dt: float) -> dict:
     variance = float(np.var(x))
 
     N = len(x)
-    yf = np.abs(fft(x)[:N // 2]) ** 2
-    xf = fftfreq(N, dt)[:N // 2]
+    yf = np.abs(fft(x)[: N // 2]) ** 2
+    xf = fftfreq(N, dt)[: N // 2]
     yf[0] = 0.0
     total_power = yf.sum()
     if total_power > 0:
@@ -70,7 +79,7 @@ def compute_embedding(series: np.ndarray, dt: float) -> dict:
 
     kurt = float(scipy_kurtosis(x, fisher=True))
     skewness = float(scipy_skew(x))
-    energy = float(np.sqrt(np.mean(x ** 2)))
+    energy = float(np.sqrt(np.mean(x**2)))
 
     return {
         "spectral_entropy": spectral_entropy,
@@ -87,31 +96,41 @@ def lyapunov_ode(rhs, state0, t_start, t_end, n_steps=2000, d0=1e-8):
     t_vals = np.linspace(t_start, t_end, n_steps)
     dt = t_vals[1] - t_vals[0]
     state = np.array(state0, dtype=float)
-    pert = state.copy(); pert[0] += d0
-    lyap_sum = 0.0; iters = 0
+    pert = state.copy()
+    pert[0] += d0
+    lyap_sum = 0.0
+    iters = 0
     for i in range(len(t_vals) - 1):
         t0, t1 = t_vals[i], t_vals[i + 1]
-        s1 = solve_ivp(rhs, (t0, t1), state, method='RK45',
-                       rtol=1e-7, atol=1e-7).y[:, -1]
-        s2 = solve_ivp(rhs, (t0, t1), pert,  method='RK45',
-                       rtol=1e-7, atol=1e-7).y[:, -1]
-        diff = s2 - s1; d1 = np.linalg.norm(diff)
+        s1 = solve_ivp(rhs, (t0, t1), state, method="RK45", rtol=1e-7, atol=1e-7).y[
+            :, -1
+        ]
+        s2 = solve_ivp(rhs, (t0, t1), pert, method="RK45", rtol=1e-7, atol=1e-7).y[
+            :, -1
+        ]
+        diff = s2 - s1
+        d1 = np.linalg.norm(diff)
         if d1 > 0:
             lyap_sum += np.log(d1 / d0)
             pert = s1 + diff * (d0 / d1)
-        state = s1; iters += 1
+        state = s1
+        iters += 1
     return float(lyap_sum / (iters * dt)) if iters > 0 else 0.0
 
 
 def lyapunov_map(map_fn, x0, n_warmup=5000, n_lyap=10000):
     x = float(x0)
-    for _ in range(n_warmup): x = map_fn(x)
-    dx = 1e-8; lyap_sum = 0.0
+    for _ in range(n_warmup):
+        x = map_fn(x)
+    dx = 1e-8
+    lyap_sum = 0.0
     for _ in range(n_lyap):
         x_p = x + dx
-        xn = map_fn(x); xpn = map_fn(x_p)
+        xn = map_fn(x)
+        xpn = map_fn(x_p)
         d1 = abs(xpn - xn)
-        if d1 > 0: lyap_sum += np.log(d1 / dx)
+        if d1 > 0:
+            lyap_sum += np.log(d1 / dx)
         x = xn
     return float(lyap_sum / n_lyap)
 
@@ -120,16 +139,22 @@ def lyapunov_map(map_fn, x0, n_warmup=5000, n_lyap=10000):
 # INTEGRADORES POR SISTEMA
 # ─────────────────────────────────────────────────────────────────────────────
 
+
 def integrate_duffing():
     def rhs(t, s):
         x, y = s
-        return [y, x - x**3 - 0.3*y + 0.5*np.cos(1.2*t)]
-    t_span = (0, 800); N = 80000
+        return [y, x - x**3 - 0.3 * y + 0.5 * np.cos(1.2 * t)]
+
+    t_span = (0, 800)
+    N = 80000
     t_eval = np.linspace(*t_span, N)
-    sol = solve_ivp(rhs, t_span, [0.1, 0.0], t_eval=t_eval, method='RK45',
-                    rtol=1e-7, atol=1e-7)
-    dt = t_eval[1] - t_eval[0]; cut = N // 5
-    x_s = sol.y[0, cut:]; y_s = sol.y[1, cut:]
+    sol = solve_ivp(
+        rhs, t_span, [0.1, 0.0], t_eval=t_eval, method="RK45", rtol=1e-7, atol=1e-7
+    )
+    dt = t_eval[1] - t_eval[0]
+    cut = N // 5
+    x_s = sol.y[0, cut:]
+    y_s = sol.y[1, cut:]
     emb = compute_embedding(x_s, dt)
     emb["lyapunov_max"] = lyapunov_ode(rhs, [x_s[0], y_s[0]], 160, 400)
     return emb
@@ -137,15 +162,21 @@ def integrate_duffing():
 
 def integrate_van_der_pol():
     mu = 5.0
+
     def rhs(t, s):
         x, y = s
-        return [y, mu*(1 - x**2)*y - x]
-    t_span = (0, 400); N = 60000
+        return [y, mu * (1 - x**2) * y - x]
+
+    t_span = (0, 400)
+    N = 60000
     t_eval = np.linspace(*t_span, N)
-    sol = solve_ivp(rhs, t_span, [0.5, 0.0], t_eval=t_eval, method='RK45',
-                    rtol=1e-7, atol=1e-7)
-    dt = t_eval[1] - t_eval[0]; cut = N // 5
-    x_s = sol.y[0, cut:]; y_s = sol.y[1, cut:]
+    sol = solve_ivp(
+        rhs, t_span, [0.5, 0.0], t_eval=t_eval, method="RK45", rtol=1e-7, atol=1e-7
+    )
+    dt = t_eval[1] - t_eval[0]
+    cut = N // 5
+    x_s = sol.y[0, cut:]
+    y_s = sol.y[1, cut:]
     emb = compute_embedding(x_s, dt)
     emb["lyapunov_max"] = lyapunov_ode(rhs, [x_s[0], y_s[0]], 80, 200)
     return emb
@@ -154,31 +185,41 @@ def integrate_van_der_pol():
 def integrate_logistic_map():
     r = 3.9
     fn = lambda x: r * x * (1 - x)
-    N = 60000; x = 0.4
-    for _ in range(5000): x = fn(x)
+    N = 60000
+    x = 0.4
+    for _ in range(5000):
+        x = fn(x)
     series = []
-    for _ in range(N): x = fn(x); series.append(x)
-    x_s = np.array(series[N // 5:])
+    for _ in range(N):
+        x = fn(x)
+        series.append(x)
+    x_s = np.array(series[N // 5 :])
     emb = compute_embedding(x_s, 1.0)
     emb["lyapunov_max"] = lyapunov_map(fn, 0.4)
     return emb
 
 
 def integrate_kuramoto():
-    N_osc = 5; K = 2.0
+    N_osc = 5
+    K = 2.0
     omega = np.array([0.5, 1.0, 1.5, 2.0, 2.5])
+
     def rhs(t, theta):
         dtheta = np.zeros(N_osc)
         for i in range(N_osc):
             dtheta[i] = omega[i] - (K / N_osc) * np.sum(np.sin(theta[i] - theta))
         return dtheta
-    t_span = (0, 400); N = 60000
+
+    t_span = (0, 400)
+    N = 60000
     t_eval = np.linspace(*t_span, N)
     np.random.seed(42)
-    theta0 = np.random.uniform(0, 2*np.pi, N_osc)
-    sol = solve_ivp(rhs, t_span, theta0, t_eval=t_eval, method='RK45',
-                    rtol=1e-6, atol=1e-6)
-    dt = t_eval[1] - t_eval[0]; cut = N // 5
+    theta0 = np.random.uniform(0, 2 * np.pi, N_osc)
+    sol = solve_ivp(
+        rhs, t_span, theta0, t_eval=t_eval, method="RK45", rtol=1e-6, atol=1e-6
+    )
+    dt = t_eval[1] - t_eval[0]
+    cut = N // 5
     r_param = np.abs(np.mean(np.exp(1j * sol.y[:, cut:]), axis=0))
     emb = compute_embedding(r_param, dt)
     emb["lyapunov_max"] = lyapunov_ode(rhs, list(sol.y[:, cut]), 80, 160, n_steps=500)
@@ -187,15 +228,16 @@ def integrate_kuramoto():
 
 SYSTEM_INTEGRATORS = {
     "duffing_oscillator": integrate_duffing,
-    "logistic_map":       integrate_logistic_map,
-    "van_der_pol":        integrate_van_der_pol,
-    "kuramoto_model":     integrate_kuramoto,
+    "logistic_map": integrate_logistic_map,
+    "van_der_pol": integrate_van_der_pol,
+    "kuramoto_model": integrate_kuramoto,
 }
 
 
 # ─────────────────────────────────────────────────────────────────────────────
 # INSERCIÓN DIRECTA EN SQLITE
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 def ensure_table(conn):
     conn.execute("""
@@ -220,13 +262,16 @@ def ensure_table(conn):
 
 def insert_embedding(conn, sys_id, emb):
     vals = [emb.get(f, 0.0) for f in FIELD_ORDER]
-    conn.execute("""
+    conn.execute(
+        """
         INSERT INTO structural_embeddings
             (node_id, system_name, lyapunov_max, spectral_entropy,
              dominant_frequency, variance, autocorr_decay, kurtosis,
              skewness, energy, embedding_json)
         VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    """, (sys_id, *vals, json.dumps(emb, ensure_ascii=False)))
+    """,
+        (sys_id, *vals, json.dumps(emb, ensure_ascii=False)),
+    )
     conn.commit()
 
 
@@ -234,12 +279,13 @@ def insert_embedding(conn, sys_id, emb):
 # ORQUESTADOR PRINCIPAL
 # ─────────────────────────────────────────────────────────────────────────────
 
+
 def main():
     with open(BENCHMARK_PATH, encoding="utf-8") as f:
         benchmark = json.load(f)
 
     print(f"\n{'='*60}")
-    print(f"  TOPOLOGY MINER v2 -- Atlas Vectorial de Caos")
+    print("  TOPOLOGY MINER v2 -- Atlas Vectorial de Caos")
     print(f"  Sistemas en benchmark: {len(benchmark)}")
     print(f"{'='*60}\n")
 
@@ -270,7 +316,7 @@ def main():
 
             # Insertar en SQLite
             insert_embedding(conn, sys_id, emb)
-            print(f"     Embedding registrado en structural_embeddings")
+            print("     Embedding registrado en structural_embeddings")
 
             for k in FIELD_ORDER:
                 print(f"       {k:<22}: {emb[k]:.6f}")
@@ -278,6 +324,7 @@ def main():
 
         except Exception as exc:
             import traceback
+
             print(f"  [ERROR] {sys_id}: {exc}")
             traceback.print_exc()
 
@@ -286,14 +333,14 @@ def main():
     conn.close()
 
     print(f"\n{'='*60}")
-    print(f"  RESUMEN DE EMBEDDINGS GENERADOS")
+    print("  RESUMEN DE EMBEDDINGS GENERADOS")
     print(f"{'='*60}")
     for sys_id, emb in results.items():
         lyap = emb.get("lyapunov_max", 0.0)
         tag = "CAOTICO" if lyap > 0 else "REGULAR"
         print(f"  {sys_id:<30} Lyap={lyap:+.4f} [{tag}]")
 
-    print(f"\n  Ejecuta: python temp_scripts/embedding_neighbors.py")
+    print("\n  Ejecuta: python temp_scripts/embedding_neighbors.py")
     print(f"{'='*60}\n")
 
     # Print JSON summary to stdout for evaluator capture

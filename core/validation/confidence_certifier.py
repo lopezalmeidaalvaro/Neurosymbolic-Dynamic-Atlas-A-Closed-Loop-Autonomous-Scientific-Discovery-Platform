@@ -48,10 +48,10 @@ from typing import Any, Dict, List
 
 from .reproducibility import get_reproducibility_status
 
-
 # ─────────────────────────────────────────────────────────────────────────────
 # Internal helpers
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 def _safe_mean(values: List[float]) -> float:
     """Return the arithmetic mean, or 0.0 for empty lists."""
@@ -70,10 +70,12 @@ def _safe_std(values: List[float]) -> float:
         return 0.0
     mean = _safe_mean(values)
     variance = sum((x - mean) ** 2 for x in values) / n
-    return variance ** 0.5
+    return variance**0.5
 
 
-def _compute_critical_score(acceleration: List[float], acceleration_std: float) -> float:
+def _compute_critical_score(
+    acceleration: List[float], acceleration_std: float
+) -> float:
     """
     critical_score = |mean(acceleration)| / max(acceleration_std, 1e-8)
 
@@ -114,6 +116,7 @@ def _compute_confidence_score(seed_count: int, acceleration_std: float) -> float
 # ─────────────────────────────────────────────────────────────────────────────
 # Public API
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 def certify_session(analysis_data: Dict[str, Any]) -> Dict[str, Any]:
     """
@@ -171,14 +174,15 @@ def certify_session(analysis_data: Dict[str, Any]) -> Dict[str, Any]:
         # the std of the acceleration vector itself (also 0 in that case,
         # but consistent with the data available).
         acceleration_std: float = (
-            _safe_std(acceleration) if len(acceleration) > 1
-            else _safe_mean(std_drift)
+            _safe_std(acceleration) if len(acceleration) > 1 else _safe_mean(std_drift)
         )
 
         mean_acceleration: float = _safe_mean(acceleration)
         critical_score: float = _compute_critical_score(acceleration, acceleration_std)
         critical_level: str = _assign_critical_level(critical_score)
-        confidence_score: float = _compute_confidence_score(seed_count, acceleration_std)
+        confidence_score: float = _compute_confidence_score(
+            seed_count, acceleration_std
+        )
 
         cert_block: Dict[str, Any] = {
             "version": "1.2.0",
@@ -195,11 +199,13 @@ def certify_session(analysis_data: Dict[str, Any]) -> Dict[str, Any]:
         }
 
         # Single source of truth: certification lives inside certified_results
-        certified_results.append({
-            "system": sys_name,
-            **sys_data,
-            "certification": cert_block,
-        })
+        certified_results.append(
+            {
+                "system": sys_name,
+                **sys_data,
+                "certification": cert_block,
+            }
+        )
 
     # Remove any legacy duplicate key if present from a prior run
     certified.pop("certification", None)

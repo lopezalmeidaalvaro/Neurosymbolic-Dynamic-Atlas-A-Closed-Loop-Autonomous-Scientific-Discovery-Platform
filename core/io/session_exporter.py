@@ -4,7 +4,10 @@ import json
 from core.schemas import ExperimentSession
 from core.io.artifact_manager import ARTIFACTS_DIR
 
-def export_session(session_data: Union[Dict[str, Any], ExperimentSession], experiment_id: str) -> Path:
+
+def export_session(
+    session_data: Union[Dict[str, Any], ExperimentSession], experiment_id: str
+) -> Path:
     """
     Validate session data against ExperimentSession schema and export to JSON in ARTIFACTS_DIR/sessions/
     """
@@ -21,7 +24,9 @@ def export_session(session_data: Union[Dict[str, Any], ExperimentSession], exper
     sessions_dir.mkdir(parents=True, exist_ok=True)
 
     # Resolve output path: if experiment_id doesn't end with .json, append it
-    output_filename = experiment_id if experiment_id.endswith(".json") else f"{experiment_id}.json"
+    output_filename = (
+        experiment_id if experiment_id.endswith(".json") else f"{experiment_id}.json"
+    )
     output_path = sessions_dir / output_filename
 
     # Save to file

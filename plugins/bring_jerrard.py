@@ -5,7 +5,11 @@ Ejecutado por el orquestador dentro de un subproceso con timeout de 15s.
 Contrato: lee la expresion matematica de sys.argv[1].
 Emite: bring_jerrard_result.json
 """
-import json, sys, time, tracemalloc
+
+import json
+import sys
+import time
+import tracemalloc
 import sympy as sp
 from sympy import symbols, expand, Poly, resultant, ZZ
 
@@ -20,8 +24,8 @@ def run(expr_str):
     status = "success"
 
     try:
-        x, y = symbols('x y')
-        p = sp.sympify(expr_str.replace('^', '**'))
+        x, y = symbols("x y")
+        p = sp.sympify(expr_str.replace("^", "**"))
 
         # Step 1: depress x^4 via x -> y - a4/(5*a5)
         poly = Poly(p, x, domain=ZZ)
@@ -32,10 +36,10 @@ def run(expr_str):
         p_dep = expand(p.subs(x, y + shift))
 
         # Detect if already in Bring-Jerrard form (only x^5, x^1, x^0 terms)
-        poly_dep = Poly(p_dep, y, domain='QQ')
+        poly_dep = Poly(p_dep, y, domain="QQ")
         dep_coeffs = poly_dep.all_coeffs()
 
-        coeff_labels = {5: 'x^5', 4: 'x^4', 3: 'x^3', 2: 'x^2', 1: 'x^1', 0: 'x^0'}
+        coeff_labels = {5: "x^5", 4: "x^4", 3: "x^3", 2: "x^2", 1: "x^1", 0: "x^0"}
         degree = poly_dep.degree()
         coeff_map = {}
         for i, c in enumerate(dep_coeffs):
@@ -53,7 +57,7 @@ def run(expr_str):
             bring_note = "Polynomial is already in Bring-Jerrard form (no x^4, x^3, x^2 terms). No further Tschirnhaus substitutions required."
         else:
             # Attempt a Tschirnhaus resultant to eliminate x^3 - this is the heavy step
-            z, a = symbols('z a')
+            z, a = symbols("z a")
             tschirnhaus = z - (y**2 + a * y)
             # NOTE: this resultant can cause Expression Swell for dense polynomials
             res = resultant(p_dep, tschirnhaus, y)
@@ -63,7 +67,7 @@ def run(expr_str):
             "depressed_polynomial": str(p_dep),
             "coefficient_map": coeff_map,
             "is_already_bring_jerrard": is_bring_jerrard,
-            "note": bring_note
+            "note": bring_note,
         }
 
     except MemoryError:
@@ -84,9 +88,9 @@ def run(expr_str):
         "output": output,
         "metrics": {
             "runtime_sec": round(elapsed, 4),
-            "peak_ram_mb": round(peak / (1024 * 1024), 2)
+            "peak_ram_mb": round(peak / (1024 * 1024), 2),
         },
-        "errors": errors
+        "errors": errors,
     }
 
     with open(OUTPUT, "w", encoding="utf-8") as f:

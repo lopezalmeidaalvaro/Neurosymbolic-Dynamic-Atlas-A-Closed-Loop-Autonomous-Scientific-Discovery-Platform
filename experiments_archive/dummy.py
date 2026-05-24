@@ -1,1 +1,1 @@
-print('Test artifact linkage')
+print("Test artifact linkage")

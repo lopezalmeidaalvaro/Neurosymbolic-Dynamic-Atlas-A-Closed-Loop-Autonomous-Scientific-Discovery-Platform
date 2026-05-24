@@ -6,6 +6,7 @@ Reglas estrictas:
   - Es ciego al contenido matematico: solo lee job.json, lanza plugins,
     recoge sus JSON y ensambla final_report.json.
 """
+
 import os
 import sys
 import json
@@ -13,16 +14,16 @@ import subprocess
 import time
 
 # ── Rutas ──────────────────────────────────────────────────────────────────
-ROOT_DIR     = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PLUGINS_DIR  = os.path.join(ROOT_DIR, "plugins")
-JOB_FILE     = os.path.join(ROOT_DIR, "job.json")
-REPORT_FILE  = os.path.join(ROOT_DIR, "final_report.json")
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PLUGINS_DIR = os.path.join(ROOT_DIR, "plugins")
+JOB_FILE = os.path.join(ROOT_DIR, "job.json")
+REPORT_FILE = os.path.join(ROOT_DIR, "final_report.json")
 
 PLUGIN_TIMEOUT_SEC = 15
 # ── Result filenames emitted by each plugin ────────────────────────────────
 PLUGIN_OUTPUT_MAP = {
-    "galois_group":  "galois_group_result.json",
-    "sturm_roots":   "sturm_roots_result.json",
+    "galois_group": "galois_group_result.json",
+    "sturm_roots": "sturm_roots_result.json",
     "bring_jerrard": "bring_jerrard_result.json",
 }
 
@@ -46,7 +47,7 @@ def _fail_result(plugin_name, expr, reason, elapsed):
         "input": {"target_expression": expr},
         "output": {},
         "metrics": {"runtime_sec": round(elapsed, 4), "peak_ram_mb": 0.0},
-        "errors": [reason]
+        "errors": [reason],
     }
 
 
@@ -57,16 +58,20 @@ def run_plugin(plugin_name, expr):
     No math logic here — fully blind to what the plugin computes.
     """
     script = os.path.join(PLUGINS_DIR, f"{plugin_name}.py")
-    result_file = os.path.join(ROOT_DIR, PLUGIN_OUTPUT_MAP.get(plugin_name, f"{plugin_name}_result.json"))
+    result_file = os.path.join(
+        ROOT_DIR, PLUGIN_OUTPUT_MAP.get(plugin_name, f"{plugin_name}_result.json")
+    )
 
     # Remove stale result from a previous run
     if os.path.exists(result_file):
         os.remove(result_file)
 
     if not os.path.exists(script):
-        return _fail_result(plugin_name, expr, f"Plugin script not found: {script}", 0.0)
+        return _fail_result(
+            plugin_name, expr, f"Plugin script not found: {script}", 0.0
+        )
 
-    print(f"  [LAUNCH] {plugin_name} <- \"{expr}\"")
+    print(f'  [LAUNCH] {plugin_name} <- "{expr}"')
     t0 = time.time()
 
     try:
@@ -75,7 +80,7 @@ def run_plugin(plugin_name, expr):
             cwd=ROOT_DIR,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            text=True
+            text=True,
         )
         try:
             stdout, stderr = proc.communicate(timeout=PLUGIN_TIMEOUT_SEC)
@@ -85,28 +90,37 @@ def run_plugin(plugin_name, expr):
             proc.communicate()
             elapsed = time.time() - t0
             return _fail_result(
-                plugin_name, expr,
+                plugin_name,
+                expr,
                 f"TIMEOUT after {PLUGIN_TIMEOUT_SEC}s (Expression Swell or resource exhaustion)",
-                elapsed
+                elapsed,
             )
 
         if proc.returncode != 0:
             elapsed = time.time() - t0
             return _fail_result(
-                plugin_name, expr,
+                plugin_name,
+                expr,
                 f"Plugin exited with code {proc.returncode}. stderr: {stderr.strip()[:400]}",
-                elapsed
+                elapsed,
             )
 
         # Read the emitted JSON certificate
         if os.path.exists(result_file):
             with open(result_file, encoding="utf-8") as f:
                 result = json.load(f)
-            print(f"  [OK]     {plugin_name} -> status={result.get('status')} "
-                  f"runtime={result.get('metrics', {}).get('runtime_sec')}s")
+            print(
+                f"  [OK]     {plugin_name} -> status={result.get('status')} "
+                f"runtime={result.get('metrics', {}).get('runtime_sec')}s"
+            )
             return result
         else:
-            return _fail_result(plugin_name, expr, "Plugin completed but emitted no result file.", elapsed)
+            return _fail_result(
+                plugin_name,
+                expr,
+                "Plugin completed but emitted no result file.",
+                elapsed,
+            )
 
     except Exception as exc:
         elapsed = time.time() - t0
@@ -121,16 +135,16 @@ def assemble_report(job, results):
     n_success = sum(1 for r in results if r.get("status") == "success")
     n_failure = sum(1 for r in results if r.get("status") != "success")
     return {
-        "job_id":     job["job_id"],
+        "job_id": job["job_id"],
         "polynomial": job["target_expression"],
-        "timestamp":  time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "orchestrator": "core/orchestrator.py",
         "summary": {
             "plugins_requested": len(job["active_plugins"]),
             "plugins_succeeded": n_success,
-            "plugins_failed":    n_failure
+            "plugins_failed": n_failure,
         },
-        "plugin_results": results
+        "plugin_results": results,
     }
 
 
