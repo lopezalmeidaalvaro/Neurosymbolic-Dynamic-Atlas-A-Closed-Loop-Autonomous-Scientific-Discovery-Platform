@@ -1,148 +1,240 @@
-# Asymmetric Representational Decay in Dynamical Embeddings
+# Autonomous Neurosymbolic Scientist for Dynamical Systems and Clinical ECG
 
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Next.js 16.2.6](https://img.shields.io/badge/Next.js-16.2.6-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
-[![React 19.2.4](https://img.shields.io/badge/React-19.2.4-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![TailwindCSS v4](https://img.shields.io/badge/TailwindCSS-v4-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![License MIT](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20366363.svg)](https://doi.org/10.5281/zenodo.20366363)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-Neural%20ODEs%20%7C%20ResNet--1D-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![DeepXDE](https://img.shields.io/badge/DeepXDE-PINNs-0f766e?style=flat-square)](https://deepxde.readthedocs.io/)
+[![PySR](https://img.shields.io/badge/PySR-Symbolic%20Regression-7c3aed?style=flat-square)](https://github.com/MilesCranmer/PySR)
+[![Next.js](https://img.shields.io/badge/Next.js-16.2.6-000000?style=flat-square&logo=nextdotjs&logoColor=white)](dashboard/package.json)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)](LICENSE)
 
-An advanced scientific computing environment and research dashboard investigating the limits of cross-domain representation transport. We expose the **Asymmetric Representational Decay** (Asymmetric Topological Adaptation) paradox: the mathematical decoupling of strange attractors from biological cardiac dynamics at the latent manifold level, alongside the survival of causal explanation ordering that drives robust clinical generalisation.
-## 📄 Preprint
-Preprint available on Zenodo:
-https://doi.org/10.5281/zenodo.20366363
----
+This repository implements an **Autonomous Neurosymbolic Scientist**: a closed-loop AI4Science system that proposes falsifiable hypotheses, designs computational experiments, executes them in a sandbox, audits the resulting evidence, and writes persistent scientific memory. It extends the Phase 1 Zenodo preprint on cross-domain transfer in ECG from a static epistemological audit into an autonomous discovery engine for nonlinear dynamics, neural differential equations, symbolic law recovery, and deep representational validation.
 
-## 1. The Cross-Domain Transfer Paradox
+Phase 1 established the central empirical paradox:
 
-A central goal in dynamical systems theory is finding universal representations capable of generalizing from mathematical models (Domain A) to clinical settings (Domain C). 
+$$
+D_{emb} = 1 - CKA(E_A, E_C) \gg D_{attr} = 1 - \rho(\bar{C}_A, \bar{C}_C)
+$$
 
-We audited the **8D Amplitude-Invariant Embedding V3** using a strict patient-level **AAMI clinical partition** on real patient waveforms from the **MIT-BIH Arrhythmia Database (PhysioNet)**. 
-
-### Key Findings
-- **High Clinical Survivability:** The V3 embedding achieves an ROC-AUC of **0.830** on raw clinical patient waveforms and **0.847** under minimal zero-phase physiological bandpass filtering, yielding a statistical robustness of $\Delta AUC_{noise} = +0.0171$.
-- **Universal Geometric Transport Failure ($p = 0.1688$):** Linear Centered Kernel Alignment (CKA) between the synthetic chaotic manifold ($E_A$) and the real clinical manifold ($E_C$) shows near-complete geometric deformation:
-  $$D_{emb} = 1 - \text{CKA}(E_A, E_C) = 0.982459$$
-- **Causal Explanation Survival:** Despite the near-total latent space collapse, the global feature attributions remain structurally preserved:
-  $$D_{attr} = 1 - \rho_{\text{Spearman}}(\bar{C}_A, \bar{C}_C) = 0.761905$$
-
-This asymmetry is the **Asymmetric Representational Decay** breakthrough: **classification generalisation does not depend on geometric universality**. Rather, the latent manifold collapses under the weight of biophysical scaling, but the decision boundaries generalize because the *relative causal ordering* of feature explainability (led by `autocorr_decay` and `svd_entropy`) survives the cross-domain transport.
+Predictive transfer from synthetic chaotic attractors to clinical ECG can survive even when geometric representational alignment collapses. Phase 2 turns that finding into an executable research program: continuous latent dynamics are learned, candidate physical laws are rediscovered, neural baselines are audited, and LLM-driven agents decide which hypotheses deserve the next experiment.
 
 ---
 
-## 2. Scientific Visualizations
+## Core Architecture
 
-### Fig 5: Latent Geometry Collapse vs Causal Attribution Survival (KDE)
-The core empirical proof of **Asymmetric Representational Decay**. While the latent geometry deforms completely ($D_{emb} \approx 0.98$), the causal explanation vector remains structurally aligned ($D_{attr} \approx 0.76$).
+### 1. Autonomous Hypothesis-to-Evidence Loop
 
-![Bootstrap KDE Distribution](figures/fig5_bootstrap_kde_final.png)
+`autonomous_scientist.py` and `llm_reasoner.py` implement the scientific control plane. The agent builds context from prior hypotheses, available dynamical systems, analytic methods, and experiment history; asks an LLM to generate a quantitative falsifiable hypothesis; requests executable Python for a test; runs the code through a sandbox; interprets the result; computes epistemic gain from prior-posterior entropy, novelty, and utility; and persists the outcome to Neo4j or a local SQLite fallback (`scientific_kb.db`).
 
-### Additional Figures
+The loop is intentionally falsification-oriented. Each experiment must expose a metric and a failure criterion, and failed code enters an LLM self-correction loop before being discarded.
 
-*   **Fig 1: Cross-Domain Validation Pipeline:** Maps the bifurcated continuous data flow from Domain A (Synthetic) and Domain B (Composite Biophysical) into clinical datasets (Domain C).
-    
-    ![Cross-Domain Pipeline](figures/fig1_epistemological_pipeline.png)
-*   **Fig 2: Causal Re-ranking Dynamics:** Displays how feature attributions reorganize when moving from clean mathematical attractors to clinical ECG waveforms.
-    
-    ![Causal Reranking](figures/fig2_causal_reranking.png)
-*   **Fig 3: Latent Geometry vs Causal Attribution Decay:** Visualizes the divergence between spatial embedding coordinates and explanations.
-    
-    ![Geometry vs Attribution](figures/fig3_geometry_vs_attribution.png)
-*   **Fig 4: Strange Attractor Phase Space Deformation:** Illustrates the topological distortion of Lorenz and Rössler attractors under progressive non-stationary biophysical noise.
-    
-    ![Phase Space Deformation](figures/fig4_phase_space_deformation.png)
+### 2. Deep Clinical Baseline and Representation Audit
 
----
+`baseline_deep_ecg.py` implements a ResNet-18-style 1D convolutional baseline for raw MIT-BIH ECG segments under strict AAMI inter-patient partitioning. It trains on 360-sample windows centered on annotated beats, exports weights to `artifacts/resnet1d_ecg.pt`, and writes prediction and metric artifacts.
 
-## 3. Mathematical Methodology & Parameters
+`deep_representation_audit.py` then removes the classifier head, extracts 512-dimensional deep features from the adaptive average pooling layer, and compares representational deformation across:
 
-### 3.1 Domain A: Synthetic Chaotic Attractors
-Signals are integrated numerically using a Runge-Kutta 4th-order scheme (RK4) with time step $\Delta t = 0.01$, discarding initial transient states ($5,000$ steps):
-- **Lorenz System:**
-  $$\dot{x} = 10(y-x), \quad \dot{y} = x(28-z)-y, \quad \dot{z} = xy - \frac{8}{3}z$$
-- **Rössler System:**
-  $$\dot{x} = -y-z, \quad \dot{y} = x + 0.2y, \quad \dot{z} = 0.2 + z(x-5.7)$$
-- **Duffing Oscillator:**
-  $$\dot{x} = y, \quad \dot{y} = x - x^3 - 0.3y + 0.5\cos(1.2t)$$
+- Domain A: synthetic chaotic signals.
+- Domain B: composite biophysical cardiac simulations.
+- Domain C: clinical MIT-BIH ECG.
 
-### 3.2 Domain B: Composite Biophysical Model
-A controlled transition bridge mixing cardiac waveforms and non-stationary modulations. Locked parameters for reproducibility:
-- **Cardiac Morphology ($w_{morph} = 0.60$):** Gaussian-pulse kernel modeling Normal P-QRS-T complexes (label 1) and wide PVC beats (label 0).
-- **Heart Rate Variability ($w_{hrv} = 0.20$):** Timing jitter introducing quasi-periodicity.
-- **Respiratory Baseline Wander ($w_{resp} = 0.20$):** Low-frequency sinusoidal baseline drift at $0.25\text{ Hz}$.
-- **Instrumental Noise ($k_{inst} = 0.10$):** Blended $1/f$ pink noise and white thermal noise.
-- **Motion Artifact ($k_{motion} = 0.10$):** Exponentially decaying low-frequency drift.
+The audit computes linear CKA for deep features and compares it directly against the 8D EV3 embedding space, testing whether the Phase 1 asymmetry persists beyond Random Forests and handcrafted invariants.
 
-### 3.3 Domain C: Clinical MIT-BIH (DS2 AAMI)
-Real patient ECG recordings from the **MIT-BIH Arrhythmia Database**, segmented into $1000$-sample windows centered on annotations:
-- **Normal Beats (`N` / Label 1)** vs **Premature Ventricular Contractions (`V` / Label 0)**.
-- **AAMI Strict Partitioning (Zero Patient Leakage):**
-  - **Train (DS1):** 22 records (`101, 106, 108, 109, 112, 114, 115, 116, 118, 119, 122, 124, 201, 203, 205, 207, 208, 209, 215, 220, 223, 230`).
-  - **Test (DS2):** 22 records (`100, 103, 105, 111, 113, 117, 121, 123, 200, 202, 210, 212, 213, 214, 219, 221, 222, 228, 231, 232, 233, 234`).
+### 3. Neural Differential Equations, PINNs, and Operator Learning
 
-### 3.4 RandomForest Classifier Architecture
-In both audits, we train a `RandomForestClassifier` with `n_estimators=100` and **`max_depth=None`** (unconstrained depth).
-> **Statistical Rationale:** In high-dimensional datasets, unconstrained depth typically triggers overfitting. However, our **8D Amplitude-Invariant V3 Feature Space** acts as a strong geometric regularizer. By compressing long, noisy time series into exactly 8 low-dimensional dimensionless ratios and normalized entropies, we eliminate the need for depth limits, enabling the decision boundaries to generalize directly to real clinical physiology without structural overfitting.
+`neural_ode_module.py` learns continuous-time vector fields with `torchdiffeq`. It fits an MLP derivative function \(f_\theta(t, x)\), integrates trajectories with RK4, forecasts unseen horizons, and saves trained Neural ODE weights under `artifacts/`.
+
+`pinn_module.py` uses DeepXDE PINNs for forward and inverse ODE problems. It supports Lorenz, Rossler, Duffing, and Van der Pol residuals, combines Adam with L-BFGS refinement, and can discover physical parameters such as `sigma`, `rho`, `beta`, `a`, `b`, and `c` from observed trajectories.
+
+`operator_learning.py` adds a DeepONet layer: a branch-trunk neural operator that maps sampled parameters or input functions to solution trajectories. This allows the system to learn families of ODE solution operators rather than isolated trajectories.
+
+### 4. Symbolic Law Discovery
+
+`symbolic_discovery.py` closes the neurosymbolic loop. It supports:
+
+- SINDy-style sparse identification of nonlinear dynamics.
+- PySR evolutionary symbolic regression.
+- Deterministic fallback recovery when Julia/PySR is unavailable.
+- SymPy-based parsing, simplification, and comparison to ground-truth equations.
+- Physics-informed penalties for expected and forbidden terms.
+
+The benchmark layer evaluates discovered equations on Lorenz, Rossler, Duffing, Van der Pol, and logistic systems, exporting structured reports such as `artifacts/discovery_lorenz_sindy.json` and `artifacts/discovery_benchmark_report.json`.
 
 ---
 
-## 4. Project Structure
+## Scientific Workflow
 
 ```text
-root/
-├── .github/workflows/          # GitHub Actions CI/CD workflows
-├── core/
-│   ├── autonomous/             # Automated execution, analyzer, and report generators
-│   ├── empirical/              # Clinical and continuity audit pipelines
-│   │   ├── mit_bih_bifurcated_audit.py     # RAW vs Filtered ECG Validation
-│   │   └── causal_continuity_audit.py     # Causal Representational Continuity
-│   ├── io/                     # Artifact and session managers
-│   ├── validation/             # Certification and reproducibility logic
-│   └── evaluator_db.py         # SQLite experiment telemetry
-├── dashboard/                  # Next.js 16.2.6 Localized Scientific Dashboard
-│   ├── app/[lang]/             # Localized routing (en/es)
-│   ├── components/             # Recharts, anime.js, and framer-motion panels
-│   ├── data/                   # Bibliography, theory, and findings modules
-│   └── public/artifacts/       # Exported scientific JSON report targets
-├── figures/                    # Scientific Q1 vector and raster figures
-├── runs/                       # Local SQLite database (math_search.db)
-├── temp_scripts/               # Figure plotting scripts
-├── PROJECT_HISTORY.md          # Complete project history
-├── README.md                   # This Q1 scientific README
-└── run_pipeline.py             # Single execution orchestrator
+Hypothesis generation
+        |
+        v
+LLM experiment design  --->  sandbox execution  --->  result interpretation
+        |                         |                         |
+        v                         v                         v
+Neural ODE / PINN          symbolic regression        epistemic gain
+DeepONet operators         SINDy / PySR               posterior update
+Deep ECG CKA audit         physics penalties          knowledge graph
+        |                         |                         |
+        +-------------------------+-------------------------+
+                                  |
+                                  v
+                     artifacts/ + dashboard observability
 ```
+
+The result is not a single model. It is a reproducible machine scientist for testing whether representations, dynamics, and symbolic laws remain stable under domain shift, noise, and clinical biophysical complexity.
 
 ---
 
-## 5. Getting Started
+## Quickstart
 
-### 5.1 Python Backend
-Create a virtual environment and install the core dependencies:
+### 1. Python Environment
+
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install numpy scipy sympy scikit-learn matplotlib shap wfdb
+source .venv/bin/activate
+# Windows PowerShell:
+# .venv\Scripts\Activate.ps1
+
+pip install numpy pandas scipy scikit-learn sympy matplotlib wfdb torch torchdiffeq deepxde pysindy json5 tenacity
 ```
 
-Run the clinical bifurcated audit:
+Optional components:
+
 ```bash
-python core/empirical/mit_bih_bifurcated_audit.py
+pip install pysr openai anthropic
 ```
 
-Run the representational continuity audit:
+If `OPENAI_API_KEY` or `ANTHROPIC_API_KEY` is absent, `LLMReasoner` falls back to deterministic mock simulation mode so the autonomous loop remains testable.
+
+### 2. Run the Autonomous Sweep
+
 ```bash
-python core/empirical/causal_continuity_audit.py
+python run_autonomous_sweep.py
 ```
 
-### 5.2 Scientific Dashboard
-Run the Next.js localization dashboard:
+This launches the automated noise-sweep pipeline, runs `run_pipeline.py` over multiple perturbation levels, analyzes geometric drift, evaluates hypotheses, and exports a consolidated report to:
+
+```text
+artifacts/discoveries/noise_robustness_report.json
+```
+
+### 3. Run the Open-Ended Autonomous Scientist
+
+```bash
+python -c "from autonomous_scientist import AutonomousScientist; s=AutonomousScientist(llm_provider='openai', use_docker=False); s.auto_mode=True; s.run_discovery_cycle(domain='nonlinear dynamical systems and ECG transfer', goal='discover falsifiable laws governing representational collapse under noise', max_iterations=3)"
+```
+
+Outputs are written to:
+
+```text
+artifacts/discovery_report.md
+artifacts/autonomous_session.json
+scientific_kb.db
+```
+
+### 4. Train and Audit the Deep ECG Baseline
+
+```bash
+python baseline_deep_ecg.py
+python deep_representation_audit.py
+```
+
+Expected outputs include:
+
+```text
+artifacts/resnet1d_ecg.pt
+artifacts/resnet_metrics.json
+artifacts/resnet_predictions.json
+artifacts/deep_cka_comparison.json
+```
+
+### 5. Run Symbolic and Differential Discovery Modules
+
+```bash
+python -c "from symbolic_discovery import run_full_discovery_benchmark; from neural_ode_module import train_neural_ode_on_system; run_full_discovery_benchmark(); train_neural_ode_on_system('duffing', n_timesteps=1000, epochs=300)"
+```
+
+### 6. Launch the Scientific Dashboard
+
 ```bash
 cd dashboard
 npm install
 npm run dev
 ```
-Navigate to `http://localhost:3000` to interactively view the structural embeddings, continuous manifolds, and causal re-ranking panels.
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+The dashboard reads exported artifacts for experiment replay, representation drift, massive sweeps, scientific logs, hypotheses, benchmark panels, and multilingual research views.
 
 ---
 
-## 6. License
-This repository is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Repository Map
+
+```text
+.
+|-- autonomous_scientist.py          # Closed-loop autonomous discovery engine
+|-- llm_reasoner.py                  # LLM JSON reasoning, retry, mock fallback
+|-- sandbox_executor.py              # Isolated execution of generated experiments
+|-- symbolic_discovery.py            # SINDy, PySR, SymPy evaluation, physics penalties
+|-- operator_learning.py             # DeepONet solution-operator learning
+|-- pinn_module.py                   # Forward/inverse Physics-Informed Neural Networks
+|-- neural_ode_module.py             # Continuous-time Neural ODE training and forecasting
+|-- baseline_deep_ecg.py             # ResNet-1D clinical ECG baseline
+|-- deep_representation_audit.py     # Deep CKA vs EV3 representation audit
+|-- run_autonomous_sweep.py          # Autonomous robustness sweep entry point
+|-- run_pipeline.py                  # Experiment/session pipeline backend
+|-- core/
+|   |-- autonomous/                  # Sweep scheduler, analyzer, hypothesis evaluator
+|   |-- empirical/                   # MIT-BIH and causal continuity audits
+|   |-- io/                          # Artifact/session export utilities
+|   `-- validation/                  # Leakage, robustness, reproducibility, certification
+|-- dashboard/                       # Next.js scientific observability interface
+|-- artifacts/                       # Reports, trained models, predictions, discovery outputs
+|-- data/                            # Local UCR and MIT-BIH data assets
+|-- figures/                         # Phase 1 scientific figures
+`-- scientific_kb.db                 # Local scientific memory fallback
+```
+
+---
+
+## Phase 1 Reference Result
+
+The Phase 1 preprint is archived on Zenodo:
+
+https://doi.org/10.5281/zenodo.20366363
+
+It reports that a compact amplitude-invariant EV3 representation can support clinical ECG transfer while failing to preserve strong geometric alignment:
+
+- MIT-BIH AAMI clinical transfer with Random Forest EV3.
+- Deep representational replication with ResNet-1D CKA.
+- \(D_{emb} \approx 0.982\) for synthetic-to-clinical representational divergence.
+- \(D_{attr} \approx 0.763\) for attributional reordering.
+- The key conclusion: predictive transfer does not imply representational invariance.
+
+---
+
+## Citation
+
+If you use this repository or the Phase 1 audit, please cite:
+
+```bibtex
+@misc{lopezalmeida2026predictive,
+  title        = {Predictive Transfer Without Strong Representational Alignment from Synthetic Chaotic Attractors to Clinical ECG},
+  author       = {Lopez Almeida, Alvaro},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20366363},
+  url          = {https://doi.org/10.5281/zenodo.20366363},
+  note         = {Preprint}
+}
+```
+
+---
+
+## License
+
+This project is released under the MIT License. See [LICENSE](LICENSE).

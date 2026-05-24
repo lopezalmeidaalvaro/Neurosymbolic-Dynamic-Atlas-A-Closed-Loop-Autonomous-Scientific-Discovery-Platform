@@ -1,6 +1,3 @@
-// ═══════════════════════════════════════════════════════════════
-// constants/index.ts — App-wide constants
-// ═══════════════════════════════════════════════════════════════
 import type { NavItem } from '@/types';
 
 export const APP_NAME = 'Neurosymbolic Atlas';
@@ -26,7 +23,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     id: 'discoveries',
-    label: { en: 'Discoveries', es: 'Descubrimientos' },
+    label: { en: 'Symbolic Discovery', es: 'Descubrimiento Simbolico' },
     href: '/discoveries',
     icon: 'Sparkles',
   },
@@ -38,7 +35,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     id: 'timeline',
-    label: { en: 'Timeline', es: 'Línea de Tiempo' },
+    label: { en: 'Timeline', es: 'Linea de Tiempo' },
     href: '/dashboard/timeline',
     icon: 'GitBranch',
   },
@@ -50,10 +47,11 @@ export const NAV_ITEMS: NavItem[] = [
     badge: 'SOTA',
   },
   {
-    id: 'log',
-    label: { en: 'Scientific Log', es: 'Log Científico' },
+    id: 'autonomous-scientist',
+    label: { en: 'Autonomous Scientist', es: 'Cientifico Autonomo' },
     href: '/dashboard/scientific-log',
     icon: 'ScrollText',
+    badge: 'LLM',
   },
   {
     id: 'compare',
