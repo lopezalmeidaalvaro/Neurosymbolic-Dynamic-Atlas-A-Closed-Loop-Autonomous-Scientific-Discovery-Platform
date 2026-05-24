@@ -1,6 +1,6 @@
 {
     "metadata": {
-        "timestamp": "2026-05-24T00:06:52Z",
+        "timestamp": "2026-05-24T00:28:54Z",
         "audit_type": "Deep vs EV3 Representational CKA Comparison",
         "model_architecture": "ResNet18-1D",
         "extracted_layer": "AdaptiveAvgPool1d"
