@@ -36,8 +36,12 @@ export function GlassCard({
     <motion.div
       whileHover={hover ? { y: -2 } : undefined}
       transition={{ duration: 0.15 }}
+      style={{
+        backgroundColor: 'rgba(20, 20, 25, 0.95)',
+        // backdropFilter: 'blur(4px)', // Disabled for dev environment performance
+      }}
       className={cn(
-        'rounded-xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm',
+        'rounded-xl border border-white/[0.06]',
         'shadow-lg transition-all duration-200',
         hover && 'cursor-pointer',
         hover && GLOW_CLASSES[glow],

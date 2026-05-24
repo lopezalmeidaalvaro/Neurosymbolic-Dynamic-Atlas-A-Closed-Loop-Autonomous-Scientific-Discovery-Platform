@@ -23,6 +23,11 @@ interface AppState {
   setComplexityMode: (mode: ComplexityMode) => void;
   toggleComplexityMode: () => void;
 
+  // ── Cinematic Effects ──────────────────────────────────────────
+  cinematicEffectsEnabled: boolean;
+  setCinematicEffectsEnabled: (value: boolean) => void;
+  toggleCinematicEffects: () => void;
+
   // ── System status ────────────────────────────────────────────
   systemStatus: 'online' | 'processing' | 'idle';
   setSystemStatus: (status: 'online' | 'processing' | 'idle') => void;
@@ -57,6 +62,12 @@ export const useAppStore = create<AppState>()(
           complexityMode: state.complexityMode === 'simple' ? 'advanced' : 'simple',
         })),
 
+      // Cinematic Effects (Disabled by default for CPU/GPU efficiency in dev)
+      cinematicEffectsEnabled: false,
+      setCinematicEffectsEnabled: (value) => set({ cinematicEffectsEnabled: value }),
+      toggleCinematicEffects: () =>
+        set((state) => ({ cinematicEffectsEnabled: !state.cinematicEffectsEnabled })),
+
       // System status
       systemStatus: 'online',
       setSystemStatus: (status) => set({ systemStatus: status }),
@@ -73,6 +84,7 @@ export const useAppStore = create<AppState>()(
         focusModeEnabled: state.focusModeEnabled,
         language: state.language,
         complexityMode: state.complexityMode,
+        cinematicEffectsEnabled: state.cinematicEffectsEnabled,
       }),
     }
   )

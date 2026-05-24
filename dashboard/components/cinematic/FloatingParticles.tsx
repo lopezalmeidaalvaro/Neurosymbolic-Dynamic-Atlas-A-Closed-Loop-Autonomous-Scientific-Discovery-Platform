@@ -18,6 +18,9 @@ const PARTICLES = Array.from({ length: 34 }, (_, index) => ({
 }));
 
 export function FloatingParticles({ className, count = 24 }: FloatingParticlesProps) {
+  // Dual safety: bypass particle animation calculations in development environment
+  if (process.env.NODE_ENV === 'development') return null;
+
   return (
     <div aria-hidden className={cn('pointer-events-none absolute inset-0 overflow-hidden', className)}>
       {PARTICLES.slice(0, count).map((particle) => (

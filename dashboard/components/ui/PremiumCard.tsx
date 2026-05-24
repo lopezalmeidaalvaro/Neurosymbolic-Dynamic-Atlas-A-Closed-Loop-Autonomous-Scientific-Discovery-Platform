@@ -14,10 +14,13 @@ export function PremiumCard({ children, className, active = false }: PremiumCard
     <motion.div
       whileHover={{ y: -3 }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      style={{
+        backgroundColor: 'rgba(20, 20, 25, 0.95)',
+        // backdropFilter: 'blur(24px)', // Disabled for dev environment performance
+      }}
       className={cn(
         'relative overflow-hidden rounded-[1.15rem] border border-white/[0.08]',
-        'bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.018))]',
-        'shadow-[0_18px_60px_rgba(0,0,0,0.24)] backdrop-blur-xl',
+        'shadow-[0_18px_60px_rgba(0,0,0,0.24)]',
         active && 'border-cyan-200/20 shadow-[0_26px_70px_rgba(56,189,248,0.10)]',
         className
       )}

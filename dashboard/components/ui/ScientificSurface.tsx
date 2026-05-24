@@ -9,10 +9,13 @@ interface ScientificSurfaceProps {
 export function ScientificSurface({ children, className, grid = false }: ScientificSurfaceProps) {
   return (
     <section
+      style={{
+        backgroundColor: 'rgba(20, 20, 25, 0.95)',
+        // backdropFilter: 'blur(40px)', // Disabled for dev environment performance
+      }}
       className={cn(
         'relative overflow-hidden rounded-[1.5rem] border border-white/[0.08]',
-        'bg-[linear-gradient(180deg,rgba(10,16,30,0.72),rgba(4,7,14,0.70))]',
-        'shadow-[0_30px_90px_rgba(0,0,0,0.30)] backdrop-blur-2xl',
+        'shadow-[0_30px_90px_rgba(0,0,0,0.30)]',
         className
       )}
     >

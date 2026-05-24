@@ -22,8 +22,9 @@ export function DynamicSystemSimulator({ lang }: DynamicSystemSimulatorProps) {
     const dt = 0.01;
     const points: Array<{ x: number; y: number }> = [];
 
-    // Solve equations iteratively using Euler method
-    for (let i = 0; i < 320; i++) {
+    // Solve equations iteratively using Euler method (downscaled to 10% in development for CPU safety)
+    const iterations = process.env.NODE_ENV === 'development' ? 32 : 320;
+    for (let i = 0; i < iterations; i++) {
       const dx = s * (y - x) * dt;
       const dy = (x * (r - z) - y) * dt;
       const dz = (x * y - b * z) * dt;

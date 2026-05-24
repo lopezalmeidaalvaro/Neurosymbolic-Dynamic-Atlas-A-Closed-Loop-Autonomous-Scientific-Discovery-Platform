@@ -21,9 +21,11 @@ interface LatentEvolutionPlayerProps {
 }
 
 // ── Synthetic evolution trajectory ────────────────────────────
-// Two basins of attraction in PCA space, point migrates over time
-const EVOLUTION: EmbeddingPoint[] = Array.from({ length: 24 }, (_, i) => {
-  const t = i / 23;
+// Two basins of attraction in PCA space, point migrates over time (downscaled in development)
+const EVOLUTION_LENGTH = process.env.NODE_ENV === 'development' ? 5 : 24;
+
+const EVOLUTION: EmbeddingPoint[] = Array.from({ length: EVOLUTION_LENGTH }, (_, i) => {
+  const t = i / (EVOLUTION_LENGTH - 1 || 1);
   const theta = t * Math.PI * 2.4;
   const radius = 0.92 - t * 0.26;
   return {

@@ -12,8 +12,20 @@ import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { FocusContainer } from '@/components/ui/FocusContainer';
 import { GlassPanel } from '@/components/ui/GlassPanel';
 import { ScientificSurface } from '@/components/ui/ScientificSurface';
-import { NoiseRobustnessObservatory } from '@/components/scientific/NoiseRobustnessObservatory';
-import { ScientificObservabilityDashboard } from '@/components/scientific/ScientificObservabilityDashboard';
+import dynamic from 'next/dynamic';
+
+const NoiseRobustnessObservatory = dynamic(
+  () =>
+    import('@/components/scientific/NoiseRobustnessObservatory').then(
+      (m) => m.NoiseRobustnessObservatory
+    )
+);
+const ScientificObservabilityDashboard = dynamic(
+  () =>
+    import('@/components/scientific/ScientificObservabilityDashboard').then(
+      (m) => m.ScientificObservabilityDashboard
+    )
+);
 import type { Language } from '@/types';
 
 export const metadata: Metadata = { title: 'Benchmark' };

@@ -30,9 +30,12 @@ export function GlassPanel({
   return (
     <div
       {...rest}
+      style={{
+        backgroundColor: 'rgba(20, 20, 25, 0.95)',
+        // backdropFilter: 'blur(40px)', // Disabled for dev environment performance
+      }}
       className={cn(
-        'relative overflow-hidden rounded-[1.35rem] border bg-[rgba(9,13,24,0.62)]',
-        'backdrop-blur-2xl shadow-[0_24px_80px_rgba(0,0,0,0.28)]',
+        'relative overflow-hidden rounded-[1.35rem] border shadow-[0_24px_80px_rgba(0,0,0,0.28)]',
         'before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent',
         'after:pointer-events-none after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_22%_0%,rgba(255,255,255,0.07),transparent_32%)]',
         DENSITY[density],

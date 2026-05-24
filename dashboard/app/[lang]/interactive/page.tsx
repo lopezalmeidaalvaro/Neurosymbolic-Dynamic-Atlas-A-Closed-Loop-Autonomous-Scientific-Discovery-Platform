@@ -2,12 +2,29 @@ import type { Metadata } from 'next';
 import Balancer from 'react-wrap-balancer';
 import { Orbit, Activity, ShieldAlert, Sparkles } from 'lucide-react';
 import { getDictionary } from '@/lib/i18n/dictionaries';
-import { SignalPlayground } from '@/components/interactive/SignalPlayground';
-import { NoiseVisualizer } from '@/components/interactive/NoiseVisualizer';
-import { GeometryVisualizer } from '@/components/interactive/GeometryVisualizer';
-import { EmbeddingExplorer } from '@/components/interactive/EmbeddingExplorer';
-import { ModelComparator } from '@/components/interactive/ModelComparator';
-import { DynamicSystemSimulator } from '@/components/interactive/DynamicSystemSimulator';
+import dynamic from 'next/dynamic';
+
+const SignalPlayground = dynamic(
+  () => import('@/components/interactive/SignalPlayground').then((m) => m.SignalPlayground)
+);
+const NoiseVisualizer = dynamic(
+  () => import('@/components/interactive/NoiseVisualizer').then((m) => m.NoiseVisualizer)
+);
+const GeometryVisualizer = dynamic(
+  () => import('@/components/interactive/GeometryVisualizer').then((m) => m.GeometryVisualizer)
+);
+const EmbeddingExplorer = dynamic(
+  () => import('@/components/interactive/EmbeddingExplorer').then((m) => m.EmbeddingExplorer)
+);
+const ModelComparator = dynamic(
+  () => import('@/components/interactive/ModelComparator').then((m) => m.ModelComparator)
+);
+const DynamicSystemSimulator = dynamic(
+  () =>
+    import('@/components/interactive/DynamicSystemSimulator').then(
+      (m) => m.DynamicSystemSimulator
+    )
+);
 import { Reveal } from '@/components/motion/Reveal';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { FocusContainer } from '@/components/ui/FocusContainer';
