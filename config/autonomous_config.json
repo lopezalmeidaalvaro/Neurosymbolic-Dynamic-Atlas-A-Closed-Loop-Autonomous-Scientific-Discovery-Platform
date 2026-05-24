@@ -1,0 +1,42 @@
+{
+  "llm": {
+    "provider": "openai",
+    "model": "o3-mini",
+    "temperature": 0.1,
+    "max_tokens": 4096,
+    "retry_attempts": 3,
+    "retry_backoff_factor": 2.0
+  },
+  "sandbox": {
+    "use_docker": true,
+    "timeout_seconds": 120,
+    "memory_limit_mb": 512,
+    "allowed_imports": ["numpy", "scipy", "pandas", "matplotlib", "sympy", "ripser", "networkx", "sklearn"],
+    "forbidden_operations": ["os.system", "subprocess", "shutil.rmtree", "socket", "requests.post"]
+  },
+  "discovery": {
+    "max_iterations": 10,
+    "patience": 3,
+    "epistemic_threshold": 0.1,
+    "domains": ["synthetic_dynamical_systems", "clinical_ecg", "physical_simulations"],
+    "available_methods": [
+      "sindy",
+      "pysr",
+      "topological_analysis",
+      "geometric_analysis",
+      "koopman_analysis",
+      "cka_audit",
+      "shap_analysis"
+    ],
+    "available_datasets": [
+      "lorenz",
+      "rossler",
+      "duffing",
+      "van_der_pol",
+      "logistic",
+      "ECG200",
+      "CBF",
+      "MIT_BIH"
+    ]
+  }
+}

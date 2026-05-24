@@ -14,7 +14,12 @@ if sys.platform == "win32":
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 from core.io import export_session, ARTIFACTS_DIR, resolve_path
-
+import ucr_loader
+import robustness_audit
+import symbolic_discovery
+from topological_robustness_audit import run_full_topological_robustness_study
+from knowledge_graph import ScientificKnowledgeGraph
+import migrate_to_graph
 
 def print_step(step_name):
     print(f"\n{'='*60}")
@@ -42,6 +47,36 @@ def main():
     parser.add_argument("--seed", type=int, default=42, help="Seed value (default: 42)")
     parser.add_argument("--system", type=str, default=None, help="Dynamical system to run (default: None for all)")
     
+    # New options (Phase 1)
+    parser.add_argument("--ucr_dataset", type=str, default=None, help="UCR Dataset name to load and evaluate")
+    parser.add_argument("--robustness_study", action="store_true", help="Execute Gaussian noise robustness audit on the loaded domain")
+    parser.add_argument("--features_extended", action="store_true", help="Use 15-dimensional EV3_EXTENDED feature space instead of standard 8D EV3")
+    parser.add_argument("--features_deep", action="store_true", help="Use 68-dimensional EV3_DEEP feature space in everything (classification, CKA, SHAP)")
+    parser.add_argument("--topological_audit", action="store_true", help="Execute Phase 4 Topological, Geometrical, and Koopman robustness stability study")
+    parser.add_argument("--domain_a", type=str, default=None, help="Domain A override path")
+    parser.add_argument("--domain_b", type=str, default=None, help="Domain B override path")
+    parser.add_argument("--domain_c", type=str, default=None, help="Domain C override path")
+    
+    # New options (Phase 2)
+    parser.add_argument("--symbolic_discovery", action="store_true", help="Activate Phase 2 Symbolic Equation Discovery")
+    parser.add_argument("--discovery_method", type=str, default="sindy", choices=["sindy", "pysr", "both"], help="Symbolic regression methodology (default: sindy)")
+    parser.add_argument("--use_ev3_for_discovery", action="store_true", help="Leverage 15D EV3_EXTENDED embeddings as input for PySR")
+    parser.add_argument("--run_discovery_benchmark", action="store_true", help="Execute complete multi-system symbolic recovery benchmark")
+    
+    # New options (Phase 3)
+    parser.add_argument("--use_knowledge_graph", action="store_true", help="Leverage Neo4j Graph Database for scientific memory")
+    parser.add_argument("--kg_log_discovery", action="store_true", help="Automatically log symbolic discovery trials in Neo4j Graph Database")
+    parser.add_argument("--kg_report", action="store_true", help="Generate Markdown summary report of the Graph DBMS")
+    parser.add_argument("--migrate_to_graph", action="store_true", help="Bridge and migrate historical SQLite data to Neo4j Graph Database")
+    
+    # New options (Phase 5 - Autonomous Discovery)
+    parser.add_argument("--autonomous_discovery", action="store_true", help="Activate Phase 5 Autonomous Scientific Discovery Loop")
+    parser.add_argument("--discovery_domain", type=str, default="synthetic_dynamical_systems", help="Scientific domain description")
+    parser.add_argument("--discovery_goal", type=str, default="discover_invariants_under_noise", help="Specific scientific goal")
+    parser.add_argument("--discovery_iterations", type=int, default=5, help="Maximum number of discovery iterations")
+    parser.add_argument("--discovery_interactive", action="store_true", help="Enable human-in-the-loop interactive review mode")
+    parser.add_argument("--llm_provider", type=str, default="openai", choices=["openai", "anthropic"], help="LLM provider (default: openai)")
+    
     args = parser.parse_args()
 
     print_step(f"INICIANDO NEUROSYMBOLIC PIPELINE: {args.experiment} (Noise: {args.noise}, Seed: {args.seed}, System: {args.system})")
@@ -50,6 +85,74 @@ def main():
     ARTIFACTS_DIR.mkdir(parents=True, exist_ok=True)
     os.makedirs("artifacts", exist_ok=True)
     
+    # Initialize Neo4j Knowledge Graph if requested
+    kg = None
+    if args.use_knowledge_graph:
+        kg = ScientificKnowledgeGraph()
+        
+    # Execute migration from SQLite to Neo4j if requested
+    if args.migrate_to_graph:
+        print_step("MIGRACIÓN EPISTEMOLÓGICA: SQLITE A NEO4J")
+        if kg and kg.connected:
+            kg.initialize_schema()
+            sqlite_data = migrate_to_graph.load_sqlite_history()
+            if sqlite_data:
+                migrate_to_graph.migrate_to_neo4j(sqlite_data, kg)
+            else:
+                print("No SQLite historical data found to migrate.")
+        else:
+            print("⚠️ [Neo4j] Database is offline or --use_knowledge_graph was not supplied. Migration bypassed.")
+    # Phase 5: Autonomous Scientific Discovery Loop
+    if args.autonomous_discovery:
+        print_step("FASE 5: BUCLE AUTÓNOMO DE DESCUBRIMIENTO CIENTÍFICO")
+        provider = args.llm_provider.lower()
+        key_name = "OPENAI_API_KEY" if provider == "openai" else "ANTHROPIC_API_KEY"
+        if not os.environ.get(key_name):
+            print(f"\n⚠️ [WARNING] La variable de entorno '{key_name}' no está configurada.")
+            print(f"Bucle autónomo cancelado por falta de API key para el proveedor '{provider}'.")
+            sys.exit(1)
+            
+        print(f"Inicializando AutonomousScientist con proveedor: {provider}")
+        from autonomous_scientist import AutonomousScientist
+        
+        # Instantiate scientist (Docker disabled for local environment compatibility, passing kg graph if active)
+        scientist = AutonomousScientist(llm_provider=provider, use_docker=False, knowledge_graph=kg)
+        scientist.auto_mode = not args.discovery_interactive
+        
+        print(f"Ejecutando ciclo autónomo de descubrimiento científico:")
+        print(f"  - Dominio: {args.discovery_domain}")
+        print(f"  - Objetivo: {args.discovery_goal}")
+        print(f"  - Iteraciones: {args.discovery_iterations}")
+        
+        res = scientist.run_discovery_cycle(
+            domain=args.discovery_domain,
+            goal=args.discovery_goal,
+            max_iterations=args.discovery_iterations
+        )
+        
+        # Compile reports and save session
+        scientist.generate_discovery_report()
+        scientist.save_session()
+        
+        print_step("RESUMEN DEL CICLO DE DESCUBRIMIENTO AUTÓNOMO")
+        print(f"  - Iteraciones Ejecutadas: {res['iterations']}")
+        print(f"  - Ganancia Epistemológica Total: {res['total_epistemic_gain']:.4f}")
+        validated_count = sum(1 for item in res['session_history'] if item["interpretation"]["verdict"].lower() == "validated")
+        print(f"  - Hipótesis Validadas: {validated_count} / {res['iterations']}")
+        print(f"  - Reporte guardado en: artifacts/discovery_report.md")
+        print(f"  - Datos de sesión guardados en: artifacts/autonomous_session.json")
+        print(f"  - Memoria científica actualizada exitosamente.")
+        print("=" * 60)
+        
+        telemetry_list.append({
+            "framework_family": "AUTONOMOUS",
+            "framework": "autonomous_scientist",
+            "status": "SUCCESS",
+            "cost_metric": float(res['iterations']),
+            "redundancy_flag": 0,
+            "semantic_notes": f"Ejecución autónoma completada con ganancia epistemológica de {res['total_epistemic_gain']:.4f}"
+        })
+        
     telemetry_list = []
 
     # PASO 1: Generación de series temporales y extracción de features (Embeddings)
@@ -115,6 +218,161 @@ def main():
         "semantic_notes": "Exportación de meta_insights guardados en base de datos"
     })
     
+    # PASO 5.5: Carga de dataset UCR y Estudio de Robustez
+    if args.ucr_dataset:
+        print_step(f"PASO 5.5: Procesamiento de UCR Dataset: {args.ucr_dataset}")
+        t0 = time.time()
+        try:
+            # Download/load dataset
+            dataset_info = ucr_loader.load_ucr_dataset(args.ucr_dataset)
+            print(f"Dataset '{args.ucr_dataset}' cargado con éxito:")
+            print(f"  - Series de entrenamiento: {dataset_info['X_train'].shape}")
+            print(f"  - Series de test: {dataset_info['X_test'].shape}")
+            print(f"  - Clases: {dataset_info['n_classes']}")
+            print(f"  - Longitud de series: {dataset_info['series_length']}")
+            
+            # Extract features (Original, Extended, or Deep)
+            print(f"Extrayendo características EV3 (Extended: {args.features_extended}, Deep: {args.features_deep})...")
+            X_feat_train, y_train, X_feat_test, y_test = ucr_loader.extract_ev3_from_ucr(
+                args.ucr_dataset, extended=args.features_extended, deep=args.features_deep
+            )
+            print(f"Características extraídas con éxito:")
+            print(f"  - X_features_train: {X_feat_train.shape}")
+            print(f"  - X_features_test: {X_feat_test.shape}")
+            
+            duration = time.time() - t0
+            telemetry_list.append({
+                "framework_family": "NUMERICAL",
+                "framework": "ucr_loader",
+                "status": "SUCCESS",
+                "cost_metric": round(duration, 4),
+                "redundancy_flag": 0,
+                "semantic_notes": f"Extracción EV3 (Extended: {args.features_extended}, Deep: {args.features_deep}) para {args.ucr_dataset}"
+            })
+            
+            if args.robustness_study:
+                print_step("PASO 5.6: Auditoría de Robustez bajo Ruido Gaussiano...")
+                t0_rob = time.time()
+                
+                def ucr_sig_generator(n_signals=50):
+                    X = dataset_info["X_train"]
+                    y = dataset_info["y_train"]
+                    np.random.seed(args.seed)
+                    if len(X) < n_signals:
+                        indices = np.random.choice(len(X), size=n_signals, replace=True)
+                    else:
+                        indices = np.random.choice(len(X), size=n_signals, replace=False)
+                    return X[indices], y[indices]
+                    
+                df_rob = robustness_audit.run_full_robustness_study(ucr_sig_generator, n_signals=20)
+                
+                # Export results and figures
+                robustness_audit.plot_degradation_curves(df_rob, output_path="figures/robustness_degradation.pdf")
+                robustness_audit.export_robustness_results(df_rob, output_path="artifacts/robustness_results.json")
+                
+                duration_rob = time.time() - t0_rob
+                telemetry_list.append({
+                    "framework_family": "BENCHMARK",
+                    "framework": "robustness_audit",
+                    "status": "SUCCESS",
+                    "cost_metric": round(duration_rob, 4),
+                    "redundancy_flag": 0,
+                    "semantic_notes": f"Estudio de robustez completo para {args.ucr_dataset}"
+                })
+                
+        except Exception as e:
+            print(f"❌ ERROR procesando UCR dataset {args.ucr_dataset}: {e}")
+            telemetry_list.append({
+                "framework_family": "NUMERICAL",
+                "framework": "ucr_loader",
+                "status": "ERROR",
+                "cost_metric": 0.0,
+                "redundancy_flag": 0,
+                "semantic_notes": f"Error al procesar dataset UCR: {e}"
+            })
+            
+    # PASO 5.6b: Auditoría de Robustez Topológica, Geométrica y de Koopman (Fase 4)
+    if args.topological_audit:
+        print_step("PASO 5.6b: Auditoría de Robustez Topológica, Geométrica y de Koopman...")
+        t0_top_rob = time.time()
+        try:
+            if args.ucr_dataset and 'dataset_info' in locals():
+                def ucr_sig_gen(idx):
+                    X = dataset_info["X_train"]
+                    return X[idx % len(X)]
+                run_full_topological_robustness_study(ucr_sig_gen, n_signals=3, dataset_name=args.ucr_dataset)
+            else:
+                from synthetic_systems import generate_lorenz
+                import numpy as np
+                def lorenz_gen(idx):
+                    np.random.seed(idx)
+                    init = [10.0 + np.random.normal(0, 0.1), 10.0 + np.random.normal(0, 0.1), 20.0 + np.random.normal(0, 0.1)]
+                    traj = generate_lorenz(n_timesteps=600, dt=0.01, initial_state=init)
+                    return traj["x"]
+                run_full_topological_robustness_study(lorenz_gen, n_signals=3, dataset_name="Lorenz")
+                
+            duration_top_rob = time.time() - t0_top_rob
+            telemetry_list.append({
+                "framework_family": "BENCHMARK",
+                "framework": "topological_robustness_audit",
+                "status": "SUCCESS",
+                "cost_metric": round(duration_top_rob, 4),
+                "redundancy_flag": 0,
+                "semantic_notes": "Estudio de robustez topológica/geométrica completo para Lorenz/UCR"
+            })
+        except Exception as e:
+            print(f"❌ ERROR en Auditoría de Robustez Topológica/Geométrica: {e}")
+
+    # PASO 5.7: Descubrimiento Simbólico de Ecuaciones (Fase 2)
+    if args.symbolic_discovery:
+        print_step("PASO 5.7: Descubrimiento Simbólico de Ecuaciones (Fase 2)")
+        t0_disc = time.time()
+        try:
+            if args.run_discovery_benchmark:
+                print("Iniciando benchmark completo de descubrimiento simbólico...")
+                df_bench = symbolic_discovery.run_full_discovery_benchmark()
+                print("Resultados del benchmark:")
+                print(df_bench.to_string(index=False))
+            elif args.system:
+                print(f"Iniciando descubrimiento simbólico para el sistema: {args.system}")
+                methods_to_run = ["sindy", "pysr"] if args.discovery_method == "both" else [args.discovery_method]
+                for method in methods_to_run:
+                    res = symbolic_discovery.discover_system_dynamics(
+                        args.system, method=method, use_ev3=args.use_ev3_for_discovery, deep=args.features_deep
+                    )
+                    print(f"\nResultados del Descubrimiento ({method.upper()}):")
+                    print(f"  - Ecuaciones Descubiertas: {res['discovered_equations']}")
+                    print(f"  - Equivalencia con Realidad: {res['evaluation']['match']}")
+                    print(f"  - Similitud de Términos (Jaccard): {res['evaluation']['jaccard_terms'] * 100:.2f}%")
+                    
+                    # Phase 3: Automatically log results to Knowledge Graph
+                    if args.kg_log_discovery and kg and kg.connected:
+                        import synthetic_systems
+                        ground_truth = synthetic_systems.get_ground_truth_equations(args.system)
+                        kg.log_discovery_result(args.system, method, res['discovered_equations'], ground_truth, res['evaluation'])
+            else:
+                print("⚠️ [WARN] --symbolic_discovery activo pero no se especificó --system ni --run_discovery_benchmark.")
+                
+            duration_disc = time.time() - t0_disc
+            telemetry_list.append({
+                "framework_family": "SYMBOLIC",
+                "framework": "symbolic_discovery",
+                "status": "SUCCESS",
+                "cost_metric": round(duration_disc, 4),
+                "redundancy_flag": 0,
+                "semantic_notes": "Descubrimiento simbólico ejecutado con éxito"
+            })
+        except Exception as e:
+            print(f"❌ ERROR en Descubrimiento Simbólico: {e}")
+            telemetry_list.append({
+                "framework_family": "SYMBOLIC",
+                "framework": "symbolic_discovery",
+                "status": "ERROR",
+                "cost_metric": 0.0,
+                "redundancy_flag": 0,
+                "semantic_notes": f"Fallo en descubrimiento simbólico: {e}"
+            })
+
     # PASO 6: Recopilar datos y exportar la sesión validada por contrato
     print_step("PASO 6: Validando y Exportando Sesión Científica")
     
@@ -203,9 +461,20 @@ def main():
     try:
         exported_file = export_session(session_data, args.experiment)
         print_step(f"PIPELINE COMPLETADO EXITOSAMENTE. Sesión guardada en:\n{exported_file}")
+        
+        # Phase 3: Generate Markdown Report of Knowledge Graph if requested
+        if args.kg_report and kg:
+            kg.generate_knowledge_report()
+            
     except Exception as e:
         print(f"\n❌ ERROR DE VALIDACIÓN DE CONTRATO DE DATOS: {e}")
+        if kg:
+            kg.close()
         sys.exit(1)
+        
+    finally:
+        if kg:
+            kg.close()
 
 if __name__ == "__main__":
     main()
