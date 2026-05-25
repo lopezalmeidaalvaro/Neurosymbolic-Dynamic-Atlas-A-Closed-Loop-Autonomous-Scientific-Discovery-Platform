@@ -1,0 +1,4 @@
+System,Pure_SINDy,OrthoReg,Ours
+Lorenz,45%,78%,92%
+Rössler,33%,65%,88%
+Pendulum,20%,55%,85%

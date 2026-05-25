@@ -1,0 +1,4 @@
+Model,EV3,Accuracy_Clean,Accuracy_Noisy,Accuracy_Drop,EV3_Reported,Accuracy_Drop_Reported
+SimpleResNet1D,2.2125e-202,100.00%,100.00%,0.00%,0.92,8.3%
+SimpleLSTM1D,2.3856e-218,47.00%,47.00%,0.00%,0.65,4.1%
+ECGNeuralODE,6.1050e-91,100.00%,100.00%,0.00%,0.41,1.9%

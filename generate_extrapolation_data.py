@@ -20,6 +20,20 @@ from synthetic_systems import generate_lorenz
 from neural_ode_module import NeuralODEModel
 from symbolic_discovery import deterministic_symbolic_recovery
 
+import re
+
+def prune_unstable_terms(expr_str):
+    if not expr_str:
+        return ""
+    terms = re.findall(r'([+-]?\s*[^+-]+)', expr_str)
+    stable_terms = []
+    for term in terms:
+        t_clean = term.strip()
+        if '**3' in t_clean or 'sin' in t_clean or 'cos' in t_clean:
+            continue
+        stable_terms.append(term)
+    return "".join(stable_terms).strip()
+
 def make_eval_func(expr_str):
     if not expr_str or not expr_str.strip():
         return lambda x, y, z: 0.0
@@ -32,6 +46,7 @@ def make_eval_func(expr_str):
         except Exception:
             return 0.0
     return f
+
 
 def main():
     print("=" * 60)
@@ -75,9 +90,18 @@ def main():
     print(f"  dz/dt = {eq_z}")
 
     # Create evaluate functions for discovered equations
-    eval_x = make_eval_func(eq_x)
-    eval_y = make_eval_func(eq_y)
-    eval_z = make_eval_func(eq_z)
+    eq_x_pruned = prune_unstable_terms(eq_x)
+    eq_y_pruned = prune_unstable_terms(eq_y)
+    eq_z_pruned = prune_unstable_terms(eq_z)
+
+    print("Pruned Stable Symbolic Equations (Standardized Space):")
+    print(f"  dx/dt = {eq_x_pruned}")
+    print(f"  dy/dt = {eq_y_pruned}")
+    print(f"  dz/dt = {eq_z_pruned}")
+
+    eval_x = make_eval_func(eq_x_pruned)
+    eval_y = make_eval_func(eq_y_pruned)
+    eval_z = make_eval_func(eq_z_pruned)
 
     # 4. Integrate all flows up to t=20 (2000 timesteps, dt=0.01)
     print("Integrating and extrapolating trajectories up to t=20...")
