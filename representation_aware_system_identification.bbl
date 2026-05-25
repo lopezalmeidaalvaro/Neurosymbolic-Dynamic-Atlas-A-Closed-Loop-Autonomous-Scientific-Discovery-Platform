@@ -1,0 +1,57 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Brunton et~al.(2016)Brunton, Proctor, and
+  Kutz]{brunton2016discovering}
+Steven~L Brunton, Joshua~L Proctor, and J~Nathan Kutz.
+\newblock Discovering governing equations from data by sparse identification of
+  nonlinear dynamical systems.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 113\penalty0
+  (15):\penalty0 3932--3937, 2016.
+
+\bibitem[Kornblith et~al.(2019)Kornblith, Norouzi, Lee, and
+  Hinton]{kornblith2019similarity}
+Simon Kornblith, Mohammad Norouzi, Honglak Lee, and Geoffrey Hinton.
+\newblock Similarity of neural network representations revisited.
+\newblock In \emph{International Conference on Machine Learning}, pages
+  3519--3529, 2019.
+
+\bibitem[Lu et~al.(2023)]{lu2023aiscientist}
+Chris Lu et~al.
+\newblock The ai scientist: Towards fully automated open-ended scientific
+  discovery.
+\newblock \emph{arXiv preprint arXiv:2308.07332}, 2023.
+
+\bibitem[Morcos et~al.(2018)Morcos, Raghu, and Samy]{morcos2018pwcca}
+Ari Morcos, Maithra Raghu, and Bengio Samy.
+\newblock Insights on representational similarity in neural networks with
+  projection weighted cca.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~31, 2018.
+
+\bibitem[Rackauckas et~al.(2020)Rackauckas, Ma, Martensen, Warner, Zubov,
+  Supekar, Skinner, Ramadhan, and Edelman]{rackauckas2020universal}
+Christopher Rackauckas, Yingbo Ma, Julius Martensen, Collin Warner, Kirill
+  Zubov, Rohit Supekar, Dominic Skinner, Ali Ramadhan, and Alan Edelman.
+\newblock Universal differential equations for scientific machine learning.
+\newblock \emph{arXiv preprint arXiv:2001.04385}, 2020.
+
+\bibitem[Raghu et~al.(2017)Raghu, Gilmer, Yosinski, and
+  Sohl-Dickstein]{raghu2017svcca}
+Maithra Raghu, Justin Gilmer, Jason Yosinski, and Jascha Sohl-Dickstein.
+\newblock Svcca: Singular vector canonical correlation analysis for deep
+  learning dynamics and interpretability.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~30, 2017.
+
+\bibitem[Udrescu and Tegmark(2020)]{udrescu2020ai}
+Silviu-Marian Udrescu and Max Tegmark.
+\newblock Ai feynman: A physics-inspired systematic approach to symbolic
+  regression.
+\newblock \emph{Science Advances}, 6\penalty0 (16):\penalty0 eaay2631, 2020.
+
+\end{thebibliography}
