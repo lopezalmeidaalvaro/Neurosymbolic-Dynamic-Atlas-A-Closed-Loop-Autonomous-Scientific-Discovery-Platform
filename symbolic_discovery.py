@@ -276,14 +276,17 @@ def run_sindy_discovery(
 
     print("Running SINDy discovery with polynomial library...")
 
-    diff = ps.FiniteDifference()
+    # Bypass NumPy 2.x compatibility bug in PySINDy by using scalar dt and pre-computing derivatives
+    dt = float(t[1] - t[0]) if isinstance(t, (np.ndarray, list)) else float(t)
+    x_dot = np.gradient(x, dt, axis=0)
+
     opt = ps.STLSQ(threshold=threshold, alpha=alpha)
     feature_library = ps.PolynomialLibrary(degree=poly_order, include_bias=include_bias)
 
     model = ps.SINDy(
-        differentiation_method=diff, feature_library=feature_library, optimizer=opt
+        feature_library=feature_library, optimizer=opt
     )
-    model.fit(x, t=t)
+    model.fit(x, t=dt, x_dot=x_dot)
 
     # Extract discovered equations
     discovered_eqs = model.equations()

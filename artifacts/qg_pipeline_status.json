@@ -1,0 +1,58 @@
+{
+    "status": "COMPLETED",
+    "runtime_seconds": 550.7289161682129,
+    "n_configs_limit": 50,
+    "discovered_invariants_count": 7,
+    "discovered_invariants_list": [
+        26,
+        38,
+        47,
+        51,
+        69,
+        73,
+        75
+    ],
+    "cka_matrix": {
+        "CausalLayered": {
+            "CausalLayered": 1.0,
+            "SpinNetwork": 0.051626613938633346,
+            "BEC": 0.08967249254033717,
+            "Null_ER": 0.018695063455111717,
+            "Null_Noise": 0.06423784454469472
+        },
+        "SpinNetwork": {
+            "CausalLayered": 0.051626613938633346,
+            "SpinNetwork": 1.0,
+            "BEC": 0.03800587212134805,
+            "Null_ER": 0.03739211910032855,
+            "Null_Noise": 0.07555646287592058
+        },
+        "BEC": {
+            "CausalLayered": 0.08967249254033717,
+            "SpinNetwork": 0.03800587212134805,
+            "BEC": 1.0,
+            "Null_ER": 0.025626982720957984,
+            "Null_Noise": 0.05004168662311201
+        },
+        "Null_ER": {
+            "CausalLayered": 0.018695063455111717,
+            "SpinNetwork": 0.03739211910032855,
+            "BEC": 0.025626982720957984,
+            "Null_ER": 1.0,
+            "Null_Noise": 0.04428229501485143
+        },
+        "Null_Noise": {
+            "CausalLayered": 0.06423784454469472,
+            "SpinNetwork": 0.07555646287592058,
+            "BEC": 0.05004168662311201,
+            "Null_ER": 0.04428229501485143,
+            "Null_Noise": 1.0
+        }
+    },
+    "audit_summary": {
+        "causal_transition_critical_val": 0.3275412572471743,
+        "causal_transition_sharpness": 415.7689007787196,
+        "spin_network_holographic_r_squared": 0.9971611428415365,
+        "bec_horizon_wasserstein_distance": 0.04947502879157575
+    }
+}

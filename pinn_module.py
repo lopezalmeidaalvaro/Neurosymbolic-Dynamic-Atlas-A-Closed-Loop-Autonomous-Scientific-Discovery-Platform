@@ -171,6 +171,7 @@ def discover_parameters_with_pinn(
     variable_params,
     knowledge_graph=None,
     epochs=2000,
+    loss_weights=None,
 ):
     """
     Uses PINN in inverse mode to discover physical parameters from noisy observed trajectories.
@@ -256,7 +257,12 @@ def discover_parameters_with_pinn(
     )
     observe_constraints = []
 
-    for idx in range(num_components):
+    # Detect the number of observed columns to support partial observations
+    observed_cols = observed_data.shape[1] if len(observed_data.shape) > 1 else 1
+    if len(observed_data.shape) == 1:
+        observed_data = observed_data.reshape(-1, 1)
+
+    for idx in range(min(num_components, observed_cols)):
         bc = dde.icbc.PointSetBC(
             t_observed_2d, observed_data[:, idx : idx + 1], component=idx
         )
@@ -278,16 +284,20 @@ def discover_parameters_with_pinn(
     net = dde.nn.FNN(layer_sizes, "tanh", "Glorot normal")
     model = dde.Model(data, net)
 
+    if loss_weights is None:
+        # Default: 1.0 for each PDE residual, 100.0 for each observe constraint to force fitting
+        loss_weights = [1.0] * num_components + [100.0] * len(observe_constraints)
+
     print(
         f"[PINN Inverse] Estimating physical parameters {variable_params} using Adam..."
     )
-    model.compile("adam", lr=0.001, external_trainable_variables=ext_vars)
+    model.compile("adam", lr=0.01, external_trainable_variables=ext_vars, loss_weights=loss_weights)
     model.train(iterations=epochs)
 
-    if epochs >= 200:
+    if epochs >= 2000:
         print("[PINN Inverse] Fine-tuning estimates using L-BFGS...")
         try:
-            model.compile("L-BFGS", external_trainable_variables=ext_vars)
+            model.compile("L-BFGS", external_trainable_variables=ext_vars, loss_weights=loss_weights)
             # Limit L-BFGS to a few outer iterations to ensure lightning fast execution under test/short-budget runs
             model.train(iterations=min(epochs, 10))
         except Exception as e:
@@ -296,7 +306,7 @@ def discover_parameters_with_pinn(
             )
     else:
         print(
-            "[PINN Inverse] Bypassing L-BFGS fine-tuning due to short budget (epochs < 200)..."
+            "[PINN Inverse] Bypassing L-BFGS fine-tuning due to short budget (epochs < 2000)..."
         )
 
     # 6. Retrieve estimated variables

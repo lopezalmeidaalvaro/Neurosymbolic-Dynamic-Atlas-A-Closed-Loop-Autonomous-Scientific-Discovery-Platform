@@ -1,0 +1,8 @@
+Complexity,Loss,Equation
+1,0.09902052,"0.5878132"
+3,0.06782692,"square(cos(x0))"
+4,0.053408187,"sin(square(cos(x0)))"
+5,0.023784228,"cube(cos(cos(exp(x0))))"
+6,0.020120379,"sin(cube(cos(cos(exp(x0)))))"
+8,0.01776277,"cube(cos(cos(exp(x0)))) * cos(-0.34993163)"
+9,0.0069300784,"sin(cube(sin(cos(square(x0)))) - log(x0))"

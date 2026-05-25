@@ -708,6 +708,38 @@ def extract_ev3_deep(signal):
     )
 
 
+def extract_ev3_optimal(signal):
+    """
+    Extracts only the non-redundant optimal features according to artifacts/optimal_features.json.
+    If the file does not exist, fallbacks to EV3_DEEP (68D).
+    """
+    import os
+    import json
+    import numpy as np
+
+    # Build absolute path to artifacts/optimal_features.json
+    root_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    optimal_path = os.path.join(root_dir, "artifacts", "optimal_features.json")
+
+    if not os.path.exists(optimal_path):
+        print(f"  [EV3_OPTIMAL FALLBACK] {optimal_path} not found. Falling back to EV3_DEEP.")
+        return extract_ev3_deep(signal)
+
+    try:
+        with open(optimal_path, "r", encoding="utf-8") as f:
+            optimal_indices = json.load(f)
+
+        import ev3_neural
+        full_feats = ev3_neural.extract_ev3_scientific(signal)
+
+        # Select only the features at the optimal indices
+        optimal_feats = np.array([full_feats[i] for i in optimal_indices])
+        return optimal_feats
+    except Exception as e:
+        print(f"  [EV3_OPTIMAL ERROR] Failed to extract optimal features: {e}. Falling back to EV3_DEEP.")
+        return extract_ev3_deep(signal)
+
+
 def impute_nan_features(X_features):
     """
     Imputes NaN values in a feature matrix/vector by replacing them with the column-wise mean.

@@ -130,7 +130,7 @@ class AutonomousScientist:
             for item in self.session_history:
                 previous_hypotheses.append(
                     {
-                        "text": item["hypothesis"]["hypothesis_text"],
+                        "text": item["hypothesis"].get("hypothesis") or item["hypothesis"].get("hypothesis_text") or "",
                         "state": item.get("verdict", "pending"),
                     }
                 )
@@ -310,17 +310,24 @@ class AutonomousScientist:
         Saves the discovery node to Neo4j if available, or falls back to local SQLite.
         """
         import uuid
+        from scientific_guard import sanitize_hypothesis
 
         hyp_id = f"hyp_{uuid.uuid4().hex[:8]}"
         exp_id = f"exp_{uuid.uuid4().hex[:8]}"
+
+        # Robust support for both default and rigid QG JSON formats
+        hyp_text = hypothesis.get("hypothesis") or hypothesis.get("hypothesis_text") or ""
+        hyp_text = sanitize_hypothesis(hyp_text)
+        equation = hypothesis.get("equation") or hypothesis.get("prediction") or ""
+        confidence_prior = float(hypothesis.get("confidence_prior", 0.5))
 
         # 1. Update Neo4j Knowledge Graph if connected
         if self.kg_active and self.kg:
             try:
                 self.kg.create_hypothesis(
                     hypothesis_id=hyp_id,
-                    text=hypothesis.get("hypothesis_text"),
-                    confidence=float(hypothesis.get("confidence_prior", 0.5)),
+                    text=hyp_text,
+                    confidence=confidence_prior,
                     state=verdict,
                 )
                 self.kg.create_experiment(
@@ -358,9 +365,9 @@ class AutonomousScientist:
                 "INSERT INTO hypotheses (id, text, prediction, confidence_prior, confidence_posterior, state) VALUES (?, ?, ?, ?, ?, ?)",
                 (
                     hyp_id,
-                    hypothesis.get("hypothesis_text"),
-                    hypothesis.get("prediction"),
-                    float(hypothesis.get("confidence_prior", 0.5)),
+                    hyp_text,
+                    equation,
+                    confidence_prior,
                     (
                         float(results.get("confidence_posterior", 0.5))
                         if isinstance(results, dict)

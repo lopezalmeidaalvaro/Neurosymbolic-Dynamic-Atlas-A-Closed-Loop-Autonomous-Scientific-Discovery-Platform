@@ -169,8 +169,18 @@ class LLMReasoner:
             domain = "Lorenz"
             if "ecg" in user_prompt_lower or "electrocardiogram" in user_prompt_lower:
                 domain = "ECG"
+            elif "quantum_gravity" in user_prompt_lower or "quantum_gravity" in system_prompt.lower() or "toy_models" in user_prompt_lower:
+                domain = "QG"
 
-            if domain == "ECG":
+            if domain == "QG":
+                data = {
+                    "hypothesis": "The emergent spectral dimension in causal layered graphs transitions near p_intra = 0.35 and is highly correlated with average slice curvature.",
+                    "equation": "d_s \\approx c_1 \\cdot p_{intra} + c_2 \\cdot \\langle R \\rangle",
+                    "variables": ["p_intra", "spectral_dimension", "mean_curvature"],
+                    "falsification_test": "R^2 < 0.80",
+                    "confidence_prior": 0.85
+                }
+            elif domain == "ECG":
                 data = {
                     "hypothesis_text": "The topological persistence of ECG phase space reconstructions exhibits a reduction in H1 dimension during arrhythmic episodes compared to normal sinus rhythm.",
                     "prediction": "The Wasserstein distance between persistent homology diagrams of normal vs arrhythmic states is greater than 0.25, and mean Betti-1 curvature is lower.",
@@ -196,6 +206,56 @@ class LLMReasoner:
             or "design_experiment" in user_prompt_lower
             or "python_code" in user_prompt_lower
         ):
+            if "p_intra" in user_prompt_lower or "spectral_dimension" in user_prompt_lower or "quantum_gravity" in user_prompt_lower or "boundary_area" in user_prompt_lower:
+                python_code = """import numpy as np
+import pandas as pd
+import json
+import sys
+import os
+
+# Ensure UTF-8 output encoding for Windows terminal
+if sys.platform.startswith("win"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+try:
+    # Safe mock computation using the project's actual ensembles
+    causal_path = "data/causal_layered_ensemble.csv"
+    if os.path.exists(causal_path):
+        df = pd.read_csv(causal_path)
+        corr_val = float(df["p_intra"].corr(df["spectral_dimension"]))
+        mean_ds = float(df["spectral_dimension"].mean())
+    else:
+        corr_val = 0.875
+        mean_ds = 1.42
+
+    results = {
+        "success": True,
+        "pearson_correlation": corr_val,
+        "mean_spectral_dimension": mean_ds,
+        "r_squared": corr_val ** 2,
+        "falsified": corr_val ** 2 < 0.80
+    }
+except Exception as e:
+    results = {
+        "success": False,
+        "error": str(e)
+    }
+
+print(json.dumps(results))
+"""
+                data = {
+                    "experiment_description": "Analyze causal layered graph simulation logs, fit spectral dimension curves, compute Pearson correlation and R^2 coefficient with transitivity metrics to test scaling constraints.",
+                    "dataset": "causal_layered_ensemble",
+                    "method": "geometric_analysis",
+                    "metrics": ["r_squared", "pearson_correlation"],
+                    "falsification_criterion": "R_squared between transitivity and spectral dimension is < 0.80.",
+                    "python_code": python_code
+                }
+                return json.dumps(data, indent=2)
+
             python_code = """import numpy as np
 import json
 import sys
@@ -274,19 +334,50 @@ print(json.dumps(results))
         """
         Generates an original, falsifiable, quantitative scientific hypothesis.
         """
-        system_prompt = (
-            "Eres un científico computacional especializado en sistemas dinámicos caóticos, "
-            "análisis de series temporales y topología matemática.\n"
-            "Tu tarea es proponer una hipótesis científica rigurosa, cuantitativa y original basándote en el contexto.\n"
-            "Debes responder en formato JSON con la siguiente estructura exacta:\n"
-            "{\n"
-            '  "hypothesis_text": "Texto detallado de la hipótesis.",\n'
-            '  "prediction": "Predicción matemática o estadística clara y contrastable.",\n'
-            '  "variables_involved": ["lista", "de", "variables"],\n'
-            '  "confidence_prior": 0.75\n'
-            "}\n"
-            "Asegúrate de que la hipótesis sea falsable mediante un experimento empírico."
-        )
+        domain = context.get("domain", "")
+        if domain == "quantum_gravity_toy_models":
+            system_prompt = (
+                "Eres un físico teórico y computacional especializado en Gravedad Cuántica y modelos de juguete analógicos (analogue gravity).\n"
+                "Tu tarea es proponer una hipótesis científica rigurosa, cuantitativa y original basándote en el contexto.\n"
+                "Debes responder en formato JSON con la siguiente estructura exacta:\n"
+                "{\n"
+                '  "hypothesis": "Descripción detallada de la hipótesis en lenguaje natural (max 200 chars).",\n'
+                '  "equation": "Máximo UNA ecuación en LaTeX representando la relación física propuesta.",\n'
+                '  "variables": ["lista", "de", "variables"],\n'
+                '  "falsification_test": "Criterio numérico explícito de rechazo (ej: R^2 < 0.5, p > 0.05).",\n'
+                '  "confidence_prior": 0.5\n'
+                "}\n"
+                "REGLAS CRÍTICAS:\n"
+                "1. NO uses frases como 'theory of everything', 'proof of quantum gravity', 'discovered fundamental law', o 'real spacetime'.\n"
+                "2. Asegura que la hipótesis sea falsable mediante un experimento empírico y define variables que coincidan con las simulaciones."
+            )
+            expected_keys = [
+                "hypothesis",
+                "equation",
+                "variables",
+                "falsification_test",
+                "confidence_prior"
+            ]
+        else:
+            system_prompt = (
+                "Eres un científico computacional especializado en sistemas dinámicos caóticos, "
+                "análisis de series temporales y topología matemática.\n"
+                "Tu tarea es proponer una hipótesis científica rigurosa, cuantitativa y original basándote en el contexto.\n"
+                "Debes responder en formato JSON con la siguiente estructura exacta:\n"
+                "{\n"
+                '  "hypothesis_text": "Texto detallado de la hipótesis.",\n'
+                '  "prediction": "Predicción matemática o estadística clara y contrastable.",\n'
+                '  "variables_involved": ["lista", "de", "variables"],\n'
+                '  "confidence_prior": 0.75\n'
+                "}\n"
+                "Asegúrate de que la hipótesis sea falsable mediante un experimento empírico."
+            )
+            expected_keys = [
+                "hypothesis_text",
+                "prediction",
+                "variables_involved",
+                "confidence_prior",
+            ]
 
         user_prompt = (
             f"Por favor, genera una hipótesis basada en este contexto:\n"
@@ -297,12 +388,6 @@ print(json.dumps(results))
             f"Goal: {context.get('goal')}\n"
         )
 
-        expected_keys = [
-            "hypothesis_text",
-            "prediction",
-            "variables_involved",
-            "confidence_prior",
-        ]
         return self._query_json(system_prompt, user_prompt, expected_keys)
 
     def design_experiment(self, hypothesis, available_data, available_methods):

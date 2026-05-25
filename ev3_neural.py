@@ -1,11 +1,11 @@
 import os
 import sys
+# Ensure PyTorch backend for DeepXDE BEFORE importing it
+os.environ["DDE_BACKEND"] = "pytorch"
+
 import numpy as np
 import torch
 import deepxde as dde
-
-# Ensure PyTorch backend for DeepXDE
-os.environ["DDE_BACKEND"] = "pytorch"
 
 # Ensure UTF-8 output encoding for Windows terminal
 if sys.platform.startswith("win"):
