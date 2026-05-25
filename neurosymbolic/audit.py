@@ -38,3 +38,40 @@ def linear_cka(x: np.ndarray, y: np.ndarray) -> float:
     if denominator <= 1e-12:
         return 0.0
     return float(np.clip(numerator / denominator, 0.0, 1.0))
+
+
+def compute_cka(X: np.ndarray, Y: np.ndarray) -> float:
+    """Compute linear centered kernel alignment (CKA) between two activation matrices.
+
+    Args:
+        X: First activation matrix with shape ``(n_samples, n_features_x)``.
+        Y: Second activation matrix with shape ``(n_samples, n_features_y)``.
+
+    Returns:
+        Linear CKA similarity.
+    """
+    return linear_cka(X, Y)
+
+
+def compute_ev3(embeddings: np.ndarray) -> float:
+    """Compute the effective volume (EV3) of the activation matrix.
+
+    EV3 is computed as the product of normalized singular values of the
+    activation matrix.
+    """
+    arr = np.asarray(embeddings, dtype=float)
+    if arr.ndim != 2:
+        if arr.ndim == 1:
+            arr = arr.reshape(-1, 1)
+        else:
+            raise ValueError("Activation matrix must be two-dimensional.")
+
+    s = np.linalg.svd(arr, compute_uv=False)
+    sum_s = np.sum(s)
+    if sum_s <= 1e-12:
+        return 0.0
+
+    s_norm = s / sum_s
+    prod = np.prod(s_norm)
+    return float(prod)
+
