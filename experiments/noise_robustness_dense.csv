@@ -1,0 +1,10 @@
+System,SNR_dB,Pure_SINDy,Ours
+Lorenz,10,10%,70%
+Lorenz,20,45%,92%
+Lorenz,30,80%,98%
+Rössler,10,5%,62%
+Rössler,20,33%,88%
+Rössler,30,75%,96%
+Pendulum,10,0%,57%
+Pendulum,20,20%,85%
+Pendulum,30,68%,95%

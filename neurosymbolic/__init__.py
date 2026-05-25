@@ -1,6 +1,6 @@
 """Reproducible neurosymbolic AI4Science utilities."""
 
-from .audit import linear_cka, compute_cka, compute_ev3
+from .audit import linear_cka, compute_cka, compute_ev3, compute_svcca, compute_pwcca
 from .config import load_config, resolve_config_path
 from .neural_ode import NeuralODEModel, generate_harmonic_oscillator
 from .reproducibility import set_global_seed
@@ -12,6 +12,8 @@ __all__ = [
     "linear_cka",
     "compute_cka",
     "compute_ev3",
+    "compute_svcca",
+    "compute_pwcca",
     "load_config",
     "recover_sindy_coefficients",
     "resolve_config_path",

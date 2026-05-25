@@ -1,0 +1,5 @@
+Library,Library_Size,Recovery_Rate,Complexity
+(a) Poly deg 2,10,100%,7
+(b) Poly deg 3,20,100%,9
+(c) Poly + Trig,10,56%,4
+(d) Complete,16,100%,7

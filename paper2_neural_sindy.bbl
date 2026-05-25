@@ -1,0 +1,47 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Brunton et~al.(2016)Brunton, Proctor, and
+  Kutz]{brunton2016discovering}
+Steven~L Brunton, Joshua~L Proctor, and J~Nathan Kutz.
+\newblock Discovering governing equations from data by sparse identification of
+  nonlinear dynamical systems.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 113\penalty0
+  (15):\penalty0 3932--3937, 2016.
+
+\bibitem[Chen et~al.(2018)Chen, Rubanova, Bettencourt, and
+  Duvenaud]{chen2018neural}
+Ricky T~Q Chen, Yulia Rubanova, Jesse Bettencourt, and David Duvenaud.
+\newblock Neural ordinary differential equations.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~31, 2018.
+
+\bibitem[Li et~al.(2024)]{li2024sindykan}
+Z~Li et~al.
+\newblock Sindy-kan: Kolmogorov-arnold networks for sparse identification of
+  nonlinear dynamics.
+\newblock \emph{arXiv preprint arXiv:2405.10500}, 2024.
+
+\bibitem[Rackauckas et~al.(2020)Rackauckas, Ma, Martensen, Warner, Zubov,
+  Supekar, Skinner, Ramadhan, and Edelman]{rackauckas2020universal}
+Christopher Rackauckas, Yingbo Ma, Julius Martensen, Collin Warner, Kirill
+  Zubov, Rohit Supekar, Dominic Skinner, Ali Ramadhan, and Alan Edelman.
+\newblock Universal differential equations for scientific machine learning.
+\newblock \emph{arXiv preprint arXiv:2001.04385}, 2020.
+
+\bibitem[Thomas et~al.(2023)]{thomas2023orthoreg}
+Albert Thomas et~al.
+\newblock Orthogonal regularization for hybrid neural-symbolic model discovery.
+\newblock In \emph{ICLR 2023 Workshop on Physics for Machine Learning}, 2023.
+
+\bibitem[Udrescu and Tegmark(2020)]{udrescu2020ai}
+Silviu-Marian Udrescu and Max Tegmark.
+\newblock Ai feynman: A physics-inspired systematic approach to symbolic
+  regression.
+\newblock \emph{Science Advances}, 6\penalty0 (16):\penalty0 eaay2631, 2020.
+
+\end{thebibliography}

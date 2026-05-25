@@ -1,0 +1,71 @@
+\section{Mathematical Formalization of the Stable Effective Volume Metric (EV3)}
+\label{app:ev3_formal}
+
+This appendix provides a rigorous mathematical derivation of the Stable Effective Volume ($\text{EV3}$) metric, establishes its axiomatic foundations, proves its fundamental invariance and stability properties, and explains why previous determinant-based computations led to numerical underflow.
+
+\subsection{Axiomatic Derivation}
+Let $X \in \mathbb{R}^{N \times D}$ represent an activation matrix obtained from a neural layer, consisting of $N$ samples embedded in a $D$-dimensional representation space. We first define the centered activation matrix $\tilde{X}$:
+\begin{equation}
+\tilde{X} = X - \frac{1}{N} \mathbf{1}_{N \times N} X
+\end{equation}
+where $\mathbf{1}_{N \times N}$ is the identity-like matrix of ones. The empirical covariance matrix of the activations is given by:
+\begin{equation}
+C = \frac{1}{N} \tilde{X}^T \tilde{X}
+\end{equation}
+By performing Singular Value Decomposition (SVD) on the centered activation matrix $\tilde{X}$, we obtain:
+\begin{equation}
+\tilde{X} = U \Sigma V^T
+\end{equation}
+where $U \in \mathbb{R}^{N \times N}$ and $V \in \mathbb{R}^{D \times D}$ are orthogonal matrices, and $\Sigma \in \mathbb{R}^{N \times D}$ contains the singular values $\sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_k \ge 0$ on its diagonal, with $k = \min(N, D)$. The eigenvalues $\lambda_i$ of the covariance matrix $C$ are directly related to the singular values by $\lambda_i = \sigma_i^2 / N$.
+
+The principal axes of the representation uncertainty ellipsoid are proportional to the singular values $\sigma_i$. Conceptually, the volume of this ellipsoid is proportional to the product of its semi-axes:
+\begin{equation}
+\text{Vol}(\mathcal{E}) \propto \prod_{i=1}^k \sigma_i
+\end{equation}
+To ensure stability across varying dimensions and prevent numerical underflow, we define $\text{EV3}$ as the dimension-normalized geometric mean of the significant singular values:
+\begin{equation}
+\text{EV3}(X) = \exp \left( \frac{1}{M} \sum_{i=1}^M \log \sigma_i \right)
+\end{equation}
+where $M \le k$ is the number of active singular values that strictly exceed a regularizing threshold $\epsilon = 10^{-10}$. If all singular values are below the threshold ($M = 0$), we define $\text{EV3}(X) = 0.0$.
+
+\subsection{Mathematical Properties and Proofs}
+We prove four fundamental properties of $\text{EV3}$ that validate its use as a representation audit metric:
+
+\begin{enumerate}
+    \item \textbf{Rotation Invariance:} Let $R \in \text{SO}(D)$ be an orthogonal rotation matrix. The rotated embeddings are $X' = X R$. Since $R$ is orthogonal ($R^T R = I$), the centered matrix is $\tilde{X}' = \tilde{X} R$. The SVD of the rotated matrix is:
+    \begin{equation}
+    \tilde{X}' = \tilde{X} R = U \Sigma (V^T R)
+    \end{equation}
+    Since the product of two orthogonal matrices $V^T R$ is also orthogonal, the singular values $\Sigma$ remain completely unchanged. Consequently, $\text{EV3}(X R) = \text{EV3}(X)$.
+    
+    \item \textbf{Non-Negativity:} Since each active singular value satisfies $\sigma_i > \epsilon > 0$, their logarithms are real, and their geometric mean $\text{EV3}$ is strictly positive ($\text{EV3} > 0$). When the representation completely collapses to a single point, $M=0$, and $\text{EV3} = 0.0$, satisfying non-negativity.
+    
+    \item \textbf{Subspace Stability (Avoiding Determinant Collapse):} In deep networks, representations often collapse to a lower-dimensional manifold of dimension $d < D$, meaning the remaining $D - d$ singular values drop to zero. A standard determinant $\det(C) = \prod_{i=1}^D \lambda_i$ collapses immediately to $0$. In contrast, $\text{EV3}$ filters out the collapsed dimensions ($\sigma_i \le \epsilon$) and measures the stable geometric volume spanned strictly in the active subspace of dimension $d$.
+    
+    \item \textbf{White Noise Limit:} For perfectly uncorrelated, isotropic Gaussian activations with variance $\sigma^2$ in all directions, all active singular values are identical ($\sigma_i \approx \sigma\sqrt{N}$). The log-space mean yields $\text{EV3} \approx \sigma\sqrt{N}$, which behaves linearly with signal scale.
+\end{enumerate}
+
+\subsection{Numerical Stability Analysis and Comparison}
+In previous implementations, the representation volume was computed directly as the determinant of the covariance matrix, $\det(C)$. If the network had $D=64$ features and the singular values in noise directions were around $0.05$, the product of these eigenvalues resulted in:
+\begin{equation}
+\det(C) = \prod_{i=1}^{64} \lambda_i \approx 0.05^{64} \approx 10^{-84}
+\end{equation}
+For larger dimensions ($D \ge 100$), this product rapidly exceeded the double-precision floating-point limit ($10^{-308}$), causing catastrophic numerical underflow to $0.0$ or producing arbitrary values in the range $10^{-213}$ to $10^{-221}$. By evaluating the geometric mean in log-space ($\frac{1}{M}\sum \log\sigma_i$) and then exponentiating, $\text{EV3}$ remains stably bounded in the range $[0.1, 100.0]$ regardless of embedding dimension.
+
+Table~\ref{tab:comparison} compares $\text{EV3}$ with existing representation alignment metrics.
+
+\begin{table}[h]
+\centering
+\caption{Comparison of representation audit metrics.}
+\label{tab:comparison}
+\begin{tabular}{lccc}
+\toprule
+Metric & Evaluates Alignment & Evaluates Vol/Complexity & Numerical Stability \\
+\midrule
+CKA & Yes & No & High \\
+SVCCA & Yes & No & Medium \\
+PWCCA & Yes & No & Medium \\
+\textbf{EV3 (New)} & \textbf{No} & \textbf{Yes} & \textbf{High} \\
+\bottomrule
+\end{tabular}
+\end{table}

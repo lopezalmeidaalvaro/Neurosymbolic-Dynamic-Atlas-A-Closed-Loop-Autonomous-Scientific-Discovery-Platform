@@ -1,0 +1,10 @@
+============================================================
+🧪 EV3 STABILITY VERIFICATION REPORT
+============================================================
+Dimension D =  10 | Matrix Shape: 150x10 | Stable EV3 = 11.874882
+Dimension D =  50 | Matrix Shape: 150x50 | Stable EV3 = 11.268669
+Dimension D = 100 | Matrix Shape: 150x100 | Stable EV3 = 9.640903
+Dimension D = 200 | Matrix Shape: 150x200 | Stable EV3 = 10.819655
+
+Testing near-collapsed representations...
+Redundant/Collapsed (50D, effective 5D) | Stable EV3 = 12.643237
