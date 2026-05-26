@@ -1,0 +1,65 @@
+{
+  "noise": [
+    {
+      "test": "noise",
+      "system": "lorenz",
+      "module": "EV3",
+      "val_clean": 4.090206575316128,
+      "val_20dB": 4.205315874381797,
+      "val_10dB": 3.545895734433512,
+      "val_5dB": 3.107947067850472,
+      "val_0dB": 2.690549194481653,
+      "baseline": 4.090207,
+      "slope": -0.095269,
+      "NRS": 0.095269
+    }
+  ],
+  "missing_data": [
+    {
+      "test": "missing_data",
+      "system": "lorenz",
+      "module": "EV3",
+      "val_0pct": 4.090206575316128,
+      "val_10pct": 4.089714243637646,
+      "val_30pct": 4.087543377520401,
+      "val_50pct": 4.079567971955665,
+      "baseline": 4.090207,
+      "MDT": 0.5
+    }
+  ],
+  "parameter_drift": [
+    {
+      "test": "parameter_drift",
+      "system": "lorenz",
+      "module": "EV3",
+      "parameter": "sigma",
+      "param_from": 10.0,
+      "param_to": 14.0,
+      "baseline_val": 4.090207,
+      "drifted_val": 4.367271,
+      "DDL": 200.0
+    },
+    {
+      "test": "parameter_drift",
+      "system": "duffing",
+      "module": "EV3",
+      "parameter": "gamma",
+      "param_from": 0.3,
+      "param_to": 0.5,
+      "baseline_val": 1.7001,
+      "drifted_val": 1.721617,
+      "DDL": 200.0
+    }
+  ],
+  "ood": [
+    {
+      "test": "ood",
+      "module": "EV3",
+      "train_systems": "['lorenz', 'duffing']",
+      "test_systems": "['rossler', 'van_der_pol']",
+      "in_dist_mean": 2.714014,
+      "ood_mean": 1.61978,
+      "generalization_gap": 0.4032
+    }
+  ]
+}
