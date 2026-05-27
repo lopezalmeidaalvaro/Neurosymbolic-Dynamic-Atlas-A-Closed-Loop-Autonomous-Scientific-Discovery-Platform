@@ -1,0 +1,11 @@
+test,system,module,parameter,param_from,param_to,baseline_val,drifted_val,DDL
+parameter_drift,lorenz,EV3,sigma,10.0,14.0,2.067328,2.126368,2000.0
+parameter_drift,lorenz,EV3_DEEP,sigma,10.0,14.0,345.857486,355.328595,2000.0
+parameter_drift,lorenz,SINDy,sigma,10.0,14.0,,,
+parameter_drift,lorenz,Topology,sigma,10.0,14.0,,,
+parameter_drift,lorenz,Koopman,sigma,10.0,14.0,,,
+parameter_drift,duffing,EV3,gamma,0.3,0.5,2.127402,1.911983,600.0
+parameter_drift,duffing,EV3_DEEP,gamma,0.3,0.5,316.130483,293.05381,2000.0
+parameter_drift,duffing,SINDy,gamma,0.3,0.5,,,
+parameter_drift,duffing,Topology,gamma,0.3,0.5,,,
+parameter_drift,duffing,Koopman,gamma,0.3,0.5,,,

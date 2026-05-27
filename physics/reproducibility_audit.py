@@ -56,7 +56,7 @@ log = logging.getLogger("reproducibility_audit")
 # Hardware Detection
 # ---------------------------------------------------------------------------
 HAS_GPU = False
-MAX_WORKERS = max(1, (os.cpu_count() or 2) - 2)
+MAX_WORKERS = int(os.environ.get("OMP_NUM_THREADS", "2"))
 MIXED_PRECISION = False
 
 try:
@@ -71,7 +71,7 @@ except ImportError:
     log.info("PyTorch not found. CPU-only mode.")
 
 # GPU modules require serialized execution + empty_cache + autocast
-GPU_MODULES = {"NeuralODE", "PINN"}
+GPU_MODULES = {"NeuralODE", "PINN", "EV3_SCI"}
 
 # ---------------------------------------------------------------------------
 # Output directories  (spec: artifacts/ and figures/)

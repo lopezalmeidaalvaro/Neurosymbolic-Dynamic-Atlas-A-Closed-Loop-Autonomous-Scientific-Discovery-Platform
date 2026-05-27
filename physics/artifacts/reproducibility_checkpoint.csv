@@ -1,2 +1,0 @@
-module,system,n_seeds,mean,ci_lower,ci_upper,rel_width,cv,converged,stable
-EV3,lorenz,4,3.150346203127063,nan,nan,inf,0.3594318510455224,False,False

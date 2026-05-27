@@ -1,0 +1,16 @@
+{
+  "stage": "8E",
+  "name": "Robustness Stress Test",
+  "timestamp": "2026-05-27T05:26:20.253398",
+  "metadata": {
+    "n_tests": 65,
+    "tests": [
+      "noise",
+      "missing_data",
+      "parameter_drift",
+      "ood"
+    ],
+    "csv_path": "artifacts\\robustness_results.csv",
+    "elapsed_s": 95.22
+  }
+}

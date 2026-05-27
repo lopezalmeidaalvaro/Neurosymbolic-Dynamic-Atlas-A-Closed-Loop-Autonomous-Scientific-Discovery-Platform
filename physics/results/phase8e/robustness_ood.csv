@@ -1,0 +1,6 @@
+test,module,train_systems,test_systems,in_dist_mean,ood_mean,generalization_gap
+ood,EV3,"['lorenz', 'duffing']","['rossler', 'van_der_pol']",2.123399,1.943863,0.0846
+ood,EV3_DEEP,"['lorenz', 'duffing']","['rossler', 'van_der_pol']",334.416296,363.717852,0.0876
+ood,SINDy,"['lorenz', 'duffing']","['rossler', 'van_der_pol']",,,
+ood,Topology,"['lorenz', 'duffing']","['rossler', 'van_der_pol']",,,
+ood,Koopman,"['lorenz', 'duffing']","['rossler', 'van_der_pol']",,,

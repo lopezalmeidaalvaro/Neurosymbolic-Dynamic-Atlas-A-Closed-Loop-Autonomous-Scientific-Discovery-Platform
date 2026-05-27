@@ -68,6 +68,15 @@ def _safe_read_csv(path: Path) -> Optional[pd.DataFrame]:
     return None
 
 
+def _read_first_available(paths: List[Path]) -> Optional[pd.DataFrame]:
+    """Helper to safely return the first available non-empty DataFrame."""
+    for p in paths:
+        df = _safe_read_csv(p)
+        if df is not None and not df.empty:
+            return df
+    return None
+
+
 def _fmt(val: Any, decimals: int = 4, suffix: str = "") -> str:
     """Returns formatted float or 'N/A' for NaN/None."""
     if val is None or (isinstance(val, float) and (val != val)):  # isnan
@@ -87,46 +96,46 @@ def _load_all_results() -> Dict[str, Any]:
     results = {}
 
     # 8A — Reproducibility (spec: artifacts/reproducibility_results.csv)
-    results["reproducibility"] = (
-        _safe_read_csv(ARTIFACTS_DIR / "reproducibility_results.csv") or
-        _safe_read_csv(RESULTS_DIR / "phase8a" / "reproducibility_report.csv")
-    )
+    results["reproducibility"] = _read_first_available([
+        ARTIFACTS_DIR / "reproducibility_results.csv",
+        RESULTS_DIR / "phase8a" / "reproducibility_report.csv"
+    ])
 
     # 8B — Ablation (spec: artifacts/ablation_results.csv)
-    results["ablation"] = (
-        _safe_read_csv(ARTIFACTS_DIR / "ablation_results.csv") or
-        _safe_read_csv(RESULTS_DIR / "phase8b" / "ablation_report.csv")
-    )
+    results["ablation"] = _read_first_available([
+        ARTIFACTS_DIR / "ablation_results.csv",
+        RESULTS_DIR / "phase8b" / "ablation_report.csv"
+    ])
 
     # 8B summary
     results["ablation_summary"] = _safe_read_csv(ARTIFACTS_DIR / "ablation_summary.csv")
 
     # 8C — SOTA (spec: artifacts/sota_results.csv)
-    results["sota"] = (
-        _safe_read_csv(ARTIFACTS_DIR / "sota_results.csv") or
-        _safe_read_csv(RESULTS_DIR / "phase8c" / "sota_benchmark.csv")
-    )
+    results["sota"] = _read_first_available([
+        ARTIFACTS_DIR / "sota_results.csv",
+        RESULTS_DIR / "phase8c" / "sota_benchmark.csv"
+    ])
 
     # 8E — Robustness (spec: artifacts/robustness_results.csv)
-    results["robustness"] = (
-        _safe_read_csv(ARTIFACTS_DIR / "robustness_results.csv") or
-        _safe_read_csv(RESULTS_DIR / "phase8e" / "robustness_noise.csv")
-    )
+    results["robustness"] = _read_first_available([
+        ARTIFACTS_DIR / "robustness_results.csv",
+        RESULTS_DIR / "phase8e" / "robustness_noise.csv"
+    ])
     results["robustness_noise"] = _safe_read_csv(RESULTS_DIR / "phase8e" / "robustness_noise.csv")
     results["robustness_missing"] = _safe_read_csv(RESULTS_DIR / "phase8e" / "robustness_missing_data.csv")
     results["robustness_ood"] = _safe_read_csv(RESULTS_DIR / "phase8e" / "robustness_ood.csv")
 
     # Benchmark report (original phase: benchmark_report.md, benchmark_scientific_results.csv)
-    results["benchmark_csv"] = (
-        _safe_read_csv(ARTIFACTS_DIR / "benchmark_scientific_results.csv") or
-        _safe_read_csv(ARTIFACTS_DIR / "benchmark_report.csv")
-    )
+    results["benchmark_csv"] = _read_first_available([
+        ARTIFACTS_DIR / "benchmark_scientific_results.csv",
+        ARTIFACTS_DIR / "benchmark_report.csv"
+    ])
 
     # Feature redundancy (feature_redundancy_analysis.py output)
-    results["redundancy"] = (
-        _safe_read_csv(ARTIFACTS_DIR / "feature_redundancy_report.csv") or
-        _safe_read_csv(ARTIFACTS_DIR / "correlated_features.json".replace(".json", ".csv"))
-    )
+    results["redundancy"] = _read_first_available([
+        ARTIFACTS_DIR / "feature_redundancy_report.csv",
+        ARTIFACTS_DIR / "correlated_features.json".replace(".json", ".csv")
+    ])
 
     # Log availability
     for k, v in results.items():
@@ -918,7 +927,7 @@ def _compile_pdf(tex_path: Path) -> Optional[Path]:
         log.info(f"  pdflatex pass {pass_n}/3...")
         try:
             r = subprocess.run(
-                ["pdflatex", "-interaction=nonstopmode", "-output-directory", str(cwd), str(tex_path)],
+                ["pdflatex", "-interaction=nonstopmode", "-output-directory", ".", tex_path.name],
                 capture_output=True, text=True, timeout=120, cwd=str(cwd)
             )
             if r.returncode != 0 and pass_n == 3:

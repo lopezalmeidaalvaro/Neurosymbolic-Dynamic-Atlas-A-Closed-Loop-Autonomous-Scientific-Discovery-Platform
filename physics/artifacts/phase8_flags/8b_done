@@ -1,0 +1,11 @@
+{
+  "stage": "8B",
+  "name": "Ablation Study",
+  "timestamp": "2026-05-27T05:24:45.037054",
+  "metadata": {
+    "n_rows": 560,
+    "n_large_impact": 0,
+    "csv_path": "artifacts\\ablation_results.csv",
+    "elapsed_s": 11360.88
+  }
+}

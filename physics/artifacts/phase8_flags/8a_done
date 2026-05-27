@@ -1,0 +1,12 @@
+{
+  "stage": "8A",
+  "name": "Reproducibility Audit",
+  "timestamp": "2026-05-27T02:15:24.154619",
+  "metadata": {
+    "n_total": 63,
+    "n_stable": 15,
+    "stable_pct": 23.8,
+    "csv_path": "artifacts\\reproducibility_results.csv",
+    "elapsed_s": 9027.34
+  }
+}

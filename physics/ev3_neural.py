@@ -39,10 +39,17 @@ def extract_neural_ode_features(signal, t=None, model_path=None):
         if len(signal) < 5:
             return np.full(8, np.nan)
 
+        # Downsample signal to max 200 points uniformly for 10x faster Neural ODE fitting
+        if len(signal) > 200:
+            indices = np.linspace(0, len(signal) - 1, 200, dtype=int)
+            signal = signal[indices]
+
         if t is None:
             t = np.linspace(0.0, len(signal) * 0.01, len(signal))
         else:
             t = np.array(t, dtype=np.float64).flatten()
+            if len(t) > 200:
+                t = t[indices]
 
         # Reshape signal to (n_timesteps, 1)
         X_obs = signal.reshape(-1, 1)
@@ -125,10 +132,17 @@ def extract_pinn_features(signal, t=None, system_hint=None):
         if len(signal) < 5:
             return np.full(8, np.nan)
 
+        # Downsample signal to max 200 points uniformly for 10x faster PINN fitting
+        if len(signal) > 200:
+            indices = np.linspace(0, len(signal) - 1, 200, dtype=int)
+            signal = signal[indices]
+
         if t is None:
             t = np.linspace(0.0, len(signal) * 0.01, len(signal))
         else:
             t = np.array(t, dtype=np.float64).flatten()
+            if len(t) > 200:
+                t = t[indices]
 
         t_2d = t.reshape(-1, 1)
         X_obs = signal.reshape(-1, 1)

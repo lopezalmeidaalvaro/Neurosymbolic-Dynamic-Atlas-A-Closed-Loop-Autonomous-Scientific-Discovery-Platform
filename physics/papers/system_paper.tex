@@ -1,0 +1,173 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{longtable}
+\geometry{margin=2.5cm}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\title{Neuro-Symbolic Dynamic Atlas: \\
+Reproducibility, Ablation, and Robustness Analysis}
+\author{Automated Scientific Report --- Phase 8}
+\date{May 27, 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\clearpage
+
+\begin{abstract}
+We present a systematic evaluation of the Neuro-Symbolic Dynamic Atlas pipeline across
+63 module-system combinations.
+Reproducibility analysis (BCa bootstrap, Sobol seeds, adaptive stopping) shows
+28.6% convergence and 23.8% stability
+(median CV = 0.0373).
+Ablation study identifies 0 large-impact removals ($|d|\geq 0.8$).
+Mean OOD gap: 0.0861.
+\textbf{All results are model-specific observations on numerical simulations.}
+\end{abstract}
+
+\section{Introduction}
+Scientific machine learning pipelines require validation beyond held-out accuracy.
+This report covers: (1) reproducibility, (2) ablation, (3) SOTA comparison, (4) robustness.
+
+\section{Reproducibility Audit (Phase 8A)}
+Seeds: $S = \lfloor p \times (2^{31}-1) \rfloor$ (Sobol)~\cite{joe2003remark}.
+BCa bootstrap CI$_{95}$~\cite{efron1994introduction} with $n_{\text{resamples}}=2000$.
+Convergence: $W_{\text{rel}} = (CI_{hi}-CI_{lo})/|\mu| < 0.05$ (max 50 seeds).
+
+\begin{table}[h]
+\centering
+\caption{Reproducibility Audit Summary}
+\begin{tabular}{lr}
+\toprule
+Metric & Value \\
+\midrule
+Total evaluations & 63 \\
+Converged ($W_{\text{rel}}<0.05$) & 28.6% \\
+Stable (CV $<$ 0.05) & 23.8% \\
+Median CV & 0.0373 \\
+Peak RAM & 5.6 MB \\
+Peak VRAM & 2.3 MB \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Sample Reproducibility Results (first 10)}
+\begin{tabular}{llrrrll}
+\toprule
+Module & System & Seeds & CV & Converged & Stable \\
+\midrule
+        EV3 & lorenz & 4 & 0.3594 & False & False \\
+        EV3 & duffing & 50 & 0.3140 & False & False \\
+        EV3 & van_der_pol & 20 & 0.0226 & True & True \\
+        EV3 & rossler & 40 & 0.0755 & True & False \\
+        EV3 & logistic & 20 & 0.0236 & True & True \\
+        EV3 & ECG200 & 20 & 0.0373 & True & True \\
+        EV3 & ECG5000 & 20 & 0.0373 & True & True \\
+        EV3\_EXT & lorenz & 50 & 0.1749 & False & False \\
+        EV3\_EXT & duffing & 50 & 0.1079 & False & False \\
+        EV3\_EXT & van_der_pol & 20 & 0.0001 & True & True \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Ablation Study (Phase 8B)}
+\begin{align}
+\Delta\% &= \frac{\mu_{\text{base}} - \mu_{\text{abl}}}{|\mu_{\text{base}}|} \times 100 \\
+d &= \frac{\mu_{\text{base}} - \mu_{\text{abl}}}{\sigma_{\text{pooled}}}
+\end{align}
+DAG-aware cascade disabling; AR(p) fallback (\texttt{DEPENDENCY\_BYPASS}).
+Large-impact removals: 0.
+
+\begin{table}[h]
+\centering
+\caption{Top 8 Ablations by Cohen's $d$}
+\begin{tabular}{llllrrl}
+\toprule
+Config & System & Module & $\Delta\%$ & $d$ & Impact \\
+\midrule
+        NO\_TDA & lorenz & EV3 & 0.0 & 0.000 & Negligible \\
+        NO\_TDA & lorenz & EV3\_EXT & 0.0 & 0.000 & Negligible \\
+        NO\_TDA & lorenz & EV3\_DEEP & 0.0 & 0.000 & Negligible \\
+        NO\_TDA & lorenz & EV3\_SCI & 0.0 & 0.000 & Negligible \\
+        NO\_TDA & duffing & EV3 & 0.0 & 0.000 & Negligible \\
+        NO\_TDA & duffing & EV3\_EXT & 0.0 & 0.000 & Negligible \\
+        NO\_TDA & duffing & EV3\_DEEP & 0.0 & 0.000 & Negligible \\
+        NO\_TDA & duffing & EV3\_SCI & 0.0 & 0.000 & Negligible \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{SOTA Benchmark (Phase 8C)}
+pip install attempted for all missing packages.
+Unavailable tools: \texttt{NOT\_EVALUATED} (no mocks).
+OK evaluations: 14. Not evaluated: 5.
+Win rate (real): 0.56; Win rate (total): 0.36.
+
+\section{Robustness Stress Test (Phase 8E)}
+\subsection{Noise Robustness}
+SNR $\in \{+\infty, 20, 10, 5, 0\}$ dB. NRS = $-\text{slope}(\text{norm. metric vs SNR})$.
+Best: \textbf{EV3}, Mean NRS: -0.3687.
+
+\subsection{Missing Data}
+Dropout [0\%, 10\%, 30\%, 50\%] + linear interpolation. MDT = max drop at $<$20\% degradation.
+Mean MDT: 20.0%.
+
+\subsection{Parameter Drift}
+$\sigma: 10 \to 14$ (Lorenz), $\gamma: 0.3 \to 0.5$ (Duffing).
+
+\subsection{OOD Generalization}
+Train: \{Lorenz, Duffing\}, Test: \{R\"ossler, Van der Pol\}.
+GG = $|\mu_{\text{in}} - \mu_{\text{ood}}|/|\mu_{\text{in}}|$. Mean gap: 0.0861.
+
+\section{Computational Cost}
+\begin{table}[h]
+\centering
+\caption{Mean Computational Cost per Module (from Phase 8A)}
+\begin{tabular}{lrrr}
+\toprule
+Module & Mean Time (s) & Peak RAM (MB) & Peak VRAM (MB) \\
+\midrule
+        EV3 & N/A & N/A & N/A \\
+        EV3\_DEEP & N/A & N/A & N/A \\
+        EV3\_EXT & N/A & N/A & N/A \\
+        EV3\_SCI & 34.01 & 3.8 & 2.1 \\
+        Koopman & 0.27 & 0.0 & 0.0 \\
+        NeuralODE & 0.01 & 0.0 & 0.0 \\
+        PINN & 0.01 & 0.0 & 0.0 \\
+        SINDy & 0.29 & 0.0 & 0.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Threats to Validity}
+\subsection{Statistical Reproducibility}
+BCa bootstrap validity requires non-degenerate distributions and $n_{\text{seeds}} \geq 2$.
+\subsection{Synthetic Dataset Bias}
+All systems numerically integrated; real sensor noise unmodeled.
+\subsection{Hardware Dependence}
+Timings depend on CPU/GPU model; cross-platform comparisons invalid without normalization.
+\subsection{Hyperparameter Sensitivity}
+SINDy threshold, PINN depth, NeuralODE step-size not exhaustively tuned.
+\subsection{Domain Transfer Limitations}
+1-D signal proxies of 3-D systems; multi-dimensional performance may differ.
+\subsection{Simulator-Reality Gap}
+RK4 integration only; no empirical validation. Results are model-specific observations.
+
+\section{Conclusions}
+\textbf{Model-specific observations only.} All reported metrics derive from numerical simulations.
+No claims about universal physical laws or out-of-domain performance are made.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

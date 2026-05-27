@@ -1,0 +1,12 @@
+{
+  "stage": "8C",
+  "name": "SOTA Benchmark",
+  "timestamp": "2026-05-27T05:30:25.785514",
+  "metadata": {
+    "n_rows": 35,
+    "ok_count": 14,
+    "not_evaluated": 5,
+    "csv_path": "artifacts\\sota_results.csv",
+    "elapsed_s": 245.53
+  }
+}

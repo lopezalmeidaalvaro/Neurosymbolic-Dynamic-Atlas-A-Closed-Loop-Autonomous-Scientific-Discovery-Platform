@@ -163,8 +163,8 @@ def compute_persistence_diagram(point_cloud, max_dim=2, coeff=2):
 
     if RIPSER_AVAILABLE:
         try:
-            # We cap points to prevent slow computation (homology is O(N^3))
-            max_points = 800
+            # We cap points to prevent slow computation (homology is O(N^3), H2 is extremely heavy for N > 200)
+            max_points = 200 if max_dim >= 2 else 400
             if n_points > max_points:
                 indices = np.linspace(0, n_points - 1, max_points, dtype=int)
                 sampled_cloud = point_cloud[indices]

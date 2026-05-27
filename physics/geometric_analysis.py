@@ -23,13 +23,19 @@ if sys.platform.startswith("win"):
 # Try importing GraphRicciCurvature, otherwise use resilient pure-Python LP fallback
 try:
     from GraphRicciCurvature.OllivierRicci import OllivierRicci
-
     RICCI_AVAILABLE = True
 except ImportError:
     RICCI_AVAILABLE = False
     print(
         "  [GEOM WARNING] 'GraphRicciCurvature' not found. Using resilient pure-Python LP solver fallback."
     )
+
+# Try importing Python Optimal Transport (POT) for fast Earth Mover's Distance
+try:
+    import ot
+    HAS_POT = True
+except ImportError:
+    HAS_POT = False
 
 # ─────────────────────────────────────────────────────────────────────────────
 # SECCIÓN A: CONSTRUCCIÓN DE GRAFOS DE VECINDAD
@@ -127,33 +133,37 @@ def _pure_python_ollivier_ricci_fallback(G):
                 # Retrieve precomputed shortest path length
                 cost_matrix[i, j] = float(lengths.get(node_u, {}).get(node_v, 1.0))
 
-        # 3. Solve exact Optimal Transport using SciPy linprog (Kantorovich formulation)
-        # Minimize sum_{i,j} cost_{i,j} * x_{i,j}
-        # Subject to sum_j x_{i,j} = mu_i  and  sum_i x_{i,j} = mv_j
-        c = cost_matrix.flatten()
+        # 3. Solve exact Optimal Transport using POT if available (extremely fast!), else scipy.optimize.linprog
+        _used_pot = False
+        if HAS_POT:
+            try:
+                emd = float(ot.emd2(mu, mv, cost_matrix))
+                _used_pot = True
+            except Exception:
+                pass
 
-        # Equality constraints
-        A_eq = []
-        b_eq = []
+        if not _used_pot:
+            # Equality constraints
+            A_eq = []
+            b_eq = []
 
-        # Row constraints (sum over columns = mu_i)
-        for i in range(du):
-            row = np.zeros((du, dv))
-            row[i, :] = 1.0
-            A_eq.append(row.flatten())
-            b_eq.append(mu[i])
+            # Row constraints (sum over columns = mu_i)
+            for i in range(du):
+                row = np.zeros((du, dv))
+                row[i, :] = 1.0
+                A_eq.append(row.flatten())
+                b_eq.append(mu[i])
 
-        # Col constraints (sum over rows = mv_j)
-        for j in range(dv):
-            col = np.zeros((du, dv))
-            col[:, j] = 1.0
-            A_eq.append(col.flatten())
-            b_eq.append(mv[j])
+            # Col constraints (sum over rows = mv_j)
+            for j in range(dv):
+                col = np.zeros((du, dv))
+                col[:, j] = 1.0
+                A_eq.append(col.flatten())
+                b_eq.append(mv[j])
 
-        # Solve LP
-        res = opt.linprog(c, A_eq=A_eq, b_eq=b_eq, bounds=(0, 1), method="highs")
-
-        emd = float(res.fun) if res.success else float(np.mean(cost_matrix))
+            c = cost_matrix.flatten()
+            res = opt.linprog(c, A_eq=A_eq, b_eq=b_eq, bounds=(0, 1), method="highs")
+            emd = float(res.fun) if res.success else float(np.mean(cost_matrix))
 
         # 4. Ollivier-Ricci Curvature: k = 1 - EMD(m_u, m_v) / d(u, v)
         edge_dist = G_ricci[u][v].get("weight", 1.0)
@@ -180,7 +190,7 @@ def compute_ollivier_ricci_curvature(G):
             # We clone the graph to avoid side effects
             G_ricci = G.copy()
             # Initialize Ollivier-Ricci calculator
-            orc = OllivierRicci(G_ricci, alpha=0.5, method="sinkhorn", verbose="ERROR")
+            orc = OllivierRicci(G_ricci, alpha=0.5, method="Sinkhorn", verbose="ERROR")
             orc.compute_ricci_curvature()
             return orc.G
         except Exception as e:
@@ -424,6 +434,11 @@ def extract_geometric_features(signal, emb_dim=3, lag=1, k=10):
             "  [GEOM WARNING] Signal too short to extract geometrical features. Returning NaNs."
         )
         return feat_vector
+
+    # Downsample point cloud uniformly if too large to make pure-Python LP solver extremely fast
+    if len(point_cloud) > 200:
+        indices = np.linspace(0, len(point_cloud) - 1, 200, dtype=int)
+        point_cloud = point_cloud[indices]
 
     try:
         # 2. Neighborhood Graph
