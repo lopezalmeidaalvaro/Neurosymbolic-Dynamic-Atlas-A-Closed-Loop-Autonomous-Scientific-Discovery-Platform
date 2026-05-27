@@ -1,19 +1,13 @@
-FROM python:3.11-slim
+FROM python:3.10-slim
 
 WORKDIR /app
 
-# Copy minimum dependencies first
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Install minimal libraries
+RUN pip install numpy pandas scipy scikit-learn matplotlib
 
-# Copy source directories and assets
-COPY satellite/ /app/satellite/
+# Copy codebase
+COPY . .
 
-# Set PYTHONPATH environment variable for relative package imports
-ENV PYTHONPATH=/app
+EXPOSE 8080
 
-# Expose port 8000
-EXPOSE 8000
-
-# Start backend server
-CMD ["uvicorn", "satellite.api.thermal_api:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "satellite/cloud/deploy_saas.py", "--port", "8080"]
