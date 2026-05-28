@@ -2,6 +2,20 @@
 """
 Phase T12: Autonomous Thermal Discovery Loop
 Author: Antigravity AI & Alvaro Lopez Almeida
+
+Autonomous Discovery Loop:
+```mermaid
+flowchart TD
+    HYPOTHESIS[AI Generates Hypothesis\nDesign Proposal] --> SANDBOX[Sandbox Execution\nPhysics Simulation]
+    SANDBOX --> RESULTS[Results\nTemperature Curves]
+    RESULTS --> SYMBOLIC[Symbolic Regression\nPySR/SINDy]
+    SYMBOLIC --> EQUATIONS[Discovered Equations]
+    RESULTS --> UQ[Uncertainty Engine\nDetect Uncertain Regions]
+    UQ --> PRIORITY[Experiment Scheduler\nPrioritize Next Test]
+    PRIORITY --> HYPOTHESIS
+    EQUATIONS --> GRAPH[Knowledge Graph\nMemory]
+    GRAPH --> HYPOTHESIS
+```
 """
 
 import os

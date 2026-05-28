@@ -35,4 +35,4 @@ We calibrated the thermodynamic coefficients to minimize root mean square error 
 
 ## 3. High-Frequency Errors and Residual Noise Analysis
 
-The sensor errors represent typical thermal measurement deviations, comprising high-frequency sensor noise plus minor transient lag. Residuals are bounded within $[-0.5, +0.5]^\circ	ext{C}$ indicating highly stable digital twin emulative fidelity.
+The sensor errors represent typical thermal measurement deviations, comprising high-frequency sensor noise plus minor transient lag. Residuals are bounded within $[-0.5, +0.5]^\circ\text{C}$ indicating highly stable digital twin emulative fidelity.

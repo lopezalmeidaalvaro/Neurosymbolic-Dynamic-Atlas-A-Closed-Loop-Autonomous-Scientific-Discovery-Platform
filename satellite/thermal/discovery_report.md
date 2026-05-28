@@ -9,7 +9,7 @@ This report summarizes the scientific insights discovered autonomously by the cl
 - **Cumulative Epistemic Gain**: 1.7302 bits
 - **Designs Explored**: 15 configurations
 - **Nº of Patentable Designs Discovered**: 0
-- **Uncertainty Std in Critical Region ($T > 70^\circ	ext{C}$)**: 13.608°C (indicates convergence in high-temperature zones)
+- **Uncertainty Std in Critical Region ($T > 70^\circ\text{C}$)**: 13.608°C (indicates convergence in high-temperature zones)
 - **Design Space Coverage**: 43.54% of the 9-dimensional parameter hyperspace explored
 
 ---

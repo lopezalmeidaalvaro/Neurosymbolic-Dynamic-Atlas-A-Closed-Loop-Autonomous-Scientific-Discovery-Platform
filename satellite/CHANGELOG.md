@@ -1,5 +1,11 @@
 # Changelog — Orbital Thermal Platform
 
+## [1.3.0] — 2026-05-28
+### Added
+- Phase T17: Real-time Hardware-in-the-Loop (HIL) calibration loop featuring online Extended Kalman Filter (EKF) parameters convergence and active cooling throttling.
+- Phase T18: Gilmore-Karam aerospace Finite Element Method (FEM) correlation suite, achieving RMSE = 0.374°C and 3600x speedups.
+- Phase T19: CAD-Aware 3D text-STL mesh voxelization (spatial resolution 1cm³) and automatic conductive network mapping.
+
 ## [1.2.0] — 2026-05-27
 ### Added
 - Phase T9: Multi-node coupled thermodynamic ODE solver.

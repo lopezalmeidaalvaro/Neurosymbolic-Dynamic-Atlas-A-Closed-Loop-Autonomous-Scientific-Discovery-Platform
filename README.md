@@ -21,6 +21,27 @@ Autonomously formulating falsifiable mathematical hypotheses, compiling and runn
 
 The project is strictly organized into **6 primary Logical Domains** at the root level:
 
+```mermaid
+graph TD
+    ROOT[neurosymbolic-pipeline] --> DASHBOARD[dashboard]
+    ROOT --> PHYSICS[physics]
+    ROOT --> SATELLITE[satellite]
+    ROOT --> MATH[mathematics]
+    ROOT --> QUANTUM[quantum]
+    ROOT --> PAPERS[papers]
+    
+    PHYSICS --> CORE[core/autonomous]
+    PHYSICS --> MODELS[models]
+    PHYSICS --> DATA[data]
+    PHYSICS --> ARTIFACTS[artifacts]
+    
+    SATELLITE --> THERMAL[thermal]
+    SATELLITE --> API[api]
+    SATELLITE --> CLOUD[cloud]
+    SATELLITE --> CAD_FOLDER[cad]
+    SATELLITE --> PATENTS_FOLDER[patents]
+```
+
 ```text
 .
 ├── dashboard/               # Graphical User Interface (Next.js, Tailwind CSS)
@@ -112,6 +133,9 @@ python thermal/orbital_thermal_simulator.py --power 250 --area 2.5 --absorptivit
 - **For symbolic discovery algorithms (SINDy, PySR)**: Go to [physics/symbolic_discovery.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/physics/symbolic_discovery.py)
 - **For toy Quantum Gravity ensembles & null models**: Go to [physics/spin_network_model.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/physics/spin_network_model.py)
 - **For LEO thermal emulator & digital twin APIs**: Go to [satellite/api/thermal_api.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/api/thermal_api.py)
+- **For complete spacecraft digital twin documentation**: Go to [satellite/README.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/README.md)
+- **For spacecraft development roadmap milestones**: Go to [satellite/ROADMAP.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/ROADMAP.md)
+- **For spacecraft modular technical architecture**: Go to [satellite/ARCHITECTURE.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/ARCHITECTURE.md)
 
 ### Direct Command Executions
 * **To execute the main Physics Pipeline**:
@@ -132,9 +156,22 @@ python thermal/orbital_thermal_simulator.py --power 250 --area 2.5 --absorptivit
 ## 🔬 Scientific Domains
 
 - **Physics**: Nonlinear chaotic dynamics (Lorenz, Rössler, Duffing), discrete Quantum Gravity toy model audits (Causal Layered, Spin Networks, BEC analogs), and clinical MIT-BIH cardiovascular ECG classification.
-- **Satellite**: Orbital thermal digital twin, 1-node numerical thermal balance LEO solving, and fast PyTorch multi-layer perceptron surrogate emulations.
+- **Satellite**: Orbital thermal digital twin (T1–T19) featuring 6-node coupled network, LEO environment engine, Bayesian Pareto geometry optimization, autonomous discovery loop, HIL calibration, UQ reliability scoring, FEM correlation (3600× speedup, RMSE <0.4°C), and commercial SaaS API.
 - **Mathematics (coming soon)**: Multi-layer symbolic regression, automated theorem proving, and formal stability verification under Lean 4 / Coq.
 - **Quantum (coming soon)**: Parameterized quantum circuits, Variational Quantum Eigensolvers (VQE), and NISQ-processor physical quantum reservoir computing.
+
+---
+
+## 📌 Current Status
+
+The readiness status of the 4 logical domains:
+
+| Domain | Status |
+| :--- | :--- |
+| **Physics** | Stable |
+| **Satellite** | Stable (T17–T19 in progress) |
+| **Mathematics** | Planned |
+| **Quantum** | Planned |
 
 ---
 

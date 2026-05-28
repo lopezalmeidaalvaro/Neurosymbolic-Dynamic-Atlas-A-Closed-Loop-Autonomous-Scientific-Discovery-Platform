@@ -32,4 +32,4 @@ $$R_{\text{thermal}} = P(T_{\text{max}} < 85.0^\circ\text{C}) = 100.000000%$$
 
 ### Risk Statement:
 > [!IMPORTANT]
-> A reliability score of **100.0000%** confirms that the spacecraft maintains an optimal safety boundary. The probability of thermal runaway or hardware burnout is bounded at **9900.000000%**, which satisfies standard military and aerospace mission assurance requirements ($>99.9\%$).
+> A reliability score of **100.0000%** confirms that the spacecraft maintains an optimal safety boundary. The probability of thermal runaway or hardware burnout is bounded at **0.000000%**, which satisfies standard military and aerospace mission assurance requirements ($>99.9\%$).
