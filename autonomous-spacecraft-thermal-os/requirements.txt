@@ -1,0 +1,18 @@
+# Minimal runtime requirements for Autonomous Spacecraft Thermal OS
+numpy>=1.26
+pandas>=2.2
+scipy>=1.13
+scikit-learn>=1.5
+sympy>=1.12
+matplotlib>=3.8
+torch>=2.3
+torchdiffeq>=0.2
+PyYAML>=6.0
+tenacity
+
+# Backend API and PDF generator dependencies
+fastapi>=0.110
+uvicorn>=0.28
+pydantic>=2.6
+reportlab>=4.1
+psutil>=5.9

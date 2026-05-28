@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: López Almeida
+    given-names: Álvaro
+title: "Neurosymbolic Pipeline for Orbital Thermal Digital Twin"
+version: 1.0.0
+date-released: 2026-05-28
+url: "https://github.com/lopezalmeidaalvaro/Neurosymbolic-Pipeline-for-Dynamical-Systems-Embedding"
+keywords:
+  - "digital twin"
+  - "orbital thermal"
+  - "neurosymbolic AI"
+  - "cubesat"
+  - "physics-informed neural network"
+license: MIT

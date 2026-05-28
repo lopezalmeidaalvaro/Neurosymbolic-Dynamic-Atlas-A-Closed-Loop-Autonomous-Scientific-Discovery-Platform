@@ -1,0 +1,9 @@
+{
+    "fixed_power_watts": 30.0,
+    "optimal_area_m2": 0.0864491338167939,
+    "optimal_emissivity": 0.8714315028371791,
+    "expected_max_temp_c": 20.0,
+    "estimated_mass_kg": 0.8644913381679389,
+    "estimated_cost_usd": 487.81884516323345,
+    "efficiency_status": "Optimal"
+}

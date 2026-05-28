@@ -1,0 +1,439 @@
+{
+  "metadata": {
+    "phase": "4.8",
+    "embedding_version": "V3",
+    "generated_at_unix": 1779401250.5692213,
+    "physical_systems": [
+      "lorenz",
+      "rossler",
+      "henon",
+      "duffing",
+      "van_der_pol",
+      "logistic_map"
+    ],
+    "null_models": [
+      "ar1",
+      "ou",
+      "iaaft",
+      "fourier_surrogate",
+      "block_bootstrap"
+    ],
+    "dataset_seeds": [
+      42,
+      1337,
+      9001
+    ],
+    "held_out_null_seeds": [
+      2027,
+      31415
+    ],
+    "window_size": 1000,
+    "window_overlap": 0.5,
+    "criteria": {
+      "test1_auc_min": 0.75,
+      "test2_silhouette_min": 0.3,
+      "test2_trustworthiness_min": 0.95,
+      "test2_distance_correlation_min": 0.8,
+      "test3_abs_delta_auc_max": 0.05,
+      "test4_max_consecutive_relative_jump": 0.3,
+      "test5_distance_min": 0.25
+    },
+    "runtime_seconds": 69.24565291404724,
+    "global_status": "FAILED",
+    "failed_tests": [
+      "test2_latent_manifold_coherence"
+    ]
+  },
+  "tests": {
+    "test1_leave_one_system_out_generalization": {
+      "status": "PASSED",
+      "criterion": "AUC > 0.75 for all folds",
+      "mean_auc": 0.9999863945578231,
+      "min_auc": 0.9999183673469387,
+      "folds": {
+        "lorenz": {
+          "status": "PASSED",
+          "criterion": "AUC > 0.75",
+          "roc_auc": 0.9999183673469387,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              350,
+              0
+            ],
+            [
+              105,
+              0
+            ]
+          ],
+          "n_train_physical": 555,
+          "n_train_null": 525,
+          "n_test_physical": 105,
+          "n_test_null": 350,
+          "delta_to_criterion": 0.24991836734693873
+        },
+        "rossler": {
+          "status": "PASSED",
+          "criterion": "AUC > 0.75",
+          "roc_auc": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              350,
+              0
+            ],
+            [
+              0,
+              105
+            ]
+          ],
+          "n_train_physical": 555,
+          "n_train_null": 525,
+          "n_test_physical": 105,
+          "n_test_null": 350,
+          "delta_to_criterion": 0.25
+        },
+        "henon": {
+          "status": "PASSED",
+          "criterion": "AUC > 0.75",
+          "roc_auc": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              350,
+              0
+            ],
+            [
+              0,
+              105
+            ]
+          ],
+          "n_train_physical": 555,
+          "n_train_null": 525,
+          "n_test_physical": 105,
+          "n_test_null": 350,
+          "delta_to_criterion": 0.25
+        },
+        "duffing": {
+          "status": "PASSED",
+          "criterion": "AUC > 0.75",
+          "roc_auc": 0.9999999999999999,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              350,
+              0
+            ],
+            [
+              0,
+              123
+            ]
+          ],
+          "n_train_physical": 537,
+          "n_train_null": 525,
+          "n_test_physical": 123,
+          "n_test_null": 350,
+          "delta_to_criterion": 0.2499999999999999
+        },
+        "van_der_pol": {
+          "status": "PASSED",
+          "criterion": "AUC > 0.75",
+          "roc_auc": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              350,
+              0
+            ],
+            [
+              0,
+              117
+            ]
+          ],
+          "n_train_physical": 543,
+          "n_train_null": 525,
+          "n_test_physical": 117,
+          "n_test_null": 350,
+          "delta_to_criterion": 0.25
+        },
+        "logistic_map": {
+          "status": "PASSED",
+          "criterion": "AUC > 0.75",
+          "roc_auc": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              350,
+              0
+            ],
+            [
+              0,
+              105
+            ]
+          ],
+          "n_train_physical": 555,
+          "n_train_null": 525,
+          "n_test_physical": 105,
+          "n_test_null": 350,
+          "delta_to_criterion": 0.25
+        }
+      }
+    },
+    "test2_latent_manifold_coherence": {
+      "status": "FAILED",
+      "pipeline": "V3 -> StandardScaler -> PCA -> UMAP",
+      "n_samples": 660,
+      "n_features": 8,
+      "pca_components": 5,
+      "pca_explained_variance_ratio": [
+        0.5655911444500931,
+        0.18969839805538538,
+        0.12602725286677172,
+        0.08388153890223159,
+        0.031143879210351944
+      ],
+      "criteria": {
+        "silhouette": {
+          "value": 0.04793005436658859,
+          "threshold": 0.3,
+          "delta": -0.2520699456334114,
+          "passed": false
+        },
+        "trustworthiness": {
+          "value": 0.9136894851180566,
+          "threshold": 0.95,
+          "delta": -0.03631051488194337,
+          "passed": false
+        },
+        "distance_correlation": {
+          "value": 0.6510273513415544,
+          "threshold": 0.8,
+          "delta": -0.14897264865844562,
+          "passed": false
+        }
+      }
+    },
+    "test3_hidden_leakage_audit": {
+      "status": "PASSED",
+      "criterion": "|delta_auc| < 0.05 for all folds",
+      "max_abs_delta_auc": 0.0,
+      "folds": {
+        "lorenz": {
+          "status": "PASSED",
+          "baseline_auc": 0.9999183673469387,
+          "standardized_before_v3_auc": 0.9999183673469387,
+          "delta_auc": 0.0,
+          "abs_delta_auc": 0.0,
+          "criterion": "|delta_auc| < 0.05",
+          "delta_to_criterion": 0.05
+        },
+        "rossler": {
+          "status": "PASSED",
+          "baseline_auc": 1.0,
+          "standardized_before_v3_auc": 1.0,
+          "delta_auc": 0.0,
+          "abs_delta_auc": 0.0,
+          "criterion": "|delta_auc| < 0.05",
+          "delta_to_criterion": 0.05
+        },
+        "henon": {
+          "status": "PASSED",
+          "baseline_auc": 1.0,
+          "standardized_before_v3_auc": 1.0,
+          "delta_auc": 0.0,
+          "abs_delta_auc": 0.0,
+          "criterion": "|delta_auc| < 0.05",
+          "delta_to_criterion": 0.05
+        },
+        "duffing": {
+          "status": "PASSED",
+          "baseline_auc": 0.9999999999999999,
+          "standardized_before_v3_auc": 0.9999999999999999,
+          "delta_auc": 0.0,
+          "abs_delta_auc": 0.0,
+          "criterion": "|delta_auc| < 0.05",
+          "delta_to_criterion": 0.05
+        },
+        "van_der_pol": {
+          "status": "PASSED",
+          "baseline_auc": 1.0,
+          "standardized_before_v3_auc": 1.0,
+          "delta_auc": 0.0,
+          "abs_delta_auc": 0.0,
+          "criterion": "|delta_auc| < 0.05",
+          "delta_to_criterion": 0.05
+        },
+        "logistic_map": {
+          "status": "PASSED",
+          "baseline_auc": 1.0,
+          "standardized_before_v3_auc": 1.0,
+          "delta_auc": 0.0,
+          "abs_delta_auc": 0.0,
+          "criterion": "|delta_auc| < 0.05",
+          "delta_to_criterion": 0.05
+        }
+      }
+    },
+    "test4_perturbation_robustness": {
+      "status": "PASSED",
+      "criterion": "no consecutive mean AUC jump > 0.3",
+      "noise_levels": [
+        0.01,
+        0.05,
+        0.1,
+        0.2
+      ],
+      "by_noise": {
+        "0.01": {
+          "status": "PASSED",
+          "mean_auc": 1.0,
+          "min_auc": 1.0,
+          "fold_auc": {
+            "lorenz": 1.0,
+            "rossler": 1.0,
+            "henon": 1.0,
+            "duffing": 1.0,
+            "van_der_pol": 1.0,
+            "logistic_map": 1.0
+          }
+        },
+        "0.05": {
+          "status": "PASSED",
+          "mean_auc": 0.9927482993197279,
+          "min_auc": 0.9564897959183674,
+          "fold_auc": {
+            "lorenz": 0.9564897959183674,
+            "rossler": 1.0,
+            "henon": 1.0,
+            "duffing": 1.0,
+            "van_der_pol": 1.0,
+            "logistic_map": 1.0
+          }
+        },
+        "0.10": {
+          "status": "FAILED",
+          "mean_auc": 0.9000408163265305,
+          "min_auc": 0.4002448979591836,
+          "fold_auc": {
+            "lorenz": 0.4002448979591836,
+            "rossler": 1.0,
+            "henon": 1.0,
+            "duffing": 1.0,
+            "van_der_pol": 1.0,
+            "logistic_map": 1.0
+          }
+        },
+        "0.20": {
+          "status": "FAILED",
+          "mean_auc": 0.9533356009070295,
+          "min_auc": 0.7200136054421769,
+          "fold_auc": {
+            "lorenz": 0.7200136054421769,
+            "rossler": 1.0,
+            "henon": 1.0,
+            "duffing": 1.0,
+            "van_der_pol": 1.0,
+            "logistic_map": 1.0
+          }
+        }
+      },
+      "jumps": [
+        {
+          "from_noise": 0.01,
+          "to_noise": 0.05,
+          "from_mean_auc": 1.0,
+          "to_mean_auc": 0.9927482993197279,
+          "relative_jump": 0.007251700680272144,
+          "passed": true,
+          "delta_to_criterion": 0.29274829931972784
+        },
+        {
+          "from_noise": 0.05,
+          "to_noise": 0.1,
+          "from_mean_auc": 0.9927482993197279,
+          "to_mean_auc": 0.9000408163265305,
+          "relative_jump": 0.09338468074609073,
+          "passed": true,
+          "delta_to_criterion": 0.20661531925390925
+        },
+        {
+          "from_noise": 0.1,
+          "to_noise": 0.2,
+          "from_mean_auc": 0.9000408163265305,
+          "to_mean_auc": 0.9533356009070295,
+          "relative_jump": 0.05921374188119472,
+          "passed": true,
+          "delta_to_criterion": 0.24078625811880527
+        }
+      ],
+      "max_relative_jump": 0.09338468074609073
+    },
+    "test5_temporal_causality_sanity_check": {
+      "status": "PASSED",
+      "criterion": "distance > 0.25 for all physical systems",
+      "min_distance": 1.5951212577543274,
+      "per_system": {
+        "lorenz": {
+          "status": "PASSED",
+          "distance": 1.6663370077254704,
+          "criterion": "distance > 0.25",
+          "delta_to_criterion": 1.4163370077254704,
+          "n_original_windows": 105,
+          "n_shuffled_windows": 105
+        },
+        "rossler": {
+          "status": "PASSED",
+          "distance": 1.7198340257084865,
+          "criterion": "distance > 0.25",
+          "delta_to_criterion": 1.4698340257084865,
+          "n_original_windows": 105,
+          "n_shuffled_windows": 105
+        },
+        "henon": {
+          "status": "PASSED",
+          "distance": 1.638083864608402,
+          "criterion": "distance > 0.25",
+          "delta_to_criterion": 1.388083864608402,
+          "n_original_windows": 105,
+          "n_shuffled_windows": 105
+        },
+        "duffing": {
+          "status": "PASSED",
+          "distance": 1.5951212577543274,
+          "criterion": "distance > 0.25",
+          "delta_to_criterion": 1.3451212577543274,
+          "n_original_windows": 123,
+          "n_shuffled_windows": 123
+        },
+        "van_der_pol": {
+          "status": "PASSED",
+          "distance": 1.729779657608087,
+          "criterion": "distance > 0.25",
+          "delta_to_criterion": 1.479779657608087,
+          "n_original_windows": 117,
+          "n_shuffled_windows": 117
+        },
+        "logistic_map": {
+          "status": "PASSED",
+          "distance": 1.7278481551807017,
+          "criterion": "distance > 0.25",
+          "delta_to_criterion": 1.4778481551807017,
+          "n_original_windows": 105,
+          "n_shuffled_windows": 105
+        }
+      }
+    }
+  }
+}

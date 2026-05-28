@@ -1,0 +1,88 @@
+{
+  "summary": {
+    "status": "pass",
+    "baseline_name": "phase_3_5_reference",
+    "baseline_timestamp": "2026-05-20T23:02:23Z",
+    "current_timestamp": "2026-05-20T23:02:23Z"
+  },
+  "systems": [
+    {
+      "system": "lorenz",
+      "status": "pass",
+      "metrics": {
+        "critical_score": {
+          "baseline": 4.26247995,
+          "current": 4.26247995,
+          "delta": 0.0,
+          "pct_change": 0.0,
+          "status": "pass"
+        },
+        "confidence_score": {
+          "baseline": 0.011588,
+          "current": 0.011588,
+          "delta": 0.0,
+          "pct_change": 0.0,
+          "status": "pass"
+        },
+        "acceleration": {
+          "baseline": 106.0905506,
+          "current": 106.0905506,
+          "delta": 0.0,
+          "pct_change": 0.0,
+          "status": "pass"
+        },
+        "acceleration_std": {
+          "baseline": 24.88939582,
+          "current": 24.88939582,
+          "delta": 0.0,
+          "pct_change": 0.0,
+          "status": "pass"
+        },
+        "reproducibility_status": {
+          "baseline": "preliminary",
+          "current": "preliminary",
+          "status": "pass"
+        }
+      }
+    },
+    {
+      "system": "rossler",
+      "status": "pass",
+      "metrics": {
+        "critical_score": {
+          "baseline": 4.48813544,
+          "current": 4.48813544,
+          "delta": 0.0,
+          "pct_change": 0.0,
+          "status": "pass"
+        },
+        "confidence_score": {
+          "baseline": 0.026828,
+          "current": 0.026828,
+          "delta": 0.0,
+          "pct_change": 0.0,
+          "status": "pass"
+        },
+        "acceleration": {
+          "baseline": 45.6996428,
+          "current": 45.6996428,
+          "delta": 0.0,
+          "pct_change": 0.0,
+          "status": "pass"
+        },
+        "acceleration_std": {
+          "baseline": 10.18232258,
+          "current": 10.18232258,
+          "delta": 0.0,
+          "pct_change": 0.0,
+          "status": "pass"
+        },
+        "reproducibility_status": {
+          "baseline": "preliminary",
+          "current": "preliminary",
+          "status": "pass"
+        }
+      }
+    }
+  ]
+}

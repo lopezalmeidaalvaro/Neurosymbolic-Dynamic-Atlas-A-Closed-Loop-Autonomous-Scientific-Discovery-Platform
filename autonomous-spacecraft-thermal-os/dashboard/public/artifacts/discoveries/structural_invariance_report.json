@@ -1,0 +1,615 @@
+{
+  "metadata": {
+    "timestamp": "2026-05-21T20:24:27Z",
+    "global_status": "PASSED",
+    "embedding_version": "V3",
+    "test_system": "Lorenz (noise=0, seed=42)",
+    "criteria": {
+      "amplitude_invariance": "mean_delta < 0.001, max_delta < 0.01",
+      "offset_invariance": "mean_delta < 0.001, max_delta < 0.01",
+      "time_stationarity": "per-feature adaptive tolerances (4-quarter split)",
+      "time_reversal": "temporal_irreversibility must flip sign under reversal"
+    }
+  },
+  "results": {
+    "test1_amplitude_invariance": {
+      "status": "PASSED",
+      "rows": [
+        {
+          "alpha": 0.5,
+          "mean_delta": 5.473626979186982e-15,
+          "max_delta": 4.378901583349586e-14,
+          "passed": true,
+          "per_feature": {
+            "perm_entropy": {
+              "E_ref": 0.22246132313812966,
+              "E_alpha": 0.22246132313812966,
+              "delta": 0.0
+            },
+            "spectral_entropy": {
+              "E_ref": 0.4608373115180766,
+              "E_alpha": 0.4608373115180766,
+              "delta": 0.0
+            },
+            "svd_entropy": {
+              "E_ref": 0.21133471817045055,
+              "E_alpha": 0.21133471817045055,
+              "delta": 0.0
+            },
+            "fractal_dim": {
+              "E_ref": 0.016876200268489183,
+              "E_alpha": 0.016876200268489922,
+              "delta": 4.378901583349586e-14
+            },
+            "autocorr_decay": {
+              "E_ref": 0.30001000033334446,
+              "E_alpha": 0.30001000033334446,
+              "delta": 0.0
+            },
+            "robust_skewness": {
+              "E_ref": -0.05323052216441669,
+              "E_alpha": -0.05323052216441669,
+              "delta": 0.0
+            },
+            "robust_kurtosis": {
+              "E_ref": 2.1153150720172063,
+              "E_alpha": 2.1153150720172063,
+              "delta": 0.0
+            },
+            "temporal_irreversibility": {
+              "E_ref": 7.313246547968506e-06,
+              "E_alpha": 7.313246547968506e-06,
+              "delta": 0.0
+            }
+          }
+        },
+        {
+          "alpha": 1.0,
+          "mean_delta": 0.0,
+          "max_delta": 0.0,
+          "passed": true,
+          "per_feature": {
+            "perm_entropy": {
+              "E_ref": 0.22246132313812966,
+              "E_alpha": 0.22246132313812966,
+              "delta": 0.0
+            },
+            "spectral_entropy": {
+              "E_ref": 0.4608373115180766,
+              "E_alpha": 0.4608373115180766,
+              "delta": 0.0
+            },
+            "svd_entropy": {
+              "E_ref": 0.21133471817045055,
+              "E_alpha": 0.21133471817045055,
+              "delta": 0.0
+            },
+            "fractal_dim": {
+              "E_ref": 0.016876200268489183,
+              "E_alpha": 0.016876200268489183,
+              "delta": 0.0
+            },
+            "autocorr_decay": {
+              "E_ref": 0.30001000033334446,
+              "E_alpha": 0.30001000033334446,
+              "delta": 0.0
+            },
+            "robust_skewness": {
+              "E_ref": -0.05323052216441669,
+              "E_alpha": -0.05323052216441669,
+              "delta": 0.0
+            },
+            "robust_kurtosis": {
+              "E_ref": 2.1153150720172063,
+              "E_alpha": 2.1153150720172063,
+              "delta": 0.0
+            },
+            "temporal_irreversibility": {
+              "E_ref": 7.313246547968506e-06,
+              "E_alpha": 7.313246547968506e-06,
+              "delta": 0.0
+            }
+          }
+        },
+        {
+          "alpha": 2.0,
+          "mean_delta": 4.882578056551768e-16,
+          "max_delta": 3.906062445241414e-15,
+          "passed": true,
+          "per_feature": {
+            "perm_entropy": {
+              "E_ref": 0.22246132313812966,
+              "E_alpha": 0.22246132313812966,
+              "delta": 0.0
+            },
+            "spectral_entropy": {
+              "E_ref": 0.4608373115180766,
+              "E_alpha": 0.4608373115180766,
+              "delta": 0.0
+            },
+            "svd_entropy": {
+              "E_ref": 0.21133471817045055,
+              "E_alpha": 0.21133471817045055,
+              "delta": 0.0
+            },
+            "fractal_dim": {
+              "E_ref": 0.016876200268489183,
+              "E_alpha": 0.016876200268489117,
+              "delta": 3.906062445241414e-15
+            },
+            "autocorr_decay": {
+              "E_ref": 0.30001000033334446,
+              "E_alpha": 0.30001000033334446,
+              "delta": 0.0
+            },
+            "robust_skewness": {
+              "E_ref": -0.05323052216441669,
+              "E_alpha": -0.05323052216441669,
+              "delta": 0.0
+            },
+            "robust_kurtosis": {
+              "E_ref": 2.1153150720172063,
+              "E_alpha": 2.1153150720172063,
+              "delta": 0.0
+            },
+            "temporal_irreversibility": {
+              "E_ref": 7.313246547968506e-06,
+              "E_alpha": 7.313246547968506e-06,
+              "delta": 0.0
+            }
+          }
+        },
+        {
+          "alpha": 10.0,
+          "mean_delta": 1.7757631313321322e-15,
+          "max_delta": 1.0484693931963796e-14,
+          "passed": true,
+          "per_feature": {
+            "perm_entropy": {
+              "E_ref": 0.22246132313812966,
+              "E_alpha": 0.22246132313812966,
+              "delta": 0.0
+            },
+            "spectral_entropy": {
+              "E_ref": 0.4608373115180766,
+              "E_alpha": 0.4608373115180766,
+              "delta": 0.0
+            },
+            "svd_entropy": {
+              "E_ref": 0.21133471817045055,
+              "E_alpha": 0.21133471817045035,
+              "delta": 9.193426948084314e-16
+            },
+            "fractal_dim": {
+              "E_ref": 0.016876200268489183,
+              "E_alpha": 0.016876200268489006,
+              "delta": 1.0484693931963796e-14
+            },
+            "autocorr_decay": {
+              "E_ref": 0.30001000033334446,
+              "E_alpha": 0.30001000033334446,
+              "delta": 0.0
+            },
+            "robust_skewness": {
+              "E_ref": -0.05323052216441669,
+              "E_alpha": -0.05323052216441677,
+              "delta": 1.4339110314796576e-15
+            },
+            "robust_kurtosis": {
+              "E_ref": 2.1153150720172063,
+              "E_alpha": 2.1153150720172067,
+              "delta": 2.0993998280670803e-16
+            },
+            "temporal_irreversibility": {
+              "E_ref": 7.313246547968506e-06,
+              "E_alpha": 7.3132465479684976e-06,
+              "delta": 1.1582174095984656e-15
+            }
+          }
+        }
+      ]
+    },
+    "test2_offset_invariance": {
+      "status": "PASSED",
+      "rows": [
+        {
+          "offset": -100.0,
+          "mean_delta": 1.2931938673293625e-14,
+          "max_delta": 8.955426169332044e-14,
+          "passed": true,
+          "per_feature": {
+            "perm_entropy": {
+              "E_ref": 0.22246132313812966,
+              "E_b": 0.22246132313812966,
+              "delta": 0.0
+            },
+            "spectral_entropy": {
+              "E_ref": 0.4608373115180766,
+              "E_b": 0.4608373115180768,
+              "delta": 3.613714634893254e-16
+            },
+            "svd_entropy": {
+              "E_ref": 0.21133471817045055,
+              "E_b": 0.21133471817045046,
+              "delta": 3.9400401206075634e-16
+            },
+            "fractal_dim": {
+              "E_ref": 0.016876200268489183,
+              "E_b": 0.016876200268489183,
+              "delta": 0.0
+            },
+            "autocorr_decay": {
+              "E_ref": 0.30001000033334446,
+              "E_b": 0.30001000033334446,
+              "delta": 0.0
+            },
+            "robust_skewness": {
+              "E_ref": -0.05323052216441669,
+              "E_b": -0.053230522164411924,
+              "delta": 8.955426169332044e-14
+            },
+            "robust_kurtosis": {
+              "E_ref": 2.1153150720172063,
+              "E_b": 2.11531507201721,
+              "delta": 1.6795198624536642e-15
+            },
+            "temporal_irreversibility": {
+              "E_ref": 7.313246547968506e-06,
+              "E_b": 7.313246547968422e-06,
+              "delta": 1.1466352355024808e-14
+            }
+          }
+        },
+        {
+          "offset": -10.0,
+          "mean_delta": 3.6208963377627977e-16,
+          "max_delta": 2.084791337277238e-15,
+          "passed": true,
+          "per_feature": {
+            "perm_entropy": {
+              "E_ref": 0.22246132313812966,
+              "E_b": 0.22246132313812966,
+              "delta": 0.0
+            },
+            "spectral_entropy": {
+              "E_ref": 0.4608373115180766,
+              "E_b": 0.4608373115180766,
+              "delta": 0.0
+            },
+            "svd_entropy": {
+              "E_ref": 0.21133471817045055,
+              "E_b": 0.21133471817045058,
+              "delta": 1.3133467068691878e-16
+            },
+            "fractal_dim": {
+              "E_ref": 0.016876200268489183,
+              "E_b": 0.016876200268489183,
+              "delta": 0.0
+            },
+            "autocorr_decay": {
+              "E_ref": 0.30001000033334446,
+              "E_b": 0.30001000033334446,
+              "delta": 0.0
+            },
+            "robust_skewness": {
+              "E_ref": -0.05323052216441669,
+              "E_b": -0.053230522164416705,
+              "delta": 2.6071109663266504e-16
+            },
+            "robust_kurtosis": {
+              "E_ref": 2.1153150720172063,
+              "E_b": 2.115315072017207,
+              "delta": 4.1987996561341606e-16
+            },
+            "temporal_irreversibility": {
+              "E_ref": 7.313246547968506e-06,
+              "E_b": 7.313246547968521e-06,
+              "delta": 2.084791337277238e-15
+            }
+          }
+        },
+        {
+          "offset": 10.0,
+          "mean_delta": 2.7805865574184127e-16,
+          "max_delta": 1.6215043734378517e-15,
+          "passed": true,
+          "per_feature": {
+            "perm_entropy": {
+              "E_ref": 0.22246132313812966,
+              "E_b": 0.22246132313812966,
+              "delta": 0.0
+            },
+            "spectral_entropy": {
+              "E_ref": 0.4608373115180766,
+              "E_b": 0.4608373115180766,
+              "delta": 0.0
+            },
+            "svd_entropy": {
+              "E_ref": 0.21133471817045055,
+              "E_b": 0.2113347181704506,
+              "delta": 2.6266934137383756e-16
+            },
+            "fractal_dim": {
+              "E_ref": 0.016876200268489183,
+              "E_b": 0.016876200268489183,
+              "delta": 0.0
+            },
+            "autocorr_decay": {
+              "E_ref": 0.30001000033334446,
+              "E_b": 0.30001000033334446,
+              "delta": 0.0
+            },
+            "robust_skewness": {
+              "E_ref": -0.05323052216441669,
+              "E_b": -0.053230522164416684,
+              "delta": 1.3035554831633252e-16
+            },
+            "robust_kurtosis": {
+              "E_ref": 2.1153150720172063,
+              "E_b": 2.115315072017206,
+              "delta": 2.0993998280670803e-16
+            },
+            "temporal_irreversibility": {
+              "E_ref": 7.313246547968506e-06,
+              "E_b": 7.313246547968494e-06,
+              "delta": 1.6215043734378517e-15
+            }
+          }
+        },
+        {
+          "offset": 100.0,
+          "mean_delta": 5.47965022916466e-15,
+          "max_delta": 3.5326353593726107e-14,
+          "passed": true,
+          "per_feature": {
+            "perm_entropy": {
+              "E_ref": 0.22246132313812966,
+              "E_b": 0.22246132313812966,
+              "delta": 0.0
+            },
+            "spectral_entropy": {
+              "E_ref": 0.4608373115180766,
+              "E_b": 0.4608373115180766,
+              "delta": 0.0
+            },
+            "svd_entropy": {
+              "E_ref": 0.21133471817045055,
+              "E_b": 0.21133471817045069,
+              "delta": 6.56673353434594e-16
+            },
+            "fractal_dim": {
+              "E_ref": 0.016876200268489183,
+              "E_b": 0.016876200268489183,
+              "delta": 0.0
+            },
+            "autocorr_decay": {
+              "E_ref": 0.30001000033334446,
+              "E_b": 0.30001000033334446,
+              "delta": 0.0
+            },
+            "robust_skewness": {
+              "E_ref": -0.05323052216441669,
+              "E_b": -0.05323052216441481,
+              "delta": 3.5326353593726107e-14
+            },
+            "robust_kurtosis": {
+              "E_ref": 2.1153150720172063,
+              "E_b": 2.1153150720172067,
+              "delta": 2.0993998280670803e-16
+            },
+            "temporal_irreversibility": {
+              "E_ref": 7.313246547968506e-06,
+              "E_b": 7.313246547968562e-06,
+              "delta": 7.644234903349873e-15
+            }
+          }
+        }
+      ]
+    },
+    "test3_time_shift_robustness": {
+      "status": "PASSED",
+      "n_quarters": 4,
+      "n_features_passed": 8,
+      "per_feature": {
+        "perm_entropy": {
+          "max_mean_rel_delta": 0.028751711550344183,
+          "tol_mean": 0.08,
+          "max_std_rel_delta": 0.33771727663728557,
+          "tol_std": 0.5,
+          "passed": true,
+          "quarter_means": [
+            0.22042216681975474,
+            0.2132534231331385,
+            0.21508925852134048,
+            0.2246254380208038
+          ],
+          "quarter_stds": [
+            0.0031172158015905257,
+            0.0024374371765712773,
+            0.0023777312732786234,
+            0.003985785343141288
+          ]
+        },
+        "spectral_entropy": {
+          "max_mean_rel_delta": 0.06349005784173842,
+          "tol_mean": 0.12,
+          "max_std_rel_delta": 0.8115200776935055,
+          "tol_std": 2.0,
+          "passed": true,
+          "quarter_means": [
+            0.45111831416574416,
+            0.46301120766229126,
+            0.4667483863420207,
+            0.4221348414686999
+          ],
+          "quarter_stds": [
+            0.017790489393704756,
+            0.013495790602781001,
+            0.01566267889192526,
+            0.038862125618008066
+          ]
+        },
+        "svd_entropy": {
+          "max_mean_rel_delta": 0.029672347730892595,
+          "tol_mean": 0.08,
+          "max_std_rel_delta": 1.0069818288918415,
+          "tol_std": 1.5,
+          "passed": true,
+          "quarter_means": [
+            0.20864949356567963,
+            0.2142653866576774,
+            0.2138126066096332,
+            0.2039277573684159
+          ],
+          "quarter_stds": [
+            0.005138430066568364,
+            0.002430986937090599,
+            0.0013229794404970687,
+            0.00895469912790627
+          ]
+        },
+        "fractal_dim": {
+          "max_mean_rel_delta": 0.012527511252763418,
+          "tol_mean": 0.15,
+          "max_std_rel_delta": 0.07956419634166431,
+          "tol_std": 0.4,
+          "passed": true,
+          "quarter_means": [
+            0.018047994783708256,
+            0.017609941525126377,
+            0.01773557062305607,
+            0.01793988908997658
+          ],
+          "quarter_stds": [
+            0.0021369515983595184,
+            0.0019172223322000458,
+            0.0020412599572953542,
+            0.0022363686108306515
+          ]
+        },
+        "autocorr_decay": {
+          "max_mean_rel_delta": 0.665388020064916,
+          "tol_mean": 2.0,
+          "max_std_rel_delta": 2.0661612387113193,
+          "tol_std": 10.0,
+          "passed": true,
+          "quarter_means": [
+            0.34046589431768937,
+            0.27864565182475776,
+            0.2800093336444548,
+            0.6413850158641652
+          ],
+          "quarter_stds": [
+            0.11511158391820053,
+            0.011792321960192169,
+            0.00738573564994829,
+            0.44092589714997954
+          ]
+        },
+        "robust_skewness": {
+          "max_mean_rel_delta": 3.821417322415581,
+          "tol_mean": 100.0,
+          "max_std_rel_delta": 0.9546395503856425,
+          "tol_std": 3.0,
+          "passed": true,
+          "quarter_means": [
+            -0.03660406014598319,
+            -0.03976548069295554,
+            0.006575181841357217,
+            0.02886775638774962
+          ],
+          "quarter_stds": [
+            0.07393376291828731,
+            0.03193026822804931,
+            0.027540493665558108,
+            0.1274874364794219
+          ]
+        },
+        "robust_kurtosis": {
+          "max_mean_rel_delta": 0.11867248617193235,
+          "tol_mean": 0.2,
+          "max_std_rel_delta": 0.40887617777107377,
+          "tol_std": 1.0,
+          "passed": true,
+          "quarter_means": [
+            2.0640327485060004,
+            2.275228709885448,
+            2.332147935328781,
+            1.8853203344586527
+          ],
+          "quarter_stds": [
+            0.129746317369516,
+            0.09869794820052313,
+            0.06389436943844334,
+            0.14001998114418399
+          ]
+        },
+        "temporal_irreversibility": {
+          "max_mean_rel_delta": 3.868163553947056,
+          "tol_mean": 100.0,
+          "max_std_rel_delta": 0.4313299444096755,
+          "tol_std": 10.0,
+          "passed": true,
+          "quarter_means": [
+            6.434941958529026e-06,
+            -7.00172754616718e-06,
+            -3.857620902808961e-07,
+            -8.021754989965433e-06
+          ],
+          "quarter_stds": [
+            1.1225356087256664e-05,
+            9.55729672053918e-06,
+            9.014599997339012e-06,
+            1.6603806358202388e-05
+          ]
+        }
+      }
+    },
+    "test4_time_reversal_sensitivity": {
+      "status": "PASSED",
+      "A_forward": 7.313246547968506e-06,
+      "A_reversed": -7.313246547968514e-06,
+      "irrev_diff": 1.4626493095937019e-05,
+      "irrev_antisymm_ratio": 2.000000000000001,
+      "l2_norm_per_dim": 6.670191007209639e-05,
+      "criterion_sign_flip_passed": true,
+      "criterion_nontrivial_passed": true,
+      "criterion_antisymmetry_passed": true,
+      "criterion_norm_passed": true,
+      "per_feature": {
+        "perm_entropy": {
+          "E_fwd": 0.22246132313812966,
+          "E_rev": 0.2224613231381297
+        },
+        "spectral_entropy": {
+          "E_fwd": 0.4608373115180766,
+          "E_rev": 0.4608373115180766
+        },
+        "svd_entropy": {
+          "E_fwd": 0.21133471817045055,
+          "E_rev": 0.21133471817045038
+        },
+        "fractal_dim": {
+          "E_fwd": 0.016876200268489183,
+          "E_rev": 0.01706429392643076
+        },
+        "autocorr_decay": {
+          "E_fwd": 0.30001000033334446,
+          "E_rev": 0.30001000033334446
+        },
+        "robust_skewness": {
+          "E_fwd": -0.05323052216441669,
+          "E_rev": -0.05323052216441669
+        },
+        "robust_kurtosis": {
+          "E_fwd": 2.1153150720172063,
+          "E_rev": 2.1153150720172063
+        },
+        "temporal_irreversibility": {
+          "E_fwd": 7.313246547968506e-06,
+          "E_rev": -7.313246547968514e-06
+        }
+      }
+    }
+  }
+}

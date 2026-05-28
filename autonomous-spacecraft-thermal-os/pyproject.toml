@@ -1,0 +1,24 @@
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+extend-exclude = '''
+/(
+  \.git
+  | \.venv
+  | dashboard
+)/
+'''
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+exclude = [
+  ".git",
+  ".venv",
+  "dashboard",
+  "__pycache__",
+]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+ignore = ["E402", "E501", "E731", "E741", "F401", "F402", "F811", "F823", "F841"]

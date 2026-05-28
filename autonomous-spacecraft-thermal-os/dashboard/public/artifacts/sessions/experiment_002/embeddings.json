@@ -1,0 +1,11 @@
+{
+  "timesteps": [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+  "embeddings": [
+    { "t": 0.0, "x": -0.88, "y": 0.12, "curvature": 0.045, "cluster": 0 },
+    { "t": 0.2, "x": -0.72, "y": 0.28, "curvature": 0.061, "cluster": 0 },
+    { "t": 0.4, "x": -0.58, "y": 0.39, "curvature": 0.078, "cluster": 0 },
+    { "t": 0.6, "x": -0.42, "y": 0.52, "curvature": 0.096, "cluster": 0 },
+    { "t": 0.8, "x": -0.21, "y": 0.64, "curvature": 0.118, "cluster": 0 },
+    { "t": 1.0, "x": -0.02, "y": 0.78, "curvature": 0.142, "cluster": 1 }
+  ]
+}

@@ -1,0 +1,7 @@
+True_Fault,Detected_Fault,Detection_Time_s,Confidence,Isolated_Causes,Recovery_Action
+F0,ANOMALY,175.0,0.5,Causa Desconocida,CONMUTAR A MODO DE SEGURIDAD PASIVO (SAFE MODE)
+F1,F1,175.0,1.0,Fallo del circuito integrado del sensor; Conexión floja en bus I2C/SPI; Fallo de alimentación local,IGNORAR SENSOR. Conmutar a estimador analítico del digital twin.
+F2,F2,175.0,0.85,Deposición de ATOX; Oscurecimiento por radiación UV; Desprendimiento de recubrimiento FEP,REDUCIR POTENCIA CPU A 50%. Incrementar radiación estructural pasiva.
+F3,F3,175.0,0.8,Fallo del relé del MOSFET en cortocircuito; Lazo PID corrupto en software; Corriente de fuga excesiva,APAGAR MOSFET DE CALENTADOR. Conmutar a calentador de respaldo.
+F4,ANOMALY,175.0,0.5,Causa Desconocida,CONMUTAR A MODO DE SEGURIDAD PASIVO (SAFE MODE)
+F6,F6,175.0,0.9,Thermal runaway de celdas de batería; Fallo catastrófico de CPU en cortocircuito; Heater principal bloqueado,APAGADO CATASTRÓFICO OBC. Conmutar a OBC de respaldo secundario.

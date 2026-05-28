@@ -1,0 +1,215 @@
+{
+  "metadata": {
+    "generated_at_unix": 1779463041.4293056,
+    "target_thresholds": {
+      "distance_correlation": 0.9,
+      "neighbor_overlap": 0.9,
+      "covariance_similarity": 0.85,
+      "composite_persistence": 0.85
+    },
+    "runtime_seconds": 66.42031526565552,
+    "global_status": "FAILED"
+  },
+  "tests": {
+    "test1_raw_embedding_stability": {
+      "status": "FAILED",
+      "seed_perturbations": {
+        "distance_correlation": 1.0,
+        "neighbor_overlap": 1.0,
+        "covariance_similarity": 1.0
+      },
+      "noise_sweep": [
+        {
+          "noise_level": 0.01,
+          "distance_correlation": 0.977587290067739,
+          "neighbor_overlap": 0.8332323232323233,
+          "covariance_similarity": 0.987082404490917,
+          "cosine_preservation": 0.9915790475561094,
+          "intrinsic_dimensionality": 2.3703254875428135
+        },
+        {
+          "noise_level": 0.05,
+          "distance_correlation": 0.9407785020828855,
+          "neighbor_overlap": 0.7251515151515152,
+          "covariance_similarity": 0.9490437918115314,
+          "cosine_preservation": 0.9745118981763868,
+          "intrinsic_dimensionality": 2.270253535465914
+        },
+        {
+          "noise_level": 0.1,
+          "distance_correlation": 0.8898385557793886,
+          "neighbor_overlap": 0.6361616161616162,
+          "covariance_similarity": 0.9191337084242293,
+          "cosine_preservation": 0.9510469737019046,
+          "intrinsic_dimensionality": 2.0984530446957805
+        },
+        {
+          "noise_level": 0.2,
+          "distance_correlation": 0.7988376850086643,
+          "neighbor_overlap": 0.5423232323232323,
+          "covariance_similarity": 0.8640665449648708,
+          "cosine_preservation": 0.9078821441938822,
+          "intrinsic_dimensionality": 1.7636326882140239
+        }
+      ],
+      "noise_sweep_means": {
+        "distance_correlation": 0.9017605082346694,
+        "neighbor_overlap": 0.6842171717171717,
+        "covariance_similarity": 0.9298316124228871
+      }
+    },
+    "test2_embedding_topology_persistence": {
+      "status": "PASSED",
+      "seed_persistence": {
+        "procrustes_similarity": 1.0,
+        "mantel_correlation": 1.0,
+        "cka_similarity": 1.0,
+        "neighbor_overlap": 1.0,
+        "composite": 1.0
+      },
+      "noise_persistence_5pct": {
+        "procrustes_similarity": 0.9500675027967475,
+        "mantel_correlation": 0.9407785020828855,
+        "cka_similarity": 0.9442249726833203,
+        "neighbor_overlap": 0.7251515151515152,
+        "composite": 0.8900556231786171
+      },
+      "mean_composite_persistence": 0.9450278115893085
+    },
+    "test3_true_resampling_audit": {
+      "status": "PASSED",
+      "means": {
+        "silhouette": 0.5343929499387741,
+        "trustworthiness": 0.98389586217505,
+        "distance_correlation": 0.9056673090354492
+      },
+      "stdevs": {
+        "silhouette": 0.1026752984034949,
+        "trustworthiness": 0.0059481403317906524,
+        "distance_correlation": 0.02291890478397193
+      },
+      "confidence_intervals_95": {
+        "silhouette": [
+          0.4609485690375919,
+          0.6078373308399562
+        ],
+        "trustworthiness": [
+          0.9796411145290782,
+          0.9881506098210218
+        ],
+        "distance_correlation": [
+          0.8892732512731134,
+          0.922061366797785
+        ]
+      },
+      "evaluations": [
+        {
+          "dataset_idx": 0,
+          "seed": 100,
+          "silhouette": 0.612045168876648,
+          "trustworthiness": 0.9867374250115367,
+          "distance_correlation": 0.917376316705297
+        },
+        {
+          "dataset_idx": 1,
+          "seed": 101,
+          "silhouette": 0.5051465630531311,
+          "trustworthiness": 0.9840670666051377,
+          "distance_correlation": 0.8669034922513957
+        },
+        {
+          "dataset_idx": 2,
+          "seed": 102,
+          "silhouette": 0.5267061591148376,
+          "trustworthiness": 0.9765036148284879,
+          "distance_correlation": 0.9142763064240885
+        },
+        {
+          "dataset_idx": 3,
+          "seed": 103,
+          "silhouette": 0.4901290535926819,
+          "trustworthiness": 0.9883187201968928,
+          "distance_correlation": 0.9195849888385308
+        },
+        {
+          "dataset_idx": 4,
+          "seed": 104,
+          "silhouette": 0.4166703224182129,
+          "trustworthiness": 0.9784248577141978,
+          "distance_correlation": 0.9283445522286693
+        },
+        {
+          "dataset_idx": 5,
+          "seed": 105,
+          "silhouette": 0.401673823595047,
+          "trustworthiness": 0.9816874327026611,
+          "distance_correlation": 0.9376567840974328
+        },
+        {
+          "dataset_idx": 6,
+          "seed": 106,
+          "silhouette": 0.7603510022163391,
+          "trustworthiness": 0.9869327795723735,
+          "distance_correlation": 0.8895839938419212
+        },
+        {
+          "dataset_idx": 7,
+          "seed": 107,
+          "silhouette": 0.5336618423461914,
+          "trustworthiness": 0.9921919704660821,
+          "distance_correlation": 0.891784140285372
+        },
+        {
+          "dataset_idx": 8,
+          "seed": 108,
+          "silhouette": 0.5877101421356201,
+          "trustworthiness": 0.9896769727734195,
+          "distance_correlation": 0.9132939458908528
+        },
+        {
+          "dataset_idx": 9,
+          "seed": 109,
+          "silhouette": 0.509835422039032,
+          "trustworthiness": 0.9744177818797108,
+          "distance_correlation": 0.8778685697909329
+        }
+      ]
+    },
+    "test4_umap_responsibility_test": {
+      "status": "PASSED",
+      "projections_stability": {
+        "raw_v3": {
+          "distance_correlation": 0.9407785020828855,
+          "neighbor_overlap": 0.7251515151515152,
+          "procrustes_similarity": 0.9500675027967475,
+          "composite_stability": 0.871999173343716
+        },
+        "pca_2d": {
+          "distance_correlation": 0.9492324874398747,
+          "neighbor_overlap": 0.5161616161616162,
+          "procrustes_similarity": 0.9502698107105108,
+          "composite_stability": 0.8052213047706672
+        },
+        "umap_2d": {
+          "distance_correlation": 0.4137119209109055,
+          "neighbor_overlap": 0.6396969696969697,
+          "procrustes_similarity": 0.42652571930798244,
+          "composite_stability": 0.49331153663861915
+        },
+        "tsne_2d": {
+          "distance_correlation": 0.7359230523413534,
+          "neighbor_overlap": 0.7109090909090908,
+          "procrustes_similarity": 0.6785089765741914,
+          "composite_stability": 0.7084470399415451
+        }
+      },
+      "umap_responsibility_score": 0.37868763670509686,
+      "diagnosed_instability_source": "UMAP",
+      "diagnosed_root_cause": "UMAP_NONLINEAR_PROJECTION_SENSITIVITY"
+    }
+  },
+  "diagnosis": {
+    "root_cause": "UMAP_NONLINEAR_PROJECTION_SENSITIVITY",
+    "instability_source": "UMAP"
+  }
+}
