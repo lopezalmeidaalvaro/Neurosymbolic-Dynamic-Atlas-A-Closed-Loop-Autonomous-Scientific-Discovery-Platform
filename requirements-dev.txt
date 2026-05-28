@@ -9,3 +9,6 @@ matplotlib
 pandas
 networkx
 scikit-learn
+json5
+ripser
+GraphRicciCurvature
