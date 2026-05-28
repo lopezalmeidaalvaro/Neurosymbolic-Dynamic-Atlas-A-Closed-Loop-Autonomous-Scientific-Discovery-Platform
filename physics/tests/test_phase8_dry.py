@@ -284,33 +284,28 @@ class TestPhase8OrchestratorImport(unittest.TestCase):
     def test_import(self):
         import run_phase8 as rp
         self.assertTrue(hasattr(rp, "main"))
-        self.assertTrue(hasattr(rp, "run_subphase"))
-        self.assertTrue(hasattr(rp, "is_complete"))
-        self.assertTrue(hasattr(rp, "mark_complete"))
-        self.assertTrue(hasattr(rp, "SUBPHASES"))
-        self.assertTrue(hasattr(rp, "SUBPHASE_INFO"))
+        self.assertTrue(hasattr(rp, "_is_done"))
+        self.assertTrue(hasattr(rp, "_set_done"))
+        self.assertTrue(hasattr(rp, "_clear_done"))
+        self.assertTrue(hasattr(rp, "STAGE_ORDER"))
+        self.assertTrue(hasattr(rp, "STAGE_NAMES"))
 
     def test_subphase_registry(self):
-        from run_phase8 import SUBPHASES, SUBPHASE_INFO
-        for sp in SUBPHASES:
-            self.assertIn(sp, SUBPHASE_INFO)
-            info = SUBPHASE_INFO[sp]
-            self.assertIn("name", info)
-            self.assertIn("module", info)
-            self.assertIn("function", info)
-            self.assertIn("flag", info)
+        from run_phase8 import STAGE_ORDER, STAGE_NAMES
+        for sp in STAGE_ORDER:
+            self.assertIn(sp, STAGE_NAMES)
 
     def test_flag_lifecycle(self):
         """Tests write/read/clear of completion flags."""
-        from run_phase8 import is_complete, mark_complete, clear_flag
+        from run_phase8 import _is_done, _set_done, _clear_done
         # Use a real subphase key
         sp = "8A"
-        clear_flag(sp)  # ensure clean state
-        self.assertFalse(is_complete(sp))
-        mark_complete(sp, {"elapsed_s": 0.1, "dry_run": True})
-        self.assertTrue(is_complete(sp))
-        clear_flag(sp)
-        self.assertFalse(is_complete(sp))
+        _clear_done(sp)  # ensure clean state
+        self.assertFalse(_is_done(sp))
+        _set_done(sp, {"elapsed_s": 0.1, "dry_run": True})
+        self.assertTrue(_is_done(sp))
+        _clear_done(sp)
+        self.assertFalse(_is_done(sp))
 
 
 # ---------------------------------------------------------------------------

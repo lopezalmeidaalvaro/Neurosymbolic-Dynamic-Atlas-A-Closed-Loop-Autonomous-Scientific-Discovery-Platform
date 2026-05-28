@@ -1,0 +1,36 @@
+{
+    "causal_layered_phase_transition": {
+        "critical_value": 0.2,
+        "critical_value_ci_95": [
+            0.2,
+            0.6
+        ],
+        "sharpness": 0.0,
+        "sharpness_ci_95": [
+            0.0,
+            0.0
+        ],
+        "null_comparison_p_value": 1.0,
+        "null_comparison_z_score": 0.0,
+        "is_significant": false
+    },
+    "spin_network_holography": {
+        "holographic_r_squared": 1.0,
+        "holographic_slope": 0.5399999999999999,
+        "holographic_slope_ci_95": [
+            0.5399999999999998,
+            0.5400000000000001
+        ],
+        "curvature_entropy_correlation": 1.0,
+        "curvature_entropy_correlation_ci_95": [
+            NaN,
+            NaN
+        ],
+        "curvature_entropy_p_value": 0.0
+    },
+    "bec_analog_horizon_topology": {
+        "wasserstein_distance": 0.15,
+        "p_value": 0.345,
+        "is_significant": false
+    }
+}

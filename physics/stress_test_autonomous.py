@@ -27,9 +27,9 @@ try:
 except ImportError:
     psutil = None
 
-from autonomous_scientist import AutonomousScientist
-from llm_reasoner import LLMReasoner
-from sandbox_executor import SandboxExecutor
+from physics.core.autonomous.autonomous_scientist import AutonomousScientist
+from physics.core.autonomous.llm_reasoner import LLMReasoner
+from physics.core.autonomous.sandbox_executor import SandboxExecutor
 
 def get_memory_usage():
     """

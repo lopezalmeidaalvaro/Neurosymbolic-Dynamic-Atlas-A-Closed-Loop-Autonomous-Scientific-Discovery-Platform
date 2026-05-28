@@ -1,0 +1,6 @@
+test,system,module,val_clean,val_20dB,val_10dB,val_5dB,val_0dB,baseline,slope,NRS,val_0pct,val_10pct,val_30pct,val_50pct,MDT,parameter,param_from,param_to,baseline_val,drifted_val,DDL,train_systems,test_systems,in_dist_mean,ood_mean,generalization_gap
+noise,lorenz,EV3,4.090206575316128,4.205315874381797,3.545895734433512,3.107947067850472,2.690549194481653,4.090207,-0.095269,0.095269,,,,,,,,,,,,,,,,
+missing_data,lorenz,EV3,,,,,,4.090207,,,4.090206575316128,4.089714243637646,4.087543377520401,4.079567971955665,0.5,,,,,,,,,,,
+parameter_drift,lorenz,EV3,,,,,,,,,,,,,,sigma,10.0,14.0,4.090207,4.367271,200.0,,,,,
+parameter_drift,duffing,EV3,,,,,,,,,,,,,,gamma,0.3,0.5,1.7001,1.721617,200.0,,,,,
+ood,,EV3,,,,,,,,,,,,,,,,,,,,"['lorenz', 'duffing']","['rossler', 'van_der_pol']",2.714014,1.61978,0.4032

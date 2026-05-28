@@ -20,7 +20,7 @@ if sys.platform.startswith("win"):
 # Add project root to path
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
-from autonomous_scientist import AutonomousScientist
+from physics.core.autonomous.autonomous_scientist import AutonomousScientist
 from scientific_guard import sanitize_hypothesis, validate_hypothesis_structure, reality_check
 
 # Rigid QG JSON template prompt injected into the LLM system prompt override

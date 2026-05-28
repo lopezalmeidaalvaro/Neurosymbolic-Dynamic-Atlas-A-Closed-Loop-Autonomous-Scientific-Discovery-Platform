@@ -445,7 +445,7 @@ def main():
             sys.exit(1)
 
         print(f"Inicializando AutonomousScientist con proveedor: {provider}")
-        from autonomous_scientist import AutonomousScientist
+        from physics.core.autonomous.autonomous_scientist import AutonomousScientist
 
         # Instantiate scientist (Docker disabled for local environment compatibility, passing kg graph if active)
         scientist = AutonomousScientist(

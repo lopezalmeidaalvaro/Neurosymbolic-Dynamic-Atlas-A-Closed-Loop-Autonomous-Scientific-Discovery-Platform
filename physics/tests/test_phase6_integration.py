@@ -5,6 +5,9 @@ import time
 import subprocess
 import numpy as np
 
+import pytest
+pytest.importorskip("deepxde")
+
 # Force DeepXDE PyTorch backend BEFORE importing deepxde or pinn_module
 os.environ["DDE_BACKEND"] = "pytorch"
 

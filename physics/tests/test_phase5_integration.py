@@ -15,9 +15,9 @@ if sys.platform.startswith("win"):
 # Add current folder to path
 sys.path.insert(0, os.getcwd())
 
-from llm_reasoner import LLMReasoner
-from sandbox_executor import SandboxExecutor
-from autonomous_scientist import AutonomousScientist
+from physics.core.autonomous.llm_reasoner import LLMReasoner
+from physics.core.autonomous.sandbox_executor import SandboxExecutor
+from physics.core.autonomous.autonomous_scientist import AutonomousScientist
 
 
 def print_result(test_name, status, details=""):

@@ -37,7 +37,7 @@ import neural_ode_module as node
 from ev3_neural import extract_ev3_scientific
 from core.autonomous.latent_snapshot_exporter import extract_ev3_deep, extract_ev3_features
 from symbolic_discovery import run_sindy_discovery, run_pysr_discovery, evaluate_discovery
-from autonomous_scientist import AutonomousScientist
+from physics.core.autonomous.autonomous_scientist import AutonomousScientist
 
 SISTEMAS = [
     {"name": "lorenz", "type": "synthetic", "signal_length": 2000},

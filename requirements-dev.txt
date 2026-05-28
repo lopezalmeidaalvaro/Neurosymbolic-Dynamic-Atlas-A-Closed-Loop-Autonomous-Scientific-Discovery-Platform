@@ -1,0 +1,11 @@
+pytest
+pytest-cov
+pydantic>=2.0
+deepxde
+torch
+numpy
+scipy
+matplotlib
+pandas
+networkx
+scikit-learn

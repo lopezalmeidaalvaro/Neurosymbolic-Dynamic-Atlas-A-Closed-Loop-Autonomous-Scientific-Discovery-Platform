@@ -9,8 +9,8 @@ import json
 import sqlite3
 import math
 import time
-from llm_reasoner import LLMReasoner
-from sandbox_executor import SandboxExecutor
+from physics.core.autonomous.llm_reasoner import LLMReasoner
+from physics.core.autonomous.sandbox_executor import SandboxExecutor
 
 # Ensure UTF-8 output encoding for Windows terminal
 if sys.platform.startswith("win"):
