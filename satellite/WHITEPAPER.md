@@ -5,6 +5,9 @@
 **Date:** May 28, 2026  
 **Status:** Flight-Ready Aerospace Validation (Phases T1–T19)  
 
+> [!NOTE]
+> All physical, computational, and machine learning metrics in this document are audited and unyielding with the canonical [METRICS.md](../METRICS.md) specification.
+
 ---
 
 ## 1. Executive Summary

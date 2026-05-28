@@ -1,5 +1,8 @@
 # Satellite — Orbital Thermal Digital Twin
 
+> [!NOTE]
+> All physical, computational, and machine learning metrics in this document are audited and unyielding with the canonical [METRICS.md](../METRICS.md) specification.
+
 Welcome to the **Spacecraft Orbital Thermal Digital Twin** platform, an advanced neurosymbolic pipeline designed for real-time thermodynamic simulation, AI surrogate emulation, online calibration, and geometry optimization of Low Earth Orbit (LEO) satellites.
 
 This repository implements **Phases T1 to T19** of the spacecraft domain, providing a flight-ready digital twin that bridges the gap between high-fidelity Finite Element Method (FEM) software, real-time Hardware-in-the-Loop (HIL) environments, and autonomic scientific discoveries.

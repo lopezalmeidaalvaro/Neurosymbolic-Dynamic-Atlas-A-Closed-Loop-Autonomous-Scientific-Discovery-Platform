@@ -11,6 +11,9 @@
 
 ## 📖 Overview
 
+> [!NOTE]
+> All physical, computational, and machine learning metrics in this repository are audited and unyielding with the canonical [METRICS.md](METRICS.md) specification.
+
 The **Neurosymbolic Dynamic Atlas** is a state-of-the-art closed-loop **AI4Science** discovery engine bridging the gap between deep representation learning, physical/symbolic equation recovery, and real-time digital twins. 
 
 Autonomously formulating falsifiable mathematical hypotheses, compiling and running physical experiments in a secure sandbox, auditing representation deformation under domain shifts, and logging discoveries into persistent scientific memory (SQLite & Neo4j). Rather than relying purely on black-box neural networks, our system leverages **Neural ODEs**, **Physics-Informed Neural Networks (PINNs)**, and **Neural Operators (DeepONets)** in tandem with **SINDy** and **PySR (Genetic Symbolic Regression)**.
@@ -128,14 +131,29 @@ python thermal/orbital_thermal_simulator.py --power 250 --area 2.5 --absorptivit
 
 ## 🗺️ How to Navigate
 
-- **For Next.js frontend code & widgets**: Go to [dashboard/src/components/](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/dashboard/src/components/)
-- **For clinical ECG training baseline & deep convolutional maps**: Go to [physics/baseline_deep_ecg.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/physics/baseline_deep_ecg.py)
-- **For symbolic discovery algorithms (SINDy, PySR)**: Go to [physics/symbolic_discovery.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/physics/symbolic_discovery.py)
-- **For toy Quantum Gravity ensembles & null models**: Go to [physics/spin_network_model.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/physics/spin_network_model.py)
-- **For LEO thermal emulator & digital twin APIs**: Go to [satellite/api/thermal_api.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/api/thermal_api.py)
-- **For complete spacecraft digital twin documentation**: Go to [satellite/README.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/README.md)
-- **For spacecraft development roadmap milestones**: Go to [satellite/ROADMAP.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/ROADMAP.md)
-- **For spacecraft modular technical architecture**: Go to [satellite/ARCHITECTURE.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/ARCHITECTURE.md)
+To reduce apparent complexity and help every audience find their correct entry path in less than 30 seconds, the repository files and modules are structured into **three logical complexity layers**:
+
+### 🎛️ Nivel 1 – Usuario (Aerospace Operators & System Integrators)
+*Target: Integration of instant emulators, running the dashboard interface, and configuring API queries.*
+* **Interactive UI Dashboard:** Next.js application at [dashboard/](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/dashboard/) to visualize orbits, design radiator specs, and monitor HIL anomalies.
+* **Lightweight REST SaaS API:** Exposes robust `/predict` and `/optimize` endpoints inside [deploy_saas.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/cloud/deploy_saas.py).
+* **Unified API Facade Wrapper:** Easy programmatic class integration at [api/thermal_api.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/api/thermal_api.py).
+* **Commercial Sizing Use-Case & Guides:** Reference ROI metrics at [BUSINESS_CASE.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/BUSINESS_CASE.md) and sales demo sequences at [DEMO_SCRIPT.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/DEMO_SCRIPT.md).
+
+### 🔬 Nivel 2 – Investigador (Surrogate Researchers & Machine Learning Engineers)
+*Target: Auditing CKA representational CKA alignment, training PINN/Neural ODE networks, and analyzing symbolic equations discovery loops.*
+* **Dynamic Continuous Neural ODE:** Multi-step continuous integrations using `torchdiffeq` in [satellite/thermal/train_thermal_neural_ode.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/thermal/train_thermal_neural_ode.py).
+* **Physics-Informed Neural Network:** Loss-constrained thermodynamic models in [satellite/thermal/train_thermal_pinn.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/thermal/train_thermal_pinn.py).
+* **AI Scientist Symbolic Discovery:** Equation recovery sandbox routines in [satellite/thermal/autonomous_thermal_discovery.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/thermal/autonomous_thermal_discovery.py).
+* **Strange Attractors Biophysical Pipeline:** chaotic solvers, V3 amplitude-invariant feature extractors, and CKA/SHAP attributions in [physics/README.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/physics/README.md).
+* **Open Thermal Twin Benchmark:** 10 standard engineering extreme verification orbits at [benchmark/README.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/benchmark/README.md), datasets SHA256 indices at [datasets/README.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/datasets/README.md), and standard test replicator at [reproduce/reproduce_t18.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/reproduce/reproduce_t18.py).
+
+### 🧮 Nivel 3 – Core Physics (Computational Core & Thermodynamic Engineers)
+*Target: Low-level discrete geometry voxelization, 6-node network integrations, and online hardware parameter estimations.*
+* **Coupled 6-Node Transient Solver:** Central differential solvers resolving coupled nodal states in [satellite/thermal/multi_node_thermal_network.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/thermal/multi_node_thermal_network.py).
+* **LEO Environment Fluxes:** incident solar eclipses and albedo reflection solvers in [satellite/thermal/orbital_environment.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/thermal/orbital_environment.py).
+* **3D CAD Voxelization:** STL geometric mesh voxel spatial extractors in [satellite/thermal/cad_thermal_importer.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/thermal/cad_thermal_importer.py).
+* **HIL Calibration & online EKF:** Sensor telemetry integrations and parameter converters in [satellite/thermal/hardware_in_the_loop.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/thermal/hardware_in_the_loop.py).
 
 ### Direct Command Executions
 * **To execute the main Physics Pipeline**:

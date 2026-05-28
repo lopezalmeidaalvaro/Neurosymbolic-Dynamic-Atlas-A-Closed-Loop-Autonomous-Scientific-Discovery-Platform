@@ -45,7 +45,7 @@ To ensure all scripts can run standalone inside the relocated directories:
    - Features sleek Framer Motion dropdown scale/fade animations and customized glowing borders matching the dark-theme aesthetic.
 2. **Spacecraft Thermal Digital Twin (`ThermalDigitalTwin`):**
    - Implemented at `dashboard/src/app/[lang]/satellite/page.tsx`.
-   - Runs a real-time 1-node orbital thermal dynamics Euler integrator directly inside React/TypeScript (solving 3 orbits in under $1\text{ms}$ on slider drag to avoid start transients).
+   - Runs a real-time 6-node orbital thermal dynamics Euler integrator directly inside React/TypeScript (solving 3 orbits in under $1\text{ms}$ on slider drag to avoid start transients, supporting the full T1–T19 modes featuring coupled multi-node networks, real-time EKF HIL calibrations, and CAD-aware geometries).
    - Provides interactive sliders for **Internal Power ($P$)**, **Radiator Area ($A$)**, **Absorptivity ($\alpha$)**, and **Emissivity ($\epsilon$)**.
    - Integrates a Recharts responsive line chart plotting orbit temperature profiles against critical safety limits (freeze at $-40^\circ\text{C}$, burnout at $85^\circ\text{C}$).
    - Displays real-time avionics health diagnostics (`OPTIMAL`, `WARNING`, `CRITICAL`).

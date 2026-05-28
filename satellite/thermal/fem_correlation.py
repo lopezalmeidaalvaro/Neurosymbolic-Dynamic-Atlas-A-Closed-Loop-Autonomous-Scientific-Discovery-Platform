@@ -71,7 +71,7 @@ class FEMCorrelator:
         T0 = np.full(6, 293.15) # 20C initial
         
         # Run simulation with timing
-        t_start = time.time()
+        t_start = time.perf_counter()
         
         sol = scipy.integrate.solve_ivp(
             transient_ode_system,
@@ -82,7 +82,7 @@ class FEMCorrelator:
             rtol=1e-6,
             atol=1e-6
         )
-        twin_time = time.time() - t_start
+        twin_time = max(1e-6, time.perf_counter() - t_start)
         
         twin_temps = sol.y[0] - 273.15 # CPU Celsius
         return sol.t, twin_temps, twin_time

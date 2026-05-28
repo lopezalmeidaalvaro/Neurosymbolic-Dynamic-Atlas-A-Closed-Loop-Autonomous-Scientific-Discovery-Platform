@@ -1,5 +1,8 @@
 # DeepSpace ThermalTwin™ — 5-Minute Live Commercial Demonstration Script
 
+> [!NOTE]
+> All physical, computational, and machine learning metrics in this document are audited and unyielding with the canonical [METRICS.md](../METRICS.md) specification.
+
 This demo script is designed for sales engineers, lead thermal architects, and product managers to showcase the deep value of the **Spacecraft Orbital Thermal Digital Twin** platform to prospective clients, space agency partners, and tech executives.
 
 ---

@@ -5,6 +5,9 @@
 **Target:** Chief Technology Officer (CTO) & VP of Space Systems  
 **Status:** Flight-Ready Aerospace Validation  
 
+> [!NOTE]
+> All physical, computational, and machine learning metrics in this document are audited and unyielding with the canonical [METRICS.md](../METRICS.md) specification.
+
 ---
 
 ## 1. Value Proposition: The Dual-Speed Speedup & High-Fidelity Advantage
