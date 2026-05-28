@@ -5,11 +5,20 @@ Author: Alvaro Lopez Almeida
 """
 
 import os
+import sys
+from pathlib import Path
+
+# Add project root and register config paths
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+import config
+
 import json
 import numpy as np
 import pandas as pd
 from scipy.optimize import curve_fit
 import sympy as sp
+
+from physics.core.neurosymbolic.symbolic import deterministic_symbolic_recovery
 
 # Set seed for reproducibility
 np.random.seed(42)

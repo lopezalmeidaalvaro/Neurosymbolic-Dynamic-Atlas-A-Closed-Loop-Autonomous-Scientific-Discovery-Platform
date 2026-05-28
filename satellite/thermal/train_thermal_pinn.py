@@ -5,6 +5,13 @@ Author: Alvaro Lopez Almeida
 """
 
 import os
+import sys
+from pathlib import Path
+
+# Add project root and register config paths
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+import config
+
 import time
 import json
 import pickle
@@ -14,32 +21,15 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
+from physics.core.neurosymbolic.pinn import SharedPINNNet
+from physics.experiment_versioning import ExperimentTracker, get_git_commit_hash
+
 # Set seed for reproducibility
 np.random.seed(42)
 torch.manual_seed(42)
 
-class PINNNet(nn.Module):
-    """
-    PINN architecture: 4 layers x 64 neurons with Tanh activation.
-    Input: [t, power, area, emissivity]
-    Output: [temperature]
-    """
-    def __init__(self):
-        super(PINNNet, self).__init__()
-        self.net = nn.Sequential(
-            nn.Linear(4, 64),
-            nn.Tanh(),
-            nn.Linear(64, 64),
-            nn.Tanh(),
-            nn.Linear(64, 64),
-            nn.Tanh(),
-            nn.Linear(64, 64),
-            nn.Tanh(),
-            nn.Linear(64, 1)
-        )
-        
-    def forward(self, x):
-        return self.net(x)
+# Use SharedPINNNet imported from the shared neurosymbolic library
+PINNNet = SharedPINNNet
 
 def train_pinn():
     print("Initializing PINN training...")
@@ -232,10 +222,38 @@ def train_pinn():
         
     print(f"PINN Metrics: RMSE = {rmse:.4f}°C/K, Latency = {t_inf:.4f} ms")
     
-    # Save model
+    # Track the experiment
+    tracker = ExperimentTracker(storage_path="../../physics/artifacts/experiments.db")
+    hyperparams = {
+        "epochs": epochs,
+        "batch_size": batch_size,
+        "heat_capacity": heat_capacity,
+        "stefan_boltzmann": stefan_boltzmann,
+        "learning_rate": 0.001
+    }
+    results = {
+        "rmse": float(rmse),
+        "latency_ms": float(t_inf),
+        "training_time_sec": float(t_train)
+    }
+    run_id = tracker.log_experiment(
+        system="satellite_thermal",
+        module="train_thermal_pinn",
+        seed=42,
+        hyperparameters=hyperparams,
+        results=results
+    )
+    
+    git_hash = get_git_commit_hash()
+    
+    # Save model under versioned filename and standard canonical path
     models_dir = "../models"
     os.makedirs(models_dir, exist_ok=True)
+    
+    versioned_filename = f"pinn_thermal_{git_hash}_{run_id[:8]}.pth"
+    torch.save(pinn.state_dict(), os.path.join(models_dir, versioned_filename))
     torch.save(pinn.state_dict(), os.path.join(models_dir, "pinn_thermal.pth"))
+    print(f"PINN model successfully versioned & saved to {os.path.join(models_dir, versioned_filename)}")
     print(f"PINN model successfully saved to {os.path.join(models_dir, 'pinn_thermal.pth')}")
 
 if __name__ == "__main__":

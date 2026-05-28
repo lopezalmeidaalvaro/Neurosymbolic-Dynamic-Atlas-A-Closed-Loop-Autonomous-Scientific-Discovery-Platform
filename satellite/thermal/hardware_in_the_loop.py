@@ -18,12 +18,14 @@ np.random.seed(42)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from multi_node_thermal_network import ThermalNetwork
 from orbital_environment import compute_orbit_params, solar_flux, albedo_flux, earth_ir_flux
+from base_hil import BaseHILAndSensorInterface
 
-class HardwareInTheLoopSimulator:
+class HardwareInTheLoopSimulator(BaseHILAndSensorInterface):
     """
     Closes the real-time simulation-calibration-control loop (HIL).
     """
     def __init__(self, miscalibrated=True):
+        super().__init__(noise_std=0.5)
         # Physical plant parameters (The "real" hardware)
         self.plant_config = {
             "C": [200.0, 500.0, 300.0, 1000.0, 200.0, 300.0],  # Real CPU Capacity = 200
@@ -68,8 +70,7 @@ class HardwareInTheLoopSimulator:
         """
         # Node 0 is the CPU
         T_real = plant_state[0]
-        noise = np.random.normal(0.0, noise_std)
-        return T_real + noise
+        return self.read_sensor_with_noise(T_real, custom_noise=noise_std)
 
     def predict_next(self, current_state, horizon=60, power=30.0, t_current=0.0):
         """

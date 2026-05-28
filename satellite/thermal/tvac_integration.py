@@ -18,6 +18,7 @@ sys.path.insert(0, SATELLITE_DIR)
 
 from thermal.multi_node_thermal_network import ThermalNetwork
 from thermal.orbital_environment import compute_orbit_params, solar_flux, albedo_flux, earth_ir_flux
+from thermal.base_hil import BaseHILAndSensorInterface
 
 # Set seed for reproducibility
 np.random.seed(42)
@@ -31,13 +32,14 @@ if sys.platform.startswith("win"):
         pass
 
 
-class TVACChamber:
+class TVACChamber(BaseHILAndSensorInterface):
     """
     Models an emulated or physical interface with a Thermal Vacuum (TVAC) Chamber.
     Applies high-accuracy transient thermal profiles under near-zero pressure.
     """
     
     def __init__(self, emulated=True, vacuum_pressure_mbar=5e-6):
+        super().__init__(noise_std=0.2)
         self.emulated = emulated
         self.pressure_mbar = vacuum_pressure_mbar
         self.sensor_time_constant = 15.0  # seconds - thermal lag of thermocouples
@@ -132,10 +134,9 @@ class TVACChamber:
             for i in range(6):
                 # Sensor lag
                 T_sensor[i] = (1.0 - alpha) * T_sensor[i] + alpha * T_real[i]
-                # Noise
+                # Use base interface sensor reading method
                 sigma = self.noise_pt100 if i < 4 else self.noise_ir
-                noise = np.random.normal(0, sigma)
-                T_measured_k[i] = T_sensor[i] + noise
+                T_measured_k[i] = self.read_sensor_with_noise(T_sensor[i], custom_noise=sigma)
                 
             # 2. Digital Twin Prediction step (running parallel)
             dT_dt = dt_net.dTdt(T_dt, t, 0.0)

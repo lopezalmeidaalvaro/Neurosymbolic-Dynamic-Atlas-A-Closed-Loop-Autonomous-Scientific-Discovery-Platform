@@ -28,6 +28,7 @@ import { FocusContainer } from '@/components/ui/FocusContainer';
 import { GlassPanel } from '@/components/ui/GlassPanel';
 import { ScientificSurface } from '@/components/ui/ScientificSurface';
 import type { Language } from '@/types';
+import { useAppStore } from '@/stores/appStore';
 
 interface TelemetryPoint {
   time: number;
@@ -50,6 +51,27 @@ export default function SatellitePage({
   const params = use(paramsPromise);
   const lang = params.lang as Language;
   const isEs = lang === 'es';
+
+  // Zustand Store Integration
+  const { apiStatus, setApiStatus } = useAppStore();
+
+  // Automatic Reconnection API ping check loop (runs every 5 seconds)
+  useEffect(() => {
+    const checkApiStatus = () => {
+      fetch('http://localhost:8000/v1/health')
+        .then(res => {
+          if (res.ok) setApiStatus('online');
+          else setApiStatus('error');
+        })
+        .catch(() => {
+          setApiStatus('offline');
+        });
+    };
+    
+    checkApiStatus();
+    const interval = setInterval(checkApiStatus, 5000);
+    return () => clearInterval(interval);
+  }, [setApiStatus]);
 
   // 1. GUIDED WORKFLOW STATES
   const [step, setStep] = useState(1);
@@ -624,6 +646,22 @@ export default function SatellitePage({
         </div>
       </ScientificSurface>
 
+      {apiStatus !== 'online' && (
+        <div className="w-full p-4 rounded-xl border border-rose-500/20 bg-rose-950/20 flex flex-col sm:flex-row justify-between items-center gap-3 animate-pulse">
+          <div className="flex items-center gap-2">
+            <ShieldAlert className="text-rose-500" size={18} />
+            <span className="text-xs text-rose-300 font-semibold">
+              {isEs 
+                ? "Conectividad con la API del Satélite interrumpida. La simulación y edición están deshabilitadas temporalmente."
+                : "Spacecraft API Backend offline. Custom configuration sliders and solver execution are temporarily disabled."}
+            </span>
+          </div>
+          <span className="text-[10px] uppercase font-bold tracking-wider text-rose-400 bg-rose-950/50 px-2 py-1 rounded border border-rose-500/20">
+            {isEs ? "Reconectando automáticamente..." : "Attempting automatic reconnection..."}
+          </span>
+        </div>
+      )}
+
       {/* 6-STEP GUIDED WIZARD HEADERS */}
       <GlassPanel density="compact" className="rounded-2xl border-white/[0.06] bg-[#070c1d]/60 p-4">
         <div className="flex flex-wrap justify-between items-center gap-2">
@@ -825,7 +863,8 @@ export default function SatellitePage({
                         max="50"
                         value={power}
                         onChange={(e) => setPower(parseInt(e.target.value))}
-                        className="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+                        disabled={apiStatus !== 'online'}
+                        className="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400 disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
 
@@ -844,7 +883,8 @@ export default function SatellitePage({
                         max="30"
                         value={payloadPower}
                         onChange={(e) => setPayloadPower(parseInt(e.target.value))}
-                        className="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-violet-400"
+                        disabled={apiStatus !== 'online'}
+                        className="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-violet-400 disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
 
@@ -863,7 +903,8 @@ export default function SatellitePage({
                         max="100"
                         value={dutyCycle}
                         onChange={(e) => setDutyCycle(parseInt(e.target.value))}
-                        className="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400"
+                        disabled={apiStatus !== 'online'}
+                        className="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400 disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
                   </div>
@@ -1000,8 +1041,8 @@ export default function SatellitePage({
               ) : step === 4 ? (
                 <button
                   onClick={triggerSimulation}
-                  disabled={isSimulating}
-                  className="px-6 py-2 bg-emerald-500 text-white rounded-xl text-xs font-bold hover:bg-emerald-400 transition-all flex items-center gap-1.5 shadow-lg shadow-emerald-500/10"
+                  disabled={isSimulating || apiStatus !== 'online'}
+                  className="px-6 py-2 bg-emerald-500 text-white rounded-xl text-xs font-bold hover:bg-emerald-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-1.5 shadow-lg shadow-emerald-500/10"
                 >
                   <Play size={12} />
                   {isEs ? "Iniciar Solución" : "Solve Simulation"}

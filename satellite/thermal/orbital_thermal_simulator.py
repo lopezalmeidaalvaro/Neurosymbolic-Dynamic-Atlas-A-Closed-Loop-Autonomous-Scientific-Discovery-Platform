@@ -135,6 +135,18 @@ def main():
     
     args = parser.parse_args()
     
+    # Enforce strict physical validation bounds
+    if not (0.0 <= args.power <= 1000.0):
+        parser.error("Physical bound exceeded: Power must be within [0.0, 1000.0] W.")
+    if not (0.01 <= args.area <= 100.0):
+        parser.error("Physical bound exceeded: Radiator area must be within [0.01, 100.0] m2.")
+    if not (0.01 <= args.absorptivity <= 1.0):
+        parser.error("Physical bound exceeded: Solar absorptivity must be within [0.01, 1.0].")
+    if not (0.01 <= args.emissivity <= 1.0):
+        parser.error("Physical bound exceeded: Infrared emissivity must be within [0.01, 1.0].")
+    if not (1 <= args.orbits <= 100):
+        parser.error("Boundary exceeded: Orbits count must be within [1, 100].")
+        
     # Setup default paths relative to script parent
     script_dir = os.path.dirname(os.path.abspath(__file__))
     output_csv = args.output or os.path.join(script_dir, "..", "models", "telemetry.csv")

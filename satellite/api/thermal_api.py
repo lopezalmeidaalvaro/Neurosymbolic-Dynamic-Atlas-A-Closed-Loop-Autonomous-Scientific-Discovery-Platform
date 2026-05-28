@@ -22,17 +22,18 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, JSONResponse
 from pydantic import BaseModel, Field
 
-# Ensure parents in path for relative imports
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PARENT_DIR = os.path.dirname(SCRIPT_DIR)
-if PARENT_DIR not in sys.path:
-    sys.path.insert(0, PARENT_DIR)
+# Ensure project root config is imported
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+import config
 
 from thermal.thermal_server_model import ThermalServerModel
 from thermal.multi_node_thermal_network import ThermalNetwork
 
-# Initialize Logger
-LOG_DIR = os.path.join(PARENT_DIR, "logs")
+# Initialize Logger using standardized paths
+SCRIPT_DIR = str(config.SATELLITE_DIR / "api")
+PARENT_DIR = str(config.SATELLITE_DIR)
+LOG_DIR = str(config.SATELLITE_DIR / "logs")
 os.makedirs(LOG_DIR, exist_ok=True)
 log_file = os.path.join(LOG_DIR, "thermal_api.log")
 

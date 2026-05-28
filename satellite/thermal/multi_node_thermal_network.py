@@ -99,7 +99,7 @@ class ThermalNetwork:
             
         return dT
 
-    def simulate(self, duration=5400, dt=5.0, orbit_period=5400, initial_temp=293.15, Q_solar_func=None):
+    def simulate(self, duration=5400, dt=5.0, orbit_period=5400, initial_temp=293.15, Q_solar_func=None, solver_method='Radau'):
         """
         Simulates the thermal network over the specified duration.
         Uses solve_ivp to integrate the coupled ODE system.
@@ -132,13 +132,13 @@ class ThermalNetwork:
             q_solar_val = Q_solar_func(t)
             return self.dTdt(y, t, q_solar_val)
 
-        # Integrate using Radau/RK45
+        # Integrate using Radau/RK45/BDF
         sol = scipy.integrate.solve_ivp(
             ode_system,
             (0.0, duration),
             T0,
             t_eval=t_eval,
-            method='RK45',
+            method=solver_method,
             rtol=1e-6,
             atol=1e-6
         )

@@ -37,6 +37,10 @@ interface AppState {
   systemStatus: 'online' | 'processing' | 'idle';
   setSystemStatus: (status: 'online' | 'processing' | 'idle') => void;
 
+  // ── API connection status ─────────────────────────────────────
+  apiStatus: 'online' | 'offline' | 'error';
+  setApiStatus: (status: 'online' | 'offline' | 'error') => void;
+
   // ── Active experiment ────────────────────────────────────────
   activeExperimentStatus: ExperimentStatus;
   setActiveExperimentStatus: (status: ExperimentStatus) => void;
@@ -82,6 +86,10 @@ export const useAppStore = create<AppState>()(
       // System status
       systemStatus: 'online',
       setSystemStatus: (status) => set({ systemStatus: status }),
+
+      // API connection status
+      apiStatus: 'online',
+      setApiStatus: (status) => set({ apiStatus: status }),
 
       // Experiment
       activeExperimentStatus: 'idle',

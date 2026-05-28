@@ -5,6 +5,13 @@ Author: Alvaro Lopez Almeida
 """
 
 import os
+import sys
+from pathlib import Path
+
+# Add project root and register config paths
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+import config
+
 import time
 import json
 import pickle
@@ -15,36 +22,15 @@ import torch.nn as nn
 import torch.optim as optim
 from torchdiffeq import odeint
 
+from physics.core.neurosymbolic.neural_ode import SharedODEFunc
+from physics.experiment_versioning import ExperimentTracker, get_git_commit_hash
+
 # Set seed for reproducibility
 np.random.seed(42)
 torch.manual_seed(42)
 
-class ODEFunc(nn.Module):
-    """
-    ODE function network: maps [T, power, area, emissivity] -> dT/dt.
-    Input size: 4
-    Output size: 1
-    Uses 2 hidden layers of 64 neurons with Tanh activation.
-    """
-    def __init__(self):
-        super(ODEFunc, self).__init__()
-        self.net = nn.Sequential(
-            nn.Linear(4, 64),
-            nn.Tanh(),
-            nn.Linear(64, 64),
-            nn.Tanh(),
-            nn.Linear(64, 1)
-        )
-        self.params = None  # Placeholder for [power, area, emissivity] tensors during integration
-        
-    def forward(self, t, y):
-        # y is the state of shape [batch, 1] representing scaled temperature
-        # self.params is the parameter set of shape [batch, 3] representing scaled physical params
-        if self.params is None:
-            raise ValueError("Parameters (self.params) must be set prior to running forward integration.")
-            
-        inputs = torch.cat([y, self.params], dim=-1)
-        return self.net(inputs)
+# Use SharedODEFunc imported from the shared neurosymbolic library
+ODEFunc = lambda: SharedODEFunc(input_dim=1, extra_dim=3, hidden_dim=64, num_layers=2)
 
 def train_neural_ode():
     print("Initializing Neural ODE training...")
@@ -153,10 +139,37 @@ def train_neural_ode():
         
     print(f"Neural ODE Evaluation: RMSE = {rmse:.4f}°C/K, Inference latency for batch = {t_int:.2f} ms")
     
+    # Track the experiment
+    tracker = ExperimentTracker(storage_path="../../physics/artifacts/experiments.db")
+    hyperparams = {
+        "epochs": epochs,
+        "n_train_configs": n_train,
+        "solver_method": "dopri5",
+        "learning_rate": 0.01
+    }
+    results = {
+        "rmse": float(rmse),
+        "latency_ms": float(t_int),
+        "training_time_sec": float(t_train)
+    }
+    run_id = tracker.log_experiment(
+        system="satellite_thermal",
+        module="train_thermal_neural_ode",
+        seed=42,
+        hyperparameters=hyperparams,
+        results=results
+    )
+    
+    git_hash = get_git_commit_hash()
+    
     # Save model
     models_dir = "../models"
     os.makedirs(models_dir, exist_ok=True)
+    
+    versioned_filename = f"neural_ode_thermal_{git_hash}_{run_id[:8]}.pth"
+    torch.save(func.state_dict(), os.path.join(models_dir, versioned_filename))
     torch.save(func.state_dict(), os.path.join(models_dir, "neural_ode_thermal.pth"))
+    print(f"Neural ODE model successfully versioned & saved to {os.path.join(models_dir, versioned_filename)}")
     print(f"Neural ODE model successfully saved to {os.path.join(models_dir, 'neural_ode_thermal.pth')}")
 
 if __name__ == "__main__":
