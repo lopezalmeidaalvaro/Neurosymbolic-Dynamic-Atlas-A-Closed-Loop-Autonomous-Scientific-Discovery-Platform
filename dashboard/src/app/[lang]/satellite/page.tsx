@@ -453,7 +453,7 @@ export default function SatellitePage({
             
             // Gaussian temperature distribution model
             const normDist = distToCpu / 3.4;
-            const vTemp = peakCpuTemp * (0.45 + 0.55 * Math.exp(-normDist**2));
+            const vTemp = peakCpuTemp * (0.45 + 0.55 * Math.exp(-(normDist ** 2)));
 
             // Apply 3D coordinate rotations
             const x1 = rx * cosY - rz * sinY;
@@ -547,9 +547,9 @@ export default function SatellitePage({
             </span>
             <div className="flex items-center gap-3 mb-4">
               <Sparkles className="text-cyan-400 animate-pulse" size={22} />
-              <h3 className="text-lg font-bold text-white">{tourMessages[tourStep].title}</h3>
+              <h3 className="text-lg font-bold text-white">{tourMessages[tourStep]?.title}</h3>
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed">{tourMessages[tourStep].text}</p>
+            <p className="text-sm text-slate-300 leading-relaxed">{tourMessages[tourStep]?.text}</p>
             <div className="mt-6 flex justify-between items-center">
               <button 
                 onClick={() => setTourStep(null)} 
@@ -1257,24 +1257,34 @@ export default function SatellitePage({
                 <line x1="220" y1="150" x2="140" y2="110" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" />
 
                 {/* Nodes drawing */}
-                {[
-                  { x: 60, y: 60, name: "CPU", temp: telemetryData[telemetryData.length-1].cpuTemp, color: isCritical ? '#f43f5e' : '#f59e0b' },
-                  { x: 140, y: 40, name: "Bat", temp: telemetryData[telemetryData.length-1].batteryTemp, color: '#10b981' },
-                  { x: 220, y: 60, name: "Pay", temp: telemetryData[telemetryData.length-1].payloadTemp, color: '#10b981' },
-                  { x: 140, y: 110, name: "Str", temp: telemetryData[telemetryData.length-1].structureTemp, color: '#8b5cf6' },
-                  { x: 60, y: 150, name: "Rad", temp: telemetryData[telemetryData.length-1].radiatorTemp, color: '#06b6d4' },
-                  { x: 220, y: 150, name: "Pan", temp: telemetryData[telemetryData.length-1].panelsTemp, color: '#f97316' }
-                ].map(nodeDef => (
-                  <g key={nodeDef.name}>
-                    <circle cx={nodeDef.x} cy={nodeDef.y} r="18" fill="#0b0f19" stroke={nodeDef.color} strokeWidth="2" />
-                    <text x={nodeDef.x} y={nodeDef.y - 1} fill="white" fontSize="9" fontWeight="bold" textAnchor="middle" dominantBaseline="middle">
-                      {nodeDef.name}
-                    </text>
-                    <text x={nodeDef.x} y={nodeDef.y + 8} fill={nodeDef.color} fontSize="8" fontFamily="monospace" textAnchor="middle" dominantBaseline="middle">
-                      {nodeDef.temp.toFixed(0)}°
-                    </text>
-                  </g>
-                ))}
+                {(() => {
+                  const lastPoint = telemetryData[telemetryData.length - 1] || {
+                    cpuTemp: 25.0,
+                    batteryTemp: 22.0,
+                    payloadTemp: 20.0,
+                    structureTemp: 20.0,
+                    radiatorTemp: 15.0,
+                    panelsTemp: 15.0,
+                  };
+                  return [
+                    { x: 60, y: 60, name: "CPU", temp: lastPoint.cpuTemp, color: isCritical ? '#f43f5e' : '#f59e0b' },
+                    { x: 140, y: 40, name: "Bat", temp: lastPoint.batteryTemp, color: '#10b981' },
+                    { x: 220, y: 60, name: "Pay", temp: lastPoint.payloadTemp, color: '#10b981' },
+                    { x: 140, y: 110, name: "Str", temp: lastPoint.structureTemp, color: '#8b5cf6' },
+                    { x: 60, y: 150, name: "Rad", temp: lastPoint.radiatorTemp, color: '#06b6d4' },
+                    { x: 220, y: 150, name: "Pan", temp: lastPoint.panelsTemp, color: '#f97316' }
+                  ].map(nodeDef => (
+                    <g key={nodeDef.name}>
+                      <circle cx={nodeDef.x} cy={nodeDef.y} r="18" fill="#0b0f19" stroke={nodeDef.color} strokeWidth="2" />
+                      <text x={nodeDef.x} y={nodeDef.y - 1} fill="white" fontSize="9" fontWeight="bold" textAnchor="middle" dominantBaseline="middle">
+                        {nodeDef.name}
+                      </text>
+                      <text x={nodeDef.x} y={nodeDef.y + 8} fill={nodeDef.color} fontSize="8" fontFamily="monospace" textAnchor="middle" dominantBaseline="middle">
+                        {nodeDef.temp.toFixed(0)}°
+                      </text>
+                    </g>
+                  ));
+                })()}
               </svg>
             </div>
             <p className="text-[10px] text-slate-500 text-center mt-2">
