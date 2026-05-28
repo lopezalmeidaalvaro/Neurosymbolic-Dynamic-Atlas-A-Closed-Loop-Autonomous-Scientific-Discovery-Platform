@@ -23,7 +23,8 @@ class SharedPINNNet(nn.Module):
 
 def solve_ode_with_pinn_wrapper(ode_system, t_domain, initial_conditions, params, epochs=3000):
     """
-    Dummy wrapper or bridge to import solve_ode_with_pinn or call it directly.
+    Bridge to call the canonical solve_ode_with_pinn implementation from physics.pinn_module.
     """
-    # Uses dde or custom solvers depending on configuration.
-    pass
+    from physics.pinn_module import solve_ode_with_pinn
+    return solve_ode_with_pinn(ode_system, t_domain, initial_conditions, params, epochs)
+

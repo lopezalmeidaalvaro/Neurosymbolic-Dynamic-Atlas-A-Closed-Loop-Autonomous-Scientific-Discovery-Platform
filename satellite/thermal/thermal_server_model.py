@@ -60,16 +60,18 @@ class ThermalServerModel:
         time_to_critical = None
         
         for i in range(1, steps):
-            # Check critical temperature (85°C = 358.15 K)
-            if T >= self.critical_temp_K and time_to_critical is None:
-                # Interpolate exact time for precision
-                t_prev = times[i-1]
-                T_prev = temps[i-1]
-                fraction = (self.critical_temp_K - T_prev) / (T - T_prev) if (T - T_prev) != 0 else 0.0
-                time_to_critical = float(t_prev + fraction * dt)
-                
+            T_prev = T
             T = T + self.dTdt(T) * dt
             temps[i] = T
+            
+            # Check critical temperature (85°C = 358.15 K)
+            if T >= self.critical_temp_K and time_to_critical is None:
+                if T_prev < self.critical_temp_K:
+                    t_prev = times[i-1]
+                    fraction = (self.critical_temp_K - T_prev) / (T - T_prev) if (T - T_prev) != 0 else 0.0
+                    time_to_critical = float(t_prev + fraction * dt)
+                else:
+                    time_to_critical = 0.0
             
         # Final check if the last state reached critical temp
         if T >= self.critical_temp_K and time_to_critical is None:

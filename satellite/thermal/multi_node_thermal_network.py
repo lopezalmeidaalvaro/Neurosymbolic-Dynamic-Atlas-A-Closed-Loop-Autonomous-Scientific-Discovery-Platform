@@ -70,12 +70,46 @@ class ThermalNetwork:
             "Paneles": 120.0
         }
 
-    def dTdt(self, T_vector, t, Q_solar):
+    def dTdt(self, T_vector, t, Q_solar, use_cavity_radiation=False):
         """
         Computes the temperature derivatives for all 6 nodes.
         Equation:
-          C_i * dT_i/dt = Q_internal_i + Q_solar_i + Sum_j k_ij * (T_j - T_i) - eps_i * sigma * A_i * (T_i^4 - T_space^4)
+          C_i * dT_i/dt = Q_internal_i + Q_solar_i + Sum_j k_ij * (T_j - T_i) + Q_rad_internal_i - eps_i * sigma * A_i * (T_i^4 - T_space^4)
         """
+        # 1. Compute internal cavity radiation if enabled
+        Q_rad_internal = np.zeros(6)
+        if use_cavity_radiation:
+            # 6x6 View factor matrix symmetric and closed to satisfy sum rule = 1.0
+            F = np.zeros((6, 6))
+            F[0, 1] = F[1, 0] = 0.3
+            F[0, 2] = F[2, 0] = 0.2
+            F[0, 3] = F[3, 0] = 0.5
+            F[1, 3] = F[3, 1] = 0.4
+            F[2, 3] = F[3, 2] = 0.4
+            F[3, 4] = F[4, 3] = 0.6
+            F[3, 5] = F[5, 3] = 0.3
+            F[4, 5] = F[5, 4] = 0.1
+            F = F / 2.2 # Scaled
+            for i in range(6):
+                F[i, i] = 1.0 - np.sum(F[i, :])
+            
+            # Gauss-Seidel Radiosity Solver
+            J = np.zeros(6)
+            E = self.eps * SIGMA * (T_vector**4)
+            for _ in range(300):
+                J_old = J.copy()
+                for i in range(6):
+                    sum_FJ = np.sum(F[i, :] * J)
+                    J[i] = E[i] + (1.0 - self.eps[i]) * sum_FJ
+                if np.max(np.abs(J - J_old)) < 1e-6:
+                    break
+                    
+            # Compute net radiation entering node i: Q_net = A_int * (G_i - J_i)
+            # Using uniform internal area A_int = 0.05 m2 satisfies reciprocity symmetrically
+            A_int = 0.05
+            for i in range(6):
+                Q_rad_internal[i] = A_int * (np.sum(F[i, :] * J) - J[i])
+                
         dT = np.zeros(6)
         for i in range(6):
             # Internal heat generation
@@ -95,14 +129,20 @@ class ThermalNetwork:
             Q_rad = self.eps[i] * SIGMA * self.A[i] * (T_vector[i]**4 - T_SPACE**4)
             
             # Rate of temperature change
-            dT[i] = (Q_in + Q_cond - Q_rad) / self.C[i]
+            dT[i] = (Q_in + Q_cond + Q_rad_internal[i] - Q_rad) / self.C[i]
             
         return dT
 
-    def simulate(self, duration=5400, dt=5.0, orbit_period=5400, initial_temp=293.15, Q_solar_func=None, solver_method='Radau'):
+    def simulate(self, duration=5400, dt=5.0, orbit_period=5400, initial_temp=293.15, Q_solar_func=None, solver_method=None, method='RK45', use_cavity_radiation=False):
         """
         Simulates the thermal network over the specified duration.
         Uses solve_ivp to integrate the coupled ODE system.
+
+        Solvers:
+          - RK45: Explicit Runge-Kutta. Best for smooth, non-stiff systems. Standard default.
+          - BDF: Implicit Backward Differentiation Formula. Best for stiff systems with rapid transitions or large disparities in time constants.
+          - Radau: Implicit Runge-Kutta. Extremely stable for highly stiff systems.
+          - LSODA: Automatic switching between Adams (non-stiff) and BDF (stiff).
         """
         # Ensure that t_eval contains values strictly within [0, duration] to satisfy solve_ivp
         t_eval = np.arange(0.0, duration, dt)
@@ -130,15 +170,19 @@ class ThermalNetwork:
         # ODE system wrapper to match solve_ivp format
         def ode_system(t, y):
             q_solar_val = Q_solar_func(t)
-            return self.dTdt(y, t, q_solar_val)
+            return self.dTdt(y, t, q_solar_val, use_cavity_radiation=use_cavity_radiation)
 
-        # Integrate using Radau/RK45/BDF
+        # Handle backward compatibility parameter solver_method
+        if solver_method is not None:
+            method = solver_method
+
+        # Integrate using Radau/RK45/BDF/LSODA
         sol = scipy.integrate.solve_ivp(
             ode_system,
             (0.0, duration),
             T0,
             t_eval=t_eval,
-            method=solver_method,
+            method=method,
             rtol=1e-6,
             atol=1e-6
         )

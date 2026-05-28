@@ -21,54 +21,25 @@ torch.manual_seed(42)
 np.random.seed(42)
 
 
-class ODEFunc(torch.nn.Module):
+from physics.core.neurosymbolic.neural_ode import SharedODEFunc, SharedNeuralODEModel
+
+class ODEFunc(SharedODEFunc):
     """
     MLP network mapping state x to its derivative dx/dt = f(t, x).
-    Architecture: [input_dim, hidden_dim, ..., input_dim] with Tanh activations.
+    Reuses the unified SharedODEFunc.
     """
-
     def __init__(self, input_dim, hidden_dim=64, num_layers=3):
-        super().__init__()
-        torch.manual_seed(42)
-
-        layers = []
-        # Input layer
-        layers.append(torch.nn.Linear(input_dim, hidden_dim))
-        layers.append(torch.nn.Tanh())
-
-        # Hidden layers
-        for _ in range(num_layers - 1):
-            layers.append(torch.nn.Linear(hidden_dim, hidden_dim))
-            layers.append(torch.nn.Tanh())
-
-        # Output layer
-        layers.append(torch.nn.Linear(hidden_dim, input_dim))
-
-        self.net = torch.nn.Sequential(*layers)
-
-    def forward(self, t, x):
-        # f(t, x) is time-invariant here as standard for autonomous ODEs
-        return self.net(x)
+        super().__init__(input_dim=input_dim, hidden_dim=hidden_dim, num_layers=num_layers, extra_dim=0)
 
 
-class NeuralODEModel:
+class NeuralODEModel(SharedNeuralODEModel):
     """
     Wrapper model implementing Neural Ordinary Differential Equations (Neural ODEs)
-    using torchdiffeq for continuous-time integration.
+    using torchdiffeq for continuous-time integration. Reuses the unified SharedNeuralODEModel.
     """
-
     def __init__(self, input_dim, hidden_dim=64, num_layers=3):
-        torch.manual_seed(42)
-        self.ode_func = ODEFunc(input_dim, hidden_dim, num_layers).to(
-            dtype=torch.get_default_dtype()
-        )
-        self.input_dim = input_dim
+        super().__init__(input_dim=input_dim, hidden_dim=hidden_dim, num_layers=num_layers, extra_dim=0)
 
-    def forward(self, x0, t):
-        """
-        Integrates the ODE forward in time starting from x0 using the RK4 solver.
-        """
-        return odeint(self.ode_func, x0, t, method="rk4")
 
     def fit(self, t, X_obs, epochs=500, lr=0.001):
         """

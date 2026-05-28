@@ -49,6 +49,9 @@ class HardwareInTheLoopSimulator(BaseHILAndSensorInterface):
         }
         self.digital_twin = ThermalNetwork(self.dt_config)
         
+        # Observable parameter specification
+        self.estimated_parameters = ["C_cpu", "eps_rad"]
+        
         # Standard orbital parameters
         self.orbit_params = compute_orbit_params(400)
         self.period = self.orbit_params["period_sec"]
@@ -100,25 +103,37 @@ class HardwareInTheLoopSimulator(BaseHILAndSensorInterface):
         )
         return res["temperatures"][0][-1] # Predicted CPU Temp at the end of horizon
 
-    def correct_model(self, current_state_measured, current_state_pred, dt=5.0, learning_rate_C=15.0, learning_rate_eps=0.002):
+    def correct_model(self, current_state_measured, current_state_pred, dt=5.0, learning_rate_C=15.0, learning_rate_eps=0.002, params_to_estimate=None):
         """
         Performs real-time Parameter Correction using Online Gradient Descent.
         Loss: E = (T_measured - T_pred)^2
-        Updates dt_C_cpu and dt_eps_rad to match the physical measurements.
+        Updates only observable parameters to prevent EKF divergence.
         """
+        if params_to_estimate is None:
+            params_to_estimate = ["C_cpu", "eps_rad"]
+            
+        import warnings
+        observable_set = {"C_cpu", "eps_rad", "C_bat", "k_cpu_struct", "k_struct_rad"}
+        
+        # Add warning if trying to estimate any parameter that is not observable
+        for p in params_to_estimate:
+            if p not in observable_set:
+                warnings.warn(
+                    f"¡ADVERTENCIA DE VUELO! Se ha intentado estimar el parámetro NO observable '{p}'. "
+                    f"La falta de acoplamiento directo en los sensores puede hacer que el EKF/Estimador diverja.",
+                    RuntimeWarning
+                )
+                
         error = current_state_measured - current_state_pred
         
-        # Approximate numerical gradients
-        # 1. dTemp/dC (increasing capacity slows down temperature rise, hence gradient is negative during heating)
-        # We model the parameter influence:
-        grad_C = -1.0 * error * (current_state_pred / max(10.0, self.dt_C_cpu))
-        
-        # 2. dTemp/deps (increasing emissivity increases cooling, hence gradient is negative)
-        grad_eps = -1.0 * error * (current_state_pred * 0.1)
-        
-        # Apply updates with learning rate clipping to prevent divergence
-        self.dt_C_cpu = max(100.0, min(500.0, self.dt_C_cpu - learning_rate_C * grad_C))
-        self.dt_eps_rad = max(0.1, min(0.98, self.dt_eps_rad - learning_rate_eps * grad_eps))
+        # Approximate numerical gradients and update only if specified and observable
+        if "C_cpu" in params_to_estimate and "C_cpu" in observable_set:
+            grad_C = -1.0 * error * (current_state_pred / max(10.0, self.dt_C_cpu))
+            self.dt_C_cpu = max(100.0, min(500.0, self.dt_C_cpu - learning_rate_C * grad_C))
+            
+        if "eps_rad" in params_to_estimate and "eps_rad" in observable_set:
+            grad_eps = -1.0 * error * (current_state_pred * 0.1)
+            self.dt_eps_rad = max(0.1, min(0.98, self.dt_eps_rad - learning_rate_eps * grad_eps))
 
     def control_action(self, predicted_temp, threshold=80.0):
         """
@@ -176,7 +191,7 @@ class HardwareInTheLoopSimulator(BaseHILAndSensorInterface):
             
             # 3. ONLINE PARAMETER CORRECTION (EKF / Gradient descent calibration)
             error = T_measured - T_estimated_step
-            self.correct_model(T_measured, T_estimated_step, dt=interval)
+            self.correct_model(T_measured, T_estimated_step, dt=interval, params_to_estimate=self.estimated_parameters)
             
             # 4. PREDICT FUTURE STATE (60 seconds horizon)
             T_predicted_horizon = self.predict_next(dt_state - 273.15, horizon=60, power=power, t_current=t_curr)

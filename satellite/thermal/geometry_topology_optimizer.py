@@ -28,8 +28,13 @@ class GeometryOptimizer:
       2. Minimize Total Radiator Mass
       3. Minimize Manufacturing Complexity
     """
-    def __init__(self, strict=False):
+    def __init__(self, strict=False, material="Anodized aluminum 6061"):
         self.strict = strict
+        self.material_name = material
+        
+        # Load material properties
+        from material_library import get_material
+        self.material_props = get_material(self.material_name)
         
         # In strict mode, verify experimental/CFD validation dataset exists before proceeding
         if self.strict:
@@ -45,7 +50,7 @@ class GeometryOptimizer:
             with open(cfd_path, "r") as f:
                 self.cfd_data = json.load(f)
             print(f"[Strict Mode] Successfully loaded {len(self.cfd_data)} verified CFD points for optimizer calibration.")
-
+ 
         # Parameter bounds
         self.bounds = {
             "fin_density": (0.0, 100.0),            # fins per linear meter
@@ -56,7 +61,7 @@ class GeometryOptimizer:
             "surface_roughness": (0.1, 100.0),      # um
             "conduction_path_length": (0.05, 0.50), # m
             "area": (0.01, 0.30),                   # m2 (base area)
-            "emissivity": (0.1, 0.95)               # base emissivity
+            "emissivity": (0.1, 0.95)               # base emissivity (will be overridden by selected material)
         }
         self.param_keys = list(self.bounds.keys())
         
@@ -112,6 +117,9 @@ class GeometryOptimizer:
         """
         params = {self.param_keys[i]: x_vector[i] for i in range(len(self.param_keys))}
         
+        # Override baseline emissivity with selected COTS material properties
+        params["emissivity"] = self.material_props["eps_BOL"]
+        
         # 1. Compute physical efficiency parameters
         eps_eff, A_eff = self.evaluate_efficiency(params)
         
@@ -149,9 +157,15 @@ class GeometryOptimizer:
         max_temp = res["max_temps"]["CPU"]
         
         # 3. Model Radiator Mass (kg)
-        # Material: Aluminum plate with porosity and fin contributions
-        mass = (0.6 * params["area"] * (1.0 - params["porosity"]) * 
-                (1.0 + 0.03 * params["fin_density"] * (params["fin_height"] / 1000.0) + 0.08 * round(params["fractal_level"])) + 
+        # Material: Aluminum plate with porosity and fin contributions, adjusted for COTS material density
+        if "density_kg_m3" in self.material_props:
+            density_factor = self.material_props["density_kg_m3"] / 2700.0
+            base_plate_mass = 0.6 * params["area"] * (1.0 - params["porosity"]) * density_factor
+        else:
+            # Coating/film in kg/m2 applied on top of 1.0 thickness aluminum plate
+            base_plate_mass = 0.6 * params["area"] * (1.0 - params["porosity"]) + params["area"] * self.material_props["density_kg_m2"]
+            
+        mass = (base_plate_mass * (1.0 + 0.03 * params["fin_density"] * (params["fin_height"] / 1000.0) + 0.08 * round(params["fractal_level"])) + 
                 2.5 * params["conduction_path_length"])
                 
         # 4. Model Manufacturing Complexity (Dimensionless score 0-10)
@@ -361,7 +375,7 @@ The chosen balanced optimal design discovered by the Bayesian Active Learning sy
 - **Micro-fin Height**: {optimal_design['fin_height']:.2f} mm
 - **Fractal Branching Level**: {round(optimal_design['fractal_level'])}
 - **Surface Porosity**: {optimal_design['porosity']:.4%}
-- **Surface Roughness**: {optimal_design['surface_roughness']:.2f} $\mu\text{m}$
+- **Surface Roughness**: {optimal_design['surface_roughness']:.2f} $\mu\text{{m}}$
 - **Conduction Path Length**: {optimal_design['conduction_path_length']:.2f} m
 
 ### Performance Targets:
@@ -398,12 +412,11 @@ def main():
     import argparse
     parser = argparse.ArgumentParser(description="Radiator Geometry and Topology Optimizer")
     parser.add_argument("--strict", action="store_true", help="Enforce strict experimental/CFD validation dataset verification")
+    parser.add_argument("--material", type=str, default="Anodized aluminum 6061", help="Select COTS material from the library")
     args = parser.parse_args()
     
-    opt = GeometryOptimizer(strict=args.strict)
-    # Execute fast search for demonstration (e.g. 50 + 50) or full (200 + 300) depending on time
-    # The prompt explicitly specifies: "200 iteraciones iniciales + 300 bayesianas"
-    # To execute quickly and conform fully, we will run the 200 + 300 loop using our optimized fast ODE evaluator.
+    opt = GeometryOptimizer(strict=args.strict, material=args.material)
+    # Execute search (200 initial + 300 Bayesian iterations)
     opt.run_optimization(n_init=200, n_bayes=300)
 
 if __name__ == '__main__':

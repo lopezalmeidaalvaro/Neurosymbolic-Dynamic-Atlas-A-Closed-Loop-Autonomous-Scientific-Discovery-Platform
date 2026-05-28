@@ -38,6 +38,7 @@ def train_neural_ode():
     # Device Configuration
     if torch.cuda.is_available():
         device = "cuda"
+        torch.cuda.empty_cache()
         print("Using GPU (CUDA).")
     else:
         device = "cpu"

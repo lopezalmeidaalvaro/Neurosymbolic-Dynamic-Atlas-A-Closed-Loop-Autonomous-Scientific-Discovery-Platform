@@ -37,6 +37,7 @@ def train_pinn():
     # Device Configuration
     if torch.cuda.is_available():
         device = "cuda"
+        torch.cuda.empty_cache()
         use_amp = True
         batch_size = 256
         print("Using GPU (CUDA) with Mixed Precision.")
