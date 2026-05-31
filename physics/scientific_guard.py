@@ -4,6 +4,13 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 import os
 import re
+from datetime import datetime
+from pathlib import Path
+
+try:
+    import yaml
+except Exception:  # pragma: no cover - PyYAML is already used elsewhere, keep fallback.
+    yaml = None
 
 # Blocked list of phrases (case-insensitive check)
 BLOCKED_PHRASES = [
@@ -16,6 +23,21 @@ BLOCKED_PHRASES = [
     "hawking radiation confirmed",
     "holographic principle verified"
 ]
+
+
+def _configured_blocked_phrases() -> list:
+    config_path = Path(__file__).resolve().parent / "config.yaml"
+    if yaml is None or not config_path.exists():
+        return BLOCKED_PHRASES
+    try:
+        config = yaml.safe_load(config_path.read_text(encoding="utf-8")) or {}
+        configured = config.get("scientific_guard", {}).get("blocked_phrases", [])
+        if configured:
+            merged = list(dict.fromkeys([*BLOCKED_PHRASES, *configured]))
+            return merged
+    except Exception:
+        pass
+    return BLOCKED_PHRASES
 
 # Defendable replacements dictionary
 REPLACEMENTS = {
@@ -44,7 +66,7 @@ def sanitize_hypothesis(text: str) -> str:
     
     # 1. Check for blocked list violations
     text_lower = text.lower()
-    for phrase in BLOCKED_PHRASES:
+    for phrase in _configured_blocked_phrases():
         if phrase in text_lower:
             has_blocked = True
             break
@@ -173,7 +195,7 @@ def reality_check(report_path: str) -> dict:
         content_lower = content.lower()
         
         # 1. Scan for forbidden phrases
-        for phrase in BLOCKED_PHRASES:
+        for phrase in _configured_blocked_phrases():
             # Case-insensitive count
             matches = len(re.findall(re.escape(phrase), content_lower))
             if matches > 0:
@@ -197,6 +219,109 @@ def reality_check(report_path: str) -> dict:
         "violations": violations,
         "suggestions": suggestions
     }
+
+
+def assign_claim_level(conclusion_text: str, supporting_evidence) -> dict:
+    """
+    Assigns a conservative claim level:
+    1 speculative, 2 simulation-supported, 3 experimentally validated,
+    4 externally reproduced.
+    """
+    text = f"{conclusion_text or ''} {supporting_evidence or ''}".lower()
+    if any(token in text for token in ["no validada", "unvalidated", "requires verification", "requiere verificacion"]):
+        level = 1
+        label = "speculative"
+    elif any(token in text for token in ["external", "independent reproduction", "externally reproduced", "doi", "arxiv"]):
+        level = 4
+        label = "externally reproduced"
+    elif any(token in text for token in ["experimental validation", "hardware", "clinical", "real data", "telemetry", "tvac", "physical hardware"]):
+        level = 3
+        label = "experimentally validated"
+    elif any(token in text for token in ["simulation", "synthetic", "benchmark", "artifact", "model", "numerical"]):
+        level = 2
+        label = "simulation-supported"
+    else:
+        level = 1
+        label = "speculative"
+    return {"level": level, "label": label, "text": sanitize_hypothesis(conclusion_text or "")}
+
+
+def _is_conclusion_like(line: str) -> bool:
+    stripped = line.strip()
+    lowered = stripped.lower()
+    if not stripped or stripped.startswith("[NIVEL "):
+        return False
+    markers = [
+        "conclusion",
+        "conclusión",
+        "therefore",
+        "we show",
+        "we demonstrate",
+        "this shows",
+        "evidence suggests",
+        "results indicate",
+    ]
+    return any(marker in lowered for marker in markers)
+
+
+def tag_conclusions(report_path: str) -> dict:
+    """
+    Tags conclusion-like markdown lines with conservative evidence levels.
+    Writes a sibling .tagged.md file and leaves the source report untouched.
+    """
+    path = Path(report_path)
+    if not path.exists():
+        return {"tagged_path": None, "claims": [], "error": f"{report_path} not found"}
+    claims = []
+    output_lines = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if _is_conclusion_like(line):
+            claim = assign_claim_level(line, supporting_evidence=str(path))
+            claims.append(claim)
+            output_lines.append(f"[NIVEL {claim['level']}: {claim['label']}] {claim['text']}")
+        else:
+            output_lines.append(line)
+    tagged_path = path.with_name(path.stem + ".tagged.md")
+    tagged_path.write_text("\n".join(output_lines) + "\n", encoding="utf-8")
+    return {"tagged_path": str(tagged_path), "claims": claims, "error": None}
+
+
+def generate_claim_report(report_paths) -> str:
+    """Processes reports and writes a consolidated claim-level report."""
+    artifacts_dir = Path(__file__).resolve().parent / "artifacts"
+    artifacts_dir.mkdir(parents=True, exist_ok=True)
+    all_claims = []
+    tagged_files = []
+    for report_path in report_paths:
+        result = tag_conclusions(report_path)
+        all_claims.extend(result.get("claims", []))
+        if result.get("tagged_path"):
+            tagged_files.append(result["tagged_path"])
+    counts = {level: 0 for level in range(1, 5)}
+    for claim in all_claims:
+        counts[claim["level"]] += 1
+    lines = [
+        "# Claim Level Report",
+        "",
+        f"Generated: {datetime.now().isoformat(timespec='seconds')}",
+        "",
+        "| Level | Meaning | Count |",
+        "|---:|---|---:|",
+        f"| 1 | Speculative | {counts[1]} |",
+        f"| 2 | Simulation-supported | {counts[2]} |",
+        f"| 3 | Experimentally validated | {counts[3]} |",
+        f"| 4 | Externally reproduced | {counts[4]} |",
+        "",
+        "## Tagged Files",
+        "",
+    ]
+    lines.extend(f"- `{path}`" for path in tagged_files)
+    lines.extend(["", "## Claims", ""])
+    for claim in all_claims:
+        lines.append(f"- Level {claim['level']} ({claim['label']}): {claim['text']}")
+    output_path = artifacts_dir / "claim_level_report.md"
+    output_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return str(output_path)
 
 if __name__ == "__main__":
     print("Testing Scientific Guard...")

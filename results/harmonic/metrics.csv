@@ -1,0 +1,5 @@
+metric,value
+neural_ode_initial_loss,0.9808493527565584
+neural_ode_final_loss,0.029569533270573857
+linear_cka_self_perturbed,0.9999983963286977
+n_samples,120

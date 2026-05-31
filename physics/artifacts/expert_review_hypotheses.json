@@ -1,0 +1,9 @@
+[
+  {
+    "id": "expert_review_1",
+    "source": "expert_review",
+    "hypothesis": "Address reviewer point: Reviewer should check overclaiming and add external validation details.",
+    "confidence_prior": 0.5,
+    "status": "proposed"
+  }
+]

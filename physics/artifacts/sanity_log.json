@@ -1,0 +1,43 @@
+[
+  {
+    "hypothesis": "The harmonic oscillator derivative follows velocity.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -9.85275460497989,
+        "max": 9.512447032735118,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  }
+]

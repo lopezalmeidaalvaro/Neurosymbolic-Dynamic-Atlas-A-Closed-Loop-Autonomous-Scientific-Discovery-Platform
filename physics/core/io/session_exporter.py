@@ -1,8 +1,13 @@
 from pathlib import Path
 from typing import Union, Dict, Any
 import json
-from core.schemas import ExperimentSession
-from core.io.artifact_manager import ARTIFACTS_DIR
+
+try:
+    from physics.core.schemas import ExperimentSession
+    from physics.core.io.artifact_manager import ARTIFACTS_DIR
+except ModuleNotFoundError:
+    from core.schemas import ExperimentSession
+    from core.io.artifact_manager import ARTIFACTS_DIR
 
 
 def export_session(

@@ -1,0 +1,187 @@
+[
+  {
+    "is_anomaly": false,
+    "fault_id": "F0",
+    "confidence": 1.0,
+    "action": "Operaci\u00f3n Nominal",
+    "z_score": 2.530499773784861,
+    "causal_hypothesis_candidate": null
+  },
+  {
+    "is_anomaly": false,
+    "fault_id": "F0",
+    "confidence": 1.0,
+    "action": "Operaci\u00f3n Nominal",
+    "z_score": 0.8621757552891793,
+    "causal_hypothesis_candidate": null
+  },
+  {
+    "is_anomaly": false,
+    "fault_id": "F0",
+    "confidence": 1.0,
+    "action": "Operaci\u00f3n Nominal",
+    "z_score": 0.8920835635420445,
+    "causal_hypothesis_candidate": null
+  },
+  {
+    "is_anomaly": false,
+    "fault_id": "F0",
+    "confidence": 1.0,
+    "action": "Operaci\u00f3n Nominal",
+    "z_score": 0.072599872876971,
+    "causal_hypothesis_candidate": null
+  },
+  {
+    "is_anomaly": true,
+    "fault_id": "F1",
+    "confidence": 0.95,
+    "action": "Aislar sensor y usar estimaci\u00f3n del digital twin",
+    "z_score": 1.6669574428363987,
+    "causal_hypothesis_candidate": {
+      "hypothesis": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established.",
+      "confidence_prior": 0.35,
+      "validation_state": "NO VALIDADA - requiere verificacion experimental",
+      "claim_level": {
+        "level": 1,
+        "label": "speculative",
+        "text": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established."
+      }
+    }
+  },
+  {
+    "is_anomaly": true,
+    "fault_id": "F1",
+    "confidence": 0.95,
+    "action": "Aislar sensor y usar estimaci\u00f3n del digital twin",
+    "z_score": 0.6908559330746584,
+    "causal_hypothesis_candidate": {
+      "hypothesis": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established.",
+      "confidence_prior": 0.35,
+      "validation_state": "NO VALIDADA - requiere verificacion experimental",
+      "claim_level": {
+        "level": 1,
+        "label": "speculative",
+        "text": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established."
+      }
+    }
+  },
+  {
+    "is_anomaly": true,
+    "fault_id": "F1",
+    "confidence": 0.95,
+    "action": "Aislar sensor y usar estimaci\u00f3n del digital twin",
+    "z_score": 1.9365627513062762,
+    "causal_hypothesis_candidate": {
+      "hypothesis": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established.",
+      "confidence_prior": 0.35,
+      "validation_state": "NO VALIDADA - requiere verificacion experimental",
+      "claim_level": {
+        "level": 1,
+        "label": "speculative",
+        "text": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established."
+      }
+    }
+  },
+  {
+    "is_anomaly": true,
+    "fault_id": "F1",
+    "confidence": 0.95,
+    "action": "Aislar sensor y usar estimaci\u00f3n del digital twin",
+    "z_score": 0.2810069397213866,
+    "causal_hypothesis_candidate": {
+      "hypothesis": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established.",
+      "confidence_prior": 0.35,
+      "validation_state": "NO VALIDADA - requiere verificacion experimental",
+      "claim_level": {
+        "level": 1,
+        "label": "speculative",
+        "text": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established."
+      }
+    }
+  },
+  {
+    "is_anomaly": true,
+    "fault_id": "F1",
+    "confidence": 0.95,
+    "action": "Aislar sensor y usar estimaci\u00f3n del digital twin",
+    "z_score": 0.25381306857902786,
+    "causal_hypothesis_candidate": {
+      "hypothesis": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established.",
+      "confidence_prior": 0.35,
+      "validation_state": "NO VALIDADA - requiere verificacion experimental",
+      "claim_level": {
+        "level": 1,
+        "label": "speculative",
+        "text": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established."
+      }
+    }
+  },
+  {
+    "is_anomaly": true,
+    "fault_id": "F1",
+    "confidence": 0.95,
+    "action": "Aislar sensor y usar estimaci\u00f3n del digital twin",
+    "z_score": 0.38608371829824506,
+    "causal_hypothesis_candidate": {
+      "hypothesis": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established.",
+      "confidence_prior": 0.35,
+      "validation_state": "NO VALIDADA - requiere verificacion experimental",
+      "claim_level": {
+        "level": 1,
+        "label": "speculative",
+        "text": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established."
+      }
+    }
+  },
+  {
+    "is_anomaly": true,
+    "fault_id": "F1",
+    "confidence": 0.95,
+    "action": "Aislar sensor y usar estimaci\u00f3n del digital twin",
+    "z_score": 0.04741994582849429,
+    "causal_hypothesis_candidate": {
+      "hypothesis": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established.",
+      "confidence_prior": 0.35,
+      "validation_state": "NO VALIDADA - requiere verificacion experimental",
+      "claim_level": {
+        "level": 1,
+        "label": "speculative",
+        "text": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established."
+      }
+    }
+  },
+  {
+    "is_anomaly": true,
+    "fault_id": "F1",
+    "confidence": 0.95,
+    "action": "Aislar sensor y usar estimaci\u00f3n del digital twin",
+    "z_score": 0.6154751442125317,
+    "causal_hypothesis_candidate": {
+      "hypothesis": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established.",
+      "confidence_prior": 0.35,
+      "validation_state": "NO VALIDADA - requiere verificacion experimental",
+      "claim_level": {
+        "level": 1,
+        "label": "speculative",
+        "text": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established."
+      }
+    }
+  },
+  {
+    "is_anomaly": true,
+    "fault_id": "F1",
+    "confidence": 0.95,
+    "action": "Aislar sensor y usar estimaci\u00f3n del digital twin",
+    "z_score": 1.9608247099221927,
+    "causal_hypothesis_candidate": {
+      "hypothesis": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established.",
+      "confidence_prior": 0.35,
+      "validation_state": "NO VALIDADA - requiere verificacion experimental",
+      "claim_level": {
+        "level": 1,
+        "label": "speculative",
+        "text": "NO VALIDADA - requiere verificacion experimental: anomaly F1 may indicate a candidate causal mechanism, but causality is not established."
+      }
+    }
+  }
+]

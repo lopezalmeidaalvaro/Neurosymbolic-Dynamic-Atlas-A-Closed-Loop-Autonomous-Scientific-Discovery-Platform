@@ -1,0 +1,16 @@
+{
+  "agent": "Skeptic",
+  "findings": [
+    "t_test_not_significant"
+  ],
+  "t_test_p_value": 0.05437844236453981,
+  "wilcoxon_p_value": 0.001953125,
+  "rerun_mean_improvements": [
+    0.02423783961679712,
+    0.03509549649811853,
+    0.032155999452535826
+  ],
+  "rerun_stability": 0.004585322126304531,
+  "sanity_score": 0.8,
+  "requires_rerun": true
+}

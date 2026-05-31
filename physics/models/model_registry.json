@@ -1,0 +1,229 @@
+{
+  "lorenz_node": {
+    "name": "lorenz_node",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\lorenz_node.pth",
+    "exists": true,
+    "size_bytes": 38320,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "lstm_base": {
+    "name": "lstm_base",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\lstm_base.pth",
+    "exists": true,
+    "size_bytes": 160200,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "lstm_ft": {
+    "name": "lstm_ft",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\lstm_ft.pth",
+    "exists": true,
+    "size_bytes": 159636,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "ode_base": {
+    "name": "ode_base",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ode_base.pth",
+    "exists": true,
+    "size_bytes": 24972,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "ode_ft": {
+    "name": "ode_ft",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ode_ft.pth",
+    "exists": true,
+    "size_bytes": 24500,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "resnet_base": {
+    "name": "resnet_base",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\resnet_base.pth",
+    "exists": true,
+    "size_bytes": 236522,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "resnet_ft": {
+    "name": "resnet_ft",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\resnet_ft.pth",
+    "exists": true,
+    "size_bytes": 236378,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "models__ptbxl__lstm_base.pth": {
+    "name": "lstm_base",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ptbxl\\lstm_base.pth",
+    "exists": true,
+    "size_bytes": 160200,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "models__ptbxl__lstm_ft.pth": {
+    "name": "lstm_ft",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ptbxl\\lstm_ft.pth",
+    "exists": true,
+    "size_bytes": 159636,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "models__ptbxl__ode_base.pth": {
+    "name": "ode_base",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ptbxl\\ode_base.pth",
+    "exists": true,
+    "size_bytes": 24972,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "models__ptbxl__ode_ft.pth": {
+    "name": "ode_ft",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ptbxl\\ode_ft.pth",
+    "exists": true,
+    "size_bytes": 24500,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "patchtst_base": {
+    "name": "patchtst_base",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ptbxl\\patchtst_base.pth",
+    "exists": true,
+    "size_bytes": 123914,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "patchtst_ft": {
+    "name": "patchtst_ft",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ptbxl\\patchtst_ft.pth",
+    "exists": true,
+    "size_bytes": 123738,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "resnet18_base": {
+    "name": "resnet18_base",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ptbxl\\resnet18_base.pth",
+    "exists": true,
+    "size_bytes": 1018098,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "resnet18_ft": {
+    "name": "resnet18_ft",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ptbxl\\resnet18_ft.pth",
+    "exists": true,
+    "size_bytes": 1017846,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "models__ptbxl__resnet_base.pth": {
+    "name": "resnet_base",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ptbxl\\resnet_base.pth",
+    "exists": true,
+    "size_bytes": 236522,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "models__ptbxl__resnet_ft.pth": {
+    "name": "resnet_ft",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ptbxl\\resnet_ft.pth",
+    "exists": true,
+    "size_bytes": 236378,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "timesnet_base": {
+    "name": "timesnet_base",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ptbxl\\timesnet_base.pth",
+    "exists": true,
+    "size_bytes": 24602,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "timesnet_ft": {
+    "name": "timesnet_ft",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\ptbxl\\timesnet_ft.pth",
+    "exists": true,
+    "size_bytes": 24522,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "neural_ode_duffing": {
+    "name": "neural_ode_duffing",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\neural_ode_duffing.pth",
+    "exists": true,
+    "size_bytes": 72580,
+    "updated_at": "2026-05-31T18:26:34",
+    "metadata": {
+      "source": "scan"
+    }
+  },
+  "scientific_embedding_backend": {
+    "name": "scientific_embedding_backend",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\embeddings_cache",
+    "exists": true,
+    "size_bytes": 0,
+    "updated_at": "2026-05-31T19:07:37",
+    "metadata": {
+      "model_name": "allenai/specter2_base",
+      "storage": "sha256 .npy cache"
+    }
+  },
+  "meta_prior_learner": {
+    "name": "meta_prior_learner",
+    "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl",
+    "exists": true,
+    "size_bytes": 32590,
+    "updated_at": "2026-05-31T18:57:06",
+    "metadata": {
+      "cv_scores": [
+        0.0,
+        0.0,
+        0.0,
+        -168.0,
+        -168.0
+      ]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "source": "Lorenz",
+    "target": "Climate",
+    "positive_transfer": true,
+    "transfer_efficiency": 0.9518209513292808,
+    "cka": 0.9424716359599558,
+    "wasserstein": 0.0682979107632515,
+    "cca": 0.976922739446342,
+    "warnings": [],
+    "order": 1
+  },
+  {
+    "source": "ECG",
+    "target": "EEG",
+    "positive_transfer": false,
+    "transfer_efficiency": 0.40674718876243804,
+    "cka": 0.041170751192574205,
+    "wasserstein": 0.11330655275896549,
+    "cca": 0.28084561600485064,
+    "warnings": [
+      "CKA<0.1: weak representational isomorphism"
+    ],
+    "order": 2
+  },
+  {
+    "source": "Fluids",
+    "target": "Materials",
+    "positive_transfer": true,
+    "transfer_efficiency": 0.7019088074796406,
+    "cka": 0.49856339260748395,
+    "wasserstein": 0.14925673090605673,
+    "cca": 0.7370354307425775,
+    "warnings": [],
+    "order": 3
+  },
+  {
+    "source": "QG",
+    "target": "Materials",
+    "positive_transfer": false,
+    "transfer_efficiency": 0.369317472563847,
+    "cka": 0.023774600780999623,
+    "wasserstein": 0.186747082082286,
+    "cca": 0.24153828983845146,
+    "warnings": [
+      "CKA<0.1: weak representational isomorphism"
+    ],
+    "order": 4
+  }
+]

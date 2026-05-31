@@ -326,6 +326,114 @@ class ScientificKnowledgeGraph:
         """
         return self._execute_write(query, next_id=next_id, prev_id=prev_id)
 
+    def relate_hypotheses_contradiction(self, source_id, target_id, evidence="", score=0.0):
+        """
+        Creates a CONTRADICTS relationship between two Hypothesis nodes.
+        Stores only metadata; heavy evidence artifacts should live on disk.
+        """
+        query = """
+        MATCH (h1:Hypothesis {id: $source_id}), (h2:Hypothesis {id: $target_id})
+        MERGE (h1)-[r:CONTRADICTS]->(h2)
+        SET r.evidence = $evidence, r.score = $score, r.timestamp = $timestamp
+        RETURN r
+        """
+        return self._execute_write(
+            query,
+            source_id=source_id,
+            target_id=target_id,
+            evidence=evidence,
+            score=float(score),
+            timestamp=datetime.now().isoformat(),
+        )
+
+    def get_scientific_entities(self):
+        """
+        Returns scientific graph entities that can be embedded.
+        Vectors are intentionally not stored in Neo4j; only hashes and paths.
+        """
+        query = """
+        MATCH (n)
+        WHERE any(label IN labels(n) WHERE label IN ['Hypothesis','Equation','Experiment','Dataset','Observable'])
+        RETURN labels(n)[0] AS label, properties(n) AS props
+        """
+        rows = self._execute_read(query)
+        entities = []
+        for row in rows:
+            props = dict(row.get("props") or {})
+            entity_id = props.get("id")
+            if entity_id:
+                entities.append({"id": entity_id, "label": row.get("label"), "properties": props})
+        return entities
+
+    def update_entity_embedding_metadata(self, label, entity_id, embedding_hash, embedding_path, metadata=None):
+        """
+        Stores embedding metadata on an existing node. The vector itself stays on disk.
+        """
+        safe_label = label if label in {"Hypothesis", "Equation", "Experiment", "Dataset", "Observable"} else "Hypothesis"
+        query = f"""
+        MATCH (n:{safe_label} {{id: $id}})
+        SET n.embedding_hash = $embedding_hash,
+            n.embedding_path = $embedding_path,
+            n.embedding_metadata = $metadata,
+            n.embedding_updated_at = $timestamp
+        RETURN n
+        """
+        return self._execute_write(
+            query,
+            id=entity_id,
+            embedding_hash=embedding_hash,
+            embedding_path=embedding_path,
+            metadata=metadata or {},
+            timestamp=datetime.now().isoformat(),
+        )
+
+    def get_knowledge_evolution_edges(self, root_hypothesis_id):
+        """
+        Traces REFINES, DERIVES and CONTRADICTS relations around a root hypothesis.
+        """
+        query = """
+        MATCH (root:Hypothesis {id: $root_id})
+        OPTIONAL MATCH p=(root)-[:REFINES|DERIVES|CONTRADICTS*0..5]-(n)
+        UNWIND relationships(p) AS rel
+        RETURN startNode(rel).id AS source, endNode(rel).id AS target,
+               type(rel) AS type, properties(rel) AS props
+        """
+        rows = self._execute_read(query, root_id=root_hypothesis_id)
+        return [
+            {
+                "source": row.get("source"),
+                "target": row.get("target"),
+                "type": row.get("type"),
+                "properties": row.get("props") or {},
+            }
+            for row in rows
+            if row.get("source") and row.get("target")
+        ]
+
+    def get_experiment_records(self):
+        """
+        Returns Experiment nodes with related dataset/hypothesis metadata for meta-learning.
+        """
+        query = """
+        MATCH (ex:Experiment)
+        OPTIONAL MATCH (d:Dataset)-[:USED_IN]->(ex)
+        OPTIONAL MATCH (ex)-[ev:EVALUATES]->(h:Hypothesis)
+        RETURN properties(ex) AS experiment,
+               properties(d) AS dataset,
+               properties(h) AS hypothesis,
+               properties(ev) AS evaluation
+        """
+        rows = self._execute_read(query)
+        return [
+            {
+                "experiment": row.get("experiment") or {},
+                "dataset": row.get("dataset") or {},
+                "hypothesis": row.get("hypothesis") or {},
+                "evaluation": row.get("evaluation") or {},
+            }
+            for row in rows
+        ]
+
     # ─────────────────────────────────────────────────────────────────────────────
     # SECCIÓN D: EPISTEMOLOGICAL QUERIES & ANALYTICS
     # ─────────────────────────────────────────────────────────────────────────────

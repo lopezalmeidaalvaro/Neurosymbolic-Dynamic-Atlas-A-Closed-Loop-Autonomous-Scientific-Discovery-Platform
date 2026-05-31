@@ -1,0 +1,1022 @@
+[
+  {
+    "domain": "lorenz",
+    "question": null,
+    "rounds": [
+      {
+        "name": "proposal",
+        "payload": {
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x).",
+          "equation": "dx = sigma * (y - x)",
+          "variables": [
+            "x",
+            "y",
+            "z"
+          ],
+          "falsification_test": "validation_error > 0.2",
+          "confidence_prior": 0.55,
+          "system_type": "lorenz"
+        }
+      },
+      {
+        "name": "design",
+        "payload": {
+          "method": "seed_sweep_validation",
+          "n_trials": 10,
+          "metrics": [
+            "validation_error",
+            "stability"
+          ],
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+        }
+      },
+      {
+        "name": "review",
+        "payload": {
+          "claim_level": {
+            "level": 2,
+            "label": "simulation-supported",
+            "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+          },
+          "methodological_quality": 0.7087133908470544,
+          "verdict": "proceed"
+        }
+      },
+      {
+        "name": "execution",
+        "payload": {
+          "baseline_errors": [
+            0.23523585398772157,
+            0.1680007946879752,
+            0.25752255979032285,
+            0.2670282358195607,
+            0.12244824056730817,
+            0.1548910246568841,
+            0.22639202015836427,
+            0.20418787038282088,
+            0.21915994212478557,
+            0.177347803621321
+          ],
+          "candidate_errors": [
+            0.17825090461615084,
+            0.1135559963022515,
+            0.22087179235129245,
+            0.20384720564535988,
+            0.07576050701100703,
+            0.14137333622896503,
+            0.1821732505563018,
+            0.19315993540354584,
+            0.16219868459210374,
+            0.1435959513959773
+          ],
+          "mean_improvement": 0.041742678169410886
+        }
+      },
+      {
+        "name": "adjustment",
+        "payload": {
+          "adjusted_confidence": 0.5700000000000001
+        }
+      },
+      {
+        "name": "scrutiny",
+        "payload": {
+          "agent": "Skeptic",
+          "findings": [
+            "t_test_not_significant"
+          ],
+          "t_test_p_value": 0.05437844236453981,
+          "wilcoxon_p_value": 0.001953125,
+          "rerun_mean_improvements": [
+            0.02423783961679712,
+            0.03509549649811853,
+            0.032155999452535826
+          ],
+          "rerun_stability": 0.004585322126304531,
+          "sanity_score": 0.8,
+          "requires_rerun": true
+        }
+      }
+    ],
+    "skeptic_report_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\skeptic_report_lorenz_1.json",
+    "score": 0.6704560690164654
+  },
+  {
+    "domain": "lorenz",
+    "question": null,
+    "rounds": [
+      {
+        "name": "proposal",
+        "payload": {
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x).",
+          "equation": "dx = sigma * (y - x)",
+          "variables": [
+            "x",
+            "y",
+            "z"
+          ],
+          "falsification_test": "validation_error > 0.2",
+          "confidence_prior": 0.55,
+          "system_type": "lorenz"
+        }
+      },
+      {
+        "name": "design",
+        "payload": {
+          "method": "seed_sweep_validation",
+          "n_trials": 10,
+          "metrics": [
+            "validation_error",
+            "stability"
+          ],
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+        }
+      },
+      {
+        "name": "review",
+        "payload": {
+          "claim_level": {
+            "level": 2,
+            "label": "simulation-supported",
+            "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+          },
+          "methodological_quality": 0.7087133908470544,
+          "verdict": "proceed"
+        }
+      },
+      {
+        "name": "execution",
+        "payload": {
+          "baseline_errors": [
+            0.23523585398772157,
+            0.1680007946879752,
+            0.25752255979032285,
+            0.2670282358195607,
+            0.12244824056730817,
+            0.1548910246568841,
+            0.22639202015836427,
+            0.20418787038282088,
+            0.21915994212478557,
+            0.177347803621321
+          ],
+          "candidate_errors": [
+            0.17825090461615084,
+            0.1135559963022515,
+            0.22087179235129245,
+            0.20384720564535988,
+            0.07576050701100703,
+            0.14137333622896503,
+            0.1821732505563018,
+            0.19315993540354584,
+            0.16219868459210374,
+            0.1435959513959773
+          ],
+          "mean_improvement": 0.041742678169410886
+        }
+      },
+      {
+        "name": "adjustment",
+        "payload": {
+          "adjusted_confidence": 0.5700000000000001
+        }
+      },
+      {
+        "name": "scrutiny",
+        "payload": {
+          "agent": "Skeptic",
+          "findings": [
+            "t_test_not_significant"
+          ],
+          "t_test_p_value": 0.05437844236453981,
+          "wilcoxon_p_value": 0.001953125,
+          "rerun_mean_improvements": [
+            0.02423783961679712,
+            0.03509549649811853,
+            0.032155999452535826
+          ],
+          "rerun_stability": 0.004585322126304531,
+          "sanity_score": 0.8,
+          "requires_rerun": true
+        }
+      }
+    ],
+    "skeptic_report_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\skeptic_report_lorenz_2.json",
+    "score": 0.6704560690164654
+  },
+  {
+    "domain": "lorenz",
+    "question": null,
+    "rounds": [
+      {
+        "name": "proposal",
+        "payload": {
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x).",
+          "equation": "dx = sigma * (y - x)",
+          "variables": [
+            "x",
+            "y",
+            "z"
+          ],
+          "falsification_test": "validation_error > 0.2",
+          "confidence_prior": 0.55,
+          "system_type": "lorenz"
+        }
+      },
+      {
+        "name": "design",
+        "payload": {
+          "method": "seed_sweep_validation",
+          "n_trials": 10,
+          "metrics": [
+            "validation_error",
+            "stability"
+          ],
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+        }
+      },
+      {
+        "name": "review",
+        "payload": {
+          "claim_level": {
+            "level": 2,
+            "label": "simulation-supported",
+            "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+          },
+          "methodological_quality": 0.7087133908470544,
+          "verdict": "proceed"
+        }
+      },
+      {
+        "name": "execution",
+        "payload": {
+          "baseline_errors": [
+            0.23523585398772157,
+            0.1680007946879752,
+            0.25752255979032285,
+            0.2670282358195607,
+            0.12244824056730817,
+            0.1548910246568841,
+            0.22639202015836427,
+            0.20418787038282088,
+            0.21915994212478557,
+            0.177347803621321
+          ],
+          "candidate_errors": [
+            0.17825090461615084,
+            0.1135559963022515,
+            0.22087179235129245,
+            0.20384720564535988,
+            0.07576050701100703,
+            0.14137333622896503,
+            0.1821732505563018,
+            0.19315993540354584,
+            0.16219868459210374,
+            0.1435959513959773
+          ],
+          "mean_improvement": 0.041742678169410886
+        }
+      },
+      {
+        "name": "adjustment",
+        "payload": {
+          "adjusted_confidence": 0.5700000000000001
+        }
+      },
+      {
+        "name": "scrutiny",
+        "payload": {
+          "agent": "Skeptic",
+          "findings": [
+            "t_test_not_significant"
+          ],
+          "t_test_p_value": 0.05437844236453981,
+          "wilcoxon_p_value": 0.001953125,
+          "rerun_mean_improvements": [
+            0.02423783961679712,
+            0.03509549649811853,
+            0.032155999452535826
+          ],
+          "rerun_stability": 0.004585322126304531,
+          "sanity_score": 0.8,
+          "requires_rerun": true
+        }
+      }
+    ],
+    "skeptic_report_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\skeptic_report_lorenz_3.json",
+    "score": 0.6704560690164654
+  },
+  {
+    "domain": "lorenz",
+    "question": null,
+    "rounds": [
+      {
+        "name": "proposal",
+        "payload": {
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x).",
+          "equation": "dx = sigma * (y - x)",
+          "variables": [
+            "x",
+            "y",
+            "z"
+          ],
+          "falsification_test": "validation_error > 0.2",
+          "confidence_prior": 0.55,
+          "system_type": "lorenz"
+        }
+      },
+      {
+        "name": "design",
+        "payload": {
+          "method": "seed_sweep_validation",
+          "n_trials": 10,
+          "metrics": [
+            "validation_error",
+            "stability"
+          ],
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+        }
+      },
+      {
+        "name": "review",
+        "payload": {
+          "claim_level": {
+            "level": 2,
+            "label": "simulation-supported",
+            "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+          },
+          "methodological_quality": 0.7087133908470544,
+          "verdict": "proceed"
+        }
+      },
+      {
+        "name": "execution",
+        "payload": {
+          "baseline_errors": [
+            0.23523585398772157,
+            0.1680007946879752,
+            0.25752255979032285,
+            0.2670282358195607,
+            0.12244824056730817,
+            0.1548910246568841,
+            0.22639202015836427,
+            0.20418787038282088,
+            0.21915994212478557,
+            0.177347803621321
+          ],
+          "candidate_errors": [
+            0.17825090461615084,
+            0.1135559963022515,
+            0.22087179235129245,
+            0.20384720564535988,
+            0.07576050701100703,
+            0.14137333622896503,
+            0.1821732505563018,
+            0.19315993540354584,
+            0.16219868459210374,
+            0.1435959513959773
+          ],
+          "mean_improvement": 0.041742678169410886
+        }
+      },
+      {
+        "name": "adjustment",
+        "payload": {
+          "adjusted_confidence": 0.5700000000000001
+        }
+      },
+      {
+        "name": "scrutiny",
+        "payload": {
+          "agent": "Skeptic",
+          "findings": [
+            "t_test_not_significant"
+          ],
+          "t_test_p_value": 0.05437844236453981,
+          "wilcoxon_p_value": 0.001953125,
+          "rerun_mean_improvements": [
+            0.02423783961679712,
+            0.03509549649811853,
+            0.032155999452535826
+          ],
+          "rerun_stability": 0.004585322126304531,
+          "sanity_score": 0.8,
+          "requires_rerun": true
+        }
+      }
+    ],
+    "skeptic_report_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\skeptic_report_lorenz_4.json",
+    "score": 0.6704560690164654
+  },
+  {
+    "domain": "lorenz",
+    "question": null,
+    "rounds": [
+      {
+        "name": "proposal",
+        "payload": {
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x).",
+          "equation": "dx = sigma * (y - x)",
+          "variables": [
+            "x",
+            "y",
+            "z"
+          ],
+          "falsification_test": "validation_error > 0.2",
+          "confidence_prior": 0.55,
+          "system_type": "lorenz"
+        }
+      },
+      {
+        "name": "design",
+        "payload": {
+          "method": "seed_sweep_validation",
+          "n_trials": 10,
+          "metrics": [
+            "validation_error",
+            "stability"
+          ],
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+        }
+      },
+      {
+        "name": "review",
+        "payload": {
+          "claim_level": {
+            "level": 2,
+            "label": "simulation-supported",
+            "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+          },
+          "methodological_quality": 0.7087133908470544,
+          "verdict": "proceed"
+        }
+      },
+      {
+        "name": "execution",
+        "payload": {
+          "baseline_errors": [
+            0.23523585398772157,
+            0.1680007946879752,
+            0.25752255979032285,
+            0.2670282358195607,
+            0.12244824056730817,
+            0.1548910246568841,
+            0.22639202015836427,
+            0.20418787038282088,
+            0.21915994212478557,
+            0.177347803621321
+          ],
+          "candidate_errors": [
+            0.17825090461615084,
+            0.1135559963022515,
+            0.22087179235129245,
+            0.20384720564535988,
+            0.07576050701100703,
+            0.14137333622896503,
+            0.1821732505563018,
+            0.19315993540354584,
+            0.16219868459210374,
+            0.1435959513959773
+          ],
+          "mean_improvement": 0.041742678169410886
+        }
+      },
+      {
+        "name": "adjustment",
+        "payload": {
+          "adjusted_confidence": 0.5700000000000001
+        }
+      },
+      {
+        "name": "scrutiny",
+        "payload": {
+          "agent": "Skeptic",
+          "findings": [
+            "t_test_not_significant"
+          ],
+          "t_test_p_value": 0.05437844236453981,
+          "wilcoxon_p_value": 0.001953125,
+          "rerun_mean_improvements": [
+            0.02423783961679712,
+            0.03509549649811853,
+            0.032155999452535826
+          ],
+          "rerun_stability": 0.004585322126304531,
+          "sanity_score": 0.8,
+          "requires_rerun": true
+        }
+      }
+    ],
+    "skeptic_report_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\skeptic_report_lorenz_5.json",
+    "score": 0.6704560690164654
+  },
+  {
+    "domain": "lorenz",
+    "question": null,
+    "rounds": [
+      {
+        "name": "proposal",
+        "payload": {
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x).",
+          "equation": "dx = sigma * (y - x)",
+          "variables": [
+            "x",
+            "y",
+            "z"
+          ],
+          "falsification_test": "validation_error > 0.2",
+          "confidence_prior": 0.55,
+          "system_type": "lorenz"
+        }
+      },
+      {
+        "name": "design",
+        "payload": {
+          "method": "seed_sweep_validation",
+          "n_trials": 10,
+          "metrics": [
+            "validation_error",
+            "stability"
+          ],
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+        }
+      },
+      {
+        "name": "review",
+        "payload": {
+          "claim_level": {
+            "level": 2,
+            "label": "simulation-supported",
+            "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+          },
+          "methodological_quality": 0.7087133908470544,
+          "verdict": "proceed"
+        }
+      },
+      {
+        "name": "execution",
+        "payload": {
+          "baseline_errors": [
+            0.23523585398772157,
+            0.1680007946879752,
+            0.25752255979032285,
+            0.2670282358195607,
+            0.12244824056730817,
+            0.1548910246568841,
+            0.22639202015836427,
+            0.20418787038282088,
+            0.21915994212478557,
+            0.177347803621321
+          ],
+          "candidate_errors": [
+            0.17825090461615084,
+            0.1135559963022515,
+            0.22087179235129245,
+            0.20384720564535988,
+            0.07576050701100703,
+            0.14137333622896503,
+            0.1821732505563018,
+            0.19315993540354584,
+            0.16219868459210374,
+            0.1435959513959773
+          ],
+          "mean_improvement": 0.041742678169410886
+        }
+      },
+      {
+        "name": "adjustment",
+        "payload": {
+          "adjusted_confidence": 0.5700000000000001
+        }
+      },
+      {
+        "name": "scrutiny",
+        "payload": {
+          "agent": "Skeptic",
+          "findings": [
+            "t_test_not_significant"
+          ],
+          "t_test_p_value": 0.05437844236453981,
+          "wilcoxon_p_value": 0.001953125,
+          "rerun_mean_improvements": [
+            0.02423783961679712,
+            0.03509549649811853,
+            0.032155999452535826
+          ],
+          "rerun_stability": 0.004585322126304531,
+          "sanity_score": 0.8,
+          "requires_rerun": true
+        }
+      }
+    ],
+    "skeptic_report_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\skeptic_report_lorenz_6.json",
+    "score": 0.6704560690164654
+  },
+  {
+    "domain": "lorenz",
+    "question": null,
+    "rounds": [
+      {
+        "name": "proposal",
+        "payload": {
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x).",
+          "equation": "dx = sigma * (y - x)",
+          "variables": [
+            "x",
+            "y",
+            "z"
+          ],
+          "falsification_test": "validation_error > 0.2",
+          "confidence_prior": 0.55,
+          "system_type": "lorenz"
+        }
+      },
+      {
+        "name": "design",
+        "payload": {
+          "method": "seed_sweep_validation",
+          "n_trials": 10,
+          "metrics": [
+            "validation_error",
+            "stability"
+          ],
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+        }
+      },
+      {
+        "name": "review",
+        "payload": {
+          "claim_level": {
+            "level": 2,
+            "label": "simulation-supported",
+            "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+          },
+          "methodological_quality": 0.7087133908470544,
+          "verdict": "proceed"
+        }
+      },
+      {
+        "name": "execution",
+        "payload": {
+          "baseline_errors": [
+            0.23523585398772157,
+            0.1680007946879752,
+            0.25752255979032285,
+            0.2670282358195607,
+            0.12244824056730817,
+            0.1548910246568841,
+            0.22639202015836427,
+            0.20418787038282088,
+            0.21915994212478557,
+            0.177347803621321
+          ],
+          "candidate_errors": [
+            0.17825090461615084,
+            0.1135559963022515,
+            0.22087179235129245,
+            0.20384720564535988,
+            0.07576050701100703,
+            0.14137333622896503,
+            0.1821732505563018,
+            0.19315993540354584,
+            0.16219868459210374,
+            0.1435959513959773
+          ],
+          "mean_improvement": 0.041742678169410886
+        }
+      },
+      {
+        "name": "adjustment",
+        "payload": {
+          "adjusted_confidence": 0.5700000000000001
+        }
+      },
+      {
+        "name": "scrutiny",
+        "payload": {
+          "agent": "Skeptic",
+          "findings": [
+            "t_test_not_significant"
+          ],
+          "t_test_p_value": 0.05437844236453981,
+          "wilcoxon_p_value": 0.001953125,
+          "rerun_mean_improvements": [
+            0.02423783961679712,
+            0.03509549649811853,
+            0.032155999452535826
+          ],
+          "rerun_stability": 0.004585322126304531,
+          "sanity_score": 0.8,
+          "requires_rerun": true
+        }
+      }
+    ],
+    "skeptic_report_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\skeptic_report_lorenz_7.json",
+    "score": 0.6704560690164654
+  },
+  {
+    "domain": "lorenz",
+    "question": null,
+    "rounds": [
+      {
+        "name": "proposal",
+        "payload": {
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x).",
+          "equation": "dx = sigma * (y - x)",
+          "variables": [
+            "x",
+            "y",
+            "z"
+          ],
+          "falsification_test": "validation_error > 0.2",
+          "confidence_prior": 0.55,
+          "system_type": "lorenz"
+        }
+      },
+      {
+        "name": "design",
+        "payload": {
+          "method": "seed_sweep_validation",
+          "n_trials": 10,
+          "metrics": [
+            "validation_error",
+            "stability"
+          ],
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+        }
+      },
+      {
+        "name": "review",
+        "payload": {
+          "claim_level": {
+            "level": 2,
+            "label": "simulation-supported",
+            "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+          },
+          "methodological_quality": 0.7087133908470544,
+          "verdict": "proceed"
+        }
+      },
+      {
+        "name": "execution",
+        "payload": {
+          "baseline_errors": [
+            0.23523585398772157,
+            0.1680007946879752,
+            0.25752255979032285,
+            0.2670282358195607,
+            0.12244824056730817,
+            0.1548910246568841,
+            0.22639202015836427,
+            0.20418787038282088,
+            0.21915994212478557,
+            0.177347803621321
+          ],
+          "candidate_errors": [
+            0.17825090461615084,
+            0.1135559963022515,
+            0.22087179235129245,
+            0.20384720564535988,
+            0.07576050701100703,
+            0.14137333622896503,
+            0.1821732505563018,
+            0.19315993540354584,
+            0.16219868459210374,
+            0.1435959513959773
+          ],
+          "mean_improvement": 0.041742678169410886
+        }
+      },
+      {
+        "name": "adjustment",
+        "payload": {
+          "adjusted_confidence": 0.5700000000000001
+        }
+      },
+      {
+        "name": "scrutiny",
+        "payload": {
+          "agent": "Skeptic",
+          "findings": [
+            "t_test_not_significant"
+          ],
+          "t_test_p_value": 0.05437844236453981,
+          "wilcoxon_p_value": 0.001953125,
+          "rerun_mean_improvements": [
+            0.02423783961679712,
+            0.03509549649811853,
+            0.032155999452535826
+          ],
+          "rerun_stability": 0.004585322126304531,
+          "sanity_score": 0.8,
+          "requires_rerun": true
+        }
+      }
+    ],
+    "skeptic_report_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\skeptic_report_lorenz_8.json",
+    "score": 0.6704560690164654
+  },
+  {
+    "domain": "lorenz",
+    "question": null,
+    "rounds": [
+      {
+        "name": "proposal",
+        "payload": {
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x).",
+          "equation": "dx = sigma * (y - x)",
+          "variables": [
+            "x",
+            "y",
+            "z"
+          ],
+          "falsification_test": "validation_error > 0.2",
+          "confidence_prior": 0.55,
+          "system_type": "lorenz"
+        }
+      },
+      {
+        "name": "design",
+        "payload": {
+          "method": "seed_sweep_validation",
+          "n_trials": 10,
+          "metrics": [
+            "validation_error",
+            "stability"
+          ],
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+        }
+      },
+      {
+        "name": "review",
+        "payload": {
+          "claim_level": {
+            "level": 2,
+            "label": "simulation-supported",
+            "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+          },
+          "methodological_quality": 0.7087133908470544,
+          "verdict": "proceed"
+        }
+      },
+      {
+        "name": "execution",
+        "payload": {
+          "baseline_errors": [
+            0.23523585398772157,
+            0.1680007946879752,
+            0.25752255979032285,
+            0.2670282358195607,
+            0.12244824056730817,
+            0.1548910246568841,
+            0.22639202015836427,
+            0.20418787038282088,
+            0.21915994212478557,
+            0.177347803621321
+          ],
+          "candidate_errors": [
+            0.17825090461615084,
+            0.1135559963022515,
+            0.22087179235129245,
+            0.20384720564535988,
+            0.07576050701100703,
+            0.14137333622896503,
+            0.1821732505563018,
+            0.19315993540354584,
+            0.16219868459210374,
+            0.1435959513959773
+          ],
+          "mean_improvement": 0.041742678169410886
+        }
+      },
+      {
+        "name": "adjustment",
+        "payload": {
+          "adjusted_confidence": 0.5700000000000001
+        }
+      },
+      {
+        "name": "scrutiny",
+        "payload": {
+          "agent": "Skeptic",
+          "findings": [
+            "t_test_not_significant"
+          ],
+          "t_test_p_value": 0.05437844236453981,
+          "wilcoxon_p_value": 0.001953125,
+          "rerun_mean_improvements": [
+            0.02423783961679712,
+            0.03509549649811853,
+            0.032155999452535826
+          ],
+          "rerun_stability": 0.004585322126304531,
+          "sanity_score": 0.8,
+          "requires_rerun": true
+        }
+      }
+    ],
+    "skeptic_report_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\skeptic_report_lorenz_9.json",
+    "score": 0.6704560690164654
+  },
+  {
+    "domain": "lorenz",
+    "question": null,
+    "rounds": [
+      {
+        "name": "proposal",
+        "payload": {
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x).",
+          "equation": "dx = sigma * (y - x)",
+          "variables": [
+            "x",
+            "y",
+            "z"
+          ],
+          "falsification_test": "validation_error > 0.2",
+          "confidence_prior": 0.55,
+          "system_type": "lorenz"
+        }
+      },
+      {
+        "name": "design",
+        "payload": {
+          "method": "seed_sweep_validation",
+          "n_trials": 10,
+          "metrics": [
+            "validation_error",
+            "stability"
+          ],
+          "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+        }
+      },
+      {
+        "name": "review",
+        "payload": {
+          "claim_level": {
+            "level": 2,
+            "label": "simulation-supported",
+            "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+          },
+          "methodological_quality": 0.7087133908470544,
+          "verdict": "proceed"
+        }
+      },
+      {
+        "name": "execution",
+        "payload": {
+          "baseline_errors": [
+            0.23523585398772157,
+            0.1680007946879752,
+            0.25752255979032285,
+            0.2670282358195607,
+            0.12244824056730817,
+            0.1548910246568841,
+            0.22639202015836427,
+            0.20418787038282088,
+            0.21915994212478557,
+            0.177347803621321
+          ],
+          "candidate_errors": [
+            0.17825090461615084,
+            0.1135559963022515,
+            0.22087179235129245,
+            0.20384720564535988,
+            0.07576050701100703,
+            0.14137333622896503,
+            0.1821732505563018,
+            0.19315993540354584,
+            0.16219868459210374,
+            0.1435959513959773
+          ],
+          "mean_improvement": 0.041742678169410886
+        }
+      },
+      {
+        "name": "adjustment",
+        "payload": {
+          "adjusted_confidence": 0.5700000000000001
+        }
+      },
+      {
+        "name": "scrutiny",
+        "payload": {
+          "agent": "Skeptic",
+          "findings": [
+            "t_test_not_significant"
+          ],
+          "t_test_p_value": 0.05437844236453981,
+          "wilcoxon_p_value": 0.001953125,
+          "rerun_mean_improvements": [
+            0.02423783961679712,
+            0.03509549649811853,
+            0.032155999452535826
+          ],
+          "rerun_stability": 0.004585322126304531,
+          "sanity_score": 0.8,
+          "requires_rerun": true
+        }
+      }
+    ],
+    "skeptic_report_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\skeptic_report_lorenz_10.json",
+    "score": 0.6704560690164654
+  }
+]

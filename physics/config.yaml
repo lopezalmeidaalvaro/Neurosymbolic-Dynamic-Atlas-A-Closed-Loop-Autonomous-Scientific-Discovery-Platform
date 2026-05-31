@@ -47,3 +47,23 @@ orchestrator:
   log_level: INFO
   overwrite_results: true
   save_plots: true
+
+scientific_guard:
+  blocked_phrases:
+  - theory of everything
+  - proof of quantum gravity
+  - discovered fundamental law
+  - real spacetime
+  - unified field theory
+  - quantum spacetime emergence proven
+  - hawking radiation confirmed
+  - holographic principle verified
+
+physics:
+  random_seed: 42
+  default_timeout: 300
+
+models:
+  scientific_embedding_model: allenai/specter2_base
+  scibert_model: allenai/scibert_scivocab_uncased
+  embedding_cache: physics/models/embeddings_cache/

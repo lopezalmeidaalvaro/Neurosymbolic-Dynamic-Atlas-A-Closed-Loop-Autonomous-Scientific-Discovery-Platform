@@ -1,0 +1,2298 @@
+{
+  "6f7490e4d0d82a0d59cf88e398c45e8fdf6dffb31374b0ea76b7dbf93033dc88": {
+    "hypothesis": "The harmonic oscillator derivative follows velocity.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -9.85275460497989,
+        "max": 9.512447032735118,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "191b57ea92604a487e3f5659ed5fec5ce322f77731480259b00ebd5c8c6465b3": {
+    "hypothesis": "lorenz dynamics can be approximated by dx = sigma * (y - x).",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx + sigma*(x - y)",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": null,
+        "max": null,
+        "warnings": [
+          "evaluation_error: Cannot convert expression to float"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.5
+      }
+    }
+  },
+  "75d3f03adb7afa837026a55480b6f74400503e372db56f6541d6e1edcad30c3c": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment bd90c11c with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "5b771b243ef5d0b43f4ace28a01a84c9f62af2f0c9d530fd4b273a88a8fae716": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment 9f26a5e0 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "0442c2bafb9d5a17ab2c52ecba6d4ead87b3db7de18dd641bce704086f9caeac": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment bced2c52 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "f85dbd8eaedf45c5c2ea6d2f7c385494fce19eea1dc4c82fcecfe92732ff04fa": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment 0f2acd3c with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "169b727769b6e4db8a221e4b37f52fe12c0774c4d6a9e3e7d0c6340ffb2cf222": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment bc4d9321 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "2648d549ecdecef4f3265e58d684276fbe2443bec860b490769007e83471c833": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment 019e1247 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "c0a0a7cd0e79cca349afc8252491bae563e94db210f3f200584774e95aa6dcf1": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment a10c1fcf with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "db7d99a1f37605c4b467d28d154d45492e89a9ab6fcf04a2b24918d7c892e8db": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment ade7bb55 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "99a80f64b6c3a29f6b37e4238c61a1861a7a10fd6ffde7625775fd5a2ce4ffe5": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment 2c0789df with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "c9d8ff06c86893c69bea6662134df553efaa3eb029879c096214df61e6f874df": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment f72866bf with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "d25c55f74ca5a15f72a545cc70e03ad00d0865f9a7bf9772e92b1f10f24fa9be": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment 65502c31 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "5c92c8f5fab40aae8329180336d88c637aa1dad6e0b2471c94ed65cc69be5415": {
+    "hypothesis": "Follow up TheoryAutowriter result from registered experiment 2fb92bcd with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "cc42824577e7294836b1391ee768de90c8caf7a0e5a2fe16558c0827ad5162a7": {
+    "hypothesis": "Follow up CrossDomainTransfer result from registered experiment 83ad5b37 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "5aec926d1075a6c64c3b2e8b9c4169ebc0c0de28082c49df1c2390481bddd1a5": {
+    "hypothesis": "Follow up CrossDomainTransfer result from registered experiment d4263a13 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "479e2db555974e29546b7858e637e35373783b042ba28746dc8df894ae2e1185": {
+    "hypothesis": "Follow up CrossDomainTransfer result from registered experiment b3e94e49 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "04829bf962f37f154b4a1c5af1d4eadb5e92051a6ff4881dc2781df0efe63e86": {
+    "hypothesis": "Follow up CrossDomainTransfer result from registered experiment 0237535a with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "5408908aedba4631ec7563ecbb961413e53ee1bd8def033d99c53cfa91c53048": {
+    "hypothesis": "Follow up CrossDomainTransfer result from registered experiment 4fdcce94 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "35612e5f990e1643211f48dfb5773fd8442e73ca4e109c2a216b04cab8a4758b": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment bced2c52 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "7e23289ecc3e747b02698c891d547dcb9be8e09c58fb637d7a14bf2c95335fff": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment 0f2acd3c with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "133674fbf72d73be0c614d208e540efc9b3d091c8d09844b57220a1260dd11a5": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment bc4d9321 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "18d45db9efbfd8d4f6d749ca11bf8dc45257f664a041fc8d5fdab93ccedd2b68": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment 019e1247 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "d282f2e77b5b49e6017804fde2f033e166f613cec99cc52d3dc989f873a20795": {
+    "hypothesis": "Follow up FrontierDiscovery result from registered experiment dad5108e with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "97580b859b5feee7426e9ac6f03fac9cf462e12b4f3e9fa60f28456465b65607": {
+    "hypothesis": "Follow up FrontierDiscovery result from registered experiment 534896a5 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "8dfeb2c919f345c5bd8dade724ea46dae37961d7d62e5774c6a74480add52416": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 631f66a8 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "63d33dab57de332fbd95bee3e5c68975d0f896311fe51404ef294c93fb25a79b": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 87238b54 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "4f9b5b6e9a007d51895ca70fe3d3315a1cdbac18873e7036024f19b579812080": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment a10c1fcf with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "13bdf513f464078d2ecffd876f971ae2edd393cf74238f1144337b6f01a80b66": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment ade7bb55 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "233999739027ec51e6b5a022783d7165f63775fe6af179035a5975c4785c7a23": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment 2c0789df with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "e66ca959511b6cf88b586dff637f98d1da5cdb65ebf8d89e7152246bbe74cf2e": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment f72866bf with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "d8ac850c730274e2d013115be6eb28917a97a10183fd3b296b0933befc78e45d": {
+    "hypothesis": "Follow up PhysicalLabInterface result from registered experiment 65502c31 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "152f4262f2cbfb09af228618a1c577f53a289e25fc5261c1c81437c2da5e72c0": {
+    "hypothesis": "Follow up ScientificMemoryAdvanced result from registered experiment 05918088 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "d98dd836d71780007df03171fa468400239a8740071de3e46884e015f05d9893": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 7dc0fbb9 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "8963f66cdf149e9ffa2d077f542362b460b118a48df8581a2a97473c33e3a934": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment a9af20ee with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "57d50c8518ee40f4934eae1e433cfda1f7aa955e3b53f473c7dcbe6226656109": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 36b387a8 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "56375b208e29f62f01a8537589da213329cb3aaf2d1796e93627b46eb3770513": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 1d868983 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "77259fb3b19e64c70ffcef18a645d2f074bb8ed32d42c6be2530cb0bd16a6b6c": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 50992ed8 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "8fe2628b245b7355c594e914b64530154f8e849e89c5c6d2e27eba2d5363ce22": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 391ae313 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "caff66a567f203dd513e85ef64e92a53c56dbaf51a4742cd667a4891fe2e620b": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 1a1250d4 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "70d587c1170a0cfea3a9c9eb7161da23e66053582b3cef333a2d253ba934fb7c": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 5dad86f9 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "d6ef12e517d2875cb500809a9ed0f106940f465b5f24207e5ec4e69baf86f53b": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 25647378 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "3edde09a753c5862e7447bab4a8fccaa48c606d67c73f635ae0508ca70f87ed8": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 521dd3a8 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "abe94068d5aa7a7ed06a1528f63b860803bb9fb3afdea2dad52061e5fccc6fea": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment fa3aa922 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "d282389b512076c348ecfc5b5bb00334667d5f07a15d6e2c4074a684333ccd55": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 01697314 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "71d0188ad50cc5428adbadf0e3dbfa85c87a7eae1b2444619fac22a9eea389f4": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 4fc9a942 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "0b0403f38b56405735e1ae8261c1e7ee8462aa9c1614b92a6a1bec09ba1c41da": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment f1d42e4e with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "cd6591a69507779761fa1a1935101afa355b7e648313c2897b3243a8eb0ab6e1": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment aad496cd with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "677909af07c3b85c1d27f6f65ce8ed83952d952038ee64d351cd3dc3351b43fc": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 22b64db7 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "e9bed17e502ebc15f5c535620684d4a70377bcdc8b00c7bd489fc4aa3042f2e7": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment a9623891 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "2718846b7a1605216ed7e2d9aca667a1ec33b453686ec66ab9ce179fe5887486": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment b1db26a5 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "882bf7d51cb26ae7f3d1df06a369d9b215b9c82576faaf8fb9f11387acfde4e5": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment a07d92f2 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "22ac5ebd90a4d8ca8fe047ec680d38543e96ccc6959939be502dfbaeecbb3240": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment dd9ee227 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "61dc9c7320e24992d779b481d174294a07ab0d3c04eee87d165ef36d76f6756d": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment c800e1be with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "c9db69fc2eaeeb875ede6f0d0e14fc305808d27eb310beb7bf8006f2baf2c604": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 83bf1aee with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "8b19313d26bcd303f5f464e477ba64c3947d4be9fc782a4e5825475467fc918b": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 7117b4cd with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "17a32d30a27db03cbfa496fa4f68c1fdda02d500824a0ccaae94a531763aa91e": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 86ee6242 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "17190b23abed209764aaa8cf27e9a63aa0829ae1c3d32a233fc02f198053f671": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 40f0a1e8 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "e9a2937c5e03d4b36f9f12a28fadf08d30bf973396d25c4326dafd74cb57e077": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 63ae834b with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "b88db7901ed6a9ced2a373c8894f67ee75d2f6f30fd6f2c388b4c8206bf8b968": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 9fd4c077 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "f65aa8f3792ecefd205da650fe2992d2317ea6b9ece75d339c914169fdf1702d": {
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 5c73a117 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "6867bdd796422b23f75896abc851d05bfcdbafac4e96cea1b9f4d55c2eda99ee": {
+    "hypothesis": "Identify the next falsifiable frontier test.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx + sigma*(x - y)",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": null,
+        "max": null,
+        "warnings": [
+          "evaluation_error: Cannot convert expression to float"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  }
+}

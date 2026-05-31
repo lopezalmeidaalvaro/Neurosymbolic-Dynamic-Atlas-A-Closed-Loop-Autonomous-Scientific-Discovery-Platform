@@ -1,0 +1,14 @@
+To: reviewer@example.org
+Subject: Request for external scientific review - Neurosymbolic Scientific Discovery
+
+Dear reviewer,
+
+We are preparing an external technical review of "Neurosymbolic Scientific Discovery". The requested review focuses on methodological validity, evidence level, reproducibility, and overclaiming risk.
+
+Suggested review points:
+- Are the claims supported by the presented evidence level?
+- Are validation datasets, baselines, and failure modes described clearly?
+- Which claims should be weakened, removed, or tested further?
+- Which experiments would make the result externally reproducible?
+
+Thank you for considering this review.

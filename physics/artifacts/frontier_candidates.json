@@ -1,0 +1,423 @@
+[
+  {
+    "id": "registry_391ae313",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 391ae313 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "claim_level": {
+        "level": 2,
+        "label": "simulation-supported",
+        "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+      },
+      "methodological_quality": 0.7087133908470544,
+      "verdict": "proceed"
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 1.0,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment 391ae313 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.8
+  },
+  {
+    "id": "registry_01697314",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 01697314 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "claim_level": {
+        "level": 2,
+        "label": "simulation-supported",
+        "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+      },
+      "methodological_quality": 0.7087133908470544,
+      "verdict": "proceed"
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 1.0,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment 01697314 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.8
+  },
+  {
+    "id": "registry_b1db26a5",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment b1db26a5 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "claim_level": {
+        "level": 2,
+        "label": "simulation-supported",
+        "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+      },
+      "methodological_quality": 0.7087133908470544,
+      "verdict": "proceed"
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 1.0,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment b1db26a5 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.8
+  },
+  {
+    "id": "registry_86ee6242",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 86ee6242 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "claim_level": {
+        "level": 2,
+        "label": "simulation-supported",
+        "text": "lorenz dynamics can be approximated by dx = sigma * (y - x)."
+      },
+      "methodological_quality": 0.7087133908470544,
+      "verdict": "proceed"
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 1.0,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment 86ee6242 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.8
+  },
+  {
+    "id": "registry_dad5108e",
+    "hypothesis": "Follow up FrontierDiscovery result from registered experiment dad5108e with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "domain": "multi",
+      "iterations_requested": 12,
+      "candidates_ranked": 10,
+      "top_frontier_score": 0.7200000000000001,
+      "warnings": [],
+      "report_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\frontier_report.md"
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up FrontierDiscovery result from registered experiment dad5108e with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001
+  },
+  {
+    "id": "registry_534896a5",
+    "hypothesis": "Follow up FrontierDiscovery result from registered experiment 534896a5 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "domain": "multi",
+      "iterations_requested": 12,
+      "candidates_ranked": 10,
+      "top_frontier_score": 0.7200000000000001,
+      "warnings": []
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up FrontierDiscovery result from registered experiment 534896a5 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001
+  },
+  {
+    "id": "registry_631f66a8",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 631f66a8 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "method": "seed_sweep_validation",
+      "n_trials": 10,
+      "metrics": [
+        "validation_error",
+        "stability"
+      ],
+      "hypothesis": "Identify the next falsifiable frontier test."
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment 631f66a8 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001
+  },
+  {
+    "id": "registry_87238b54",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 87238b54 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "hypothesis": "Identify the next falsifiable frontier test.",
+      "equation": "dx = sigma * (y - x)",
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "falsification_test": "validation_error > 0.2",
+      "confidence_prior": 0.55,
+      "system_type": "lorenz"
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment 87238b54 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001
+  },
+  {
+    "id": "registry_83ad5b37",
+    "hypothesis": "Follow up CrossDomainTransfer result from registered experiment 83ad5b37 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "pairs_evaluated": 4,
+      "positive_transfer_pairs": 2,
+      "objective": "report_count_only_no_forcing",
+      "report_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\cross_domain_report.md"
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up CrossDomainTransfer result from registered experiment 83ad5b37 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001
+  },
+  {
+    "id": "registry_d4263a13",
+    "hypothesis": "Follow up CrossDomainTransfer result from registered experiment d4263a13 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "source": "QG",
+      "target": "Materials",
+      "positive_transfer": false,
+      "transfer_efficiency": 0.369317472563847,
+      "cka": 0.023774600780999623,
+      "wasserstein": 0.186747082082286,
+      "cca": 0.24153828983845146,
+      "warnings": [
+        "CKA<0.1: weak representational isomorphism"
+      ],
+      "order": 4
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up CrossDomainTransfer result from registered experiment d4263a13 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001
+  }
+]
