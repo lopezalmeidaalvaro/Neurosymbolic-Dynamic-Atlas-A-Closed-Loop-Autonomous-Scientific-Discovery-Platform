@@ -1,0 +1,581 @@
+{
+  "benchmark": {
+    "n_cycles": 20,
+    "autonomous": {
+      "validated_discoveries": 200,
+      "cumulative_epistemic_gain": 11.133941425355289,
+      "compute_cost": 400.0,
+      "time_per_discovery": 2.0
+    },
+    "random": {
+      "validated_discoveries": 20,
+      "cumulative_epistemic_gain": 28.8,
+      "compute_cost": 200.0,
+      "time_per_discovery": 10.0
+    }
+  },
+  "cycles": [
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 0,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 135,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 1,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 145,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 2,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 155,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 3,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 165,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 4,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 175,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 5,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 185,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 6,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 195,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 7,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 205,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 8,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 215,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 9,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 225,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 10,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 235,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 11,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 245,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 12,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 255,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 13,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 265,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 14,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 275,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 15,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 285,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 16,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 295,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 17,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 305,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 18,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 315,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    },
+    {
+      "hypotheses_generated": 11,
+      "hypotheses_tested": 10,
+      "hypotheses_validated": 10,
+      "hypotheses_rejected": 0,
+      "average_novelty": 0.9545454545454546,
+      "average_epistemic_gain": 0.5566970712677645,
+      "compute_cost": 20.0,
+      "discoveries_per_cycle": 10,
+      "cycle": 19,
+      "memory_update": {
+        "validated": 10,
+        "rejected": 0,
+        "embedded_new_or_modified": 10
+      },
+      "meta_update": {
+        "rows": 325,
+        "updated": true,
+        "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl"
+      }
+    }
+  ],
+  "random": [
+    {
+      "cycle": 0,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.5,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 1,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 2,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 3,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 4,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 5,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.5,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 6,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 7,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 8,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 9,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 10,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 11,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.5,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 12,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 13,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 14,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 15,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 16,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 17,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 18,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.5,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    },
+    {
+      "cycle": 19,
+      "validated_discoveries": 1,
+      "epistemic_gain": 1.425,
+      "compute_cost": 10,
+      "time_per_discovery": 10.0
+    }
+  ]
+}

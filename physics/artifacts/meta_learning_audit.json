@@ -1,0 +1,47 @@
+{
+  "x_meta_rows": 18,
+  "x_meta_columns": 7,
+  "historical_experiments": 18,
+  "domain_distribution": {
+    "physics": 9,
+    "lorenz": 8,
+    "distributed_execution": 1
+  },
+  "method_distribution": {
+    "MultiAgentSystem": 8,
+    "DistributedExecution": 2,
+    "MetaLearningEngine": 2,
+    "PhysicsSanityEngine": 1,
+    "BiasDetector": 1,
+    "DomainAdaptation": 1,
+    "ExpertValidation": 1,
+    "RealDataIngestor": 1,
+    "ScientificMemoryAdvanced": 1
+  },
+  "cv_mean_score": -67.2,
+  "cv_std_score": 82.30285535751479,
+  "feature_importance": {
+    "feature_0": 0.0,
+    "feature_1": 0.0,
+    "feature_2": 0.0,
+    "feature_3": 0.0,
+    "feature_4": 0.0,
+    "feature_5": 0.0,
+    "feature_6": 0.0,
+    "feature_7": 0.0,
+    "feature_8": 0.0,
+    "feature_9": 0.0,
+    "feature_10": 0.0,
+    "feature_11": 0.0,
+    "feature_12": 0.0,
+    "feature_13": 0.0,
+    "feature_14": 0.0,
+    "feature_15": 0.0,
+    "feature_16": 0.0
+  },
+  "model_stability": 1.0,
+  "too_small_dataset": true,
+  "information_leakage_flags": [],
+  "potential_overfitting": true,
+  "read_only": true
+}

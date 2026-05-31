@@ -1,0 +1,14 @@
+{
+  "embedded_nodes_total": 0,
+  "cached_embeddings_total": 0,
+  "embedding_cache_total_bytes": 0,
+  "mean_embedding_size_bytes": 0.0,
+  "cache_reuse_percent": 0.0,
+  "mean_embedding_generation_seconds": 0.0,
+  "mean_embedding_reuse_seconds": 0.0,
+  "orphaned_embeddings": [],
+  "duplicate_hashes": [],
+  "invalid_embedding_paths": [],
+  "nodes_without_embedding": [],
+  "read_only": true
+}

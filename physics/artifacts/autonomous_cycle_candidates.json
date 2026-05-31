@@ -1,0 +1,506 @@
+[
+  {
+    "id": "registry_a68fddee",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment a68fddee with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "method": "seed_sweep_validation",
+      "n_trials": 10,
+      "metrics": [
+        "validation_error",
+        "stability"
+      ],
+      "hypothesis": "Generate a traceable falsifiable proposal."
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment a68fddee with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001,
+    "timestamp": "2026-05-31T19:40:37",
+    "provenance": {
+      "source": "experiment_registry"
+    }
+  },
+  {
+    "id": "registry_5b242086",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 5b242086 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "hypothesis": "Generate a traceable falsifiable proposal.",
+      "equation": "dx = sigma * (y - x)",
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "falsification_test": "validation_error > 0.2",
+      "confidence_prior": 0.55,
+      "system_type": "lorenz"
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment 5b242086 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001,
+    "timestamp": "2026-05-31T19:40:37",
+    "provenance": {
+      "source": "experiment_registry"
+    }
+  },
+  {
+    "id": "registry_631f66a8",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 631f66a8 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "method": "seed_sweep_validation",
+      "n_trials": 10,
+      "metrics": [
+        "validation_error",
+        "stability"
+      ],
+      "hypothesis": "Identify the next falsifiable frontier test."
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment 631f66a8 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001,
+    "timestamp": "2026-05-31T19:40:37",
+    "provenance": {
+      "source": "experiment_registry"
+    }
+  },
+  {
+    "id": "registry_87238b54",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 87238b54 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "hypothesis": "Identify the next falsifiable frontier test.",
+      "equation": "dx = sigma * (y - x)",
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "falsification_test": "validation_error > 0.2",
+      "confidence_prior": 0.55,
+      "system_type": "lorenz"
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment 87238b54 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001,
+    "timestamp": "2026-05-31T19:40:37",
+    "provenance": {
+      "source": "experiment_registry"
+    }
+  },
+  {
+    "id": "registry_f5107983",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment f5107983 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "method": "seed_sweep_validation",
+      "n_trials": 10,
+      "metrics": [
+        "validation_error",
+        "stability"
+      ],
+      "hypothesis": "Generate a traceable falsifiable proposal."
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment f5107983 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001,
+    "timestamp": "2026-05-31T19:40:37",
+    "provenance": {
+      "source": "experiment_registry"
+    }
+  },
+  {
+    "id": "registry_95334af5",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 95334af5 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "hypothesis": "Generate a traceable falsifiable proposal.",
+      "equation": "dx = sigma * (y - x)",
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "falsification_test": "validation_error > 0.2",
+      "confidence_prior": 0.55,
+      "system_type": "lorenz"
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment 95334af5 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001,
+    "timestamp": "2026-05-31T19:40:37",
+    "provenance": {
+      "source": "experiment_registry"
+    }
+  },
+  {
+    "id": "registry_08a423c2",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 08a423c2 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "method": "seed_sweep_validation",
+      "n_trials": 10,
+      "metrics": [
+        "validation_error",
+        "stability"
+      ],
+      "hypothesis": "Generate a traceable falsifiable proposal."
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment 08a423c2 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001,
+    "timestamp": "2026-05-31T19:40:37",
+    "provenance": {
+      "source": "experiment_registry"
+    }
+  },
+  {
+    "id": "registry_ff82acc7",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment ff82acc7 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "hypothesis": "Generate a traceable falsifiable proposal.",
+      "equation": "dx = sigma * (y - x)",
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "falsification_test": "validation_error > 0.2",
+      "confidence_prior": 0.55,
+      "system_type": "lorenz"
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment ff82acc7 with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001,
+    "timestamp": "2026-05-31T19:40:37",
+    "provenance": {
+      "source": "experiment_registry"
+    }
+  },
+  {
+    "id": "registry_b0ee8d7c",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment b0ee8d7c with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "method": "seed_sweep_validation",
+      "n_trials": 10,
+      "metrics": [
+        "validation_error",
+        "stability"
+      ],
+      "hypothesis": "Generate a traceable falsifiable proposal."
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment b0ee8d7c with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001,
+    "timestamp": "2026-05-31T19:40:37",
+    "provenance": {
+      "source": "experiment_registry"
+    }
+  },
+  {
+    "id": "registry_61f52a3e",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 61f52a3e with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "source": "experiment_registry",
+    "historical_results": {
+      "hypothesis": "Generate a traceable falsifiable proposal.",
+      "equation": "dx = sigma * (y - x)",
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "falsification_test": "validation_error > 0.2",
+      "confidence_prior": 0.55,
+      "system_type": "lorenz"
+    },
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "novelty_score": 1.0,
+    "consistency_score": 0.8,
+    "physics_sanity_score": 0.8,
+    "empirical_utility_score": 0.9,
+    "claim_level": {
+      "level": 2,
+      "label": "simulation-supported",
+      "text": "Follow up MultiAgentSystem result from registered experiment 61f52a3e with falsification criterion p_value < 0.05 and dataset benchmark."
+    },
+    "frontier_score": 0.7200000000000001,
+    "timestamp": "2026-05-31T19:40:37",
+    "provenance": {
+      "source": "experiment_registry"
+    }
+  },
+  {
+    "id": "recent_multi_agent_proposal",
+    "hypothesis": "Generate a traceable falsifiable proposal.",
+    "equation": "dx = sigma * (y - x)",
+    "variables": [
+      "x",
+      "y",
+      "z"
+    ],
+    "source": "multi_agent_system",
+    "provenance": {
+      "debate_score": 0.6704560690164654
+    },
+    "novelty_score": 0.5,
+    "timestamp": "2026-05-31T19:40:37",
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.25,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    }
+  }
+]

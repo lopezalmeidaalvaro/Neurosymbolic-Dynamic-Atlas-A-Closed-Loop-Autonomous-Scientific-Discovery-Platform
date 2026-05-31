@@ -1,0 +1,13 @@
+{
+  "debates_executed": 10,
+  "skeptic_reports": 11,
+  "hypotheses_approved": 10,
+  "hypotheses_rejected": 0,
+  "hypotheses_modified_by_skeptic_percent": 100.0,
+  "hypotheses_discarded_percent": 100.0,
+  "skeptic_impact_mean_findings": 1.0,
+  "redundant_debates": 9,
+  "possible_infinite_cycles": false,
+  "agents_without_effective_contribution": [],
+  "read_only": true
+}

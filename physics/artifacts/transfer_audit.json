@@ -1,0 +1,29 @@
+{
+  "pairs_evaluated": 4,
+  "successful_pairs": 2,
+  "failed_pairs": 2,
+  "cka": {
+    "mean": 0.37649509513525337,
+    "min": 0.023774600780999623,
+    "max": 0.9424716359599558
+  },
+  "wasserstein": {
+    "mean": 0.12940206912763993,
+    "min": 0.0682979107632515,
+    "max": 0.186747082082286
+  },
+  "cca": {
+    "mean": 0.5590855190080554,
+    "min": 0.24153828983845146,
+    "max": 0.976922739446342
+  },
+  "effective_transfer": {
+    "mean": 0.6074486050338016,
+    "min": 0.369317472563847,
+    "max": 0.9518209513292808
+  },
+  "false_positive_candidates": [],
+  "near_identical_pairs": [],
+  "metric_inconsistencies": [],
+  "read_only": true
+}

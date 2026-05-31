@@ -1,0 +1,107 @@
+{
+  "component_scores": {
+    "Memory": 80.35087719298247,
+    "MetaLearning": 75.75921062841907,
+    "MultiAgent": 77.5,
+    "HPC": 10.03814241277994
+  },
+  "maturity_score": 60.912057558545364,
+  "classification": "DEVELOPING",
+  "inputs": {
+    "memory": {
+      "total_entities": 171,
+      "embedded_entities": 168,
+      "cache_hits": 3,
+      "cache_hit_rate": 0.017543859649122806,
+      "embedding_coverage": 1.0,
+      "embedding_cache_dir": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\embeddings_cache",
+      "mean_generation_seconds": 0.0008510130930863809
+    },
+    "meta_learning": {
+      "expanded_rows": 119,
+      "domains": {
+        "lorenz": 80,
+        "physics": 12,
+        "physical_lab": 10,
+        "cross_domain": 4,
+        "hpc": 4,
+        "distributed_execution": 2,
+        "multi": 2,
+        "scalar_field": 1,
+        "Lorenz_to_Climate": 1,
+        "ECG_to_EEG": 1,
+        "Fluids_to_Materials": 1,
+        "QG_to_Materials": 1
+      },
+      "methods": {
+        "MultiAgentSystem": 69,
+        "PhysicalLabInterface": 11,
+        "multi_agent_debate": 10,
+        "CrossDomainTransfer": 5,
+        "distributed_execution": 4,
+        "cross_domain_transfer": 4,
+        "DistributedExecution": 3,
+        "MetaLearningEngine": 3,
+        "FrontierDiscovery": 3,
+        "BiasDetector": 1,
+        "DomainAdaptation": 1,
+        "PhysicsSanityEngine": 1,
+        "ExpertValidation": 1,
+        "RealDataIngestor": 1,
+        "ScientificMemoryAdvanced": 1,
+        "TheoryAutowriter": 1
+      },
+      "mae": 0.652977348661823,
+      "rmse": 1.7686212065206255,
+      "r2": 0.5379605314209532,
+      "cv_score_mean": -0.3033231600165491,
+      "cv_score_std": 2.239605992447133,
+      "model_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl",
+      "expanded_cache": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\artifacts\\meta_history_expanded.csv"
+    },
+    "multi_agent": {
+      "debates_analyzed": 10,
+      "hypotheses_accepted": 10,
+      "hypotheses_rejected": 0,
+      "agent_metrics": {
+        "Theorist": {
+          "useful_contributions": 10,
+          "hypotheses_accepted": 10,
+          "hypotheses_rejected": 0,
+          "critique_precision": null
+        },
+        "Experimentalist": {
+          "useful_contributions": 20,
+          "hypotheses_accepted": 10,
+          "hypotheses_rejected": 0,
+          "critique_precision": null
+        },
+        "Reviewer": {
+          "useful_contributions": 10,
+          "hypotheses_accepted": 10,
+          "hypotheses_rejected": 0,
+          "critique_precision": null
+        },
+        "Skeptic": {
+          "useful_contributions": 11,
+          "hypotheses_accepted": 0,
+          "hypotheses_rejected": 11,
+          "critique_precision": 0.5
+        }
+      }
+    },
+    "hpc": {
+      "worker_utilization": 0.0006357068796657,
+      "queue_wait_time_seconds": 0.0,
+      "scheduling_overhead_seconds": 0.06850015125004574,
+      "real_speedup": 0.0151549354603217,
+      "efficiency": 0.0006357068796657,
+      "max_workers": 12,
+      "max_throughput": 53.9129710943954,
+      "bottlenecks": [
+        "workers_idle_or_parallel_overhead_high",
+        "tasks_too_small_for_process_startup"
+      ]
+    }
+  }
+}

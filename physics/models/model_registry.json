@@ -203,8 +203,8 @@
     "name": "scientific_embedding_backend",
     "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\embeddings_cache",
     "exists": true,
-    "size_bytes": 0,
-    "updated_at": "2026-05-31T19:07:37",
+    "size_bytes": 98304,
+    "updated_at": "2026-05-31T19:38:38",
     "metadata": {
       "model_name": "allenai/specter2_base",
       "storage": "sha256 .npy cache"
@@ -214,15 +214,15 @@
     "name": "meta_prior_learner",
     "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\meta_prior_learner.pkl",
     "exists": true,
-    "size_bytes": 32590,
-    "updated_at": "2026-05-31T18:57:06",
+    "size_bytes": 435751,
+    "updated_at": "2026-05-31T19:40:38",
     "metadata": {
       "cv_scores": [
+        0.6333613161481184,
+        0.36333702475292395,
         0.0,
         0.0,
-        0.0,
-        -168.0,
-        -168.0
+        0.0
       ]
     }
   }

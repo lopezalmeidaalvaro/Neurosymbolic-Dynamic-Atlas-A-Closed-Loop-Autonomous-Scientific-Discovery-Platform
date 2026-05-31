@@ -1,0 +1,29 @@
+{
+  "top_candidates": 10,
+  "novelty_score": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0
+  },
+  "consistency_score": {
+    "mean": 0.8,
+    "min": 0.8,
+    "max": 0.8
+  },
+  "empirical_utility_score": {
+    "mean": 0.9400000000000001,
+    "min": 0.9,
+    "max": 1.0
+  },
+  "frontier_score": {
+    "mean": 0.752,
+    "min": 0.7200000000000001,
+    "max": 0.8
+  },
+  "semantic_duplicates": 0,
+  "repeated_clusters": 0,
+  "hypotheses_without_traceability": [],
+  "novelty_frontier_correlation": null,
+  "consistency_frontier_correlation": null,
+  "read_only": true
+}

@@ -1,0 +1,196 @@
+{
+  "audits": {
+    "memory": {
+      "embedded_nodes_total": 0,
+      "cached_embeddings_total": 0,
+      "embedding_cache_total_bytes": 0,
+      "mean_embedding_size_bytes": 0.0,
+      "cache_reuse_percent": 0.0,
+      "mean_embedding_generation_seconds": 0.0,
+      "mean_embedding_reuse_seconds": 0.0,
+      "orphaned_embeddings": [],
+      "duplicate_hashes": [],
+      "invalid_embedding_paths": [],
+      "nodes_without_embedding": [],
+      "read_only": true
+    },
+    "meta_learning": {
+      "x_meta_rows": 18,
+      "x_meta_columns": 7,
+      "historical_experiments": 18,
+      "domain_distribution": {
+        "physics": 9,
+        "lorenz": 8,
+        "distributed_execution": 1
+      },
+      "method_distribution": {
+        "MultiAgentSystem": 8,
+        "DistributedExecution": 2,
+        "MetaLearningEngine": 2,
+        "PhysicsSanityEngine": 1,
+        "BiasDetector": 1,
+        "DomainAdaptation": 1,
+        "ExpertValidation": 1,
+        "RealDataIngestor": 1,
+        "ScientificMemoryAdvanced": 1
+      },
+      "cv_mean_score": -67.2,
+      "cv_std_score": 82.30285535751479,
+      "feature_importance": {
+        "feature_0": 0.0,
+        "feature_1": 0.0,
+        "feature_2": 0.0,
+        "feature_3": 0.0,
+        "feature_4": 0.0,
+        "feature_5": 0.0,
+        "feature_6": 0.0,
+        "feature_7": 0.0,
+        "feature_8": 0.0,
+        "feature_9": 0.0,
+        "feature_10": 0.0,
+        "feature_11": 0.0,
+        "feature_12": 0.0,
+        "feature_13": 0.0,
+        "feature_14": 0.0,
+        "feature_15": 0.0,
+        "feature_16": 0.0
+      },
+      "model_stability": 1.0,
+      "too_small_dataset": true,
+      "information_leakage_flags": [],
+      "potential_overfitting": true,
+      "read_only": true
+    },
+    "multi_agent": {
+      "debates_executed": 10,
+      "skeptic_reports": 11,
+      "hypotheses_approved": 10,
+      "hypotheses_rejected": 0,
+      "hypotheses_modified_by_skeptic_percent": 100.0,
+      "hypotheses_discarded_percent": 100.0,
+      "skeptic_impact_mean_findings": 1.0,
+      "redundant_debates": 9,
+      "possible_infinite_cycles": false,
+      "agents_without_effective_contribution": [],
+      "read_only": true
+    },
+    "hpc": {
+      "throughput": {
+        "mean": 26.84103185853016,
+        "min": 5.938730709141469,
+        "max": 53.9129710943954
+      },
+      "speedup": {
+        "mean": 0.007545013699806076,
+        "min": 0.0016693771236552,
+        "max": 0.0151549354603217
+      },
+      "efficiency": {
+        "mean": 0.0006357068796657,
+        "min": 0.0001669377123655,
+        "max": 0.0012629112883601
+      },
+      "backend_comparison": {
+        "ray_available": false,
+        "multiprocessing_available": true,
+        "dask_available": false,
+        "observed_backend": "artifact_read_only_not_reexecuted"
+      },
+      "cache_hit_rate": 1.5151515151515151,
+      "cache_miss_rate": 98.48484848484848,
+      "cache_entries": 665,
+      "invalid_cache_entries": 0,
+      "estimated_time_saved_seconds": 1.6838615000015125,
+      "performance_degradation": false,
+      "idle_workers_risk": true,
+      "bottlenecks": [
+        "low_parallel_efficiency"
+      ],
+      "read_only": true
+    },
+    "transfer": {
+      "pairs_evaluated": 4,
+      "successful_pairs": 2,
+      "failed_pairs": 2,
+      "cka": {
+        "mean": 0.37649509513525337,
+        "min": 0.023774600780999623,
+        "max": 0.9424716359599558
+      },
+      "wasserstein": {
+        "mean": 0.12940206912763993,
+        "min": 0.0682979107632515,
+        "max": 0.186747082082286
+      },
+      "cca": {
+        "mean": 0.5590855190080554,
+        "min": 0.24153828983845146,
+        "max": 0.976922739446342
+      },
+      "effective_transfer": {
+        "mean": 0.6074486050338016,
+        "min": 0.369317472563847,
+        "max": 0.9518209513292808
+      },
+      "false_positive_candidates": [],
+      "near_identical_pairs": [],
+      "metric_inconsistencies": [],
+      "read_only": true
+    },
+    "theory": {
+      "theories_generated": 1,
+      "theories_valid": 0,
+      "theories_rejected": 1,
+      "rejected_by_sanity_engine_percent": 100.0,
+      "rejected_by_scientific_guard_percent": 0.0,
+      "duplicate_theories": 0,
+      "combinatorial_explosion_detected": false,
+      "trivial_predictions": false,
+      "limitations_section_present": true,
+      "read_only": true
+    },
+    "frontier": {
+      "top_candidates": 10,
+      "novelty_score": {
+        "mean": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "consistency_score": {
+        "mean": 0.8,
+        "min": 0.8,
+        "max": 0.8
+      },
+      "empirical_utility_score": {
+        "mean": 0.9400000000000001,
+        "min": 0.9,
+        "max": 1.0
+      },
+      "frontier_score": {
+        "mean": 0.752,
+        "min": 0.7200000000000001,
+        "max": 0.8
+      },
+      "semantic_duplicates": 0,
+      "repeated_clusters": 0,
+      "hypotheses_without_traceability": [],
+      "novelty_frontier_correlation": null,
+      "consistency_frontier_correlation": null,
+      "read_only": true
+    }
+  },
+  "health": {
+    "component_scores": {
+      "memory": 55.0,
+      "meta_learning": 45.0,
+      "multi_agent": 55.0,
+      "hpc": 55.0,
+      "transfer": 70.0,
+      "theory": 65.0,
+      "frontier": 75.0
+    },
+    "overall_health_score": 60.0,
+    "classification": "ACEPTABLE"
+  },
+  "read_only": true
+}

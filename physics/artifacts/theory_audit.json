@@ -1,0 +1,12 @@
+{
+  "theories_generated": 1,
+  "theories_valid": 0,
+  "theories_rejected": 1,
+  "rejected_by_sanity_engine_percent": 100.0,
+  "rejected_by_scientific_guard_percent": 0.0,
+  "duplicate_theories": 0,
+  "combinatorial_explosion_detected": false,
+  "trivial_predictions": false,
+  "limitations_section_present": true,
+  "read_only": true
+}

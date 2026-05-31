@@ -1,0 +1,30 @@
+{
+  "aggregate": {
+    "domain": "multi",
+    "n_cycles": 20,
+    "top_k": 10,
+    "hypotheses_generated": 220,
+    "hypotheses_tested": 200,
+    "hypotheses_validated": 200,
+    "hypotheses_rejected": 0,
+    "average_novelty": 0.9545454545454544,
+    "average_epistemic_gain": 0.5566970712677646,
+    "compute_cost": 400.0,
+    "discoveries_per_cycle": 10.0
+  },
+  "benchmark": {
+    "n_cycles": 20,
+    "autonomous": {
+      "validated_discoveries": 200,
+      "cumulative_epistemic_gain": 11.133941425355289,
+      "compute_cost": 400.0,
+      "time_per_discovery": 2.0
+    },
+    "random": {
+      "validated_discoveries": 20,
+      "cumulative_epistemic_gain": 28.8,
+      "compute_cost": 200.0,
+      "time_per_discovery": 10.0
+    }
+  }
+}
