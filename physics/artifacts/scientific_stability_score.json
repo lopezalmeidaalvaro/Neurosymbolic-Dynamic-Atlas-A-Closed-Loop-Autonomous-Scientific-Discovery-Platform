@@ -1,0 +1,10 @@
+{
+  "sub_components": {
+    "validation_stability": 100.0,
+    "score_stability": 95.0,
+    "exploration_stability": 65.15123957219828,
+    "memory_stability": 18.181818181818176
+  },
+  "ScientificStabilityScore": 73.67417352941321,
+  "stability_classification": "ACCEPTABLE"
+}

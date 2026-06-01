@@ -1,0 +1,20 @@
+{
+  "post_hardening_slopes": {
+    "AcceptanceRate_slope": 0.0002544317211436568,
+    "RejectionRate_slope": -2.6646912970565747e-05,
+    "InconclusiveRate_slope": -0.00022778480817309266
+  },
+  "epoch_means": {
+    "pre_hardening_acceptance": 1.0,
+    "post_hardening_acceptance": 0.48833333333333334,
+    "pre_hardening_rejection": 0.0,
+    "post_hardening_rejection": 0.25277777777777777
+  },
+  "longitudinal_drift_assessment": {
+    "acc_drift_delta": 0.04499999999999993,
+    "rej_drift_delta": -5.551115123125783e-17,
+    "drift_type": "STABLE CALIBRATION",
+    "alert_triggered": false,
+    "alert_message": "No drift detected."
+  }
+}
