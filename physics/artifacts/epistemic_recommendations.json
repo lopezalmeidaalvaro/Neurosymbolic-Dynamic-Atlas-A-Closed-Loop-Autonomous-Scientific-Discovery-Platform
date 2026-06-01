@@ -1,0 +1,5 @@
+[
+  "Endurecer umbral de aceptaci\u00f3n f\u00edsica: incrementar el PhysicsSanityEngine score m\u00ednimo exigido a > 0.75.",
+  "Incrementar temperatura de muestreo en Theorist para romper el colapso de diversidad en el espacio de exploraci\u00f3n.",
+  "Habilitar auditor\u00edas cruzadas de calibraci\u00f3n para re-ajustar consistencias dimensionales saturadas cerca de 1.0."
+]
