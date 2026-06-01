@@ -1,0 +1,12 @@
+{
+  "sub_components": {
+    "NoveltyImpactScore": 100.0,
+    "ValidationStrengthScore": 84.0909090909091,
+    "GeneralizationScore": 75.0,
+    "TheoryContributionScore": 75.0,
+    "EfficiencyScore": 100.0,
+    "MemoryContributionScore": 82.0
+  },
+  "ScientificImpactScore": 86.61818181818181,
+  "impact_classification": "HIGH IMPACT"
+}
