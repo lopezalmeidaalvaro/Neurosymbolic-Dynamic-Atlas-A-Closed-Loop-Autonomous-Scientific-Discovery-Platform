@@ -1,0 +1,98 @@
+{
+  "global": {
+    "true_positive": 3,
+    "true_negative": 18,
+    "false_positive": 3,
+    "false_negative": 0,
+    "precision": 0.5,
+    "recall": 1.0,
+    "specificity": 0.8571428571428571,
+    "f1_score": 0.6666666666666666,
+    "leakage_detection_rate": 1.0,
+    "overfit_detection_rate": 1.0,
+    "robustness_score": 95.0,
+    "evaluation_status": "Acceptable"
+  },
+  "by_category": {
+    "CONTRADICTORY": {
+      "true_positive": 0,
+      "true_negative": 3,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "specificity": 1.0,
+      "f1_score": 0.0
+    },
+    "DATA_LEAKAGE": {
+      "true_positive": 0,
+      "true_negative": 3,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "specificity": 1.0,
+      "f1_score": 0.0
+    },
+    "OVERFIT": {
+      "true_positive": 0,
+      "true_negative": 3,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "specificity": 1.0,
+      "f1_score": 0.0
+    },
+    "PHYSICALLY_IMPOSSIBLE": {
+      "true_positive": 0,
+      "true_negative": 3,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "specificity": 1.0,
+      "f1_score": 0.0
+    },
+    "PSEUDOSCIENTIFIC": {
+      "true_positive": 0,
+      "true_negative": 3,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "specificity": 1.0,
+      "f1_score": 0.0
+    },
+    "RANDOM": {
+      "true_positive": 0,
+      "true_negative": 3,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "specificity": 1.0,
+      "f1_score": 0.0
+    },
+    "TRIVIAL": {
+      "true_positive": 0,
+      "true_negative": 0,
+      "false_positive": 3,
+      "false_negative": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "specificity": 0.0,
+      "f1_score": 0.0
+    },
+    "VALID": {
+      "true_positive": 3,
+      "true_negative": 0,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "specificity": 0.0,
+      "f1_score": 1.0
+    }
+  }
+}

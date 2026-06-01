@@ -1,0 +1,590 @@
+[
+  {
+    "hypothesis": "The Duffing oscillator velocity follows dv = -0.100 * v - x - 1.000 * x**3.",
+    "equation": "dv = -0.100 * v - x - 1.000 * x**3",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "MSE > 0.08",
+    "confidence_prior": 0.85,
+    "system_type": "duffing",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "dv": "m/s^2",
+      "x": "m",
+      "v": "m/s"
+    },
+    "category": "VALID"
+  },
+  {
+    "hypothesis": "Lorenz system coordinate X evolves via dx = 9.600 * (y - x).",
+    "equation": "dx = 9.600 * (y - x)",
+    "variables": [
+      "x",
+      "y"
+    ],
+    "falsification_test": "validation_error > 0.15",
+    "confidence_prior": 0.9,
+    "system_type": "lorenz",
+    "variable_ranges": {
+      "x": [
+        -5.0,
+        5.0
+      ],
+      "y": [
+        -5.0,
+        5.0
+      ]
+    },
+    "variable_units": {
+      "dx": "1/s",
+      "x": "1",
+      "y": "1"
+    },
+    "category": "VALID"
+  },
+  {
+    "hypothesis": "Rossler system coordinate Y derivative conforms to dy = x + 0.170 * y.",
+    "equation": "dy = x + 0.170 * y",
+    "variables": [
+      "x",
+      "y"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.8,
+    "system_type": "rossler",
+    "variable_ranges": {
+      "x": [
+        -2.0,
+        2.0
+      ],
+      "y": [
+        -2.0,
+        2.0
+      ]
+    },
+    "variable_units": {
+      "dy": "1/s",
+      "x": "1",
+      "y": "1"
+    },
+    "category": "VALID"
+  },
+  {
+    "hypothesis": "Tautology 0: variable x_0 is identically equal to itself.",
+    "equation": "x_0 = x_0",
+    "variables": [
+      "x_0"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.5,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x_0": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "x_0": "1"
+    },
+    "category": "TRIVIAL"
+  },
+  {
+    "hypothesis": "Tautology 1: variable x_1 is identically equal to itself.",
+    "equation": "x_1 = x_1",
+    "variables": [
+      "x_1"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.5,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x_1": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "x_1": "1"
+    },
+    "category": "TRIVIAL"
+  },
+  {
+    "hypothesis": "Tautology 2: variable x_2 is identically equal to itself.",
+    "equation": "x_2 = x_2",
+    "variables": [
+      "x_2"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.5,
+    "system_type": "unknown",
+    "variable_ranges": {
+      "x_2": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "x_2": "1"
+    },
+    "category": "TRIVIAL"
+  },
+  {
+    "hypothesis": "It is false that The Duffing oscillator velocity follows dv = -0.100 * v - x - 1.000 * x**3.",
+    "equation": "dv = -0.100 * v - x - 1.000 * x**3",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "MSE > 0.08",
+    "confidence_prior": 0.3,
+    "system_type": "duffing",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "dv": "m/s^2",
+      "x": "m",
+      "v": "m/s"
+    },
+    "category": "CONTRADICTORY"
+  },
+  {
+    "hypothesis": "Lorenz system coordinate X fails to evolve via dx = 9.600 * (y - x).",
+    "equation": "dx = 9.600 * (y - x)",
+    "variables": [
+      "x",
+      "y"
+    ],
+    "falsification_test": "validation_error > 0.15",
+    "confidence_prior": 0.3,
+    "system_type": "lorenz",
+    "variable_ranges": {
+      "x": [
+        -5.0,
+        5.0
+      ],
+      "y": [
+        -5.0,
+        5.0
+      ]
+    },
+    "variable_units": {
+      "dx": "1/s",
+      "x": "1",
+      "y": "1"
+    },
+    "category": "CONTRADICTORY"
+  },
+  {
+    "hypothesis": "Rossler system coordinate Y derivative strictly contradicts dy = x + 0.170 * y.",
+    "equation": "dy = x + 0.170 * y",
+    "variables": [
+      "x",
+      "y"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.3,
+    "system_type": "rossler",
+    "variable_ranges": {
+      "x": [
+        -2.0,
+        2.0
+      ],
+      "y": [
+        -2.0,
+        2.0
+      ]
+    },
+    "variable_units": {
+      "dy": "1/s",
+      "x": "1",
+      "y": "1"
+    },
+    "category": "CONTRADICTORY"
+  },
+  {
+    "hypothesis": "Impossible absolute temperature of -100 Kelvin in classical state.",
+    "equation": "T = -100",
+    "variables": [
+      "T"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.1,
+    "system_type": "lorenz",
+    "variable_ranges": {
+      "T": [
+        -200.0,
+        -50.0
+      ]
+    },
+    "variable_units": {
+      "T": "K"
+    },
+    "category": "PHYSICALLY_IMPOSSIBLE"
+  },
+  {
+    "hypothesis": "Regime with negative effective mass m = -6 kg.",
+    "equation": "m = -6",
+    "variables": [
+      "m"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.1,
+    "system_type": "lorenz",
+    "variable_ranges": {
+      "m": [
+        -50.0,
+        -1.0
+      ]
+    },
+    "variable_units": {
+      "m": "kg"
+    },
+    "category": "PHYSICALLY_IMPOSSIBLE"
+  },
+  {
+    "hypothesis": "Superluminal particle velocity reaching v = 402000000.0 m/s.",
+    "equation": "v = 402000000.0",
+    "variables": [
+      "v"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.1,
+    "system_type": "lorenz",
+    "variable_ranges": {
+      "v": [
+        350000000.0,
+        500000000.0
+      ]
+    },
+    "variable_units": {
+      "v": "m/s"
+    },
+    "category": "PHYSICALLY_IMPOSSIBLE"
+  },
+  {
+    "hypothesis": "Arbitrary noise relation between q_0 and w_0.",
+    "equation": "q_0 = sin(w_0) * log(abs(w_0) + 1.0)",
+    "variables": [
+      "q_0",
+      "w_0"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.2,
+    "system_type": "lorenz",
+    "variable_ranges": {
+      "q_0": [
+        -1.0,
+        1.0
+      ],
+      "w_0": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "q_0": "1",
+      "w_0": "1"
+    },
+    "category": "RANDOM"
+  },
+  {
+    "hypothesis": "Arbitrary noise relation between q_1 and w_1.",
+    "equation": "q_1 = sin(w_1) * log(abs(w_1) + 1.0)",
+    "variables": [
+      "q_1",
+      "w_1"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.2,
+    "system_type": "lorenz",
+    "variable_ranges": {
+      "q_1": [
+        -1.0,
+        1.0
+      ],
+      "w_1": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "q_1": "1",
+      "w_1": "1"
+    },
+    "category": "RANDOM"
+  },
+  {
+    "hypothesis": "Arbitrary noise relation between q_2 and w_2.",
+    "equation": "q_2 = sin(w_2) * log(abs(w_2) + 1.0)",
+    "variables": [
+      "q_2",
+      "w_2"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.2,
+    "system_type": "lorenz",
+    "variable_ranges": {
+      "q_2": [
+        -1.0,
+        1.0
+      ],
+      "w_2": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "q_2": "1",
+      "w_2": "1"
+    },
+    "category": "RANDOM"
+  },
+  {
+    "hypothesis": "Data leakage configuration with leakage type total (Case 0).",
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.5,
+    "system_type": "duffing",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "dx": "m/s",
+      "v": "m/s"
+    },
+    "leakage_config": {
+      "id": 0,
+      "type": "total",
+      "n_samples": 100,
+      "n_features": 5
+    },
+    "category": "DATA_LEAKAGE"
+  },
+  {
+    "hypothesis": "Data leakage configuration with leakage type partial (Case 1).",
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.5,
+    "system_type": "duffing",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "dx": "m/s",
+      "v": "m/s"
+    },
+    "leakage_config": {
+      "id": 1,
+      "type": "partial",
+      "n_samples": 100,
+      "n_features": 5
+    },
+    "category": "DATA_LEAKAGE"
+  },
+  {
+    "hypothesis": "Data leakage configuration with leakage type total (Case 2).",
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.5,
+    "system_type": "duffing",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "dx": "m/s",
+      "v": "m/s"
+    },
+    "leakage_config": {
+      "id": 2,
+      "type": "total",
+      "n_samples": 100,
+      "n_features": 5
+    },
+    "category": "DATA_LEAKAGE"
+  },
+  {
+    "hypothesis": "Overfitted model config with perfect training score but poor validation (Case 0).",
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.5,
+    "system_type": "duffing",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "dx": "m/s",
+      "v": "m/s"
+    },
+    "overfit_config": {
+      "id": 0,
+      "n_samples": 100,
+      "n_features": 5,
+      "is_overfit": true
+    },
+    "category": "OVERFIT"
+  },
+  {
+    "hypothesis": "Overfitted model config with perfect training score but poor validation (Case 1).",
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.5,
+    "system_type": "duffing",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "dx": "m/s",
+      "v": "m/s"
+    },
+    "overfit_config": {
+      "id": 1,
+      "n_samples": 100,
+      "n_features": 5,
+      "is_overfit": true
+    },
+    "category": "OVERFIT"
+  },
+  {
+    "hypothesis": "Overfitted model config with perfect training score but poor validation (Case 2).",
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "p_value < 0.05",
+    "confidence_prior": 0.5,
+    "system_type": "duffing",
+    "variable_ranges": {
+      "x": [
+        -1.0,
+        1.0
+      ],
+      "v": [
+        -1.0,
+        1.0
+      ]
+    },
+    "variable_units": {
+      "dx": "m/s",
+      "v": "m/s"
+    },
+    "overfit_config": {
+      "id": 2,
+      "n_samples": 100,
+      "n_features": 5,
+      "is_overfit": true
+    },
+    "category": "OVERFIT"
+  },
+  {
+    "hypothesis": "This constitutes our new theory of everything for physical dynamics.",
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.95,
+    "system_type": "duffing",
+    "category": "PSEUDOSCIENTIFIC"
+  },
+  {
+    "hypothesis": "Pseudoscience Case 1: This claim is deliberately created to be extremely long and excessively detailed, containing nested clauses that explain that physical phenomena cannot be simply generalized and therefore must exceed standard constraints.",
+    "equation": "dx = v",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.5,
+    "system_type": "duffing",
+    "category": "PSEUDOSCIENTIFIC"
+  },
+  {
+    "hypothesis": "Pseudoscience Case 2: multiple equations.",
+    "equation": "$$dx = v$$ and $$dv = -x$$",
+    "variables": [
+      "x",
+      "v"
+    ],
+    "falsification_test": "MSE > 0.05",
+    "confidence_prior": 0.5,
+    "system_type": "duffing",
+    "category": "PSEUDOSCIENTIFIC"
+  }
+]

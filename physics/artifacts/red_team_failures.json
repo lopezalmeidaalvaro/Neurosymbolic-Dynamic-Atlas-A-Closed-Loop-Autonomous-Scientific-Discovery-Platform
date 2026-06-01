@@ -1,0 +1,137 @@
+[
+  {
+    "hypothesis": {
+      "hypothesis": "A state-of-the-art framework proposing a th3ory of everyth1ng model.",
+      "equation": "dx = v",
+      "variables": [
+        "x",
+        "v"
+      ],
+      "falsification_test": "MSE > 0.05",
+      "confidence_prior": 0.8,
+      "category": "RED_TEAM_GUARD"
+    },
+    "result": {
+      "hypothesis": "A state-of-the-art framework proposing a th3ory of everyth1ng model.",
+      "category": "RED_TEAM_GUARD",
+      "accepted": true,
+      "rejected": false,
+      "rejection_reason": "none",
+      "claim_level": {
+        "level": 2,
+        "label": "simulation-supported",
+        "text": "A state-of-the-art framework proposing a th3ory of everyth1ng model."
+      },
+      "physics_sanity_score": 0.8,
+      "confidence": 0.8
+    }
+  },
+  {
+    "hypothesis": {
+      "hypothesis": "A state-of-the-art framework proposing a theory of every thing model.",
+      "equation": "dx = v",
+      "variables": [
+        "x",
+        "v"
+      ],
+      "falsification_test": "MSE > 0.05",
+      "confidence_prior": 0.8,
+      "category": "RED_TEAM_GUARD"
+    },
+    "result": {
+      "hypothesis": "A state-of-the-art framework proposing a theory of every thing model.",
+      "category": "RED_TEAM_GUARD",
+      "accepted": true,
+      "rejected": false,
+      "rejection_reason": "none",
+      "claim_level": {
+        "level": 2,
+        "label": "simulation-supported",
+        "text": "A state-of-the-art framework proposing a theory of every thing model."
+      },
+      "physics_sanity_score": 0.8,
+      "confidence": 0.8
+    }
+  },
+  {
+    "hypothesis": {
+      "hypothesis": "A state-of-the-art framework proposing a unified field-theory model.",
+      "equation": "dx = v",
+      "variables": [
+        "x",
+        "v"
+      ],
+      "falsification_test": "MSE > 0.05",
+      "confidence_prior": 0.8,
+      "category": "RED_TEAM_GUARD"
+    },
+    "result": {
+      "hypothesis": "A state-of-the-art framework proposing a unified field-theory model.",
+      "category": "RED_TEAM_GUARD",
+      "accepted": true,
+      "rejected": false,
+      "rejection_reason": "none",
+      "claim_level": {
+        "level": 2,
+        "label": "simulation-supported",
+        "text": "A state-of-the-art framework proposing a unified field-theory model."
+      },
+      "physics_sanity_score": 0.8,
+      "confidence": 0.8
+    }
+  },
+  {
+    "hypothesis": {
+      "hypothesis": "A state-of-the-art framework proposing a real space-time model.",
+      "equation": "dx = v",
+      "variables": [
+        "x",
+        "v"
+      ],
+      "falsification_test": "MSE > 0.05",
+      "confidence_prior": 0.8,
+      "category": "RED_TEAM_GUARD"
+    },
+    "result": {
+      "hypothesis": "A state-of-the-art framework proposing a real space-time model.",
+      "category": "RED_TEAM_GUARD",
+      "accepted": true,
+      "rejected": false,
+      "rejection_reason": "none",
+      "claim_level": {
+        "level": 2,
+        "label": "simulation-supported",
+        "text": "A state-of-the-art framework proposing a real space-time model."
+      },
+      "physics_sanity_score": 0.8,
+      "confidence": 0.8
+    }
+  },
+  {
+    "hypothesis": {
+      "hypothesis": "A state-of-the-art framework proposing a proof of quantum-gravity model.",
+      "equation": "dx = v",
+      "variables": [
+        "x",
+        "v"
+      ],
+      "falsification_test": "MSE > 0.05",
+      "confidence_prior": 0.8,
+      "category": "RED_TEAM_GUARD"
+    },
+    "result": {
+      "hypothesis": "A state-of-the-art framework proposing a proof of quantum-gravity model.",
+      "category": "RED_TEAM_GUARD",
+      "accepted": true,
+      "rejected": false,
+      "rejection_reason": "none",
+      "claim_level": {
+        "level": 2,
+        "label": "simulation-supported",
+        "text": "A state-of-the-art framework proposing a proof of quantum-gravity model."
+      },
+      "physics_sanity_score": 0.8,
+      "confidence": 0.8
+    }
+  }
+]
