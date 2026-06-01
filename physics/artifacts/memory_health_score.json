@@ -1,0 +1,9 @@
+{
+  "sub_components": {
+    "redundancy_health": 100.0,
+    "compression_efficiency": 81.81818181818181,
+    "exploration_novelty_health": 18.181818181818176
+  },
+  "MemoryHealthScore": 70.0,
+  "health_classification": "ACCEPTABLE"
+}

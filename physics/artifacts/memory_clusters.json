@@ -1,0 +1,84 @@
+[
+  {
+    "representative_id": "registry_a68fddee",
+    "representative_text": "Follow up MultiAgentSystem result from registered experiment a68fddee with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "size": 10,
+    "hypotheses": [
+      {
+        "id": "registry_a68fddee",
+        "hypothesis": "Follow up MultiAgentSystem result from registered experiment a68fddee with falsification criterion p_value < 0.05 and dataset benchmark.",
+        "physics_sanity_score": 0.8,
+        "outcome": "VALIDATED"
+      },
+      {
+        "id": "registry_5b242086",
+        "hypothesis": "Follow up MultiAgentSystem result from registered experiment 5b242086 with falsification criterion p_value < 0.05 and dataset benchmark.",
+        "physics_sanity_score": 0.8,
+        "outcome": "VALIDATED"
+      },
+      {
+        "id": "registry_631f66a8",
+        "hypothesis": "Follow up MultiAgentSystem result from registered experiment 631f66a8 with falsification criterion p_value < 0.05 and dataset benchmark.",
+        "physics_sanity_score": 0.8,
+        "outcome": "VALIDATED"
+      },
+      {
+        "id": "registry_87238b54",
+        "hypothesis": "Follow up MultiAgentSystem result from registered experiment 87238b54 with falsification criterion p_value < 0.05 and dataset benchmark.",
+        "physics_sanity_score": 0.8,
+        "outcome": "VALIDATED"
+      },
+      {
+        "id": "registry_f5107983",
+        "hypothesis": "Follow up MultiAgentSystem result from registered experiment f5107983 with falsification criterion p_value < 0.05 and dataset benchmark.",
+        "physics_sanity_score": 0.8,
+        "outcome": "VALIDATED"
+      },
+      {
+        "id": "registry_95334af5",
+        "hypothesis": "Follow up MultiAgentSystem result from registered experiment 95334af5 with falsification criterion p_value < 0.05 and dataset benchmark.",
+        "physics_sanity_score": 0.8,
+        "outcome": "VALIDATED"
+      },
+      {
+        "id": "registry_08a423c2",
+        "hypothesis": "Follow up MultiAgentSystem result from registered experiment 08a423c2 with falsification criterion p_value < 0.05 and dataset benchmark.",
+        "physics_sanity_score": 0.8,
+        "outcome": "VALIDATED"
+      },
+      {
+        "id": "registry_ff82acc7",
+        "hypothesis": "Follow up MultiAgentSystem result from registered experiment ff82acc7 with falsification criterion p_value < 0.05 and dataset benchmark.",
+        "physics_sanity_score": 0.8,
+        "outcome": "VALIDATED"
+      },
+      {
+        "id": "registry_b0ee8d7c",
+        "hypothesis": "Follow up MultiAgentSystem result from registered experiment b0ee8d7c with falsification criterion p_value < 0.05 and dataset benchmark.",
+        "physics_sanity_score": 0.8,
+        "outcome": "VALIDATED"
+      },
+      {
+        "id": "registry_61f52a3e",
+        "hypothesis": "Follow up MultiAgentSystem result from registered experiment 61f52a3e with falsification criterion p_value < 0.05 and dataset benchmark.",
+        "physics_sanity_score": 0.8,
+        "outcome": "VALIDATED"
+      }
+    ],
+    "internal_redundancy": 0.9309493899345398
+  },
+  {
+    "representative_id": "recent_multi_agent_proposal",
+    "representative_text": "Generate a traceable falsifiable proposal.",
+    "size": 1,
+    "hypotheses": [
+      {
+        "id": "recent_multi_agent_proposal",
+        "hypothesis": "Generate a traceable falsifiable proposal.",
+        "physics_sanity_score": 0.5,
+        "outcome": "REJECTED"
+      }
+    ],
+    "internal_redundancy": 0.0
+  }
+]

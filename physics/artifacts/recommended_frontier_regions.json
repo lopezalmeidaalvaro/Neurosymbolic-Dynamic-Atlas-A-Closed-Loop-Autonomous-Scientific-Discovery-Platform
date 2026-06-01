@@ -1,0 +1,58 @@
+[
+  {
+    "zone_id": "zone_1",
+    "domain_name": "Duffing Chaos",
+    "density_index": 0.0,
+    "exploration_priority": "HIGH",
+    "suggested_actions": "Scan Sparse regions in embedding space to propose novel variables.",
+    "novelty_weight_multiplier": 0.9
+  },
+  {
+    "zone_id": "zone_2",
+    "domain_name": "Lorenz Coordinate Projections",
+    "density_index": 0.0,
+    "exploration_priority": "HIGH",
+    "suggested_actions": "Scan Sparse regions in embedding space to propose novel variables.",
+    "novelty_weight_multiplier": 0.9
+  },
+  {
+    "zone_id": "zone_3",
+    "domain_name": "Rossler Coordinates",
+    "density_index": 0.0,
+    "exploration_priority": "HIGH",
+    "suggested_actions": "Scan Sparse regions in embedding space to propose novel variables.",
+    "novelty_weight_multiplier": 0.9
+  },
+  {
+    "zone_id": "zone_4",
+    "domain_name": "Kuramoto Synchrony",
+    "density_index": 0.0,
+    "exploration_priority": "HIGH",
+    "suggested_actions": "Explore phase transition dynamics and multi-frequency coupling structures.",
+    "novelty_weight_multiplier": 0.9
+  },
+  {
+    "zone_id": "zone_5",
+    "domain_name": "BEC Analog Black Hole Metrics",
+    "density_index": 0.0,
+    "exploration_priority": "HIGH",
+    "suggested_actions": "Evaluate Schwarzschild metrics and sound-wave sonic horizons in quantum fluids.",
+    "novelty_weight_multiplier": 0.9
+  },
+  {
+    "zone_id": "zone_6",
+    "domain_name": "PINN Sigma Dynamics",
+    "density_index": 0.0,
+    "exploration_priority": "HIGH",
+    "suggested_actions": "Tune sigma parameter boundaries to resolve stiff boundary layer convergence.",
+    "novelty_weight_multiplier": 0.9
+  },
+  {
+    "zone_id": "zone_7",
+    "domain_name": "Quantum Gravity Loop Features",
+    "density_index": 1.0,
+    "exploration_priority": "LOW",
+    "suggested_actions": "Formulate spin-network space-time transitions using geometric curvature bounds.",
+    "novelty_weight_multiplier": 0.3
+  }
+]
