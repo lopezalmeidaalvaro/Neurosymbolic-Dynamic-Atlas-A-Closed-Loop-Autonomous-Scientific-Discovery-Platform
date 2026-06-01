@@ -1,0 +1,10 @@
+{
+    "DiscoveryScore": 31.613487194043916,
+    "PredictionScore": 99.6415175914679,
+    "FalsificationScore": 100.0,
+    "GeneralizationScore": 80.86666666666667,
+    "PrioritizationScore": 85.09615384615384,
+    "BlindScientificBenchmarkScore": 79.44356505966645,
+    "Classification": "STRONG",
+    "DataIndependenceStatus": "POTENTIAL_DATA_CONTAMINATION"
+}

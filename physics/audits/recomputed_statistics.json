@@ -1,0 +1,94 @@
+{
+    "global_score": {
+        "n": 30,
+        "mean": 55.04266164327579,
+        "median": 58.00706980936796,
+        "std": 11.000977679255646,
+        "variance": 121.02150989948093,
+        "min": 18.007069809367962,
+        "max": 71.6294004030917,
+        "p5": 25.857510799948013,
+        "p25": 58.00706980936796,
+        "p50": 58.00706980936796,
+        "p75": 58.00706980936796,
+        "p95": 58.00706980936796
+    },
+    "score_A": {
+        "n": 30,
+        "mean": 29.441635232945163,
+        "median": 27.80064063481523,
+        "std": 8.837026358547195,
+        "variance": 78.09303486165791,
+        "min": 27.80064063481523,
+        "max": 77.03047857871351,
+        "p5": 27.80064063481523,
+        "p25": 27.80064063481523,
+        "p50": 27.80064063481523,
+        "p75": 27.80064063481523,
+        "p95": 27.80064063481523
+    },
+    "score_B": {
+        "n": 30,
+        "mean": 34.03390357797413,
+        "median": 32.222925396411306,
+        "std": 8.252415256116034,
+        "variance": 68.10235755937666,
+        "min": 32.222925396411306,
+        "max": 77.63069404215709,
+        "p5": 32.222925396411306,
+        "p25": 32.222925396411306,
+        "p50": 32.222925396411306,
+        "p75": 32.222925396411306,
+        "p95": 37.12979263703781
+    },
+    "score_C": {
+        "n": 30,
+        "mean": 90.0,
+        "median": 100.0,
+        "std": 30.0,
+        "variance": 900.0,
+        "min": 0.0,
+        "max": 100.0,
+        "p5": 0.0,
+        "p25": 100.0,
+        "p50": 100.0,
+        "p75": 100.0,
+        "p95": 100.0
+    },
+    "reported_in_markdown": {
+        "mean": 58.01,
+        "std": 0.0,
+        "min": 58.01,
+        "max": 58.01,
+        "reproducibility_score": 99.66,
+        "classification": "EXCEPTIONAL"
+    },
+    "discrepancies_vs_report": [
+        "MEAN: reported 58.01, actual 55.0427, delta 2.9673",
+        "STD: reported 0.00, actual 11.0010, delta 11.0010",
+        "MIN: reported 58.01, actual 18.0071, delta 40.0029",
+        "MAX: reported 58.01, actual 71.6294, delta 13.6194"
+    ],
+    "reproducibility_recomputation": {
+        "recomputed": {
+            "structural_consistency": 0.0,
+            "family_consistency": 94.44,
+            "param_stability": 0.0,
+            "validation_stability": 80.01,
+            "skeptic_agreement": "50.0 (PROXY - data unavailable)",
+            "critic_agreement": "50.0 (PROXY - data unavailable)",
+            "kg_stability": "UNVERIFIABLE: Per-seed KG snapshots not stored",
+            "reproducibility_score": 43.39,
+            "classification": "Fragile"
+        },
+        "reported": {
+            "reproducibility_score": 99.66,
+            "classification": "EXCEPTIONAL"
+        },
+        "absolute_error": 56.27,
+        "notes": [
+            "UNVERIFIABLE: Critic verdicts not stored in reproducibility_results.json",
+            "UNVERIFIABLE: Per-seed KG snapshots not stored"
+        ]
+    }
+}

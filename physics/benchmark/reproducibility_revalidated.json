@@ -1,0 +1,12 @@
+{
+    "timestamp": 1780342699.1545315,
+    "seeds_run": 2,
+    "structural_consistency": 50.0,
+    "family_consistency": 83.33333333333334,
+    "param_stability": 92.66639555374813,
+    "validation_stability": 94.876231334165,
+    "skeptic_agreement": 0.0,
+    "critic_agreement": 100.0,
+    "kg_stability": 64.0,
+    "global_reproducibility_score": 67.29806069985364
+}

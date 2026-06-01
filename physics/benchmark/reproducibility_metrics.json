@@ -1,0 +1,15 @@
+{
+    "timestamp": 1780345215.979341,
+    "StructuralConsistency": 43.333333333333336,
+    "FamilyConsistency": 84.44444444444444,
+    "ParameterStability": 73.72606757281905,
+    "ValidationStability": 95.30005309368987,
+    "SkepticAgreement": 63.33333333333333,
+    "TheoryCriticAgreement": 89.24731182795699,
+    "KGStability": 67.59606073309222,
+    "AcceptanceRate": 0.10752688172043011,
+    "CollapseIndex": 0.7222222222222223,
+    "FamilyEntropy": 0.2767921703796197,
+    "GlobalReproducibilityScore": 71.50087150499427,
+    "Classification": "Acceptable"
+}

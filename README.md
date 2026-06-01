@@ -217,4 +217,7 @@ All scientific publications, preprints, and references are centrally preserved u
 
 ## ⚖️ License
 
-This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+Copyright (c) 2026 Alvaro Lopez Almeida. All rights reserved.
+
+This source code and any associated documentation are the proprietary and confidential information of Alvaro Lopez Almeida. 
+You may not use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software without explicit written permission from the author.

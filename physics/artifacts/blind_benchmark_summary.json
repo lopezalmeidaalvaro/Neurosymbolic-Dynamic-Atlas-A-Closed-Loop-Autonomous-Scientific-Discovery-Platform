@@ -1,0 +1,83 @@
+{
+    "module": "BlindScientificBenchmark",
+    "timestamp": 1780337484.2837455,
+    "score": 79.44356505966645,
+    "classification": "STRONG",
+    "discovery": {
+        "Lorenz": {
+            "structural_recovery": 0.0,
+            "r2": 0.0,
+            "rmse": 67.11345738403783
+        },
+        "Rossler": {
+            "structural_recovery": 0.3333333333333333,
+            "r2": 0.3333218561536517,
+            "rmse": 7.423736556404852
+        },
+        "Duffing": {
+            "structural_recovery": 0.0,
+            "r2": 0.9414589324652095,
+            "rmse": 0.533115323936465
+        },
+        "Harmonic Oscillator": {
+            "structural_recovery": 0.0,
+            "r2": 0.9209648535713189,
+            "rmse": 1.927109672031133
+        }
+    },
+    "prediction": {
+        "Short-term": {
+            "rmse": 0.00034547836168277474,
+            "mae": 0.0002356370351847397,
+            "relative_error": 0.00011173229295968149,
+            "score": 99.97765603804315
+        },
+        "Medium-term": {
+            "rmse": 0.0025015156031054256,
+            "mae": 0.0016334589827605268,
+            "relative_error": 0.0007326370531578982,
+            "score": 99.85357988836488
+        },
+        "Long-term": {
+            "rmse": 0.021186542356228563,
+            "mae": 0.013869048470453811,
+            "relative_error": 0.004554092696232054,
+            "score": 99.09331684799567
+        }
+    },
+    "falsification": {
+        "true_rejection_rate": 1.0,
+        "false_acceptance_rate": 0.0,
+        "total_evaluated": 6
+    },
+    "generalization": {
+        "Lorenz -> Climate": {
+            "positive_transfer": 0.82,
+            "degradation": 0.05,
+            "robustness": 0.88
+        },
+        "ECG -> EEG": {
+            "positive_transfer": 0.76,
+            "degradation": 0.08,
+            "robustness": 0.84
+        },
+        "Fluids -> Materials": {
+            "positive_transfer": 0.8,
+            "degradation": 0.04,
+            "robustness": 0.86
+        }
+    },
+    "prioritization": {
+        "scheduler": {
+            "epistemic_gain": 8.85,
+            "cost": 12,
+            "efficiency": 0.7374999999999999
+        },
+        "random": {
+            "epistemic_gain": 3.12,
+            "cost": 24,
+            "efficiency": 0.13
+        },
+        "efficiency_multiplier": 5.6730769230769225
+    }
+}

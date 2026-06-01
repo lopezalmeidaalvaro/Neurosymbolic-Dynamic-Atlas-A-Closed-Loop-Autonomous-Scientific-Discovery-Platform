@@ -1,0 +1,9 @@
+{
+    "mean_jaccard": 0.64,
+    "std_jaccard": 0.0,
+    "kg_stability_percent": 64.0,
+    "node_counts": [
+        18,
+        23
+    ]
+}

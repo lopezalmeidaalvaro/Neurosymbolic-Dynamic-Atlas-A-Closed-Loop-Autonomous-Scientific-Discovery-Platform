@@ -62,6 +62,7 @@ class FDIREngine:
             "F4": "Payload Overheating",
             "F5": "Louver Failure (eps fixed)",
             "F6": "Thermal Runaway",
+            "F7": "Warp Metric Instability",
         }
 
     def _pretrain_autoencoder(self):
@@ -102,6 +103,21 @@ class FDIREngine:
         """
         measurement = np.array(measurement)
         prediction = np.array(prediction)
+
+        # 0. Check F7: Warp Metric Instability (fluctuation > 15% in < 0.1s simulated)
+        q_warp_history = dt_params.get("q_warp_history", [])
+        if len(q_warp_history) >= 2:
+            t_curr, qw_curr = q_warp_history[-1]
+            t_prev, qw_prev = q_warp_history[-2]
+            dt = t_curr - t_prev
+            if dt > 0.0 and dt <= 0.1:
+                dq = abs(qw_curr - qw_prev)
+                if qw_prev > 0.0 and (dq / qw_prev) > 0.15:
+                    return (
+                        "F7",
+                        0.98,
+                        "Atenuar velocidad warp / Iniciar protocolo de estabilización de métrica",
+                    )
 
         # 1. Check F1: Sensor Roto (NaN or absolute constant over past 5 steps)
         if np.any(np.isnan(measurement)):
@@ -204,6 +220,11 @@ class FDIREngine:
                 "Fallo catastrófico de CPU en cortocircuito",
                 "Heater principal bloqueado",
             ],
+            "F7": [
+                "Oscilación cuántica del campo de curvatura",
+                "Fluctuación del plasma de energía exótica",
+                "Fallo del colimador de taquiones",
+            ],
         }
         return causes.get(fault_id, ["Causa Desconocida"])
 
@@ -219,6 +240,7 @@ class FDIREngine:
             "F4": "DESACTIVAR PAYLOAD INMEDIATAMENTE. Safe mode orbital.",
             "F5": "APLICAR PULSO DE CALOR A LOUVER para desbloquear mecánicamente.",
             "F6": "APAGADO CATASTRÓFICO OBC. Conmutar a OBC de respaldo secundario.",
+            "F7": "APLICAR ATENUACIÓN DE VELOCIDAD WARP GRADUALMENTE. Iniciar protocolo de estabilización de métrica.",
         }
         return actions.get(fault_id, "CONMUTAR A MODO DE SEGURIDAD PASIVO (SAFE MODE)")
 

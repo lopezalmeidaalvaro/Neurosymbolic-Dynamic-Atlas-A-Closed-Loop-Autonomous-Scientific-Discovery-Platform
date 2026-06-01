@@ -1,0 +1,1952 @@
+[
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_000",
+        "equation": "1.5*r_0/r_0",
+        "family": "rational",
+        "generation_timestamp": 1780344055.2297459,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_001",
+        "equation": "r*3.0-r*0.5*(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.240943,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_002",
+        "equation": "0.5*r/1.5",
+        "family": "rational",
+        "generation_timestamp": 1780344055.2449424,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_003",
+        "equation": "r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.2469583,
+        "critic_result": {
+            "accepted": false,
+            "rule": "instability",
+            "reason": "Flaring-out failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_004",
+        "equation": "r/r/(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.2511168,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_005",
+        "equation": "r/0.5*(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.2541108,
+        "critic_result": {
+            "accepted": false,
+            "rule": "instability",
+            "reason": "Flaring-out failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_006",
+        "equation": "3.0*1.0",
+        "family": "rational",
+        "generation_timestamp": 1780344055.2551117,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_007",
+        "equation": "r-r_0+r*3.0*exp(3.0)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.2583067,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_008",
+        "equation": "r*r_0+r_0/r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.269592,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_009",
+        "equation": "r/2.0+r*r/r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.2716103,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_010",
+        "equation": "3.0/r*r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.272611,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_011",
+        "equation": "r_0+r-r/3.0+(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.2746053,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_012",
+        "equation": "r+r+1.0/r-2.0/r*2.0",
+        "family": "rational",
+        "generation_timestamp": 1780344055.2786102,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_013",
+        "equation": "3.0*r_0+2.0",
+        "family": "rational",
+        "generation_timestamp": 1780344055.2796094,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_014",
+        "equation": "exp(r)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.2816055,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_015",
+        "equation": "r_0*r+tanh(0.5)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.2826083,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_016",
+        "equation": "r-r_0+r/r-2.0/sin(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.2931275,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_017",
+        "equation": "r+r+r+sin(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.295115,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_018",
+        "equation": "2.0*0.5-1.5*exp(r)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.2971296,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_019",
+        "equation": "r*r/exp(r_0)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.2991264,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_020",
+        "equation": "1.0*r*0.5",
+        "family": "rational",
+        "generation_timestamp": 1780344055.3007443,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_021",
+        "equation": "exp(0.5)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.3017414,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_022",
+        "equation": "r+r+1.5*2.0-tanh(0.5)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.302742,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_023",
+        "equation": "3.0/r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.3037398,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_024",
+        "equation": "0.5-r+r/r+3.0*0.5*tanh(r)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.3142638,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_025",
+        "equation": "2.0/r*0.5",
+        "family": "rational",
+        "generation_timestamp": 1780344055.3159158,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_026",
+        "equation": "3.0+r_0-r_0/r+r/r*r_0",
+        "family": "rational",
+        "generation_timestamp": 1780344055.3190882,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_027",
+        "equation": "r+1.0+1.0/r+2.0",
+        "family": "rational",
+        "generation_timestamp": 1780344055.3251026,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_028",
+        "equation": "r_0-1.5-3.0*r+2.0*r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.3271058,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_029",
+        "equation": "r/r-0.5*r*(r_0)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.3291063,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_030",
+        "equation": "0.5-r*1.0+(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.334101,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_031",
+        "equation": "0.5+r*1.24+(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.335613,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_032",
+        "equation": "2.0*exp(r)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.3376315,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_033",
+        "equation": "1.5+0.5-1.5*r+r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.338629,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_034",
+        "equation": "1.0",
+        "family": "rational",
+        "generation_timestamp": 1780344055.3396215,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_035",
+        "equation": "0.44-r+1.0+(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.3416364,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_036",
+        "equation": "r*1.0*tanh(r)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.3512375,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_037",
+        "equation": "1.5+1.0/tanh(r)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.409341,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_038",
+        "equation": "0.47*r*1.0+(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.4118714,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_039",
+        "equation": "0.5/r*0.88+(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.418005,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_040",
+        "equation": "r*r-r*exp(1.0)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.4220188,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_041",
+        "equation": "r*2.0+1.5/r*exp(1.5)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.4328415,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_042",
+        "equation": "r-1.5+r-r/r*sin(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.436369,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_043",
+        "equation": "0.43*r*1.0+(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.4375522,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_044",
+        "equation": "0.37+r*1.0+(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.439557,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_045",
+        "equation": "3.0+r-r/2.0+r/2.0*tanh(r_0)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.442113,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_046",
+        "equation": "r-r_0*r_0",
+        "family": "rational",
+        "generation_timestamp": 1780344055.4441075,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_047",
+        "equation": "r+r/r+1.0*2.0/tanh(r)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.4493804,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_048",
+        "equation": "1.0+1.0*sin(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.4533806,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "A",
+        "hypothesis_id": "H_seed_0_prob_A_049",
+        "equation": "tanh(1.5)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.454382,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Throat Closed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_000",
+        "equation": "r*sin(1.5)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.456381,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_001",
+        "equation": "3.0+1.0+1.0*r+tanh(r)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.45966,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_002",
+        "equation": "1.0+2.0-1.5+r*r*(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.4631817,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_003",
+        "equation": "r_0+r-0.5/r-tanh(r)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.4671826,
+        "critic_result": {
+            "accepted": false,
+            "rule": "numeric_failure",
+            "reason": "Sympy Parse/Math Error"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_004",
+        "equation": "3.0*1.0",
+        "family": "rational",
+        "generation_timestamp": 1780344055.468358,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_005",
+        "equation": "1.5-r-1.5*r_0+r/exp(0.5)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.4713676,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_006",
+        "equation": "(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.4729402,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_007",
+        "equation": "r/r+r*2.0*exp(0.5)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.4749515,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_008",
+        "equation": "(r_0)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.4759533,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_009",
+        "equation": "r/1.5-r/2.0*1.5",
+        "family": "rational",
+        "generation_timestamp": 1780344055.4769542,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_010",
+        "equation": "r*(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.479086,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_011",
+        "equation": "r+r/r+2.0*r*0.5",
+        "family": "rational",
+        "generation_timestamp": 1780344055.4800947,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_012",
+        "equation": "r/r*tanh(0.5)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.4810932,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_013",
+        "equation": "3.0/3.0*r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.4830923,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_014",
+        "equation": "r+r+3.0-exp(1.5)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.484094,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_015",
+        "equation": "r/r/tanh(2.0)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.486617,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_016",
+        "equation": "r_0+r/r/sin(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.4893332,
+        "critic_result": {
+            "accepted": false,
+            "rule": "numeric_failure",
+            "reason": "Sympy Parse/Math Error"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_017",
+        "equation": "1.5-r-r_0*r/r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.535486,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_018",
+        "equation": "r/r*tanh(r)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.5371706,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_019",
+        "equation": "2.0*r+r/r/sin(3.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.5384696,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_020",
+        "equation": "r/3.0+exp(r)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.5435612,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_021",
+        "equation": "r_0/3.0*(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.5454946,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_022",
+        "equation": "1.5-tanh(r)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.5464945,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_023",
+        "equation": "1.5/r-r_0.00*r/r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.5487235,
+        "critic_result": {
+            "accepted": false,
+            "rule": "numeric_failure",
+            "reason": "Sympy Parse/Math Error"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_024",
+        "equation": "1.5-r-r_0.00*r*r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.550718,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_025",
+        "equation": "0.5*2.0/sin(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.553717,
+        "critic_result": {
+            "accepted": false,
+            "rule": "numeric_failure",
+            "reason": "Sympy Parse/Math Error"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_026",
+        "equation": "1.0+r-0.5+0.5/r*(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.555869,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_027",
+        "equation": "1.5-r-r_0.00*r/r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.5570037,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_028",
+        "equation": "1.5*0.5+tanh(1.0)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.5580025,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_029",
+        "equation": "r-r/0.5-r*0.5/tanh(r)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.5672817,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_030",
+        "equation": "sin(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.5692923,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_031",
+        "equation": "1.0/1.0+3.0/r/exp(r)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.5762987,
+        "critic_result": {
+            "accepted": false,
+            "rule": "numeric_failure",
+            "reason": "Sympy Parse/Math Error"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_032",
+        "equation": "1.0+r+r-2.0/1.0*sin(r_0)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.5784357,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_033",
+        "equation": "0.5",
+        "family": "rational",
+        "generation_timestamp": 1780344055.5794315,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_034",
+        "equation": "1.09-r-r_0*r+r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.5814354,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_035",
+        "equation": "1.5-r-r_0.00-r/r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.5834258,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_036",
+        "equation": "r/1.5+r/r*tanh(3.0)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.585949,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_037",
+        "equation": "1.0-r/r+r*r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.5869665,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_038",
+        "equation": "r/r+(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.5881534,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_039",
+        "equation": "1.84/r-r_0*r/r",
+        "family": "rational",
+        "generation_timestamp": 1780344055.5901434,
+        "critic_result": {
+            "accepted": false,
+            "rule": "numeric_failure",
+            "reason": "Sympy Parse/Math Error"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_040",
+        "equation": "1.5+1.0+r+exp(r)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.5931485,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_041",
+        "equation": "2.0-1.0-1.0-3.0",
+        "family": "rational",
+        "generation_timestamp": 1780344055.594151,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_042",
+        "equation": "r-2.0+1.5*r+r/r*exp(r)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.5973501,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_043",
+        "equation": "3.0+r_0",
+        "family": "rational",
+        "generation_timestamp": 1780344055.5989637,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_044",
+        "equation": "2.0*r_0+r*r/exp(1.5)",
+        "family": "exponential",
+        "generation_timestamp": 1780344055.6019785,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_045",
+        "equation": "r-r+1.5*r/1.5",
+        "family": "rational",
+        "generation_timestamp": 1780344055.6039732,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_046",
+        "equation": "(r_0)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.6049838,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_047",
+        "equation": "2.0-r/r/tanh(r_0)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.6059816,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_048",
+        "equation": "r*2.0*tanh(r)",
+        "family": "tanh",
+        "generation_timestamp": 1780344055.6134953,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "B",
+        "hypothesis_id": "H_seed_0_prob_B_049",
+        "equation": "r+1.5-(r)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.6141214,
+        "critic_result": {
+            "accepted": false,
+            "rule": "boundary_condition",
+            "reason": "Boundary conditions failed"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_000",
+        "equation": "r**3 / (r**3 + 1.5 * r_0)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.6817846,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_001",
+        "equation": "tanh(r**3 / 3.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.7755601,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_002",
+        "equation": "tanh(r**3 / (1.5 * r_0**2))",
+        "family": "rational",
+        "generation_timestamp": 1780344055.865112,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_003",
+        "equation": "1.0 - exp(-r**3 / 1.5)",
+        "family": "rational",
+        "generation_timestamp": 1780344055.9391055,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_004",
+        "equation": "r**3 / (r**3 + 1.5)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.005674,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_005",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.066999,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_006",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.0916953,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_007",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.1186397,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_008",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.1464868,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_009",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.171398,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_010",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.1988592,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_011",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.2263236,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_012",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.2529726,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_013",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.2780757,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_014",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.304206,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_015",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.3287015,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_016",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.3570793,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_017",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.3834414,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_018",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.4081106,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_019",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.4342997,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_020",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.4603655,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_021",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.4863622,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_022",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.511797,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_023",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.5379827,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_024",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.5623395,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_025",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.5877967,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_026",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.6121013,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_027",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.6359456,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_028",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.663611,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_029",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.688135,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_030",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.7143204,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_031",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.7403557,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_032",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.766739,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_033",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.7942185,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_034",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.820519,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_035",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.8470502,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_036",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.873846,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_037",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.900431,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_038",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.924647,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_039",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.9495966,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_040",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344056.9759638,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_041",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344057.0009031,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_042",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344057.0274282,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_043",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344057.0532286,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_044",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344057.078801,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_045",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344057.1035187,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_046",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344057.1289084,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_047",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344057.1546898,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_048",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344057.1805844,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    },
+    {
+        "seed": 0,
+        "problem": "C",
+        "hypothesis_id": "H_seed_0_prob_C_049",
+        "equation": "r**3 / (r**3 + 1.0)",
+        "family": "rational",
+        "generation_timestamp": 1780344057.2067695,
+        "critic_result": {
+            "accepted": true,
+            "rule": "none",
+            "reason": "ACCEPTED"
+        }
+    }
+]

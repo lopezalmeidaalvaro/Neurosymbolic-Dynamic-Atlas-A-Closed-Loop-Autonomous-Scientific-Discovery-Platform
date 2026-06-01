@@ -1,0 +1,623 @@
+{
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "type": "Hypothesis",
+            "timestamp": 1780337076.560734,
+            "author": "HypoGen",
+            "confidence": 0.88,
+            "results_files": [],
+            "expression": "b(r) = r_0 * exp(-a * (r - r_0)^2)",
+            "metric_type": "wormhole",
+            "id": "H_iter_1_1780337076"
+        },
+        {
+            "type": "Equation",
+            "timestamp": 1780337076.560734,
+            "author": "TheoryCritic",
+            "confidence": 1.0,
+            "results_files": [],
+            "verdict": "ACCEPTED",
+            "wec_violation": 0.045,
+            "singularities_count": 0,
+            "id": "C_iter_1_1780337076"
+        },
+        {
+            "type": "Experiment",
+            "timestamp": 1780337076.560734,
+            "author": "ExpPlanner",
+            "confidence": 1.0,
+            "results_files": [],
+            "loss_config": "{'energy': 0.05, 'data': 0.1, 'bc': 1.0}",
+            "epochs": 10,
+            "id": "P_iter_1_1780337076"
+        },
+        {
+            "type": "Metric",
+            "timestamp": 1780337076.560734,
+            "author": "MetricAnalyst",
+            "confidence": 1.0,
+            "results_files": [
+                "physics/warp/symbolic_fit.png"
+            ],
+            "energy_total": 0.11,
+            "stability_score": 0.92,
+            "id": "M_iter_1_1780337076"
+        },
+        {
+            "type": "Success",
+            "timestamp": 1780337234.617815,
+            "author": "Orchestrator_Curiosity",
+            "confidence": 1.0,
+            "results_files": [],
+            "discrepancy": 6.158929964317068,
+            "target_region": "1.0 - exp(-r**3 / 3.0)",
+            "id": "Curiosity_Anomaly_1"
+        },
+        {
+            "type": "Success",
+            "timestamp": 1780337223.8010778,
+            "author": "System",
+            "confidence": 1.0,
+            "results_files": [],
+            "equation": "0.826*exp(--0.041*(r-0.360)**2)",
+            "energy": 0.08707088768307585,
+            "id": "Discovery_Success_1"
+        },
+        {
+            "type": "Hypothesis",
+            "timestamp": 1780337085.6332843,
+            "author": "HypoGen",
+            "confidence": 0.88,
+            "results_files": [],
+            "expression": "b(r) = r_0 * exp(-a * (r - r_0)^2)",
+            "metric_type": "wormhole",
+            "id": "H_iter_1_1780337085"
+        },
+        {
+            "type": "Equation",
+            "timestamp": 1780337085.6365538,
+            "author": "TheoryCritic",
+            "confidence": 1.0,
+            "results_files": [],
+            "verdict": "ACCEPTED",
+            "wec_violation": 0.045,
+            "singularities_count": 0,
+            "id": "C_iter_1_1780337085"
+        },
+        {
+            "type": "Experiment",
+            "timestamp": 1780337085.6365538,
+            "author": "ExpPlanner",
+            "confidence": 1.0,
+            "results_files": [],
+            "loss_config": "{'energy': 0.05, 'data': 0.1, 'bc': 1.0}",
+            "epochs": 10,
+            "id": "P_iter_1_1780337085"
+        },
+        {
+            "type": "Metric",
+            "timestamp": 1780337085.6385603,
+            "author": "MetricAnalyst",
+            "confidence": 1.0,
+            "results_files": [
+                "physics/warp/symbolic_fit.png"
+            ],
+            "energy_total": 0.11,
+            "stability_score": 0.92,
+            "id": "M_iter_1_1780337085"
+        },
+        {
+            "type": "Hypothesis",
+            "timestamp": 1780337092.3790796,
+            "author": "HypoGen",
+            "confidence": 0.88,
+            "results_files": [],
+            "expression": "b(r) = r_0 * exp(-a * (r - r_0)^2)",
+            "metric_type": "wormhole",
+            "id": "H_iter_1_1780337092"
+        },
+        {
+            "type": "Equation",
+            "timestamp": 1780337092.3810854,
+            "author": "TheoryCritic",
+            "confidence": 1.0,
+            "results_files": [],
+            "verdict": "ACCEPTED",
+            "wec_violation": 0.045,
+            "singularities_count": 0,
+            "id": "C_iter_1_1780337092"
+        },
+        {
+            "type": "Experiment",
+            "timestamp": 1780337092.3818147,
+            "author": "ExpPlanner",
+            "confidence": 1.0,
+            "results_files": [],
+            "loss_config": "{'energy': 0.05, 'data': 0.1, 'bc': 1.0}",
+            "epochs": 10,
+            "id": "P_iter_1_1780337092"
+        },
+        {
+            "type": "Metric",
+            "timestamp": 1780337092.3833215,
+            "author": "MetricAnalyst",
+            "confidence": 1.0,
+            "results_files": [
+                "physics/warp/symbolic_fit.png"
+            ],
+            "energy_total": 0.11,
+            "stability_score": 0.92,
+            "id": "M_iter_1_1780337092"
+        },
+        {
+            "type": "Hypothesis",
+            "timestamp": 1780337133.808578,
+            "author": "HypoGen",
+            "confidence": 0.88,
+            "results_files": [],
+            "expression": "b(r) = r_0 * exp(-a * (r - r_0)^2)",
+            "metric_type": "wormhole",
+            "id": "H_iter_1_1780337133"
+        },
+        {
+            "type": "Equation",
+            "timestamp": 1780337133.809578,
+            "author": "TheoryCritic",
+            "confidence": 1.0,
+            "results_files": [],
+            "verdict": "ACCEPTED",
+            "wec_violation": 0.045,
+            "singularities_count": 0,
+            "id": "C_iter_1_1780337133"
+        },
+        {
+            "type": "Experiment",
+            "timestamp": 1780337133.8120894,
+            "author": "ExpPlanner",
+            "confidence": 1.0,
+            "results_files": [],
+            "loss_config": "{'energy': 0.05, 'data': 0.1, 'bc': 1.0}",
+            "epochs": 10,
+            "id": "P_iter_1_1780337133"
+        },
+        {
+            "type": "Metric",
+            "timestamp": 1780337133.8140936,
+            "author": "MetricAnalyst",
+            "confidence": 1.0,
+            "results_files": [
+                "physics/warp/symbolic_fit.png"
+            ],
+            "energy_total": 0.11,
+            "stability_score": 0.92,
+            "id": "M_iter_1_1780337133"
+        },
+        {
+            "type": "Hypothesis",
+            "timestamp": 1780337210.386333,
+            "author": "HypoGen",
+            "confidence": 0.75,
+            "results_files": [],
+            "expression": "tanh(r**3 / 1.5)",
+            "metric_type": "black_hole",
+            "id": "H_iter_1_1780337210"
+        },
+        {
+            "type": "Equation",
+            "timestamp": 1780337210.5188363,
+            "author": "TheoryCritic",
+            "confidence": 1.0,
+            "results_files": [],
+            "verdict": "ACCEPTED",
+            "wec_violation": 0.0,
+            "singularities_count": 0,
+            "id": "C_iter_1_1780337210"
+        },
+        {
+            "type": "Experiment",
+            "timestamp": 1780337210.5242622,
+            "author": "ExpPlanner",
+            "confidence": 1.0,
+            "results_files": [],
+            "loss_config": "{'bc_weight': 1.0, 'regularization_weight': 0.5, 'energy_weight': 0.01, 'domain': [0.01, 3.0], 'collocation_points': 300}",
+            "epochs": 150,
+            "id": "P_iter_1_1780337210"
+        },
+        {
+            "type": "Hypothesis",
+            "timestamp": 1780337221.8360682,
+            "author": "HypoGen",
+            "confidence": 0.75,
+            "results_files": [],
+            "expression": "tanh(r**3 / 0.5)",
+            "metric_type": "black_hole",
+            "id": "H_iter_1_1780337221"
+        },
+        {
+            "type": "Equation",
+            "timestamp": 1780337221.961465,
+            "author": "TheoryCritic",
+            "confidence": 1.0,
+            "results_files": [],
+            "verdict": "ACCEPTED",
+            "wec_violation": 0.0,
+            "singularities_count": 0,
+            "id": "C_iter_1_1780337221"
+        },
+        {
+            "type": "Experiment",
+            "timestamp": 1780337221.9669626,
+            "author": "ExpPlanner",
+            "confidence": 1.0,
+            "results_files": [],
+            "loss_config": "{'bc_weight': 1.0, 'data_weight': 0.5, 'energy_weight': 0.01, 'domain': [0.01, 3.0], 'collocation_points': 300}",
+            "epochs": 150,
+            "id": "P_iter_1_1780337221"
+        },
+        {
+            "type": "Metric",
+            "timestamp": 1780337223.7941668,
+            "author": "MetricAnalyst",
+            "confidence": 1.0,
+            "results_files": [
+                "physics/warp/symbolic_fit.png"
+            ],
+            "energy_total": 0.08707088768307585,
+            "stability_score": 0.9913307081491788,
+            "id": "M_iter_1_1780337223"
+        },
+        {
+            "type": "Hypothesis",
+            "timestamp": 1780337232.6520867,
+            "author": "HypoGen",
+            "confidence": 0.75,
+            "results_files": [],
+            "expression": "1.0 - exp(-r**3 / 3.0)",
+            "metric_type": "black_hole",
+            "id": "H_iter_1_1780337232"
+        },
+        {
+            "type": "Equation",
+            "timestamp": 1780337232.7640448,
+            "author": "TheoryCritic",
+            "confidence": 1.0,
+            "results_files": [],
+            "verdict": "ACCEPTED",
+            "wec_violation": 0.0,
+            "singularities_count": 0,
+            "id": "C_iter_1_1780337232"
+        },
+        {
+            "type": "Experiment",
+            "timestamp": 1780337232.7654288,
+            "author": "ExpPlanner",
+            "confidence": 1.0,
+            "results_files": [],
+            "loss_config": "{'bc_weight': 1.0, 'data_weight': 0.5, 'energy_weight': 0.01, 'domain': [0.01, 3.0], 'collocation_points': 300}",
+            "epochs": 150,
+            "id": "P_iter_1_1780337232"
+        },
+        {
+            "type": "Metric",
+            "timestamp": 1780337234.6148145,
+            "author": "MetricAnalyst",
+            "confidence": 1.0,
+            "results_files": [
+                "physics/warp/symbolic_fit.png"
+            ],
+            "energy_total": 1.8410700356829328,
+            "stability_score": 0.8318467884896356,
+            "id": "M_iter_1_1780337234"
+        },
+        {
+            "type": "Hypothesis",
+            "timestamp": 1780337234.6278207,
+            "author": "HypoGen",
+            "confidence": 0.75,
+            "results_files": [],
+            "expression": "r**3 / (r**3 + 1.0)",
+            "metric_type": "black_hole",
+            "id": "H_iter_2_1780337234"
+        },
+        {
+            "type": "Equation",
+            "timestamp": 1780337234.6803398,
+            "author": "TheoryCritic",
+            "confidence": 1.0,
+            "results_files": [],
+            "verdict": "ACCEPTED",
+            "wec_violation": 0.0,
+            "singularities_count": 0,
+            "id": "C_iter_2_1780337234"
+        },
+        {
+            "type": "Experiment",
+            "timestamp": 1780337234.6811218,
+            "author": "ExpPlanner",
+            "confidence": 1.0,
+            "results_files": [],
+            "loss_config": "{'bc_weight': 1.0, 'data_weight': 0.5, 'energy_weight': 0.01, 'domain': [0.01, 3.0], 'collocation_points': 300}",
+            "epochs": 150,
+            "id": "P_iter_2_1780337234"
+        },
+        {
+            "type": "Metric",
+            "timestamp": 1780337235.1257124,
+            "author": "MetricAnalyst",
+            "confidence": 1.0,
+            "results_files": [
+                "physics/warp/symbolic_fit.png"
+            ],
+            "energy_total": 1.8457650991945413,
+            "stability_score": 0.831456322809478,
+            "id": "M_iter_2_1780337235"
+        },
+        {
+            "type": "Success",
+            "timestamp": 1780337235.1294355,
+            "author": "Orchestrator_Curiosity",
+            "confidence": 1.0,
+            "results_files": [],
+            "discrepancy": 22.15423490080546,
+            "target_region": "r**3 / (r**3 + 1.0)",
+            "id": "Curiosity_Anomaly_2"
+        },
+        {
+            "type": "Hypothesis",
+            "timestamp": 1780337235.139562,
+            "author": "HypoGen",
+            "confidence": 0.75,
+            "results_files": [],
+            "expression": "tanh(r**3 / (0.5 * r_0**2))",
+            "metric_type": "black_hole",
+            "id": "H_iter_3_1780337235"
+        },
+        {
+            "type": "Equation",
+            "timestamp": 1780337235.1485898,
+            "author": "TheoryCritic",
+            "confidence": 1.0,
+            "results_files": [],
+            "verdict": "REJECTED",
+            "wec_violation": 0.0,
+            "singularities_count": 100,
+            "id": "C_iter_3_1780337235"
+        },
+        {
+            "type": "Failure",
+            "timestamp": 1780337235.1515863,
+            "author": "System",
+            "confidence": 1.0,
+            "results_files": [],
+            "reason": "Rechazo del Critico Teorico",
+            "id": "Fail_3"
+        }
+    ],
+    "edges": [
+        {
+            "relation": "validated_by",
+            "timestamp": 1780337076.560734,
+            "source": "H_iter_1_1780337076",
+            "target": "C_iter_1_1780337076"
+        },
+        {
+            "relation": "tested_by",
+            "timestamp": 1780337076.560734,
+            "source": "H_iter_1_1780337076",
+            "target": "P_iter_1_1780337076"
+        },
+        {
+            "relation": "yields",
+            "timestamp": 1780337076.5647273,
+            "source": "P_iter_1_1780337076",
+            "target": "M_iter_1_1780337076"
+        },
+        {
+            "relation": "triggers_curiosity",
+            "timestamp": 1780337076.5652704,
+            "source": "M_iter_1_1780337076",
+            "target": "Curiosity_Anomaly_1"
+        },
+        {
+            "relation": "proves_success",
+            "timestamp": 1780337076.566277,
+            "source": "M_iter_1_1780337076",
+            "target": "Discovery_Success_1"
+        },
+        {
+            "relation": "validated_by",
+            "timestamp": 1780337085.6365538,
+            "source": "H_iter_1_1780337085",
+            "target": "C_iter_1_1780337085"
+        },
+        {
+            "relation": "tested_by",
+            "timestamp": 1780337085.6385603,
+            "source": "H_iter_1_1780337085",
+            "target": "P_iter_1_1780337085"
+        },
+        {
+            "relation": "yields",
+            "timestamp": 1780337085.6398008,
+            "source": "P_iter_1_1780337085",
+            "target": "M_iter_1_1780337085"
+        },
+        {
+            "relation": "triggers_curiosity",
+            "timestamp": 1780337085.6418111,
+            "source": "M_iter_1_1780337085",
+            "target": "Curiosity_Anomaly_1"
+        },
+        {
+            "relation": "proves_success",
+            "timestamp": 1780337085.6440325,
+            "source": "M_iter_1_1780337085",
+            "target": "Discovery_Success_1"
+        },
+        {
+            "relation": "validated_by",
+            "timestamp": 1780337092.3818147,
+            "source": "H_iter_1_1780337092",
+            "target": "C_iter_1_1780337092"
+        },
+        {
+            "relation": "tested_by",
+            "timestamp": 1780337092.3833215,
+            "source": "H_iter_1_1780337092",
+            "target": "P_iter_1_1780337092"
+        },
+        {
+            "relation": "yields",
+            "timestamp": 1780337092.3833215,
+            "source": "P_iter_1_1780337092",
+            "target": "M_iter_1_1780337092"
+        },
+        {
+            "relation": "triggers_curiosity",
+            "timestamp": 1780337092.3833215,
+            "source": "M_iter_1_1780337092",
+            "target": "Curiosity_Anomaly_1"
+        },
+        {
+            "relation": "proves_success",
+            "timestamp": 1780337092.3880606,
+            "source": "M_iter_1_1780337092",
+            "target": "Discovery_Success_1"
+        },
+        {
+            "relation": "validated_by",
+            "timestamp": 1780337133.811084,
+            "source": "H_iter_1_1780337133",
+            "target": "C_iter_1_1780337133"
+        },
+        {
+            "relation": "tested_by",
+            "timestamp": 1780337133.8120894,
+            "source": "H_iter_1_1780337133",
+            "target": "P_iter_1_1780337133"
+        },
+        {
+            "relation": "yields",
+            "timestamp": 1780337133.8150911,
+            "source": "P_iter_1_1780337133",
+            "target": "M_iter_1_1780337133"
+        },
+        {
+            "relation": "triggers_curiosity",
+            "timestamp": 1780337133.8170898,
+            "source": "M_iter_1_1780337133",
+            "target": "Curiosity_Anomaly_1"
+        },
+        {
+            "relation": "proves_success",
+            "timestamp": 1780337133.8180895,
+            "source": "M_iter_1_1780337133",
+            "target": "Discovery_Success_1"
+        },
+        {
+            "relation": "validated_by",
+            "timestamp": 1780337210.5188363,
+            "source": "H_iter_1_1780337210",
+            "target": "C_iter_1_1780337210"
+        },
+        {
+            "relation": "tested_by",
+            "timestamp": 1780337210.5261936,
+            "source": "H_iter_1_1780337210",
+            "target": "P_iter_1_1780337210"
+        },
+        {
+            "relation": "validated_by",
+            "timestamp": 1780337221.961465,
+            "source": "H_iter_1_1780337221",
+            "target": "C_iter_1_1780337221"
+        },
+        {
+            "relation": "tested_by",
+            "timestamp": 1780337221.9679704,
+            "source": "H_iter_1_1780337221",
+            "target": "P_iter_1_1780337221"
+        },
+        {
+            "relation": "yields",
+            "timestamp": 1780337223.798402,
+            "source": "P_iter_1_1780337221",
+            "target": "M_iter_1_1780337223"
+        },
+        {
+            "relation": "triggers_curiosity",
+            "timestamp": 1780337223.80007,
+            "source": "M_iter_1_1780337223",
+            "target": "Curiosity_Anomaly_1"
+        },
+        {
+            "relation": "proves_success",
+            "timestamp": 1780337223.8032773,
+            "source": "M_iter_1_1780337223",
+            "target": "Discovery_Success_1"
+        },
+        {
+            "relation": "validated_by",
+            "timestamp": 1780337232.7654288,
+            "source": "H_iter_1_1780337232",
+            "target": "C_iter_1_1780337232"
+        },
+        {
+            "relation": "tested_by",
+            "timestamp": 1780337232.7654288,
+            "source": "H_iter_1_1780337232",
+            "target": "P_iter_1_1780337232"
+        },
+        {
+            "relation": "yields",
+            "timestamp": 1780337234.616815,
+            "source": "P_iter_1_1780337232",
+            "target": "M_iter_1_1780337234"
+        },
+        {
+            "relation": "triggers_curiosity",
+            "timestamp": 1780337234.6198134,
+            "source": "M_iter_1_1780337234",
+            "target": "Curiosity_Anomaly_1"
+        },
+        {
+            "relation": "validated_by",
+            "timestamp": 1780337234.6811218,
+            "source": "H_iter_2_1780337234",
+            "target": "C_iter_2_1780337234"
+        },
+        {
+            "relation": "tested_by",
+            "timestamp": 1780337234.6811218,
+            "source": "H_iter_2_1780337234",
+            "target": "P_iter_2_1780337234"
+        },
+        {
+            "relation": "yields",
+            "timestamp": 1780337235.1294355,
+            "source": "P_iter_2_1780337234",
+            "target": "M_iter_2_1780337235"
+        },
+        {
+            "relation": "triggers_curiosity",
+            "timestamp": 1780337235.1316414,
+            "source": "M_iter_2_1780337235",
+            "target": "Curiosity_Anomaly_2"
+        },
+        {
+            "relation": "validated_by",
+            "timestamp": 1780337235.1495943,
+            "source": "H_iter_3_1780337235",
+            "target": "C_iter_3_1780337235"
+        },
+        {
+            "relation": "leads_to",
+            "timestamp": 1780337235.1525853,
+            "source": "H_iter_3_1780337235",
+            "target": "Fail_3"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "theoretical_grammar_entropy": 10.661778097771988,
+    "sample_size": 10000,
+    "coverage": {
+        "exponential": 13.459999999999999,
+        "polynomial": 1.49,
+        "rational": 0.27,
+        "power_law": 19.02,
+        "tanh": 23.31,
+        "sigmoid": 2.5100000000000002,
+        "mixed": 39.94
+    },
+    "counts": {
+        "exponential": 1346,
+        "polynomial": 149,
+        "rational": 27,
+        "power_law": 1902,
+        "tanh": 2331,
+        "sigmoid": 251,
+        "mixed": 3994
+    },
+    "average_depth": 5.5841,
+    "max_depth": 6,
+    "average_length": 43.7985,
+    "exponential_bias_pct": 13.459999999999999
+}

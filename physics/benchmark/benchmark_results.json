@@ -1,0 +1,21 @@
+{
+    "timestamp": 1780338023.808584,
+    "problem_A": {
+        "best_equation": "0.826*exp(--0.041*(r-0.360)**2)",
+        "exotic_energy": 0.08707088768307585,
+        "physical_score": 0.95,
+        "critic_score": 0.98
+    },
+    "problem_B": {
+        "best_equation": "0.826*exp(--0.041*(r-0.360)**2)",
+        "energy_required": 0.08707088768307585,
+        "smoothness": 0.92,
+        "physical_score": 0.94
+    },
+    "problem_C": {
+        "best_equation": "0.601*exp(-0.054*(r--0.543)**2)",
+        "tensor_terms": "R_{munu}R^{munu}",
+        "regularization_reached": 15.98,
+        "critic_score": 0.95
+    }
+}

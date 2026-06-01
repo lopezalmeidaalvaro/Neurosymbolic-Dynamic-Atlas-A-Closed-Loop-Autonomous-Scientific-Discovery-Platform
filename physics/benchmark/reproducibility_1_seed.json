@@ -1,0 +1,29 @@
+[
+    {
+        "seed": 0,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "r**3 / (r**3 + 1.5)",
+            "family": "rational",
+            "score": 100.0,
+            "accepted": false
+        },
+        "global_score": 86.91955679349964,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 0,
+            "rejected": 6
+        }
+    }
+]

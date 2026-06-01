@@ -1,0 +1,9 @@
+{
+    "DiscoveryReproducibility": 57.00000000000001,
+    "SeedRobustness": 100.0,
+    "SubsamplingRobustness": 96.63859473443011,
+    "NoiseRobustness": 87.55000000000001,
+    "EpistemicConsistency": 100.0,
+    "ReproducibilityIndex": 88.23771894688602,
+    "Classification": "GOOD"
+}

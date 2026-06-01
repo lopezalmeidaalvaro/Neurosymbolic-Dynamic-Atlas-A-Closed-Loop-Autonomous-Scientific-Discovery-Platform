@@ -1,0 +1,81 @@
+{
+    "files": {
+        "benchmark_results": {
+            "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\benchmark\\benchmark_results.json",
+            "exists": true,
+            "size_bytes": 644,
+            "last_modified_epoch": 1780338023.808584,
+            "last_modified_iso": "2026-06-01T19:20:23",
+            "sha256": "46a37a3d66c8c47c",
+            "top_level_keys": [
+                "timestamp",
+                "problem_A",
+                "problem_B",
+                "problem_C"
+            ]
+        },
+        "benchmark_scores": {
+            "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\benchmark\\benchmark_scores.json",
+            "exists": true,
+            "size_bytes": 306,
+            "last_modified_epoch": 1780338572.2839441,
+            "last_modified_iso": "2026-06-01T19:29:32",
+            "sha256": "92c63a90ac5f47ed",
+            "top_level_keys": [
+                "timestamp",
+                "problem_score_A",
+                "problem_score_B",
+                "problem_score_C",
+                "global_score",
+                "classification",
+                "memory_contamination",
+                "kg_contamination"
+            ]
+        },
+        "reproducibility_results": {
+            "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\benchmark\\reproducibility_results.json",
+            "exists": true,
+            "size_bytes": 18072,
+            "last_modified_epoch": 1780338572.2884443,
+            "last_modified_iso": "2026-06-01T19:29:32",
+            "sha256": "353fe11e2495f894",
+            "entry_count": 30
+        },
+        "benchmark_env_report": {
+            "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\benchmark\\benchmark_environment_report.json",
+            "exists": true,
+            "size_bytes": 472,
+            "last_modified_epoch": 1780338582.5297775,
+            "last_modified_iso": "2026-06-01T19:29:42",
+            "sha256": "ad61b1548800201a",
+            "top_level_keys": [
+                "timestamp",
+                "memory_contamination",
+                "kg_contamination",
+                "pruned_nodes_count",
+                "retained_nodes_count",
+                "pruned_links_count",
+                "temp_kg_path",
+                "temp_memory_path",
+                "status"
+            ]
+        },
+        "blind_benchmark_report": {
+            "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\docs\\BLIND_BENCHMARK_REPORT.md",
+            "exists": true,
+            "size_bytes": 3546,
+            "last_modified_epoch": 1780338025.0098774,
+            "last_modified_iso": "2026-06-01T19:20:25",
+            "sha256": "577439ddaf91895b"
+        },
+        "reproducibility_report": {
+            "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\docs\\REPRODUCIBILITY_REPORT.md",
+            "exists": true,
+            "size_bytes": 4382,
+            "last_modified_epoch": 1780338583.2185953,
+            "last_modified_iso": "2026-06-01T19:29:43",
+            "sha256": "992c5ac6b884a320"
+        }
+    },
+    "anomalies": []
+}

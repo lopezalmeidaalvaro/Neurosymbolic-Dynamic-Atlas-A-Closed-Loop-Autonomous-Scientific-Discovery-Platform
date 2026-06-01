@@ -1,0 +1,27 @@
+agents:
+  enabled:
+  - HypothesisGenerator
+  - TheoryCritic
+  - ExperimentPlanner
+  - MetricsAnalyst
+  - MemoryConservator
+  exp_planner:
+    pinn_epochs: 150
+    pinn_lr: 0.005
+  hypo_gen:
+    exploration_rate: 0.4
+    similarity_threshold: 0.85
+  theory_critic:
+    allow_singularities: false
+    wec_threshold: 0.1
+paths:
+  equations_file: physics/warp/optimized_metric_equation.txt
+  knowledge_graph: physics/core/io/knowledge_graph.json
+  optimized_data: physics/warp/data/optimized_bubble.csv
+physics:
+  constants:
+    alpha_coupling: 0.1
+    planck_length: 1.616e-35
+  goals:
+    regularize_singularity: true
+    target_metric: black_hole

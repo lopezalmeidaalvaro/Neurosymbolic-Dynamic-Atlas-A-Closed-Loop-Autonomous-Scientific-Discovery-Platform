@@ -1,0 +1,28 @@
+{
+    "timestamp": 1780345215.978278,
+    "problems": {
+        "problem_A": {
+            "unique_equations": 2,
+            "diversity_index": 0.06666666666666667,
+            "collapse_index": 0.9333333333333333,
+            "family_entropy": 0.1461447460085618,
+            "classification": "Strong Collapse"
+        },
+        "problem_B": {
+            "unique_equations": 3,
+            "diversity_index": 0.1,
+            "collapse_index": 0.9,
+            "family_entropy": -1.110223024625156e-15,
+            "classification": "Strong Collapse"
+        },
+        "problem_C": {
+            "unique_equations": 20,
+            "diversity_index": 0.6666666666666666,
+            "collapse_index": 0.33333333333333337,
+            "family_entropy": 0.6842317651302983,
+            "classification": "Healthy"
+        }
+    },
+    "global_mean_collapse_index": 0.7222222222222223,
+    "global_classification": "Strong Collapse"
+}

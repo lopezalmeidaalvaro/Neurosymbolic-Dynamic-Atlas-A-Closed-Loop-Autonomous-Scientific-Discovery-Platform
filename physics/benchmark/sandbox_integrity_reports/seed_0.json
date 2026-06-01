@@ -1,0 +1,12 @@
+{
+    "timestamp": 1780345157.5732305,
+    "seed": 0,
+    "memory_contamination": false,
+    "kg_contamination": false,
+    "pruned_nodes_count": 22,
+    "retained_nodes_count": 15,
+    "pruned_links_count": 31,
+    "temp_kg_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\benchmark\\temp_knowledge_graph.json",
+    "temp_memory_path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\benchmark\\temp_memory.json",
+    "status": "fully_isolated"
+}

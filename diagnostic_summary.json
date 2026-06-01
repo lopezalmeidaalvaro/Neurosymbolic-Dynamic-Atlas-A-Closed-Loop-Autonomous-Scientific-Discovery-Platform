@@ -1,0 +1,1075 @@
+{
+    "total_hypotheses": 450,
+    "accepted": 172,
+    "rejected": 278,
+    "acceptance_rate": 0.38222222222222224,
+    "per_problem": {
+        "A": {
+            "total_hypotheses": 150,
+            "accepted": 21,
+            "rejected": 129,
+            "acceptance_rate": 0.14,
+            "rejections_by_rule": {
+                "boundary_condition": 122,
+                "instability": 6,
+                "numeric_failure": 1
+            }
+        },
+        "B": {
+            "total_hypotheses": 150,
+            "accepted": 1,
+            "rejected": 149,
+            "acceptance_rate": 0.006666666666666667,
+            "rejections_by_rule": {
+                "boundary_condition": 129,
+                "numeric_failure": 20
+            }
+        },
+        "C": {
+            "total_hypotheses": 150,
+            "accepted": 150,
+            "rejected": 0,
+            "acceptance_rate": 1.0,
+            "rejections_by_rule": {}
+        }
+    },
+    "top_rejection_causes": {
+        "boundary_condition": 251,
+        "instability": 6,
+        "numeric_failure": 21
+    },
+    "accepted_equations": [
+        {
+            "problem": "A",
+            "seed": 0,
+            "equation": "0.5-r*1.0+(r)",
+            "family": "rational"
+        },
+        {
+            "problem": "B",
+            "seed": 0,
+            "equation": "1.5-r-r_0*r/r",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.5 * r_0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "tanh(r**3 / 3.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "tanh(r**3 / (1.5 * r_0**2))",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "1.0 - exp(-r**3 / 1.5)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.5)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 0,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 1,
+            "equation": "tanh(0.5)",
+            "family": "tanh"
+        },
+        {
+            "problem": "A",
+            "seed": 1,
+            "equation": "tanh(0.40)",
+            "family": "tanh"
+        },
+        {
+            "problem": "A",
+            "seed": 1,
+            "equation": "tanh(0.38)",
+            "family": "tanh"
+        },
+        {
+            "problem": "A",
+            "seed": 1,
+            "equation": "tanh(r)",
+            "family": "tanh"
+        },
+        {
+            "problem": "A",
+            "seed": 1,
+            "equation": "r_0/r*tanh(r_0)",
+            "family": "tanh"
+        },
+        {
+            "problem": "A",
+            "seed": 1,
+            "equation": "r_0/2.0/(r)",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 1,
+            "equation": "r_0/1.83/(r)",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 1,
+            "equation": "r_0*r/tanh(r)",
+            "family": "tanh"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "tanh(r**3 / 3.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "1.0 - exp(-r**3 / 1.5)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 2.0 * r_0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "tanh(r**3 / (2.0 * r_0**2))",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 3.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 1,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 2,
+            "equation": "sin(r)",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 2,
+            "equation": "r_0",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 2,
+            "equation": "0.5",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 2,
+            "equation": "0.36",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 2,
+            "equation": "0.49",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 2,
+            "equation": "0.60",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 2,
+            "equation": "0.46",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 2,
+            "equation": "0.43",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 2,
+            "equation": "0.5+r-r+r*r/(2.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 2,
+            "equation": "0.42",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 2,
+            "equation": "0.38",
+            "family": "rational"
+        },
+        {
+            "problem": "A",
+            "seed": 2,
+            "equation": "0.45",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "1.0 - exp(-r**3 / 3.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "tanh(r**3 / 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "tanh(r**3 / (2.0 * r_0**2))",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 3.0 * r_0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        },
+        {
+            "problem": "C",
+            "seed": 2,
+            "equation": "r**3 / (r**3 + 1.0)",
+            "family": "rational"
+        }
+    ]
+}

@@ -1,0 +1,130 @@
+{
+    "module": "ReproducibilityVerification",
+    "timestamp": 1780338490.9785087,
+    "score": 88.23771894688602,
+    "classification": "GOOD",
+    "discovery": {
+        "total_candidates_audited": 11,
+        "high_reproducibility_count": 0,
+        "medium_reproducibility_count": 11,
+        "low_reproducibility_count": 0,
+        "candidates": [
+            {
+                "equation": "dx = v",
+                "reproducibility_score": 57.00000000000001,
+                "classification": "MEDIUM",
+                "stability": 0.8,
+                "repetition_rate": 0.3333333333333333
+            },
+            {
+                "equation": "dx = v",
+                "reproducibility_score": 57.00000000000001,
+                "classification": "MEDIUM",
+                "stability": 0.8,
+                "repetition_rate": 0.3333333333333333
+            },
+            {
+                "equation": "dx = v",
+                "reproducibility_score": 57.00000000000001,
+                "classification": "MEDIUM",
+                "stability": 0.8,
+                "repetition_rate": 0.3333333333333333
+            },
+            {
+                "equation": "dx = v",
+                "reproducibility_score": 57.00000000000001,
+                "classification": "MEDIUM",
+                "stability": 0.8,
+                "repetition_rate": 0.3333333333333333
+            },
+            {
+                "equation": "dx = v",
+                "reproducibility_score": 57.00000000000001,
+                "classification": "MEDIUM",
+                "stability": 0.8,
+                "repetition_rate": 0.3333333333333333
+            },
+            {
+                "equation": "dx = v",
+                "reproducibility_score": 57.00000000000001,
+                "classification": "MEDIUM",
+                "stability": 0.8,
+                "repetition_rate": 0.3333333333333333
+            },
+            {
+                "equation": "dx = v",
+                "reproducibility_score": 57.00000000000001,
+                "classification": "MEDIUM",
+                "stability": 0.8,
+                "repetition_rate": 0.3333333333333333
+            },
+            {
+                "equation": "dx = v",
+                "reproducibility_score": 57.00000000000001,
+                "classification": "MEDIUM",
+                "stability": 0.8,
+                "repetition_rate": 0.3333333333333333
+            },
+            {
+                "equation": "dx = v",
+                "reproducibility_score": 57.00000000000001,
+                "classification": "MEDIUM",
+                "stability": 0.8,
+                "repetition_rate": 0.3333333333333333
+            },
+            {
+                "equation": "dx = v",
+                "reproducibility_score": 57.00000000000001,
+                "classification": "MEDIUM",
+                "stability": 0.8,
+                "repetition_rate": 0.3333333333333333
+            },
+            {
+                "equation": "dx = sigma * (y - x)",
+                "reproducibility_score": 57.00000000000001,
+                "classification": "MEDIUM",
+                "stability": 0.8,
+                "repetition_rate": 0.3333333333333333
+            }
+        ]
+    },
+    "seed": {
+        "seed_sensitivity_index": 0.0,
+        "variance": 0.0,
+        "std_deviation": 0.0,
+        "mean_validation_score": 1.0,
+        "runs_evaluated": 20
+    },
+    "subsampling": {
+        "retention_levels": {
+            "50%": 0.9361495378653806,
+            "75%": 0.9729873518289781,
+            "90%": 0.9900209523385447
+        },
+        "capabilities": {
+            "Discovery": 0.9900209523385447,
+            "Validation": 0.9900209523385447,
+            "Transfer": 0.9729873518289781,
+            "MetaLearning": 0.9361495378653806
+        },
+        "fitted_scaling_exponent": 0.09518909466709956
+    },
+    "noise": {
+        "noise_degradation_profile": {
+            "5% noise": 0.955,
+            "10% noise": 0.902,
+            "15% noise": 0.86,
+            "20% noise": 0.785
+        },
+        "noise_robustness_score": 87.55000000000001
+    },
+    "epistemic": {
+        "blind_score": 79.44356505966645,
+        "stability_score": 9250.0,
+        "impact_score": 84.5,
+        "calibration_score": 88.0,
+        "hardening_score": 85.0,
+        "contradictions_detected": [],
+        "score_deductions": 0.0
+    }
+}
