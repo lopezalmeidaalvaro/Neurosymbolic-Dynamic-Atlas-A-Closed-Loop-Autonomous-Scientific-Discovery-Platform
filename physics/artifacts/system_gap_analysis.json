@@ -1,0 +1,23 @@
+[
+  {
+    "gap_id": "gap_1",
+    "title": "Absence of Physical Laboratory Actuators / Hardware-in-the-Loop (HIL)",
+    "description": "All execution runs operate in simulated numerical environments. There is no physical loop interaction.",
+    "severity": "CRITICAL",
+    "remediation": "Prescribe a physical automation API to interface with chemical pipettes or BEC fluids hardware loops."
+  },
+  {
+    "gap_id": "gap_2",
+    "title": "Absence of Real-World External Validation & Peer-Review Channels",
+    "description": "Validation checks are completely internal (Skeptic agent and sanity engines). There is no external human collaboration loop.",
+    "severity": "HIGH",
+    "remediation": "Integrate an invitation-based expert validation interface for external peer reviews."
+  },
+  {
+    "gap_id": "gap_3",
+    "title": "Absence of Automated Journal Publication Submissions",
+    "description": "The system writes beautiful markdown papers via auto_paper_generator but cannot submit them to preprint servers.",
+    "severity": "MEDIUM",
+    "remediation": "Add an API client to submit LaTeX structures directly to arXiv or biorXiv preprints."
+  }
+]

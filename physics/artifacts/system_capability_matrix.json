@@ -1,0 +1,26 @@
+{
+  "DiscoveryCapability": {
+    "score": 85.0,
+    "evidence": "OBSERVED"
+  },
+  "FalsificationCapability": {
+    "score": 82.0,
+    "evidence": "OBSERVED"
+  },
+  "CumulativeLearning": {
+    "score": 80.0,
+    "evidence": "INFERRED"
+  },
+  "DomainGeneralization": {
+    "score": 75.0,
+    "evidence": "INFERRED"
+  },
+  "TheoryGeneration": {
+    "score": 65.0,
+    "evidence": "SIMULATED"
+  },
+  "OrchestrationAutonomy": {
+    "score": 90.0,
+    "evidence": "SIMULATED"
+  }
+}
