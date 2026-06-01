@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AST-OS - Spacecraft Thermal Simulation Demo</title>
+    <meta name="description" content="Physics-informed spacecraft thermal simulation platform for CubeSat and SmallSat mission analysis.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        outfit: ["Outfit", "sans-serif"],
+                        inter: ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        body {
+            background: #07111f;
+            color: #eef4fb;
+            font-family: "Inter", sans-serif;
+            overflow-x: hidden;
+        }
+        .surface {
+            background: rgba(12, 24, 39, 0.82);
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
+        }
+        .code-surface {
+            background: #07111f;
+            border: 1px solid rgba(148, 163, 184, 0.22);
+        }
+        .btn {
+            transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+        }
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="min-h-screen font-inter">
+    <header class="border-b border-slate-700/60 bg-slate-950/65 backdrop-blur">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+            <a href="#" class="font-outfit text-2xl font-extrabold tracking-tight text-white">AST-OS</a>
+            <nav class="hidden items-center gap-7 text-sm font-medium text-slate-300 md:flex">
+                <a href="#demo" class="hover:text-white">Demo</a>
+                <a href="#how-demo-works" class="hover:text-white">How It Works</a>
+                <a href="#quickstart" class="hover:text-white">API</a>
+                <a href="#access" class="hover:text-white">Access</a>
+            </nav>
+            <a href="#demo" class="btn rounded-md bg-sky-500 px-4 py-2 text-sm font-semibold text-slate-950">Try Demo</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+            <div class="space-y-7">
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">Research demo platform</p>
+                <div class="space-y-5">
+                    <h1 class="font-outfit text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl">
+                        Autonomous Spacecraft Thermal Digital Twin
+                    </h1>
+                    <p class="text-xl font-semibold text-slate-200">
+                        Physics-informed spacecraft thermal simulation platform for CubeSat and SmallSat mission analysis.
+                    </p>
+                    <p class="max-w-2xl text-base leading-7 text-slate-300">
+                        Interactive thermal modelling, transient orbital simulations, and anomaly analysis through a web interface and REST API.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-3 sm:flex-row">
+                    <a href="#demo" class="btn rounded-md bg-sky-500 px-5 py-3 text-center text-sm font-bold text-slate-950">Run Simulation</a>
+                    <a href="#quickstart" class="btn rounded-md border border-slate-500 px-5 py-3 text-center text-sm font-bold text-slate-100">View API Example</a>
+                </div>
+            </div>
+
+            <div class="surface rounded-lg p-6">
+                <div class="mb-4 flex items-center justify-between">
+                    <div>
+                        <h2 class="font-outfit text-xl font-bold text-white">Thermal Response Preview</h2>
+                        <p class="text-sm text-slate-400">Example transient temperature curves from the demo model.</p>
+                    </div>
+                    <span class="rounded-md border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-200">Interactive</span>
+                </div>
+                <div class="h-[320px]">
+                    <canvas id="heroChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="metrics" class="mx-auto max-w-7xl px-6 pb-10">
+            <div class="grid gap-5 md:grid-cols-3">
+                <div class="surface rounded-lg p-6">
+                    <h3 class="font-outfit text-2xl font-bold text-white">6 Thermal Nodes</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-300">Physics-based spacecraft thermal network</p>
+                </div>
+                <div class="surface rounded-lg p-6">
+                    <h3 class="font-outfit text-2xl font-bold text-white">FastAPI REST API</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-300">Interactive simulation endpoints</p>
+                </div>
+                <div class="surface rounded-lg p-6">
+                    <h3 class="font-outfit text-2xl font-bold text-white">Real-Time Digital Twin</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-300">Dynamic transient thermal simulations</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" class="mx-auto max-w-7xl px-6 py-12">
+            <div class="surface rounded-lg p-6 sm:p-8">
+                <div class="mb-7">
+                    <h2 class="font-outfit text-3xl font-bold text-white">Interactive Thermal Demo</h2>
+                    <p class="mt-2 max-w-3xl text-sm leading-6 text-slate-300">
+                        Adjust simple spacecraft thermal parameters and run a transient simulation. The chart shows how the model temperature changes over time.
+                    </p>
+                </div>
+                <div class="grid gap-8 lg:grid-cols-[0.9fr_1.4fr]">
+                    <div class="space-y-5 rounded-lg border border-slate-700 bg-slate-950/40 p-5">
+                        <div>
+                            <label for="inp-power" class="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-400">Heat load</label>
+                            <input id="inp-power" class="w-full accent-sky-400" type="range" min="5" max="50" value="30">
+                            <div class="mt-1 flex justify-between text-xs text-slate-400"><span>5 W</span><span id="lbl-power" class="font-semibold text-sky-200">30 W</span><span>50 W</span></div>
+                        </div>
+                        <div>
+                            <label for="inp-area" class="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-400">Radiator area</label>
+                            <input id="inp-area" class="w-full accent-sky-400" type="range" min="0.01" max="0.5" step="0.01" value="0.15">
+                            <div class="mt-1 flex justify-between text-xs text-slate-400"><span>0.01 m2</span><span id="lbl-area" class="font-semibold text-sky-200">0.15 m2</span><span>0.5 m2</span></div>
+                        </div>
+                        <div>
+                            <label for="inp-emissivity" class="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-400">Radiator emissivity</label>
+                            <input id="inp-emissivity" class="w-full accent-sky-400" type="range" min="0.1" max="0.95" step="0.01" value="0.85">
+                            <div class="mt-1 flex justify-between text-xs text-slate-400"><span>0.10</span><span id="lbl-emissivity" class="font-semibold text-sky-200">0.85</span><span>0.95</span></div>
+                        </div>
+                        <div>
+                            <label for="inp-capacity" class="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-400">Thermal capacity</label>
+                            <input id="inp-capacity" class="w-full accent-sky-400" type="range" min="100" max="2000" step="50" value="500">
+                            <div class="mt-1 flex justify-between text-xs text-slate-400"><span>100 J/K</span><span id="lbl-capacity" class="font-semibold text-sky-200">500 J/K</span><span>2000 J/K</span></div>
+                        </div>
+                        <div>
+                            <label for="inp-temp" class="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-400">Initial temperature</label>
+                            <input id="inp-temp" class="w-full accent-sky-400" type="range" min="-100" max="100" value="25">
+                            <div class="mt-1 flex justify-between text-xs text-slate-400"><span>-100 C</span><span id="lbl-temp" class="font-semibold text-sky-200">25 C</span><span>100 C</span></div>
+                        </div>
+                        <button onclick="runSimulation()" class="btn w-full rounded-md bg-sky-500 px-5 py-3 text-sm font-bold text-slate-950">Run Simulation</button>
+                        <p id="demo-status" class="text-xs leading-5 text-slate-400">The demo calls the simulation endpoint when the backend is available.</p>
+                    </div>
+                    <div class="rounded-lg border border-slate-700 bg-slate-950/40 p-5">
+                        <div class="hidden py-8 text-center text-sm text-slate-400" id="chart-loader">Running simulation...</div>
+                        <div class="h-[390px]" id="chart-container">
+                            <canvas id="twinChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-demo-works" class="mx-auto max-w-7xl px-6 py-12">
+            <div class="mb-8 max-w-3xl">
+                <h2 class="font-outfit text-3xl font-bold text-white">How the Demo Works</h2>
+                <p class="mt-2 text-sm leading-6 text-slate-300">
+                    The demo is intended for engineering students, CubeSat teams, researchers, and professors evaluating the model workflow.
+                </p>
+            </div>
+            <div class="grid gap-5 md:grid-cols-4">
+                <div class="surface rounded-lg p-5">
+                    <div class="text-sm font-bold text-sky-300">1</div>
+                    <h3 class="mt-2 font-outfit text-lg font-bold text-white">Adjust parameters</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-300">Set heat load, radiator area, emissivity, thermal capacity, and starting temperature.</p>
+                </div>
+                <div class="surface rounded-lg p-5">
+                    <div class="text-sm font-bold text-sky-300">2</div>
+                    <h3 class="mt-2 font-outfit text-lg font-bold text-white">Run the simulation</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-300">Submit the parameters to the REST API or use the web controls.</p>
+                </div>
+                <div class="surface rounded-lg p-5">
+                    <div class="text-sm font-bold text-sky-300">3</div>
+                    <h3 class="mt-2 font-outfit text-lg font-bold text-white">Observe evolution</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-300">Review how node temperatures change across the simulated time window.</p>
+                </div>
+                <div class="surface rounded-lg p-5">
+                    <div class="text-sm font-bold text-sky-300">4</div>
+                    <h3 class="mt-2 font-outfit text-lg font-bold text-white">Compare designs</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-300">Run multiple configurations and compare the resulting temperature curves.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="quickstart" class="mx-auto grid max-w-7xl gap-8 px-6 py-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+            <div>
+                <h2 class="font-outfit text-3xl font-bold text-white">API Quickstart</h2>
+                <p class="mt-3 text-sm leading-6 text-slate-300">
+                    Use a configurable base URL so examples work with hosted deployments, tunnels, or local development.
+                </p>
+                <div class="mt-5 flex gap-3">
+                    <button id="btn-tab-python" onclick="switchTab('python')" class="rounded-md border border-sky-400 bg-sky-400/10 px-4 py-2 text-sm font-semibold text-sky-200">Python</button>
+                    <button id="btn-tab-curl" onclick="switchTab('curl')" class="rounded-md border border-slate-600 px-4 py-2 text-sm font-semibold text-slate-300">cURL</button>
+                </div>
+            </div>
+            <div class="code-surface overflow-x-auto rounded-lg p-5 text-sm text-slate-200">
+                <div id="code-python">
+<pre><code>import json
+import os
+import urllib.request
+
+API_BASE_URL = os.environ.get("API_BASE_URL", "https://your-api-url")
+API_KEY = os.environ.get("ASTOS_API_KEY", "replace-with-your-api-key")
+
+payload = {
+    "power": 30.0,
+    "area": 0.15,
+    "emissivity": 0.85,
+    "heat_capacity": 500.0,
+    "initial_temp": 25.0,
+}
+
+request = urllib.request.Request(
+    f"{API_BASE_URL}/v1/simulate",
+    data=json.dumps(payload).encode("utf-8"),
+    headers={
+        "Content-Type": "application/json",
+        "X-API-KEY": API_KEY,
+    },
+    method="POST",
+)
+
+with urllib.request.urlopen(request) as response:
+    result = json.loads(response.read().decode("utf-8"))
+    print(result["max_temp_c"])</code></pre>
+                </div>
+                <div id="code-curl" class="hidden">
+<pre><code>API_BASE_URL="https://your-api-url"
+ASTOS_API_KEY="replace-with-your-api-key"
+
+curl -X POST "${API_BASE_URL}/v1/simulate" \
+  -H "Content-Type: application/json" \
+  -H "X-API-KEY: ${ASTOS_API_KEY}" \
+  -d '{
+    "power": 30.0,
+    "area": 0.15,
+    "emissivity": 0.85,
+    "heat_capacity": 500.0,
+    "initial_temp": 25.0
+  }'</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="access" class="mx-auto max-w-7xl px-6 py-12">
+            <div class="mb-8 text-center">
+                <h2 class="font-outfit text-3xl font-bold text-white">Access Options</h2>
+                <p class="mt-2 text-sm leading-6 text-slate-300">No production usage, customer counts, or commercial traction is implied.</p>
+            </div>
+            <div class="grid gap-6 md:grid-cols-3">
+                <div class="surface flex flex-col justify-between rounded-lg p-6">
+                    <div>
+                        <h3 class="font-outfit text-2xl font-bold text-white">Academic Preview</h3>
+                        <p class="mt-3 text-3xl font-extrabold text-sky-200">Free</p>
+                        <ul class="mt-5 space-y-3 text-sm text-slate-300">
+                            <li>Interactive thermal simulations</li>
+                            <li>REST API access</li>
+                            <li>Educational and research use</li>
+                        </ul>
+                    </div>
+                    <a href="#demo" class="btn mt-8 rounded-md bg-sky-500 px-4 py-3 text-center text-sm font-bold text-slate-950">Try Demo</a>
+                </div>
+                <div class="surface flex flex-col justify-between rounded-lg p-6">
+                    <div>
+                        <h3 class="font-outfit text-2xl font-bold text-white">Research Collaboration</h3>
+                        <p class="mt-3 text-3xl font-extrabold text-sky-200">Contact Us</p>
+                        <ul class="mt-5 space-y-3 text-sm text-slate-300">
+                            <li>Extended simulation studies</li>
+                            <li>University projects</li>
+                            <li>CubeSat mission support</li>
+                        </ul>
+                    </div>
+                    <a href="mailto:research@thermal-os.example" class="btn mt-8 rounded-md border border-slate-500 px-4 py-3 text-center text-sm font-bold text-slate-100">Request Discussion</a>
+                </div>
+                <div class="surface flex flex-col justify-between rounded-lg p-6">
+                    <div>
+                        <h3 class="font-outfit text-2xl font-bold text-white">Enterprise</h3>
+                        <p class="mt-3 text-3xl font-extrabold text-slate-300">Coming Soon</p>
+                        <ul class="mt-5 space-y-3 text-sm text-slate-300">
+                            <li>Dedicated deployments</li>
+                            <li>Advanced integrations</li>
+                            <li>Future roadmap</li>
+                        </ul>
+                    </div>
+                    <button disabled class="mt-8 rounded-md border border-slate-700 px-4 py-3 text-sm font-bold text-slate-500">Coming Soon</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-800 px-6 py-10 text-sm text-slate-400">
+        <div class="mx-auto flex max-w-7xl flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <span class="font-outfit font-bold text-slate-200">AST-OS</span>
+            <span>Research/demo platform for spacecraft thermal modelling.</span>
+            <span>&copy; 2026 Alvaro Lopez Almeida</span>
+        </div>
+    </footer>
+
+    <script>
+        const API_BASE_URL = window.API_BASE_URL || window.location.origin;
+        const DEMO_API_KEY = window.ASTOS_API_KEY || "free_student_key_abc123";
+
+        function setStatus(message) {
+            document.getElementById("demo-status").textContent = message;
+        }
+
+        const fields = ["power", "area", "emissivity", "capacity", "temp"];
+        const suffix = {
+            power: " W",
+            area: " m2",
+            emissivity: "",
+            capacity: " J/K",
+            temp: " C"
+        };
+        fields.forEach((field) => {
+            const input = document.getElementById(`inp-${field}`);
+            const label = document.getElementById(`lbl-${field}`);
+            input.addEventListener("input", () => {
+                label.textContent = `${input.value}${suffix[field]}`;
+            });
+        });
+
+        let twinChart = null;
+        let heroChart = null;
+
+        function makeChart(canvasId, labels, cpu, battery, payload) {
+            const ctx = document.getElementById(canvasId).getContext("2d");
+            return new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels,
+                    datasets: [
+                        { label: "CPU", data: cpu, borderColor: "#38bdf8", borderWidth: 2, tension: 0.22, pointRadius: 0 },
+                        { label: "Battery", data: battery, borderColor: "#34d399", borderWidth: 2, tension: 0.22, pointRadius: 0 },
+                        { label: "Payload", data: payload, borderColor: "#f59e0b", borderWidth: 2, tension: 0.22, pointRadius: 0 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: "#cbd5e1" } }
+                    },
+                    scales: {
+                        x: { ticks: { color: "#94a3b8", maxTicksLimit: 6 }, grid: { color: "rgba(148, 163, 184, 0.12)" } },
+                        y: { ticks: { color: "#94a3b8" }, grid: { color: "rgba(148, 163, 184, 0.12)" } }
+                    }
+                }
+            });
+        }
+
+        function initCurves() {
+            const labels = Array.from({ length: 80 }, (_, i) => `${i * 45}s`);
+            const cpu = labels.map((_, i) => 24 + 9 * Math.sin(i / 12) + i * 0.055);
+            const battery = cpu.map((value) => value * 0.72);
+            const payload = cpu.map((value) => value * 0.86);
+            heroChart = makeChart("heroChart", labels, cpu, battery, payload);
+            twinChart = makeChart("twinChart", labels, cpu, battery, payload);
+        }
+
+        async function runSimulation() {
+            const loader = document.getElementById("chart-loader");
+            const container = document.getElementById("chart-container");
+            loader.classList.remove("hidden");
+            container.classList.add("opacity-40");
+            setStatus("Running simulation...");
+
+            const payload = {
+                power: parseFloat(document.getElementById("inp-power").value),
+                area: parseFloat(document.getElementById("inp-area").value),
+                emissivity: parseFloat(document.getElementById("inp-emissivity").value),
+                heat_capacity: parseFloat(document.getElementById("inp-capacity").value),
+                initial_temp: parseFloat(document.getElementById("inp-temp").value)
+            };
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/v1/simulate`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-API-KEY": DEMO_API_KEY
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API returned ${response.status}`);
+                }
+
+                const data = await response.json();
+                const labels = data.time.map((value) => `${Math.round(value)}s`);
+                const cpu = data.nodal_temperatures.CPU;
+                const battery = data.nodal_temperatures.Battery;
+                const payloadTemps = data.nodal_temperatures.Payload;
+                if (twinChart) twinChart.destroy();
+                twinChart = makeChart("twinChart", labels, cpu, battery, payloadTemps);
+                setStatus(`Simulation complete. Peak CPU temperature: ${data.max_temp_c.toFixed(2)} C.`);
+            } catch (error) {
+                setStatus("Simulation endpoint unavailable. The chart remains in example mode.");
+                console.error(error);
+            } finally {
+                loader.classList.add("hidden");
+                container.classList.remove("opacity-40");
+            }
+        }
+
+        function switchTab(tab) {
+            const pythonButton = document.getElementById("btn-tab-python");
+            const curlButton = document.getElementById("btn-tab-curl");
+            const pythonCode = document.getElementById("code-python");
+            const curlCode = document.getElementById("code-curl");
+            const active = "rounded-md border border-sky-400 bg-sky-400/10 px-4 py-2 text-sm font-semibold text-sky-200";
+            const inactive = "rounded-md border border-slate-600 px-4 py-2 text-sm font-semibold text-slate-300";
+            if (tab === "python") {
+                pythonButton.className = active;
+                curlButton.className = inactive;
+                pythonCode.classList.remove("hidden");
+                curlCode.classList.add("hidden");
+            } else {
+                curlButton.className = active;
+                pythonButton.className = inactive;
+                curlCode.classList.remove("hidden");
+                pythonCode.classList.add("hidden");
+            }
+        }
+
+        initCurves();
+    </script>
+</body>
+</html>

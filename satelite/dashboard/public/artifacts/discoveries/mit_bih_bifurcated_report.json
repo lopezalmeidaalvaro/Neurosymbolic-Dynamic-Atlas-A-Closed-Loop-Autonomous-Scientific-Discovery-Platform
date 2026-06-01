@@ -1,0 +1,246 @@
+{
+  "metadata": {
+    "timestamp": "2026-05-23T09:58:02Z",
+    "audit_type": "MIT-BIH Bifurcated Clinical Audit",
+    "version": "V3",
+    "aami_strict_partitioning": {
+      "train_records": [
+        101,
+        106,
+        108,
+        109,
+        112,
+        114,
+        115,
+        116,
+        118,
+        119,
+        122,
+        124,
+        201,
+        203,
+        205,
+        207,
+        208,
+        209,
+        215,
+        220,
+        223,
+        230
+      ],
+      "test_records": [
+        100,
+        103,
+        105,
+        111,
+        113,
+        117,
+        121,
+        123,
+        200,
+        202,
+        210,
+        212,
+        213,
+        214,
+        219,
+        221,
+        222,
+        228,
+        231,
+        232,
+        233,
+        234
+      ],
+      "train_windows": 3447,
+      "test_windows": 3255
+    }
+  },
+  "canal_a_raw": {
+    "auc": 0.83056432748538,
+    "s_causal": 0.2380952380952381,
+    "empirical_ranking": [
+      "autocorr_decay",
+      "svd_entropy",
+      "robust_kurtosis",
+      "perm_entropy",
+      "temporal_irreversibility",
+      "spectral_entropy",
+      "fractal_dim",
+      "robust_skewness"
+    ],
+    "ranking_details": [
+      {
+        "component": "autocorr_decay",
+        "score": 0.588790319441399,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 1.0,
+        "sufficiency": 0.798578947368421,
+        "redundancy_nmi": 0.15838277695954744,
+        "instability": 0.11303263729077431
+      },
+      {
+        "component": "svd_entropy",
+        "score": 0.518362192511002,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 0.8974925425973251,
+        "sufficiency": 0.7288085919928027,
+        "redundancy_nmi": 0.2069022974315737,
+        "instability": 0.13205239987204478
+      },
+      {
+        "component": "robust_kurtosis",
+        "score": 0.32315730598534037,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 0.4151799605110062,
+        "sufficiency": 0.6007024291497977,
+        "redundancy_nmi": 0.07042607807168075,
+        "instability": 0.14558412456792563
+      },
+      {
+        "component": "perm_entropy",
+        "score": 0.2870645869480418,
+        "role": "AUXILIARY_COMPONENT",
+        "shap_importance": 0.4000346117571646,
+        "sufficiency": 0.5203085919928025,
+        "redundancy_nmi": 0.09473749812030231,
+        "instability": 0.13896606430934189
+      },
+      {
+        "component": "temporal_irreversibility",
+        "score": 0.2802373392502447,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 0.3004292424279689,
+        "sufficiency": 0.6406522717049032,
+        "redundancy_nmi": 0.18188193572834685,
+        "instability": 0.14572600224672372
+      },
+      {
+        "component": "spectral_entropy",
+        "score": 0.2673138995175841,
+        "role": "AUXILIARY_COMPONENT",
+        "shap_importance": 0.2961707779836314,
+        "sufficiency": 0.5922206477732794,
+        "redundancy_nmi": 0.17001700994788566,
+        "instability": 0.12080365336767886
+      },
+      {
+        "component": "fractal_dim",
+        "score": 0.2602623245502685,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 0.25481862944719447,
+        "sufficiency": 0.6401470985155197,
+        "redundancy_nmi": 0.1427404108780944,
+        "instability": 0.21043079069978196
+      },
+      {
+        "component": "robust_skewness",
+        "score": 0.21726556971802385,
+        "role": "AUXILIARY_COMPONENT",
+        "shap_importance": 0.21545800281364877,
+        "sufficiency": 0.4914392712550607,
+        "redundancy_nmi": 0.06032269116323742,
+        "instability": 0.14066715021025894
+      }
+    ]
+  },
+  "canal_b_filtered": {
+    "auc": 0.8476664417453891,
+    "s_causal": -0.09523809523809526,
+    "empirical_ranking": [
+      "autocorr_decay",
+      "svd_entropy",
+      "temporal_irreversibility",
+      "robust_kurtosis",
+      "spectral_entropy",
+      "fractal_dim",
+      "perm_entropy",
+      "robust_skewness"
+    ],
+    "ranking_details": [
+      {
+        "component": "autocorr_decay",
+        "score": 0.5932426962974331,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 1.0,
+        "sufficiency": 0.8165157444894288,
+        "redundancy_nmi": 0.18714421228190112,
+        "instability": 0.09644121621054523
+      },
+      {
+        "component": "svd_entropy",
+        "score": 0.4881524933837505,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 0.8222578537642626,
+        "sufficiency": 0.7381284300494827,
+        "redundancy_nmi": 0.2344962869836808,
+        "instability": 0.15205508602338788
+      },
+      {
+        "component": "temporal_irreversibility",
+        "score": 0.2850625170856075,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 0.3281446145545328,
+        "sufficiency": 0.6198288349077823,
+        "redundancy_nmi": 0.19322290881131604,
+        "instability": 0.11829835936336897
+      },
+      {
+        "component": "robust_kurtosis",
+        "score": 0.282955044595157,
+        "role": "AUXILIARY_COMPONENT",
+        "shap_importance": 0.3050242880520199,
+        "sufficiency": 0.5948290598290599,
+        "redundancy_nmi": 0.08075431664517804,
+        "instability": 0.13253653110962788
+      },
+      {
+        "component": "spectral_entropy",
+        "score": 0.25310364593166973,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 0.24585967567276282,
+        "sufficiency": 0.6154714349977508,
+        "redundancy_nmi": 0.1795365931887578,
+        "instability": 0.14287835883130906
+      },
+      {
+        "component": "fractal_dim",
+        "score": 0.24084378965540648,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 0.17835728803335002,
+        "sufficiency": 0.6692361673414304,
+        "redundancy_nmi": 0.1688270316055469,
+        "instability": 0.2032657665662307
+      },
+      {
+        "component": "perm_entropy",
+        "score": 0.23166044312867867,
+        "role": "AUXILIARY_COMPONENT",
+        "shap_importance": 0.16192481767173544,
+        "sufficiency": 0.5932739541160593,
+        "redundancy_nmi": 0.0905698952002033,
+        "instability": 0.12715761811346
+      },
+      {
+        "component": "robust_skewness",
+        "score": 0.20759804944248275,
+        "role": "AUXILIARY_COMPONENT",
+        "shap_importance": 0.20723903126649765,
+        "sufficiency": 0.475714799820063,
+        "redundancy_nmi": 0.0980733540242125,
+        "instability": 0.11149858889454393
+      }
+    ]
+  },
+  "robustness_metrics": {
+    "delta_auc_noise": 0.01710211426000907,
+    "s_causal_raw": 0.2380952380952381,
+    "s_causal_filtered": -0.09523809523809526
+  },
+  "latent_space_deformation": {
+    "d_emb": 0.2745382699783614,
+    "d_shap": 0.3095238095238094,
+    "geometry_status": "GEOMETRY_REORGANIZED",
+    "causal_mechanism_status": "CAUSAL_MECHANISM_REORGANIZED"
+  }
+}

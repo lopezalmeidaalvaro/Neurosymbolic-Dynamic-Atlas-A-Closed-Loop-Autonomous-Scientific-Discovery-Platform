@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "timestamp": "2026-05-23T00:14:48Z",
+    "audit_type": "Strict Leakage Audit",
+    "embedding_version": "V3",
+    "final_diagnosis": "DATA_LEAKAGE_CONFIRMED",
+    "composite_certification_score": 0.9263696913380703
+  },
+  "test1_zero_leakage": {
+    "strict_auc": 0.9742755994526091,
+    "strict_pr_auc": 0.9682043982423021,
+    "strict_f1": 0.9058823529411765,
+    "strict_ece": 0.06936374549819925,
+    "overlap_score": 0.0,
+    "leaky_auc_reference": 1.0,
+    "delta_auc": 0.02572440054739089
+  },
+  "test2_extreme_ood": {
+    "ood_auc": 0.6674520904355695,
+    "ood_pr_auc": 0.5711227622095685,
+    "ood_f1": 0.01348314606741573,
+    "ood_ece": 0.1863718820861678,
+    "delta_ood": 0.3068235090170396
+  },
+  "test3_unseen_parameters": {
+    "shift_auc": 0.9550418806978573,
+    "shift_pr_auc": 0.9689007674181296,
+    "shift_f1": 0.6451612903225806,
+    "delta_parameter": 0.019233718754751772
+  },
+  "test4_negative_control": {
+    "baseline_auc": 0.9980008329862557,
+    "delta_feature_advantage": -0.02372523353364664,
+    "dataset_bias_detected": true
+  },
+  "test5_permutation_audit": {
+    "mean_perm_auc": 0.5024977985363241,
+    "std_perm_auc": 0.03590820237523302,
+    "z_score": 13.13844107221821,
+    "pipeline_leakage_detected": false
+  },
+  "test6_composite_score": {
+    "permutation_offset_l": 0.0024977985363241473,
+    "composite_score_s": 0.9263696913380703
+  }
+}

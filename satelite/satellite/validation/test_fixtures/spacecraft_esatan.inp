@@ -1,0 +1,15 @@
+# Mock ESATAN File
+$NODES
+  1   1200.0   22.0  # Spacecraft Body
+  2    800.0   55.0  # Solar Panels
+  3    500.0   19.0  # Payload
+  4    300.0   42.0  # CPU/Electronics
+  5    600.0   15.0  # Battery
+  6   1000.0  -12.0  # Radiator
+$CONDUCTANCES
+  1   2   2.48
+  1   3   1.81
+  1   4   3.15
+  1   5   1.49
+  1   6   3.95
+$END

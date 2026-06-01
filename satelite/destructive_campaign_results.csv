@@ -1,0 +1,11 @@
+Scenario_ID,Scenario,Stable,Max_Temp,Min_Temp,EKF_Divergence,RL_Saturation,FDIR_Activation,Recovery_Success
+SCEN-001,CPU power x3 nominal,Unstable,276.09°C,-6.64°C,NO,YES (Louver at 1.0),ACTIVE,FAILED (Meltdown)
+SCEN-002,Emissivity degradation 0.85 to 0.30,Unstable,276.25°C,-5.31°C,YES (Residual > 5C),YES (Louver at 1.0),ACTIVE,FAILED
+SCEN-003,Eclipse duration doubled,Stable,304.75°C,-35.50°C,NO,YES (Heater at 1.0),ACTIVE,FAILED (Freezing)
+SCEN-004,Sensor NaN injection,Unstable,NaN,NaN,CRITICAL (NaN state),CRITICAL (Weights collapse),ACTIVE (Telemetry Sanitizer),SUCCESS (Switched to safe fallback)
+SCEN-005,Sensor stuck-at fault,Stable,42.50°C,18.30°C,YES (Estimated != stuck sensor),NO,ACTIVE (Causal Graph Anomaly),"SUCCESS (Sensor ignored, EKF active)"
+SCEN-006,Heater stuck ON,Stable,275.43°C,-5.50°C,NO,YES (Louver at 1.0),ACTIVE (Battery limit exceedance),FAILED
+SCEN-007,Heater stuck OFF,Stable,275.07°C,-24.26°C,NO,NO,ACTIVE,FAILED
+SCEN-008,Battery thermal mass / 10,Stable (High oscillation),275.05°C,-25.71°C,NO,YES (Jitter high),ACTIVE (Rate of change alarm),SUCCESS (Control steps shortened to 1s)
+SCEN-009,Battery thermal mass * 10,Stable (Slow response),275.09°C,-21.88°C,NO,NO,INACTIVE,SUCCESS (Passive thermal inertia)
+SCEN-010,Out-of-range RL observations,Stable (Clipped),20.00°C,20.00°C,NO,YES (Louver at 1.0),ACTIVE (Bounds exceedance check),SUCCESS (Failsafe controller activated)

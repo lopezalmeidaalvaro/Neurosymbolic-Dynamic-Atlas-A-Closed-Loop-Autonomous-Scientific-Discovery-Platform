@@ -1,0 +1,18 @@
+Metric ID,Component Domain,Verified Metric,Empirical Value,Safety Limit / Spec,Pass/Fail Status,Verification Method
+MET-FEM-01,Thermodynamic Solver,Overall Mean RMSE,2.8304°C,<= 3.0°C,PASS,Transient multi-case correlation vs FEA
+MET-FEM-02,Thermodynamic Solver,Overall Mean MAE,2.6514°C,<= 3.0°C,PASS,Transient multi-case correlation vs FEA
+MET-FEM-03,Thermodynamic Solver,Overall R² Correlation,96.34%,>= 95.0%,PASS,Statistical regression vs FEA solver
+MET-FEM-04,Thermodynamic Solver,Mean Solver Speedup,"13,500x",">= 1,000x",PASS,Execution time comparison vs ANSYS
+MET-SH-01,Online Calibration,NELDER-MEAD Drift Correction,100.0%,N/A,PASS,Autocalibration loop on radiator aging
+MET-SH-02,Online Calibration,Pre-Calibration Residual MSE,256.97,N/A,N/A,Nelder-Mead baseline verification
+MET-SH-03,Online Calibration,Post-Calibration Residual MSE,43.00,N/A,PASS,Nelder-Mead optimization residual check
+MET-FD-01,Fault Detection (FDIR),Anomalies Isolated,10/10,100.0%,PASS,Dynamic causal-graph isolation check
+MET-FD-02,Fault Detection (FDIR),Fault Recovery Rate,100.0%,>= 99.0%,PASS,Active FDIR state machine response
+MET-ECSS-01,ECSS Compliance,CPU Junction Temperature (R1),86.80°C,<= 85.0°C,FAILED,Orbital simulation under solar peaks
+MET-ECSS-02,ECSS Compliance,Battery Core Temperature (R2),64.05°C,0.0°C <= T <= 40.0°C,FAILED,Orbital transient analysis in hot cycle
+MET-ECSS-03,ECSS Compliance,Structural Gradient Limit (R3),18.41°C,<= 20.0°C,PASS,Maximum structural node delta
+MET-ECSS-04,ECSS Compliance,Radiator BOL Coating Properties (R4),0.8500,>= 0.8500,PASS,COTS material property verification
+MET-ECSS-05,ECSS Compliance,EOL Emissivity Degradation (R5),-8.45%,<= 15.0% loss,PASS,Long-term UV/ATOX aging simulation
+MET-LAT-01,SaaS FastAPI,FastAPI internal execution,0.1073 ms,<= 10.0 ms,PASS,FastAPI route timer (perf_counter)
+MET-LAT-02,SaaS FastAPI,FastAPI surrogate prediction,0.0024 ms,<= 5.0 ms,PASS,Surrogate predict timer (perf_counter)
+MET-LAT-03,SaaS FastAPI,FastAPI fault detection,0.0018 ms,<= 5.0 ms,PASS,FDIR route execution timer

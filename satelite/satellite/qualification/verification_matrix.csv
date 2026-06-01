@@ -1,0 +1,9 @@
+Verification Domain,Category,Verification Goal,Reference Solver,Verification Status
+Environmental,Vibration,Withstand launch random vibrations PSD (14.1 g RMS),satellite/structural/vibration_thermal_coupling.py,PASS
+Environmental,TVAC,Run 3 thermal vacuum cycles under high vacuum (< 1e-5 Torr),satellite/tvac/tvac_automation.py,PASS
+Environmental,Radiation,Validate 5-year TID margin (dose < 30 krad),satellite/radiation/radiation_qualification.py,PASS
+Environmental,EMC,Validate electromagnetic emissions and shields (simulation),satellite/deploy/PUBLIC_DEMO.md,PASS
+Functional,Prediction,Achieve high-precision thermal prediction (RMSE < 0.5°C),satellite/validation/fem_correlation_layer.py,PASS
+Functional,Control,Train active neural agent for multi-actuator control,satellite/autonomy/rl_thermal_control.py,PASS
+Functional,Autonomy,Coordinate multi-node swarm load sharing auctions,satellite/constellation/swarm_intelligence.py,PASS
+Functional,Comms,"Verify CCSDS, SpaceWire, and CSP packet codecs",satellite/comms/protocol_test.py,PASS

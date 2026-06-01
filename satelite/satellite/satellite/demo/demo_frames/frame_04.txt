@@ -1,0 +1,22 @@
+================================================================================
+AUTONOMOUS THERMAL OS - DEMO FRAME 04
+--------------------------------------------------------------------------------
+STEP NAME   : Anomaly Detection
+TIMESTAMP   : 2026-05-28T21:51:02.319730
+STATE       : ANOMALY
+--------------------------------------------------------------------------------
+TELEMETRY:
+CPU Temp    : 67.17 C  (Bounds: 63.01 - 71.33 C)
+Battery Temp: 34.0 C
+Payload Temp: 50.84 C
+Radiator    : 66.44 C
+--------------------------------------------------------------------------------
+METRICS:
+Max Temp    : 82.4 C
+System State: ANOMALY
+CPU Power   : 15.0 W
+Emissivity  : 0.45
+FDIR Alert  : ACTIVE
+--------------------------------------------------------------------------------
+LAST ACTION : CRITICAL WARNING: Radiator emissivity degraded to 0.45. Prediction drift detected.
+================================================================================

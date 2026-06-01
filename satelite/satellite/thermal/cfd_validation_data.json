@@ -1,0 +1,28 @@
+[
+  {
+    "fin_density": 50.0,
+    "fin_height": 25.0,
+    "fractal_level": 2,
+    "porosity": 0.25,
+    "aspect_ratio": 10.0,
+    "surface_roughness": 10.0,
+    "conduction_path_length": 0.15,
+    "area": 0.15,
+    "emissivity": 0.80,
+    "verified_max_temp": 64.25,
+    "verified_mass_kg": 1.15
+  },
+  {
+    "fin_density": 80.0,
+    "fin_height": 40.0,
+    "fractal_level": 3,
+    "porosity": 0.15,
+    "aspect_ratio": 15.0,
+    "surface_roughness": 20.0,
+    "conduction_path_length": 0.20,
+    "area": 0.20,
+    "emissivity": 0.85,
+    "verified_max_temp": 58.70,
+    "verified_mass_kg": 1.45
+  }
+]

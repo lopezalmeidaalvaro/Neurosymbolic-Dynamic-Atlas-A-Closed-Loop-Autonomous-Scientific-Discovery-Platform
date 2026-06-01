@@ -1,0 +1,22 @@
+================================================================================
+AUTONOMOUS THERMAL OS - DEMO FRAME 05
+--------------------------------------------------------------------------------
+STEP NAME   : Autonomous Control
+TIMESTAMP   : 2026-05-29T15:15:26.770077
+STATE       : RECOVERY
+--------------------------------------------------------------------------------
+TELEMETRY:
+CPU Temp    : 78.84 C  (Bounds: 74.97 - 82.71 C)
+Battery Temp: 41.45 C
+Payload Temp: 60.39 C
+Radiator    : 80.21 C
+--------------------------------------------------------------------------------
+METRICS:
+Max Temp    : 86.8 C
+System State: RECOVERY
+CPU Power   : 7.5 W
+Emissivity  : 0.45
+FDIR Alert  : INACTIVE
+--------------------------------------------------------------------------------
+LAST ACTION : Safety throttling active. Power budget reduced by 15.5W. expected thermal stabilization in 12 min.
+================================================================================

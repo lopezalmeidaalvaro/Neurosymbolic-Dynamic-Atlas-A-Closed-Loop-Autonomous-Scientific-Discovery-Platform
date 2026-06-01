@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AST-OS Thermal Simulation Demo</title>
+    <meta name="description" content="Physics-informed spacecraft thermal simulation platform for CubeSat and SmallSat mission analysis.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars-2"></div>
+    <div class="nebula-1"></div>
+    <div class="nebula-2"></div>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-text">AST-<span class="accent">OS</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="#metrics">Model</a>
+                <a href="#how-it-works">How the Demo Works</a>
+                <a href="#quickstart">API</a>
+                <a href="#access">Access</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#how-it-works" class="btn btn-secondary">Read Workflow</a>
+                <a href="/en/satellite" class="btn btn-primary">Open Demo</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container hero-container grid-2">
+            <div class="hero-content">
+                <div class="badge">Research demo platform</div>
+                <h1>Autonomous Spacecraft <span class="gradient-text">Thermal Digital Twin</span></h1>
+                <p class="subtitle">Physics-informed spacecraft thermal simulation platform for CubeSat and SmallSat mission analysis.</p>
+                <p class="subtitle">Interactive thermal modelling, transient orbital simulations, and anomaly analysis through a web interface and REST API.</p>
+                <div class="hero-actions">
+                    <a href="/en/satellite" class="btn btn-large btn-primary">Try Demo</a>
+                    <a href="#quickstart" class="btn btn-large btn-secondary">API Quickstart</a>
+                </div>
+                <div class="hero-features-list">
+                    <div class="hf-item"><span class="check">-</span> <span>6-node thermal network</span></div>
+                    <div class="hf-item"><span class="check">-</span> <span>REST simulation endpoint</span></div>
+                    <div class="hf-item"><span class="check">-</span> <span>Transient model comparison</span></div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="satellite-container">
+                    <div class="orbit-path"></div>
+                    <div class="spacecraft">
+                        <div class="bus-body">
+                            <div class="sensor-aperture"></div>
+                            <div class="core-piping"></div>
+                        </div>
+                        <div class="solar-panel panel-left"><div class="grid-cells"></div></div>
+                        <div class="solar-panel panel-right"><div class="grid-cells"></div></div>
+                        <div class="thermal-radiator"></div>
+                        <div class="antenna"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="metrics" class="metrics-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Technical Model Scope</h2>
+                <p>These cards describe implemented demo capabilities, not usage or customer metrics.</p>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card glass">
+                    <div class="metric-val">6</div>
+                    <div class="metric-label">Thermal Nodes</div>
+                    <p class="metric-desc">Physics-based spacecraft thermal network.</p>
+                </div>
+                <div class="metric-card glass">
+                    <div class="metric-val">API</div>
+                    <div class="metric-label">FastAPI REST API</div>
+                    <p class="metric-desc">Interactive simulation endpoints.</p>
+                </div>
+                <div class="metric-card glass">
+                    <div class="metric-val">RT</div>
+                    <div class="metric-label">Real-Time Digital Twin</div>
+                    <p class="metric-desc">Dynamic transient thermal simulations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>How the Demo Works</h2>
+                <p>Designed for engineering students, CubeSat teams, researchers, and professors evaluating the workflow.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card glass">
+                    <div class="step-num">01</div>
+                    <h3>Adjust parameters</h3>
+                    <p>Set heat load, radiator area, emissivity, thermal capacity, and starting temperature.</p>
+                    <div class="step-tag">Inputs</div>
+                </div>
+                <div class="step-card glass">
+                    <div class="step-num">02</div>
+                    <h3>Run the simulation</h3>
+                    <p>Submit the parameters through the demo interface or REST API endpoint.</p>
+                    <div class="step-tag">Execution</div>
+                </div>
+                <div class="step-card glass">
+                    <div class="step-num">03</div>
+                    <h3>Observe temperature evolution</h3>
+                    <p>Review how modelled node temperatures change over the simulated time window.</p>
+                    <div class="step-tag">Results</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quickstart" class="sandbox-callout glass-panel">
+        <div class="container">
+            <h2>API Quickstart</h2>
+            <p>Use a configurable base URL for hosted deployments, tunnels, or local development.</p>
+            <pre style="text-align:left; margin-top:2rem; overflow:auto;"><code>API_BASE_URL="https://your-api-url"
+ASTOS_API_KEY="replace-with-your-api-key"
+
+curl -X POST "${API_BASE_URL}/v1/simulate" \
+  -H "Content-Type: application/json" \
+  -H "X-API-KEY: ${ASTOS_API_KEY}" \
+  -d '{
+    "power": 30.0,
+    "area": 0.15,
+    "emissivity": 0.85,
+    "heat_capacity": 500.0,
+    "initial_temp": 25.0
+  }'</code></pre>
+        </div>
+    </section>
+
+    <section id="access" class="waitlist-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Access Options</h2>
+                <p>No production usage, customer counts, or commercial traction is implied.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card glass">
+                    <h3>Academic Preview</h3>
+                    <p><strong>Free</strong></p>
+                    <p>Interactive thermal simulations, REST API access, educational and research use.</p>
+                    <a href="/en/satellite" class="btn btn-primary">Try Demo</a>
+                </div>
+                <div class="step-card glass">
+                    <h3>Research Collaboration</h3>
+                    <p><strong>Contact Us</strong></p>
+                    <p>Extended simulation studies, university projects, and CubeSat mission support.</p>
+                    <a href="mailto:research@thermal-os.example" class="btn btn-secondary">Request Discussion</a>
+                </div>
+                <div class="step-card glass">
+                    <h3>Enterprise</h3>
+                    <p><strong>Coming Soon</strong></p>
+                    <p>Dedicated deployments, advanced integrations, and future roadmap.</p>
+                    <span class="btn btn-secondary">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 AST-OS. Research/demo platform for spacecraft thermal modelling.</p>
+            <div class="footer-links">
+                <a href="/v1/docs">API Docs</a>
+                <a href="/en/satellite">Demo</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

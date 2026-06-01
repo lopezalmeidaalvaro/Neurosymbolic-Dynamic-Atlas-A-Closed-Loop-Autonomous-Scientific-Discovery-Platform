@@ -1,0 +1,22 @@
+================================================================================
+AUTONOMOUS THERMAL OS - DEMO FRAME 11
+--------------------------------------------------------------------------------
+STEP NAME   : Constellation View
+TIMESTAMP   : 2026-05-29T15:15:50.825137
+STATE       : NOMINAL
+--------------------------------------------------------------------------------
+TELEMETRY:
+CPU Temp    : 119.99 C  (Bounds: 116.12 - 123.86 C)
+Battery Temp: 68.63 C
+Payload Temp: 94.44 C
+Radiator    : 113.31 C
+--------------------------------------------------------------------------------
+METRICS:
+Max Temp    : 68.3 C
+System State: NOMINAL
+CPU Power   : 15.0 W
+Emissivity  : 0.693
+FDIR Alert  : INACTIVE
+--------------------------------------------------------------------------------
+LAST ACTION : Fleet status synced. Alerts active: 1 (SAT-04, radiator drift monitoring active).
+================================================================================

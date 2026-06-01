@@ -1,0 +1,40 @@
+=== AUTONOMOUS SPACECRAFT THERMAL OS DEMO SESSION ===
+[2026-05-28 21:51:01.968] [SYSTEM  ] Compiling golden deterministic dataset 'demo_data.json'...
+[2026-05-28 21:51:01.970] [SUCCESS ] Golden dataset written to satellite: C:\Users\Alvaro\Desktop\autonomous-spacecraft-thermal-os\satellite\satellite\demo\demo_data.json
+[2026-05-28 21:51:01.970] [SYSTEM  ] Dashboard public directory not detected. skipping dashboard synchronization.
+[2026-05-28 21:51:01.970] [SYSTEM  ] Mapping system assets and copying physical reports...
+[2026-05-28 21:51:01.971] [DEBUG   ] Asset not found in thermal folder (using default placeholder): orbital_simulation_plot.png
+[2026-05-28 21:51:01.971] [DEBUG   ] Asset not found in thermal folder (using default placeholder): fem_correlation_scatter.png
+[2026-05-28 21:51:01.971] [DEBUG   ] Asset not found in thermal folder (using default placeholder): aging_degradation_trends.png
+[2026-05-28 21:51:01.971] [DEBUG   ] Asset not found in thermal folder (using default placeholder): closed_loop_simulation.png
+[2026-05-28 21:51:01.971] [DEBUG   ] Asset not found in thermal folder (using default placeholder): tvac_correlation_plots.png
+[2026-05-28 21:51:01.972] [DEBUG   ] Asset not found in thermal folder (using default placeholder): pareto_front.png
+[2026-05-28 21:51:01.972] [DEBUG   ] Asset not found in thermal folder (using default placeholder): uncertainty_distribution.png
+[2026-05-28 21:51:01.972] [DEBUG   ] Asset not found in thermal folder (using default placeholder): constellation_simulation.png
+[2026-05-28 21:51:01.972] [SUCCESS ] Asset mapping completed. Copied 0/8 figures.
+[2026-05-28 21:51:01.982] [INFO    ] Step 1: Initialization executed. Max Temp: 20.0°C. Status: NOMINAL.
+[2026-05-28 21:51:01.994] [SYSTEM  ] Saved movie frame: frame_01.txt
+[2026-05-28 21:51:02.094] [INFO    ] Step 2: Orbital Simulation executed. Max Temp: 46.8°C. Status: NOMINAL.
+[2026-05-28 21:51:02.102] [SYSTEM  ] Saved movie frame: frame_02.txt
+[2026-05-28 21:51:02.204] [INFO    ] Step 3: AI Prediction executed. Max Temp: 47.2°C. Status: NOMINAL.
+[2026-05-28 21:51:02.211] [SYSTEM  ] Saved movie frame: frame_03.txt
+[2026-05-28 21:51:02.312] [INFO    ] Step 4: Anomaly Detection executed. Max Temp: 82.4°C. Status: ANOMALY.
+[2026-05-28 21:51:02.320] [SYSTEM  ] Saved movie frame: frame_04.txt
+[2026-05-28 21:51:02.421] [INFO    ] Step 5: Autonomous Control executed. Max Temp: 86.8°C. Status: RECOVERY.
+[2026-05-28 21:51:02.429] [SYSTEM  ] Saved movie frame: frame_05.txt
+[2026-05-28 21:51:02.530] [INFO    ] Step 6: Self-Healing executed. Max Temp: 78.2°C. Status: SELF-HEALING.
+[2026-05-28 21:51:02.537] [SYSTEM  ] Saved movie frame: frame_06.txt
+[2026-05-28 21:51:02.638] [INFO    ] Step 7: Recovery Complete executed. Max Temp: 68.3°C. Status: NOMINAL.
+[2026-05-28 21:51:02.646] [SYSTEM  ] Saved movie frame: frame_07.txt
+[2026-05-28 21:51:02.747] [INFO    ] Step 8: Symbolic Discovery executed. Max Temp: 68.3°C. Status: NOMINAL.
+[2026-05-28 21:51:02.755] [SYSTEM  ] Saved movie frame: frame_08.txt
+[2026-05-28 21:51:02.856] [INFO    ] Step 9: Design Optimization executed. Max Temp: 68.3°C. Status: NOMINAL.
+[2026-05-28 21:51:02.864] [SYSTEM  ] Saved movie frame: frame_09.txt
+[2026-05-28 21:51:02.965] [INFO    ] Step 10: Monte Carlo Analysis executed. Max Temp: 68.3°C. Status: NOMINAL.
+[2026-05-28 21:51:02.973] [SYSTEM  ] Saved movie frame: frame_10.txt
+[2026-05-28 21:51:03.073] [INFO    ] Step 11: Constellation View executed. Max Temp: 68.3°C. Status: NOMINAL.
+[2026-05-28 21:51:03.082] [SYSTEM  ] Saved movie frame: frame_11.txt
+[2026-05-28 21:51:03.183] [INFO    ] Step 12: Final Summary executed. Max Temp: 68.3°C. Status: NOMINAL.
+[2026-05-28 21:51:03.190] [SYSTEM  ] Saved movie frame: frame_12.txt
+[2026-05-28 21:51:03.191] [SYSTEM  ] Executing final consolidation summary...
+[2026-05-28 21:51:03.196] [SUCCESS ] Demo session completed successfully. Standard output structures archived.

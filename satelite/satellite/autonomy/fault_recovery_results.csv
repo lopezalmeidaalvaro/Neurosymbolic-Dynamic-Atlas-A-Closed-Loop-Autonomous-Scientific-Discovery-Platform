@@ -1,0 +1,71 @@
+step,day,fault_injected,fault_name,isolated_anomalies,severity,recovery_status,actions_planned
+0,0.00,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+1,0.10,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+2,0.20,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+3,0.30,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+4,0.40,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+5,0.50,SE-B,Sensor Broken Anomaly,EKF-D,major,SELF-HEALED,Reconfigure EKF to ignore corrupted sensor data (Self-Healing) | Switch telemetry mapping to redundant thermal couple channels | Resume nominal mission status
+6,0.60,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+7,0.70,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+8,0.80,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+9,0.90,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+10,1.00,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+11,1.10,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+12,1.20,HT-S,Heater PWM Stuck On,BT-O,major,RECOVERED VIA SAFE-MODE,"Isolate battery power bus heater line | Trigger hard cycle command to solid-state power controller | Calibrate digital twin current expectations | If temperature exceeds 42.0°C, enter Safe-Mode"
+13,1.30,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+14,1.40,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+15,1.50,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+16,1.60,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+17,1.70,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+18,1.80,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+19,1.90,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+20,2.00,LV-B,Radiator Louver Blockage,OV-H,major,RECOVERED VIA SAFE-MODE,"Acknowledge radiator degradation profile | Execute active command to force secondary louver release solenoid | If unsuccessful, throttle CPU execution threshold to 40% power (Active control) | If temperature exceeds 80.0°C, enter Safe-Mode"
+21,2.10,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+22,2.20,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+23,2.30,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+24,2.40,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+25,2.50,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+26,2.60,LV-SC,Louver Stuck Closed,RD-OV,major,RECOVERED VIA SAFE-MODE,"Acknowledge radiator degradation profile | Execute active command to force secondary louver release solenoid | If unsuccessful, throttle CPU execution threshold to 40% power (Active control) | If temperature exceeds 80.0°C, enter Safe-Mode"
+27,2.70,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+28,2.80,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+29,2.90,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+30,3.00,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+31,3.10,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+32,3.20,SE-B,Sensor Broken Anomaly,EKF-D,major,SELF-HEALED,Reconfigure EKF to ignore corrupted sensor data (Self-Healing) | Switch telemetry mapping to redundant thermal couple channels | Resume nominal mission status
+33,3.30,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+34,3.40,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+35,3.50,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+36,3.60,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+37,3.70,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+38,3.80,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+39,3.90,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+40,4.00,HT-S,Heater PWM Stuck On,BT-O,major,RECOVERED VIA SAFE-MODE,"Isolate battery power bus heater line | Trigger hard cycle command to solid-state power controller | Calibrate digital twin current expectations | If temperature exceeds 42.0°C, enter Safe-Mode"
+41,4.10,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+42,4.20,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+43,4.30,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+44,4.40,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+45,4.50,LV-B,Radiator Louver Blockage,OV-H,major,RECOVERED VIA SAFE-MODE,"Acknowledge radiator degradation profile | Execute active command to force secondary louver release solenoid | If unsuccessful, throttle CPU execution threshold to 40% power (Active control) | If temperature exceeds 80.0°C, enter Safe-Mode"
+46,4.60,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+47,4.70,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+48,4.80,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+49,4.90,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+50,5.00,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+51,5.10,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+52,5.20,RAD-D,Radiator Surface Degradation,LV-B,major,RECOVERED VIA SAFE-MODE,"Acknowledge radiator degradation profile | Execute active command to force secondary louver release solenoid | If unsuccessful, throttle CPU execution threshold to 40% power (Active control) | If temperature exceeds 80.0°C, enter Safe-Mode"
+53,5.30,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+54,5.40,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+55,5.50,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+56,5.60,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+57,5.70,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+58,5.80,HT-S,Heater PWM Stuck On,BT-O,major,RECOVERED VIA SAFE-MODE,"Isolate battery power bus heater line | Trigger hard cycle command to solid-state power controller | Calibrate digital twin current expectations | If temperature exceeds 42.0°C, enter Safe-Mode"
+59,5.90,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+60,6.00,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+61,6.10,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+62,6.20,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+63,6.30,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+64,6.40,LV-SC,Louver Stuck Closed,RD-OV,major,RECOVERED VIA SAFE-MODE,"Acknowledge radiator degradation profile | Execute active command to force secondary louver release solenoid | If unsuccessful, throttle CPU execution threshold to 40% power (Active control) | If temperature exceeds 80.0°C, enter Safe-Mode"
+65,6.50,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+66,6.60,NONE,None,None,nominal,SAFE-MODE ACTIVE (Sun-pointing & charging),None
+67,6.70,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+68,6.80,NONE,None,None,nominal,NOMINAL OPERATIONS,None
+69,6.90,NONE,None,None,nominal,NOMINAL OPERATIONS,None

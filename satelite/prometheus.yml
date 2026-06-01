@@ -1,0 +1,19 @@
+# ==============================================================================
+# Spacecraft Thermal OS (AST-OS) - Prometheus Configuration
+# File: prometheus.yml
+# Description: Defines the scrape config for the SaaS API endpoints metrics.
+# ==============================================================================
+
+global:
+  scrape_interval: 15s     # Scrape metrics every 15 seconds
+  evaluation_interval: 15s # Evaluate alert rules every 15 seconds
+
+scrape_configs:
+  # 1. Scrape FastAPI Server Telemetry
+  - job_name: 'astos_fastapi'
+    metrics_path: '/v1/metrics'
+    static_configs:
+      - targets: ['fastapi:8000'] # Resolves to the container host inside Docker network
+        labels:
+          group: 'production'
+          environment: 'saas'

@@ -1,0 +1,22 @@
+================================================================================
+AUTONOMOUS THERMAL OS - DEMO FRAME 06
+--------------------------------------------------------------------------------
+STEP NAME   : Self-Healing
+TIMESTAMP   : 2026-05-28T21:51:02.537242
+STATE       : SELF_HEALING
+--------------------------------------------------------------------------------
+TELEMETRY:
+CPU Temp    : 94.17 C  (Bounds: 90.3 - 98.04 C)
+Battery Temp: 49.6 C
+Payload Temp: 70.83 C
+Radiator    : 91.76 C
+--------------------------------------------------------------------------------
+METRICS:
+Max Temp    : 78.2 C
+System State: SELF-HEALING
+CPU Power   : 7.5 W
+Emissivity  : 0.693
+FDIR Alert  : INACTIVE
+--------------------------------------------------------------------------------
+LAST ACTION : Online EKF parameter calibration successfully recalculated. New Emissivity = 0.693.
+================================================================================

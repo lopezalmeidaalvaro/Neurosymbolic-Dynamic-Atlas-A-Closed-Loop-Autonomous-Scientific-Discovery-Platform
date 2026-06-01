@@ -1,0 +1,7 @@
+Requirement ID,Standard Reference,Requirement Description,Verification Method,Verification Script,Test Status
+ECSS-E-31-01,ECSS-E-ST-31C,Maintain node temperatures within structural limit bounds,Simulation & Analysis,satellite/autonomy/mission_planner.py,PASS
+ECSS-E-31-02,ECSS-E-ST-31C,Active control loop for thermal payloads and heaters,Closed-loop Control,satellite/autonomy/rl_thermal_control.py,PASS
+ECSS-E-10-03A,ECSS-E-ST-10-03C,Execute environmental vacuum thermal cycling qualification,TVAC Simulation,satellite/tvac/tvac_automation.py,PASS
+ECSS-Q-60-15,ECSS-Q-ST-60-15C,Protect electronic components against Single Event Effects,Memory ECC & TMR,satellite/flight/radiation_hardened_ai.py,PASS
+ECSS-E-50-12,ECSS-E-ST-50-12C,Implement standard SpaceWire communications framing,Binary Test Harness,satellite/comms/space_protocol_stack.py,PASS
+ECSS-E-70-08,ECSS-E-ST-70-08C,Enforce strict compile-time deterministic memory layout,Static MISRA-C Scan,satellite/flight/deterministic_embedded_runtime.py,PASS

@@ -1,0 +1,2 @@
+Dataset_Size,Epochs_Evaluated,Denormalized_RMSE_C,Physics_Residual_MSE,Seed
+1000,1,0.3804,0.03941255266408695,42

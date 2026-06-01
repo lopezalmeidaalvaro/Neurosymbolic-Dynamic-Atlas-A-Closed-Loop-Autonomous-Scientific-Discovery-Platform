@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ../..
+      dockerfile: satellite/Dockerfile
+    container_name: thermal_api_production
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - API_KEY_SECRET=production_secret_key_123987
+    volumes:
+      - ../logs:/app/satellite/logs
+      - ../models:/app/satellite/models
+      - ../thermal:/app/satellite/thermal
+      - ../api:/app/satellite/api
+    networks:
+      - thermal_network
+
+  nginx:
+    image: nginx:alpine
+    container_name: thermal_nginx_proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./certs:/etc/nginx/certs:ro
+    depends_on:
+      - api
+    networks:
+      - thermal_network
+
+networks:
+  thermal_network:
+    driver: bridge

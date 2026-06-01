@@ -1,0 +1,94 @@
+{
+  "nodes": [
+    {
+      "id": "SE-B",
+      "name": "Sensor Broken Anomaly",
+      "type": "sensor",
+      "severity": "major"
+    },
+    {
+      "id": "EKF-D",
+      "name": "EKF State Estimation Divergence",
+      "type": "estimator",
+      "severity": "major"
+    },
+    {
+      "id": "TH-F",
+      "name": "False Payload Power Throttling",
+      "type": "payload",
+      "severity": "minor"
+    },
+    {
+      "id": "RAD-D",
+      "name": "Radiator Surface Degradation",
+      "type": "radiator",
+      "severity": "major"
+    },
+    {
+      "id": "LV-B",
+      "name": "Radiator Louver Blockage",
+      "type": "actuator",
+      "severity": "major"
+    },
+    {
+      "id": "OV-H",
+      "name": "Nodal Overheating State",
+      "type": "thermal",
+      "severity": "critical"
+    },
+    {
+      "id": "HT-S",
+      "name": "Heater PWM Stuck On",
+      "type": "actuator",
+      "severity": "major"
+    },
+    {
+      "id": "BT-O",
+      "name": "Battery Temperature Out-of-Bounds",
+      "type": "thermal",
+      "severity": "critical"
+    },
+    {
+      "id": "LV-SC",
+      "name": "Louver Stuck Closed",
+      "type": "actuator",
+      "severity": "major"
+    },
+    {
+      "id": "RD-OV",
+      "name": "Radiator Overheating",
+      "type": "thermal",
+      "severity": "minor"
+    }
+  ],
+  "edges": [
+    {
+      "source": "SE-B",
+      "target": "EKF-D"
+    },
+    {
+      "source": "EKF-D",
+      "target": "TH-F"
+    },
+    {
+      "source": "RAD-D",
+      "target": "LV-B"
+    },
+    {
+      "source": "LV-B",
+      "target": "OV-H"
+    },
+    {
+      "source": "HT-S",
+      "target": "BT-O"
+    },
+    {
+      "source": "LV-SC",
+      "target": "RD-OV"
+    },
+    {
+      "source": "RD-OV",
+      "target": "OV-H"
+    }
+  ]
+}

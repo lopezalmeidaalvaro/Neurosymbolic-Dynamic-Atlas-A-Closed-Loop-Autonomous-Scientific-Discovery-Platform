@@ -1,0 +1,16 @@
+ID, Requirement, Source, Verification Method, Test Case ID, Status, Notes
+REQ-TC-001, Avionics Temperature Limits compliance, ECSS-E-ST-31C, Test, TC-MPC-002, PASS, Keep CPU node strictly under 85.0C.
+REQ-TC-002, Dynamic Emissivity state estimation, ECSS-E-ST-31C, Test, TC-UNIT-003, PASS, Online EKF calibrates radiator emissivity.
+REQ-TC-003, Event anomaly telemetry log, ECSS-E-ST-31C, Inspection, TC-UNIT-007, PASS, Emit EVS events during memory degradation.
+REQ-SW-001, cFS Application Registration, ECSS-E-ST-40C, Test, TC-INT-001, PASS, Must register ASTOS_TLM_APP inside cFE.
+REQ-SW-002, CCSDS message pipe routing, ECSS-E-ST-40C, Test, TC-INT-002, PASS, Subscribes to 0x1801 and 0x0801 pipes.
+REQ-SW-003, Periodic telemetry frame publish, ECSS-E-ST-40C, Test, TC-INT-003, PASS, Publishes CCSDS APID 0x010 at 10 Hz.
+REQ-SW-004, Zero dynamic memory allocations, ECSS-E-ST-40C, Inspection, TC-INT-004, PASS, Heap-free compilation satisfies safety-critical C.
+REQ-SW-005, Dynamic parameter table updates, ECSS-E-ST-40C, Test, TC-UNIT-010, PASS, In-flight adjustments to safety boundaries.
+REQ-HW-001, Single Event Upset memory protection, ECSS-E-ST-40C, Test, TC-UNIT-005, PASS, Hamming(7,4) EDAC dynamic weights correction.
+REQ-HW-002, Static memory integrity checks, ECSS-E-ST-40C, Test, TC-UNIT-007, PASS, SHA-256 hash checks identify weight corruptions.
+REQ-HW-003, Golden flash table recovery, ECSS-E-ST-40C, Test, TC-UNIT-008, PASS, Reload from read-only const FLASH segment on error.
+REQ-HW-004, Division by Zero protection, ECSS-E-ST-40C, Analysis, TC-UNIT-012, PASS, Block divisor values under 1e-6 in EKF.
+REQ-HW-005, Stack overflow hardware exception, ECSS-E-ST-40C, Analysis, TC-UNIT-013, PASS, Trigger emergency reboot when stack depth > 8KB.
+REQ-HW-006, Task execution cycle watchdog, ECSS-E-ST-40C, Analysis, TC-UNIT-014, PASS, Trigger CFE_ES_RestartApp if cycle WCET > 2x limit.
+REQ-CTL-001, MPC Optimal Solver execution WCET, ECSS-E-ST-31C, Test, TC-MPC-001, PASS, Exhaustive grid search computes optimal action under 1ms.

@@ -1,0 +1,5 @@
+variable,equation,complexity
+steady_state_temp,((power / (emissivity * 5.670e-08 * area * 1.0000)) + 53.1)**0.25 - 273.15 + 0.0000,7
+max_temp,0.4370 * ((power / (emissivity * 5.670e-08 * area))**0.25 - 273.15) + -0.2645 * power + 46.2136,9
+time_to_critical,0.9221 * 32500.0 / (power - 6.725e-08 * emissivity * area * 1.116e10),11
+cooling_rate,1.0000 * (emissivity * 5.670e-08 * area * 8.1e9) / 500.0 + 0.0000,6

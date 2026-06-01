@@ -1,0 +1,120 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: timescale/timescaledb:latest-pg16
+    container_name: thermal_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: thermal_user
+      POSTGRES_PASSWORD: thermal_secure_password_99
+      POSTGRES_DB: thermal_twin
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ../db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U thermal_user -d thermal_twin"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - thermal-net
+
+  redis:
+    image: redis:7-alpine
+    container_name: thermal_redis
+    restart: always
+    command: redis-server --appendonly yes
+    volumes:
+      - redisdata:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - thermal-net
+
+  fastapi:
+    build:
+      context: ..
+      dockerfile: api/Dockerfile
+    container_name: thermal_api
+    restart: always
+    environment:
+      - DATABASE_URL=postgresql://thermal_user:thermal_secure_password_99@postgres:5432/thermal_twin
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=thermal_jwt_secret_token_key_xyz789
+      - API_KEY_SALT=thermal_encryption_salt_hash_abc123
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/v1/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - thermal-net
+
+  nextjs:
+    build:
+      context: ../../dashboard
+      dockerfile: Dockerfile
+    container_name: thermal_dashboard
+    restart: always
+    environment:
+      - NEXT_PUBLIC_API_URL=http://fastapi:8000
+    depends_on:
+      - fastapi
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD-SHELL", "wget --quiet --tries=1 --spider http://localhost:3000/ || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    networks:
+      - thermal-net
+
+  landing:
+    image: nginx:alpine
+    container_name: thermal_landing
+    restart: always
+    volumes:
+      - ../landing:/usr/share/nginx/html:ro
+    networks:
+      - thermal-net
+
+  nginx:
+    image: nginx:alpine
+    container_name: thermal_nginx
+    restart: always
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    depends_on:
+      - fastapi
+      - nextjs
+      - landing
+    networks:
+      - thermal-net
+
+volumes:
+  pgdata:
+    driver: local
+  redisdata:
+    driver: local
+
+networks:
+  thermal-net:
+    driver: bridge

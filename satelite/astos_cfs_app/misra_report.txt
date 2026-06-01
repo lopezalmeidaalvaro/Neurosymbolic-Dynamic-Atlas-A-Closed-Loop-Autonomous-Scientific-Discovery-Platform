@@ -1,0 +1,33 @@
+==============================================================================
+             AST-OS MISRA-C:2012 COMPLIANCE AUTOMATED REPORT
+==============================================================================
+
+Audited File:   astos_app.c
+Total Violations Flagged: 12
+
+------------------------------------------------------------------------------
+                     TOP 10 MOST FREQUENT VIOLATIONS LIST
+------------------------------------------------------------------------------
+[ 1] Line 311 | Rule 11.5 (Advisory)   | A cast shall not convert a pointer to a void type to a pointer to an object type.
+[ 2] Line 311 | Rule 18.5 (Required)   | Pointer declarations with more than two levels of indirection shall not be used.
+[ 3] Line 381 | Rule 15.6 (Required)   | The body of an if, else, while, do, or for shall be enclosed in braces.
+[ 4] Line 385 | Rule 15.6 (Required)   | The body of an if, else, while, do, or for shall be enclosed in braces.
+[ 5] Line 389 | Rule 15.6 (Required)   | The body of an if, else, while, do, or for shall be enclosed in braces.
+[ 6] Line 392 | Rule 15.6 (Required)   | The body of an if, else, while, do, or for shall be enclosed in braces.
+[ 7] Line 401 | Rule 15.6 (Required)   | The body of an if, else, while, do, or for shall be enclosed in braces.
+[ 8] Line 404 | Rule 11.5 (Advisory)   | A cast shall not convert a pointer to a void type to a pointer to an object type.
+[ 9] Line 425 | Rule 8.1 (Advisory)    | Standard integer types shall be replaced by explicitly sized types (e.g., int32_t).
+[10] Line 677 | Rule 15.6 (Required)   | The body of an if, else, while, do, or for shall be enclosed in braces.
+
+------------------------------------------------------------------------------
+                         QUALIFICATION RECOMMENDATIONS
+------------------------------------------------------------------------------
+1. Replace standard basic C types (char, int, short, float) with strictly sized portable
+   types defined in <stdint.h> (e.g. int32_t, uint8_t, float32_t) to satisfy Rule 8.1.
+2. Enclose all single-statement control bodies (especially inline checks) in standard
+   curly braces '{}' to protect instruction jumps from compiler errors (Rule 15.6).
+3. Keep the flight code completely heap-free. Ensure all table buffers or dynamic arrays
+   are pre-allocated at compile-time inside global context segments (Rule 21.3).
+4. Mask all cFS Software Bus pointer conversions. Implement dedicated union structures
+   to clean up void-to-object pointer casting warnings (Rule 11.5).
+5. Ensure all loop variables use explicit unsigned bounds to prevent sign conversion overflows.

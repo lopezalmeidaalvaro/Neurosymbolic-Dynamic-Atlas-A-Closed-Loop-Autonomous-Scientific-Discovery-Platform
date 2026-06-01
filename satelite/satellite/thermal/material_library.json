@@ -1,0 +1,172 @@
+{
+    "Kapton HN": {
+        "commercial_name": "DuPont Kapton HN Film",
+        "eps_BOL": 0.8,
+        "eps_EOL": 0.75,
+        "alpha": 0.38,
+        "uv_degradation_rate_per_year": 0.01,
+        "atox_degradation_rate_per_fluence": 0.005,
+        "relative_cost": 4,
+        "density_kg_m2": 0.07,
+        "max_use_temp_C": 400.0,
+        "min_use_temp_C": -269.0,
+        "heritage": [
+            "Hubble Space Telescope",
+            "ISS",
+            "James Webb Space Telescope",
+            "Mars Pathfinder"
+        ]
+    },
+    "Teflon FEP": {
+        "commercial_name": "Sheldahl Teflon FEP Silvered",
+        "eps_BOL": 0.85,
+        "eps_EOL": 0.78,
+        "alpha": 0.12,
+        "uv_degradation_rate_per_year": 0.014,
+        "atox_degradation_rate_per_fluence": 0.008,
+        "relative_cost": 6,
+        "density_kg_m2": 0.12,
+        "max_use_temp_C": 200.0,
+        "min_use_temp_C": -200.0,
+        "heritage": [
+            "ISS Radiators",
+            "GPS Block II",
+            "Voyager 1 & 2"
+        ]
+    },
+    "AZ-93 white paint": {
+        "commercial_name": "AZ Technology AZ-93 Thermal Control Paint",
+        "eps_BOL": 0.91,
+        "eps_EOL": 0.86,
+        "alpha": 0.15,
+        "uv_degradation_rate_per_year": 0.01,
+        "atox_degradation_rate_per_fluence": 0.002,
+        "relative_cost": 7,
+        "density_kg_m2": 0.25,
+        "max_use_temp_C": 150.0,
+        "min_use_temp_C": -180.0,
+        "heritage": [
+            "Space Shuttle",
+            "Mars Science Laboratory (Curiosity)",
+            "Artemis Orion"
+        ]
+    },
+    "Z306 black paint": {
+        "commercial_name": "Aeroglaze Z306 Conductive Black Paint",
+        "eps_BOL": 0.89,
+        "eps_EOL": 0.89,
+        "alpha": 0.95,
+        "uv_degradation_rate_per_year": 0.0,
+        "atox_degradation_rate_per_fluence": 0.001,
+        "relative_cost": 5,
+        "density_kg_m2": 0.18,
+        "max_use_temp_C": 180.0,
+        "min_use_temp_C": -150.0,
+        "heritage": [
+            "Hubble Baffles",
+            "Cassini-Huygens spectrometer",
+            "JWST interior"
+        ]
+    },
+    "Anodized aluminum 6061": {
+        "commercial_name": "Anodized Aluminum 6061-T6 Structural Alloy",
+        "eps_BOL": 0.7,
+        "eps_EOL": 0.65,
+        "alpha": 0.45,
+        "uv_degradation_rate_per_year": 0.01,
+        "atox_degradation_rate_per_fluence": 0.003,
+        "relative_cost": 2,
+        "density_kg_m3": 2700.0,
+        "max_use_temp_C": 300.0,
+        "min_use_temp_C": -200.0,
+        "heritage": [
+            "Cubesat standard structural bus",
+            "Falcon 9 stages",
+            "Skylab"
+        ]
+    },
+    "Germanium-coated Kapton": {
+        "commercial_name": "Germanium Coated Kapton film (Intermediate)",
+        "eps_BOL": 0.6,
+        "eps_EOL": 0.55,
+        "alpha": 0.42,
+        "uv_degradation_rate_per_year": 0.01,
+        "atox_degradation_rate_per_fluence": 0.004,
+        "relative_cost": 8,
+        "density_kg_m2": 0.075,
+        "max_use_temp_C": 350.0,
+        "min_use_temp_C": -250.0,
+        "heritage": [
+            "Galileo spacecraft",
+            "Rosetta comet lander",
+            "Envisat"
+        ]
+    },
+    "Quartz Mirror": {
+        "commercial_name": "Optical Solar Reflector (OSR) Quartz Mirror",
+        "eps_BOL": 0.1,
+        "eps_EOL": 0.12,
+        "alpha": 0.05,
+        "uv_degradation_rate_per_year": 0.004,
+        "atox_degradation_rate_per_fluence": 0.001,
+        "relative_cost": 10,
+        "density_kg_m2": 0.45,
+        "max_use_temp_C": 250.0,
+        "min_use_temp_C": -150.0,
+        "heritage": [
+            "Geostationary telecom satellites radiators",
+            "Rosetta"
+        ]
+    },
+    "Beta cloth": {
+        "commercial_name": "Beta Cloth woven silica fabric",
+        "eps_BOL": 0.9,
+        "eps_EOL": 0.82,
+        "alpha": 0.22,
+        "uv_degradation_rate_per_year": 0.016,
+        "atox_degradation_rate_per_fluence": 0.01,
+        "relative_cost": 6,
+        "density_kg_m2": 0.2,
+        "max_use_temp_C": 650.0,
+        "min_use_temp_C": -200.0,
+        "heritage": [
+            "Apollo spacesuits",
+            "Space Shuttle payload bay",
+            "ISS outer covers"
+        ]
+    },
+    "MLI 10-layer stack": {
+        "commercial_name": "Multi-Layer Insulation 10-Layer Stack (Effective)",
+        "eps_BOL": 0.03,
+        "eps_EOL": 0.05,
+        "alpha": 0.14,
+        "uv_degradation_rate_per_year": 0.004,
+        "atox_degradation_rate_per_fluence": 0.002,
+        "relative_cost": 9,
+        "density_kg_m2": 0.35,
+        "max_use_temp_C": 300.0,
+        "min_use_temp_C": -200.0,
+        "heritage": [
+            "Almost all deep space and LEO missions",
+            "James Webb",
+            "Mars Rovers"
+        ]
+    },
+    "Graphite epoxy composite": {
+        "commercial_name": "High-Modulus Graphite Epoxy Composite Panel",
+        "eps_BOL": 0.85,
+        "eps_EOL": 0.82,
+        "alpha": 0.88,
+        "uv_degradation_rate_per_year": 0.006,
+        "atox_degradation_rate_per_fluence": 0.002,
+        "relative_cost": 8,
+        "density_kg_m3": 1600.0,
+        "max_use_temp_C": 120.0,
+        "min_use_temp_C": -100.0,
+        "heritage": [
+            "Chandra X-ray Observatory structure",
+            "Mars Express",
+            "Cubesat structures"
+        ]
+    }
+}

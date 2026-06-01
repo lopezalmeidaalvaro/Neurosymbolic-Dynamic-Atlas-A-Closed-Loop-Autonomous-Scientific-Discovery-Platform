@@ -1,0 +1,224 @@
+{
+  "metadata": {
+    "timestamp": "2026-05-23T00:54:10Z",
+    "audit_type": "PhysioNet Empirical ECG Validation",
+    "val_auc": 0.9832708593641537,
+    "ranking_changed_vs_synthetic": "YES"
+  },
+  "test1_windowing": {
+    "train_patients": [
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107
+    ],
+    "val_patients": [
+      201,
+      202,
+      203
+    ],
+    "train_windows": 686,
+    "val_windows": 294
+  },
+  "test3_re_audit": {
+    "ranking": [
+      {
+        "component": "svd_entropy",
+        "score": 0.6315157582501181,
+        "role": "CRITICAL_COMPONENT",
+        "shap_importance": 1.0,
+        "sufficiency": 0.9661483641075478,
+        "redundancy_nmi": 0.21351458856583724,
+        "instability": 0.1640598726843203
+      },
+      {
+        "component": "autocorr_decay",
+        "score": 0.4574628150311227,
+        "role": "CRITICAL_COMPONENT",
+        "shap_importance": 0.5132322788029986,
+        "sufficiency": 0.973436993845157,
+        "redundancy_nmi": 0.19177257964731081,
+        "instability": 0.22737028965756764
+      },
+      {
+        "component": "spectral_entropy",
+        "score": 0.36294667216613574,
+        "role": "CRITICAL_COMPONENT",
+        "shap_importance": 0.3159020851498272,
+        "sufficiency": 0.9422231477625063,
+        "redundancy_nmi": 0.19974843481938015,
+        "instability": 0.3162326275351594
+      },
+      {
+        "component": "temporal_irreversibility",
+        "score": 0.24380431708854927,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 0.08236020702586828,
+        "sufficiency": 0.8170206858253506,
+        "redundancy_nmi": 0.12697667756449907,
+        "instability": 0.3462166251646828
+      },
+      {
+        "component": "robust_skewness",
+        "score": 0.20582650205510794,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 0.06696213526762522,
+        "sufficiency": 0.717687074829932,
+        "redundancy_nmi": 0.11656796001658691,
+        "instability": 0.34210351651032694
+      },
+      {
+        "component": "robust_kurtosis",
+        "score": 0.17764448227661933,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 0.08703232542634533,
+        "sufficiency": 0.601392938127632,
+        "redundancy_nmi": 0.10168520080502073,
+        "instability": 0.32034386564346384
+      },
+      {
+        "component": "fractal_dim",
+        "score": 0.17427799852052883,
+        "role": "SUPPORTING_COMPONENT",
+        "shap_importance": 0.06276160273292589,
+        "sufficiency": 0.611944097366838,
+        "redundancy_nmi": 0.107413591371853,
+        "instability": 0.3050463853907368
+      },
+      {
+        "component": "perm_entropy",
+        "score": 0.13573800997935073,
+        "role": "AUXILIARY_COMPONENT",
+        "shap_importance": 0.0375895807567733,
+        "sufficiency": 0.5935721227266417,
+        "redundancy_nmi": 0.10442138771594182,
+        "instability": 0.463369187216355
+      }
+    ],
+    "normalized_shap": [
+      0.0375895807567733,
+      0.3159020851498272,
+      1.0,
+      0.06276160273292589,
+      0.5132322788029986,
+      0.06696213526762522,
+      0.08703232542634533,
+      0.08236020702586828
+    ],
+    "nmi_matrix": [
+      [
+        1.0,
+        0.11200897019912448,
+        0.11807594907991564,
+        0.14086404766076963,
+        0.09549877915077638,
+        0.09681580356223224,
+        0.08089276747773246,
+        0.08679339688104194
+      ],
+      [
+        0.11200897019912456,
+        1.0,
+        0.3831179438770449,
+        0.11174202478883988,
+        0.34463475656805087,
+        0.1480158648723878,
+        0.12349762141077,
+        0.17522186201944326
+      ],
+      [
+        0.11807594907991564,
+        0.38311794387704484,
+        1.0000000000000002,
+        0.1353129585035526,
+        0.3725100154475914,
+        0.15184747234298437,
+        0.14908104340425635,
+        0.18465673730551513
+      ],
+      [
+        0.14086404766076965,
+        0.11174202478883996,
+        0.13531295850355268,
+        1.0000000000000002,
+        0.10498613428356476,
+        0.09061029380899534,
+        0.08577367915856472,
+        0.08260600139868367
+      ],
+      [
+        0.09549877915077636,
+        0.3446347565680508,
+        0.37251001544759127,
+        0.10498613428356475,
+        1.0000000000000002,
+        0.13961474748773528,
+        0.10386042492531959,
+        0.18130319966813707
+      ],
+      [
+        0.0968158035622322,
+        0.14801586487238774,
+        0.15184747234298446,
+        0.09061029380899534,
+        0.13961474748773525,
+        1.0000000000000002,
+        0.08975343081080162,
+        0.0993181072309717
+      ],
+      [
+        0.08089276747773251,
+        0.12349762141076995,
+        0.14908104340425649,
+        0.08577367915856475,
+        0.10386042492531947,
+        0.08975343081080168,
+        0.9999999999999998,
+        0.07893743844770061
+      ],
+      [
+        0.08679339688104194,
+        0.17522186201944331,
+        0.18465673730551518,
+        0.08260600139868372,
+        0.18130319966813704,
+        0.09931810723097169,
+        0.07893743844770053,
+        0.9999999999999998
+      ]
+    ]
+  },
+  "comparative_analysis": {
+    "synthetic_ranking": [
+      "perm_entropy",
+      "svd_entropy",
+      "robust_kurtosis",
+      "temporal_irreversibility",
+      "spectral_entropy",
+      "robust_skewness",
+      "fractal_dim",
+      "autocorr_decay"
+    ],
+    "empirical_ranking": [
+      "svd_entropy",
+      "autocorr_decay",
+      "spectral_entropy",
+      "temporal_irreversibility",
+      "robust_skewness",
+      "robust_kurtosis",
+      "fractal_dim",
+      "perm_entropy"
+    ],
+    "temporal_irreversibility_shift": {
+      "from": 4,
+      "to": 4
+    },
+    "fractal_dim_shift": {
+      "from": 7,
+      "to": 7
+    }
+  }
+}

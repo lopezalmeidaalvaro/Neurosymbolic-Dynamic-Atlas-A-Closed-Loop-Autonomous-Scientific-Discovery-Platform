@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "id": "rossler_noise_1.3333_seed_9001",
+    "timestamp": "2026-05-21T10:08:27Z",
+    "modelo": "Gemini 3.5 Flash",
+    "versión": "1.0.0",
+    "noiseLevel": 1.3333,
+    "seed": 9001
+  },
+  "telemetry": [
+    {
+      "node_id": null,
+      "parent_id": null,
+      "framework_family": "NUMERICAL",
+      "framework": "scipy",
+      "status": "SUCCESS",
+      "cost_metric": 0.8245,
+      "redundancy_flag": 0,
+      "redundant_to_id": null,
+      "semantic_notes": "Integración de atractores continuos en 3D"
+    },
+    {
+      "node_id": null,
+      "parent_id": null,
+      "framework_family": "NUMERICAL",
+      "framework": "scikit-learn",
+      "status": "SUCCESS",
+      "cost_metric": 1.4123,
+      "redundancy_flag": 0,
+      "redundant_to_id": null,
+      "semantic_notes": "PCA, cálculo de curvatura geodésica local y clustering DBSCAN"
+    },
+    {
+      "node_id": null,
+      "parent_id": null,
+      "framework_family": "VISUALIZATION",
+      "framework": "matplotlib",
+      "status": "SUCCESS",
+      "cost_metric": 1.7259,
+      "redundancy_flag": 0,
+      "redundant_to_id": null,
+      "semantic_notes": "Generación de gráficos del atlas universal"
+    },
+    {
+      "node_id": null,
+      "parent_id": null,
+      "framework_family": "BENCHMARK",
+      "framework": "sktime",
+      "status": "SUCCESS",
+      "cost_metric": 1.9897,
+      "redundancy_flag": 0,
+      "redundant_to_id": null,
+      "semantic_notes": "Evaluación comparativa contra modelos de referencia"
+    },
+    {
+      "node_id": null,
+      "parent_id": null,
+      "framework_family": "KNOWLEDGE_EXPORT",
+      "framework": "sqlite3",
+      "status": "SUCCESS",
+      "cost_metric": 0.0571,
+      "redundancy_flag": 0,
+      "redundant_to_id": null,
+      "semantic_notes": "Exportación de meta_insights guardados en base de datos"
+    }
+  ],
+  "embeddings": {
+    "rossler": {
+      "lyapunov_max": 0.5,
+      "spectral_entropy": 10.237220974428483,
+      "dominant_frequency": 0.17199426666666667,
+      "variance": 75.47283818226852,
+      "autocorr_decay": 0.010000333344444815,
+      "kurtosis": -0.13901336562802857,
+      "skewness": 0.045319906156215575,
+      "energy": 8.689182016528653
+    }
+  },
+  "benchmarks": {
+    "performance": null,
+    "precision": null,
+    "comparisons": {
+      "ROCKET": {
+        "accuracy": 0.625,
+        "time_seconds": 0.0019996166229248047
+      },
+      "DTW": {
+        "accuracy": 0.75,
+        "time_seconds": 0.0980532169342041
+      },
+      "Embedding_V2": {
+        "accuracy": 0.875,
+        "time_seconds": 0.029651165008544922
+      }
+    }
+  }
+}
