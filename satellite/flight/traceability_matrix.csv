@@ -1,4 +1,0 @@
-Function_Name,Lines_Of_Code,Cyclomatic_Complexity,ECSS_Requirement,Precondition_Documented,Postcondition_Documented,Status
-relu,3,1,ECSS-E-ST-40C-REQ-003 (Mathematical Safe ReLU Boundary Check),NO,NO,NON_COMPLIANT
-thermal_mlp_predict,31,7,ECSS-E-ST-40C-REQ-TBD (General FSW Module),NO,NO,NON_COMPLIANT
-main,12,2,ECSS-E-ST-40C-REQ-TBD (General FSW Module),NO,NO,NON_COMPLIANT

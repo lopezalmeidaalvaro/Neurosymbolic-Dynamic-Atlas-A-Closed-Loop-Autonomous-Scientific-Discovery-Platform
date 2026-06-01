@@ -1,5 +1,0 @@
-[
-  { "id": "node", "modelName": "NODE (Ours)", "accuracy": 0.985, "timeSeconds": 0.042, "isOurs": true, "color": "cyan" },
-  { "id": "dtw", "modelName": "Sakoe-Chiba DTW", "accuracy": 0.892, "timeSeconds": 3.84, "isOurs": false, "color": "blue" },
-  { "id": "rocket", "modelName": "ROCKET Classifier", "accuracy": 0.941, "timeSeconds": 0.125, "isOurs": false, "color": "violet" }
-]

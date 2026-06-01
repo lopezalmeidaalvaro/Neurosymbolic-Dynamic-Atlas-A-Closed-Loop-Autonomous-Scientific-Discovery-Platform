@@ -1,6 +1,0 @@
-ID,Requirement,Spec,Method,Outcome_Value,Margin,Status
-R1,CPU Maximum Junction Temperature,T_CPU_max <= 85.0 C in nominal mode,Analysis & Simulation,86.80 C,-4.80 C (with 3.0C UQ),FAILED
-R2,Battery Core Safety Range,0.0 C <= T_Battery <= 40.0 C,Analysis & Simulation,"Min: 11.68 C, Max: 64.05 C","Hot: -27.05 C, Cold: +8.68 C",FAILED
-R3,Structural Thermal Gradient Limit,Max Grad (Structure-Radiator) <= 20.0 C,Analysis & Simulation,18.41 C,+1.59 C,PASSED
-R4,Radiator BOL Coating Properties,Radiator BOL Emissivity >= 0.85,Inspection & Testing,0.8500,+0.0000,PASSED
-R5,EOL Material Emissivity Degradation,Emissivity Degradation <= 15% after 1 year,Analysis & Aging Simulation,-8.45%,+23.45%,PASSED

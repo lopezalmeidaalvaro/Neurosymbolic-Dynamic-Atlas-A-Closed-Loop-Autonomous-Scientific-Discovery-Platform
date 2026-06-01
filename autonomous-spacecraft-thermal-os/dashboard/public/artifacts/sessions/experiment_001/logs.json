@@ -1,7 +1,0 @@
-[
-  { "timestamp": "15:00:02", "severity": "info", "message": { "en": "Initializing Runge-Kutta 4th Order numerical integrator.", "es": "Inicializando integrador numerico Runge-Kutta de 4to orden." } },
-  { "timestamp": "15:00:15", "severity": "success", "message": { "en": "Integration completed successfully for 1000 steps.", "es": "Integracion completada con exito para 1000 pasos." } },
-  { "timestamp": "15:01:05", "severity": "info", "message": { "en": "Mapping phase coordinates to PCA low-dimensional projection.", "es": "Mapeando coordenadas de fase a proyeccion de baja dimension PCA." } },
-  { "timestamp": "15:02:18", "severity": "warning", "message": { "en": "Marginal Shannon entropy elevation detected in high-frequency regions.", "es": "Elevacion marginal de entropia de Shannon detectada en regiones de alta frecuencia." } },
-  { "timestamp": "15:03:45", "severity": "success", "message": { "en": "Max Lyapunov exponent computed (lambda = 0.902 > 0). Chaos validated.", "es": "Maximo exponente de Lyapunov calculado (lambda = 0.902 > 0). Caos validado." } }
-]

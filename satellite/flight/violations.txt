@@ -1,5 +1,0 @@
-=== REGISTRO DE INFRACCIONES DE SOFTWARE DE VUELO (ECSS & MISRA C) ===
-
-- ECSS Traceability Violation: Function 'relu' is missing structured headers. Preconditions (@pre), postconditions (@post), and requirements (@req) must be documented in header comments.
-- ECSS Traceability Violation: Function 'thermal_mlp_predict' is missing structured headers. Preconditions (@pre), postconditions (@post), and requirements (@req) must be documented in header comments.
-- ECSS Traceability Violation: Function 'main' is missing structured headers. Preconditions (@pre), postconditions (@post), and requirements (@req) must be documented in header comments.
