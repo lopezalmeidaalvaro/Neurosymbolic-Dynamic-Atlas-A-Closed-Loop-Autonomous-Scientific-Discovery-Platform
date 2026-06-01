@@ -1,12 +1,10 @@
 seed: 42
-
 paths:
-  data_dir: ${DATA_DIR:-data}
-  artifacts_dir: ${ARTIFACTS_DIR:-artifacts}
-  results_dir: ${RESULTS_DIR:-results}
-  mitdb_dir: ${MITDB_DIR:-data/mitdb}
-  ucr_dir: ${UCR_DIR:-data/ucr}
-
+  data_dir: data
+  artifacts_dir: artifacts
+  results_dir: results
+  mitdb_dir: data/mitdb
+  ucr_dir: data/ucr
 systems:
   harmonic:
     n_timesteps: 120
@@ -31,23 +29,19 @@ systems:
     gamma: 0.3
     delta: 0.2
     omega: 1.2
-
 neural_ode:
   train_steps: 160
   epochs: 40
   lr: 0.01
   hidden_dim: 32
   num_layers: 2
-
 symbolic:
-  threshold: 1.0e-6
+  threshold: 1.0e-06
   polynomial_order: 1
-
 orchestrator:
   log_level: INFO
   overwrite_results: true
   save_plots: true
-
 scientific_guard:
   blocked_phrases:
   - theory of everything
@@ -58,11 +52,18 @@ scientific_guard:
   - quantum spacetime emergence proven
   - hawking radiation confirmed
   - holographic principle verified
-
 physics:
   random_seed: 42
   default_timeout: 300
-
+  sanity_min_score: 0.75
+  skeptic:
+    minimum_required_replications: 3
+    rerun_seeds:
+    - 7
+    - 13
+    - 23
+    - 42
+    - 101
 models:
   scientific_embedding_model: allenai/specter2_base
   scibert_model: allenai/scibert_scivocab_uncased

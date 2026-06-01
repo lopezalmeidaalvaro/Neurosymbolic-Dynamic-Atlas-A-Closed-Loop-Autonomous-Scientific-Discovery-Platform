@@ -203,8 +203,8 @@
     "name": "scientific_embedding_backend",
     "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\embeddings_cache",
     "exists": true,
-    "size_bytes": 98304,
-    "updated_at": "2026-05-31T19:38:38",
+    "size_bytes": 262144,
+    "updated_at": "2026-06-01T16:36:03",
     "metadata": {
       "model_name": "allenai/specter2_base",
       "storage": "sha256 .npy cache"

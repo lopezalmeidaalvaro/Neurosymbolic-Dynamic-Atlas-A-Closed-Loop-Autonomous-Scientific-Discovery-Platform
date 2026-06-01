@@ -9916,5 +9916,1922 @@
         "overlap": null
       }
     }
+  },
+  "aecc678d53f165ab846122c6289161dea55716c26ca9d99c6722ee5a761834d6": {
+    "hypothesis": "The Duffing oscillator velocity follows dv = -0.100 * v - x - 1.000 * x**3.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dv + 0.1*v + 1.0*x**3 + x",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": [
+          "additive terms have incompatible dimensions: [{'length': 1.0}, {'length': 3.0}, {'length': 1.0, 'time': -1.0}]"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -1.854310417952368,
+        "max": 1.9063901759150539,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.25
+      }
+    }
+  },
+  "fdf6b60a38e2adb0e5b9b4f5bae1cda7bff6abe4a8d3cd32334fd9d5b302fdc6": {
+    "hypothesis": "Lorenz system coordinate X evolves via dx = 9.600 * (y - x).",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx + 9.6*x - 9.6*y",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {
+          "1": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -67.20050182347337,
+        "max": 84.6187203599142,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.3333333333333333
+      }
+    }
+  },
+  "b55907cc6b25dcd5af71c5b52aaf73679a479c604659054cf173651e856b9a74": {
+    "hypothesis": "Rossler system coordinate Y derivative conforms to dy = x + 0.170 * y.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dy - x - 0.17*y",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {
+          "1": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -2.187919162137122,
+        "max": 2.1501144600787074,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.3333333333333333
+      }
+    }
+  },
+  "4e389410d334b8236dd0be883a7da602f3d76e94c84d4f21401825220c103a02": {
+    "hypothesis": "Harmonic oscillator velocity derivative obeys dv = -1.300 * x.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dv + 1.3*x",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -2.0
+        },
+        "rhs_dimension": {
+          "length": 1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.6119074317133743,
+        "max": 0.6204743049259814,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.16666666666666666
+      }
+    }
+  },
+  "beb47bc2fb01ee17cc782fdf1aff23b09746457eb1ad2dd9c7c94ac4c61f78f9": {
+    "hypothesis": "The Duffing oscillator velocity follows dv = -0.180 * v - x - 1.200 * x**3.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dv + 0.18*v + 1.2*x**3 + x",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": [
+          "additive terms have incompatible dimensions: [{'length': 1.0}, {'length': 1.0, 'time': -1.0}, {'length': 3.0}]"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -2.084067826343544,
+        "max": 2.1459472970585316,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.25
+      }
+    }
+  },
+  "5cc6701579a8e865afc7c84e18cd8b71fb1d91b064634b04df4a58cfb972a0ef": {
+    "hypothesis": "Tautology 0: variable x_0 is identically equal to itself.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": false,
+        "simplified": "0",
+        "warnings": [
+          "trivial_identity"
+        ]
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9512447032735118,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "35dfbffca7ed9b9812c43836b03cf0438ca5a098b6c76659491ca221ed17b30c": {
+    "hypothesis": "Tautology 1: variable x_1 is identically equal to itself.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": false,
+        "simplified": "0",
+        "warnings": [
+          "trivial_identity"
+        ]
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9512447032735118,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "e02dfb78acb7ccc819fc481ace0833baead21b6acc38fd96e2c9c2685fbc482a": {
+    "hypothesis": "Tautology 2: variable x_2 is identically equal to itself.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": false,
+        "simplified": "0",
+        "warnings": [
+          "trivial_identity"
+        ]
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9512447032735118,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "a083963d39a3fd9b86ff762fc4f53b70af865f89db4941837b9c3e3a9c7b1e09": {
+    "hypothesis": "Tautology 3: variable x_3 is identically equal to itself.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": false,
+        "simplified": "0",
+        "warnings": [
+          "trivial_identity"
+        ]
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9512447032735118,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "80f59dc82ce9e38240f7c32ca044f1dc24b4279b7745598a199776b4c8681175": {
+    "hypothesis": "Tautology 4: variable x_4 is identically equal to itself.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": false,
+        "simplified": "0",
+        "warnings": [
+          "trivial_identity"
+        ]
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9512447032735118,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "b9624745e1faa7cf2556775b40151f266054322201237d8a3338f5c1b489579e": {
+    "hypothesis": "It is false that The Duffing oscillator velocity follows dv = -0.100 * v - x - 1.000 * x**3.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dv + 0.1*v + 1.0*x**3 + x",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": [
+          "additive terms have incompatible dimensions: [{'length': 1.0}, {'length': 3.0}, {'length': 1.0, 'time': -1.0}]"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -1.854310417952368,
+        "max": 1.9063901759150539,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.25
+      }
+    }
+  },
+  "8ce2a7b0de892d986fe0a4e88453f0dcb335b3aa8c969d66535483dcd5e942d4": {
+    "hypothesis": "Lorenz system coordinate X fails to evolve via dx = 9.600 * (y - x).",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx + 9.6*x - 9.6*y",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {
+          "1": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -67.20050182347337,
+        "max": 84.6187203599142,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.3333333333333333
+      }
+    }
+  },
+  "7c54ed66955b7c4825d1fd5166b0800c3fd4b833e79a9455be880631bc2d3439": {
+    "hypothesis": "Rossler system coordinate Y derivative strictly contradicts dy = x + 0.170 * y.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dy - x - 0.17*y",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {
+          "1": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -2.187919162137122,
+        "max": 2.1501144600787074,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.3333333333333333
+      }
+    }
+  },
+  "a6d85068b577217611617fe04e20023bbd66ff3dde5a881d498a755b8be2c905": {
+    "hypothesis": "Harmonic oscillator velocity derivative never obeys dv = -1.300 * x.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dv + 1.3*x",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -2.0
+        },
+        "rhs_dimension": {
+          "length": 1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.6119074317133743,
+        "max": 0.6204743049259814,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.16666666666666666
+      }
+    }
+  },
+  "bb563d65a0e02bdade5a616919c8c782ed2895d38c089c2fe42a54f35f2be366": {
+    "hypothesis": "It is false that The Duffing oscillator velocity follows dv = -0.180 * v - x - 1.200 * x**3.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dv + 0.18*v + 1.2*x**3 + x",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": [
+          "additive terms have incompatible dimensions: [{'length': 1.0}, {'length': 1.0, 'time': -1.0}, {'length': 3.0}]"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -2.084067826343544,
+        "max": 2.1459472970585316,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.25
+      }
+    }
+  },
+  "d61e461d47293dd224c427adaeec3f91ca860ba9546293c4cff7f0c6a80d04c4": {
+    "hypothesis": "Impossible absolute temperature of -100 Kelvin in classical state.",
+    "score": 0.4,
+    "accepted": false,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "T + 100",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {
+          "temperature": 1.0
+        },
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -100.0,
+        "max": -100.0,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": false,
+        "warnings": [
+          "no_symbol_overlap_with_known_system"
+        ],
+        "overlap": 0.0
+      }
+    }
+  },
+  "a1be949aba37f6777025715f0a34a0504bf7800c997ac70e26f2f4ef0992b556": {
+    "hypothesis": "Regime with negative effective mass m = -6 kg.",
+    "score": 0.4,
+    "accepted": false,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "m + 6",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {
+          "mass": 1.0
+        },
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -6.0,
+        "max": -6.0,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": false,
+        "warnings": [
+          "no_symbol_overlap_with_known_system"
+        ],
+        "overlap": 0.0
+      }
+    }
+  },
+  "72336410f981f200141bc2129a835a2f9ffc9d6f7caf81971f9873039c649b62": {
+    "hypothesis": "Superluminal particle velocity reaching v = 402000000.0 m/s.",
+    "score": 0.4,
+    "accepted": false,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "v - 402000000.0",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": 402000000.0,
+        "max": 402000000.0,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": false,
+        "warnings": [
+          "no_symbol_overlap_with_known_system"
+        ],
+        "overlap": 0.0
+      }
+    }
+  },
+  "4705324ce872f28fa7398d7e27c89e38ae2c5a2258ea7fcff73ab102645468da": {
+    "hypothesis": "Impossible absolute temperature of -103 Kelvin in classical state.",
+    "score": 0.4,
+    "accepted": false,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "T + 103",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {
+          "temperature": 1.0
+        },
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -103.0,
+        "max": -103.0,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": false,
+        "warnings": [
+          "no_symbol_overlap_with_known_system"
+        ],
+        "overlap": 0.0
+      }
+    }
+  },
+  "36f2e50cf0cf53d0712e6811f8a404f34871a3ed17c7d5ff918d9bd2d03333a7": {
+    "hypothesis": "Regime with negative effective mass m = -9 kg.",
+    "score": 0.4,
+    "accepted": false,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "m + 9",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": false,
+        "lhs_dimension": {
+          "mass": 1.0
+        },
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -9.0,
+        "max": -9.0,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": false,
+        "warnings": [
+          "no_symbol_overlap_with_known_system"
+        ],
+        "overlap": 0.0
+      }
+    }
+  },
+  "abe6328f7c1574bc4657beef01507f6ced8f01bd285b67e5aee339cd696e499d": {
+    "hypothesis": "Arbitrary noise relation between q_0 and w_0.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "q_0 - log(Abs(w_0) + 1.0)*sin(w_0)",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.5715271455173967,
+        "max": 0.5711082905529993,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": false,
+        "warnings": [
+          "no_symbol_overlap_with_known_system"
+        ],
+        "overlap": 0.0
+      }
+    }
+  },
+  "88cd35eb27b508f841be1729f3436c1dae19edc788bdaa3c2064bec0c25d99c6": {
+    "hypothesis": "Arbitrary noise relation between q_1 and w_1.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "q_1 - log(Abs(w_1) + 1.0)*sin(w_1)",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.5715271455173967,
+        "max": 0.5711082905529993,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": false,
+        "warnings": [
+          "no_symbol_overlap_with_known_system"
+        ],
+        "overlap": 0.0
+      }
+    }
+  },
+  "acdd3328f3c052f604d6c59855e49ee3490d7de7f637abd029268c5ae1c6e558": {
+    "hypothesis": "Arbitrary noise relation between q_2 and w_2.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "q_2 - log(Abs(w_2) + 1.0)*sin(w_2)",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.5715271455173967,
+        "max": 0.5711082905529993,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": false,
+        "warnings": [
+          "no_symbol_overlap_with_known_system"
+        ],
+        "overlap": 0.0
+      }
+    }
+  },
+  "bcd4836f3536d8ed2abb47ebe93b470682972b03438ece62629803a57f6f8560": {
+    "hypothesis": "Arbitrary noise relation between q_3 and w_3.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "q_3 - log(Abs(w_3) + 1.0)*sin(w_3)",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.5715271455173967,
+        "max": 0.5711082905529993,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": false,
+        "warnings": [
+          "no_symbol_overlap_with_known_system"
+        ],
+        "overlap": 0.0
+      }
+    }
+  },
+  "14864158360ad8f290b6084e7f68f9e40928b05bb0129e950e15749a4cb7669d": {
+    "hypothesis": "Arbitrary noise relation between q_4 and w_4.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "q_4 - log(Abs(w_4) + 1.0)*sin(w_4)",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {},
+        "rhs_dimension": {},
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.5715271455173967,
+        "max": 0.5711082905529993,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": false,
+        "warnings": [
+          "no_symbol_overlap_with_known_system"
+        ],
+        "overlap": 0.0
+      }
+    }
+  },
+  "f646bada409bb23f37cfb914c0b1b23d7bb0b76698ade50f577ec8fed9079c0b": {
+    "hypothesis": "Data leakage configuration with leakage type total (Case 0).",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "6c8e8541575b44ffd54978e5fbc68a9b7db7804c97462ca2abd2ff7ab16ed96a": {
+    "hypothesis": "Data leakage configuration with leakage type partial (Case 1).",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "7e24b9172801ffae732822c9648b5462b72e4a15196fd8b452a58043d7da30e4": {
+    "hypothesis": "Data leakage configuration with leakage type total (Case 2).",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "7d9a6fdf400a3a880cb849917112e565e00749a784fee16abff20b4eb993c839": {
+    "hypothesis": "Data leakage configuration with leakage type partial (Case 3).",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "4e925398e3c9b7b9e16c38ca4b1320d436f337f59da23635277d1c4898094a90": {
+    "hypothesis": "Data leakage configuration with leakage type total (Case 4).",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "367663ef82e210a2124fabebadc429507381a8bb6c313e75c803a98759dd7ca7": {
+    "hypothesis": "Overfitted model config with perfect training score but poor validation (Case 0).",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "7dd012ee06710b0ebd4a0f77b0d45d3196f08cc1a0968f15b95b8d4329b59809": {
+    "hypothesis": "Overfitted model config with perfect training score but poor validation (Case 1).",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "3920691bf366e79ba0e457553825f260e41736f6689bbff2feb9c8d066e31d82": {
+    "hypothesis": "Overfitted model config with perfect training score but poor validation (Case 2).",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "d3435560fefe1c75b3de3729b546979ce21bf6dee9a370bf1be1b32224f6b342": {
+    "hypothesis": "Overfitted model config with perfect training score but poor validation (Case 3).",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "4751438df922ad2955c23b7d30992af1d3a60b8e605ed35cc657620a4ae01a8d": {
+    "hypothesis": "Overfitted model config with perfect training score but poor validation (Case 4).",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "lhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "rhs_dimension": {
+          "length": 1.0,
+          "time": -1.0
+        },
+        "warnings": []
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "5c6d8f8d981a080616912f269d17202b31fb14910a0d9081be64a2e1ed41495a": {
+    "hypothesis": "[MODEL-SPECIFIC OBSERVATION]: This constitutes our new simplified toy-model representation for physical dynamics.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "1ac338f6f55e1cebcf6dd53f0f749ae123cb032c7985caa21377e61255f81706": {
+    "hypothesis": "Pseudoscience Case 1: This claim is deliberately created to be extremely long and excessively detailed, containing nested clauses that explain that physical phenomena cannot be simply generalized and therefore must exceed standard constraints.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": false,
+        "warnings": [
+          "'hypothesis' text length (243) exceeds maximum of 200 characters"
+        ]
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "30e4159401d0be950c0941907c86b79d540e41eac48015bf44b4fd26db0139c7": {
+    "hypothesis": "Pseudoscience Case 2: multiple equations.",
+    "score": 0.4,
+    "accepted": false,
+    "checks": {
+      "structure": {
+        "passed": false,
+        "warnings": [
+          "'equation' must contain at most ONE equation (detected 4 equations)"
+        ]
+      },
+      "math": {
+        "passed": true,
+        "simplified": "-0 + dx",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": null,
+        "max": null,
+        "warnings": [
+          "evaluation_error: Cannot convert expression to float"
+        ]
+      },
+      "conservation": {
+        "passed": false,
+        "warnings": [
+          "no_symbol_overlap_with_known_system"
+        ],
+        "overlap": 0.0
+      }
+    }
+  },
+  "76dfca36397b212fff7b269a8b28bf410284ddb888f80e630948b39f598d57e9": {
+    "hypothesis": "[MODEL-SPECIFIC OBSERVATION]: This constitutes our new simulated toy spacetime for physical dynamics.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "22bc2349cb7936a04029a4d0285cbbf8a8ac8966e65791dbb6bac7dc487ba7fd": {
+    "hypothesis": "Pseudoscience Case 4: This claim is deliberately created to be extremely long and excessively detailed, containing nested clauses that explain that physical phenomena cannot be simply generalized and therefore must exceed standard constraints.",
+    "score": 0.6,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": false,
+        "warnings": [
+          "'hypothesis' text length (243) exceeds maximum of 200 characters"
+        ]
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [],
+        "overlap": 0.125
+      }
+    }
+  },
+  "e372516487e941c27ba5c56eefa3d4150922d83056296ab1d2ffb766c6f158d1": {
+    "hypothesis": "A state-of-the-art framework proposing a th3ory of everyth1ng model.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "7a15e4d9f77b9c17b2bb6124021b5b0d1e7f3c2c12c872ba25d18457294cd991": {
+    "hypothesis": "A state-of-the-art framework proposing a theory of every thing model.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "91c2ef85f098a75cd113e30d081f1e715fd12fe53a0989e3b086ab5732d75fd3": {
+    "hypothesis": "A state-of-the-art framework proposing a unified field-theory model.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "1f62f25e9e207bdb1d6cfe7cb7699290d3d7dd3d1ce1e5266598341748913163": {
+    "hypothesis": "A state-of-the-art framework proposing a real space-time model.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "00ddea73de5dccc25fac73b8c05414092db01e7345300965192ea83096457f2f": {
+    "hypothesis": "A state-of-the-art framework proposing a proof of quantum-gravity model.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "0f276952838761472ef4161c15d270ee55c957094cf7e5184060ab381b1c8590": {
+    "hypothesis": "[MODEL-SPECIFIC OBSERVATION]: A state-of-the-art framework proposing a emergent network geometry observed in this simulation! model.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "50ef92cba0ded336d1291676db415235f6877a00ba45627064cd2d56f78671c6": {
+    "hypothesis": "A complex mathematical physical relation representation 0.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - x",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "7f07a1171d0a560191cc53bf29a656236c0cc65f88ba9a691afe38fbb548f0b4": {
+    "hypothesis": "A complex mathematical physical relation representation 1.",
+    "score": 1.0,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": true,
+        "min": 0.0,
+        "max": 0.0,
+        "warnings": []
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "a68f2d99f2a726ceae4631932f9e5c12696076b34223fa94ef628c4bc32cd63f": {
+    "hypothesis": "A complex mathematical physical relation representation 2.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - x",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
+  },
+  "2dfd6382bf12f3652f6eb9f108ccf891a4b6610f6865483ff3d9e7a6a9a82a76": {
+    "hypothesis": "Flawed candidate 0 with fake statistical superiority.",
+    "score": 0.8,
+    "accepted": true,
+    "checks": {
+      "structure": {
+        "passed": true,
+        "warnings": []
+      },
+      "math": {
+        "passed": true,
+        "simplified": "dx - v_fake",
+        "warnings": []
+      },
+      "dimensions": {
+        "passed": true,
+        "warnings": [
+          "no_units_provided"
+        ]
+      },
+      "boundedness": {
+        "passed": false,
+        "min": -0.985275460497989,
+        "max": 0.9847511281116741,
+        "warnings": [
+          "temperature_or_state_out_of_safe_range"
+        ]
+      },
+      "conservation": {
+        "passed": true,
+        "warnings": [
+          "unknown_system_type: unknown"
+        ],
+        "overlap": null
+      }
+    }
   }
 }

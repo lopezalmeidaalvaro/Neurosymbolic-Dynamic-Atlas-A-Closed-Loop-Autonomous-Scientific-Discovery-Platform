@@ -1,0 +1,189 @@
+[
+  {
+    "id": "registry_a68fddee",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment a68fddee with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "category": "UNKNOWN",
+    "original_sanity_score": 0.8,
+    "hardened_sanity_score": 0.8,
+    "penalties_applied": [],
+    "evidence_checks": {
+      "experimental": true,
+      "statistical": false,
+      "causal": true,
+      "cross_validation": false
+    },
+    "original_outcome": "VALIDATED",
+    "recalibrated_outcome": "VALIDATED",
+    "rejection_reason": "none"
+  },
+  {
+    "id": "registry_5b242086",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 5b242086 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "category": "UNKNOWN",
+    "original_sanity_score": 0.8,
+    "hardened_sanity_score": 0.8,
+    "penalties_applied": [],
+    "evidence_checks": {
+      "experimental": true,
+      "statistical": false,
+      "causal": true,
+      "cross_validation": false
+    },
+    "original_outcome": "VALIDATED",
+    "recalibrated_outcome": "VALIDATED",
+    "rejection_reason": "none"
+  },
+  {
+    "id": "registry_631f66a8",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 631f66a8 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "category": "UNKNOWN",
+    "original_sanity_score": 0.8,
+    "hardened_sanity_score": 0.8,
+    "penalties_applied": [],
+    "evidence_checks": {
+      "experimental": true,
+      "statistical": false,
+      "causal": true,
+      "cross_validation": false
+    },
+    "original_outcome": "VALIDATED",
+    "recalibrated_outcome": "VALIDATED",
+    "rejection_reason": "none"
+  },
+  {
+    "id": "registry_87238b54",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 87238b54 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "category": "UNKNOWN",
+    "original_sanity_score": 0.8,
+    "hardened_sanity_score": 0.8,
+    "penalties_applied": [],
+    "evidence_checks": {
+      "experimental": true,
+      "statistical": false,
+      "causal": true,
+      "cross_validation": false
+    },
+    "original_outcome": "VALIDATED",
+    "recalibrated_outcome": "VALIDATED",
+    "rejection_reason": "none"
+  },
+  {
+    "id": "registry_f5107983",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment f5107983 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "category": "UNKNOWN",
+    "original_sanity_score": 0.8,
+    "hardened_sanity_score": 0.8,
+    "penalties_applied": [],
+    "evidence_checks": {
+      "experimental": true,
+      "statistical": false,
+      "causal": true,
+      "cross_validation": false
+    },
+    "original_outcome": "VALIDATED",
+    "recalibrated_outcome": "VALIDATED",
+    "rejection_reason": "none"
+  },
+  {
+    "id": "registry_95334af5",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 95334af5 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "category": "UNKNOWN",
+    "original_sanity_score": 0.8,
+    "hardened_sanity_score": 0.8,
+    "penalties_applied": [],
+    "evidence_checks": {
+      "experimental": true,
+      "statistical": false,
+      "causal": true,
+      "cross_validation": false
+    },
+    "original_outcome": "VALIDATED",
+    "recalibrated_outcome": "VALIDATED",
+    "rejection_reason": "none"
+  },
+  {
+    "id": "registry_08a423c2",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 08a423c2 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "category": "UNKNOWN",
+    "original_sanity_score": 0.8,
+    "hardened_sanity_score": 0.8,
+    "penalties_applied": [],
+    "evidence_checks": {
+      "experimental": true,
+      "statistical": false,
+      "causal": true,
+      "cross_validation": false
+    },
+    "original_outcome": "VALIDATED",
+    "recalibrated_outcome": "VALIDATED",
+    "rejection_reason": "none"
+  },
+  {
+    "id": "registry_ff82acc7",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment ff82acc7 with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "category": "UNKNOWN",
+    "original_sanity_score": 0.8,
+    "hardened_sanity_score": 0.8,
+    "penalties_applied": [],
+    "evidence_checks": {
+      "experimental": true,
+      "statistical": false,
+      "causal": true,
+      "cross_validation": false
+    },
+    "original_outcome": "VALIDATED",
+    "recalibrated_outcome": "VALIDATED",
+    "rejection_reason": "none"
+  },
+  {
+    "id": "registry_b0ee8d7c",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment b0ee8d7c with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "category": "UNKNOWN",
+    "original_sanity_score": 0.8,
+    "hardened_sanity_score": 0.8,
+    "penalties_applied": [],
+    "evidence_checks": {
+      "experimental": true,
+      "statistical": false,
+      "causal": true,
+      "cross_validation": false
+    },
+    "original_outcome": "VALIDATED",
+    "recalibrated_outcome": "VALIDATED",
+    "rejection_reason": "none"
+  },
+  {
+    "id": "registry_61f52a3e",
+    "hypothesis": "Follow up MultiAgentSystem result from registered experiment 61f52a3e with falsification criterion p_value < 0.05 and dataset benchmark.",
+    "category": "UNKNOWN",
+    "original_sanity_score": 0.8,
+    "hardened_sanity_score": 0.8,
+    "penalties_applied": [],
+    "evidence_checks": {
+      "experimental": true,
+      "statistical": false,
+      "causal": true,
+      "cross_validation": false
+    },
+    "original_outcome": "VALIDATED",
+    "recalibrated_outcome": "VALIDATED",
+    "rejection_reason": "none"
+  },
+  {
+    "id": "recent_multi_agent_proposal",
+    "hypothesis": "Generate a traceable falsifiable proposal.",
+    "category": "UNKNOWN",
+    "original_sanity_score": 0.5,
+    "hardened_sanity_score": 0.5,
+    "penalties_applied": [],
+    "evidence_checks": {
+      "experimental": false,
+      "statistical": false,
+      "causal": false,
+      "cross_validation": false
+    },
+    "original_outcome": "REJECTED",
+    "recalibrated_outcome": "REJECTED",
+    "rejection_reason": "physics_sanity_below_hardened_threshold"
+  }
+]
