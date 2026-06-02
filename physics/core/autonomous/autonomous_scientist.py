@@ -9,8 +9,7 @@ import json
 import sqlite3
 import math
 import time
-from physics.core.autonomous.llm_reasoner import LLMReasoner
-from physics.core.autonomous.sandbox_executor import SandboxExecutor
+from core.orchestration.domain_configuration import DomainConfiguration
 
 # Ensure UTF-8 output encoding for Windows terminal
 if sys.platform.startswith("win"):
@@ -28,9 +27,25 @@ class AutonomousScientist:
     results interpretation, epistemic gain computation, and knowledge base tracking.
     """
 
-    def __init__(self, llm_provider="openai", use_docker=True, knowledge_graph=None):
-        self.llm = LLMReasoner(provider=llm_provider)
-        self.sandbox = SandboxExecutor(use_docker=use_docker)
+    def __init__(self, llm_provider="openai", use_docker=True, knowledge_graph=None,
+                 generator=None, critic=None, sandbox=None, memory=None, llm_reasoner=None):
+        self.generator = generator
+        self.critic = critic
+        
+        if sandbox is None:
+            from physics.core.autonomous.sandbox_executor import SandboxExecutor
+            self.sandbox = SandboxExecutor(use_docker=use_docker)
+        else:
+            self.sandbox = sandbox
+            
+        self.memory = memory
+        
+        if llm_reasoner is None:
+            from physics.core.autonomous.llm_reasoner import LLMReasoner
+            self.llm = LLMReasoner(provider=llm_provider)
+        else:
+            self.llm = llm_reasoner
+            
         self.session_history = []
         self.epistemic_gain = 0.0
         self.auto_mode = False  # Starts paused if interactive_mode is used
@@ -43,7 +58,10 @@ class AutonomousScientist:
             self.kg_active = True
         else:
             try:
-                from knowledge_graph import ScientificKnowledgeGraph
+                try:
+                    from knowledge_graph import ScientificKnowledgeGraph
+                except ImportError:
+                    from physics.knowledge_graph import ScientificKnowledgeGraph
 
                 # Attempt default connection
                 self.kg = ScientificKnowledgeGraph(
@@ -139,25 +157,15 @@ class AutonomousScientist:
                     }
                 )
 
-        # Describe available datasets in the project
-        available_data = [
-            "synthetic_lorenz (Lorenz 3D chaotic attractor timeseries)",
-            "synthetic_rossler (Rossler attractor timeseries)",
-            "ecg_data (Arrhythmic and normal sinus rhythm electrocardiogram records)",
-            "ucr_datasets (Standard benchmarks for time series classification)",
-        ]
-
-        # Describe available methods
-        available_methods = [
-            "topological (Takens phase space reconstruction, persistent homology Betti-0/1 curves)",
-            "geometric (Ollivier-Ricci graph curvature, Laplace-Beltrami spectral mapping, diffusion maps)",
-            "koopman (Dynamic Mode Decomposition, Koopman operator spectral eigenvalues)",
-            "symbolic (SINDy and PySR equations discovery, sparse regression)",
-        ]
+        # Load domain configuration dynamically
+        config = DomainConfiguration(domain_name=domain)
+        available_data = config.datasets
+        available_methods = config.methods
+        observations = config.prompts.get("observations", "Dynamic chaos and nonlinear behaviors under different noise regimes.")
 
         context = {
             "domain": domain,
-            "observations": "Dynamic chaos and nonlinear behaviors under different noise regimes.",
+            "observations": observations,
             "knowledge_graph_summary": f"Currently holds {len(previous_hypotheses)} hypotheses in scientific memory.",
             "previous_hypotheses": json.dumps(previous_hypotheses, indent=2),
             "goal": goal,
@@ -314,7 +322,10 @@ class AutonomousScientist:
         Saves the discovery node to Neo4j if available, or falls back to local SQLite.
         """
         import uuid
-        from scientific_guard import sanitize_hypothesis
+        try:
+            from scientific_guard import sanitize_hypothesis
+        except ImportError:
+            from physics.scientific_guard import sanitize_hypothesis
 
         hyp_id = f"hyp_{uuid.uuid4().hex[:8]}"
         exp_id = f"exp_{uuid.uuid4().hex[:8]}"

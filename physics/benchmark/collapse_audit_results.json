@@ -1,0 +1,19 @@
+{
+    "initial_conditions": {
+        "M0": 1.5,
+        "rho0": 0.08,
+        "rho_critical": 8.0,
+        "k": 0.04,
+        "boundary_radius_r_b": 2.5
+    },
+    "final_state": {
+        "t_bounce": 0.513304167535089,
+        "a_min": 0.216378960168145,
+        "R_b_at_bounce": 0.5409474004203625,
+        "R_s_at_bounce": 3.0,
+        "K_max": 189.51247194332726,
+        "horizon_classification": "TEMPORARY_HORIZON",
+        "final_state_classification": "PLANCK_STAR",
+        "formation_verdict": "GENERIC_REMNANT_FORMATION"
+    }
+}

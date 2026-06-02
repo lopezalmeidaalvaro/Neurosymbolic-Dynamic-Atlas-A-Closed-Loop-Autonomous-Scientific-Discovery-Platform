@@ -1,9 +1,9 @@
 {
-    "timestamp": 1780345215.9709163,
-    "problem_score_A": 71.1644759002951,
-    "problem_score_B": 85.2340467447037,
+    "timestamp": 1780418338.6826882,
+    "problem_score_A": 88.3888888888889,
+    "problem_score_B": 86.47272727272727,
     "problem_score_C": 100.0,
-    "global_score": 86.91955679349964,
+    "global_score": 92.45848484848486,
     "classification": "EXCELLENT",
     "memory_contamination": false,
     "kg_contamination": false

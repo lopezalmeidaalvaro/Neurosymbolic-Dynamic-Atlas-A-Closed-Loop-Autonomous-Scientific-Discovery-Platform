@@ -1,0 +1,812 @@
+[
+    {
+        "seed": 0,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.874*exp(-0.024*(r-1.372)**2)",
+            "family": "exponential",
+            "score": 82.43974241350443,
+            "accepted": true
+        },
+        "global_score": 79.89545375890141,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 1,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "r**3 / (r**3 + 1.5)",
+            "family": "rational",
+            "score": 100.0,
+            "accepted": false
+        },
+        "global_score": 86.91955679349964,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 0,
+            "rejected": 6
+        }
+    },
+    {
+        "seed": 2,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.824*exp(-0.063*(r-1.085)**2)",
+            "family": "exponential",
+            "score": 84.58137162791415,
+            "accepted": true
+        },
+        "global_score": 80.75210544466529,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 3,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.891/(1+0.012*r**2)",
+            "family": "rational",
+            "score": 81.47350287129902,
+            "accepted": true
+        },
+        "global_score": 79.50895794201924,
+        "acceptance_statistics": {
+            "generated": 8,
+            "accepted": 1,
+            "rejected": 7
+        }
+    },
+    {
+        "seed": 4,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.907*exp(-0.008*(r-1.439)**2)",
+            "family": "exponential",
+            "score": 80.76308642454505,
+            "accepted": true
+        },
+        "global_score": 79.22479136331765,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 5,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.793*exp(-0.078*(r-0.949)**2)",
+            "family": "exponential",
+            "score": 85.63059237857082,
+            "accepted": true
+        },
+        "global_score": 81.17179374492797,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 6,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.444*exp(-0.297*(r-1.243)**2)",
+            "family": "exponential",
+            "score": 94.45629869336744,
+            "accepted": true
+        },
+        "global_score": 84.70207627084662,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 7,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.606*exp(-0.153*(r-1.495)**2)",
+            "family": "exponential",
+            "score": 93.5643120429857,
+            "accepted": true
+        },
+        "global_score": 84.34528161069392,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 8,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "r**3 / (r**3 + 1.5)",
+            "family": "rational",
+            "score": 100.0,
+            "accepted": false
+        },
+        "global_score": 86.91955679349964,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 0,
+            "rejected": 6
+        }
+    },
+    {
+        "seed": 9,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.826*exp(-0.053*(r-1.334)**2)",
+            "family": "exponential",
+            "score": 84.86813579669013,
+            "accepted": true
+        },
+        "global_score": 80.8668111121757,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 10,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.478*exp(-0.250*(r-1.279)**2)",
+            "family": "exponential",
+            "score": 94.51213564418288,
+            "accepted": true
+        },
+        "global_score": 84.72441105117278,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 11,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "r**3 / (r**3 + 1.5)",
+            "family": "rational",
+            "score": 100.0,
+            "accepted": false
+        },
+        "global_score": 86.91955679349964,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 0,
+            "rejected": 6
+        }
+    },
+    {
+        "seed": 12,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "r**3 / (r**3 + 1.5)",
+            "family": "rational",
+            "score": 100.0,
+            "accepted": false
+        },
+        "global_score": 86.91955679349964,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 0,
+            "rejected": 6
+        }
+    },
+    {
+        "seed": 13,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "r**3 / (r**3 + 1.5)",
+            "family": "rational",
+            "score": 100.0,
+            "accepted": false
+        },
+        "global_score": 86.91955679349964,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 0,
+            "rejected": 6
+        }
+    },
+    {
+        "seed": 14,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "r**3 / (r**3 + 1.5)",
+            "family": "rational",
+            "score": 100.0,
+            "accepted": false
+        },
+        "global_score": 86.91955679349964,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 0,
+            "rejected": 6
+        }
+    },
+    {
+        "seed": 15,
+        "problem_A": {
+            "best_equation": "0.647*exp(-0.018*(r--3.779)**2)",
+            "family": "exponential",
+            "score": 48.222258032389874,
+            "accepted": true
+        },
+        "problem_B": {
+            "best_equation": "0.647*exp(-0.018*(r--3.779)**2)",
+            "family": "exponential",
+            "score": 66.65678333310659,
+            "accepted": true
+        },
+        "problem_C": {
+            "best_equation": "0.805*exp(-0.048*(r-1.667)**2)",
+            "family": "exponential",
+            "score": 86.38981383880797,
+            "accepted": true
+        },
+        "global_score": 69.01963794517212,
+        "acceptance_statistics": {
+            "generated": 8,
+            "accepted": 4,
+            "rejected": 4
+        }
+    },
+    {
+        "seed": 16,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.610*exp(-0.112*(r-0.446)**2)",
+            "family": "exponential",
+            "score": 90.32596338844795,
+            "accepted": true
+        },
+        "global_score": 83.04994214887881,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 17,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.613*exp(-0.161*(r-1.325)**2)",
+            "family": "exponential",
+            "score": 92.77733092117751,
+            "accepted": true
+        },
+        "global_score": 84.03048916197065,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 18,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.804*exp(-0.050*(r-1.538)**2)",
+            "family": "exponential",
+            "score": 86.13078642659832,
+            "accepted": true
+        },
+        "global_score": 81.37187136413897,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 19,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.805*exp(-0.065*(r-1.515)**2)",
+            "family": "exponential",
+            "score": 86.43285075157985,
+            "accepted": true
+        },
+        "global_score": 81.49269709413159,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 20,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.813*exp(-0.068*(r-0.844)**2)",
+            "family": "exponential",
+            "score": 84.69577410033008,
+            "accepted": true
+        },
+        "global_score": 80.79786643363167,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 21,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "r**3 / (r**3 + 1.5)",
+            "family": "rational",
+            "score": 100.0,
+            "accepted": false
+        },
+        "global_score": 86.91955679349964,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 0,
+            "rejected": 6
+        }
+    },
+    {
+        "seed": 22,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.517*exp(-0.223*(r-0.930)**2)",
+            "family": "exponential",
+            "score": 92.67599685419552,
+            "accepted": true
+        },
+        "global_score": 83.98995553517784,
+        "acceptance_statistics": {
+            "generated": 7,
+            "accepted": 1,
+            "rejected": 6
+        }
+    },
+    {
+        "seed": 23,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.862*exp(-0.012*(r-2.438)**2)",
+            "family": "exponential",
+            "score": 83.71380903466365,
+            "accepted": true
+        },
+        "global_score": 80.40508040736509,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 24,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.759*exp(-0.093*(r-0.972)**2)",
+            "family": "exponential",
+            "score": 86.9717523523652,
+            "accepted": true
+        },
+        "global_score": 81.70825773444571,
+        "acceptance_statistics": {
+            "generated": 7,
+            "accepted": 1,
+            "rejected": 6
+        }
+    },
+    {
+        "seed": 25,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "r**3 / (r**3 + 1.5)",
+            "family": "rational",
+            "score": 100.0,
+            "accepted": false
+        },
+        "global_score": 86.91955679349964,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 0,
+            "rejected": 6
+        }
+    },
+    {
+        "seed": 26,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.535*exp(-0.196*(r-1.612)**2)",
+            "family": "exponential",
+            "score": 95.32504911512123,
+            "accepted": true
+        },
+        "global_score": 85.04957643954813,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 27,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "0.528*exp(-0.182*(r-1.590)**2)",
+            "family": "exponential",
+            "score": 95.1308349136703,
+            "accepted": true
+        },
+        "global_score": 84.97189075896776,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 1,
+            "rejected": 5
+        }
+    },
+    {
+        "seed": 28,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "r**3 / (r**3 + 1.5)",
+            "family": "rational",
+            "score": 100.0,
+            "accepted": false
+        },
+        "global_score": 86.91955679349964,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 0,
+            "rejected": 6
+        }
+    },
+    {
+        "seed": 29,
+        "problem_A": {
+            "best_equation": "b(r) = 0.5 * exp(-3.2 * (r - 0.5)**2)",
+            "family": "exponential",
+            "score": 71.1644759002951,
+            "accepted": false
+        },
+        "problem_B": {
+            "best_equation": "f(r) = 0.5 * (1.0 - tanh(12.0 * (r - 0.5)))",
+            "family": "tanh",
+            "score": 85.2340467447037,
+            "accepted": false
+        },
+        "problem_C": {
+            "best_equation": "r**3 / (r**3 + 1.5)",
+            "family": "rational",
+            "score": 100.0,
+            "accepted": false
+        },
+        "global_score": 86.91955679349964,
+        "acceptance_statistics": {
+            "generated": 6,
+            "accepted": 0,
+            "rejected": 6
+        }
+    }
+]

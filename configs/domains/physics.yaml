@@ -1,0 +1,17 @@
+datasets:
+  - "synthetic_lorenz (Lorenz 3D chaotic attractor timeseries)"
+  - "synthetic_rossler (Rossler attractor timeseries)"
+  - "ecg_data (Arrhythmic and normal sinus rhythm electrocardiogram records)"
+  - "ucr_datasets (Standard benchmarks for time series classification)"
+
+methods:
+  - "topological (Takens phase space reconstruction, persistent homology Betti-0/1 curves)"
+  - "geometric (Ollivier-Ricci graph curvature, Laplace-Beltrami spectral mapping, diffusion maps)"
+  - "koopman (Dynamic Mode Decomposition, Koopman operator spectral eigenvalues)"
+  - "symbolic (SINDy and PySR equations discovery, sparse regression)"
+
+prompts:
+  observations: "Dynamic chaos and nonlinear behaviors under different noise regimes."
+
+constraints:
+  allowed_singularities: false

@@ -1,0 +1,95 @@
+{
+  "timestamp": 1780420038.2338185,
+  "total_epistemic_gain": 0.6730394545893299,
+  "history": [
+    {
+      "iteration": 1,
+      "hypothesis": {
+        "hypothesis_text": "Un estado entrelazado Bell de 2 qubits se puede preparar con profundidad <= 2 usando H y CNOT.",
+        "prediction": "depth <= 2",
+        "variables_involved": [
+          "qubits",
+          "depth"
+        ],
+        "confidence_prior": 0.9,
+        "circuit": {
+          "qubits": 2,
+          "gates": [
+            {
+              "type": "H",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "type": "CNOT",
+              "qubits": [
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      },
+      "experiment": {
+        "experiment_description": "Validaci\u00f3n de la profundidad del circuito cu\u00e1ntico de preparaci\u00f3n Bell mediante sandbox cu\u00e1ntico.",
+        "dataset": "bell_state",
+        "method": "circuit_ansatz",
+        "metrics": [
+          "gate_count",
+          "depth"
+        ],
+        "falsification_criterion": "depth > 2",
+        "python_code": "{\"qubits\": 2, \"gates\": [{\"type\": \"H\", \"qubits\": [0]}, {\"type\": \"CNOT\", \"qubits\": [0, 1]}]}"
+      },
+      "execution": {
+        "success": true,
+        "execution_time": 0.0005,
+        "result": {
+          "statevector": [
+            "(0.7071067811865475+0j)",
+            "0j",
+            "0j",
+            "(0.7071067811865475+0j)"
+          ],
+          "statevector_complex": [
+            [
+              0.7071067811865475,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.7071067811865475,
+              0.0
+            ]
+          ],
+          "probabilities": [
+            0.4999999999999999,
+            0.0,
+            0.0,
+            0.4999999999999999
+          ],
+          "depth": 2,
+          "gate_count": 2,
+          "qubits": 2,
+          "status": "compiled_successfully"
+        }
+      },
+      "interpretation": {
+        "verdict": "validated",
+        "confidence_posterior": 0.95,
+        "reasoning": "La ejecuci\u00f3n del circuito confirm\u00f3 una profundidad real de 2, lo que cumple el l\u00edmite de <= 2.",
+        "refined_hypothesis": "El circuito de preparaci\u00f3n Bell de 2 qubits es \u00f3ptimo en profundidad 2.",
+        "next_steps": "Expandir la hip\u00f3tesis a la preparaci\u00f3n de estados W."
+      },
+      "epistemic_gain": 0.6730394545893299
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+datasets:
+  - "ghz_state (Greenberger-Horne-Zeilinger state preparation circuits)"
+  - "bell_state (Bell state entanglement circuits)"
+  - "w_state (W state entanglement scaling)"
+
+methods:
+  - "circuit_ansatz (Variational quantum ansatz optimization)"
+  - "quantum_pysr (Symbolic recovery of state amplitudes)"
+
+prompts:
+  observations: "Quantum circuit gate optimization and depth scaling constraints."
+
+constraints:
+  allowed_gates:
+    - H
+    - X
+    - RX
+    - RY
+    - CNOT

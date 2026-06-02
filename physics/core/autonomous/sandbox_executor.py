@@ -130,7 +130,16 @@ class SafetyVisitor(ast.NodeVisitor):
         self.generic_visit(node)
 
 
-class SandboxExecutor:
+try:
+    from core.abstractions.base_sandbox import BaseSandbox
+except ImportError:
+    from abc import ABC, abstractmethod
+    class BaseSandbox(ABC):
+        @abstractmethod
+        def execute(self, *args, **kwargs):
+            pass
+
+class SandboxExecutor(BaseSandbox):
     """
     Executes LLM-generated Python code in a secure sandboxed environment.
     Supports Docker container isolation and falls back gracefully to local subprocess.

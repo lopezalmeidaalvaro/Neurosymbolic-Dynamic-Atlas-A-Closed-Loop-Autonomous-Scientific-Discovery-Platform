@@ -1,0 +1,57 @@
+{
+    "timestamp": "2026-06-01T21:52:20Z",
+    "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+    ],
+    "hashes": {
+        "hypothesis_generator.py": "eef9bd9a1d9a1188aa625a5505a56679e5705fb16d320556e3e5179959249867",
+        "theory_critic.py": "a0ec33b1c1a131e3418177464ba7b7ffcafbb93371af9578f121c19ca51611d6",
+        "benchmark_config.yaml": "c6fabfb6f821ce97323f8b49d88dbeb96e2bc4549a329f7a023f3938221d92d5"
+    },
+    "grammar_probabilities": {
+        "power_law_pct": 46.3,
+        "tanh_pct": 20.46,
+        "sigmoid_pct": 3.14,
+        "rational_pct": 5.29,
+        "exponential_pct": 13.11,
+        "polynomial_pct": 8.34,
+        "mixed_pct": 3.36,
+        "target_critical_families_pct": 75.19
+    },
+    "theorycritic_tolerances": {
+        "boundary_conditions_warp": 0.01,
+        "regularization_black_hole_f0": 0.01,
+        "asymptotic_limit_black_hole_finf": 0.1,
+        "wec_violation_allowed": true
+    },
+    "frozen": true
+}

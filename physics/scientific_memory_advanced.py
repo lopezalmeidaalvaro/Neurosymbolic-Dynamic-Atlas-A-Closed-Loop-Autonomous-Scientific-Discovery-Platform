@@ -23,8 +23,26 @@ except ModuleNotFoundError:
 PHYSICS_ROOT = Path(__file__).resolve().parent
 
 
-class ScientificMemoryAdvanced(ScientificModule):
+try:
+    from core.abstractions.base_memory import BaseMemory
+except ImportError:
+    from abc import ABC, abstractmethod
+    class BaseMemory(ABC):
+        @abstractmethod
+        def store(self, *args, **kwargs):
+            pass
+        @abstractmethod
+        def retrieve(self, *args, **kwargs):
+            pass
+
+class ScientificMemoryAdvanced(ScientificModule, BaseMemory):
     """Incremental semantic memory layer on top of the existing Neo4j graph."""
+
+    def store(self, *args, **kwargs):
+        pass
+
+    def retrieve(self, *args, **kwargs):
+        return []
 
     _embedding_backend = None
     _tokenizer = None

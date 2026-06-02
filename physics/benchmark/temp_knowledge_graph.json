@@ -152,36 +152,6 @@
             "results_files": [],
             "reason": "Rechazo del Critico Teorico",
             "id": "Fail_3"
-        },
-        {
-            "type": "Hypothesis",
-            "timestamp": 1780345214.713271,
-            "author": "HypoGen",
-            "confidence": 0.75,
-            "results_files": [],
-            "expression": "tanh(r**3 / (2.0 * r_0**2))",
-            "metric_type": "black_hole",
-            "id": "H_iter_1_1780345214"
-        },
-        {
-            "type": "Equation",
-            "timestamp": 1780345214.7214153,
-            "author": "TheoryCritic",
-            "confidence": 1.0,
-            "results_files": [],
-            "verdict": "REJECTED",
-            "wec_violation": 0.0,
-            "singularities_count": 100,
-            "id": "C_iter_1_1780345214"
-        },
-        {
-            "type": "Failure",
-            "timestamp": 1780345214.7242181,
-            "author": "System",
-            "confidence": 1.0,
-            "results_files": [],
-            "reason": "Rechazo del Critico Teorico",
-            "id": "Fail_1"
         }
     ],
     "edges": [
@@ -220,18 +190,6 @@
             "timestamp": 1780337235.1525853,
             "source": "H_iter_3_1780337235",
             "target": "Fail_3"
-        },
-        {
-            "relation": "validated_by",
-            "timestamp": 1780345214.7225223,
-            "source": "H_iter_1_1780345214",
-            "target": "C_iter_1_1780345214"
-        },
-        {
-            "relation": "leads_to",
-            "timestamp": 1780345214.7253475,
-            "source": "H_iter_1_1780345214",
-            "target": "Fail_1"
         }
     ]
 }
