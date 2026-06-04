@@ -3,160 +3,16 @@
     "id": "PRED_001",
     "device": "ibm_sherbrooke",
     "effects_by_state": {
-      "high_fidelity": 0.3623,
-      "nominal": 0.3468,
-      "degraded": 0.3012
+      "high_fidelity": 0.3429,
+      "nominal": 0.3274,
+      "degraded": 0.2818
     },
     "replication_rates_by_state": {
       "high_fidelity": 1.0,
       "nominal": 1.0,
-      "degraded": 0.62
+      "degraded": 0.54
     },
-    "robustness_coefficient": 0.923,
+    "robustness_coefficient": 0.9183,
     "status": "PASSED"
-  },
-  {
-    "id": "PRED_004",
-    "device": "ibm_sherbrooke",
-    "effects_by_state": {
-      "high_fidelity": 0.0685,
-      "nominal": 0.053,
-      "degraded": 0.0074
-    },
-    "replication_rates_by_state": {
-      "high_fidelity": 0.06,
-      "nominal": 0.02,
-      "degraded": 0.0
-    },
-    "robustness_coefficient": 0.3964,
-    "status": "FAILED"
-  },
-  {
-    "id": "PRED_005",
-    "device": "ibm_sherbrooke",
-    "effects_by_state": {
-      "high_fidelity": 0.0742,
-      "nominal": 0.0587,
-      "degraded": 0.0131
-    },
-    "replication_rates_by_state": {
-      "high_fidelity": 0.0,
-      "nominal": 0.0,
-      "degraded": 0.0
-    },
-    "robustness_coefficient": 0.4671,
-    "status": "FAILED"
-  },
-  {
-    "id": "PRED_009",
-    "device": "ibm_sherbrooke",
-    "effects_by_state": {
-      "high_fidelity": 0.058,
-      "nominal": 0.0425,
-      "degraded": -0.0031
-    },
-    "replication_rates_by_state": {
-      "high_fidelity": 0.0,
-      "nominal": 0.0,
-      "degraded": 0.0
-    },
-    "robustness_coefficient": 0.2012,
-    "status": "FAILED"
-  },
-  {
-    "id": "PRED_010",
-    "device": "ibm_sherbrooke",
-    "effects_by_state": {
-      "high_fidelity": 0.0897,
-      "nominal": 0.0742,
-      "degraded": 0.0286
-    },
-    "replication_rates_by_state": {
-      "high_fidelity": 0.06,
-      "nominal": 0.02,
-      "degraded": 0.0
-    },
-    "robustness_coefficient": 0.5958,
-    "status": "FAILED"
-  },
-  {
-    "id": "PRED_011",
-    "device": "ibm_sherbrooke",
-    "effects_by_state": {
-      "high_fidelity": 0.1058,
-      "nominal": 0.0903,
-      "degraded": 0.0447
-    },
-    "replication_rates_by_state": {
-      "high_fidelity": 0.86,
-      "nominal": 0.42,
-      "degraded": 0.0
-    },
-    "robustness_coefficient": 0.6769,
-    "status": "FAILED"
-  },
-  {
-    "id": "PRED_003",
-    "device": "ibm_sherbrooke",
-    "effects_by_state": {
-      "high_fidelity": 0.1162,
-      "nominal": 0.1007,
-      "degraded": 0.0551
-    },
-    "replication_rates_by_state": {
-      "high_fidelity": 0.88,
-      "nominal": 0.42,
-      "degraded": 0.0
-    },
-    "robustness_coefficient": 0.714,
-    "status": "PASSED"
-  },
-  {
-    "id": "PRED_007",
-    "device": "ibm_sherbrooke",
-    "effects_by_state": {
-      "high_fidelity": 0.1205,
-      "nominal": 0.105,
-      "degraded": 0.0594
-    },
-    "replication_rates_by_state": {
-      "high_fidelity": 0.9,
-      "nominal": 0.5,
-      "degraded": 0.0
-    },
-    "robustness_coefficient": 0.7269,
-    "status": "PASSED"
-  },
-  {
-    "id": "PRED_008",
-    "device": "ibm_sherbrooke",
-    "effects_by_state": {
-      "high_fidelity": 0.0684,
-      "nominal": 0.0529,
-      "degraded": 0.0073
-    },
-    "replication_rates_by_state": {
-      "high_fidelity": 0.06,
-      "nominal": 0.02,
-      "degraded": 0.0
-    },
-    "robustness_coefficient": 0.395,
-    "status": "FAILED"
-  },
-  {
-    "id": "PRED_002",
-    "device": "ibm_sherbrooke",
-    "effects_by_state": {
-      "high_fidelity": 0.0675,
-      "nominal": 0.052,
-      "degraded": 0.0064
-    },
-    "replication_rates_by_state": {
-      "high_fidelity": 0.2,
-      "nominal": 0.08,
-      "degraded": 0.0
-    },
-    "robustness_coefficient": 0.3821,
-    "status": "FAILED"
   }
 ]

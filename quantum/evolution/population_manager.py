@@ -13,7 +13,7 @@ class QuantumPopulationManager:
     Maintains a population of syntactically valid quantum circuits in JSON format.
     """
 
-    ALLOWED_GATES = ("H", "X", "RX", "RY", "CNOT")
+    ALLOWED_GATES = ("H", "X", "Y", "Z", "RX", "RY", "RZ", "CNOT", "CX", "CZ", "SWAP")
 
     def __init__(
         self,
@@ -24,6 +24,7 @@ class QuantumPopulationManager:
         allowed_gates: Optional[Iterable[str]] = None,
         seed: Optional[int] = None,
         seed_circuits: Optional[List[Circuit]] = None,
+        coupling_map: Optional[Iterable[Iterable[int]]] = None,
     ):
         if qubits <= 0:
             raise ValueError("qubits must be greater than zero.")
@@ -37,6 +38,14 @@ class QuantumPopulationManager:
         self.allowed_gates = tuple(allowed_gates or self.ALLOWED_GATES)
         self.rng = random.Random(seed)
         self.population: List[Circuit] = []
+
+        self.coupling_map = None
+        if coupling_map is not None:
+            self.coupling_map = set()
+            for edge in coupling_map:
+                u, v = int(edge[0]), int(edge[1])
+                self.coupling_map.add((u, v))
+                self.coupling_map.add((v, u))
 
         if seed_circuits:
             for circuit in seed_circuits:
@@ -78,14 +87,22 @@ class QuantumPopulationManager:
         if gate_type not in self.allowed_gates:
             raise ValueError(f"Unsupported gate type: {gate_type}")
 
-        if gate_type == "CNOT":
+        if gate_type in ("CNOT", "CX", "CZ", "SWAP"):
             if self.qubits < 2:
                 return self.random_gate_of_type("H")
-            control, target = self.rng.sample(range(self.qubits), 2)
-            return {"type": "CNOT", "qubits": [control, target]}
+            if self.coupling_map:
+                edge = self.rng.choice(list(self.coupling_map))
+                if self.rng.random() < 0.5:
+                    control, target = edge
+                else:
+                    target, control = edge
+            else:
+                control, target = self.rng.sample(range(self.qubits), 2)
+            g_name = "CNOT" if gate_type == "CX" else gate_type
+            return {"type": g_name, "qubits": [control, target]}
 
         qubit = self.rng.randrange(self.qubits)
-        if gate_type in ("RX", "RY"):
+        if gate_type in ("RX", "RY", "RZ"):
             return {
                 "type": gate_type,
                 "qubits": [qubit],
@@ -105,14 +122,14 @@ class QuantumPopulationManager:
 
     def normalize_gate(self, gate: Gate, qubits: Optional[int] = None) -> Optional[Gate]:
         qubits = qubits or self.qubits
-        gate_type = gate.get("type")
+        gate_type = gate.get("type", "").upper()
         if gate_type == "CX":
             gate_type = "CNOT"
         if gate_type not in self.allowed_gates:
             return None
 
         raw_qubits = gate.get("qubits", [])
-        if gate_type == "CNOT":
+        if gate_type in ("CNOT", "CZ", "SWAP"):
             if qubits < 2:
                 return None
             if len(raw_qubits) == 2:
@@ -121,8 +138,12 @@ class QuantumPopulationManager:
                 if control == target:
                     target = (target + 1) % qubits
             else:
-                control, target = self.rng.sample(range(qubits), 2)
-            return {"type": "CNOT", "qubits": [control, target]}
+                if self.coupling_map:
+                    edge = self.rng.choice(list(self.coupling_map))
+                    control, target = edge
+                else:
+                    control, target = self.rng.sample(range(qubits), 2)
+            return {"type": gate_type, "qubits": [control, target]}
 
         if len(raw_qubits) >= 1:
             gate_qubit = int(raw_qubits[0]) % qubits
@@ -130,7 +151,7 @@ class QuantumPopulationManager:
             gate_qubit = self.rng.randrange(qubits)
 
         normalized = {"type": gate_type, "qubits": [gate_qubit]}
-        if gate_type in ("RX", "RY"):
+        if gate_type in ("RX", "RY", "RZ"):
             normalized["theta"] = float(gate.get("theta", self._sample_angle()))
         return normalized
 
@@ -160,16 +181,19 @@ class QuantumPopulationManager:
         if not isinstance(gate_qubits, list):
             return False
 
-        required_qubits = 2 if gate_type == "CNOT" else 1
+        required_qubits = 2 if gate_type in ("CNOT", "CX", "CZ", "SWAP") else 1
         if len(gate_qubits) != required_qubits:
             return False
         if any(not isinstance(q, int) for q in gate_qubits):
             return False
         if any(q < 0 or q >= self.qubits for q in gate_qubits):
             return False
-        if gate_type == "CNOT" and gate_qubits[0] == gate_qubits[1]:
-            return False
-        if gate_type in ("RX", "RY") and not isinstance(
+        if required_qubits == 2:
+            if gate_qubits[0] == gate_qubits[1]:
+                return False
+            if self.coupling_map and (gate_qubits[0], gate_qubits[1]) not in self.coupling_map:
+                return False
+        if gate_type in ("RX", "RY", "RZ") and not isinstance(
             gate.get("theta"), (int, float)
         ):
             return False
@@ -180,15 +204,27 @@ class QuantumPopulationManager:
         start = self.rng.randrange(self.qubits)
         gates.append({"type": "H", "qubits": [start]})
 
-        unused = [q for q in range(self.qubits) if q != start]
-        self.rng.shuffle(unused)
-        frontier = [start]
-
-        while unused and len(gates) < self.max_gates:
-            target = unused.pop()
-            control = self.rng.choice(frontier)
-            gates.append({"type": "CNOT", "qubits": [control, target]})
-            frontier.append(target)
+        if self.coupling_map:
+            visited = {start}
+            while len(visited) < self.qubits and len(gates) < self.max_gates:
+                candidates = []
+                for u, v in self.coupling_map:
+                    if u in visited and v not in visited:
+                        candidates.append((u, v))
+                if not candidates:
+                    break
+                control, target = self.rng.choice(candidates)
+                gates.append({"type": "CNOT", "qubits": [control, target]})
+                visited.add(target)
+        else:
+            unused = [q for q in range(self.qubits) if q != start]
+            self.rng.shuffle(unused)
+            frontier = [start]
+            while unused and len(gates) < self.max_gates:
+                target = unused.pop()
+                control = self.rng.choice(frontier)
+                gates.append({"type": "CNOT", "qubits": [control, target]})
+                frontier.append(target)
 
         while len(gates) < self.min_gates:
             gates.append(self.random_gate())

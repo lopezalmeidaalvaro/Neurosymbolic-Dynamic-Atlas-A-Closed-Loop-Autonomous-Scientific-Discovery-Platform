@@ -66,13 +66,7 @@ def setup_hardware_test_db():
     
     # Cleanup files
     for path in [
-        db_path, "hardware_replication_report.json", "temporal_stability_report.json",
-        "calibration_audit_report.json", "hardware_adversary_report.json",
-        "ood_hardware_validation_report.json", "physical_mechanism_validation_report.json",
-        "hardware_fdr_report.json", "hardware_theory_tournament_report.json",
-        "reality_evolution_report.json", "external_reproduction_report.json",
-        "hardware_consensus_report.json", "reproduce/preregistered_metadata.json",
-        "reproduce/reproduce_experiments.py"
+        db_path
     ]:
         if os.path.exists(path):
             try:

@@ -2,101 +2,11 @@
   {
     "id": "PRED_001",
     "originating_theory": "THEORY_001",
-    "prediction_statement": "If tensor_rank < 5, gate_entropy < 0.25, then transferability will show an effect size greater_than 29.55%",
+    "prediction_statement": "If gate_entropy < 0.25, then transferability will show an effect size greater_than 28.00%",
     "consequent": "transferability",
     "trend": "increases",
-    "expected_effect": 0.2955,
+    "expected_effect": 0.28,
     "expected_direction": "greater_than",
-    "expected_confidence": 1.0
-  },
-  {
-    "id": "PRED_004",
-    "originating_theory": "THEORY_003",
-    "prediction_statement": "If clifford_ratio > 0.7, then synergy will show an effect size greater_than 10.00%",
-    "consequent": "synergy",
-    "trend": "increases",
-    "expected_effect": 0.1,
-    "expected_direction": "greater_than",
-    "expected_confidence": 0.7
-  },
-  {
-    "id": "PRED_005",
-    "originating_theory": "THEORY_001",
-    "prediction_statement": "If gate_entropy < 0.25, then novelty will show an effect size greater_than 15.00%",
-    "consequent": "novelty",
-    "trend": "increases",
-    "expected_effect": 0.15,
-    "expected_direction": "greater_than",
-    "expected_confidence": 0.7
-  },
-  {
-    "id": "PRED_009",
-    "originating_theory": "THEORY_001",
-    "prediction_statement": "If gate_distribution_distance < 0.3, then novelty will show an effect size greater_than 15.00%",
-    "consequent": "novelty",
-    "trend": "increases",
-    "expected_effect": 0.15,
-    "expected_direction": "greater_than",
-    "expected_confidence": 0.7
-  },
-  {
-    "id": "PRED_010",
-    "originating_theory": "THEORY_003",
-    "prediction_statement": "If clifford_ratio > 0.7, then transferability will show an effect size greater_than 12.00%",
-    "consequent": "transferability",
-    "trend": "increases",
-    "expected_effect": 0.12,
-    "expected_direction": "greater_than",
-    "expected_confidence": 0.7
-  },
-  {
-    "id": "PRED_011",
-    "originating_theory": "THEORY_001",
-    "prediction_statement": "If gate_entropy < 0.25, then noise_resilience will show an effect size greater_than 9.03%",
-    "consequent": "noise_resilience",
-    "trend": "increases",
-    "expected_effect": 0.0903,
-    "expected_direction": "greater_than",
-    "expected_confidence": 0.7
-  },
-  {
-    "id": "PRED_003",
-    "originating_theory": "THEORY_004",
-    "prediction_statement": "If betweenness_centrality > 0.25, gate_entropy < 0.25, then synergy will show an effect size greater_than 10.00%",
-    "consequent": "synergy",
-    "trend": "increases",
-    "expected_effect": 0.1,
-    "expected_direction": "greater_than",
-    "expected_confidence": 0.7
-  },
-  {
-    "id": "PRED_007",
-    "originating_theory": "THEORY_002",
-    "prediction_statement": "If tensor_rank < 3, then noise_resilience will show an effect size greater_than 10.21%",
-    "consequent": "noise_resilience",
-    "trend": "increases",
-    "expected_effect": 0.1021,
-    "expected_direction": "greater_than",
-    "expected_confidence": 0.7
-  },
-  {
-    "id": "PRED_008",
-    "originating_theory": "THEORY_004",
-    "prediction_statement": "If betweenness_centrality > 0.25, then synergy will show an effect size greater_than 10.00%",
-    "consequent": "synergy",
-    "trend": "increases",
-    "expected_effect": 0.1,
-    "expected_direction": "greater_than",
-    "expected_confidence": 0.7905
-  },
-  {
-    "id": "PRED_002",
-    "originating_theory": "THEORY_002",
-    "prediction_statement": "If stabilizer_overlap > 0.6, then noise_resilience will show an effect size greater_than 8.00%",
-    "consequent": "noise_resilience",
-    "trend": "increases",
-    "expected_effect": 0.08,
-    "expected_direction": "greater_than",
-    "expected_confidence": 0.7
+    "expected_confidence": 0.88
   }
 ]

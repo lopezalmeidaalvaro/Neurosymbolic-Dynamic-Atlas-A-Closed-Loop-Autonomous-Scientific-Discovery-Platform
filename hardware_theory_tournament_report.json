@@ -1,50 +1,14 @@
 [
   {
     "id": "THEORY_001",
-    "name": "Information Entropy and Representation Coherence Theory",
-    "prediction_accuracy": 0.25,
-    "replication_rate": 0.2965,
-    "ood_transfer_score": 0.295,
-    "robustness_coefficient": 0.5671,
-    "adversarial_survival_rate": 0.2867,
+    "name": "Test Information Entropy Coherence",
+    "prediction_accuracy": 1.0,
+    "replication_rate": 0.76,
+    "ood_transfer_score": 0.84,
+    "robustness_coefficient": 0.9183,
+    "adversarial_survival_rate": 0.9333,
     "mechanism_passed": "YES",
-    "tournament_score": 0.4166,
+    "tournament_score": 0.8907,
     "status": "CANDIDATE"
-  },
-  {
-    "id": "THEORY_002",
-    "name": "Stabilizer Symmetry Conservation and Emergent Synergy Theory",
-    "prediction_accuracy": 0.0,
-    "replication_rate": 0.275,
-    "ood_transfer_score": 0.2034,
-    "robustness_coefficient": 0.5545,
-    "adversarial_survival_rate": 0.1167,
-    "mechanism_passed": "YES",
-    "tournament_score": 0.2912,
-    "status": "RETIRED"
-  },
-  {
-    "id": "THEORY_004",
-    "name": "Topology Centrality and Recombinatorial Novelty Theory",
-    "prediction_accuracy": 0.0,
-    "replication_rate": 0.219,
-    "ood_transfer_score": 0.1666,
-    "robustness_coefficient": 0.5545,
-    "adversarial_survival_rate": 0.0966,
-    "mechanism_passed": "YES",
-    "tournament_score": 0.2715,
-    "status": "RETIRED"
-  },
-  {
-    "id": "THEORY_003",
-    "name": "Clifford Algebraic Noise Resilience Theory",
-    "prediction_accuracy": 0.0,
-    "replication_rate": 0.017,
-    "ood_transfer_score": 0.0133,
-    "robustness_coefficient": 0.4961,
-    "adversarial_survival_rate": 0.0,
-    "mechanism_passed": "YES",
-    "tournament_score": 0.2148,
-    "status": "RETIRED"
   }
 ]

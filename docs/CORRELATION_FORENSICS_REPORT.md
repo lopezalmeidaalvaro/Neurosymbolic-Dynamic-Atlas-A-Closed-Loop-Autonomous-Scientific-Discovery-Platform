@@ -20,10 +20,10 @@ Conducts multi-variable diagnostics on prediction residuals and device errors to
 
 | Vendor Excluded | Gate Correlation ($r$) | Readout Correlation ($r$) |
 | :--- | :---: | :---: |
-| `Rigetti` | 0.9976 | 0.9993 |
 | `IonQ` | 0.9990 | 0.9997 |
-| `Quantinuum` | 0.9989 | 0.9996 |
 | `IBM` | 0.9998 | 0.9999 |
+| `Quantinuum` | 0.9989 | 0.9996 |
+| `Rigetti` | 0.9976 | 0.9993 |
 
 - **Correlation Stability Score**: **`100.0%`** (Target >= 80.0%)
 - **Epistemic Classification**: **`Real Relationship`**

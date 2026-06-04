@@ -180,7 +180,12 @@ class QuantumCritic(BaseCritic):
         beta = kwargs.get("beta", self.beta)
 
         # Score = fidelity - alpha * depth - beta * gate_count
-        score = fidelity - alpha * depth - beta * gate_count
+        # To prevent size/depth penalties from discarding high-fidelity circuits,
+        # we apply a heavy penalty to low-fidelity configurations.
+        if fidelity < 0.99:
+            score = fidelity - 10.0
+        else:
+            score = fidelity - alpha * depth - beta * gate_count
 
         return QuantumCriticVerdict({
             "valid": True,
@@ -219,7 +224,7 @@ class QuantumCritic(BaseCritic):
                 "reason": "El número de qubits debe ser mayor que 0."
             })
 
-        allowed_gates = {"H", "X", "RX", "RY", "CNOT"}
+        allowed_gates = {"H", "X", "Y", "Z", "RX", "RY", "RZ", "CNOT", "CX", "CZ", "SWAP"}
         for idx, gate in enumerate(gates):
             g_type = gate.get("type")
             g_qubits = gate.get("qubits", [])

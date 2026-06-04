@@ -8,55 +8,55 @@
   {
     "id": "PRED_004",
     "status": "FAILED",
-    "failure_cause": "OOD transfer failure",
-    "rationale": "Prediction generalizes to superconducting backends but fails on trapped-ion/neutral-atom structures."
+    "failure_cause": "Unknown cause",
+    "rationale": "No dominant failure signature discovered."
   },
   {
     "id": "PRED_005",
     "status": "FAILED",
-    "failure_cause": "OOD transfer failure",
-    "rationale": "Prediction generalizes to superconducting backends but fails on trapped-ion/neutral-atom structures."
+    "failure_cause": "Unknown cause",
+    "rationale": "No dominant failure signature discovered."
   },
   {
     "id": "PRED_009",
     "status": "FAILED",
-    "failure_cause": "OOD transfer failure",
-    "rationale": "Prediction generalizes to superconducting backends but fails on trapped-ion/neutral-atom structures."
+    "failure_cause": "Unknown cause",
+    "rationale": "No dominant failure signature discovered."
   },
   {
     "id": "PRED_010",
     "status": "FAILED",
-    "failure_cause": "OOD transfer failure",
-    "rationale": "Prediction generalizes to superconducting backends but fails on trapped-ion/neutral-atom structures."
+    "failure_cause": "Unknown cause",
+    "rationale": "No dominant failure signature discovered."
   },
   {
     "id": "PRED_011",
     "status": "FAILED",
-    "failure_cause": "OOD transfer failure",
-    "rationale": "Prediction generalizes to superconducting backends but fails on trapped-ion/neutral-atom structures."
+    "failure_cause": "Unknown cause",
+    "rationale": "No dominant failure signature discovered."
   },
   {
     "id": "PRED_003",
     "status": "FAILED",
-    "failure_cause": "OOD transfer failure",
-    "rationale": "Prediction generalizes to superconducting backends but fails on trapped-ion/neutral-atom structures."
+    "failure_cause": "Unknown cause",
+    "rationale": "No dominant failure signature discovered."
   },
   {
     "id": "PRED_007",
     "status": "FAILED",
-    "failure_cause": "OOD transfer failure",
-    "rationale": "Prediction generalizes to superconducting backends but fails on trapped-ion/neutral-atom structures."
+    "failure_cause": "Unknown cause",
+    "rationale": "No dominant failure signature discovered."
   },
   {
     "id": "PRED_008",
     "status": "FAILED",
-    "failure_cause": "OOD transfer failure",
-    "rationale": "Prediction generalizes to superconducting backends but fails on trapped-ion/neutral-atom structures."
+    "failure_cause": "Unknown cause",
+    "rationale": "No dominant failure signature discovered."
   },
   {
     "id": "PRED_002",
     "status": "FAILED",
-    "failure_cause": "OOD transfer failure",
-    "rationale": "Prediction generalizes to superconducting backends but fails on trapped-ion/neutral-atom structures."
+    "failure_cause": "Unknown cause",
+    "rationale": "No dominant failure signature discovered."
   }
 ]

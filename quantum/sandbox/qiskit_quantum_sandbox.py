@@ -79,6 +79,14 @@ class QiskitQuantumSandbox(BaseSandbox):
                     if len(g_qubits) != 1:
                         return {"success": False, "error": f"Puerta X requiere exactamente 1 qubit en la puerta {idx}."}
                     qc.x(g_qubits[0])
+                elif g_type == "Y":
+                    if len(g_qubits) != 1:
+                        return {"success": False, "error": f"Puerta Y requiere exactamente 1 qubit en la puerta {idx}."}
+                    qc.y(g_qubits[0])
+                elif g_type == "Z":
+                    if len(g_qubits) != 1:
+                        return {"success": False, "error": f"Puerta Z requiere exactamente 1 qubit en la puerta {idx}."}
+                    qc.z(g_qubits[0])
                 elif g_type == "RX":
                     if len(g_qubits) != 1:
                         return {"success": False, "error": f"Puerta RX requiere exactamente 1 qubit en la puerta {idx}."}
@@ -89,10 +97,23 @@ class QiskitQuantumSandbox(BaseSandbox):
                         return {"success": False, "error": f"Puerta RY requiere exactamente 1 qubit en la puerta {idx}."}
                     theta = gate.get("theta", 0.0)
                     qc.ry(theta, g_qubits[0])
+                elif g_type == "RZ":
+                    if len(g_qubits) != 1:
+                        return {"success": False, "error": f"Puerta RZ requiere exactamente 1 qubit en la puerta {idx}."}
+                    theta = gate.get("theta", 0.0)
+                    qc.rz(theta, g_qubits[0])
                 elif g_type in ("CNOT", "CX"):
                     if len(g_qubits) != 2:
-                        return {"success": False, "error": f"Puerta CNOT requiere exactamente 2 qubits (control, target) en la puerta {idx}."}
+                        return {"success": False, "error": f"Puerta CNOT/CX requiere exactamente 2 qubits (control, target) en la puerta {idx}."}
                     qc.cx(g_qubits[0], g_qubits[1])
+                elif g_type == "CZ":
+                    if len(g_qubits) != 2:
+                        return {"success": False, "error": f"Puerta CZ requiere exactamente 2 qubits en la puerta {idx}."}
+                    qc.cz(g_qubits[0], g_qubits[1])
+                elif g_type == "SWAP":
+                    if len(g_qubits) != 2:
+                        return {"success": False, "error": f"Puerta SWAP requiere exactamente 2 qubits en la puerta {idx}."}
+                    qc.swap(g_qubits[0], g_qubits[1])
                 else:
                     return {
                         "success": False, 

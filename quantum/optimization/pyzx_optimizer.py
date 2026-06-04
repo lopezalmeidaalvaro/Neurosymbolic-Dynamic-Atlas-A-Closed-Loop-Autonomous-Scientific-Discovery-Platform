@@ -66,7 +66,7 @@ class PyZXOptimizer:
 
     def optimize_circuit(self, circuit_spec: Dict[str, Any]) -> Tuple[Dict[str, Any], Dict[str, float]]:
         """
-        Optimizes a JSON circuit specification.
+        Optimizes a JSON circuit specification using PyZX or robust algebraic fallback.
         """
         self.rules_applied = []
         original_gates = circuit_spec.get("gates", [])
@@ -80,18 +80,40 @@ class PyZXOptimizer:
                 "utility_preservation": 1.0
             }
             
-        optimized_gates = []
-        
-        # Try real PyZX if available
+        # Try full PyZX graph simplification if available
+        from quantum.integration.pyzx_adapter import PYZX_AVAILABLE, simplify_zx_circuit
         if PYZX_AVAILABLE:
             try:
-                # Mock translation to PyZX circuit and back to show full integration logic
-                # Normally zx.Circuit.from_qasm(qasm) could be used
-                pass
-            except Exception as e:
-                logger.error(f"PyZX optimization failure: {e}")
+                optimized_circuit = simplify_zx_circuit(circuit_spec)
+                opt_gates = optimized_circuit.get("gates", [])
+                opt_len = len(opt_gates)
+                gate_reduction = original_len - opt_len
+                compression_ratio = round(opt_len / original_len, 4) if original_len > 0 else 1.0
                 
+                def estimate_depth(gates_list):
+                    q_depth = {}
+                    for g in gates_list:
+                        for q in g.get("qubits", []):
+                            q_depth[q] = q_depth.get(q, 0) + 1
+                    return max(q_depth.values()) if q_depth else 0
+                    
+                depth_orig = estimate_depth(original_gates)
+                depth_opt = estimate_depth(opt_gates)
+                depth_reduction = max(0, depth_orig - depth_opt)
+                
+                self.rules_applied.append("pyzx_full_reduce")
+                
+                return optimized_circuit, {
+                    "compression_ratio": compression_ratio,
+                    "gate_reduction": float(gate_reduction),
+                    "depth_reduction": float(depth_reduction),
+                    "utility_preservation": 1.0
+                }
+            except Exception as e:
+                logger.error(f"PyZX full reduction failed: {e}. Falling back to algebraic passes.")
+
         # Robust algebraic optimization fallback
+        optimized_gates = []
         i = 0
         while i < len(original_gates):
             gate = original_gates[i]
@@ -103,8 +125,8 @@ class PyZXOptimizer:
                 next_type = next_gate.get("type")
                 next_qubits = next_gate.get("qubits", [])
                 
-                # If identical type on identical qubits, they cancel (H, X, CNOT CX)
-                if g_type == next_type and g_qubits == next_qubits and g_type in {"H", "X", "CNOT", "CX"}:
+                # If identical type on identical qubits, they cancel (H, X, CNOT, CX)
+                if g_type == next_type and g_qubits == next_qubits and g_type in {"H", "X", "CNOT", "CX", "CZ", "SWAP"}:
                     self.rules_applied.append(f"{g_type.lower()}_identity_cancellation")
                     i += 2
                     continue

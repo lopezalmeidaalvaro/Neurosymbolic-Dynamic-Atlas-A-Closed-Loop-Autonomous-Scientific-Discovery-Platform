@@ -885,11 +885,19 @@ class EvolutionEngine:
         idx = self.population_manager.rng.randrange(len(gates))
         gate = gates[idx]
         gate_type = gate.get("type")
-        if gate_type == "CNOT" and self.population_manager.qubits >= 2:
-            control, target = self.population_manager.rng.sample(
-                range(self.population_manager.qubits), 2
-            )
-            gate["qubits"] = [control, target]
+        if gate_type in ("CNOT", "CX", "CZ", "SWAP") and self.population_manager.qubits >= 2:
+            if hasattr(self.population_manager, "coupling_map") and self.population_manager.coupling_map:
+                edge = self.population_manager.rng.choice(list(self.population_manager.coupling_map))
+                if self.population_manager.rng.random() < 0.5:
+                    control, target = edge
+                else:
+                    target, control = edge
+                gate["qubits"] = [control, target]
+            else:
+                control, target = self.population_manager.rng.sample(
+                    range(self.population_manager.qubits), 2
+                )
+                gate["qubits"] = [control, target]
         else:
             gate["qubits"] = [self.population_manager.rng.randrange(self.population_manager.qubits)]
 
@@ -954,7 +962,7 @@ class EvolutionEngine:
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
     def _entangling_gate_count(self, gates: List[Gate]) -> int:
-        return sum(1 for gate in gates if gate.get("type") == "CNOT")
+        return sum(1 for gate in gates if gate.get("type") in ("CNOT", "CX", "CZ", "SWAP"))
 
     def _entangling_efficiency(self, gates: List[Gate]) -> float:
         if not gates:
@@ -971,3 +979,78 @@ class EvolutionEngine:
             for qubit in gate_qubits:
                 qubit_depths[qubit] = max_depth + 1
         return max(qubit_depths) if qubit_depths else 0
+
+
+def route_circuit(circuit: Dict[str, Any], coupling_map: Optional[Any]) -> Dict[str, Any]:
+    """
+    Applies BFS shortest path SWAP-based routing to ensure all multi-qubit gates
+    in the circuit conform to the hardware topology (coupling map).
+    """
+    if not coupling_map:
+        return circuit
+
+    # Standardize coupling map as set of undirected edges
+    edges = set()
+    for edge in coupling_map:
+        u, v = int(edge[0]), int(edge[1])
+        edges.add((u, v))
+        edges.add((v, u))
+
+    def find_shortest_path(start: int, end: int, num_qubits: int) -> List[int]:
+        if start == end:
+            return [start]
+        visited = {start}
+        queue = [[start]]
+        while queue:
+            path = queue.pop(0)
+            node = path[-1]
+            if node == end:
+                return path
+            for neighbor in range(num_qubits):
+                if (node, neighbor) in edges and neighbor not in visited:
+                    visited.add(neighbor)
+                    queue.append(path + [neighbor])
+        return []
+
+    num_qubits = circuit.get("qubits", 0)
+    original_gates = circuit.get("gates", [])
+    routed_gates = []
+
+    for gate in original_gates:
+        g_type = gate.get("type", "").upper()
+        q = gate.get("qubits", [])
+
+        if g_type in ("CNOT", "CX", "CZ", "SWAP") and len(q) == 2:
+            q1, q2 = q[0], q[1]
+            if (q1, q2) in edges:
+                routed_gates.append(gate)
+            else:
+                path = find_shortest_path(q1, q2, num_qubits)
+                if not path:
+                    # No path found, keep as is as fallback
+                    routed_gates.append(gate)
+                    continue
+
+                # Insert SWAPs along the path
+                swaps_inserted = []
+                for idx in range(len(path) - 2):
+                    swaps_inserted.append({"type": "SWAP", "qubits": [path[idx], path[idx+1]]})
+
+                mapped_gate = {
+                    "type": g_name if (g_name := "CNOT" if g_type == "CX" else g_type) else g_type,
+                    "qubits": [path[-2], path[-1]]
+                }
+                if "theta" in gate:
+                    mapped_gate["theta"] = gate["theta"]
+
+                # Add SWAP steps, target gate, and SWAP back steps
+                for sw in swaps_inserted:
+                    routed_gates.append(sw)
+                routed_gates.append(mapped_gate)
+                for sw in reversed(swaps_inserted):
+                    routed_gates.append(sw)
+        else:
+            # Single qubit gates
+            routed_gates.append(gate)
+
+    return {"qubits": num_qubits, "gates": routed_gates}

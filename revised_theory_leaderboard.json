@@ -2,145 +2,145 @@
   {
     "theory_id": "THEORY_001_HYB",
     "type": "Hybrid",
-    "replication_rate": 0.2965,
-    "ood_transfer": 0.295,
-    "robustness": 0.5671,
-    "accuracy": 0.9589,
-    "composite_score": 0.7146
-  },
-  {
-    "theory_id": "THEORY_002_HYB",
-    "type": "Hybrid",
-    "replication_rate": 0.275,
-    "ood_transfer": 0.2034,
-    "robustness": 0.5545,
-    "accuracy": 0.9589,
-    "composite_score": 0.6722
+    "replication_rate": 0.76,
+    "ood_transfer": 0.84,
+    "robustness": 0.9183,
+    "accuracy": 0.9395,
+    "composite_score": 1.167
   },
   {
     "theory_id": "THEORY_001_REV3",
     "type": "Noise-Augmented",
-    "replication_rate": 0.2965,
-    "ood_transfer": 0.295,
-    "robustness": 0.5671,
-    "accuracy": 0.9589,
-    "composite_score": 0.6617
-  },
-  {
-    "theory_id": "THEORY_004_HYB",
-    "type": "Hybrid",
-    "replication_rate": 0.219,
-    "ood_transfer": 0.1666,
-    "robustness": 0.5545,
-    "accuracy": 0.9589,
-    "composite_score": 0.6409
-  },
-  {
-    "theory_id": "THEORY_002_REV3",
-    "type": "Noise-Augmented",
-    "replication_rate": 0.275,
-    "ood_transfer": 0.2034,
-    "robustness": 0.5545,
-    "accuracy": 0.9589,
-    "composite_score": 0.6224
-  },
-  {
-    "theory_id": "THEORY_004_REV3",
-    "type": "Noise-Augmented",
-    "replication_rate": 0.219,
-    "ood_transfer": 0.1666,
-    "robustness": 0.5545,
-    "accuracy": 0.9589,
-    "composite_score": 0.5935
+    "replication_rate": 0.76,
+    "ood_transfer": 0.84,
+    "robustness": 0.9183,
+    "accuracy": 0.9395,
+    "composite_score": 1.0806
   },
   {
     "theory_id": "THEORY_001_REV2",
     "type": "Revised",
-    "replication_rate": 0.2965,
-    "ood_transfer": 0.295,
-    "robustness": 0.5671,
-    "accuracy": 0.9589,
-    "composite_score": 0.5929
-  },
-  {
-    "theory_id": "THEORY_002_REV2",
-    "type": "Revised",
-    "replication_rate": 0.275,
-    "ood_transfer": 0.2034,
-    "robustness": 0.5545,
-    "accuracy": 0.9589,
-    "composite_score": 0.5577
-  },
-  {
-    "theory_id": "THEORY_004_REV2",
-    "type": "Revised",
-    "replication_rate": 0.219,
-    "ood_transfer": 0.1666,
-    "robustness": 0.5545,
-    "accuracy": 0.9589,
-    "composite_score": 0.5317
+    "replication_rate": 0.76,
+    "ood_transfer": 0.84,
+    "robustness": 0.9183,
+    "accuracy": 0.9395,
+    "composite_score": 0.9682
   },
   {
     "theory_id": "THEORY_001",
     "type": "Original",
-    "replication_rate": 0.2965,
-    "ood_transfer": 0.295,
-    "robustness": 0.5671,
-    "accuracy": 0.9589,
-    "composite_score": 0.5294
+    "replication_rate": 0.76,
+    "ood_transfer": 0.84,
+    "robustness": 0.9183,
+    "accuracy": 0.9395,
+    "composite_score": 0.8644
+  },
+  {
+    "theory_id": "THEORY_002_HYB",
+    "type": "Hybrid",
+    "replication_rate": 0.0,
+    "ood_transfer": 0.0,
+    "robustness": 0.0,
+    "accuracy": 1.0,
+    "composite_score": 0.3375
+  },
+  {
+    "theory_id": "THEORY_004_HYB",
+    "type": "Hybrid",
+    "replication_rate": 0.0,
+    "ood_transfer": 0.0,
+    "robustness": 0.0,
+    "accuracy": 1.0,
+    "composite_score": 0.3375
   },
   {
     "theory_id": "THEORY_003_HYB",
     "type": "Hybrid",
-    "replication_rate": 0.017,
-    "ood_transfer": 0.0133,
-    "robustness": 0.4961,
-    "accuracy": 0.9589,
-    "composite_score": 0.5013
+    "replication_rate": 0.0,
+    "ood_transfer": 0.0,
+    "robustness": 0.0,
+    "accuracy": 1.0,
+    "composite_score": 0.3375
   },
   {
-    "theory_id": "THEORY_002",
-    "type": "Original",
-    "replication_rate": 0.275,
-    "ood_transfer": 0.2034,
-    "robustness": 0.5545,
-    "accuracy": 0.9589,
-    "composite_score": 0.4979
+    "theory_id": "THEORY_002_REV3",
+    "type": "Noise-Augmented",
+    "replication_rate": 0.0,
+    "ood_transfer": 0.0,
+    "robustness": 0.0,
+    "accuracy": 1.0,
+    "composite_score": 0.3125
   },
   {
-    "theory_id": "THEORY_004",
-    "type": "Original",
-    "replication_rate": 0.219,
-    "ood_transfer": 0.1666,
-    "robustness": 0.5545,
-    "accuracy": 0.9589,
-    "composite_score": 0.4748
+    "theory_id": "THEORY_004_REV3",
+    "type": "Noise-Augmented",
+    "replication_rate": 0.0,
+    "ood_transfer": 0.0,
+    "robustness": 0.0,
+    "accuracy": 1.0,
+    "composite_score": 0.3125
   },
   {
     "theory_id": "THEORY_003_REV3",
     "type": "Noise-Augmented",
-    "replication_rate": 0.017,
-    "ood_transfer": 0.0133,
-    "robustness": 0.4961,
-    "accuracy": 0.9589,
-    "composite_score": 0.4642
+    "replication_rate": 0.0,
+    "ood_transfer": 0.0,
+    "robustness": 0.0,
+    "accuracy": 1.0,
+    "composite_score": 0.3125
+  },
+  {
+    "theory_id": "THEORY_002_REV2",
+    "type": "Revised",
+    "replication_rate": 0.0,
+    "ood_transfer": 0.0,
+    "robustness": 0.0,
+    "accuracy": 1.0,
+    "composite_score": 0.28
+  },
+  {
+    "theory_id": "THEORY_004_REV2",
+    "type": "Revised",
+    "replication_rate": 0.0,
+    "ood_transfer": 0.0,
+    "robustness": 0.0,
+    "accuracy": 1.0,
+    "composite_score": 0.28
   },
   {
     "theory_id": "THEORY_003_REV2",
     "type": "Revised",
-    "replication_rate": 0.017,
-    "ood_transfer": 0.0133,
-    "robustness": 0.4961,
-    "accuracy": 0.9589,
-    "composite_score": 0.4159
+    "replication_rate": 0.0,
+    "ood_transfer": 0.0,
+    "robustness": 0.0,
+    "accuracy": 1.0,
+    "composite_score": 0.28
+  },
+  {
+    "theory_id": "THEORY_002",
+    "type": "Original",
+    "replication_rate": 0.0,
+    "ood_transfer": 0.0,
+    "robustness": 0.0,
+    "accuracy": 1.0,
+    "composite_score": 0.25
+  },
+  {
+    "theory_id": "THEORY_004",
+    "type": "Original",
+    "replication_rate": 0.0,
+    "ood_transfer": 0.0,
+    "robustness": 0.0,
+    "accuracy": 1.0,
+    "composite_score": 0.25
   },
   {
     "theory_id": "THEORY_003",
     "type": "Original",
-    "replication_rate": 0.017,
-    "ood_transfer": 0.0133,
-    "robustness": 0.4961,
-    "accuracy": 0.9589,
-    "composite_score": 0.3713
+    "replication_rate": 0.0,
+    "ood_transfer": 0.0,
+    "robustness": 0.0,
+    "accuracy": 1.0,
+    "composite_score": 0.25
   }
 ]

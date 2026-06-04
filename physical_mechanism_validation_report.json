@@ -1,125 +1,20 @@
 [
   {
-    "theory_id": "THEORY_003",
-    "edges_audited": 3,
-    "edge_details": [
-      {
-        "source": "clifford_ratio",
-        "target": "stabilizer_compatibility",
-        "sim_weight": 0.7978,
-        "physical_correlation": 0.7958,
-        "status": "PASSED"
-      },
-      {
-        "source": "stabilizer_compatibility",
-        "target": "error_mitigation",
-        "sim_weight": 1.0,
-        "physical_correlation": 0.992,
-        "status": "PASSED"
-      },
-      {
-        "source": "error_mitigation",
-        "target": "noise_resilience",
-        "sim_weight": 0.8063,
-        "physical_correlation": 0.8025,
-        "status": "PASSED"
-      }
-    ],
-    "status": "PASSED"
-  },
-  {
     "theory_id": "THEORY_001",
-    "edges_audited": 3,
+    "edges_audited": 2,
     "edge_details": [
       {
         "source": "gate_entropy",
         "target": "structural_coherence",
-        "sim_weight": -0.7698,
+        "sim_weight": -0.8,
         "physical_correlation": -0.7667,
         "status": "PASSED"
       },
       {
         "source": "structural_coherence",
-        "target": "domain_similarity",
-        "sim_weight": 1.0,
-        "physical_correlation": 0.991,
-        "status": "PASSED"
-      },
-      {
-        "source": "domain_similarity",
         "target": "transferability",
-        "sim_weight": 0.8532,
-        "physical_correlation": 0.8467,
-        "status": "PASSED"
-      }
-    ],
-    "status": "PASSED"
-  },
-  {
-    "theory_id": "THEORY_004",
-    "edges_audited": 3,
-    "edge_details": [
-      {
-        "source": "betweenness_centrality",
-        "target": "reuse_bottleneck",
-        "sim_weight": 0.8402,
-        "physical_correlation": 0.8369,
-        "status": "PASSED"
-      },
-      {
-        "source": "reuse_bottleneck",
-        "target": "module_recombination",
-        "sim_weight": 1.0,
-        "physical_correlation": 0.9857,
-        "status": "PASSED"
-      },
-      {
-        "source": "module_recombination",
-        "target": "novelty",
-        "sim_weight": 0.8992,
-        "physical_correlation": 0.8911,
-        "status": "PASSED"
-      }
-    ],
-    "status": "PASSED"
-  },
-  {
-    "theory_id": "THEORY_002",
-    "edges_audited": 5,
-    "edge_details": [
-      {
-        "source": "stabilizer_overlap",
-        "target": "algebraic_symmetry",
-        "sim_weight": 0.8596,
-        "physical_correlation": 0.8495,
-        "status": "PASSED"
-      },
-      {
-        "source": "algebraic_symmetry",
-        "target": "state_preservation",
-        "sim_weight": 0.2681,
-        "physical_correlation": 0.2376,
-        "status": "PASSED"
-      },
-      {
-        "source": "tensor_rank",
-        "target": "computation_complexity",
-        "sim_weight": 0.4722,
-        "physical_correlation": 0.4729,
-        "status": "PASSED"
-      },
-      {
-        "source": "computation_complexity",
-        "target": "state_preservation",
-        "sim_weight": -0.3461,
-        "physical_correlation": -0.3879,
-        "status": "PASSED"
-      },
-      {
-        "source": "state_preservation",
-        "target": "synergy",
-        "sim_weight": 0.9816,
-        "physical_correlation": 0.8177,
+        "sim_weight": 0.85,
+        "physical_correlation": 0.8513,
         "status": "PASSED"
       }
     ],
