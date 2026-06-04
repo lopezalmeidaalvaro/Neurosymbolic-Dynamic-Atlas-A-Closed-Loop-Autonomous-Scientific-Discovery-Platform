@@ -1,0 +1,12 @@
+{
+  "generated_representation": "CNOT",
+  "best_matching_baseline": "RY->CNOT->RY->CNOT",
+  "novelty_score": 0.42,
+  "classification": "STRUCTURAL_VARIANT",
+  "metrics": {
+    "sequence_distance": 0.6,
+    "topology_distance": 0.0,
+    "gate_distribution_distance": 0.8,
+    "context_distance": 0.5
+  }
+}

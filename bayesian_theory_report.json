@@ -1,0 +1,130 @@
+[
+  {
+    "id": "THEORY_001_HYB",
+    "name": "Information Entropy and Representation Coherence Theory (Hybrid: Structural-Noise)",
+    "parent_id": "THEORY",
+    "prior": 0.1527,
+    "likelihood": 0.42992499999999995,
+    "posterior": 0.1808
+  },
+  {
+    "id": "THEORY_002_HYB",
+    "name": "Stabilizer Symmetry Conservation and Emergent Synergy Theory (Hybrid: Structural-Noise)",
+    "parent_id": "THEORY",
+    "prior": 0.1248,
+    "likelihood": 0.39875,
+    "posterior": 0.1371
+  },
+  {
+    "id": "THEORY_001_REV3",
+    "name": "Information Entropy and Representation Coherence Theory (REV3: Noise-Augmented)",
+    "parent_id": "THEORY",
+    "prior": 0.1,
+    "likelihood": 0.38545,
+    "posterior": 0.1062
+  },
+  {
+    "id": "THEORY_002_REV3",
+    "name": "Stabilizer Symmetry Conservation and Emergent Synergy Theory (REV3: Noise-Augmented)",
+    "parent_id": "THEORY",
+    "prior": 0.1,
+    "likelihood": 0.35750000000000004,
+    "posterior": 0.0985
+  },
+  {
+    "id": "THEORY_001_REV2",
+    "name": "Information Entropy and Representation Coherence Theory (REV2: Pruned)",
+    "parent_id": "THEORY",
+    "prior": 0.1,
+    "likelihood": 0.340975,
+    "posterior": 0.0939
+  },
+  {
+    "id": "THEORY_002_REV2",
+    "name": "Stabilizer Symmetry Conservation and Emergent Synergy Theory (REV2: Pruned)",
+    "parent_id": "THEORY",
+    "prior": 0.1,
+    "likelihood": 0.31625,
+    "posterior": 0.0871
+  },
+  {
+    "id": "THEORY_004_REV3",
+    "name": "Topology Centrality and Recombinatorial Novelty Theory (REV3: Noise-Augmented)",
+    "parent_id": "THEORY",
+    "prior": 0.1,
+    "likelihood": 0.2847,
+    "posterior": 0.0784
+  },
+  {
+    "id": "THEORY_004_REV2",
+    "name": "Topology Centrality and Recombinatorial Novelty Theory (REV2: Pruned)",
+    "parent_id": "THEORY",
+    "prior": 0.1,
+    "likelihood": 0.25184999999999996,
+    "posterior": 0.0694
+  },
+  {
+    "id": "THEORY_004_HYB",
+    "name": "Topology Centrality and Recombinatorial Novelty Theory (Hybrid: Structural-Noise)",
+    "parent_id": "THEORY",
+    "prior": 0.0608,
+    "likelihood": 0.31755,
+    "posterior": 0.0532
+  },
+  {
+    "id": "THEORY_001",
+    "name": "Information Entropy and Representation Coherence Theory",
+    "parent_id": "THEORY",
+    "prior": 0.0501,
+    "likelihood": 0.2965,
+    "posterior": 0.0409
+  },
+  {
+    "id": "THEORY_002",
+    "name": "Stabilizer Symmetry Conservation and Emergent Synergy Theory",
+    "parent_id": "THEORY",
+    "prior": 0.041,
+    "likelihood": 0.275,
+    "posterior": 0.0311
+  },
+  {
+    "id": "THEORY_004",
+    "name": "Topology Centrality and Recombinatorial Novelty Theory",
+    "parent_id": "THEORY",
+    "prior": 0.0199,
+    "likelihood": 0.219,
+    "posterior": 0.012
+  },
+  {
+    "id": "THEORY_003_REV3",
+    "name": "Clifford Algebraic Noise Resilience Theory (REV3: Noise-Augmented)",
+    "parent_id": "THEORY",
+    "prior": 0.1,
+    "likelihood": 0.0221,
+    "posterior": 0.0061
+  },
+  {
+    "id": "THEORY_003_REV2",
+    "name": "Clifford Algebraic Noise Resilience Theory (REV2: Pruned)",
+    "parent_id": "THEORY",
+    "prior": 0.1,
+    "likelihood": 0.01955,
+    "posterior": 0.0054
+  },
+  {
+    "id": "THEORY_003",
+    "name": "Clifford Algebraic Noise Resilience Theory",
+    "parent_id": "THEORY",
+    "prior": 0.0,
+    "likelihood": 0.017,
+    "posterior": 0.0
+  },
+  {
+    "id": "THEORY_003_HYB",
+    "name": "Clifford Algebraic Noise Resilience Theory (Hybrid: Structural-Noise)",
+    "parent_id": "THEORY",
+    "prior": 0.0,
+    "likelihood": 0.024650000000000002,
+    "posterior": 0.0
+  }
+]

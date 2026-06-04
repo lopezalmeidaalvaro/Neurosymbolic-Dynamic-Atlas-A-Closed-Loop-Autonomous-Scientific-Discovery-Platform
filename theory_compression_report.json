@@ -1,0 +1,10 @@
+{
+  "total_laws": 27,
+  "total_theories": 4,
+  "compression_ratio": 6.75,
+  "base_description_length": 540.0,
+  "model_description_length": 180.0,
+  "data_description_length": 0.0,
+  "mdl_score": 180.0,
+  "information_gain": 2.0
+}

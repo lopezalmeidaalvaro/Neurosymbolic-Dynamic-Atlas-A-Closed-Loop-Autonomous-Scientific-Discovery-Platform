@@ -1,0 +1,42 @@
+[
+  {
+    "theory_id": "THEORY_003",
+    "base_correlation": 0.6305,
+    "noise_correlation": 0.5315,
+    "drift_correlation": 0.6305,
+    "shift_correlation": 0.6101,
+    "confounder_correlation": 0.6215,
+    "survival_rate": 1.0,
+    "status": "SURVIVED"
+  },
+  {
+    "theory_id": "THEORY_001",
+    "base_correlation": -0.6425,
+    "noise_correlation": -0.4399,
+    "drift_correlation": -0.6425,
+    "shift_correlation": -0.6329,
+    "confounder_correlation": -0.6167,
+    "survival_rate": 1.0,
+    "status": "SURVIVED"
+  },
+  {
+    "theory_id": "THEORY_004",
+    "base_correlation": 0.7503,
+    "noise_correlation": 0.4317,
+    "drift_correlation": 0.7503,
+    "shift_correlation": 0.7383,
+    "confounder_correlation": 0.6642,
+    "survival_rate": 1.0,
+    "status": "SURVIVED"
+  },
+  {
+    "theory_id": "THEORY_002",
+    "base_correlation": 0.0904,
+    "noise_correlation": 0.0819,
+    "drift_correlation": 0.0904,
+    "shift_correlation": 0.0825,
+    "confounder_correlation": 0.0853,
+    "survival_rate": 1.0,
+    "status": "SURVIVED"
+  }
+]

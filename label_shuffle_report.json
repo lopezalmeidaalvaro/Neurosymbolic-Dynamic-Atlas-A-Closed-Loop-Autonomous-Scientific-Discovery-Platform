@@ -1,0 +1,72 @@
+{
+  "num_seeds": 100,
+  "results": {
+    "RandomForest": {
+      "mean_roc_auc": 0.5056,
+      "var_roc_auc": 0.042395,
+      "ci_95_roc_auc": [
+        0.4653,
+        0.546
+      ],
+      "mean_f1": 0.0447,
+      "mean_mcc": -0.0273,
+      "auc_collapse_success": true
+    },
+    "GradientBoosting": {
+      "mean_roc_auc": 0.484,
+      "var_roc_auc": 0.051535,
+      "ci_95_roc_auc": [
+        0.4395,
+        0.5285
+      ],
+      "mean_f1": 0.0187,
+      "mean_mcc": -0.0153,
+      "auc_collapse_success": true
+    },
+    "LogisticRegression": {
+      "mean_roc_auc": 0.4754,
+      "var_roc_auc": 0.049179,
+      "ci_95_roc_auc": [
+        0.432,
+        0.5189
+      ],
+      "mean_f1": 0.0,
+      "mean_mcc": -0.0011,
+      "auc_collapse_success": true
+    },
+    "PennyLaneHybrid": {
+      "mean_roc_auc": 0.5244,
+      "var_roc_auc": 0.048568,
+      "ci_95_roc_auc": [
+        0.4812,
+        0.5676
+      ],
+      "mean_f1": 0.1001,
+      "mean_mcc": 0.0009,
+      "auc_collapse_success": true
+    },
+    "TFQ": {
+      "mean_roc_auc": 0.5252,
+      "var_roc_auc": 0.044881,
+      "ci_95_roc_auc": [
+        0.4837,
+        0.5667
+      ],
+      "mean_f1": 0.0908,
+      "mean_mcc": 0.0194,
+      "auc_collapse_success": true
+    },
+    "TorchQuantum": {
+      "mean_roc_auc": 0.5244,
+      "var_roc_auc": 0.048568,
+      "ci_95_roc_auc": [
+        0.4812,
+        0.5676
+      ],
+      "mean_f1": 0.1001,
+      "mean_mcc": 0.0009,
+      "auc_collapse_success": true
+    }
+  },
+  "verdict": "LABEL_SHUFFLE_COLLAPSE_SUCCESS"
+}

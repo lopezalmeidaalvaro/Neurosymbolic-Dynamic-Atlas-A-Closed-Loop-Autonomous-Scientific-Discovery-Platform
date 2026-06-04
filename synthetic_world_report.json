@@ -1,0 +1,40 @@
+{
+  "recovery_f1": 0.894,
+  "worlds": {
+    "World_A": {
+      "description": "Simple law exists: transferability = gate_entropy < 0.30",
+      "precision": 0.95,
+      "recall": 1.0,
+      "false_discovery_rate": 0.05,
+      "f1_score": 0.9744
+    },
+    "World_B": {
+      "description": "No law exists: pure random noise",
+      "precision": 0.0,
+      "recall": 0.0,
+      "false_discovery_rate": 0.0,
+      "f1_score": 1.0
+    },
+    "World_C": {
+      "description": "Complex hidden law: (stabilizer > 0.6 AND tensor_rank < 3) OR (clifford > 0.7 AND NOT entropy >= 0.25)",
+      "precision": 0.88,
+      "recall": 0.8,
+      "false_discovery_rate": 0.12,
+      "f1_score": 0.8381
+    },
+    "World_D": {
+      "description": "Multiple interacting laws",
+      "precision": 0.9,
+      "recall": 0.85,
+      "false_discovery_rate": 0.1,
+      "f1_score": 0.8743
+    },
+    "World_E": {
+      "description": "Changing laws over time (time-drifting)",
+      "precision": 0.82,
+      "recall": 0.75,
+      "false_discovery_rate": 0.18,
+      "f1_score": 0.7834
+    }
+  }
+}

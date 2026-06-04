@@ -550,6 +550,14 @@ class AutonomousScientist:
         self.generate_discovery_report()
         self.save_session()
 
+        # Observability & dashboard generation (Fase 1D)
+        try:
+            from core.observability.dashboard import KnowledgeDashboard
+            dashboard = KnowledgeDashboard(memory=self.memory)
+            dashboard.generate_report()
+        except Exception as e:
+            print(f"[WARNING] Observability dashboard generation failed: {e}")
+
         return {
             "iterations": len(self.session_history),
             "total_epistemic_gain": self.epistemic_gain,

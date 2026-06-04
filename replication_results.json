@@ -1,0 +1,218 @@
+[
+  {
+    "id": "LAW_001",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0278,
+    "effect_stability": 33.5892,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_002",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0258,
+    "effect_stability": 36.1044,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_003",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0267,
+    "effect_stability": 35.0616,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_004",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0267,
+    "effect_stability": 34.9454,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_005",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.027,
+    "effect_stability": 34.6533,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_006",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0272,
+    "effect_stability": 34.3686,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_007",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0271,
+    "effect_stability": 34.4537,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_008",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0279,
+    "effect_stability": 33.4932,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_009",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.027,
+    "effect_stability": 34.6629,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_010",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0265,
+    "effect_stability": 35.2992,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_011",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.027,
+    "effect_stability": 34.5848,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_012",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0275,
+    "effect_stability": 33.957,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_013",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0273,
+    "effect_stability": 34.3137,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_014",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0272,
+    "effect_stability": 34.4459,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_015",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0272,
+    "effect_stability": 34.3164,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_016",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0269,
+    "effect_stability": 34.6836,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_017",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0283,
+    "effect_stability": 33.069,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_018",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0262,
+    "effect_stability": 35.577,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_019",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0274,
+    "effect_stability": 34.0708,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_020",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0277,
+    "effect_stability": 33.7628,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_021",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0266,
+    "effect_stability": 35.1744,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_022",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0267,
+    "effect_stability": 34.9568,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_023",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0279,
+    "effect_stability": 33.5234,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_024",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0254,
+    "effect_stability": 36.8107,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_025",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0264,
+    "effect_stability": 35.447,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_026",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.028,
+    "effect_stability": 33.299,
+    "status": "REPLICATED"
+  },
+  {
+    "id": "LAW_027",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "replication_rate": 1.0,
+    "replication_variance": 0.0285,
+    "effect_stability": 32.7006,
+    "status": "REPLICATED"
+  }
+]

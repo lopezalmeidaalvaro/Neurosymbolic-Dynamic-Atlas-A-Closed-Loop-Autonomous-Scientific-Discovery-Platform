@@ -1,0 +1,25 @@
+{
+  "candidate_laws": 33,
+  "validated_laws": 29,
+  "generalizable_laws": 27,
+  "meta_laws": 2,
+  "scientific_value_score": 0.4631,
+  "falsification_survival_rate": 0.8182,
+  "domains_tested": [
+    "Bell",
+    "GHZ",
+    "W",
+    "QAOA",
+    "VQE",
+    "QFT",
+    "Grover",
+    "Quantum Walk",
+    "Amplitude Encoding",
+    "Hardware Efficient Ansatz",
+    "Error Correction",
+    "State Preparation",
+    "Variational Compilation"
+  ],
+  "total_seeds": 1000,
+  "benchmark_duration_seconds": 6.35
+}

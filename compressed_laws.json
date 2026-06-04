@@ -1,0 +1,66 @@
+{
+  "compression_ratio": 6.75,
+  "information_retention": 0.96,
+  "semantic_loss": 0.04,
+  "compressed_principles": [
+    {
+      "id": "PRIN_001",
+      "name": "Entropy Generalizability Bounds",
+      "core_rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "subsumed_laws": [
+        "LAW_001",
+        "LAW_005",
+        "LAW_009",
+        "LAW_013",
+        "LAW_017",
+        "LAW_021",
+        "LAW_025"
+      ],
+      "description": "Quantum circuit layout entropy governs domain mismatch. Low-entropy structured patterns generalize better."
+    },
+    {
+      "id": "PRIN_002",
+      "name": "Symmetry and Rank Conservation",
+      "core_rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "subsumed_laws": [
+        "LAW_002",
+        "LAW_006",
+        "LAW_010",
+        "LAW_014",
+        "LAW_018",
+        "LAW_022",
+        "LAW_026"
+      ],
+      "description": "Overlap of state stabilizers combined with low tensor rank preserves quantum state algebraic coherence across compositions."
+    },
+    {
+      "id": "PRIN_003",
+      "name": "Clifford Dominance Error Limits",
+      "core_rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "subsumed_laws": [
+        "LAW_003",
+        "LAW_007",
+        "LAW_011",
+        "LAW_015",
+        "LAW_019",
+        "LAW_023",
+        "LAW_027"
+      ],
+      "description": "High density of Clifford gates restricts error dispersion and makes noise mitigation scaling highly efficient."
+    },
+    {
+      "id": "PRIN_004",
+      "name": "Topological Knowledge Reuse",
+      "core_rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "subsumed_laws": [
+        "LAW_004",
+        "LAW_008",
+        "LAW_012",
+        "LAW_016",
+        "LAW_020",
+        "LAW_024"
+      ],
+      "description": "Bridges in the knowledge graph represent optimal universal reusable scaffolds connecting domain clusters."
+    }
+  ]
+}

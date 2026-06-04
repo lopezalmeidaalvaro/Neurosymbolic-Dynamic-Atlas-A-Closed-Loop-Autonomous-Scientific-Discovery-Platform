@@ -1,0 +1,31 @@
+{
+  "dataset_size": 3,
+  "duplicate_count": 1,
+  "duplicate_ratio": 0.3333333333333333,
+  "near_duplicate_count": 0,
+  "average_jaccard_similarity": 0.778912,
+  "label_leakage": {
+    "feature_correlations": {
+      "topology_similarity": 1.0,
+      "qubit_count_difference": -1.0,
+      "entanglement_overlap": 1.0,
+      "state_preparation_overlap": 1.0,
+      "circuit_depth_difference": -1.0,
+      "gate_distribution_distance": -1.0,
+      "context_distance": -1.0,
+      "scaffold_complexity": 0.0,
+      "interaction_frequency": -1.0
+    },
+    "leakage_detected": true,
+    "leaked_features": [
+      "topology_similarity",
+      "qubit_count_difference",
+      "entanglement_overlap",
+      "state_preparation_overlap",
+      "circuit_depth_difference",
+      "gate_distribution_distance",
+      "context_distance",
+      "interaction_frequency"
+    ]
+  }
+}

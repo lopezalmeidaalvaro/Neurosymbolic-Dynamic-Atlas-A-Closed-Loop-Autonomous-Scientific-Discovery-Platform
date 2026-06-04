@@ -1,0 +1,96 @@
+{
+  "metrics": {
+    "ancestor_diversity": 3,
+    "novelty_growth": 0.4833,
+    "lineage_depth": 3
+  },
+  "graph": {
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "type": "ancestor",
+        "representation": "H->CNOT",
+        "generation": 0,
+        "novelty": 0.1,
+        "id": "ancestor_bell"
+      },
+      {
+        "type": "ancestor",
+        "representation": "RY->CNOT->RY->CNOT",
+        "generation": 0,
+        "novelty": 0.3,
+        "id": "ancestor_w"
+      },
+      {
+        "type": "ancestor",
+        "representation": "RX->RY->CNOT",
+        "generation": 0,
+        "novelty": 0.4,
+        "id": "ancestor_random"
+      },
+      {
+        "type": "crossover",
+        "representation": "H->CNOT->RY->CNOT",
+        "generation": 1,
+        "novelty": 0.45,
+        "id": "gen1_crossover"
+      },
+      {
+        "type": "mutation",
+        "representation": "RX->RY->CNOT->T",
+        "generation": 1,
+        "novelty": 0.55,
+        "id": "gen1_mutation"
+      },
+      {
+        "type": "crossover",
+        "representation": "RX->RY->CNOT->RY->CNOT",
+        "generation": 2,
+        "novelty": 0.65,
+        "id": "gen2_recomb"
+      },
+      {
+        "type": "discovered",
+        "representation": "CNOT",
+        "generation": 3,
+        "novelty": 0.75,
+        "id": "discovered_scaffold"
+      }
+    ],
+    "edges": [
+      {
+        "operation": "crossover",
+        "source": "ancestor_bell",
+        "target": "gen1_crossover"
+      },
+      {
+        "operation": "crossover",
+        "source": "ancestor_w",
+        "target": "gen1_crossover"
+      },
+      {
+        "operation": "mutation",
+        "source": "ancestor_random",
+        "target": "gen1_mutation"
+      },
+      {
+        "operation": "crossover",
+        "source": "gen1_crossover",
+        "target": "gen2_recomb"
+      },
+      {
+        "operation": "crossover",
+        "source": "gen1_mutation",
+        "target": "gen2_recomb"
+      },
+      {
+        "operation": "pyzx_optimize",
+        "source": "gen2_recomb",
+        "target": "discovered_scaffold"
+      }
+    ]
+  },
+  "verdict": "LINEAGE_RECONSTRUCTION_COMPLETE"
+}

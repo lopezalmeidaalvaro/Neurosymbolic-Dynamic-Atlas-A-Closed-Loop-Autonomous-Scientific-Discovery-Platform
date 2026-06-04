@@ -1,0 +1,77 @@
+{
+  "STATE_PREPARATION_EXTENSION": {
+    "transfer_utility_mean": 0.004,
+    "synergy_retention_mean": 0.0064,
+    "success_rate_mean": 0.1062,
+    "domain_breakdown": {
+      "Bell -> GHZ": {
+        "avg_score_treatment": 0.967,
+        "avg_score_control": 0.967,
+        "avg_score_ablation": 0.967,
+        "transfer_utility": 0.0,
+        "transfer_success_rate": 0.0,
+        "transfer_synergy": 0.0,
+        "synergy_retention": 0.0,
+        "p_value_vs_control": 0.5,
+        "p_value_vs_ablation": 0.5,
+        "cohens_d": 0.0,
+        "confidence_interval_95": [
+          0.0,
+          0.0
+        ],
+        "adjusted_p_value_control": 0.66667
+      },
+      "GHZ -> W-State": {
+        "avg_score_treatment": 0.5208,
+        "avg_score_control": 0.5025,
+        "avg_score_ablation": 0.5208,
+        "transfer_utility": 0.0182,
+        "transfer_success_rate": 0.425,
+        "transfer_synergy": 0.0182,
+        "synergy_retention": 0.0285,
+        "p_value_vs_control": 0.3089433069466849,
+        "p_value_vs_ablation": 0.5,
+        "cohens_d": 0.1139,
+        "confidence_interval_95": [
+          -0.0314,
+          0.0678
+        ],
+        "adjusted_p_value_control": 0.66667
+      },
+      "Bell -> Variational Ansatz": {
+        "avg_score_treatment": 0.8536,
+        "avg_score_control": 0.8555,
+        "avg_score_ablation": 0.8536,
+        "transfer_utility": -0.002,
+        "transfer_success_rate": 0.0,
+        "transfer_synergy": -0.002,
+        "synergy_retention": -0.0031,
+        "p_value_vs_control": 0.8397986337229406,
+        "p_value_vs_ablation": 0.5,
+        "cohens_d": -0.1581,
+        "confidence_interval_95": [
+          -0.0058,
+          0.0019
+        ],
+        "adjusted_p_value_control": 0.8398
+      },
+      "GHZ -> Error-Correction Toy Task": {
+        "avg_score_treatment": 0.967,
+        "avg_score_control": 0.967,
+        "avg_score_ablation": 0.967,
+        "transfer_utility": 0.0,
+        "transfer_success_rate": 0.0,
+        "transfer_synergy": 0.0,
+        "synergy_retention": 0.0,
+        "p_value_vs_control": 0.5,
+        "p_value_vs_ablation": 0.5,
+        "cohens_d": 0.0,
+        "confidence_interval_95": [
+          0.0,
+          0.0
+        ],
+        "adjusted_p_value_control": 0.66667
+      }
+    }
+  }
+}

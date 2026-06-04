@@ -1,0 +1,286 @@
+[
+  {
+    "id": "LAW_001",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.355,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_002",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "description_length": 11,
+    "mdl_score": 0.55,
+    "information_gain": 0.36,
+    "rule_redundancy": 0.33,
+    "redundant_variables": [
+      "tensor_rank < 3"
+    ],
+    "minimality_status": "REDUNDANCY_DETECTED"
+  },
+  {
+    "id": "LAW_003",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.365,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_004",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.37,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_005",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.375,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_006",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "description_length": 11,
+    "mdl_score": 0.55,
+    "information_gain": 0.38,
+    "rule_redundancy": 0.33,
+    "redundant_variables": [
+      "tensor_rank < 3"
+    ],
+    "minimality_status": "REDUNDANCY_DETECTED"
+  },
+  {
+    "id": "LAW_007",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.385,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_008",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.39,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_009",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.395,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_010",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "description_length": 11,
+    "mdl_score": 0.55,
+    "information_gain": 0.4,
+    "rule_redundancy": 0.33,
+    "redundant_variables": [
+      "tensor_rank < 3"
+    ],
+    "minimality_status": "REDUNDANCY_DETECTED"
+  },
+  {
+    "id": "LAW_011",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.405,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_012",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.41,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_013",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.415,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_014",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "description_length": 11,
+    "mdl_score": 0.55,
+    "information_gain": 0.42,
+    "rule_redundancy": 0.33,
+    "redundant_variables": [
+      "tensor_rank < 3"
+    ],
+    "minimality_status": "REDUNDANCY_DETECTED"
+  },
+  {
+    "id": "LAW_015",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.425,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_016",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.43,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_017",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.435,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_018",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "description_length": 11,
+    "mdl_score": 0.55,
+    "information_gain": 0.44,
+    "rule_redundancy": 0.33,
+    "redundant_variables": [
+      "tensor_rank < 3"
+    ],
+    "minimality_status": "REDUNDANCY_DETECTED"
+  },
+  {
+    "id": "LAW_019",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.445,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_020",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.45,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_021",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.455,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_022",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "description_length": 11,
+    "mdl_score": 0.55,
+    "information_gain": 0.46,
+    "rule_redundancy": 0.33,
+    "redundant_variables": [
+      "tensor_rank < 3"
+    ],
+    "minimality_status": "REDUNDANCY_DETECTED"
+  },
+  {
+    "id": "LAW_023",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.465,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_024",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.47,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_025",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.475,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  },
+  {
+    "id": "LAW_026",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "description_length": 11,
+    "mdl_score": 0.55,
+    "information_gain": 0.48,
+    "rule_redundancy": 0.33,
+    "redundant_variables": [
+      "tensor_rank < 3"
+    ],
+    "minimality_status": "REDUNDANCY_DETECTED"
+  },
+  {
+    "id": "LAW_027",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "description_length": 7,
+    "mdl_score": 0.35,
+    "information_gain": 0.485,
+    "rule_redundancy": 0.0,
+    "redundant_variables": [],
+    "minimality_status": "MINIMAL"
+  }
+]

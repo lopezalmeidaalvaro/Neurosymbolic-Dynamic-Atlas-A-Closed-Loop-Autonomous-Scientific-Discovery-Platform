@@ -1,0 +1,39 @@
+{
+  "holdout_domains_evaluated": [
+    "vqe",
+    "qaoa",
+    "qft",
+    "grover"
+  ],
+  "results": {
+    "vqe": {
+      "discovered_representation": "CNOT",
+      "utility": 0.9992,
+      "synergy": 0.4992,
+      "novelty_score": 0.1867,
+      "predicted_transferability": 0.9
+    },
+    "qaoa": {
+      "discovered_representation": "H->CNOT",
+      "utility": 0.5,
+      "synergy": 0.0,
+      "novelty_score": 0.1867,
+      "predicted_transferability": 0.9
+    },
+    "qft": {
+      "discovered_representation": "RY->RY->H",
+      "utility": 0.9977,
+      "synergy": 0.4977,
+      "novelty_score": 0.5367,
+      "predicted_transferability": 0.7
+    },
+    "grover": {
+      "discovered_representation": "CNOT->H",
+      "utility": 0.9985,
+      "synergy": 0.4985,
+      "novelty_score": 0.3617,
+      "predicted_transferability": 0.9
+    }
+  },
+  "verdict": "CROSS_DOMAIN_DISCOVERY_COMPLETE"
+}

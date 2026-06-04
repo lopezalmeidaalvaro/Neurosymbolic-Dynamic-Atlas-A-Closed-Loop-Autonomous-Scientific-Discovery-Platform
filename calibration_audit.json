@@ -1,0 +1,15 @@
+{
+  "imbalance_metrics": {
+    "ROC_AUC": 1.0,
+    "PR_AUC": 1.0,
+    "Balanced_Accuracy": 1.0,
+    "Matthews_Correlation_Coefficient": 1.0,
+    "F1_Score": 1.0,
+    "Recall": 1.0,
+    "Precision": 1.0
+  },
+  "calibration_metrics": {
+    "Expected_Calibration_Error": 0.0,
+    "Maximum_Calibration_Error": 0.0
+  }
+}

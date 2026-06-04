@@ -1,0 +1,249 @@
+{
+  "blind_success_rate": 1.0,
+  "bias_reduction_score": 0.96,
+  "blind_results": [
+    {
+      "blind_id": "LAW_GK73",
+      "original_id": "LAW_001",
+      "blind_rule": "IF VAR_X < 0.25 THEN TARGET_A increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_GM63",
+      "original_id": "LAW_002",
+      "blind_rule": "IF VAR_Y > 0.6 AND VAR_Z < 3 THEN TARGET_B increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_TZ31",
+      "original_id": "LAW_003",
+      "blind_rule": "IF VAR_W > 0.7 THEN TARGET_C increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_UG99",
+      "original_id": "LAW_004",
+      "blind_rule": "IF VAR_C > 0.25 THEN TARGET_D increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_NR39",
+      "original_id": "LAW_005",
+      "blind_rule": "IF VAR_X < 0.25 THEN TARGET_A increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_FV69",
+      "original_id": "LAW_006",
+      "blind_rule": "IF VAR_Y > 0.6 AND VAR_Z < 3 THEN TARGET_B increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_NM45",
+      "original_id": "LAW_007",
+      "blind_rule": "IF VAR_W > 0.7 THEN TARGET_C increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_MH54",
+      "original_id": "LAW_008",
+      "blind_rule": "IF VAR_C > 0.25 THEN TARGET_D increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_PZ14",
+      "original_id": "LAW_009",
+      "blind_rule": "IF VAR_X < 0.25 THEN TARGET_A increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_KV97",
+      "original_id": "LAW_010",
+      "blind_rule": "IF VAR_Y > 0.6 AND VAR_Z < 3 THEN TARGET_B increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_HS67",
+      "original_id": "LAW_011",
+      "blind_rule": "IF VAR_W > 0.7 THEN TARGET_C increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_NC64",
+      "original_id": "LAW_012",
+      "blind_rule": "IF VAR_C > 0.25 THEN TARGET_D increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_YQ23",
+      "original_id": "LAW_013",
+      "blind_rule": "IF VAR_X < 0.25 THEN TARGET_A increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_JD53",
+      "original_id": "LAW_014",
+      "blind_rule": "IF VAR_Y > 0.6 AND VAR_Z < 3 THEN TARGET_B increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_OG53",
+      "original_id": "LAW_015",
+      "blind_rule": "IF VAR_W > 0.7 THEN TARGET_C increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_HQ12",
+      "original_id": "LAW_016",
+      "blind_rule": "IF VAR_C > 0.25 THEN TARGET_D increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_WA63",
+      "original_id": "LAW_017",
+      "blind_rule": "IF VAR_X < 0.25 THEN TARGET_A increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_UQ95",
+      "original_id": "LAW_018",
+      "blind_rule": "IF VAR_Y > 0.6 AND VAR_Z < 3 THEN TARGET_B increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_WJ73",
+      "original_id": "LAW_019",
+      "blind_rule": "IF VAR_W > 0.7 THEN TARGET_C increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_PP79",
+      "original_id": "LAW_020",
+      "blind_rule": "IF VAR_C > 0.25 THEN TARGET_D increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_DW97",
+      "original_id": "LAW_021",
+      "blind_rule": "IF VAR_X < 0.25 THEN TARGET_A increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_YX89",
+      "original_id": "LAW_022",
+      "blind_rule": "IF VAR_Y > 0.6 AND VAR_Z < 3 THEN TARGET_B increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_EY11",
+      "original_id": "LAW_023",
+      "blind_rule": "IF VAR_W > 0.7 THEN TARGET_C increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_FP93",
+      "original_id": "LAW_024",
+      "blind_rule": "IF VAR_C > 0.25 THEN TARGET_D increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_YO78",
+      "original_id": "LAW_025",
+      "blind_rule": "IF VAR_X < 0.25 THEN TARGET_A increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_SA56",
+      "original_id": "LAW_026",
+      "blind_rule": "IF VAR_Y > 0.6 AND VAR_Z < 3 THEN TARGET_B increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    },
+    {
+      "blind_id": "LAW_WG66",
+      "original_id": "LAW_027",
+      "blind_rule": "IF VAR_W > 0.7 THEN TARGET_C increases",
+      "blind_precision": 1.0,
+      "original_precision": 1.0,
+      "precision_delta": 0.0,
+      "status": "VALIDATED"
+    }
+  ]
+}

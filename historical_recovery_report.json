@@ -1,0 +1,55 @@
+{
+  "rediscovery_rate": 0.6667,
+  "average_semantic_similarity": 0.6,
+  "threshold_accuracy": 0.92,
+  "details": [
+    {
+      "historical_principle": "Clifford Dominance",
+      "target_variable": "clifford_ratio",
+      "rediscovered": true,
+      "matched_law_id": "LAW_003",
+      "matched_rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "semantic_similarity": 0.9
+    },
+    {
+      "historical_principle": "Noise Accumulation",
+      "target_variable": "fidelity",
+      "rediscovered": false,
+      "matched_law_id": "None",
+      "matched_rule": "None",
+      "semantic_similarity": 0.0
+    },
+    {
+      "historical_principle": "Entanglement Depth",
+      "target_variable": "tensor_rank",
+      "rediscovered": true,
+      "matched_law_id": "LAW_002",
+      "matched_rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "semantic_similarity": 0.9
+    },
+    {
+      "historical_principle": "Circuit Locality",
+      "target_variable": "qubit_count",
+      "rediscovered": false,
+      "matched_law_id": "None",
+      "matched_rule": "None",
+      "semantic_similarity": 0.0
+    },
+    {
+      "historical_principle": "Graph Centrality",
+      "target_variable": "betweenness_centrality",
+      "rediscovered": true,
+      "matched_law_id": "LAW_004",
+      "matched_rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "semantic_similarity": 0.9
+    },
+    {
+      "historical_principle": "Stabilizer Structure",
+      "target_variable": "stabilizer_overlap",
+      "rediscovered": true,
+      "matched_law_id": "LAW_002",
+      "matched_rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "semantic_similarity": 0.9
+    }
+  ]
+}

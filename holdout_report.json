@@ -1,0 +1,380 @@
+[
+  {
+    "id": "LAW_001",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "consequent": "transferability",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_002",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "consequent": "synergy",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_003",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "consequent": "noise_resilience",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_004",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "consequent": "novelty",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_005",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "consequent": "transferability",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_006",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "consequent": "synergy",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_007",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "consequent": "noise_resilience",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_008",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "consequent": "novelty",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_009",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "consequent": "transferability",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_010",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "consequent": "synergy",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_011",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "consequent": "noise_resilience",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_012",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "consequent": "novelty",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_013",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "consequent": "transferability",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_014",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "consequent": "synergy",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_015",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "consequent": "noise_resilience",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_016",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "consequent": "novelty",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_017",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "consequent": "transferability",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_018",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "consequent": "synergy",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_019",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "consequent": "noise_resilience",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_020",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "consequent": "novelty",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_021",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "consequent": "transferability",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_022",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "consequent": "synergy",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_023",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "consequent": "noise_resilience",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_024",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "consequent": "novelty",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_025",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "consequent": "transferability",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_026",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "consequent": "synergy",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  },
+  {
+    "id": "LAW_027",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "consequent": "noise_resilience",
+    "metrics": {
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "train_precision": 1.0,
+      "holdout_f1": 1.0,
+      "holdout_auc": 1.0,
+      "holdout_mcc": 1.0,
+      "generalization_gap": 0.0
+    }
+  }
+]

@@ -1,5 +1,5 @@
 {
-  "timestamp": 1780420038.2338185,
+  "timestamp": 1780572811.2731745,
   "total_epistemic_gain": 0.6730394545893299,
   "history": [
     {
@@ -44,7 +44,7 @@
       },
       "execution": {
         "success": true,
-        "execution_time": 0.0005,
+        "execution_time": 0.0,
         "result": {
           "statevector": [
             "(0.7071067811865475+0j)",

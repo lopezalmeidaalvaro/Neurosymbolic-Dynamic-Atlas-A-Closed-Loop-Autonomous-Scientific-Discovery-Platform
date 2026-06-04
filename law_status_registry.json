@@ -1,0 +1,205 @@
+{
+  "laws": {
+    "LAW_001": {
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_002": {
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_003": {
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_004": {
+      "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_005": {
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_006": {
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_007": {
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_008": {
+      "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_009": {
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_010": {
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_011": {
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_012": {
+      "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_013": {
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_014": {
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_015": {
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_016": {
+      "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_017": {
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_018": {
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_019": {
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_020": {
+      "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_021": {
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_022": {
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_023": {
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_024": {
+      "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_025": {
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_026": {
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    },
+    "LAW_027": {
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "status": "SCIENTIFICALLY_ESTABLISHED",
+      "replication_rate": 1.0,
+      "agreement_score": 1.0,
+      "survival_score": 0.975
+    }
+  },
+  "meta_laws": {
+    "META_001": {
+      "statement": "Topology-based laws survive falsification more often than entropy-based laws.",
+      "status": "ESTABLISHED_META_LAW",
+      "bootstrap_survival": 1.0
+    },
+    "META_002": {
+      "statement": "Transferability-based laws generalize better to out-of-distribution holdout domains than synergy-based laws.",
+      "status": "ESTABLISHED_META_LAW",
+      "bootstrap_survival": 1.0
+    }
+  }
+}

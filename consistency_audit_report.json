@@ -1,0 +1,118 @@
+{
+  "shap_importance": {
+    "topology_similarity": 0.0544,
+    "qubit_count_difference": 0.034,
+    "entanglement_overlap": 0.0498,
+    "state_preparation_overlap": 0.0522,
+    "circuit_depth_difference": 0.1283,
+    "gate_distribution_distance": 0.1723,
+    "context_distance": 0.0808,
+    "scaffold_complexity": 0.0,
+    "interaction_frequency": 0.4282
+  },
+  "permutation_importance": {
+    "topology_similarity": 0.0,
+    "qubit_count_difference": 0.0,
+    "entanglement_overlap": 0.0,
+    "state_preparation_overlap": 0.0,
+    "circuit_depth_difference": 0.0,
+    "gate_distribution_distance": 0.0,
+    "context_distance": 0.0,
+    "scaffold_complexity": 0.0,
+    "interaction_frequency": 0.0
+  },
+  "ablation_importance": {
+    "topology_similarity": 0.2222,
+    "qubit_count_difference": 0.2222,
+    "entanglement_overlap": 0.2222,
+    "state_preparation_overlap": 0.2222,
+    "circuit_depth_difference": 0.1111,
+    "gate_distribution_distance": 0.0,
+    "context_distance": 0.0,
+    "scaffold_complexity": 0.0,
+    "interaction_frequency": 0.0
+  },
+  "consistency": [
+    {
+      "feature": "topology_similarity",
+      "shap_rank": 5,
+      "perm_rank": 1,
+      "ablation_rank": 1,
+      "max_rank_diff": 4,
+      "status": "DIVERGING_ATTRIBUTION",
+      "verdict": "Suspicious Feature (Attributions Diverge)"
+    },
+    {
+      "feature": "qubit_count_difference",
+      "shap_rank": 8,
+      "perm_rank": 2,
+      "ablation_rank": 2,
+      "max_rank_diff": 6,
+      "status": "DIVERGING_ATTRIBUTION",
+      "verdict": "Suspicious Feature (Attributions Diverge)"
+    },
+    {
+      "feature": "entanglement_overlap",
+      "shap_rank": 7,
+      "perm_rank": 3,
+      "ablation_rank": 3,
+      "max_rank_diff": 4,
+      "status": "DIVERGING_ATTRIBUTION",
+      "verdict": "Suspicious Feature (Attributions Diverge)"
+    },
+    {
+      "feature": "state_preparation_overlap",
+      "shap_rank": 6,
+      "perm_rank": 4,
+      "ablation_rank": 4,
+      "max_rank_diff": 2,
+      "status": "COHERENT_CAUSAL",
+      "verdict": "Causal Robust Feature"
+    },
+    {
+      "feature": "circuit_depth_difference",
+      "shap_rank": 3,
+      "perm_rank": 5,
+      "ablation_rank": 5,
+      "max_rank_diff": 2,
+      "status": "COHERENT_CAUSAL",
+      "verdict": "Causal Robust Feature"
+    },
+    {
+      "feature": "gate_distribution_distance",
+      "shap_rank": 2,
+      "perm_rank": 6,
+      "ablation_rank": 6,
+      "max_rank_diff": 4,
+      "status": "DIVERGING_ATTRIBUTION",
+      "verdict": "Suspicious Feature (Attributions Diverge)"
+    },
+    {
+      "feature": "context_distance",
+      "shap_rank": 4,
+      "perm_rank": 7,
+      "ablation_rank": 7,
+      "max_rank_diff": 3,
+      "status": "DIVERGING_ATTRIBUTION",
+      "verdict": "Suspicious Feature (Attributions Diverge)"
+    },
+    {
+      "feature": "scaffold_complexity",
+      "shap_rank": 9,
+      "perm_rank": 8,
+      "ablation_rank": 8,
+      "max_rank_diff": 1,
+      "status": "COHERENT_CAUSAL",
+      "verdict": "Causal Robust Feature"
+    },
+    {
+      "feature": "interaction_frequency",
+      "shap_rank": 1,
+      "perm_rank": 9,
+      "ablation_rank": 9,
+      "max_rank_diff": 8,
+      "status": "DIVERGING_ATTRIBUTION",
+      "verdict": "Suspicious Feature (Attributions Diverge)"
+    }
+  ]
+}

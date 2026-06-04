@@ -1,0 +1,38 @@
+{
+  "num_seeds": 100,
+  "perturbation_impact": {
+    "swap": {
+      "mean_utility_delta": 0.0,
+      "std_utility_delta": 0.0,
+      "mean_transfer_delta": 0.0,
+      "std_transfer_delta": 0.0,
+      "mean_synergy_delta": 0.0,
+      "std_synergy_delta": 0.0
+    },
+    "remove": {
+      "mean_utility_delta": 0.0,
+      "std_utility_delta": 0.0,
+      "mean_transfer_delta": 0.0,
+      "std_transfer_delta": 0.0,
+      "mean_synergy_delta": 0.0,
+      "std_synergy_delta": 0.0
+    },
+    "insert": {
+      "mean_utility_delta": 0.0,
+      "std_utility_delta": 0.0,
+      "mean_transfer_delta": 0.0,
+      "std_transfer_delta": 0.0,
+      "mean_synergy_delta": 0.0,
+      "std_synergy_delta": 0.0
+    },
+    "perturb_param": {
+      "mean_utility_delta": 0.0,
+      "std_utility_delta": 0.0,
+      "mean_transfer_delta": 0.0,
+      "std_transfer_delta": 0.0,
+      "mean_synergy_delta": 0.0,
+      "std_synergy_delta": 0.0
+    }
+  },
+  "verdict": "COUNTERFACTUAL_AUDIT_COMPLETE"
+}

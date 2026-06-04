@@ -1,0 +1,11 @@
+{
+  "global_hardware_confidence_score": 0.3706,
+  "mean_replication_rate": 0.2208,
+  "cross_vendor_agreement": 0.175,
+  "temporal_stability": 0.6379,
+  "ood_generalization": 0.1947,
+  "external_reproduction": 0.11,
+  "fdr_rate": 0.0,
+  "final_allowed_verdict": "THEORY_RETRACTED",
+  "rationale": "Experimental predictions were falsified across all hardware vendors. Theories retracted from scientific memory."
+}

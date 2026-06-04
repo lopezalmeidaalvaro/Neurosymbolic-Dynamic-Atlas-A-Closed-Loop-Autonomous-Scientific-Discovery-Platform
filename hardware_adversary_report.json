@@ -1,0 +1,122 @@
+[
+  {
+    "id": "PRED_001",
+    "device": "ibm_sherbrooke",
+    "replication_rates": {
+      "baseline": 1.0,
+      "transpilation_jitter": 1.0,
+      "depth_expansion": 0.96,
+      "noise_injection": 0.92
+    },
+    "adversarial_survival_rate": 0.96,
+    "status": "PASSED"
+  },
+  {
+    "id": "PRED_004",
+    "device": "ibm_sherbrooke",
+    "replication_rates": {
+      "baseline": 0.01,
+      "transpilation_jitter": 0.0,
+      "depth_expansion": 0.0,
+      "noise_injection": 0.0
+    },
+    "adversarial_survival_rate": 0.0,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_005",
+    "device": "ibm_sherbrooke",
+    "replication_rates": {
+      "baseline": 0.0,
+      "transpilation_jitter": 0.0,
+      "depth_expansion": 0.0,
+      "noise_injection": 0.0
+    },
+    "adversarial_survival_rate": 0.0,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_009",
+    "device": "ibm_sherbrooke",
+    "replication_rates": {
+      "baseline": 0.0,
+      "transpilation_jitter": 0.0,
+      "depth_expansion": 0.0,
+      "noise_injection": 0.0
+    },
+    "adversarial_survival_rate": 0.0,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_010",
+    "device": "ibm_sherbrooke",
+    "replication_rates": {
+      "baseline": 0.01,
+      "transpilation_jitter": 0.0,
+      "depth_expansion": 0.0,
+      "noise_injection": 0.0
+    },
+    "adversarial_survival_rate": 0.0,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_011",
+    "device": "ibm_sherbrooke",
+    "replication_rates": {
+      "baseline": 0.55,
+      "transpilation_jitter": 0.3,
+      "depth_expansion": 0.18,
+      "noise_injection": 0.08
+    },
+    "adversarial_survival_rate": 0.1867,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_003",
+    "device": "ibm_sherbrooke",
+    "replication_rates": {
+      "baseline": 0.58,
+      "transpilation_jitter": 0.32,
+      "depth_expansion": 0.18,
+      "noise_injection": 0.08
+    },
+    "adversarial_survival_rate": 0.1933,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_007",
+    "device": "ibm_sherbrooke",
+    "replication_rates": {
+      "baseline": 0.6,
+      "transpilation_jitter": 0.38,
+      "depth_expansion": 0.2,
+      "noise_injection": 0.1
+    },
+    "adversarial_survival_rate": 0.2267,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_008",
+    "device": "ibm_sherbrooke",
+    "replication_rates": {
+      "baseline": 0.01,
+      "transpilation_jitter": 0.0,
+      "depth_expansion": 0.0,
+      "noise_injection": 0.0
+    },
+    "adversarial_survival_rate": 0.0,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_002",
+    "device": "ibm_sherbrooke",
+    "replication_rates": {
+      "baseline": 0.05,
+      "transpilation_jitter": 0.0,
+      "depth_expansion": 0.0,
+      "noise_injection": 0.02
+    },
+    "adversarial_survival_rate": 0.0067,
+    "status": "FAILED"
+  }
+]

@@ -1,0 +1,192 @@
+[
+  {
+    "id": "PRED_001",
+    "device": "ibm_sherbrooke",
+    "effects": {
+      "day_1": 0.3476,
+      "day_7": 0.3424,
+      "day_30": 0.3382,
+      "day_90": 0.3222
+    },
+    "replication_rates": {
+      "day_1": 1.0,
+      "day_7": 1.0,
+      "day_30": 1.0,
+      "day_90": 0.88
+    },
+    "temporal_degradation": 0.0731,
+    "temporal_stability_score": 0.9269,
+    "status": "PASSED"
+  },
+  {
+    "id": "PRED_004",
+    "device": "ibm_sherbrooke",
+    "effects": {
+      "day_1": 0.0538,
+      "day_7": 0.0486,
+      "day_30": 0.0444,
+      "day_90": 0.0284
+    },
+    "replication_rates": {
+      "day_1": 0.04,
+      "day_7": 0.0,
+      "day_30": 0.0,
+      "day_90": 0.0
+    },
+    "temporal_degradation": 0.4721,
+    "temporal_stability_score": 0.5279,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_005",
+    "device": "ibm_sherbrooke",
+    "effects": {
+      "day_1": 0.0595,
+      "day_7": 0.0543,
+      "day_30": 0.0501,
+      "day_90": 0.0341
+    },
+    "replication_rates": {
+      "day_1": 0.0,
+      "day_7": 0.0,
+      "day_30": 0.0,
+      "day_90": 0.0
+    },
+    "temporal_degradation": 0.4269,
+    "temporal_stability_score": 0.5731,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_009",
+    "device": "ibm_sherbrooke",
+    "effects": {
+      "day_1": 0.0433,
+      "day_7": 0.0381,
+      "day_30": 0.0339,
+      "day_90": 0.0179
+    },
+    "replication_rates": {
+      "day_1": 0.0,
+      "day_7": 0.0,
+      "day_30": 0.0,
+      "day_90": 0.0
+    },
+    "temporal_degradation": 0.5866,
+    "temporal_stability_score": 0.4134,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_010",
+    "device": "ibm_sherbrooke",
+    "effects": {
+      "day_1": 0.075,
+      "day_7": 0.0698,
+      "day_30": 0.0656,
+      "day_90": 0.0496
+    },
+    "replication_rates": {
+      "day_1": 0.04,
+      "day_7": 0.0,
+      "day_30": 0.0,
+      "day_90": 0.0
+    },
+    "temporal_degradation": 0.3387,
+    "temporal_stability_score": 0.6613,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_011",
+    "device": "ibm_sherbrooke",
+    "effects": {
+      "day_1": 0.0911,
+      "day_7": 0.0859,
+      "day_30": 0.0817,
+      "day_90": 0.0657
+    },
+    "replication_rates": {
+      "day_1": 0.5,
+      "day_7": 0.44,
+      "day_30": 0.3,
+      "day_90": 0.14
+    },
+    "temporal_degradation": 0.2788,
+    "temporal_stability_score": 0.7212,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_003",
+    "device": "ibm_sherbrooke",
+    "effects": {
+      "day_1": 0.1015,
+      "day_7": 0.0963,
+      "day_30": 0.0921,
+      "day_90": 0.0761
+    },
+    "replication_rates": {
+      "day_1": 0.52,
+      "day_7": 0.44,
+      "day_30": 0.3,
+      "day_90": 0.14
+    },
+    "temporal_degradation": 0.2502,
+    "temporal_stability_score": 0.7498,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_007",
+    "device": "ibm_sherbrooke",
+    "effects": {
+      "day_1": 0.1058,
+      "day_7": 0.1006,
+      "day_30": 0.0964,
+      "day_90": 0.0804
+    },
+    "replication_rates": {
+      "day_1": 0.6,
+      "day_7": 0.52,
+      "day_30": 0.32,
+      "day_90": 0.16
+    },
+    "temporal_degradation": 0.2401,
+    "temporal_stability_score": 0.7599,
+    "status": "PASSED"
+  },
+  {
+    "id": "PRED_008",
+    "device": "ibm_sherbrooke",
+    "effects": {
+      "day_1": 0.0537,
+      "day_7": 0.0485,
+      "day_30": 0.0443,
+      "day_90": 0.0283
+    },
+    "replication_rates": {
+      "day_1": 0.04,
+      "day_7": 0.0,
+      "day_30": 0.0,
+      "day_90": 0.0
+    },
+    "temporal_degradation": 0.473,
+    "temporal_stability_score": 0.527,
+    "status": "FAILED"
+  },
+  {
+    "id": "PRED_002",
+    "device": "ibm_sherbrooke",
+    "effects": {
+      "day_1": 0.0528,
+      "day_7": 0.0476,
+      "day_30": 0.0434,
+      "day_90": 0.0274
+    },
+    "replication_rates": {
+      "day_1": 0.14,
+      "day_7": 0.06,
+      "day_30": 0.06,
+      "day_90": 0.02
+    },
+    "temporal_degradation": 0.4811,
+    "temporal_stability_score": 0.5189,
+    "status": "FAILED"
+  }
+]

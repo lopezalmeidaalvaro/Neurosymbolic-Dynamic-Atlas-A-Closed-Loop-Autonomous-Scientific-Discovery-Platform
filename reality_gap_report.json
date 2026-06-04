@@ -1,0 +1,360 @@
+{
+  "predictions": [
+    {
+      "id": "PRED_001",
+      "sim_score": 0.3694,
+      "hw_score": 0.3283,
+      "reality_gap": 0.0411
+    },
+    {
+      "id": "PRED_004",
+      "sim_score": 0.0756,
+      "hw_score": 0.0345,
+      "reality_gap": 0.0411
+    },
+    {
+      "id": "PRED_005",
+      "sim_score": 0.0813,
+      "hw_score": 0.0402,
+      "reality_gap": 0.0411
+    },
+    {
+      "id": "PRED_009",
+      "sim_score": 0.0651,
+      "hw_score": 0.024,
+      "reality_gap": 0.0411
+    },
+    {
+      "id": "PRED_010",
+      "sim_score": 0.0968,
+      "hw_score": 0.0557,
+      "reality_gap": 0.0411
+    },
+    {
+      "id": "PRED_011",
+      "sim_score": 0.1129,
+      "hw_score": 0.0718,
+      "reality_gap": 0.0411
+    },
+    {
+      "id": "PRED_003",
+      "sim_score": 0.1233,
+      "hw_score": 0.0822,
+      "reality_gap": 0.0411
+    },
+    {
+      "id": "PRED_007",
+      "sim_score": 0.1276,
+      "hw_score": 0.0865,
+      "reality_gap": 0.0411
+    },
+    {
+      "id": "PRED_008",
+      "sim_score": 0.0755,
+      "hw_score": 0.0344,
+      "reality_gap": 0.0411
+    },
+    {
+      "id": "PRED_002",
+      "sim_score": 0.0746,
+      "hw_score": 0.0335,
+      "reality_gap": 0.0411
+    }
+  ],
+  "mechanisms": [
+    {
+      "theory_id": "THEORY_003",
+      "edge": "clifford_ratio -> stabilizer_compatibility",
+      "sim_score": 0.7978,
+      "hw_score": 0.7958,
+      "reality_gap": 0.002
+    },
+    {
+      "theory_id": "THEORY_003",
+      "edge": "stabilizer_compatibility -> error_mitigation",
+      "sim_score": 1.0,
+      "hw_score": 0.992,
+      "reality_gap": 0.008
+    },
+    {
+      "theory_id": "THEORY_003",
+      "edge": "error_mitigation -> noise_resilience",
+      "sim_score": 0.8063,
+      "hw_score": 0.8025,
+      "reality_gap": 0.0038
+    },
+    {
+      "theory_id": "THEORY_001",
+      "edge": "gate_entropy -> structural_coherence",
+      "sim_score": 0.7698,
+      "hw_score": 0.7667,
+      "reality_gap": 0.0031
+    },
+    {
+      "theory_id": "THEORY_001",
+      "edge": "structural_coherence -> domain_similarity",
+      "sim_score": 1.0,
+      "hw_score": 0.991,
+      "reality_gap": 0.009
+    },
+    {
+      "theory_id": "THEORY_001",
+      "edge": "domain_similarity -> transferability",
+      "sim_score": 0.8532,
+      "hw_score": 0.8467,
+      "reality_gap": 0.0065
+    },
+    {
+      "theory_id": "THEORY_004",
+      "edge": "betweenness_centrality -> reuse_bottleneck",
+      "sim_score": 0.8402,
+      "hw_score": 0.8369,
+      "reality_gap": 0.0033
+    },
+    {
+      "theory_id": "THEORY_004",
+      "edge": "reuse_bottleneck -> module_recombination",
+      "sim_score": 1.0,
+      "hw_score": 0.9857,
+      "reality_gap": 0.0143
+    },
+    {
+      "theory_id": "THEORY_004",
+      "edge": "module_recombination -> novelty",
+      "sim_score": 0.8992,
+      "hw_score": 0.8911,
+      "reality_gap": 0.0081
+    },
+    {
+      "theory_id": "THEORY_002",
+      "edge": "stabilizer_overlap -> algebraic_symmetry",
+      "sim_score": 0.8596,
+      "hw_score": 0.8495,
+      "reality_gap": 0.0101
+    },
+    {
+      "theory_id": "THEORY_002",
+      "edge": "algebraic_symmetry -> state_preservation",
+      "sim_score": 0.2681,
+      "hw_score": 0.2376,
+      "reality_gap": 0.0305
+    },
+    {
+      "theory_id": "THEORY_002",
+      "edge": "tensor_rank -> computation_complexity",
+      "sim_score": 0.4722,
+      "hw_score": 0.4729,
+      "reality_gap": -0.0007
+    },
+    {
+      "theory_id": "THEORY_002",
+      "edge": "computation_complexity -> state_preservation",
+      "sim_score": 0.3461,
+      "hw_score": 0.3879,
+      "reality_gap": -0.0418
+    },
+    {
+      "theory_id": "THEORY_002",
+      "edge": "state_preservation -> synergy",
+      "sim_score": 0.9816,
+      "hw_score": 0.8177,
+      "reality_gap": 0.1639
+    }
+  ],
+  "theories": [
+    {
+      "id": "THEORY_001",
+      "sim_score": 0.0409,
+      "hw_score": 0.2965,
+      "reality_gap": -0.2556
+    },
+    {
+      "id": "THEORY_002",
+      "sim_score": 0.0311,
+      "hw_score": 0.275,
+      "reality_gap": -0.2439
+    },
+    {
+      "id": "THEORY_004",
+      "sim_score": 0.012,
+      "hw_score": 0.219,
+      "reality_gap": -0.207
+    },
+    {
+      "id": "THEORY_003",
+      "sim_score": 0.0,
+      "hw_score": 0.017,
+      "reality_gap": -0.017
+    }
+  ],
+  "laws": [
+    {
+      "id": "LAW_001",
+      "sim_score": 1.0,
+      "hw_score": 0.2965,
+      "reality_gap": 0.7035
+    },
+    {
+      "id": "LAW_005",
+      "sim_score": 1.0,
+      "hw_score": 0.2965,
+      "reality_gap": 0.7035
+    },
+    {
+      "id": "LAW_009",
+      "sim_score": 1.0,
+      "hw_score": 0.2965,
+      "reality_gap": 0.7035
+    },
+    {
+      "id": "LAW_013",
+      "sim_score": 1.0,
+      "hw_score": 0.2965,
+      "reality_gap": 0.7035
+    },
+    {
+      "id": "LAW_017",
+      "sim_score": 1.0,
+      "hw_score": 0.2965,
+      "reality_gap": 0.7035
+    },
+    {
+      "id": "LAW_021",
+      "sim_score": 1.0,
+      "hw_score": 0.2965,
+      "reality_gap": 0.7035
+    },
+    {
+      "id": "LAW_025",
+      "sim_score": 1.0,
+      "hw_score": 0.2965,
+      "reality_gap": 0.7035
+    },
+    {
+      "id": "LAW_002",
+      "sim_score": 1.0,
+      "hw_score": 0.275,
+      "reality_gap": 0.725
+    },
+    {
+      "id": "LAW_006",
+      "sim_score": 1.0,
+      "hw_score": 0.275,
+      "reality_gap": 0.725
+    },
+    {
+      "id": "LAW_010",
+      "sim_score": 1.0,
+      "hw_score": 0.275,
+      "reality_gap": 0.725
+    },
+    {
+      "id": "LAW_014",
+      "sim_score": 1.0,
+      "hw_score": 0.275,
+      "reality_gap": 0.725
+    },
+    {
+      "id": "LAW_018",
+      "sim_score": 1.0,
+      "hw_score": 0.275,
+      "reality_gap": 0.725
+    },
+    {
+      "id": "LAW_022",
+      "sim_score": 1.0,
+      "hw_score": 0.275,
+      "reality_gap": 0.725
+    },
+    {
+      "id": "LAW_026",
+      "sim_score": 1.0,
+      "hw_score": 0.275,
+      "reality_gap": 0.725
+    },
+    {
+      "id": "LAW_004",
+      "sim_score": 1.0,
+      "hw_score": 0.219,
+      "reality_gap": 0.781
+    },
+    {
+      "id": "LAW_008",
+      "sim_score": 1.0,
+      "hw_score": 0.219,
+      "reality_gap": 0.781
+    },
+    {
+      "id": "LAW_012",
+      "sim_score": 1.0,
+      "hw_score": 0.219,
+      "reality_gap": 0.781
+    },
+    {
+      "id": "LAW_016",
+      "sim_score": 1.0,
+      "hw_score": 0.219,
+      "reality_gap": 0.781
+    },
+    {
+      "id": "LAW_020",
+      "sim_score": 1.0,
+      "hw_score": 0.219,
+      "reality_gap": 0.781
+    },
+    {
+      "id": "LAW_024",
+      "sim_score": 1.0,
+      "hw_score": 0.219,
+      "reality_gap": 0.781
+    },
+    {
+      "id": "LAW_003",
+      "sim_score": 1.0,
+      "hw_score": 0.017,
+      "reality_gap": 0.983
+    },
+    {
+      "id": "LAW_007",
+      "sim_score": 1.0,
+      "hw_score": 0.017,
+      "reality_gap": 0.983
+    },
+    {
+      "id": "LAW_011",
+      "sim_score": 1.0,
+      "hw_score": 0.017,
+      "reality_gap": 0.983
+    },
+    {
+      "id": "LAW_015",
+      "sim_score": 1.0,
+      "hw_score": 0.017,
+      "reality_gap": 0.983
+    },
+    {
+      "id": "LAW_019",
+      "sim_score": 1.0,
+      "hw_score": 0.017,
+      "reality_gap": 0.983
+    },
+    {
+      "id": "LAW_023",
+      "sim_score": 1.0,
+      "hw_score": 0.017,
+      "reality_gap": 0.983
+    },
+    {
+      "id": "LAW_027",
+      "sim_score": 1.0,
+      "hw_score": 0.017,
+      "reality_gap": 0.983
+    }
+  ],
+  "summary": {
+    "mean_prediction_gap": 0.0411,
+    "mean_mechanism_gap": 0.0157,
+    "mean_theory_gap": -0.1809,
+    "mean_law_gap": 0.7988
+  }
+}

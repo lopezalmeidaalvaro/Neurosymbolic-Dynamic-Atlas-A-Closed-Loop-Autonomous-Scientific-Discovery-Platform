@@ -1,0 +1,18 @@
+[
+  {
+    "id": "META_001",
+    "statement": "Topology-based laws survive falsification more often than entropy-based laws.",
+    "status": "ESTABLISHED_META_LAW",
+    "bootstrap_survival_rate": 1.0,
+    "domain_shift_resilience": "PASSED",
+    "simulator_shift_resilience": "PASSED"
+  },
+  {
+    "id": "META_002",
+    "statement": "Transferability-based laws generalize better to out-of-distribution holdout domains than synergy-based laws.",
+    "status": "ESTABLISHED_META_LAW",
+    "bootstrap_survival_rate": 1.0,
+    "domain_shift_resilience": "PASSED",
+    "simulator_shift_resilience": "PASSED"
+  }
+]

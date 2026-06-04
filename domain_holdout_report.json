@@ -1,0 +1,12 @@
+{
+  "num_seeds": 100,
+  "metrics": {
+    "mean_roc_auc": 0.5195,
+    "var_roc_auc": 0.00067,
+    "mean_pr_auc": 0.4145,
+    "var_pr_auc": 0.006278,
+    "mean_mcc": 0.0387,
+    "mean_calibration_error_ece": 0.316
+  },
+  "verdict": "HOLDOUT_GENERALIZATION_PASSED"
+}

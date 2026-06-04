@@ -1,0 +1,38 @@
+{
+  "total_principles": 5,
+  "recovered_principles_count": 5,
+  "recovered_details": [
+    {
+      "id": "HIST_001",
+      "name": "Clifford Dominance",
+      "associated_theory": "THEORY_003",
+      "status": "RECOVERED"
+    },
+    {
+      "id": "HIST_002",
+      "name": "Noise Accumulation",
+      "associated_theory": "THEORY_003",
+      "status": "RECOVERED"
+    },
+    {
+      "id": "HIST_003",
+      "name": "Entanglement Depth Effects",
+      "associated_theory": "THEORY_002",
+      "status": "RECOVERED"
+    },
+    {
+      "id": "HIST_004",
+      "name": "Circuit Locality Effects",
+      "associated_theory": "THEORY_003",
+      "status": "RECOVERED"
+    },
+    {
+      "id": "HIST_005",
+      "name": "Graph Centrality Effects",
+      "associated_theory": "THEORY_004",
+      "status": "RECOVERED"
+    }
+  ],
+  "historical_recovery_rate": 1.0,
+  "status": "PASSED"
+}

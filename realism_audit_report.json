@@ -1,0 +1,34 @@
+{
+  "scaling_audit": {
+    "qubit_sizes": [
+      5,
+      10,
+      15,
+      20
+    ],
+    "runtimes_sec": [
+      0.001034,
+      0.00128,
+      0.03427,
+      1.22474
+    ],
+    "memories_mb": [
+      0.0005,
+      0.0156,
+      0.5,
+      16.0
+    ],
+    "runtime_scaling_passed": true,
+    "memory_scaling_passed": true
+  },
+  "metrics_audit": {
+    "impossible_perfect_metrics": false,
+    "impossible_perfect_details": [],
+    "zero_variance_metrics": false,
+    "zero_variance_details": []
+  },
+  "fidelity_realism": {
+    "fidelity_is_realistic": true
+  },
+  "verdict": "REALISM_VERIFIED"
+}

@@ -1,0 +1,129 @@
+{
+  "total_tested": 10,
+  "confirmed_discoveries": 1,
+  "false_discoveries_estimated": 0,
+  "fdr_rate": 0.0,
+  "status": "PASSED",
+  "predictions": [
+    {
+      "id": "PRED_001",
+      "raw_p_value": 0.0,
+      "bh_adjusted_p_value": 0.0,
+      "by_adjusted_p_value": 0.0,
+      "effect_size": 0.3682,
+      "bootstrap_ci_95": [
+        0.3405,
+        0.3873
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "PRED_004",
+      "raw_p_value": 0.367063,
+      "bh_adjusted_p_value": 0.628282,
+      "by_adjusted_p_value": 1.0,
+      "effect_size": 0.0104,
+      "bootstrap_ci_95": [
+        -0.0155,
+        0.0311
+      ],
+      "status": "UNCONFIRMED_PREDICTION"
+    },
+    {
+      "id": "PRED_005",
+      "raw_p_value": 0.753415,
+      "bh_adjusted_p_value": 0.931542,
+      "by_adjusted_p_value": 1.0,
+      "effect_size": 0.0055,
+      "bootstrap_ci_95": [
+        -0.0264,
+        0.0415
+      ],
+      "status": "UNCONFIRMED_PREDICTION"
+    },
+    {
+      "id": "PRED_009",
+      "raw_p_value": 0.877402,
+      "bh_adjusted_p_value": 0.931542,
+      "by_adjusted_p_value": 1.0,
+      "effect_size": -0.0026,
+      "bootstrap_ci_95": [
+        -0.0354,
+        0.0268
+      ],
+      "status": "UNCONFIRMED_PREDICTION"
+    },
+    {
+      "id": "PRED_010",
+      "raw_p_value": 0.296946,
+      "bh_adjusted_p_value": 0.628282,
+      "by_adjusted_p_value": 1.0,
+      "effect_size": 0.0176,
+      "bootstrap_ci_95": [
+        -0.0159,
+        0.055
+      ],
+      "status": "UNCONFIRMED_PREDICTION"
+    },
+    {
+      "id": "PRED_011",
+      "raw_p_value": 0.931542,
+      "bh_adjusted_p_value": 0.931542,
+      "by_adjusted_p_value": 1.0,
+      "effect_size": 0.0013,
+      "bootstrap_ci_95": [
+        -0.0253,
+        0.0304
+      ],
+      "status": "UNCONFIRMED_PREDICTION"
+    },
+    {
+      "id": "PRED_003",
+      "raw_p_value": 0.75409,
+      "bh_adjusted_p_value": 0.931542,
+      "by_adjusted_p_value": 1.0,
+      "effect_size": 0.006,
+      "bootstrap_ci_95": [
+        -0.0216,
+        0.0498
+      ],
+      "status": "UNCONFIRMED_PREDICTION"
+    },
+    {
+      "id": "PRED_007",
+      "raw_p_value": 0.376969,
+      "bh_adjusted_p_value": 0.628282,
+      "by_adjusted_p_value": 1.0,
+      "effect_size": 0.023,
+      "bootstrap_ci_95": [
+        -0.0236,
+        0.06
+      ],
+      "status": "UNCONFIRMED_PREDICTION"
+    },
+    {
+      "id": "PRED_008",
+      "raw_p_value": 0.088902,
+      "bh_adjusted_p_value": 0.328011,
+      "by_adjusted_p_value": 0.960734,
+      "effect_size": 0.0189,
+      "bootstrap_ci_95": [
+        -0.0021,
+        0.0421
+      ],
+      "status": "UNCONFIRMED_PREDICTION"
+    },
+    {
+      "id": "PRED_002",
+      "raw_p_value": 0.098403,
+      "bh_adjusted_p_value": 0.328011,
+      "by_adjusted_p_value": 0.960734,
+      "effect_size": 0.0237,
+      "bootstrap_ci_95": [
+        -0.0017,
+        0.0556
+      ],
+      "status": "UNCONFIRMED_PREDICTION"
+    }
+  ]
+}

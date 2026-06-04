@@ -1,0 +1,10 @@
+{
+  "scientific_confidence": 0.9458,
+  "replication_confidence": 1.0,
+  "causal_confidence": 0.975,
+  "generalization_confidence": 1.0,
+  "cross_simulator_agreement": 1.0,
+  "synthetic_recovery_f1": 0.894,
+  "historical_rediscovery_rate": 0.6667,
+  "consensus_verdict": "SCIENTIFIC_CONSENSUS_ESTABLISHED"
+}

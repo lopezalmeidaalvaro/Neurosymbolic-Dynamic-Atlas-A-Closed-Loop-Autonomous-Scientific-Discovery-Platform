@@ -1,0 +1,72 @@
+[
+  {
+    "source_domain": "bell_state",
+    "target_domain": "ghz_state",
+    "interaction_type": "STATE_PREPARATION_EXTENSION",
+    "transfer_utility": 0.1,
+    "label": "HIGHLY_TRANSFERABLE"
+  },
+  {
+    "source_domain": "bell_state",
+    "target_domain": "ghz_state",
+    "interaction_type": "STATE_PREPARATION_EXTENSION",
+    "transfer_utility": 0.1,
+    "label": "HIGHLY_TRANSFERABLE"
+  },
+  {
+    "source_domain": "bell_state",
+    "target_domain": "ghz_state",
+    "interaction_type": "STATE_PREPARATION_EXTENSION",
+    "transfer_utility": 0.1,
+    "label": "HIGHLY_TRANSFERABLE"
+  },
+  {
+    "source_domain": "bell_state",
+    "target_domain": "ghz_state",
+    "interaction_type": "STATE_PREPARATION_EXTENSION",
+    "transfer_utility": 0.1,
+    "label": "HIGHLY_TRANSFERABLE"
+  },
+  {
+    "source_domain": "bell_state",
+    "target_domain": "ghz_state",
+    "interaction_type": "STATE_PREPARATION_EXTENSION",
+    "transfer_utility": 0.1,
+    "label": "HIGHLY_TRANSFERABLE"
+  },
+  {
+    "source_domain": "bell_state",
+    "target_domain": "variational_ansatz",
+    "interaction_type": "STATE_PREPARATION_EXTENSION",
+    "transfer_utility": -0.1,
+    "label": "NON_TRANSFERABLE"
+  },
+  {
+    "source_domain": "bell_state",
+    "target_domain": "variational_ansatz",
+    "interaction_type": "STATE_PREPARATION_EXTENSION",
+    "transfer_utility": -0.1,
+    "label": "NON_TRANSFERABLE"
+  },
+  {
+    "source_domain": "bell_state",
+    "target_domain": "variational_ansatz",
+    "interaction_type": "STATE_PREPARATION_EXTENSION",
+    "transfer_utility": -0.1,
+    "label": "NON_TRANSFERABLE"
+  },
+  {
+    "source_domain": "bell_state",
+    "target_domain": "variational_ansatz",
+    "interaction_type": "STATE_PREPARATION_EXTENSION",
+    "transfer_utility": -0.1,
+    "label": "NON_TRANSFERABLE"
+  },
+  {
+    "source_domain": "bell_state",
+    "target_domain": "variational_ansatz",
+    "interaction_type": "STATE_PREPARATION_EXTENSION",
+    "transfer_utility": -0.1,
+    "label": "NON_TRANSFERABLE"
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "runs": 50,
+  "metrics": {
+    "mean_auc": 0.540417,
+    "variance_auc": 0.040702,
+    "mean_f1": 0.0,
+    "variance_f1": 0.0,
+    "mean_rule_precision": 0.927357,
+    "variance_rules": 0.00989
+  },
+  "feature_importances": {
+    "means": {
+      "topology_similarity": 0.027892,
+      "qubit_count_difference": 0.027644,
+      "entanglement_overlap": 0.019927,
+      "state_preparation_overlap": 0.017128,
+      "circuit_depth_difference": 0.093152,
+      "gate_distribution_distance": 0.148838,
+      "context_distance": 0.029038,
+      "scaffold_complexity": 0.0,
+      "interaction_frequency": 0.63638
+    },
+    "variances": {
+      "topology_similarity": 0.000468,
+      "qubit_count_difference": 0.000561,
+      "entanglement_overlap": 0.000246,
+      "state_preparation_overlap": 0.00024,
+      "circuit_depth_difference": 0.001992,
+      "gate_distribution_distance": 0.002747,
+      "context_distance": 0.000671,
+      "scaffold_complexity": 0.0,
+      "interaction_frequency": 0.004203
+    }
+  }
+}

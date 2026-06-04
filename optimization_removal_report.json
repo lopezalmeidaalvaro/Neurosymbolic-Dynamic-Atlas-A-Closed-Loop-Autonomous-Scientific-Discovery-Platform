@@ -1,0 +1,22 @@
+{
+  "optimized": {
+    "sequence": [
+      "CNOT"
+    ],
+    "utility": 0.95,
+    "synergy": 0.45
+  },
+  "unoptimized": {
+    "sequence": [
+      "CNOT"
+    ],
+    "utility": 0.9,
+    "synergy": 0.4
+  },
+  "deltas": {
+    "utility_loss_ratio": 0.0526,
+    "synergy_loss_ratio": 0.1111,
+    "performance_loss_sum": 0.1637
+  },
+  "verdict": "FUNCTIONAL_STRUCTURE_VERIFIED"
+}

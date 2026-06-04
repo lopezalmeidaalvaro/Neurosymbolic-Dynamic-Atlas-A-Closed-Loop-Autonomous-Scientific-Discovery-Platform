@@ -1,0 +1,196 @@
+{
+  "expected_false_laws": 0.0,
+  "average_fdr": 0.0,
+  "by_factor": 3.8915,
+  "laws_p_values": [
+    {
+      "id": "LAW_001",
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_002",
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_003",
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_004",
+      "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_005",
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_006",
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_007",
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_008",
+      "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_009",
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_010",
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_011",
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_012",
+      "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_013",
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_014",
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_015",
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_016",
+      "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_017",
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_018",
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_019",
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_020",
+      "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_021",
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_022",
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_023",
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_024",
+      "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_025",
+      "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_026",
+      "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    },
+    {
+      "id": "LAW_027",
+      "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+      "raw_p_value": 0.0,
+      "q_value_bh": 0.0,
+      "q_value_by": 0.0
+    }
+  ]
+}

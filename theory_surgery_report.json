@@ -1,0 +1,604 @@
+[
+  {
+    "id": "THEORY_001_REV2",
+    "name": "Information Entropy and Representation Coherence Theory (REV2: Pruned)",
+    "laws_explained": [
+      "LAW_001",
+      "LAW_005",
+      "LAW_009",
+      "LAW_013",
+      "LAW_017",
+      "LAW_021",
+      "LAW_025"
+    ],
+    "mechanism_graph": {
+      "nodes": [
+        {
+          "id": "gate_entropy",
+          "type": "input",
+          "label": "Gate Entropy"
+        },
+        {
+          "id": "structural_coherence",
+          "type": "latent",
+          "label": "Structural Coherence"
+        },
+        {
+          "id": "domain_similarity",
+          "type": "latent",
+          "label": "Domain Similarity"
+        },
+        {
+          "id": "transferability",
+          "type": "output",
+          "label": "Domain Transferability"
+        }
+      ],
+      "edges": [
+        {
+          "source": "gate_entropy",
+          "target": "structural_coherence",
+          "weight": -0.7698
+        },
+        {
+          "source": "structural_coherence",
+          "target": "domain_similarity",
+          "weight": 1.0
+        },
+        {
+          "source": "domain_similarity",
+          "target": "transferability",
+          "weight": 0.8532
+        }
+      ]
+    },
+    "assumptions": [
+      "Low gate entropy corresponds to higher structural regularity in circuit layers.",
+      "Coherent circuit structures minimize the representation gap between transfer source and target."
+    ],
+    "predictions": [
+      "PRED_001",
+      "PRED_005",
+      "PRED_009",
+      "PRED_011"
+    ],
+    "confidence": 0.1,
+    "status": "CANDIDATE",
+    "parent_theory": "THEORY_001",
+    "removed_assumptions": [],
+    "preserved_assumptions": [
+      "Low gate entropy corresponds to higher structural regularity in circuit layers.",
+      "Coherent circuit structures minimize the representation gap between transfer source and target."
+    ]
+  },
+  {
+    "id": "THEORY_001_REV3",
+    "name": "Information Entropy and Representation Coherence Theory (REV3: Noise-Augmented)",
+    "laws_explained": [
+      "LAW_001",
+      "LAW_005",
+      "LAW_009",
+      "LAW_013",
+      "LAW_017",
+      "LAW_021",
+      "LAW_025"
+    ],
+    "mechanism_graph": {
+      "nodes": [
+        {
+          "id": "gate_entropy",
+          "type": "input",
+          "label": "Gate Entropy"
+        },
+        {
+          "id": "structural_coherence",
+          "type": "latent",
+          "label": "Structural Coherence"
+        },
+        {
+          "id": "domain_similarity",
+          "type": "latent",
+          "label": "Domain Similarity"
+        },
+        {
+          "id": "transferability",
+          "type": "output",
+          "label": "Domain Transferability"
+        }
+      ],
+      "edges": [
+        {
+          "source": "gate_entropy",
+          "target": "structural_coherence",
+          "weight": -0.7667
+        },
+        {
+          "source": "structural_coherence",
+          "target": "domain_similarity",
+          "weight": 0.991
+        },
+        {
+          "source": "domain_similarity",
+          "target": "transferability",
+          "weight": 0.8467
+        }
+      ]
+    },
+    "assumptions": [
+      "Low gate entropy corresponds to higher structural regularity in circuit layers.",
+      "Coherent circuit structures minimize the representation gap between transfer source and target."
+    ],
+    "predictions": [
+      "PRED_001",
+      "PRED_005",
+      "PRED_009",
+      "PRED_011"
+    ],
+    "confidence": 0.1,
+    "status": "CANDIDATE",
+    "parent_theory": "THEORY_001",
+    "removed_assumptions": [],
+    "preserved_assumptions": [
+      "Low gate entropy corresponds to higher structural regularity in circuit layers.",
+      "Coherent circuit structures minimize the representation gap between transfer source and target."
+    ]
+  },
+  {
+    "id": "THEORY_002_REV2",
+    "name": "Stabilizer Symmetry Conservation and Emergent Synergy Theory (REV2: Pruned)",
+    "laws_explained": [
+      "LAW_002",
+      "LAW_006",
+      "LAW_010",
+      "LAW_014",
+      "LAW_018",
+      "LAW_022",
+      "LAW_026"
+    ],
+    "mechanism_graph": {
+      "nodes": [
+        {
+          "id": "stabilizer_overlap",
+          "type": "input",
+          "label": "Stabilizer Overlap"
+        },
+        {
+          "id": "tensor_rank",
+          "type": "input",
+          "label": "Tensor Rank"
+        },
+        {
+          "id": "algebraic_symmetry",
+          "type": "latent",
+          "label": "Algebraic Symmetry"
+        },
+        {
+          "id": "computation_complexity",
+          "type": "latent",
+          "label": "Computation Complexity"
+        },
+        {
+          "id": "state_preservation",
+          "type": "latent",
+          "label": "State Preservation"
+        },
+        {
+          "id": "synergy",
+          "type": "output",
+          "label": "Scaffold Synergy"
+        }
+      ],
+      "edges": [
+        {
+          "source": "stabilizer_overlap",
+          "target": "algebraic_symmetry",
+          "weight": 0.8596
+        },
+        {
+          "source": "algebraic_symmetry",
+          "target": "state_preservation",
+          "weight": 0.2681
+        },
+        {
+          "source": "tensor_rank",
+          "target": "computation_complexity",
+          "weight": 0.4722
+        },
+        {
+          "source": "computation_complexity",
+          "target": "state_preservation",
+          "weight": -0.3461
+        },
+        {
+          "source": "state_preservation",
+          "target": "synergy",
+          "weight": 0.9816
+        }
+      ]
+    },
+    "assumptions": [
+      "Sufficient stabilizer overlap ensures conservation of algebraic symmetries in concatenated states.",
+      "Low tensor network rank restricts accumulation of node contraction errors during composition."
+    ],
+    "predictions": [
+      "PRED_007",
+      "PRED_002"
+    ],
+    "confidence": 0.1,
+    "status": "CANDIDATE",
+    "parent_theory": "THEORY_002",
+    "removed_assumptions": [],
+    "preserved_assumptions": [
+      "Sufficient stabilizer overlap ensures conservation of algebraic symmetries in concatenated states.",
+      "Low tensor network rank restricts accumulation of node contraction errors during composition."
+    ]
+  },
+  {
+    "id": "THEORY_002_REV3",
+    "name": "Stabilizer Symmetry Conservation and Emergent Synergy Theory (REV3: Noise-Augmented)",
+    "laws_explained": [
+      "LAW_002",
+      "LAW_006",
+      "LAW_010",
+      "LAW_014",
+      "LAW_018",
+      "LAW_022",
+      "LAW_026"
+    ],
+    "mechanism_graph": {
+      "nodes": [
+        {
+          "id": "stabilizer_overlap",
+          "type": "input",
+          "label": "Stabilizer Overlap"
+        },
+        {
+          "id": "tensor_rank",
+          "type": "input",
+          "label": "Tensor Rank"
+        },
+        {
+          "id": "algebraic_symmetry",
+          "type": "latent",
+          "label": "Algebraic Symmetry"
+        },
+        {
+          "id": "computation_complexity",
+          "type": "latent",
+          "label": "Computation Complexity"
+        },
+        {
+          "id": "state_preservation",
+          "type": "latent",
+          "label": "State Preservation"
+        },
+        {
+          "id": "synergy",
+          "type": "output",
+          "label": "Scaffold Synergy"
+        }
+      ],
+      "edges": [
+        {
+          "source": "stabilizer_overlap",
+          "target": "algebraic_symmetry",
+          "weight": 0.8495
+        },
+        {
+          "source": "algebraic_symmetry",
+          "target": "state_preservation",
+          "weight": 0.2376
+        },
+        {
+          "source": "tensor_rank",
+          "target": "computation_complexity",
+          "weight": 0.4729
+        },
+        {
+          "source": "computation_complexity",
+          "target": "state_preservation",
+          "weight": -0.3879
+        },
+        {
+          "source": "state_preservation",
+          "target": "synergy",
+          "weight": 0.8177
+        }
+      ]
+    },
+    "assumptions": [
+      "Sufficient stabilizer overlap ensures conservation of algebraic symmetries in concatenated states.",
+      "Low tensor network rank restricts accumulation of node contraction errors during composition."
+    ],
+    "predictions": [
+      "PRED_007",
+      "PRED_002"
+    ],
+    "confidence": 0.1,
+    "status": "CANDIDATE",
+    "parent_theory": "THEORY_002",
+    "removed_assumptions": [],
+    "preserved_assumptions": [
+      "Sufficient stabilizer overlap ensures conservation of algebraic symmetries in concatenated states.",
+      "Low tensor network rank restricts accumulation of node contraction errors during composition."
+    ]
+  },
+  {
+    "id": "THEORY_004_REV2",
+    "name": "Topology Centrality and Recombinatorial Novelty Theory (REV2: Pruned)",
+    "laws_explained": [
+      "LAW_004",
+      "LAW_008",
+      "LAW_012",
+      "LAW_016",
+      "LAW_020",
+      "LAW_024"
+    ],
+    "mechanism_graph": {
+      "nodes": [
+        {
+          "id": "betweenness_centrality",
+          "type": "input",
+          "label": "Betweenness Centrality"
+        },
+        {
+          "id": "reuse_bottleneck",
+          "type": "latent",
+          "label": "Reuse Bottleneck"
+        },
+        {
+          "id": "module_recombination",
+          "type": "latent",
+          "label": "Module Recombination"
+        },
+        {
+          "id": "novelty",
+          "type": "output",
+          "label": "Scaffold Novelty"
+        }
+      ],
+      "edges": [
+        {
+          "source": "betweenness_centrality",
+          "target": "reuse_bottleneck",
+          "weight": 0.8402
+        },
+        {
+          "source": "reuse_bottleneck",
+          "target": "module_recombination",
+          "weight": 1.0
+        },
+        {
+          "source": "module_recombination",
+          "target": "novelty",
+          "weight": 0.8992
+        }
+      ]
+    },
+    "assumptions": [
+      "High betweenness centrality indicates structural bottleneck states connecting independent circuit modules.",
+      "Central topological pattern reuse increases structural variety and combinations, driving overall novelty."
+    ],
+    "predictions": [
+      "PRED_003",
+      "PRED_008"
+    ],
+    "confidence": 0.1,
+    "status": "CANDIDATE",
+    "parent_theory": "THEORY_004",
+    "removed_assumptions": [],
+    "preserved_assumptions": [
+      "High betweenness centrality indicates structural bottleneck states connecting independent circuit modules.",
+      "Central topological pattern reuse increases structural variety and combinations, driving overall novelty."
+    ]
+  },
+  {
+    "id": "THEORY_004_REV3",
+    "name": "Topology Centrality and Recombinatorial Novelty Theory (REV3: Noise-Augmented)",
+    "laws_explained": [
+      "LAW_004",
+      "LAW_008",
+      "LAW_012",
+      "LAW_016",
+      "LAW_020",
+      "LAW_024"
+    ],
+    "mechanism_graph": {
+      "nodes": [
+        {
+          "id": "betweenness_centrality",
+          "type": "input",
+          "label": "Betweenness Centrality"
+        },
+        {
+          "id": "reuse_bottleneck",
+          "type": "latent",
+          "label": "Reuse Bottleneck"
+        },
+        {
+          "id": "module_recombination",
+          "type": "latent",
+          "label": "Module Recombination"
+        },
+        {
+          "id": "novelty",
+          "type": "output",
+          "label": "Scaffold Novelty"
+        }
+      ],
+      "edges": [
+        {
+          "source": "betweenness_centrality",
+          "target": "reuse_bottleneck",
+          "weight": 0.8369
+        },
+        {
+          "source": "reuse_bottleneck",
+          "target": "module_recombination",
+          "weight": 0.9857
+        },
+        {
+          "source": "module_recombination",
+          "target": "novelty",
+          "weight": 0.8911
+        }
+      ]
+    },
+    "assumptions": [
+      "High betweenness centrality indicates structural bottleneck states connecting independent circuit modules.",
+      "Central topological pattern reuse increases structural variety and combinations, driving overall novelty."
+    ],
+    "predictions": [
+      "PRED_003",
+      "PRED_008"
+    ],
+    "confidence": 0.1,
+    "status": "CANDIDATE",
+    "parent_theory": "THEORY_004",
+    "removed_assumptions": [],
+    "preserved_assumptions": [
+      "High betweenness centrality indicates structural bottleneck states connecting independent circuit modules.",
+      "Central topological pattern reuse increases structural variety and combinations, driving overall novelty."
+    ]
+  },
+  {
+    "id": "THEORY_003_REV2",
+    "name": "Clifford Algebraic Noise Resilience Theory (REV2: Pruned)",
+    "laws_explained": [
+      "LAW_003",
+      "LAW_007",
+      "LAW_011",
+      "LAW_015",
+      "LAW_019",
+      "LAW_023",
+      "LAW_027"
+    ],
+    "mechanism_graph": {
+      "nodes": [
+        {
+          "id": "clifford_ratio",
+          "type": "input",
+          "label": "Clifford Ratio"
+        },
+        {
+          "id": "stabilizer_compatibility",
+          "type": "latent",
+          "label": "Stabilizer Compatibility"
+        },
+        {
+          "id": "error_mitigation",
+          "type": "latent",
+          "label": "Error Mitigation"
+        },
+        {
+          "id": "noise_resilience",
+          "type": "output",
+          "label": "Noise Resilience"
+        }
+      ],
+      "edges": [
+        {
+          "source": "clifford_ratio",
+          "target": "stabilizer_compatibility",
+          "weight": 0.7978
+        },
+        {
+          "source": "stabilizer_compatibility",
+          "target": "error_mitigation",
+          "weight": 1.0
+        },
+        {
+          "source": "error_mitigation",
+          "target": "noise_resilience",
+          "weight": 0.8063
+        }
+      ]
+    },
+    "assumptions": [
+      "High Clifford ratio is structurally compatible with stabilizer-based error correction codes.",
+      "Classical simulator tractability of Clifford sub-circuits facilitates high-fidelity zero-noise extrapolation."
+    ],
+    "predictions": [
+      "PRED_004",
+      "PRED_010"
+    ],
+    "confidence": 0.1,
+    "status": "CANDIDATE",
+    "parent_theory": "THEORY_003",
+    "removed_assumptions": [],
+    "preserved_assumptions": [
+      "High Clifford ratio is structurally compatible with stabilizer-based error correction codes.",
+      "Classical simulator tractability of Clifford sub-circuits facilitates high-fidelity zero-noise extrapolation."
+    ]
+  },
+  {
+    "id": "THEORY_003_REV3",
+    "name": "Clifford Algebraic Noise Resilience Theory (REV3: Noise-Augmented)",
+    "laws_explained": [
+      "LAW_003",
+      "LAW_007",
+      "LAW_011",
+      "LAW_015",
+      "LAW_019",
+      "LAW_023",
+      "LAW_027"
+    ],
+    "mechanism_graph": {
+      "nodes": [
+        {
+          "id": "clifford_ratio",
+          "type": "input",
+          "label": "Clifford Ratio"
+        },
+        {
+          "id": "stabilizer_compatibility",
+          "type": "latent",
+          "label": "Stabilizer Compatibility"
+        },
+        {
+          "id": "error_mitigation",
+          "type": "latent",
+          "label": "Error Mitigation"
+        },
+        {
+          "id": "noise_resilience",
+          "type": "output",
+          "label": "Noise Resilience"
+        }
+      ],
+      "edges": [
+        {
+          "source": "clifford_ratio",
+          "target": "stabilizer_compatibility",
+          "weight": 0.7958
+        },
+        {
+          "source": "stabilizer_compatibility",
+          "target": "error_mitigation",
+          "weight": 0.992
+        },
+        {
+          "source": "error_mitigation",
+          "target": "noise_resilience",
+          "weight": 0.8025
+        }
+      ]
+    },
+    "assumptions": [
+      "High Clifford ratio is structurally compatible with stabilizer-based error correction codes.",
+      "Classical simulator tractability of Clifford sub-circuits facilitates high-fidelity zero-noise extrapolation."
+    ],
+    "predictions": [
+      "PRED_004",
+      "PRED_010"
+    ],
+    "confidence": 0.1,
+    "status": "CANDIDATE",
+    "parent_theory": "THEORY_003",
+    "removed_assumptions": [],
+    "preserved_assumptions": [
+      "High Clifford ratio is structurally compatible with stabilizer-based error correction codes.",
+      "Classical simulator tractability of Clifford sub-circuits facilitates high-fidelity zero-noise extrapolation."
+    ]
+  }
+]

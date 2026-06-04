@@ -1,0 +1,138 @@
+[
+  {
+    "theory_id": "THEORY_003",
+    "overall_survival_rate": 1.0,
+    "edges": [
+      {
+        "source": "clifford_ratio",
+        "target": "stabilizer_compatibility",
+        "sim_weight": 0.7978,
+        "physical_correlation": 0.7958,
+        "survival_ratio": 0.9975,
+        "preservation": "PRESERVED"
+      },
+      {
+        "source": "stabilizer_compatibility",
+        "target": "error_mitigation",
+        "sim_weight": 1.0,
+        "physical_correlation": 0.992,
+        "survival_ratio": 0.992,
+        "preservation": "PRESERVED"
+      },
+      {
+        "source": "error_mitigation",
+        "target": "noise_resilience",
+        "sim_weight": 0.8063,
+        "physical_correlation": 0.8025,
+        "survival_ratio": 0.9953,
+        "preservation": "PRESERVED"
+      }
+    ]
+  },
+  {
+    "theory_id": "THEORY_001",
+    "overall_survival_rate": 1.0,
+    "edges": [
+      {
+        "source": "gate_entropy",
+        "target": "structural_coherence",
+        "sim_weight": -0.7698,
+        "physical_correlation": -0.7667,
+        "survival_ratio": 0.996,
+        "preservation": "PRESERVED"
+      },
+      {
+        "source": "structural_coherence",
+        "target": "domain_similarity",
+        "sim_weight": 1.0,
+        "physical_correlation": 0.991,
+        "survival_ratio": 0.991,
+        "preservation": "PRESERVED"
+      },
+      {
+        "source": "domain_similarity",
+        "target": "transferability",
+        "sim_weight": 0.8532,
+        "physical_correlation": 0.8467,
+        "survival_ratio": 0.9924,
+        "preservation": "PRESERVED"
+      }
+    ]
+  },
+  {
+    "theory_id": "THEORY_004",
+    "overall_survival_rate": 1.0,
+    "edges": [
+      {
+        "source": "betweenness_centrality",
+        "target": "reuse_bottleneck",
+        "sim_weight": 0.8402,
+        "physical_correlation": 0.8369,
+        "survival_ratio": 0.9961,
+        "preservation": "PRESERVED"
+      },
+      {
+        "source": "reuse_bottleneck",
+        "target": "module_recombination",
+        "sim_weight": 1.0,
+        "physical_correlation": 0.9857,
+        "survival_ratio": 0.9857,
+        "preservation": "PRESERVED"
+      },
+      {
+        "source": "module_recombination",
+        "target": "novelty",
+        "sim_weight": 0.8992,
+        "physical_correlation": 0.8911,
+        "survival_ratio": 0.991,
+        "preservation": "PRESERVED"
+      }
+    ]
+  },
+  {
+    "theory_id": "THEORY_002",
+    "overall_survival_rate": 1.0,
+    "edges": [
+      {
+        "source": "stabilizer_overlap",
+        "target": "algebraic_symmetry",
+        "sim_weight": 0.8596,
+        "physical_correlation": 0.8495,
+        "survival_ratio": 0.9883,
+        "preservation": "PRESERVED"
+      },
+      {
+        "source": "algebraic_symmetry",
+        "target": "state_preservation",
+        "sim_weight": 0.2681,
+        "physical_correlation": 0.2376,
+        "survival_ratio": 0.8862,
+        "preservation": "PRESERVED"
+      },
+      {
+        "source": "tensor_rank",
+        "target": "computation_complexity",
+        "sim_weight": 0.4722,
+        "physical_correlation": 0.4729,
+        "survival_ratio": 1.0015,
+        "preservation": "PRESERVED"
+      },
+      {
+        "source": "computation_complexity",
+        "target": "state_preservation",
+        "sim_weight": -0.3461,
+        "physical_correlation": -0.3879,
+        "survival_ratio": 1.1208,
+        "preservation": "PRESERVED"
+      },
+      {
+        "source": "state_preservation",
+        "target": "synergy",
+        "sim_weight": 0.9816,
+        "physical_correlation": 0.8177,
+        "survival_ratio": 0.833,
+        "preservation": "PRESERVED"
+      }
+    ]
+  }
+]

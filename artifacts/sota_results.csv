@@ -1,8 +1,8 @@
 system,baseline,metric,metric_value,time_s,accuracy_per_sec,jaccard_per_min,status,reason
-lorenz,OUR_PIPELINE_EV3,feature_norm,471.88340400717544,42.249509099987336,0.023668914060833424,,OK,
-lorenz,OUR_PIPELINE_SINDy,r2,,0.001338799949735403,0.0,,FAILED,
-lorenz,OUR_PIPELINE_TOPO,h0_count,,6.400048732757568e-06,,,FAILED,
+lorenz,OUR_PIPELINE_EV3,feature_norm,471.88340400717544,44.70277630002238,0.022369975262576686,,OK,
+lorenz,OUR_PIPELINE_SINDy,r2,,0.0025312999496236444,0.0,,FAILED,
+lorenz,OUR_PIPELINE_TOPO,h0_count,,6.900052540004253e-06,,,FAILED,
 lorenz,PySINDy,r2,,,,,"ERROR: solve: Input operand 1 does not have enough dimensions (has 1, gufunc core with signature (m,m),(m,n)->(m,n) requires 2)",
-lorenz,Ripser,h0_count,297.0,0.023103700019419193,,,OK,
-lorenz,sklearn_RF,accuracy,0.993127147766323,0.14286199992056936,6.951653682004293,,OK,
+lorenz,Ripser,h0_count,297.0,0.028414000058546662,,,OK,
+lorenz,sklearn_RF,accuracy,0.993127147766323,0.2351799999596551,4.2228384553818055,,OK,
 lorenz,AI_Feynman,n/a,,,,,NOT_EVALUATED,aifeynman not installed

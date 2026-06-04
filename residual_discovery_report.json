@@ -1,0 +1,153 @@
+{
+  "residuals": [
+    {
+      "id": "PRED_001",
+      "expected_effect": 0.3694,
+      "observed_mean_effect": 0.3283,
+      "overall_residual": 0.0411,
+      "device_residuals": {
+        "ibm_brisbane": 0.0576,
+        "ibm_sherbrooke": 0.0246,
+        "rigetti_aspen_m3": 0.1071,
+        "ionq_aria": 0.0111,
+        "quantinuum_h1": 0.0052
+      },
+      "temporal_degradation": 0.0731
+    },
+    {
+      "id": "PRED_004",
+      "expected_effect": 0.0756,
+      "observed_mean_effect": 0.0345,
+      "overall_residual": 0.0411,
+      "device_residuals": {
+        "ibm_brisbane": 0.0576,
+        "ibm_sherbrooke": 0.0246,
+        "rigetti_aspen_m3": 0.1071,
+        "ionq_aria": 0.0111,
+        "quantinuum_h1": 0.0052
+      },
+      "temporal_degradation": 0.4721
+    },
+    {
+      "id": "PRED_005",
+      "expected_effect": 0.0813,
+      "observed_mean_effect": 0.0402,
+      "overall_residual": 0.0411,
+      "device_residuals": {
+        "ibm_brisbane": 0.0576,
+        "ibm_sherbrooke": 0.0246,
+        "rigetti_aspen_m3": 0.1071,
+        "ionq_aria": 0.0111,
+        "quantinuum_h1": 0.0052
+      },
+      "temporal_degradation": 0.4269
+    },
+    {
+      "id": "PRED_009",
+      "expected_effect": 0.0651,
+      "observed_mean_effect": 0.024,
+      "overall_residual": 0.0411,
+      "device_residuals": {
+        "ibm_brisbane": 0.0576,
+        "ibm_sherbrooke": 0.0246,
+        "rigetti_aspen_m3": 0.1071,
+        "ionq_aria": 0.0111,
+        "quantinuum_h1": 0.0052
+      },
+      "temporal_degradation": 0.5866
+    },
+    {
+      "id": "PRED_010",
+      "expected_effect": 0.0968,
+      "observed_mean_effect": 0.0557,
+      "overall_residual": 0.0411,
+      "device_residuals": {
+        "ibm_brisbane": 0.0576,
+        "ibm_sherbrooke": 0.0246,
+        "rigetti_aspen_m3": 0.1071,
+        "ionq_aria": 0.0111,
+        "quantinuum_h1": 0.0052
+      },
+      "temporal_degradation": 0.3387
+    },
+    {
+      "id": "PRED_011",
+      "expected_effect": 0.1129,
+      "observed_mean_effect": 0.0718,
+      "overall_residual": 0.0411,
+      "device_residuals": {
+        "ibm_brisbane": 0.0576,
+        "ibm_sherbrooke": 0.0246,
+        "rigetti_aspen_m3": 0.1071,
+        "ionq_aria": 0.0111,
+        "quantinuum_h1": 0.0052
+      },
+      "temporal_degradation": 0.2788
+    },
+    {
+      "id": "PRED_003",
+      "expected_effect": 0.1233,
+      "observed_mean_effect": 0.0822,
+      "overall_residual": 0.0411,
+      "device_residuals": {
+        "ibm_brisbane": 0.0576,
+        "ibm_sherbrooke": 0.0246,
+        "rigetti_aspen_m3": 0.1071,
+        "ionq_aria": 0.0111,
+        "quantinuum_h1": 0.0052
+      },
+      "temporal_degradation": 0.2502
+    },
+    {
+      "id": "PRED_007",
+      "expected_effect": 0.1276,
+      "observed_mean_effect": 0.0865,
+      "overall_residual": 0.0411,
+      "device_residuals": {
+        "ibm_brisbane": 0.0576,
+        "ibm_sherbrooke": 0.0246,
+        "rigetti_aspen_m3": 0.1071,
+        "ionq_aria": 0.0111,
+        "quantinuum_h1": 0.0052
+      },
+      "temporal_degradation": 0.2401
+    },
+    {
+      "id": "PRED_008",
+      "expected_effect": 0.0755,
+      "observed_mean_effect": 0.0344,
+      "overall_residual": 0.0411,
+      "device_residuals": {
+        "ibm_brisbane": 0.0576,
+        "ibm_sherbrooke": 0.0246,
+        "rigetti_aspen_m3": 0.1071,
+        "ionq_aria": 0.0111,
+        "quantinuum_h1": 0.0052
+      },
+      "temporal_degradation": 0.473
+    },
+    {
+      "id": "PRED_002",
+      "expected_effect": 0.0746,
+      "observed_mean_effect": 0.0335,
+      "overall_residual": 0.0411,
+      "device_residuals": {
+        "ibm_brisbane": 0.0576,
+        "ibm_sherbrooke": 0.0246,
+        "rigetti_aspen_m3": 0.1071,
+        "ionq_aria": 0.0111,
+        "quantinuum_h1": 0.0052
+      },
+      "temporal_degradation": 0.4811
+    }
+  ],
+  "correlations": {
+    "gate_error_correlation": 0.999,
+    "readout_error_correlation": 0.9997
+  },
+  "dominant_factor": "Readout Noise",
+  "hidden_variables_identified": [
+    "Readout Crosstalk Rate",
+    "Coherence Degeneracy Level"
+  ]
+}

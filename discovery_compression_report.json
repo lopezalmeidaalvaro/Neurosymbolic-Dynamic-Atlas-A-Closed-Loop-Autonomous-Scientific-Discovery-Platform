@@ -1,0 +1,30 @@
+{
+  "cases": {
+    "original_manual": {
+      "compression_ratio": 1.0,
+      "utility": 0.0,
+      "synergy": -0.5,
+      "transferability": 0.5
+    },
+    "manual_plus_pyzx": {
+      "compression_ratio": 1.0,
+      "utility": 0.0,
+      "synergy": -0.5,
+      "transferability": 0.5
+    },
+    "generated_unoptimized": {
+      "compression_ratio": 1.0,
+      "utility": 0.95,
+      "synergy": 0.45,
+      "transferability": 0.5
+    },
+    "generated_plus_pyzx": {
+      "compression_ratio": 1.0,
+      "utility": 0.95,
+      "synergy": 0.45,
+      "transferability": 0.5
+    }
+  },
+  "classification": "TRUE_DISCOVERY",
+  "verdict": "COMPRESSION_AUDIT_COMPLETE"
+}

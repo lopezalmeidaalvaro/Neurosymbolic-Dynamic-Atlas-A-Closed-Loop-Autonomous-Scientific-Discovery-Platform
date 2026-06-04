@@ -1,0 +1,23 @@
+[
+  {
+    "pattern_a": "H(q0)",
+    "pattern_b": "CNOT(q0,q1)",
+    "context_a": {
+      "task_name": "bell_state",
+      "qubit_count": 2,
+      "converged": true
+    },
+    "context_b": {
+      "task_name": "bell_state",
+      "qubit_count": 2,
+      "converged": true
+    },
+    "interaction_type": "STATE_PREPARATION_EXTENSION",
+    "synergy_score": 0.3,
+    "utility_pair": 0.6,
+    "max_component_utility": 0.3,
+    "fitness": 1.6,
+    "survival": 1.0,
+    "novelty": 1.0
+  }
+]

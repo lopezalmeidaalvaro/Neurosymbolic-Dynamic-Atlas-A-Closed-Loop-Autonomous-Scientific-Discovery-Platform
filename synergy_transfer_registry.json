@@ -1,0 +1,20 @@
+[
+  {
+    "representation": "H->CNOT->H(q0)->CNOT(q0,q1)",
+    "sequence": [
+      "H",
+      "CNOT",
+      "H",
+      "CNOT"
+    ],
+    "interaction_type": "STATE_PREPARATION_EXTENSION",
+    "contexts": {
+      "task_name": "bell_state",
+      "qubit_count": 2
+    },
+    "utility": 0.3,
+    "confidence": 0.5,
+    "novelty": 0.4,
+    "synergy_score": 0.478
+  }
+]

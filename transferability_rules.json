@@ -1,0 +1,17 @@
+[
+  {
+    "rule": "IF topology_similarity >= 0.6 THEN transfer_success = True",
+    "precision": 1.0,
+    "coverage": 0.5
+  },
+  {
+    "rule": "IF qubit_count_difference >= 1.0 THEN transfer_success = False",
+    "precision": 0.5,
+    "coverage": 1.0
+  },
+  {
+    "rule": "IF gate_distribution_distance >= 0.5 THEN transfer_success = False",
+    "precision": 1.0,
+    "coverage": 0.5
+  }
+]

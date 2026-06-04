@@ -1,0 +1,20 @@
+{
+  "universe": "Synthetic World A",
+  "true_edges": [
+    "domain_similarity -> transferability",
+    "gate_entropy -> structural_coherence",
+    "structural_coherence -> domain_similarity"
+  ],
+  "recovered_edges": [
+    "domain_similarity -> transferability",
+    "gate_entropy -> structural_coherence",
+    "structural_coherence -> domain_similarity"
+  ],
+  "true_positives": 3,
+  "false_positives": 0,
+  "false_negatives": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "recovery_f1": 1.0,
+  "status": "PASSED"
+}

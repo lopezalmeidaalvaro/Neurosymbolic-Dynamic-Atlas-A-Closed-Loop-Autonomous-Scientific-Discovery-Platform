@@ -1,0 +1,1433 @@
+[
+  {
+    "id": "LAW_001",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_001_1",
+        "qubit_count": 28,
+        "depth": 393,
+        "noise_level": 0.1317,
+        "consequent_value": 0.1187,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_001_2",
+        "qubit_count": 14,
+        "depth": 170,
+        "noise_level": 0.1593,
+        "consequent_value": 0.3115,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_001_3",
+        "qubit_count": 26,
+        "depth": 384,
+        "noise_level": 0.1315,
+        "consequent_value": 0.3027,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_001_4",
+        "qubit_count": 17,
+        "depth": 248,
+        "noise_level": 0.1814,
+        "consequent_value": 0.1858,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_001_5",
+        "qubit_count": 22,
+        "depth": 393,
+        "noise_level": 0.1614,
+        "consequent_value": 0.2001,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_002",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_002_1",
+        "qubit_count": 6,
+        "depth": 160,
+        "noise_level": 0.2205,
+        "consequent_value": 0.2714,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_002_2",
+        "qubit_count": 23,
+        "depth": 281,
+        "noise_level": 0.2444,
+        "consequent_value": 0.297,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_002_3",
+        "qubit_count": 12,
+        "depth": 207,
+        "noise_level": 0.1804,
+        "consequent_value": 0.0684,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_002_4",
+        "qubit_count": 11,
+        "depth": 314,
+        "noise_level": 0.1315,
+        "consequent_value": 0.3114,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_002_5",
+        "qubit_count": 14,
+        "depth": 202,
+        "noise_level": 0.1495,
+        "consequent_value": 0.1936,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_003",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_003_1",
+        "qubit_count": 18,
+        "depth": 152,
+        "noise_level": 0.1629,
+        "consequent_value": 0.0875,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_003_2",
+        "qubit_count": 12,
+        "depth": 242,
+        "noise_level": 0.1604,
+        "consequent_value": 0.2667,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_003_3",
+        "qubit_count": 14,
+        "depth": 365,
+        "noise_level": 0.1808,
+        "consequent_value": 0.1074,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_003_4",
+        "qubit_count": 25,
+        "depth": 262,
+        "noise_level": 0.192,
+        "consequent_value": 0.1233,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_003_5",
+        "qubit_count": 20,
+        "depth": 328,
+        "noise_level": 0.1369,
+        "consequent_value": 0.3015,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_004",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_004_1",
+        "qubit_count": 26,
+        "depth": 339,
+        "noise_level": 0.1962,
+        "consequent_value": 0.0874,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_004_2",
+        "qubit_count": 27,
+        "depth": 215,
+        "noise_level": 0.2358,
+        "consequent_value": 0.0696,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_004_3",
+        "qubit_count": 9,
+        "depth": 226,
+        "noise_level": 0.2108,
+        "consequent_value": 0.1599,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_004_4",
+        "qubit_count": 20,
+        "depth": 256,
+        "noise_level": 0.1309,
+        "consequent_value": 0.3266,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_004_5",
+        "qubit_count": 16,
+        "depth": 273,
+        "noise_level": 0.1833,
+        "consequent_value": 0.1418,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_005",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_005_1",
+        "qubit_count": 18,
+        "depth": 207,
+        "noise_level": 0.1362,
+        "consequent_value": 0.1873,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_005_2",
+        "qubit_count": 6,
+        "depth": 194,
+        "noise_level": 0.1814,
+        "consequent_value": 0.2725,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_005_3",
+        "qubit_count": 16,
+        "depth": 354,
+        "noise_level": 0.2473,
+        "consequent_value": 0.2729,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_005_4",
+        "qubit_count": 22,
+        "depth": 232,
+        "noise_level": 0.2283,
+        "consequent_value": 0.2967,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_005_5",
+        "qubit_count": 27,
+        "depth": 150,
+        "noise_level": 0.2372,
+        "consequent_value": 0.0624,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_006",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_006_1",
+        "qubit_count": 21,
+        "depth": 275,
+        "noise_level": 0.2068,
+        "consequent_value": 0.1646,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_006_2",
+        "qubit_count": 25,
+        "depth": 285,
+        "noise_level": 0.1579,
+        "consequent_value": 0.192,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_006_3",
+        "qubit_count": 12,
+        "depth": 318,
+        "noise_level": 0.1837,
+        "consequent_value": 0.3788,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_006_4",
+        "qubit_count": 27,
+        "depth": 203,
+        "noise_level": 0.1439,
+        "consequent_value": 0.2883,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_006_5",
+        "qubit_count": 5,
+        "depth": 298,
+        "noise_level": 0.165,
+        "consequent_value": 0.2765,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_007",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_007_1",
+        "qubit_count": 24,
+        "depth": 162,
+        "noise_level": 0.2114,
+        "consequent_value": 0.2454,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_007_2",
+        "qubit_count": 25,
+        "depth": 196,
+        "noise_level": 0.1856,
+        "consequent_value": 0.218,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_007_3",
+        "qubit_count": 11,
+        "depth": 393,
+        "noise_level": 0.2069,
+        "consequent_value": 0.0925,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_007_4",
+        "qubit_count": 21,
+        "depth": 371,
+        "noise_level": 0.1566,
+        "consequent_value": 0.122,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_007_5",
+        "qubit_count": 30,
+        "depth": 310,
+        "noise_level": 0.1237,
+        "consequent_value": 0.1274,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_008",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_008_1",
+        "qubit_count": 11,
+        "depth": 307,
+        "noise_level": 0.1936,
+        "consequent_value": 0.3815,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_008_2",
+        "qubit_count": 13,
+        "depth": 156,
+        "noise_level": 0.2219,
+        "consequent_value": 0.1769,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_008_3",
+        "qubit_count": 17,
+        "depth": 240,
+        "noise_level": 0.1321,
+        "consequent_value": 0.1995,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_008_4",
+        "qubit_count": 6,
+        "depth": 361,
+        "noise_level": 0.2492,
+        "consequent_value": 0.1639,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_008_5",
+        "qubit_count": 5,
+        "depth": 184,
+        "noise_level": 0.2289,
+        "consequent_value": 0.2021,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_009",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_009_1",
+        "qubit_count": 25,
+        "depth": 287,
+        "noise_level": 0.1318,
+        "consequent_value": 0.3041,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_009_2",
+        "qubit_count": 27,
+        "depth": 332,
+        "noise_level": 0.2228,
+        "consequent_value": 0.1444,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_009_3",
+        "qubit_count": 25,
+        "depth": 369,
+        "noise_level": 0.1673,
+        "consequent_value": 0.2759,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_009_4",
+        "qubit_count": 12,
+        "depth": 257,
+        "noise_level": 0.192,
+        "consequent_value": 0.2391,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_009_5",
+        "qubit_count": 6,
+        "depth": 279,
+        "noise_level": 0.2135,
+        "consequent_value": 0.2061,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_010",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_010_1",
+        "qubit_count": 18,
+        "depth": 324,
+        "noise_level": 0.1662,
+        "consequent_value": 0.3363,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_010_2",
+        "qubit_count": 13,
+        "depth": 350,
+        "noise_level": 0.1853,
+        "consequent_value": 0.3003,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_010_3",
+        "qubit_count": 24,
+        "depth": 367,
+        "noise_level": 0.1394,
+        "consequent_value": 0.25,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_010_4",
+        "qubit_count": 21,
+        "depth": 288,
+        "noise_level": 0.211,
+        "consequent_value": 0.2305,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_010_5",
+        "qubit_count": 17,
+        "depth": 288,
+        "noise_level": 0.2045,
+        "consequent_value": 0.2919,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_011",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_011_1",
+        "qubit_count": 8,
+        "depth": 155,
+        "noise_level": 0.1817,
+        "consequent_value": 0.1614,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_011_2",
+        "qubit_count": 24,
+        "depth": 303,
+        "noise_level": 0.1872,
+        "consequent_value": 0.087,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_011_3",
+        "qubit_count": 14,
+        "depth": 360,
+        "noise_level": 0.1252,
+        "consequent_value": 0.3851,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_011_4",
+        "qubit_count": 25,
+        "depth": 384,
+        "noise_level": 0.1294,
+        "consequent_value": 0.1104,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_011_5",
+        "qubit_count": 27,
+        "depth": 173,
+        "noise_level": 0.2487,
+        "consequent_value": 0.2184,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_012",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_012_1",
+        "qubit_count": 26,
+        "depth": 215,
+        "noise_level": 0.2213,
+        "consequent_value": 0.0597,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_012_2",
+        "qubit_count": 30,
+        "depth": 352,
+        "noise_level": 0.1696,
+        "consequent_value": 0.2417,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_012_3",
+        "qubit_count": 18,
+        "depth": 158,
+        "noise_level": 0.1834,
+        "consequent_value": 0.1664,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_012_4",
+        "qubit_count": 23,
+        "depth": 168,
+        "noise_level": 0.2167,
+        "consequent_value": 0.0718,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_012_5",
+        "qubit_count": 8,
+        "depth": 299,
+        "noise_level": 0.1989,
+        "consequent_value": 0.3971,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_013",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_013_1",
+        "qubit_count": 11,
+        "depth": 359,
+        "noise_level": 0.1814,
+        "consequent_value": 0.3079,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_013_2",
+        "qubit_count": 24,
+        "depth": 390,
+        "noise_level": 0.2199,
+        "consequent_value": 0.3776,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_013_3",
+        "qubit_count": 9,
+        "depth": 157,
+        "noise_level": 0.1714,
+        "consequent_value": 0.35,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_013_4",
+        "qubit_count": 20,
+        "depth": 273,
+        "noise_level": 0.2473,
+        "consequent_value": 0.3069,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_013_5",
+        "qubit_count": 28,
+        "depth": 183,
+        "noise_level": 0.1239,
+        "consequent_value": 0.3911,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_014",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_014_1",
+        "qubit_count": 26,
+        "depth": 285,
+        "noise_level": 0.1814,
+        "consequent_value": 0.3031,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_014_2",
+        "qubit_count": 24,
+        "depth": 162,
+        "noise_level": 0.1328,
+        "consequent_value": 0.2481,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_014_3",
+        "qubit_count": 14,
+        "depth": 318,
+        "noise_level": 0.2309,
+        "consequent_value": 0.3778,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_014_4",
+        "qubit_count": 8,
+        "depth": 217,
+        "noise_level": 0.1547,
+        "consequent_value": 0.2968,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_014_5",
+        "qubit_count": 8,
+        "depth": 368,
+        "noise_level": 0.2059,
+        "consequent_value": 0.32,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_015",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_015_1",
+        "qubit_count": 5,
+        "depth": 174,
+        "noise_level": 0.2138,
+        "consequent_value": 0.097,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_015_2",
+        "qubit_count": 10,
+        "depth": 283,
+        "noise_level": 0.1783,
+        "consequent_value": 0.2444,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_015_3",
+        "qubit_count": 30,
+        "depth": 177,
+        "noise_level": 0.2019,
+        "consequent_value": 0.3114,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_015_4",
+        "qubit_count": 29,
+        "depth": 362,
+        "noise_level": 0.2188,
+        "consequent_value": 0.3445,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_015_5",
+        "qubit_count": 5,
+        "depth": 282,
+        "noise_level": 0.2216,
+        "consequent_value": 0.1304,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_016",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_016_1",
+        "qubit_count": 23,
+        "depth": 245,
+        "noise_level": 0.1272,
+        "consequent_value": 0.051,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_016_2",
+        "qubit_count": 12,
+        "depth": 165,
+        "noise_level": 0.2157,
+        "consequent_value": 0.1649,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_016_3",
+        "qubit_count": 22,
+        "depth": 201,
+        "noise_level": 0.1513,
+        "consequent_value": 0.1784,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_016_4",
+        "qubit_count": 22,
+        "depth": 234,
+        "noise_level": 0.2492,
+        "consequent_value": 0.2274,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_016_5",
+        "qubit_count": 21,
+        "depth": 340,
+        "noise_level": 0.1223,
+        "consequent_value": 0.3879,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_017",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_017_1",
+        "qubit_count": 27,
+        "depth": 213,
+        "noise_level": 0.2483,
+        "consequent_value": 0.0526,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_017_2",
+        "qubit_count": 5,
+        "depth": 400,
+        "noise_level": 0.1606,
+        "consequent_value": 0.1541,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_017_3",
+        "qubit_count": 27,
+        "depth": 172,
+        "noise_level": 0.172,
+        "consequent_value": 0.3252,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_017_4",
+        "qubit_count": 14,
+        "depth": 312,
+        "noise_level": 0.1961,
+        "consequent_value": 0.318,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_017_5",
+        "qubit_count": 9,
+        "depth": 238,
+        "noise_level": 0.229,
+        "consequent_value": 0.153,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_018",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_018_1",
+        "qubit_count": 21,
+        "depth": 155,
+        "noise_level": 0.1297,
+        "consequent_value": 0.0839,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_018_2",
+        "qubit_count": 9,
+        "depth": 228,
+        "noise_level": 0.1373,
+        "consequent_value": 0.3386,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_018_3",
+        "qubit_count": 18,
+        "depth": 264,
+        "noise_level": 0.2181,
+        "consequent_value": 0.1537,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_018_4",
+        "qubit_count": 30,
+        "depth": 248,
+        "noise_level": 0.2016,
+        "consequent_value": 0.2358,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_018_5",
+        "qubit_count": 20,
+        "depth": 369,
+        "noise_level": 0.2195,
+        "consequent_value": 0.1419,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_019",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_019_1",
+        "qubit_count": 17,
+        "depth": 258,
+        "noise_level": 0.2197,
+        "consequent_value": 0.0634,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_019_2",
+        "qubit_count": 14,
+        "depth": 281,
+        "noise_level": 0.1351,
+        "consequent_value": 0.3746,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_019_3",
+        "qubit_count": 15,
+        "depth": 174,
+        "noise_level": 0.1532,
+        "consequent_value": 0.2909,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_019_4",
+        "qubit_count": 30,
+        "depth": 334,
+        "noise_level": 0.1886,
+        "consequent_value": 0.1726,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_019_5",
+        "qubit_count": 14,
+        "depth": 399,
+        "noise_level": 0.1417,
+        "consequent_value": 0.28,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_020",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_020_1",
+        "qubit_count": 14,
+        "depth": 210,
+        "noise_level": 0.2167,
+        "consequent_value": 0.1185,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_020_2",
+        "qubit_count": 22,
+        "depth": 284,
+        "noise_level": 0.1657,
+        "consequent_value": 0.0734,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_020_3",
+        "qubit_count": 11,
+        "depth": 344,
+        "noise_level": 0.2193,
+        "consequent_value": 0.3153,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_020_4",
+        "qubit_count": 23,
+        "depth": 214,
+        "noise_level": 0.1734,
+        "consequent_value": 0.2203,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_020_5",
+        "qubit_count": 18,
+        "depth": 232,
+        "noise_level": 0.2128,
+        "consequent_value": 0.3937,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_021",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_021_1",
+        "qubit_count": 18,
+        "depth": 268,
+        "noise_level": 0.224,
+        "consequent_value": 0.1744,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_021_2",
+        "qubit_count": 29,
+        "depth": 224,
+        "noise_level": 0.1718,
+        "consequent_value": 0.1817,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_021_3",
+        "qubit_count": 26,
+        "depth": 340,
+        "noise_level": 0.1988,
+        "consequent_value": 0.1603,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_021_4",
+        "qubit_count": 19,
+        "depth": 256,
+        "noise_level": 0.188,
+        "consequent_value": 0.2035,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_021_5",
+        "qubit_count": 23,
+        "depth": 265,
+        "noise_level": 0.2298,
+        "consequent_value": 0.2822,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_022",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_022_1",
+        "qubit_count": 16,
+        "depth": 309,
+        "noise_level": 0.1951,
+        "consequent_value": 0.1313,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_022_2",
+        "qubit_count": 7,
+        "depth": 175,
+        "noise_level": 0.1459,
+        "consequent_value": 0.2654,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_022_3",
+        "qubit_count": 11,
+        "depth": 327,
+        "noise_level": 0.1421,
+        "consequent_value": 0.3936,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_022_4",
+        "qubit_count": 22,
+        "depth": 234,
+        "noise_level": 0.2173,
+        "consequent_value": 0.2314,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_022_5",
+        "qubit_count": 13,
+        "depth": 304,
+        "noise_level": 0.1372,
+        "consequent_value": 0.3124,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_023",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_023_1",
+        "qubit_count": 16,
+        "depth": 203,
+        "noise_level": 0.2058,
+        "consequent_value": 0.3173,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_023_2",
+        "qubit_count": 12,
+        "depth": 222,
+        "noise_level": 0.1602,
+        "consequent_value": 0.2551,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_023_3",
+        "qubit_count": 30,
+        "depth": 294,
+        "noise_level": 0.1636,
+        "consequent_value": 0.3566,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_023_4",
+        "qubit_count": 28,
+        "depth": 348,
+        "noise_level": 0.1514,
+        "consequent_value": 0.2539,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_023_5",
+        "qubit_count": 22,
+        "depth": 398,
+        "noise_level": 0.1422,
+        "consequent_value": 0.2688,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_024",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_024_1",
+        "qubit_count": 25,
+        "depth": 353,
+        "noise_level": 0.1217,
+        "consequent_value": 0.273,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_024_2",
+        "qubit_count": 13,
+        "depth": 313,
+        "noise_level": 0.2264,
+        "consequent_value": 0.3237,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_024_3",
+        "qubit_count": 25,
+        "depth": 235,
+        "noise_level": 0.1697,
+        "consequent_value": 0.1469,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_024_4",
+        "qubit_count": 27,
+        "depth": 228,
+        "noise_level": 0.2172,
+        "consequent_value": 0.3845,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_024_5",
+        "qubit_count": 16,
+        "depth": 244,
+        "noise_level": 0.1857,
+        "consequent_value": 0.1655,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_025",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_025_1",
+        "qubit_count": 19,
+        "depth": 158,
+        "noise_level": 0.184,
+        "consequent_value": 0.112,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_025_2",
+        "qubit_count": 7,
+        "depth": 327,
+        "noise_level": 0.1906,
+        "consequent_value": 0.2362,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_025_3",
+        "qubit_count": 15,
+        "depth": 200,
+        "noise_level": 0.1913,
+        "consequent_value": 0.3813,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_025_4",
+        "qubit_count": 13,
+        "depth": 227,
+        "noise_level": 0.2019,
+        "consequent_value": 0.3409,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_025_5",
+        "qubit_count": 11,
+        "depth": 194,
+        "noise_level": 0.248,
+        "consequent_value": 0.2614,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_026",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_026_1",
+        "qubit_count": 8,
+        "depth": 220,
+        "noise_level": 0.1401,
+        "consequent_value": 0.2718,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_026_2",
+        "qubit_count": 27,
+        "depth": 281,
+        "noise_level": 0.2332,
+        "consequent_value": 0.1246,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_026_3",
+        "qubit_count": 29,
+        "depth": 303,
+        "noise_level": 0.125,
+        "consequent_value": 0.3698,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_026_4",
+        "qubit_count": 10,
+        "depth": 348,
+        "noise_level": 0.2016,
+        "consequent_value": 0.2834,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_026_5",
+        "qubit_count": 16,
+        "depth": 298,
+        "noise_level": 0.1563,
+        "consequent_value": 0.3259,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  },
+  {
+    "id": "LAW_027",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "counterexamples_found": 5,
+    "law_break_rate": 0.025,
+    "failure_regions": [
+      "noise_level > 0.12",
+      "circuit_depth > 150",
+      "qubit_count > 25"
+    ],
+    "counterexamples": [
+      {
+        "attempt_id": "ATT_LAW_027_1",
+        "qubit_count": 29,
+        "depth": 269,
+        "noise_level": 0.1818,
+        "consequent_value": 0.0814,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_027_2",
+        "qubit_count": 8,
+        "depth": 194,
+        "noise_level": 0.1343,
+        "consequent_value": 0.2036,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_027_3",
+        "qubit_count": 7,
+        "depth": 362,
+        "noise_level": 0.1846,
+        "consequent_value": 0.1087,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_027_4",
+        "qubit_count": 26,
+        "depth": 397,
+        "noise_level": 0.2221,
+        "consequent_value": 0.1101,
+        "context": "Adversarial high noise & extreme depth bounds"
+      },
+      {
+        "attempt_id": "ATT_LAW_027_5",
+        "qubit_count": 23,
+        "depth": 345,
+        "noise_level": 0.226,
+        "consequent_value": 0.365,
+        "context": "Adversarial high noise & extreme depth bounds"
+      }
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "num_seeds": 100,
+  "law_guided": {
+    "mean_utility": 0.9982,
+    "mean_synergy": 0.5122
+  },
+  "random_search": {
+    "mean_utility": 0.9982,
+    "mean_synergy": 0.5202
+  },
+  "statistics": {
+    "t_statistic": 0.4585,
+    "t_test_p_value": 0.647063,
+    "mann_whitney_p_value": 0.314214,
+    "cohens_d": 0.0648,
+    "ci_95_difference": [
+      -0.0002,
+      0.0003
+    ]
+  },
+  "verdict": "DISCOVERY_GUIDANCE_NOT_SIGNIFICANT"
+}

@@ -1,0 +1,146 @@
+{
+  "dataset_statistics": {
+    "total_records": 55,
+    "num_exact_duplicates": 31,
+    "num_near_duplicates": 0,
+    "train_test_overlap_count": 0
+  },
+  "target_leakage": {
+    "leakage_detected": false,
+    "flagged_features": []
+  },
+  "correlation_matrix": {
+    "topology_similarity": {
+      "topology_similarity": 1.0,
+      "qubit_count_difference": -1.0,
+      "entanglement_overlap": -0.239,
+      "state_preparation_overlap": -0.239,
+      "circuit_depth_difference": -0.6071,
+      "gate_distribution_distance": 0.3858,
+      "context_distance": -1.0,
+      "scaffold_complexity": NaN,
+      "interaction_frequency": -0.1691,
+      "transfer_success": 0.0619
+    },
+    "qubit_count_difference": {
+      "topology_similarity": -1.0,
+      "qubit_count_difference": 1.0,
+      "entanglement_overlap": 0.239,
+      "state_preparation_overlap": 0.239,
+      "circuit_depth_difference": 0.6071,
+      "gate_distribution_distance": -0.3858,
+      "context_distance": 1.0,
+      "scaffold_complexity": NaN,
+      "interaction_frequency": 0.1691,
+      "transfer_success": -0.0619
+    },
+    "entanglement_overlap": {
+      "topology_similarity": -0.239,
+      "qubit_count_difference": 0.239,
+      "entanglement_overlap": 1.0,
+      "state_preparation_overlap": 1.0,
+      "circuit_depth_difference": -0.4183,
+      "gate_distribution_distance": -0.1936,
+      "context_distance": 0.239,
+      "scaffold_complexity": NaN,
+      "interaction_frequency": -0.0707,
+      "transfer_success": 0.1208
+    },
+    "state_preparation_overlap": {
+      "topology_similarity": -0.239,
+      "qubit_count_difference": 0.239,
+      "entanglement_overlap": 1.0,
+      "state_preparation_overlap": 1.0,
+      "circuit_depth_difference": -0.4183,
+      "gate_distribution_distance": -0.1936,
+      "context_distance": 0.239,
+      "scaffold_complexity": NaN,
+      "interaction_frequency": -0.0707,
+      "transfer_success": 0.1208
+    },
+    "circuit_depth_difference": {
+      "topology_similarity": -0.6071,
+      "qubit_count_difference": 0.6071,
+      "entanglement_overlap": -0.4183,
+      "state_preparation_overlap": -0.4183,
+      "circuit_depth_difference": 1.0,
+      "gate_distribution_distance": 0.0386,
+      "context_distance": 0.6071,
+      "scaffold_complexity": NaN,
+      "interaction_frequency": 0.1691,
+      "transfer_success": -0.0619
+    },
+    "gate_distribution_distance": {
+      "topology_similarity": 0.3858,
+      "qubit_count_difference": -0.3858,
+      "entanglement_overlap": -0.1936,
+      "state_preparation_overlap": -0.1936,
+      "circuit_depth_difference": 0.0386,
+      "gate_distribution_distance": 1.0,
+      "context_distance": -0.3858,
+      "scaffold_complexity": NaN,
+      "interaction_frequency": -0.0533,
+      "transfer_success": 0.1114
+    },
+    "context_distance": {
+      "topology_similarity": -1.0,
+      "qubit_count_difference": 1.0,
+      "entanglement_overlap": 0.239,
+      "state_preparation_overlap": 0.239,
+      "circuit_depth_difference": 0.6071,
+      "gate_distribution_distance": -0.3858,
+      "context_distance": 1.0,
+      "scaffold_complexity": NaN,
+      "interaction_frequency": 0.1691,
+      "transfer_success": -0.0619
+    },
+    "scaffold_complexity": {
+      "topology_similarity": NaN,
+      "qubit_count_difference": NaN,
+      "entanglement_overlap": NaN,
+      "state_preparation_overlap": NaN,
+      "circuit_depth_difference": NaN,
+      "gate_distribution_distance": NaN,
+      "context_distance": NaN,
+      "scaffold_complexity": NaN,
+      "interaction_frequency": NaN,
+      "transfer_success": NaN
+    },
+    "interaction_frequency": {
+      "topology_similarity": -0.1691,
+      "qubit_count_difference": 0.1691,
+      "entanglement_overlap": -0.0707,
+      "state_preparation_overlap": -0.0707,
+      "circuit_depth_difference": 0.1691,
+      "gate_distribution_distance": -0.0533,
+      "context_distance": 0.1691,
+      "scaffold_complexity": NaN,
+      "interaction_frequency": 1.0,
+      "transfer_success": -0.0675
+    },
+    "transfer_success": {
+      "topology_similarity": 0.0619,
+      "qubit_count_difference": -0.0619,
+      "entanglement_overlap": 0.1208,
+      "state_preparation_overlap": 0.1208,
+      "circuit_depth_difference": -0.0619,
+      "gate_distribution_distance": 0.1114,
+      "context_distance": -0.0619,
+      "scaffold_complexity": NaN,
+      "interaction_frequency": -0.0675,
+      "transfer_success": 1.0
+    }
+  },
+  "mutual_information": {
+    "topology_similarity": 0.2428,
+    "qubit_count_difference": 0.0,
+    "entanglement_overlap": 0.4799,
+    "state_preparation_overlap": 0.4647,
+    "circuit_depth_difference": 0.2953,
+    "gate_distribution_distance": 0.3894,
+    "context_distance": 0.3425,
+    "scaffold_complexity": 0.4344,
+    "interaction_frequency": 0.0
+  },
+  "verdict": "CLEAN_DATASET"
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "theory_id": "THEORY_003",
+    "name": "Clifford Algebraic Noise Resilience Theory",
+    "evolution_operation": "RETIREMENT",
+    "old_status": "CANDIDATE",
+    "new_status": "RETIRED",
+    "rationale": "Zero predictions successfully confirmed in independent environments."
+  },
+  {
+    "theory_id": "THEORY_001",
+    "name": "Information Entropy and Representation Coherence Theory",
+    "evolution_operation": "REVISION",
+    "old_status": "CANDIDATE",
+    "new_status": "CANDIDATE",
+    "rationale": "Moderate predictive confirmation rate (25.0%). Theory revised for tighter constraints."
+  },
+  {
+    "theory_id": "THEORY_004",
+    "name": "Topology Centrality and Recombinatorial Novelty Theory",
+    "evolution_operation": "RETIREMENT",
+    "old_status": "CANDIDATE",
+    "new_status": "RETIRED",
+    "rationale": "Zero predictions successfully confirmed in independent environments."
+  },
+  {
+    "theory_id": "THEORY_002",
+    "name": "Stabilizer Symmetry Conservation and Emergent Synergy Theory",
+    "evolution_operation": "RETIREMENT",
+    "old_status": "CANDIDATE",
+    "new_status": "RETIRED",
+    "rationale": "Zero predictions successfully confirmed in independent environments."
+  }
+]

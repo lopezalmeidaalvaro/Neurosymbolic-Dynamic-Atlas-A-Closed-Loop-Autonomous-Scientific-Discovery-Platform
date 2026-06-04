@@ -1,0 +1,380 @@
+[
+  {
+    "id": "LAW_001",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "simulator_accuracies": {
+      "Qiskit": 1.0,
+      "Cirq": 0.9948,
+      "PennyLane": 0.9922,
+      "Stim": 1.0,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0033,
+    "effect_consistency": 0.9967
+  },
+  {
+    "id": "LAW_002",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.9993,
+      "Cirq": 1.0,
+      "PennyLane": 1.0,
+      "Stim": 0.9894,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0042,
+    "effect_consistency": 0.9958
+  },
+  {
+    "id": "LAW_003",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "simulator_accuracies": {
+      "Qiskit": 1.0,
+      "Cirq": 1.0,
+      "PennyLane": 0.9859,
+      "Stim": 1.0,
+      "PyZX": 0.9902
+    },
+    "agreement_score": 1.0,
+    "variance": 0.006,
+    "effect_consistency": 0.994
+  },
+  {
+    "id": "LAW_004",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "simulator_accuracies": {
+      "Qiskit": 1.0,
+      "Cirq": 1.0,
+      "PennyLane": 1.0,
+      "Stim": 0.9905,
+      "PyZX": 0.9946
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0039,
+    "effect_consistency": 0.9961
+  },
+  {
+    "id": "LAW_005",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.9876,
+      "Cirq": 1.0,
+      "PennyLane": 1.0,
+      "Stim": 0.9911,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0053,
+    "effect_consistency": 0.9947
+  },
+  {
+    "id": "LAW_006",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.9874,
+      "Cirq": 0.991,
+      "PennyLane": 1.0,
+      "Stim": 0.9981,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0052,
+    "effect_consistency": 0.9948
+  },
+  {
+    "id": "LAW_007",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.9873,
+      "Cirq": 1.0,
+      "PennyLane": 1.0,
+      "Stim": 1.0,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0051,
+    "effect_consistency": 0.9949
+  },
+  {
+    "id": "LAW_008",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "simulator_accuracies": {
+      "Qiskit": 1.0,
+      "Cirq": 0.9878,
+      "PennyLane": 0.9988,
+      "Stim": 0.9874,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0059,
+    "effect_consistency": 0.9941
+  },
+  {
+    "id": "LAW_009",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "simulator_accuracies": {
+      "Qiskit": 1.0,
+      "Cirq": 0.9882,
+      "PennyLane": 0.9983,
+      "Stim": 1.0,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0046,
+    "effect_consistency": 0.9954
+  },
+  {
+    "id": "LAW_010",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.9886,
+      "Cirq": 1.0,
+      "PennyLane": 0.9867,
+      "Stim": 1.0,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0061,
+    "effect_consistency": 0.9939
+  },
+  {
+    "id": "LAW_011",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "simulator_accuracies": {
+      "Qiskit": 1.0,
+      "Cirq": 1.0,
+      "PennyLane": 1.0,
+      "Stim": 1.0,
+      "PyZX": 0.9992
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0003,
+    "effect_consistency": 0.9997
+  },
+  {
+    "id": "LAW_012",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "simulator_accuracies": {
+      "Qiskit": 1.0,
+      "Cirq": 1.0,
+      "PennyLane": 0.9965,
+      "Stim": 1.0,
+      "PyZX": 0.9861
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0054,
+    "effect_consistency": 0.9946
+  },
+  {
+    "id": "LAW_013",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.9999,
+      "Cirq": 0.9862,
+      "PennyLane": 0.9957,
+      "Stim": 1.0,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0053,
+    "effect_consistency": 0.9947
+  },
+  {
+    "id": "LAW_014",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "simulator_accuracies": {
+      "Qiskit": 1.0,
+      "Cirq": 1.0,
+      "PennyLane": 1.0,
+      "Stim": 0.9867,
+      "PyZX": 0.9991
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0052,
+    "effect_consistency": 0.9948
+  },
+  {
+    "id": "LAW_015",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "simulator_accuracies": {
+      "Qiskit": 1.0,
+      "Cirq": 0.9879,
+      "PennyLane": 0.9939,
+      "Stim": 1.0,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0048,
+    "effect_consistency": 0.9952
+  },
+  {
+    "id": "LAW_016",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "simulator_accuracies": {
+      "Qiskit": 1.0,
+      "Cirq": 1.0,
+      "PennyLane": 1.0,
+      "Stim": 1.0,
+      "PyZX": 0.9869
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0052,
+    "effect_consistency": 0.9948
+  },
+  {
+    "id": "LAW_017",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.9994,
+      "Cirq": 1.0,
+      "PennyLane": 1.0,
+      "Stim": 0.9858,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0056,
+    "effect_consistency": 0.9944
+  },
+  {
+    "id": "LAW_018",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.9876,
+      "Cirq": 1.0,
+      "PennyLane": 0.9884,
+      "Stim": 0.9967,
+      "PyZX": 0.9993
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0053,
+    "effect_consistency": 0.9947
+  },
+  {
+    "id": "LAW_019",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "simulator_accuracies": {
+      "Qiskit": 1.0,
+      "Cirq": 0.9891,
+      "PennyLane": 0.9928,
+      "Stim": 1.0,
+      "PyZX": 0.9876
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0053,
+    "effect_consistency": 0.9947
+  },
+  {
+    "id": "LAW_020",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.9899,
+      "Cirq": 0.9858,
+      "PennyLane": 1.0,
+      "Stim": 0.992,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0056,
+    "effect_consistency": 0.9944
+  },
+  {
+    "id": "LAW_021",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.9964,
+      "Cirq": 1.0,
+      "PennyLane": 1.0,
+      "Stim": 1.0,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0014,
+    "effect_consistency": 0.9986
+  },
+  {
+    "id": "LAW_022",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.993,
+      "Cirq": 1.0,
+      "PennyLane": 0.9881,
+      "Stim": 1.0,
+      "PyZX": 0.9939
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0045,
+    "effect_consistency": 0.9955
+  },
+  {
+    "id": "LAW_023",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.9933,
+      "Cirq": 0.9986,
+      "PennyLane": 0.9907,
+      "Stim": 1.0,
+      "PyZX": 0.9871
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0048,
+    "effect_consistency": 0.9952
+  },
+  {
+    "id": "LAW_024",
+    "rule": "IF betweenness_centrality > 0.25 THEN novelty increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.9856,
+      "Cirq": 0.9892,
+      "PennyLane": 0.9877,
+      "Stim": 1.0,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0062,
+    "effect_consistency": 0.9938
+  },
+  {
+    "id": "LAW_025",
+    "rule": "IF gate_entropy < 0.25 THEN transferability increases",
+    "simulator_accuracies": {
+      "Qiskit": 1.0,
+      "Cirq": 1.0,
+      "PennyLane": 0.99,
+      "Stim": 1.0,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.004,
+    "effect_consistency": 0.996
+  },
+  {
+    "id": "LAW_026",
+    "rule": "IF stabilizer_overlap > 0.6 AND tensor_rank < 3 THEN synergy increases",
+    "simulator_accuracies": {
+      "Qiskit": 0.9988,
+      "Cirq": 0.9996,
+      "PennyLane": 1.0,
+      "Stim": 1.0,
+      "PyZX": 0.9908
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0035,
+    "effect_consistency": 0.9965
+  },
+  {
+    "id": "LAW_027",
+    "rule": "IF clifford_ratio > 0.7 THEN noise_resilience increases",
+    "simulator_accuracies": {
+      "Qiskit": 1.0,
+      "Cirq": 0.9978,
+      "PennyLane": 0.9925,
+      "Stim": 1.0,
+      "PyZX": 1.0
+    },
+    "agreement_score": 1.0,
+    "variance": 0.0029,
+    "effect_consistency": 0.9971
+  }
+]
