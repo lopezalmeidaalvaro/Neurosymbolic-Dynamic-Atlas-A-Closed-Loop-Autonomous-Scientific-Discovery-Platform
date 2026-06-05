@@ -65,35 +65,36 @@ def bqskit_to_qade_json(bqskit_circuit: Any) -> Dict[str, Any]:
             return bqskit_circuit["data"]
         return {"qubits": 0, "gates": []}
         
-    num_qubits = bqskit_circuit.num_qubits
+    bqskit_circuit.unfold_all()
+    num_qubits = bqskit_circuit.num_qudits
     gates = []
     
     for op in bqskit_circuit:
         name = op.gate.name.upper()
         qubits = list(op.location)
         
-        if "HGATE" in name or name == "H":
+        if name in ("HGATE", "H"):
             gates.append({"type": "H", "qubits": qubits})
-        elif "XGATE" in name or name == "X":
+        elif name in ("XGATE", "X"):
             gates.append({"type": "X", "qubits": qubits})
-        elif "YGATE" in name or name == "Y":
+        elif name in ("YGATE", "Y"):
             gates.append({"type": "Y", "qubits": qubits})
-        elif "ZGATE" in name or name == "Z":
+        elif name in ("ZGATE", "Z"):
             gates.append({"type": "Z", "qubits": qubits})
-        elif "RXGATE" in name or name == "RX":
+        elif name in ("RXGATE", "RX"):
             theta = float(op.params[0])
             gates.append({"type": "RX", "qubits": qubits, "theta": theta})
-        elif "RYGATE" in name or name == "RY":
+        elif name in ("RYGATE", "RY"):
             theta = float(op.params[0])
             gates.append({"type": "RY", "qubits": qubits, "theta": theta})
-        elif "RZGATE" in name or name == "RZ":
+        elif name in ("RZGATE", "RZ"):
             theta = float(op.params[0])
             gates.append({"type": "RZ", "qubits": qubits, "theta": theta})
-        elif "CXGATE" in name or name in ("CX", "CNOT"):
+        elif name in ("CXGATE", "CNOTGATE", "CX", "CNOT"):
             gates.append({"type": "CNOT", "qubits": qubits})
-        elif "CZGATE" in name or name == "CZ":
+        elif name in ("CZGATE", "CZ"):
             gates.append({"type": "CZ", "qubits": qubits})
-        elif "SWAPGATE" in name or name == "SWAP":
+        elif name in ("SWAPGATE", "SWAP"):
             gates.append({"type": "SWAP", "qubits": qubits})
             
     return {
@@ -101,12 +102,13 @@ def bqskit_to_qade_json(bqskit_circuit: Any) -> Dict[str, Any]:
         "gates": gates
     }
 
-def compile_with_bqskit(qade_json: Dict[str, Any], coupling_map: Optional[Any] = None) -> Dict[str, Any]:
+def compile_with_bqskit(qade_json: Dict[str, Any], coupling_map: Optional[Any] = None, return_layout: bool = False) -> Any:
     """
     Compiles a circuit using BQSKit synthesis/partitioning search optimization.
     Falls back to a standard Qiskit transpilation flow if BQSKit is not available.
     """
-    if not BQSKIT_AVAILABLE:
+    num_qubits = qade_json.get("qubits", 0)
+    if not BQSKIT_AVAILABLE or num_qubits > 5:
         # Fall back to Qiskit Level 3 transpilation as emulation
         from qiskit.providers.fake_provider import GenericBackendV2
         from qiskit import transpile
@@ -121,15 +123,37 @@ def compile_with_bqskit(qade_json: Dict[str, Any], coupling_map: Optional[Any] =
             num_backend_qubits = n_q
         backend = GenericBackendV2(num_qubits=num_backend_qubits, coupling_map=coupling_map)
         transpiled_qc = transpile(qc, backend=backend, optimization_level=3)
-        return qiskit_to_qade_json(transpiled_qc)
+        res_json = qiskit_to_qade_json(transpiled_qc)
+        
+        # Extract layout
+        layout = {}
+        if transpiled_qc.layout and transpiled_qc.layout.initial_layout:
+            for qubit, phys in transpiled_qc.layout.initial_layout.get_virtual_bits().items():
+                try:
+                    v_idx = qc.find_bit(qubit).index
+                    layout[v_idx] = phys
+                except Exception:
+                    layout[getattr(qubit, "index", 0)] = phys
+        else:
+            layout = {i: i for i in range(n_q)}
+            
+        if return_layout:
+            return res_json, layout
+        return res_json
         
     try:
         c = qade_json_to_bqskit(qade_json)
         # BQSKit synthesis compilation
-        with BQCompiler() as compiler:
+        with BQCompiler(num_workers=1) as compiler:
             # Run quick synthesis partitioning pass
             c_opt = compiler.compile(c, [QuickPartitioner()])
-        return bqskit_to_qade_json(c_opt)
+        res_json = bqskit_to_qade_json(c_opt)
+        layout = {i: i for i in range(num_qubits)}
+        if return_layout:
+            return res_json, layout
+        return res_json
     except Exception as e:
         logger.error(f"BQSKit compilation failed: {e}. Returning original circuit.")
+        if return_layout:
+            return qade_json, {i: i for i in range(num_qubits)}
         return qade_json

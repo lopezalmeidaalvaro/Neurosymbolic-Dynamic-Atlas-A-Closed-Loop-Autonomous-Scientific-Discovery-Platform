@@ -89,13 +89,13 @@ def cirq_to_qade_json(cirq_circuit: Any) -> Dict[str, Any]:
                 gates.append({"type": "Z", "qubits": qubits_idx})
             elif "RX" in name:
                 # Extract rx angle if possible, or fallback to 0.0
-                theta = getattr(gate, 'rads', 0.0)
+                theta = getattr(gate, '_rads', getattr(gate, 'exponent', 0.0) * 3.141592653589793)
                 gates.append({"type": "RX", "qubits": qubits_idx, "theta": theta})
             elif "RY" in name:
-                theta = getattr(gate, 'rads', 0.0)
+                theta = getattr(gate, '_rads', getattr(gate, 'exponent', 0.0) * 3.141592653589793)
                 gates.append({"type": "RY", "qubits": qubits_idx, "theta": theta})
             elif "RZ" in name:
-                theta = getattr(gate, 'rads', 0.0)
+                theta = getattr(gate, '_rads', getattr(gate, 'exponent', 0.0) * 3.141592653589793)
                 gates.append({"type": "RZ", "qubits": qubits_idx, "theta": theta})
             elif "CNOT" in name or "CX" in name:
                 gates.append({"type": "CNOT", "qubits": qubits_idx})

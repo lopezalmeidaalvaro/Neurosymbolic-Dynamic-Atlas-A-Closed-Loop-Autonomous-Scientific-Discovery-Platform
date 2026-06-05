@@ -70,7 +70,7 @@ class QuantumCritic(BaseCritic):
     frente a un estado objetivo, aplicando penalizaciones por profundidad y número de puertas.
     """
 
-    def __init__(self, alpha: float = 0.01, beta: float = 0.001):
+    def __init__(self, alpha: float = 0.01, beta: float = 0.001, apply_low_fidelity_penalty: bool = False):
         """
         Inicializa el crítico con coeficientes de penalización configurables.
         alpha: penalización por cada unidad de profundidad (depth).
@@ -78,6 +78,7 @@ class QuantumCritic(BaseCritic):
         """
         self.alpha = alpha
         self.beta = beta
+        self.apply_low_fidelity_penalty = apply_low_fidelity_penalty
 
     def validate(self, hypothesis: Any, target_state: Any = None, *args, **kwargs) -> QuantumCriticVerdict:
         """
@@ -182,7 +183,7 @@ class QuantumCritic(BaseCritic):
         # Score = fidelity - alpha * depth - beta * gate_count
         # To prevent size/depth penalties from discarding high-fidelity circuits,
         # we apply a heavy penalty to low-fidelity configurations.
-        if fidelity < 0.99:
+        if self.apply_low_fidelity_penalty and fidelity < 0.99:
             score = fidelity - 10.0
         else:
             score = fidelity - alpha * depth - beta * gate_count

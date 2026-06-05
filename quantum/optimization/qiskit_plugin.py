@@ -11,6 +11,8 @@ from quantum.critics.quantum_critic import QuantumCritic
 from quantum.evolution.population_manager import QuantumPopulationManager
 from quantum.evolution.evolution_engine import EvolutionEngine, route_circuit
 from quantum.optimization.pyzx_optimizer import PyZXOptimizer
+from quantum.optimization.qubit_placement import QubitPlacement
+from quantum.optimization.routing_engine import AdvancedRouter
 
 logger = logging.getLogger(__name__)
 
@@ -20,11 +22,26 @@ class QADEOptimizerPass(TransformationPass):
     ZX-calculus reduction, and layout SWAP routing optimization pipeline.
     """
 
-    def __init__(self, backend: Optional[Any] = None, generations: int = 5, population_size: int = 8):
+    def __init__(
+        self,
+        backend: Optional[Any] = None,
+        generations: int = 5,
+        population_size: int = 8,
+        hardware_aware: bool = False,
+        placement_method: Optional[str] = None,
+        routing_method: Optional[str] = None,
+    ):
         super().__init__()
         self.backend = backend
         self.generations = generations
         self.population_size = population_size
+        self.hardware_aware = hardware_aware
+        self.placement_method = placement_method or (
+            "fidelity_aware" if hardware_aware else "interaction"
+        )
+        self.routing_method = routing_method or (
+            "coherence_aware_sabre" if hardware_aware else "sabre"
+        )
 
     def run(self, dag: DAGCircuit) -> DAGCircuit:
         """
@@ -56,17 +73,41 @@ class QADEOptimizerPass(TransformationPass):
                 # BackendV2 standard coupling map query
                 coupling_map = list(self.backend.coupling_map)
 
-        # C. Initial SWAP routing layer to ensure input is physically executable
-        routed_json = route_circuit(qade_json, coupling_map)
+        # C. Initial placement/routing layer to ensure input is physically executable
+        if self.hardware_aware and coupling_map:
+            placer = QubitPlacement(
+                qade_json.get("qubits", 0),
+                coupling_map,
+                backend=self.backend,
+            )
+            initial_layout = placer.place(qade_json, method=self.placement_method)
+            router = AdvancedRouter(coupling_map, backend=self.backend)
+            routed_json, _ = router.route(
+                qade_json,
+                method=self.routing_method,
+                initial_layout=initial_layout,
+            )
+        else:
+            routed_json = route_circuit(qade_json, coupling_map)
 
         # E. Core evolutionary optimization search
-        num_pop_qubits = qc.num_qubits
-        if coupling_map is not None and len(coupling_map) > 0:
-            max_q = max(max(edge) for edge in coupling_map) + 1
-            num_pop_qubits = max(num_pop_qubits, max_q)
+        # Optimize by running evolution on only the active physical qubits to speed up simulation
+        active_qs = set()
+        for gate in routed_json.get("gates", []):
+            active_qs.update(gate.get("qubits", []))
+        if not active_qs:
+            active_qs = set(range(qc.num_qubits)) if qc.num_qubits > 0 else {0}
+            
+        num_pop_qubits = max(active_qs) + 1
+        
+        pruned_coupling_map = None
+        if coupling_map is not None:
+            pruned_coupling_map = [
+                edge for edge in coupling_map
+                if edge[0] in active_qs and edge[1] in active_qs
+            ]
 
         # D. Statevector target definition using the sandbox
-        # Pad unrouted circuit to backend size to prevent statevector dimension mismatch
         target_qade_json = {
             "qubits": num_pop_qubits,
             "gates": qade_json.get("gates", [])
@@ -82,33 +123,51 @@ class QADEOptimizerPass(TransformationPass):
         # Calculate a safe max_gates limit based on the routed input size to prevent truncation
         safe_max_gates = max(80, len(routed_json.get("gates", [])) + 20)
 
-        pop_manager = QuantumPopulationManager(
-            qubits=num_pop_qubits,
-            population_size=self.population_size,
-            seed_circuits=[routed_json],
-            coupling_map=coupling_map,
-            max_gates=safe_max_gates
-        )
-        
-        critic = QuantumCritic(alpha=0.01, beta=0.001)
-        engine = EvolutionEngine(
-            population_manager=pop_manager,
-            sandbox=sandbox,
-            critic=critic,
-            target_state=target_statevector,
-            elitism=1,
-            selection_fraction=0.5
-        )
-        
-        reports = engine.run(generations=self.generations)
-        best_evolved_circuit = reports[-1]["best_circuit"] if reports else routed_json
+        # For very large routed circuits (e.g. QFT-20q with 2490+ gates),
+        # statevector-based evolutionary search is impractical: each evaluation
+        # requires simulating 2^num_pop_qubits amplitudes through thousands of gates.
+        # In these cases, skip evolution and apply algebraic simplification directly.
+        EVOLUTION_GATE_THRESHOLD = 500
+        if len(routed_json.get("gates", [])) > EVOLUTION_GATE_THRESHOLD:
+            logger.info(f"Routed circuit has {len(routed_json['gates'])} gates (>{EVOLUTION_GATE_THRESHOLD}). "
+                        f"Bypassing evolutionary search, applying algebraic simplification only.")
+            best_evolved_circuit = routed_json
+        else:
+            pop_manager = QuantumPopulationManager(
+                qubits=num_pop_qubits,
+                population_size=self.population_size,
+                seed_circuits=[routed_json],
+                coupling_map=pruned_coupling_map,
+                max_gates=safe_max_gates
+            )
+            
+            critic = QuantumCritic(alpha=0.01, beta=0.001, apply_low_fidelity_penalty=True)
+            engine = EvolutionEngine(
+                population_manager=pop_manager,
+                sandbox=sandbox,
+                critic=critic,
+                target_state=target_statevector,
+                elitism=1,
+                selection_fraction=0.5
+            )
+            
+            reports = engine.run(generations=self.generations)
+            best_evolved_circuit = reports[-1]["best_circuit"] if reports else routed_json
 
         # F. ZX Calculus symbolic simplification
         pyzx_opt = PyZXOptimizer()
         zx_reduced_circuit, _ = pyzx_opt.optimize_circuit(best_evolved_circuit)
 
         # G. Re-route output to guarantee physical execution constraints
-        final_routed_circuit = route_circuit(zx_reduced_circuit, coupling_map)
+        if self.hardware_aware and coupling_map:
+            router = AdvancedRouter(coupling_map, backend=self.backend)
+            final_routed_circuit, _ = router.route(
+                zx_reduced_circuit,
+                method=self.routing_method,
+                initial_layout={i: i for i in range(zx_reduced_circuit.get("qubits", 0))},
+            )
+        else:
+            final_routed_circuit = route_circuit(zx_reduced_circuit, coupling_map)
 
         # H. Translate QADE JSON -> Qiskit QuantumCircuit
         optimized_qc = qade_json_to_qiskit(final_routed_circuit)

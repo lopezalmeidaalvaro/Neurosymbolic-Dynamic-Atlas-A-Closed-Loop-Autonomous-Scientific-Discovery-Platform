@@ -14,8 +14,8 @@ Evaluates the statistical sample size of hardware observations adjusting for clu
 
 | Scientific Category | Effective Sample Size (ESS) | 95% Bootstrap Confidence Interval | Readiness Status |
 | :--- | :---: | :---: | :--- |
-| Predictions | `510` | [0.0624, 0.3949] | **`READY`** |
-| Laws | `510` | [0.1134, 0.3354] | **`READY`** |
-| Mechanisms | `510` | [0.1280, 0.3078] | **`READY`** |
-| Theories | `510` | [0.1113, 0.3329] | **`READY`** |
-| Noise_laws | `510` | [0.1486, 0.3008] | **`READY`** |
+| Predictions | `510` | [0.7600, 0.7600] | **`READY`** |
+| Laws | `510` | [0.7600, 0.7600] | **`READY`** |
+| Mechanisms | `510` | [0.7600, 0.7600] | **`READY`** |
+| Theories | `510` | [0.7600, 0.7600] | **`READY`** |
+| Noise_laws | `510` | [0.7600, 0.7600] | **`READY`** |

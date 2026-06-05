@@ -1,5 +1,7 @@
 import logging
+import math
 from typing import Dict, Any, List
+from fractions import Fraction
 
 logger = logging.getLogger(__name__)
 
@@ -33,24 +35,23 @@ def qade_json_to_pyzx(qade_json: Dict[str, Any]) -> Any:
         elif g_type == "X":
             c.add_gate("NOT", q[0])
         elif g_type == "Y":
-            # Y = S * X * S^dag, or we can add it as ZPhase(pi/2) -> XPhase(theta) -> ZPhase(-pi/2)
-            c.add_gate("ZPhase", q[0], phase=1.570796)
-            c.add_gate("XPhase", q[0], phase=3.141593)
-            c.add_gate("ZPhase", q[0], phase=-1.570796)
+            # Y = S * X * S^dag
+            c.add_gate("ZPhase", q[0], phase=Fraction(1, 2))
+            c.add_gate("XPhase", q[0], phase=Fraction(1, 1))
+            c.add_gate("ZPhase", q[0], phase=Fraction(-1, 2))
         elif g_type == "Z":
-            c.add_gate("ZPhase", q[0], phase=3.141593)
+            c.add_gate("ZPhase", q[0], phase=Fraction(1, 1))
         elif g_type == "RX":
             theta = float(gate.get("theta", 0.0))
-            c.add_gate("XPhase", q[0], phase=theta)
+            c.add_gate("XPhase", q[0], phase=Fraction(theta / math.pi).limit_denominator(256))
         elif g_type == "RY":
-            # RY(theta) can be represented using ZPhase and XPhase
             theta = float(gate.get("theta", 0.0))
-            c.add_gate("ZPhase", q[0], phase=1.570796)
-            c.add_gate("XPhase", q[0], phase=theta)
-            c.add_gate("ZPhase", q[0], phase=-1.570796)
+            c.add_gate("ZPhase", q[0], phase=Fraction(-1, 2))
+            c.add_gate("XPhase", q[0], phase=Fraction(theta / math.pi).limit_denominator(256))
+            c.add_gate("ZPhase", q[0], phase=Fraction(1, 2))
         elif g_type == "RZ":
             theta = float(gate.get("theta", 0.0))
-            c.add_gate("ZPhase", q[0], phase=theta)
+            c.add_gate("ZPhase", q[0], phase=Fraction(theta / math.pi).limit_denominator(256))
         elif g_type in ("CNOT", "CX"):
             c.add_gate("CNOT", q[0], q[1])
         elif g_type == "CZ":
@@ -86,9 +87,9 @@ def pyzx_to_qade_json(zx_circuit: Any) -> Dict[str, Any]:
         elif name == "SWAP":
             gates.append({"type": "SWAP", "qubits": [g.control, g.target]})
         elif name == "ZPHASE":
-            gates.append({"type": "RZ", "qubits": [g.target], "theta": float(g.phase)})
+            gates.append({"type": "RZ", "qubits": [g.target], "theta": float(g.phase) * math.pi})
         elif name == "XPHASE":
-            gates.append({"type": "RX", "qubits": [g.target], "theta": float(g.phase)})
+            gates.append({"type": "RX", "qubits": [g.target], "theta": float(g.phase) * math.pi})
             
     return {
         "qubits": num_qubits,

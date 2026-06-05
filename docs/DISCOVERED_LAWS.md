@@ -10,5 +10,5 @@ Documents the mathematical laws discovered directly from physical hardware obser
 - **Model Complexity (MDL Score)**: `-64.2492`
 - **Number of Supporting Observations**: `5` runs
 - **Cross-Platform Verification Matrix**:
-  - **Vendors**: IonQ, IBM, Quantinuum, Rigetti
+  - **Vendors**: IonQ, Rigetti, IBM, Quantinuum
   - **Paradigms**: Superconducting, Ion Trap

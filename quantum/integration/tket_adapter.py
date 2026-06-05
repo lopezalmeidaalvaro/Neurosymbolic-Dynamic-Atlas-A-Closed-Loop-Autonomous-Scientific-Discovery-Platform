@@ -81,11 +81,35 @@ def tket_to_qade_json(tket_circuit: Any) -> Dict[str, Any]:
             gates.append({"type": "Y", "qubits": qubits})
         elif name == "Z":
             gates.append({"type": "Z", "qubits": qubits})
+        elif name == "TK1":
+            # TK1(alpha, beta, gamma) = Rz(gamma) * Rx(beta) * Rz(alpha) in half-turns
+            alpha = float(op.params[0]) * math.pi
+            beta = float(op.params[1]) * math.pi
+            gamma = float(op.params[2]) * math.pi
+            gates.append({"type": "RZ", "qubits": qubits, "theta": alpha})
+            gates.append({"type": "RX", "qubits": qubits, "theta": beta})
+            gates.append({"type": "RZ", "qubits": qubits, "theta": gamma})
+        elif name == "U1":
+            lam = float(op.params[0]) * math.pi
+            gates.append({"type": "RZ", "qubits": qubits, "theta": lam})
+        elif name == "U2":
+            phi = float(op.params[0]) * math.pi
+            lam = float(op.params[1]) * math.pi
+            gates.append({"type": "RZ", "qubits": qubits, "theta": lam})
+            gates.append({"type": "RY", "qubits": qubits, "theta": math.pi / 2.0})
+            gates.append({"type": "RZ", "qubits": qubits, "theta": phi})
+        elif name == "U3":
+            theta = float(op.params[0]) * math.pi
+            phi = float(op.params[1]) * math.pi
+            lam = float(op.params[2]) * math.pi
+            gates.append({"type": "RZ", "qubits": qubits, "theta": lam})
+            gates.append({"type": "RY", "qubits": qubits, "theta": theta})
+            gates.append({"type": "RZ", "qubits": qubits, "theta": phi})
         elif name in ("RX", "RY", "RZ"):
             # pytket parameters are in half-turns, convert back to radians
             theta = float(op.params[0]) * math.pi
             gates.append({"type": name, "qubits": qubits, "theta": theta})
-        elif name == "CX":
+        elif name in ("CX", "CNOT"):
             gates.append({"type": "CNOT", "qubits": qubits})
         elif name == "CZ":
             gates.append({"type": "CZ", "qubits": qubits})
@@ -97,11 +121,12 @@ def tket_to_qade_json(tket_circuit: Any) -> Dict[str, Any]:
         "gates": gates
     }
 
-def compile_with_tket(qade_json: Dict[str, Any], coupling_map: Optional[Any] = None) -> Dict[str, Any]:
+def compile_with_tket(qade_json: Dict[str, Any], coupling_map: Optional[Any] = None, return_layout: bool = False) -> Any:
     """
     Compiles a circuit using TKET's FullPeepholeOptimise and optional layout mapping pass.
     Falls back to Qiskit transpile(optimization_level=3) if TKET is not installed.
     """
+    n_q = qade_json.get("qubits", 5)
     if not PYTKET_AVAILABLE:
         # Fall back to Qiskit Level 3 transpilation as emulation
         from qiskit.providers.fake_provider import GenericBackendV2
@@ -109,8 +134,6 @@ def compile_with_tket(qade_json: Dict[str, Any], coupling_map: Optional[Any] = N
         from quantum.integration.qiskit_adapter import qade_json_to_qiskit, qiskit_to_qade_json
         
         qc = qade_json_to_qiskit(qade_json)
-        # Mock backend with coupling map
-        n_q = qade_json.get("qubits", 5)
         if coupling_map is not None and len(coupling_map) > 0:
             max_q = max(max(edge) for edge in coupling_map) + 1
             num_backend_qubits = max(n_q, max_q)
@@ -118,19 +141,51 @@ def compile_with_tket(qade_json: Dict[str, Any], coupling_map: Optional[Any] = N
             num_backend_qubits = n_q
         backend = GenericBackendV2(num_qubits=num_backend_qubits, coupling_map=coupling_map)
         transpiled_qc = transpile(qc, backend=backend, optimization_level=3)
-        return qiskit_to_qade_json(transpiled_qc)
+        res_json = qiskit_to_qade_json(transpiled_qc)
+        
+        # Extract layout
+        layout = {}
+        if transpiled_qc.layout and transpiled_qc.layout.initial_layout:
+            for qubit, phys in transpiled_qc.layout.initial_layout.get_virtual_bits().items():
+                try:
+                    v_idx = qc.find_bit(qubit).index
+                    layout[v_idx] = phys
+                except Exception:
+                    layout[getattr(qubit, "index", 0)] = phys
+        else:
+            layout = {i: i for i in range(n_q)}
+            
+        if return_layout:
+            return res_json, layout
+        return res_json
         
     try:
         c = qade_json_to_tket(qade_json)
         # Apply standard peephole compiler optimizations
         FullPeepholeOptimise().apply(c)
         
+        layout = {i: i for i in range(n_q)}
         # Apply layout routing if coupling_map is provided
         if coupling_map is not None:
             arch = Architecture(coupling_map)
-            DefaultMappingPass(arch).apply(c)
+            from pytket.placement import GraphPlacement
+            from pytket.passes import PlacementPass, RoutingPass
+            pl = GraphPlacement(arch)
+            try:
+                placement_map = pl.get_placement_map(c)
+                for q, node in placement_map.items():
+                    layout[q.index[0]] = node.index[0]
+            except Exception:
+                pass
+            PlacementPass(pl).apply(c)
+            RoutingPass(arch).apply(c)
             
-        return tket_to_qade_json(c)
+        res_json = tket_to_qade_json(c)
+        if return_layout:
+            return res_json, layout
+        return res_json
     except Exception as e:
         logger.error(f"TKET compilation failed: {e}. Returning original circuit.")
+        if return_layout:
+            return qade_json, {i: i for i in range(n_q)}
         return qade_json

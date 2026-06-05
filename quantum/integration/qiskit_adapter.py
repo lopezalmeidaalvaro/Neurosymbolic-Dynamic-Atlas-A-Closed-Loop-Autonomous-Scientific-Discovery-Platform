@@ -1,4 +1,5 @@
 import json
+import math
 from typing import Dict, Any
 from qiskit import QuantumCircuit
 from qiskit.qasm3 import dumps
@@ -23,6 +24,10 @@ def qiskit_to_qade_json(quantum_circuit: QuantumCircuit) -> Dict[str, Any]:
         if name in ("RX", "RY", "RZ") and instr.operation.params:
             gate_dict["theta"] = float(instr.operation.params[0])
             
+        # Extract general parameters if present
+        if instr.operation.params:
+            gate_dict["params"] = [float(p) for p in instr.operation.params]
+            
         gates.append(gate_dict)
         
     return {
@@ -46,6 +51,9 @@ def qade_json_to_qiskit(qade_circuit_json: Dict[str, Any]) -> QuantumCircuit:
         if not q:
             continue
             
+        # Helper to get params
+        params = gate.get("params", [])
+        
         if g_type == "H":
             qc.h(q[0])
         elif g_type == "X":
@@ -54,20 +62,49 @@ def qade_json_to_qiskit(qade_circuit_json: Dict[str, Any]) -> QuantumCircuit:
             qc.y(q[0])
         elif g_type == "Z":
             qc.z(q[0])
+        elif g_type == "SX":
+            qc.sx(q[0])
+        elif g_type in ("ID", "I"):
+            qc.id(q[0])
         elif g_type in ("RX", "RY", "RZ"):
-            theta = float(gate.get("theta", 0.0))
+            theta = float(gate.get("theta", params[0] if params else 0.0))
             if g_type == "RX":
                 qc.rx(theta, q[0])
             elif g_type == "RY":
                 qc.ry(theta, q[0])
             elif g_type == "RZ":
                 qc.rz(theta, q[0])
+        elif g_type == "P":
+            val = float(params[0] if params else 0.0)
+            qc.p(val, q[0])
+        elif g_type == "U":
+            p0 = float(params[0]) if len(params) > 0 else 0.0
+            p1 = float(params[1]) if len(params) > 1 else 0.0
+            p2 = float(params[2]) if len(params) > 2 else 0.0
+            qc.u(p0, p1, p2, q[0])
+        elif g_type == "U1":
+            val = float(params[0] if params else 0.0)
+            qc.p(val, q[0])
+        elif g_type == "U2":
+            p0 = float(params[0]) if len(params) > 0 else 0.0
+            p1 = float(params[1]) if len(params) > 1 else 0.0
+            qc.u(math.pi/2, p0, p1, q[0])
+        elif g_type == "U3":
+            p0 = float(params[0]) if len(params) > 0 else 0.0
+            p1 = float(params[1]) if len(params) > 1 else 0.0
+            p2 = float(params[2]) if len(params) > 2 else 0.0
+            qc.u(p0, p1, p2, q[0])
         elif g_type in ("CNOT", "CX"):
             qc.cx(q[0], q[1])
         elif g_type == "CZ":
             qc.cz(q[0], q[1])
+        elif g_type == "ECR":
+            qc.ecr(q[0], q[1])
         elif g_type == "SWAP":
             qc.swap(q[0], q[1])
+        elif g_type == "CP":
+            val = float(params[0] if params else 0.0)
+            qc.cp(val, q[0], q[1])
         else:
             raise ValueError(f"Unsupported gate type: {g_type}")
             

@@ -4,7 +4,7 @@ Evaluates the specificity and integrity of the symbolic discovery filters by run
 
 ## Control Benchmark Results
 
-- **Synthetic Control Domains Evaluated**: `20`
+- **Synthetic Control Domains Evaluated**: `10`
 - **False Discoveries Accepted**: `0`
 - **Calculated False Discovery Rate (FDR)**: **`0.00%`** (Target < 5.0%)
 

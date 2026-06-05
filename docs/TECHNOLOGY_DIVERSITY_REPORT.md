@@ -6,11 +6,11 @@ Measures the variety and balance of physical quantum hardware architectures repr
 
 | Hardware Paradigm | Execution Count | Percentage Coverage | Status |
 | :--- | :---: | :---: | :--- |
-| Superconducting | 30 | 37.50% | `REPRESENTED` |
-| Ion Trap | 20 | 25.00% | `REPRESENTED` |
-| Neutral Atom | 10 | 12.50% | `REPRESENTED` |
-| Photonic | 10 | 12.50% | `REPRESENTED` |
-| Silicon Spin | 10 | 12.50% | `REPRESENTED` |
+| Superconducting | 3 | 37.50% | `REPRESENTED` |
+| Ion Trap | 2 | 25.00% | `REPRESENTED` |
+| Neutral Atom | 1 | 12.50% | `REPRESENTED` |
+| Photonic | 1 | 12.50% | `REPRESENTED` |
+| Silicon Spin | 1 | 12.50% | `REPRESENTED` |
 
 ## Diversity Diagnostics
 

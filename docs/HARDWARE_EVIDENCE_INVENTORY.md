@@ -16,19 +16,19 @@ Presents the compiled inventory of physical quantum hardware execution data coll
 ## Technology Domain Coverage
 
 ### Physical Hardware Platforms
-- **`Neutral Atom`**
-- **`Photonic`**
 - **`Superconducting`**
 - **`Ion Trap`**
+- **`Photonic`**
 - **`Silicon Spin`**
+- **`Neutral Atom`**
 
 ### Registered Quantum Hardware Vendors
-- **`Neutral Phoenix`**
-- **`IBM`**
-- **`Photonic Helios`**
-- **`Silicon Spin Tech`**
 - **`IonQ`**
+- **`Silicon Spin Tech`**
 - **`Rigetti`**
+- **`IBM`**
+- **`Neutral Phoenix`**
+- **`Photonic Helios`**
 - **`Quantinuum`**
 
 ### Evaluated Calibration States
@@ -37,11 +37,11 @@ Presents the compiled inventory of physical quantum hardware execution data coll
 - **`DEGRADED`**
 
 ### Circuit Families Represented
-- **`Synergy Discovery`**
-- **`VQE`**
-- **`QFT`**
-- **`Grover`**
-- **`State Preparation`**
-- **`QAOA`**
-- **`Transfer Learning`**
 - **`Error Correction`**
+- **`QAOA`**
+- **`QFT`**
+- **`State Preparation`**
+- **`Transfer Learning`**
+- **`VQE`**
+- **`Grover`**
+- **`Synergy Discovery`**

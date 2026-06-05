@@ -1013,6 +1013,9 @@ def route_circuit(circuit: Dict[str, Any], coupling_map: Optional[Any]) -> Dict[
         return []
 
     num_qubits = circuit.get("qubits", 0)
+    if coupling_map and len(coupling_map) > 0:
+        max_map_q = max(max(edge) for edge in coupling_map) + 1
+        num_qubits = max(num_qubits, max_map_q)
     original_gates = circuit.get("gates", [])
     routed_gates = []
 

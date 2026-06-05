@@ -1,0 +1,629 @@
+[
+  {
+    "circuit_family": "Quantum Kernel",
+    "depth_reduction": 2.0,
+    "duration_reduction": 0.12,
+    "families": {
+      "ADAPT-VQE": 1,
+      "Error Mitigation": 1,
+      "QFT": 1,
+      "Quantum Kernel": 1
+    },
+    "fidelity_gain": 0.9870646407180846,
+    "frequency": 18,
+    "gate_reduction": 2.0,
+    "hardware": {
+      "FakeBrisbane": 4
+    },
+    "motif_id": "motif_7a0884c44bb7c14b",
+    "motif_type": "cancellation_pattern",
+    "observations": 44,
+    "pattern_after": [],
+    "pattern_before": [
+      {
+        "qubits": [
+          0
+        ],
+        "type": "H"
+      },
+      {
+        "qubits": [
+          0
+        ],
+        "type": "H"
+      }
+    ],
+    "qubit_count": 1,
+    "source_workload": "seen_kernel_redundant_6q",
+    "topologies": {
+      "heavy_hex": 4
+    },
+    "topology": "heavy_hex",
+    "validated": true,
+    "validation_fidelity": 0.9999999999999996
+  },
+  {
+    "circuit_family": "Quantum Kernel",
+    "depth_reduction": 2.0,
+    "duration_reduction": 0.0,
+    "families": {
+      "Error Mitigation": 1,
+      "QFT": 1,
+      "Quantum Kernel": 1
+    },
+    "fidelity_gain": 0.02783203125,
+    "frequency": 3,
+    "gate_reduction": 2.0,
+    "hardware": {
+      "FakeBrisbane": 3
+    },
+    "motif_id": "motif_bbfc459399ecbfc7",
+    "motif_type": "rotation_cancellation",
+    "observations": 5,
+    "pattern_after": [],
+    "pattern_before": [
+      {
+        "params": [
+          0.03
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": 0.03,
+        "type": "RZ"
+      },
+      {
+        "params": [
+          -0.03
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": -0.03,
+        "type": "RZ"
+      }
+    ],
+    "qubit_count": 1,
+    "source_workload": "seen_kernel_redundant_6q",
+    "topologies": {
+      "heavy_hex": 3
+    },
+    "topology": "heavy_hex",
+    "validated": true,
+    "validation_fidelity": 1.0
+  },
+  {
+    "circuit_family": "Quantum Kernel",
+    "depth_reduction": 2.0,
+    "duration_reduction": 0.0,
+    "families": {
+      "Error Mitigation": 1,
+      "QFT": 1,
+      "Quantum Kernel": 1
+    },
+    "fidelity_gain": 0.02783203125,
+    "frequency": 3,
+    "gate_reduction": 2.0,
+    "hardware": {
+      "FakeBrisbane": 3
+    },
+    "motif_id": "motif_307f6707374de704",
+    "motif_type": "rotation_cancellation",
+    "observations": 5,
+    "pattern_after": [],
+    "pattern_before": [
+      {
+        "params": [
+          0.06
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": 0.06,
+        "type": "RZ"
+      },
+      {
+        "params": [
+          -0.06
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": -0.06,
+        "type": "RZ"
+      }
+    ],
+    "qubit_count": 1,
+    "source_workload": "seen_kernel_redundant_6q",
+    "topologies": {
+      "heavy_hex": 3
+    },
+    "topology": "heavy_hex",
+    "validated": true,
+    "validation_fidelity": 1.0
+  },
+  {
+    "circuit_family": "Quantum Kernel",
+    "depth_reduction": 2.0,
+    "duration_reduction": 0.0,
+    "families": {
+      "Error Mitigation": 1,
+      "QFT": 1,
+      "Quantum Kernel": 1
+    },
+    "fidelity_gain": 0.02783203125,
+    "frequency": 3,
+    "gate_reduction": 2.0,
+    "hardware": {
+      "FakeBrisbane": 3
+    },
+    "motif_id": "motif_ea7fc312c7c9af2a",
+    "motif_type": "rotation_cancellation",
+    "observations": 5,
+    "pattern_after": [],
+    "pattern_before": [
+      {
+        "params": [
+          0.09
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": 0.09,
+        "type": "RZ"
+      },
+      {
+        "params": [
+          -0.09
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": -0.09,
+        "type": "RZ"
+      }
+    ],
+    "qubit_count": 1,
+    "source_workload": "seen_kernel_redundant_6q",
+    "topologies": {
+      "heavy_hex": 3
+    },
+    "topology": "heavy_hex",
+    "validated": true,
+    "validation_fidelity": 1.0
+  },
+  {
+    "circuit_family": "Quantum Kernel",
+    "depth_reduction": 2.0,
+    "duration_reduction": 0.0,
+    "families": {
+      "Error Mitigation": 1,
+      "QFT": 1,
+      "Quantum Kernel": 1
+    },
+    "fidelity_gain": 0.02783203125,
+    "frequency": 3,
+    "gate_reduction": 2.0,
+    "hardware": {
+      "FakeBrisbane": 3
+    },
+    "motif_id": "motif_090e37025c96a8bc",
+    "motif_type": "rotation_cancellation",
+    "observations": 5,
+    "pattern_after": [],
+    "pattern_before": [
+      {
+        "params": [
+          0.12
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": 0.12,
+        "type": "RZ"
+      },
+      {
+        "params": [
+          -0.12
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": -0.12,
+        "type": "RZ"
+      }
+    ],
+    "qubit_count": 1,
+    "source_workload": "seen_kernel_redundant_6q",
+    "topologies": {
+      "heavy_hex": 3
+    },
+    "topology": "heavy_hex",
+    "validated": true,
+    "validation_fidelity": 1.0
+  },
+  {
+    "circuit_family": "Quantum Kernel",
+    "depth_reduction": 2.0,
+    "duration_reduction": 0.0,
+    "families": {
+      "Error Mitigation": 1,
+      "QFT": 1,
+      "Quantum Kernel": 1
+    },
+    "fidelity_gain": 0.02783203125,
+    "frequency": 3,
+    "gate_reduction": 2.0,
+    "hardware": {
+      "FakeBrisbane": 3
+    },
+    "motif_id": "motif_89ed860cb55bd827",
+    "motif_type": "rotation_cancellation",
+    "observations": 5,
+    "pattern_after": [],
+    "pattern_before": [
+      {
+        "params": [
+          0.15
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": 0.15,
+        "type": "RZ"
+      },
+      {
+        "params": [
+          -0.15
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": -0.15,
+        "type": "RZ"
+      }
+    ],
+    "qubit_count": 1,
+    "source_workload": "seen_kernel_redundant_6q",
+    "topologies": {
+      "heavy_hex": 3
+    },
+    "topology": "heavy_hex",
+    "validated": true,
+    "validation_fidelity": 1.0000000000000004
+  },
+  {
+    "circuit_family": "Quantum Kernel",
+    "depth_reduction": 2.0,
+    "duration_reduction": 0.0,
+    "families": {
+      "Error Mitigation": 1,
+      "QFT": 1,
+      "Quantum Kernel": 1
+    },
+    "fidelity_gain": 0.02783203125,
+    "frequency": 3,
+    "gate_reduction": 2.0,
+    "hardware": {
+      "FakeBrisbane": 3
+    },
+    "motif_id": "motif_956144356c6edd22",
+    "motif_type": "rotation_cancellation",
+    "observations": 5,
+    "pattern_after": [],
+    "pattern_before": [
+      {
+        "params": [
+          0.18
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": 0.18,
+        "type": "RZ"
+      },
+      {
+        "params": [
+          -0.18
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": -0.18,
+        "type": "RZ"
+      }
+    ],
+    "qubit_count": 1,
+    "source_workload": "seen_kernel_redundant_6q",
+    "topologies": {
+      "heavy_hex": 3
+    },
+    "topology": "heavy_hex",
+    "validated": true,
+    "validation_fidelity": 1.0
+  },
+  {
+    "circuit_family": "Quantum Kernel",
+    "depth_reduction": 2.0,
+    "duration_reduction": 1.74,
+    "families": {
+      "Error Mitigation": 1,
+      "QFT": 1,
+      "Quantum Kernel": 1
+    },
+    "fidelity_gain": 0.9880052439772314,
+    "frequency": 15,
+    "gate_reduction": 2.0,
+    "hardware": {
+      "FakeBrisbane": 3
+    },
+    "motif_id": "motif_a65a11902c7503cd",
+    "motif_type": "cancellation_pattern",
+    "observations": 83,
+    "pattern_after": [],
+    "pattern_before": [
+      {
+        "qubits": [
+          0,
+          1
+        ],
+        "type": "CNOT"
+      },
+      {
+        "qubits": [
+          0,
+          1
+        ],
+        "type": "CNOT"
+      }
+    ],
+    "qubit_count": 2,
+    "source_workload": "seen_kernel_redundant_6q",
+    "topologies": {
+      "heavy_hex": 3
+    },
+    "topology": "heavy_hex",
+    "validated": true,
+    "validation_fidelity": 1.0
+  },
+  {
+    "circuit_family": "ADAPT-VQE",
+    "depth_reduction": 2.0,
+    "duration_reduction": 0.24,
+    "families": {
+      "ADAPT-VQE": 1
+    },
+    "fidelity_gain": 0.9871088053152317,
+    "frequency": 6,
+    "gate_reduction": 2.0,
+    "hardware": {
+      "FakeBrisbane": 1
+    },
+    "motif_id": "motif_e66f0ef6f44da17a",
+    "motif_type": "rotation_cancellation",
+    "observations": 6,
+    "pattern_after": [],
+    "pattern_before": [
+      {
+        "params": [
+          0.04
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": 0.04,
+        "type": "RX"
+      },
+      {
+        "params": [
+          -0.04
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": -0.04,
+        "type": "RX"
+      }
+    ],
+    "qubit_count": 1,
+    "source_workload": "seen_adapt_reversal_6q",
+    "topologies": {
+      "heavy_hex": 1
+    },
+    "topology": "heavy_hex",
+    "validated": true,
+    "validation_fidelity": 1.0
+  },
+  {
+    "circuit_family": "ADAPT-VQE",
+    "depth_reduction": 2.0,
+    "duration_reduction": 0.24,
+    "families": {
+      "ADAPT-VQE": 1
+    },
+    "fidelity_gain": 0.9871088053152317,
+    "frequency": 6,
+    "gate_reduction": 2.0,
+    "hardware": {
+      "FakeBrisbane": 1
+    },
+    "motif_id": "motif_6828d62ca193d193",
+    "motif_type": "rotation_cancellation",
+    "observations": 6,
+    "pattern_after": [],
+    "pattern_before": [
+      {
+        "params": [
+          0.08
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": 0.08,
+        "type": "RX"
+      },
+      {
+        "params": [
+          -0.08
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": -0.08,
+        "type": "RX"
+      }
+    ],
+    "qubit_count": 1,
+    "source_workload": "seen_adapt_reversal_6q",
+    "topologies": {
+      "heavy_hex": 1
+    },
+    "topology": "heavy_hex",
+    "validated": true,
+    "validation_fidelity": 1.0
+  },
+  {
+    "circuit_family": "ADAPT-VQE",
+    "depth_reduction": 2.0,
+    "duration_reduction": 0.24,
+    "families": {
+      "ADAPT-VQE": 1
+    },
+    "fidelity_gain": 0.9871088053152317,
+    "frequency": 6,
+    "gate_reduction": 2.0,
+    "hardware": {
+      "FakeBrisbane": 1
+    },
+    "motif_id": "motif_5f8b73934973613d",
+    "motif_type": "rotation_cancellation",
+    "observations": 6,
+    "pattern_after": [],
+    "pattern_before": [
+      {
+        "params": [
+          0.12
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": 0.12,
+        "type": "RX"
+      },
+      {
+        "params": [
+          -0.12
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": -0.12,
+        "type": "RX"
+      }
+    ],
+    "qubit_count": 1,
+    "source_workload": "seen_adapt_reversal_6q",
+    "topologies": {
+      "heavy_hex": 1
+    },
+    "topology": "heavy_hex",
+    "validated": true,
+    "validation_fidelity": 1.0
+  },
+  {
+    "circuit_family": "Error Mitigation",
+    "depth_reduction": 2.0,
+    "duration_reduction": 0.0,
+    "families": {
+      "Error Mitigation": 1
+    },
+    "fidelity_gain": 0.02783203125,
+    "frequency": 1,
+    "gate_reduction": 2.0,
+    "hardware": {
+      "FakeBrisbane": 1
+    },
+    "motif_id": "motif_459aa7c5c9b79318",
+    "motif_type": "rotation_cancellation",
+    "observations": 1,
+    "pattern_after": [],
+    "pattern_before": [
+      {
+        "params": [
+          0.21
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": 0.21,
+        "type": "RZ"
+      },
+      {
+        "params": [
+          -0.21
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": -0.21,
+        "type": "RZ"
+      }
+    ],
+    "qubit_count": 1,
+    "source_workload": "seen_zne_redundant_8q",
+    "topologies": {
+      "heavy_hex": 1
+    },
+    "topology": "heavy_hex",
+    "validated": true,
+    "validation_fidelity": 1.0
+  },
+  {
+    "circuit_family": "Error Mitigation",
+    "depth_reduction": 2.0,
+    "duration_reduction": 0.0,
+    "families": {
+      "Error Mitigation": 1
+    },
+    "fidelity_gain": 0.02783203125,
+    "frequency": 1,
+    "gate_reduction": 2.0,
+    "hardware": {
+      "FakeBrisbane": 1
+    },
+    "motif_id": "motif_bbc7bb9f8bd046af",
+    "motif_type": "rotation_cancellation",
+    "observations": 1,
+    "pattern_after": [],
+    "pattern_before": [
+      {
+        "params": [
+          0.24
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": 0.24,
+        "type": "RZ"
+      },
+      {
+        "params": [
+          -0.24
+        ],
+        "qubits": [
+          0
+        ],
+        "theta": -0.24,
+        "type": "RZ"
+      }
+    ],
+    "qubit_count": 1,
+    "source_workload": "seen_zne_redundant_8q",
+    "topologies": {
+      "heavy_hex": 1
+    },
+    "topology": "heavy_hex",
+    "validated": true,
+    "validation_fidelity": 1.0
+  }
+]

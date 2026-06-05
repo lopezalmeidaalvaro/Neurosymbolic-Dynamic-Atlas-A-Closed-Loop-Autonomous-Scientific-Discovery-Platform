@@ -10,7 +10,7 @@ Simulates alternative physical environments (counterfactual worlds) to verify th
 - **Theory Leaderboard Ranking Preserved**: **`True`**
 
 ### Scenario 2: World B (Calibration Skew - 100% Degraded Calibration)
-- **Estimated Gate Correlation ($r$)**: `0.8625`
+- **Estimated Gate Correlation ($r$)**: `0.9694`
 - **Noise Laws Detectable**: **`True`**
 - **Theory Leaderboard Ranking Preserved**: **`True`**
 

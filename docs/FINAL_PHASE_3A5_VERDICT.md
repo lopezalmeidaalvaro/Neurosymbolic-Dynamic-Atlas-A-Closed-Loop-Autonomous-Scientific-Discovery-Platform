@@ -2,11 +2,11 @@
 
 ## Consensus Verdict
 
-**`DISCOVERY_READY`**
+**`PARTIALLY_SUFFICIENT_EVIDENCE`**
 
 ### Rationale
 
-The accumulated hardware evidence is scientifically sufficient and epistemically valid. All criteria pass, allowing transition to Phase 3B.
+Most criteria pass, but minor deficiencies remain in calibration or technology representation, blocking Phase 3B.
 
 ## Consolidation Scores Ledger
 
@@ -14,8 +14,8 @@ The accumulated hardware evidence is scientifically sufficient and epistemically
 - **Evidence Independence Score**: `99.50%` (Unleaked independent variance)
 - **Hardware Diversity Score**: `1.0000` (Technology balance index)
 - **Leakage Score**: `0.50%`
-- **Discovery Readiness Score**: **`0.9821`** (Target >= 0.80)
-- **Epistemic Confidence Score**: **`100.00%`** (Target >= 80.0%)
+- **Discovery Readiness Score**: **`nan`** (Target >= 0.80)
+- **Epistemic Confidence Score**: **`77.78%`** (Target >= 80.0%)
 
 ## Scientific Acceptance Criteria Compliance
 
@@ -27,6 +27,6 @@ The accumulated hardware evidence is scientifically sufficient and epistemically
 | Technology Diversity >= 3 | True | **`PASSED`** |
 | Vendor Diversity >= 4 | True | **`PASSED`** |
 | Calibration Diversity >= 20 | True | **`PASSED`** |
-| Benchmark Diversity >= 10 | True | **`PASSED`** |
+| Benchmark Diversity >= 10 | False | `FAILED` |
 | Correlation Stability >= 80% | True | **`PASSED`** |
-| Evidence Robustness >= 85% | True | **`PASSED`** |
+| Evidence Robustness >= 85% | False | `FAILED` |

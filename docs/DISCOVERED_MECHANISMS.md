@@ -11,6 +11,6 @@ Documents the Structural Causal Models (SCMs) explaining discovered reality-nati
   - `calibration_drift` $\rightarrow$ `readout_error` (Path Coefficient: `0.62`)
   - `readout_error` $\rightarrow$ `reality_gap` (Path Coefficient: `-0.82`)
 - **Audit Grounding Verification**:
-  - **Cross-Vendor Support**: `IonQ, IBM, Quantinuum, Rigetti` (**`PASSED`**)
+  - **Cross-Vendor Support**: `IonQ, Rigetti, IBM, Quantinuum` (**`PASSED`**)
   - **Cross-Paradigm Support**: `Superconducting, Ion Trap` (**`PASSED`**)
   - **Calibration Drift Robustness**: **`PASSED`**
