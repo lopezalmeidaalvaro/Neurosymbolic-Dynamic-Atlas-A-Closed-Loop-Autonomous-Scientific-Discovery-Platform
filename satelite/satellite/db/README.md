@@ -1,41 +1,37 @@
-# Mission Database & Telemetry Warehouse
+# Satellite Database
 
-This module manages the storage, partitioning, and retrieval of orbital thermal telemetry, augmented EKF twin parameter histories, symbolic structural discoveries, and multi-tenant SaaS accounts.
+## Purpose
 
----
+Database-related package documentation for AST-OS service components.
 
-## 1. TimescaleDB Schema (`init.sql`)
+## Architecture
 
-The database maps six critical telemetry nodes partitioned by time:
-* **missions**: Traces spacecraft LEO parameters.
-* **telemetry**: Hypertable partitioned at 1-day intervals tracking sensor node temperatures, power disspation budgets, and anomalies flags.
-* **ekf_history**: Records EKF state estimation arrays and flattened covariance P-matrices.
-* **anomaly_logs**: Records in-orbit alerts, severities, and resolutions.
-* **symbolic_discoveries**: Logs structural physics equations found by PySR.
-* **SaaS Accounts**: Registers organizations, roles (`admin`, `member`, `viewer`), Stripe webhooks, and JWT keys.
+This README belongs to a subfolder of the IA-MATEMATICA ecosystem. It should remain scoped to its owning domain and should not introduce hidden dependencies on unrelated domains.
 
----
+## Folder Structure
 
-## 2. Ingestion & Fallback Manager (`telemetry_warehouse.py`)
+Review this folder files directly for the current implementation. Generated outputs should be separated from source code in future cleanup passes.
 
-To ensure robust deployments across continuous integration (CI/CD) environments, the `TelemetryWarehouse` includes a **self-healing fallback**:
-1. **TimescaleDB Mode**: Utilizes high-performance `psycopg2` batch execution commands (`execute_values`) when connected to a TimescaleDB PostgreSQL cluster.
-2. **SQLite Fallback Mode**: Gracefully degrades to a local SQLite database (`satellite/api/auth.db`) if the PostgreSQL connection fails. Schema setups and insertions remain fully functional.
+## Usage
 
----
+Use the parent domain README for setup and dependency instructions. Add a local command here when this subfolder exposes a stable entrypoint.
 
-## 3. Operations & Usage
+## Dependencies
 
-To initialize tables manually:
-```bash
-python satellite/db/telemetry_warehouse.py
-```
+Dependencies are inherited from the owning domain unless a local manifest exists.
 
-### Time Range Queries
-```python
-from satellite.db.telemetry_warehouse import TelemetryWarehouse
+## Status
 
-warehouse = TelemetryWarehouse()
-# Retrieves timeseries logs between t_start and t_end
-logs = warehouse.query_telemetry_range(mission_id, t_start, t_end)
-```
+Documented during the repository consolidation audit on 2026-06-06.
+
+## Roadmap
+
+- Keep the folder independently understandable.
+- Link source files to reproducibility evidence where applicable.
+- Move stale generated files to archive locations in a future non-destructive migration.
+
+## Related Documents
+
+- docs/REPOSITORY_AUDIT.md
+- docs/DOMAIN_DEPENDENCY_REPORT.md
+- docs/DOCUMENT_CONSOLIDATION_REPORT.md

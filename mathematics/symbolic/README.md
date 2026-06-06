@@ -1,5 +1,37 @@
-# Symbolic Discovery Lab
+# Mathematics Symbolic Subdomain
 
-Future home of:
-1. **Neural-guided SINDY extensions:** Incorporating coordinate transformation networks (autoencoders) with custom sparsity-promoting loss functions.
-2. **Algebraic equation solvers:** Automatic group representation and classification of system invariants.
+## Purpose
+
+Symbolic regression, theorem proving, and formal verification roadmap.
+
+## Architecture
+
+This README belongs to a subfolder of the IA-MATEMATICA ecosystem. It should remain scoped to its owning domain and should not introduce hidden dependencies on unrelated domains.
+
+## Folder Structure
+
+Review this folder files directly for the current implementation. Generated outputs should be separated from source code in future cleanup passes.
+
+## Usage
+
+Use the parent domain README for setup and dependency instructions. Add a local command here when this subfolder exposes a stable entrypoint.
+
+## Dependencies
+
+Dependencies are inherited from the owning domain unless a local manifest exists.
+
+## Status
+
+Documented during the repository consolidation audit on 2026-06-06.
+
+## Roadmap
+
+- Keep the folder independently understandable.
+- Link source files to reproducibility evidence where applicable.
+- Move stale generated files to archive locations in a future non-destructive migration.
+
+## Related Documents
+
+- docs/REPOSITORY_AUDIT.md
+- docs/DOMAIN_DEPENDENCY_REPORT.md
+- docs/DOCUMENT_CONSOLIDATION_REPORT.md

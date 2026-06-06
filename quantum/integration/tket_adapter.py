@@ -9,7 +9,7 @@ try:
     from pytket.passes import FullPeepholeOptimise, DefaultMappingPass
     from pytket.architecture import Architecture
     PYTKET_AVAILABLE = True
-except ImportError:
+except Exception:
     PYTKET_AVAILABLE = False
     logger.warning("pytket is not installed. TKET adapter will use emulated fallbacks.")
 

@@ -1,48 +1,37 @@
-# Real-Time WebSocket Streaming Architecture
+# Satellite Streaming
 
-This module implements low-latency mission control streams, Redis Pub/Sub broadcasters, and accelerated historical simulation replays.
+## Purpose
 
----
+Telemetry streaming package documentation for AST-OS service components.
 
-## 1. WebSocket Server Routes
+## Architecture
 
-Exposes three async communication channels:
-1. `WS /ws/telemetry/{mission_id}`: Relays live sensor telemetry updates.
-2. `WS /ws/ekf/{mission_id}`: Relays EKF parameter and state estimation updates.
-3. `WS /ws/fleet`: Relays 10s aggregated fleet metrics.
-4. `WS /ws/replay/{mission_id}?speed=60x`: Relays accelerated historical records.
+This README belongs to a subfolder of the IA-MATEMATICA ecosystem. It should remain scoped to its owning domain and should not introduce hidden dependencies on unrelated domains.
 
----
+## Folder Structure
 
-## 2. Dynamic Replay Speeds
+Review this folder files directly for the current implementation. Generated outputs should be separated from source code in future cleanup passes.
 
-The historical database playback speed is configured via the `speed` query parameter:
-* **1x**: standard real-time orbit replay (120s step delays).
-* **10x**: fast replay (12s step delays).
-* **60x**: 1-minute orbit replay (2s step delays).
-* **600x**: instant presentation playback (0.2s step delays).
+## Usage
 
----
+Use the parent domain README for setup and dependency instructions. Add a local command here when this subfolder exposes a stable entrypoint.
 
-## 3. Message Payload Format
+## Dependencies
 
-```json
-{
-  "type": "telemetry",
-  "mission_id": "c4b8e212-0000-4000-a000-000000000001",
-  "timestamp": "2026-05-29T10:30:00Z",
-  "data": {
-    "temperatures": {
-      "CPU": 45.2,
-      "Battery": 22.1,
-      "Payload": 20.3,
-      "Structure": 22.0,
-      "Radiator": 30.1,
-      "SolarPanels": 35.4
-    },
-    "power": 15.0,
-    "emissivity": 0.85,
-    "anomaly_flags": []
-  }
-}
-```
+Dependencies are inherited from the owning domain unless a local manifest exists.
+
+## Status
+
+Documented during the repository consolidation audit on 2026-06-06.
+
+## Roadmap
+
+- Keep the folder independently understandable.
+- Link source files to reproducibility evidence where applicable.
+- Move stale generated files to archive locations in a future non-destructive migration.
+
+## Related Documents
+
+- docs/REPOSITORY_AUDIT.md
+- docs/DOMAIN_DEPENDENCY_REPORT.md
+- docs/DOCUMENT_CONSOLIDATION_REPORT.md

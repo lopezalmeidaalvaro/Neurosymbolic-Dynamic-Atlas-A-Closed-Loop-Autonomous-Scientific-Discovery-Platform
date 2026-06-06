@@ -1,5 +1,37 @@
-# Orbital Thermal Simulation Papers
+# Thermal Papers
 
-Drafts and supplementary materials for publications detailing:
-1. **Neural Emulation of LEO Satellites:** Multi-layer perceptrons and PINNs trained on thermodynamics equations to emulate spacecraft solar/eclipse thermal cycles.
-2. **Real-time Digital Twins:** Dynamic feedback control systems for spacecraft telemetry anomaly detection.
+## Purpose
+
+Publication assets for spacecraft thermal digital twin research.
+
+## Architecture
+
+This README belongs to a subfolder of the IA-MATEMATICA ecosystem. It should remain scoped to its owning domain and should not introduce hidden dependencies on unrelated domains.
+
+## Folder Structure
+
+Review this folder files directly for the current implementation. Generated outputs should be separated from source code in future cleanup passes.
+
+## Usage
+
+Use the parent domain README for setup and dependency instructions. Add a local command here when this subfolder exposes a stable entrypoint.
+
+## Dependencies
+
+Dependencies are inherited from the owning domain unless a local manifest exists.
+
+## Status
+
+Documented during the repository consolidation audit on 2026-06-06.
+
+## Roadmap
+
+- Keep the folder independently understandable.
+- Link source files to reproducibility evidence where applicable.
+- Move stale generated files to archive locations in a future non-destructive migration.
+
+## Related Documents
+
+- docs/REPOSITORY_AUDIT.md
+- docs/DOMAIN_DEPENDENCY_REPORT.md
+- docs/DOCUMENT_CONSOLIDATION_REPORT.md

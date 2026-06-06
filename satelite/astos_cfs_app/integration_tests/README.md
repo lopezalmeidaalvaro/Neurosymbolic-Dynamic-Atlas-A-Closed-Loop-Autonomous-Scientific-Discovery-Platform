@@ -1,32 +1,37 @@
-# AST-OS cFS Integration Testing Workspace
+# ASTOS cFS Integration Tests
 
-This workspace contains integration test suites to validate CCSDS packet routing, Software Bus message exchanges, and long-term cyclic execution stability of the hardened **AST-OS cFS Flight Application**.
+## Purpose
 
----
+Integration-test notes for AST-OS/cFS workflows.
 
-## 1. Directory Structure
+## Architecture
 
-```text
-integration_tests/
-├── test_cfs_integration.py     # Python integration test suite
-└── README.md                    # This document
-```
+This README belongs to a subfolder of the IA-MATEMATICA ecosystem. It should remain scoped to its owning domain and should not introduce hidden dependencies on unrelated domains.
 
----
+## Folder Structure
 
-## 2. Command Line Execution
+Review this folder files directly for the current implementation. Generated outputs should be separated from source code in future cleanup passes.
 
-Analysts can run the entire integration suite using the Python `unittest` framework:
+## Usage
 
-```bash
-python integration_tests/test_cfs_integration.py
-```
+Use the parent domain README for setup and dependency instructions. Add a local command here when this subfolder exposes a stable entrypoint.
 
----
+## Dependencies
 
-## 3. Test Cases Validated
+Dependencies are inherited from the owning domain unless a local manifest exists.
 
-* **`test_app_registers_with_executive`**: Verifies successful registration of task ID `ASTOS_TLM_APP` inside cFE Executive Services.
-* **`test_app_subscribes_to_commands`**: Verifies Software Bus pipe subscriptions on telemetry sensor port `0x0801` and commands port `0x1801`.
-* **`test_app_publishes_telemetry`**: Verifies periodic telemetry frame broadcast at nominal **$10 \text{ Hz}$** frequencies.
-* **`test_app_survives_1000_cycles`**: Runs $1,000$ simulated inference sweeps to verify zero memory leaks and complete task scheduling stability.
+## Status
+
+Documented during the repository consolidation audit on 2026-06-06.
+
+## Roadmap
+
+- Keep the folder independently understandable.
+- Link source files to reproducibility evidence where applicable.
+- Move stale generated files to archive locations in a future non-destructive migration.
+
+## Related Documents
+
+- docs/REPOSITORY_AUDIT.md
+- docs/DOMAIN_DEPENDENCY_REPORT.md
+- docs/DOCUMENT_CONSOLIDATION_REPORT.md

@@ -1,0 +1,668 @@
+file,title,owner_subsystem,bytes,category,recommendation
+ARCHITECTURE_REPORT.md,Architecture Report,<root>,11026,report/audit,review
+AUDIT_REPORT.md,Audit & Correction Report — 2026-05-28,<root>,5980,report/audit,review
+CAPABILITY_MATRIX.md,Capability Matrix,<root>,11285,documentation,review
+CHANGELOG.md,Changelog,<root>,3366,documentation,review
+geometry_optimization_report.md,Radiator Geometry and Topology Optimization Report,<root>,2791,report/audit,review
+hil_report.md,Hardware-in-the-Loop (HIL) Real-Time Validation Report,<root>,1897,report/audit,review
+KNOWLEDGE_OBSERVABILITY_REPORT.md,Scientific Knowledge Observability Report,<root>,2678,report/audit,review
+METRICS.md,Project Metrics Specification — Canonical Source of Truth,<root>,6694,documentation,review
+MIGRATION_LOG.md,Migration Log — Repository Reorganization & Upgrade,<root>,6948,documentation,review
+PHASE_GAP_ANALYSIS.md,Phase 9-10 Gap Analysis,<root>,24024,report/audit,review
+PROJECT_POSITIONING.md,Project Positioning,<root>,4558,documentation,review
+QUANTUM_DOMAIN_REPORT.md,Reporte del Dominio Cuántico MVP (Fase 1A),<root>,3351,report/audit,review
+QUANTUM_FITNESS_REPORT.md,Reporte de Quantum Fitness y Fidelidad Física (Fase 1B.2),<root>,4773,report/audit,review
+QUANTUM_KNOWLEDGE_REPORT.md,Reporte de Capa de Destilación de Conocimiento Cuántico (Fase 1B.4),<root>,7340,report/audit,review
+QUANTUM_SANDBOX_REPORT.md,Reporte de Quantum Sandbox con Simulación Real (Fase 1B.1),<root>,2970,report/audit,review
+README.md,IA-MATEMATICA,<root>,6430,README,review
+README_AUDIT.md,README Audit,<root>,9166,report/audit,review
+README_REWRITTEN.md,Neurosymbolic Scientific Discovery and Spacecraft Thermal Digital Twin,<root>,14039,documentation,review
+task.md,Task - Phase 40.0 Microscopic Completion Audit,<root>,1507,documentation,review
+walkthrough.md,Walkthrough - Phase 40.0 Microscopic Completion Audit,<root>,1723,documentation,review
+artifacts/discovery_report.md,Scientific Discovery Loop Report,artifacts,911,report/audit,review
+artifacts/qg_discovery_report.md,Autonomous Quantum Gravity Discovery Report,artifacts,1321,report/audit,review
+artifacts/robustness_report.md,Phase 8E — Robustness Stress Test Report,artifacts,1911,report/audit,review
+artifacts/sota_report.md,Phase 8C — SOTA Benchmark Report,artifacts,2312,report/audit,review
+benchmark/README.md,Legacy Benchmark Documentation,benchmark,1176,README,review
+dashboard/AGENTS.md,This is NOT the Next.js you know,dashboard,327,documentation,keep
+dashboard/CLAUDE.md,,dashboard,11,documentation,keep
+dashboard/README.md,Dashboard,dashboard,1497,README,keep
+datasets/README.md,Datasets,datasets,1168,README,review
+docs/ABSTRACTION_LAYER.md,Capa de Abstracciones del Sistema (Fase 0B.2),docs,2792,documentation,keep
+docs/ACTION_COMPARISON_MATRIX.md,Matriz Comparativa de Reconstrucción de la Acción Efectiva (Fase 7),docs,3667,documentation,keep
+docs/ADAPTER_COMPATIBILITY_REPORT.md,Reporte de Compatibilidad y Adaptadores (Fase 0C.2),docs,2079,report/audit,keep
+docs/ADVERSARIAL_EVIDENCE_REPORT.md,Adversarial Evidence Report — Forensic Audit,docs,2875,report/audit,keep
+docs/ADVERSARIAL_TOURNAMENT_REPORT.md,Adversarial Model Tournament Report -- Phase X-G,docs,1400,report/audit,keep
+docs/AGENT_AUDIT_AND_ROADMAP.md,Auditoría de Capacidades Científicas y Arquitectura Multiagente,docs,15514,report/audit,keep
+docs/ALGORITHM_DISCOVERY_READINESS.md,Algorithm Discovery Readiness -- QADE Product Transition,docs,2610,report/audit,keep
+docs/ALL_COMPILERS_BENCHMARK_REPORT.md,Unified Quantum Compiler Performance Leaderboard,docs,2272,report/audit,keep
+docs/ALTERNATIVE_EXPLANATION_AUDIT.md,Alternative Explanation Elimination Report — Phase 4H,docs,6023,report/audit,keep
+docs/ALTERNATIVE_EXPLANATION_REPORT.md,Alternative Explanation Factory Report -- Phase XI-D,docs,1482,report/audit,keep
+docs/API_READINESS_REPORT.md,API Readiness Report -- QADE Optimization Service,docs,2541,report/audit,keep
+docs/ARCHITECTURE.md,System Architecture Snapshot,docs,5634,documentation,keep
+docs/ARCHITECTURE_AUDIT.md,Auditoría Arquitectónica del Sistema Científico Autónomo (Fase 0.1),docs,4567,report/audit,keep
+docs/ASSUMPTION_DESTRUCTION_REPORT.md,Assumption Destruction Engine Report -- Phase XI-C,docs,1481,report/audit,keep
+docs/ASYMPTOTIC_SAFETY_ACTION.md,Acción Efectiva de Seguridad Asintótica (AS) para Hayward (Fase 6),docs,4115,documentation,keep
+docs/ASYMPTOTIC_SAFETY_COMPATIBILITY.md,Compatibilidad con Seguridad Asintótica (Asymptotic Safety) (Fase 3),docs,3045,documentation,keep
+docs/ASYMPTOTIC_SAFETY_INFORMATION.md,Phase 39.0 - Asymptotic Safety Information Audit,docs,1270,documentation,keep
+docs/AUTONOMOUS_DISCOVERY_REPORT.md,Autonomous Scaffold Discovery Engine Report — Phase 1H,docs,1626,report/audit,keep
+docs/BAYESIAN_THEORY_REPORT.md,Bayesian Theory Updating Report — Phase 2D / 3A.1,docs,2651,report/audit,keep
+docs/BEKENSTEIN_HAWKING_AUDIT.md,Phase 38.0 - Bekenstein-Hawking Entropy Audit,docs,1629,report/audit,keep
+docs/BENCHMARK_DIVERSITY_REPORT.md,Benchmark Diversity Audit Report — Phase 3A.5,docs,766,report/audit,keep
+docs/BIASED_RETRIEVAL_REPORT.md,Reporte de Auditoría de Recuperación Sesgada y Diversidad (Fase 1D.3),docs,2219,report/audit,keep
+docs/BLIND_BENCHMARK_REPORT.md,Validation Report: Strict Isolated Blind Benchmark,docs,3546,report/audit,keep
+docs/BLIND_PREDICTION_EVIDENCE_REPORT.md,Blind Prediction Evidence Report — Forensic Audit,docs,2627,report/audit,keep
+docs/CALIBRATION_DIVERSITY_REPORT.md,Calibration Diversity Audit Report — Phase 3A.5,docs,12950,report/audit,keep
+docs/CANONICAL_VARIABLES.md,Phase 37.0 - Canonical Variables,docs,4272,documentation,keep
+docs/CAPABILITIES.md,Emergent System Capabilities,docs,2104,documentation,keep
+docs/CHAIN_OF_CUSTODY_REPORT.md,Chain of Custody Verification Report -- Phase X-B,docs,372,report/audit,keep
+docs/CIRCULAR_VALIDATION_REPORT.md,Circular Validation Audit Report -- Phase X-D,docs,519,report/audit,keep
+docs/CLASSICAL_FACTORY_REPORT.md,Reporte de la Factoría Clásica (Fase 0D.7),docs,2779,report/audit,keep
+docs/COMMUNITY_ACCEPTANCE_REPORT.md,Community Acceptance Simulator Report -- Phase XI-H,docs,1335,report/audit,keep
+docs/COMPARISON_BEFORE_AFTER.md,Comparative Analysis: Search Space Expansion Results,docs,5221,documentation,keep
+docs/COMPILER_CAPABILITY_REPORT.md,Compiler Capability & Benchmarking Report -- QADE Optimization,docs,2003,report/audit,keep
+docs/CONTEXT_AWARE_MEMORY_REPORT.md,Reporte de Validación de Memoria Sensible al Contexto y Recuperación Condicional (Fase 1D.5),docs,4061,report/audit,keep
+docs/CORRELATION_FORENSICS_REPORT.md,Correlation Forensics Report — Phase 3A.5,docs,1102,report/audit,keep
+docs/COSMOLOGY_IMPLICATIONS.md,Implicaciones Cosmológicas y Abundancia de Remanentes (Fase 5),docs,3135,documentation,keep
+docs/COUNTERFACTUAL_EVIDENCE_REPORT.md,Counterfactual Evidence Audit Report — Phase 3A.5,docs,1361,report/audit,keep
+docs/CROSS_LAB_REPRODUCTION.md,Cross-Lab Simulation Reproduction Report — Phase 3B.2,docs,687,documentation,keep
+docs/CUQUANTUM_REPORT.md,cuQuantum Integration and Scaling Report (Component A),docs,1786,report/audit,keep
+docs/DATABASE_EVIDENCE_REPORT.md,Database Evidence Report — SQLite Forensics,docs,5229,report/audit,keep
+docs/DEEPTECH_GRANT_READINESS.md,Deep Tech Grant Readiness Assessment,docs,2802,report/audit,keep
+docs/DEPENDENCY_INJECTION_REPORT.md,Reporte de Inyección de Dependencias (Fase 0D.7),docs,3257,report/audit,keep
+docs/DEPENDENCY_MAP.md,Mapa de Dependencias y Acoplamiento del Sistema (Fase 0.2 — 0.5),docs,6358,documentation,keep
+docs/DIAGNOSTIC_REPORT.md,Diagnostic Report: TheoryCritic Falsification & Separation Audit,docs,6951,report/audit,keep
+docs/DISCOVERED_LAWS.md,Reality-Native Discovered Laws Report — Phase 3B,docs,591,documentation,keep
+docs/DISCOVERED_MECHANISMS.md,Reality-Native Discovered Mechanisms Report — Phase 3B,docs,873,documentation,keep
+docs/DISCOVERY_AUTHENTICITY_REPORT.md,Discovery Authenticity Report — Phase 1H.1,docs,1901,report/audit,keep
+docs/DISCOVERY_READINESS_REPORT.md,Discovery Readiness Report — Phase 3A.5,docs,1010,report/audit,keep
+docs/DOCUMENT_CONSOLIDATION_REPORT.md,Document Consolidation Report,docs,3795,report/audit,keep
+docs/DOMAIN_DEPENDENCY_REPORT.md,Domain Dependency Report,docs,3557,report/audit,keep
+docs/DOMAIN_REGISTRY_REPORT.md,Reporte de Domain Registry (Fase 0E.7),docs,2977,report/audit,keep
+docs/DOUBLE_BLIND_REPORT.md,Double Blind Reproduction Report -- Phase X-F,docs,582,report/audit,keep
+docs/ECONOMIC_VALUE_REPORT.md,Theory Economics & Financial Value Report — Phase 3C,docs,1613,report/audit,keep
+docs/EFFECTIVE_SAMPLE_SIZE_REPORT.md,Effective Sample Size (ESS) Audit Report — Phase 3A.5,docs,982,report/audit,keep
+docs/EFT_COMPATIBILITY.md,Compatibilidad con Teorías de Campo Efectivas (EFT) (Fase 4),docs,3029,documentation,keep
+docs/EHT_PREDICTIONS.md,Predicciones Observacionales de Sombras de Agujeros Negros — EHT (Fase 1),docs,3162,documentation,keep
+docs/EINSTEIN_RECONSTRUCTION.md,Reconstrucción Einsteiniana del Candidato Hayward (Fase 1),docs,4929,documentation,keep
+docs/EMERGENCE_OF_GR.md,Phase 40.0 - Emergence of General Relativity,docs,1842,documentation,keep
+docs/EMERGENT_KNOWLEDGE_REPORT.md,Reporte de Validación de Conocimiento Emergente (Fase 1E.1),docs,4723,report/audit,keep
+docs/ENTANGLEMENT_ENTROPY_AUDIT.md,Phase 39.0 - Entanglement Entropy Audit,docs,2074,report/audit,keep
+docs/EVIDENCE_QUALITY_REPORT.md,Evidence Quality Assessment Report -- Phase XI-F,docs,364,report/audit,keep
+docs/EVIDENCE_STRESS_TEST_REPORT.md,Scientific Evidence Stress Test Report — Phase 3A.5,docs,960,report/audit,keep
+docs/EXPERIMENT_LOG.md,Scientific Experiment Log,docs,176825,documentation,keep
+docs/EXTERNAL_HARDWARE_REPORT.md,External Hardware Challenge Report -- Phase X-H,docs,1012,report/audit,keep
+docs/EXTERNAL_PANEL_REPORT.md,External Review Panel Report -- Phase X-J,docs,773,report/audit,keep
+docs/EXTERNAL_REIMPLEMENTATION_REPORT.md,Clean-Room Reimplementation Challenge Report — Phase 3B.2,docs,701,report/audit,keep
+docs/FAILURE_CAUSE_REPORT.md,Failure Cause Attribution Report — Phase 2D,docs,1223,report/audit,keep
+docs/FALSE_DISCOVERY_REPORT.md,False Discovery Control Report — Phase 3C,docs,443,report/audit,keep
+docs/FALSIFICATION_AUDIT.md,Auditoría de Falsabilidad Cuantitativa del Candidato Hayward (Fase 6),docs,5174,report/audit,keep
+docs/FALSIFICATION_REPORT.md,Adversarial Scientific Review Report — Phase 3B,docs,755,report/audit,keep
+docs/FILES_SAFE_TO_DELETE.md,Files Safe To Delete,docs,2032,documentation,keep
+docs/FINAL_EPISTEMIC_VERDICT.md,Final Epistemic Verdict — Phase 3B.1,docs,974,report/audit,keep
+docs/FINAL_EXTERNAL_AUDIT_REPORT.md,Final External Audit Verdict -- Phase X-L,docs,956,report/audit,keep
+docs/FINAL_FACTORY_VERDICT.md,Final Theory Factory Epistemic Classification Verdict — Phase 3C,docs,843,report/audit,keep
+docs/FINAL_NOVEL_PHYSICS_VERDICT.md,Final Epistemic Verdict — Phase 4L,docs,522,report/audit,keep
+docs/FINAL_PHASE_2B_VERDICT.md,Final Scientific Verdict — Phase 2B,docs,1005,report/audit,keep
+docs/FINAL_PHASE_2C_VERDICT.md,Final Phase 2C Verdict,docs,723,report/audit,keep
+docs/FINAL_PHASE_3A5_VERDICT.md,Final Phase 3A.5 Scientific Verdict Report,docs,1273,report/audit,keep
+docs/FINAL_PHASE_3A_VERDICT.md,Final Phase 3A Verdict,docs,886,report/audit,keep
+docs/FINAL_REPRODUCTION_VERDICT.md,Final Reproduction Verdict — Phase 3B.2,docs,810,report/audit,keep
+docs/FINAL_REVISED_VERDICT.md,Final Phase 2D / 3A.1 Verdict Report,docs,727,report/audit,keep
+docs/FINAL_SCIENTIFIC_VERDICT.md,Final Scientific Standing Report -- Phase XI-J,docs,696,report/audit,keep
+docs/FINE_TUNING_AUDIT.md,Auditoría de Ajuste Fino (Fine-Tuning Audit) (Fase 6),docs,3319,report/audit,keep
+docs/FORENSIC_EXPORT_MANIFEST.md,Forensic Export Manifest -- Phase X-A,docs,2977,documentation,keep
+docs/FORENSIC_PHASE_3B_FINAL_VERDICT.md,Forensic Phase 3B Final Verdict — Forensic Audit,docs,2787,report/audit,keep
+docs/FR_GRAVITY_AUDIT.md,Auditoría de Gravedad $f(R)$ para el Candidato Hayward (Fase 2),docs,5313,report/audit,keep
+docs/GEOMETRIC_OPERATORS.md,Phase 37.0 - Geometric Operators,docs,2179,documentation,keep
+docs/GRAPH_ANALYTICS_REPORT.md,Advanced Knowledge Graph Analytics Report (Component G),docs,2014,report/audit,keep
+docs/HAMILTONIAN_AUDIT.md,Phase 37.0 - Hamiltonian Audit,docs,3282,report/audit,keep
+docs/HARDWARE_ADVERSARY_REPORT.md,Hardware Adversarial Stress Report — Phase 3A,docs,983,report/audit,keep
+docs/HARDWARE_CALIBRATION_REPORT.md,Hardware Calibration Robustness Report — Phase 3A,docs,867,report/audit,keep
+docs/HARDWARE_EVIDENCE_INVENTORY.md,Hardware Evidence Inventory Report — Phase 3A.5,docs,1210,documentation,keep
+docs/HARDWARE_EVOLUTION_REPORT.md,Hardware Reality Theory Evolution Report — Phase 3A,docs,1265,report/audit,keep
+docs/HARDWARE_FDR_REPORT.md,Hardware False Discovery Control Report — Phase 3A,docs,1487,report/audit,keep
+docs/HARDWARE_MECHANISM_REPORT.md,Physical Causal Mechanism Verification Report — Phase 3A,docs,1957,report/audit,keep
+docs/HARDWARE_OOD_REPORT.md,Hardware OOD Generalization Report — Phase 3A,docs,880,report/audit,keep
+docs/HARDWARE_REPLICATION_REPORT.md,Hardware Replication Report — Phase 3A,docs,851,report/audit,keep
+docs/HARDWARE_TEMPORAL_REPORT.md,Hardware Temporal Stability Report — Phase 3A,docs,961,report/audit,keep
+docs/HARDWARE_THEORY_LEADERBOARD.md,Hardware Theory Leaderboard — Phase 3A,docs,788,documentation,keep
+docs/HAWKING_CORRELATIONS.md,Phase 39.0 - Hawking Correlation Analysis,docs,2032,documentation,keep
+docs/HIERARCHICAL_COMPOSITION_REPORT.md,Reporte de Validación de Composición Jerárquica de Conocimiento (Fase 1E),docs,2920,report/audit,keep
+docs/HILBERT_SPACE_RECONSTRUCTION.md,Phase 40.0 - Hilbert Space Reconstruction,docs,3081,documentation,keep
+docs/HISTORICAL_RECOVERY_REPORT.md,Historical Recovery Report — Phase 2B,docs,893,report/audit,keep
+docs/HOSTILE_LEAKAGE_REPORT.md,Hostile Leakage Audit Report -- Phase X-C,docs,1109,report/audit,keep
+docs/IMPOSSIBLE_PREDICTIONS.md,Impossible Predictions Report — Phase 4D,docs,3902,documentation,keep
+docs/IMPROVEMENT_VERIFICATION_REPORT.md,Improvement Verification Report — Forensic Audit,docs,1375,report/audit,keep
+docs/INDEPENDENT_CONFIRMATION_REPORT.md,Independent Confirmation Report — Phase 2C,docs,1249,report/audit,keep
+docs/INDEPENDENT_PHYSICS_REVIEW.md,Independent Physics Review -- Phase X-I,docs,1764,documentation,keep
+docs/INDEPENDENT_PREDICTION_AUDIT.md,Independent Prediction Audit & Adversarial Review — Phase 3B.1,docs,949,report/audit,keep
+docs/INDEPENDENT_REANALYSIS_REPORT.md,Independent Reanalysis Program Report -- Phase XI-B,docs,1256,report/audit,keep
+docs/INDEPENDENT_REPRODUCTION_REPORT.md,Independent Reproduction Report — Phase 3B.2,docs,1637,report/audit,keep
+docs/INFORMATION_COMPARISON_MATRIX.md,Phase 38.0 - Information Comparison Matrix,docs,1920,documentation,keep
+docs/INFORMATION_PARADOX_AUDIT.md,Phase 38.0 - Information Paradox Audit,docs,2361,report/audit,keep
+docs/INFORMATION_RECOVERY_MATRIX.md,Phase 39.0 - Comparative Information Recovery Matrix,docs,1620,documentation,keep
+docs/INFORMATION_STORAGE.md,Phase 38.0 - Information Storage Capacity,docs,2470,documentation,keep
+docs/INSPIRAL_PREDICTIONS.md,Predicciones Observacionales en la Fase de Coalescencia (Inspiral) (Fase 3),docs,2477,documentation,keep
+docs/KNOWLEDGE_GRAPH_MOAT_REPORT.md,Knowledge Graph Monetization & Technical Moat Report,docs,2307,report/audit,keep
+docs/KNOWLEDGE_QUALITY_REPORT.md,Reporte de Auditoría de Calidad del Conocimiento (Fase 1D.2),docs,2966,report/audit,keep
+docs/KNOWLEDGE_REPRESENTATION_REPORT.md,Reporte de Auditoría de Representación del Conocimiento (Fase 1D.4),docs,4714,report/audit,keep
+docs/KNOWLEDGE_REUSE_AUDIT_REPORT.md,Reporte de Auditoría Causal de Reutilización de Conocimiento (Fase 1D.1),docs,2066,report/audit,keep
+docs/LAW_BLIND_VALIDATION_REPORT.md,Law Blind Validation Report — Phase 2B,docs,2878,report/audit,keep
+docs/LAW_CAUSALITY_REPORT.md,Law Causality Report (Component Q),docs,5401,report/audit,keep
+docs/LAW_COMPRESSION_REPORT.md,Law Compression Report — Phase 2B,docs,1906,report/audit,keep
+docs/LAW_COUNTEREXAMPLE_REPORT.md,Law Counterexample Report — Phase 2B,docs,4486,report/audit,keep
+docs/LAW_DISCOVERY_REPORT.md,Law Discovery Report (Component Q),docs,4518,report/audit,keep
+docs/LAW_EVOLUTION_REPORT.md,Law Evolution Report (Component Q),docs,4718,report/audit,keep
+docs/LAW_FALSIFICATION_REPORT.md,Law Falsification Report (Component Q),docs,2230,report/audit,keep
+docs/LAW_FDR_REPORT.md,Law False Discovery Rate Report — Phase 2B,docs,3562,report/audit,keep
+docs/LAW_HOLDOUT_REPORT.md,Law Holdout Report — Phase 2B,docs,1877,report/audit,keep
+docs/LAW_MEMORY_REPORT.md,Law Memory Report (Component Q),docs,4234,report/audit,keep
+docs/LAW_MINIMALITY_REPORT.md,Law Minimality Report — Phase 2B,docs,3410,report/audit,keep
+docs/LAW_REPLICATION_REPORT.md,Law Replication Report — Phase 2B,docs,3377,report/audit,keep
+docs/LAW_TOURNAMENT_REPORT.md,Law Tournament Report (Component Q),docs,5406,report/audit,keep
+docs/LEAKAGE_AUDIT.md,Leakage Forensics Audit Report — Phase 3B.2,docs,445,report/audit,keep
+docs/LEAKAGE_AUDIT_REPORT.md,Dependence & Leakage Audit Report — Phase 3A.5,docs,963,report/audit,keep
+docs/LISA_FORECAST.md,Pronóstico de Detectabilidad para el Observatorio Espacial LISA (Fase 4),docs,3032,documentation,keep
+docs/LOCKED_PREDICTIONS.md,Preregistered Prediction Lock Ledger — Phase 3B.2,docs,518,documentation,keep
+docs/LQG_COMPATIBILITY.md,Compatibilidad con Gravedad Cuántica de Bucles (LQG) (Fase 2),docs,3506,documentation,keep
+docs/LQG_EFFECTIVE_ACTION.md,Acción Efectiva de Gravedad Cuántica de Bucles (LQG) para Hayward (Fase 5),docs,4035,documentation,keep
+docs/LQG_INFORMATION_RECOVERY.md,Phase 39.0 - LQG Information Recovery,docs,1743,documentation,keep
+docs/MASS_CONFIRMATION_REPORT.md,Mass Theory Confirmation Report — Phase 3C,docs,1602,report/audit,keep
+docs/MASS_REPRODUCTION_REPORT.md,Mass Theory Reproduction Report — Phase 3C,docs,1432,report/audit,keep
+docs/MECHANISM_REPORT.md,Mechanism Report — Phase 2C,docs,1173,report/audit,keep
+docs/META_ANALYSIS_REPORT.md,Project Meta-Analysis Report -- Phase XI-I,docs,1334,report/audit,keep
+docs/META_LAW_REPORT.md,Meta-Law Discovery Report (Component Q),docs,872,report/audit,keep
+docs/META_LAW_VALIDATION_REPORT.md,Meta-Law Validation Report — Phase 2B,docs,640,report/audit,keep
+docs/META_REPRODUCTION_REPORT.md,Meta-Reproduction Report -- Phase X-K,docs,503,report/audit,keep
+docs/MICROSCOPIC_COMPARISON_MATRIX.md,Phase 40.0 - Microscopic Comparison Matrix,docs,1456,documentation,keep
+docs/MICROSCOPIC_DEGREES_OF_FREEDOM.md,Phase 40.0 - Microscopic Degrees of Freedom,docs,2664,documentation,keep
+docs/MICROSCOPIC_RECONSTRUCTION.md,Reconstrucción Física del Candidato Hayward (Fase 1),docs,4888,documentation,keep
+docs/MICROSTATE_ESTIMATE.md,Phase 38.0 - Microstate Estimate,docs,1656,documentation,keep
+docs/MULTI_DOMAIN_DISCOVERY_REPORT.md,Multi-Domain Theory Discovery Report — Phase 3C,docs,2440,report/audit,keep
+docs/MULTI_LAB_CONSENSUS.md,Multi-Lab Consensus Engine Report -- Phase XI-E,docs,1110,documentation,keep
+docs/NOISE_META_LAWS.md,Noise Meta-Law Discovery Report — Phase 2D / 3A.1,docs,1395,documentation,keep
+docs/NOISE_REDUNDANCY_REPORT.md,Noise Law Redundancy Audit Report — Phase 3A.5,docs,1223,report/audit,keep
+docs/NOISE_RESILIENCE_REPORT.md,Noise Resilience and Error Mitigation Report (Component C),docs,1993,report/audit,keep
+docs/NONLOCAL_GRAVITY_AUDIT.md,Auditoría de Gravedad No Local para el Candidato Hayward (Fase 4),docs,4466,report/audit,keep
+docs/NOVEL_EFFECT_REPORT.md,Novel Effect Extraction Report — Phase 4C,docs,1959,report/audit,keep
+docs/NOVEL_EXPERIMENTAL_DESIGN.md,Experimental Stress Design Report — Phase 4E,docs,1790,documentation,keep
+docs/NOVEL_PHYSICS_IMPACT.md,Physics Impact Assessment Report — Phase 4K,docs,620,documentation,keep
+docs/NOVEL_PHYSICS_VALIDATION.md,Independent Hardware Verification Report -- Phase 4G,docs,4421,documentation,keep
+docs/NOVEL_PREDICTIONS.md,Novel Predictions Register — Phase 3B,docs,652,documentation,keep
+docs/NOVEL_PREDICTION_LOCK.md,Novel Prediction Cryptographic Lock Registry — Phase 4F,docs,496,documentation,keep
+docs/ORCHESTRATOR_DEPENDENCY_AUDIT.md,Auditoría de Dependencias del Orquestador (Fase 0D.1),docs,2944,report/audit,keep
+docs/PAGE_CURVE_AUDIT.md,Phase 38.0 - Page Curve Audit,docs,2966,report/audit,keep
+docs/PAGE_CURVE_MICROSCOPIC.md,Phase 40.0 - Microscopic Page Curve,docs,1624,documentation,keep
+docs/PAGE_CURVE_RECONSTRUCTION.md,Phase 39.0 - Page Curve Reconstruction,docs,3004,documentation,keep
+docs/PARADOX_RESOLUTION_AUDIT.md,Phase 39.0 - Paradox Resolution Audit,docs,1982,report/audit,keep
+docs/PENNYLANE_REPORT.md,PennyLane Hybrid Quantum Learning Report (Component D),docs,1073,report/audit,keep
+docs/PHASE30_FINAL_PHYSICAL_AUDIT.md,FASE 8 — Veredicto Final de la Auditoría Física,docs,5058,report/audit,keep
+docs/PHASE31_DYNAMIC_STABILITY_REPORT.md,FASE 8 — Reporte Final de Estabilidad Dinámica (Phase 31.0),docs,4444,report/audit,keep
+docs/PHASE32_FINAL_FORMATION_REPORT.md,FASE 8 — Reporte Final de Formación Dinámica (Phase 32.0),docs,4142,report/audit,keep
+docs/PHASE33_FINAL_INHOMOGENEOUS_REPORT.md,FASE 8 — Reporte Final de Colapso Inhomogéneo y Falsificación,docs,1177,report/audit,keep
+docs/PHASE34_FINAL_MICROSCOPIC_AUDIT.md,Reporte Final de Consistencia Microscópica (Fase 34.0),docs,3412,report/audit,keep
+docs/PHASE35_FINAL_OBSERVATIONAL_REPORT.md,Reporte Final de Predicciones Observacionales (Fase 35.0),docs,4827,report/audit,keep
+docs/PHASE36_FINAL_ACTION_REPORT.md,Reporte Final de Reconstrucción de la Acción Efectiva (Fase 36.0),docs,4725,report/audit,keep
+docs/PHASE37_FINAL_QUANTIZATION_REPORT.md,Phase 37.0 - Final Quantization Report,docs,4295,report/audit,keep
+docs/PHASE38_FINAL_INFORMATION_REPORT.md,Phase 38.0 - Final Information Report,docs,2644,report/audit,keep
+docs/PHASE39_FINAL_PAGE_CURVE_REPORT.md,Phase 39.0 - Final Page Curve Report,docs,2557,report/audit,keep
+docs/PHASE3_HARDWARE_AWARE_REPORT.md,QADE Phase III Hardware-Aware Validation Report,docs,2665,report/audit,keep
+docs/PHASE3_INVESTOR_SUMMARY.md,QADE Phase III Investor Summary,docs,904,report/audit,keep
+docs/PHASE40_FINAL_MICROSCOPIC_REPORT.md,Phase 40.0 - Final Microscopic Completion Report,docs,3685,report/audit,keep
+docs/PHASE4_COMMERCIAL_POSITIONING.md,QADE Phase IV Commercial Positioning,docs,2440,report/audit,keep
+docs/PHASE4_COMPETITIVE_ADVANTAGE_REPORT.md,QADE Phase IV Competitive Advantage Report,docs,9454,report/audit,keep
+docs/PHASE4_INVESTOR_SUMMARY.md,QADE Phase IV Investor Summary,docs,1005,report/audit,keep
+docs/PHASE5_INVESTOR_SUMMARY.md,QADE Phase V Investor Summary,docs,811,report/audit,keep
+docs/PHASE5_IP_REPORT.md,QADE Phase V IP Report,docs,2411,report/audit,keep
+docs/PHASE6_COMPETITIVE_MOAT_REPORT.md,QADE Phase VI Competitive Moat Report,docs,841,report/audit,keep
+docs/PHASE6_ECONOMIC_IMPACT_REPORT.md,QADE Phase VI Economic Impact Report,docs,1269,report/audit,keep
+docs/PHASE6_INVESTOR_SUMMARY.md,QADE Phase VI Investor Summary,docs,1019,report/audit,keep
+docs/PHASE6_IP_VALUATION_REPORT.md,QADE Phase VI IP Valuation Report,docs,366,report/audit,keep
+docs/PHASE6_LICENSING_MODEL.md,QADE Phase VI Licensing Model,docs,285,report/audit,keep
+docs/PHASE6_RISK_ANALYSIS.md,QADE Phase VI Risk Analysis,docs,1134,report/audit,keep
+docs/PHASE7_COMPETITIVE_GAP_REPORT.md,QADE Phase VII Competitive Gap Report,docs,678,report/audit,keep
+docs/PHASE7_ECONOMIC_MOAT_REPORT.md,QADE Phase VII Economic Moat Report,docs,1070,report/audit,keep
+docs/PHASE7_EXECUTIVE_SUMMARY.md,QADE Phase VII Executive Summary,docs,1305,report/audit,keep
+docs/PHASE7_INVESTOR_POSITIONING.md,QADE Phase VII Investor Positioning,docs,748,report/audit,keep
+docs/PHASE7_KNOWLEDGE_FLYWHEEL_REPORT.md,QADE Phase VII Knowledge Flywheel Report,docs,1096,report/audit,keep
+docs/PHASE7_NETWORK_EFFECT_REPORT.md,QADE Phase VII Network Effect Report,docs,823,report/audit,keep
+docs/PHASE7_PLATFORM_ANALYSIS.md,QADE Phase VII Platform Analysis,docs,581,report/audit,keep
+docs/PHASE_0B_HASHES.md,Hashes de Integridad de la Fase 0B (Fase 0C.4),docs,1152,report/audit,keep
+docs/PHASE_3B_ARTIFACT_INVENTORY.md,Phase 3B Artifact Inventory — Forensic Audit,docs,6455,report/audit,keep
+docs/PHASE_STATUS.md,Phase Status Log,docs,9272,report/audit,keep
+docs/PLUGIN_LOADER_REPORT.md,Reporte de Plugin Loader (Fase 0E.7),docs,2426,report/audit,keep
+docs/POLYMER_QUANTIZATION.md,Phase 37.0 - Polymer Quantization,docs,2299,documentation,keep
+docs/POST_IMPROVEMENT_DIAGNOSIS.md,Post-Improvement Diagnosis Report,docs,2512,documentation,keep
+docs/PREDICTION_REPORT.md,Prediction Report — Phase 2C,docs,1935,report/audit,keep
+docs/PRELIMINARY_ENTROPY_AUDIT.md,Phase 37.0 - Preliminary Entropy Audit,docs,2265,report/audit,keep
+docs/PUBLICATION_READINESS_REPORT.md,Publication Readiness Audit Report -- Phase XI-G,docs,1109,report/audit,keep
+docs/PYZX_OPTIMIZATION_REPORT.md,PyZX Symbolic Optimization and Synergy Report (Component B),docs,1523,report/audit,keep
+docs/QADE_COMMERCIAL_ARCHITECTURE.md,QADE Commercial Architecture -- Strategic Asset Audit,docs,3848,report/audit,keep
+docs/QADE_EXECUTIVE_VERDICT.md,QADE Executive Verdict -- Strategic Commercialization Blueprint,docs,2612,report/audit,keep
+docs/QADE_IP_ASSET_REGISTER.md,QADE IP Asset Register,docs,2677,report/audit,keep
+docs/QADE_MASTER_WALKTHROUGH.md,QADE Master Walkthrough,docs,6977,report/audit,keep
+docs/QADE_OPTIMIZATION_PIPELINE.md,QADE API Optimization Pipeline -- POST /optimize,docs,3453,report/audit,keep
+docs/QADE_PRODUCT_ROADMAP.md,QADE Product Roadmap -- Commercial Action Plan,docs,2325,report/audit,keep
+docs/QADE_TECHNICAL_DOSSIER.md,QADE Technical Dossier,docs,10172,report/audit,keep
+docs/QG_CANDIDATE_SELECTION.md,FASE 1 — Identificación y Perfilamiento del Candidato Dominante,docs,3403,documentation,keep
+docs/QG_COLLAPSE_MODEL.md,FASE 1 — Construcción del Modelo de Colapso Gravitatorio,docs,3188,documentation,keep
+docs/QG_COMPARATIVE_ANALYSIS.md,FASE 6 — Comparación con Métricas Conocidas,docs,4775,documentation,keep
+docs/QG_DYNAMIC_COLLAPSE_AUDIT.md,FASE 2 — Auditoría de Evolución Dinámica de Colapso,docs,3111,report/audit,keep
+docs/QG_DYNAMIC_CURVATURE_AUDIT.md,FASE 5 — Estabilidad de Curvatura Dinámica,docs,3190,report/audit,keep
+docs/QG_DYNAMIC_FALSIFICATION.md,FASE 7 — Intento de Falsificación Dinámica (Dynamic Falsification),docs,4821,documentation,keep
+docs/QG_DYNAMIC_MODEL.md,FASE 1 — Construcción del Modelo Dinámico de Hayward,docs,3360,documentation,keep
+docs/QG_ENERGY_CONDITIONS_AUDIT.md,FASE 5 — Auditoría de Condiciones de Energía,docs,5516,report/audit,keep
+docs/QG_FALSIFICATION_REPORT.md,FASE 7 — Falsificación Activa del Candidato de Gravedad Cuántica,docs,6503,report/audit,keep
+docs/QG_FALSIFICATION_VERDICT.md,Veredicto de Falsificación de Remanentes Inhomogéneos (Fase 5),docs,1268,report/audit,keep
+docs/QG_FINAL_STATE_CLASSIFICATION.md,FASE 5 — Clasificación del Destino Final del Sistema,docs,3848,documentation,keep
+docs/QG_HORIZON_AUDIT.md,FASE 3 — Auditoría de Horizontes,docs,4924,report/audit,keep
+docs/QG_HORIZON_FORMATION_AUDIT.md,FASE 4 — Formación y Disolución de Horizontes Aparentes,docs,3787,report/audit,keep
+docs/QG_INHOMOGENEOUS_COLLAPSE.md,Formulación del Colapso Inhomogéneo LTB-LQC (Fase 1),docs,1191,documentation,keep
+docs/QG_INHOMOGENEOUS_HORIZONS.md,Dinámica de Horizontes Inhomogéneos (Fase 4),docs,960,documentation,keep
+docs/QG_INHOMOGENEOUS_PHASE_SPACE.md,Barrido de Espacio Paramétrico Inhomogéneo (Fase 6),docs,916,report/audit,keep
+docs/QG_MASS_INFLATION_AUDIT.md,FASE 4 — Test de Inflación de Masa (Mass Inflation Audit),docs,3528,report/audit,keep
+docs/QG_NON_LOCAL_EFFECTS.md,Efectos Cuánticos No Locales en la Disolución de Horizontes (Fase 7),docs,838,documentation,keep
+docs/QG_PARAMETER_SENSITIVITY.md,FASE 6 — Robustez y Sensibilidad Paramétrica,docs,4300,documentation,keep
+docs/QG_PHASE_DIAGRAM.md,FASE 6 — Diagrama de Fases y Robustez Paramétrica,docs,3837,report/audit,keep
+docs/QG_QNM_ANALYSIS.md,FASE 3 — Análisis de Modos Cuasinormales (QNM),docs,3802,documentation,keep
+docs/QG_QUANTUM_CORE_FORMATION.md,FASE 3 — Aparición de Efectos Cuánticos y Núcleo Planckiano,docs,3325,documentation,keep
+docs/QG_REGULARITY_AUDIT.md,FASE 2 — Auditoría de Regularidad de Curvatura,docs,4713,report/audit,keep
+docs/QG_REMNANT_FALSIFICATION.md,FASE 7 — Reporte de Falsificación de Remanentes (Remnant Falsification),docs,5175,documentation,keep
+docs/QG_SCALAR_PERTURBATION_AUDIT.md,FASE 2 — Auditoría de Perturbaciones Escalares,docs,3449,report/audit,keep
+docs/QG_SHEAR_PERTURBATIONS.md,Efectos de Cizalladura y Simulación ODE/PDE (Fase 2),docs,1060,documentation,keep
+docs/QG_SHOCKWAVE_BACKREACTION.md,Dinámica de Presión Exótica y Ondas de Choque (Fase 3),docs,1046,documentation,keep
+docs/QG_THERMODYNAMIC_AUDIT.md,FASE 4 — Auditoría Termodinámica,docs,5248,report/audit,keep
+docs/QUADRATIC_GRAVITY_AUDIT.md,Auditoría de Gravedad Cuadrática del Candidato Hayward (Fase 3),docs,4681,report/audit,keep
+docs/QUANTIZATION_COMPARISON_MATRIX.md,Phase 37.0 - Quantization Comparison Matrix,docs,1520,documentation,keep
+docs/QUANTUM_DOMAIN_REPORT.md,Reporte del Dominio Cuántico MVP (Fase 1A),docs,3351,report/audit,keep
+docs/QUANTUM_DYNAMICS_AUDIT.md,Phase 40.0 - Quantum Dynamics Audit,docs,2133,report/audit,keep
+docs/QUANTUM_FITNESS_REPORT.md,Reporte de Quantum Fitness y Fidelidad Física (Fase 1B.2),docs,4773,report/audit,keep
+docs/QUANTUM_KNOWLEDGE_REPORT.md,Reporte de Capa de Destilación de Conocimiento Cuántico (Fase 1B.4),docs,7340,report/audit,keep
+docs/QUANTUM_SANDBOX_REPORT.md,Reporte de Quantum Sandbox con Simulación Real (Fase 1B.1),docs,2970,report/audit,keep
+docs/REALITY_GAP_REPORT.md,Reality Gap Quantification Report — Phase 2D / 3A.1,docs,2663,report/audit,keep
+docs/REALITY_NATIVE_CONFIRMATION_REPORT.md,Reality-Native Theory Confirmation Report — Phase 3B.1,docs,1255,report/audit,keep
+docs/REALITY_NATIVE_THEORY_REPORT.md,Reality-Native Theory Synthesis & Verification Report — Phase 3B,docs,892,report/audit,keep
+docs/RED_TEAM_REIMPLEMENTATION_REPORT.md,Red Team Reimplementation Report -- Phase X-E,docs,593,report/audit,keep
+docs/REFACTOR_PLAN.md,Plan de Refactorización Multi-Dominio (Fase 0.6 — 0.7),docs,7337,documentation,keep
+docs/REMNANT_CAPACITY_AUDIT.md,Phase 39.0 - Remnant Information Capacity Audit,docs,1563,report/audit,keep
+docs/REPLICATION_REPORT.md,Independent Replication Report — Phase 3B,docs,967,report/audit,keep
+docs/REPOSITORY_AUDIT.md,Repository Audit,docs,8529,report/audit,keep
+docs/REPOSITORY_MIGRATION_PLAN.md,Repository Migration Plan,docs,1392,documentation,keep
+docs/REPO_RESTRUCTURE_FINAL_REPORT.md,Repository Restructure Final Report,docs,3454,report/audit,keep
+docs/REPRODUCIBILITY_30_SEED_FINAL_REPORT.md,Statistical Validation: Reproducibility 30-Seed Final Report,docs,6035,report/audit,keep
+docs/REPRODUCIBILITY_IMPROVED_30_SEED_FINAL_REPORT.md,Statistical Validation: Reproducibility 30-Seed Final Report,docs,6035,report/audit,keep
+docs/REPRODUCIBILITY_REPORT.md,Statistical Validation: Reproducibility Challenge Report,docs,4382,report/audit,keep
+docs/REPRODUCIBILITY_REVALIDATION_REPORT.md,Statistical Validation: Reproducibility Challenge Revalidation Report,docs,4809,report/audit,keep
+docs/REPRODUCTION_TOURNAMENT.md,Independent Reproduction Tournament Report — Phase 3B.2,docs,788,documentation,keep
+docs/RESEARCH_INFRASTRUCTURE_REPORT.md,Unified Research Infrastructure & Reproducibility Report (Component I),docs,1624,report/audit,keep
+docs/RESIDUAL_DISCOVERY_REPORT.md,Hardware Residual Discovery Report — Phase 2D / 3A.1,docs,1187,report/audit,keep
+docs/RESIDUAL_FRONTIER_REPORT.md,Residual Frontier Report — Phase 4B,docs,518,report/audit,keep
+docs/REVISED_THEORY_LEADERBOARD.md,Theory Revision Tournament Leaderboard — Phase 2D / 3A.1,docs,2233,documentation,keep
+docs/RINGDOWN_PREDICTIONS.md,Predicciones Observacionales de la Fase de Ringdown y Ecos Gravitacionales (Fase 2),docs,3671,documentation,keep
+docs/ROADMAP.md,Project Roadmap,docs,2758,report/audit,keep
+docs/RTHEORY_001_EXPORT.md,Theory Specification — RTHEORY_001,docs,274,documentation,keep
+docs/RTHEORY_002_EXPORT.md,Theory Specification — RTHEORY_002,docs,274,documentation,keep
+docs/RTHEORY_003_EXPORT.md,Theory Specification — RTHEORY_003,docs,274,documentation,keep
+docs/RTHEORY_004_EXPORT.md,Theory Specification — RTHEORY_004,docs,274,documentation,keep
+docs/RTHEORY_005_EXPORT.md,Theory Specification — RTHEORY_005,docs,274,documentation,keep
+docs/RTHEORY_006_EXPORT.md,Theory Specification — RTHEORY_006,docs,274,documentation,keep
+docs/RTHEORY_007_EXPORT.md,Theory Specification — RTHEORY_007,docs,274,documentation,keep
+docs/RTHEORY_008_EXPORT.md,Theory Specification — RTHEORY_008,docs,274,documentation,keep
+docs/RTHEORY_009_EXPORT.md,Theory Specification — RTHEORY_009,docs,274,documentation,keep
+docs/RTHEORY_010_EXPORT.md,Theory Specification — RTHEORY_010,docs,274,documentation,keep
+docs/SANDBOX_INTEGRITY_REPORT.md,Sandbox Isolation and Graph Pruning Audit Report,docs,1151,report/audit,keep
+docs/SCIENTIFIC_CONSENSUS_REPORT.md,Scientific Consensus Report — Phase 2B,docs,499,report/audit,keep
+docs/SCIENTIFIC_DOSSIER.md,Complete Scientific Dossier -- Phase XI-A,docs,2682,documentation,keep
+docs/SCIENTIFIC_VALIDATION_REPORT.md,Scientific Validation Report — Phase 1G.0.2,docs,3069,report/audit,keep
+docs/SEARCH_SPACE_AUDIT.md,Search Space Audit Report,docs,3190,report/audit,keep
+docs/SHAP_AUDIT_REPORT.md,SHAP & Feature Attribution Consistency Audit (Component H),docs,1751,report/audit,keep
+docs/STATE_COUNTING_AUDIT.md,Phase 40.0 - State Counting Audit,docs,1742,report/audit,keep
+docs/STATISTICAL_AUDIT_REPORT.md,Independent Statistical Audit Report,docs,8244,report/audit,keep
+docs/STRING_COMPATIBILITY.md,Compatibilidad con la Teoría de Cuerdas (String Theory) (Fase 5),docs,2946,documentation,keep
+docs/SURVIVAL_ANALYSIS_REPORT.md,Theory Survival Analysis Report — Phase 3C,docs,630,report/audit,keep
+docs/SURVIVING_MECHANISMS.md,Surviving Causal Mechanisms Report — Phase 2D,docs,584,documentation,keep
+docs/SYNERGY_DISCOVERY_REPORT.md,Reporte de Descubrimiento de Sinergia y Auditoría de Calidad de Interacción (Fase 1E.2),docs,4184,report/audit,keep
+docs/SYNERGY_TRANSFER_REPORT.md,Reporte de Transferencia de Sinergia y Generalización Inter-Dominio (Fase 1F),docs,3049,report/audit,keep
+docs/TECHNOLOGY_DIVERSITY_REPORT.md,Technology Diversity Audit Report — Phase 3A.5,docs,841,report/audit,keep
+docs/TFQ_REPORT.md,TensorFlow Quantum (TFQ) Predictor Report (Component E),docs,1030,report/audit,keep
+docs/THEORYCRITIC_AUDIT.md,TheoryCritic Physical Audit Report,docs,3213,report/audit,keep
+docs/THEORY_COMPARISON_RECONSTRUCTION.md,Theory Comparison Reconstruction Report — Forensic Audit,docs,1712,documentation,keep
+docs/THEORY_COMPRESSION_REPORT.md,Theory Compression Report — Phase 2C,docs,539,report/audit,keep
+docs/THEORY_DIVERSITY_REPORT.md,Theory Diversity Analysis Report — Phase 3C,docs,620,report/audit,keep
+docs/THEORY_EVOLUTION_REPORT.md,Theory Evolution Report — Phase 2D / 3A.1,docs,1623,report/audit,keep
+docs/THEORY_FACTORY_SCORE.md,Theory Factory Score Report — Phase 3C,docs,490,documentation,keep
+docs/THEORY_FORMATION_REPORT.md,Theory Formation Report — Phase 2C,docs,851,report/audit,keep
+docs/THEORY_MEMORY_REPORT.md,Theory Memory Report — Phase 2C,docs,365,report/audit,keep
+docs/THEORY_TOURNAMENT_CONFIRMATION.md,Out-of-Sample Theory Tournament Report — Phase 3B.1,docs,833,documentation,keep
+docs/THEORY_TOURNAMENT_REPORT.md,Theory Tournament Report — Phase 2C,docs,774,report/audit,keep
+docs/TORCHQUANTUM_REPORT.md,TorchQuantum Integration Report (Component F),docs,976,report/audit,keep
+docs/TRANSFERABILITY_REPORT.md,Reporte de Descubrimiento de Leyes de Transferibilidad (Fase 1G),docs,4272,report/audit,keep
+docs/TRANSFER_LEARNING_REPORT.md,Reporte de Validación de Transfer Learning y Mutación Guiada (Fase 1C),docs,2546,report/audit,keep
+docs/UNITARITY_AUDIT.md,Phase 38.0 - Unitarity Audit,docs,2995,report/audit,keep
+docs/UV_COMPLETION_AUDIT.md,Phase 40.0 - UV Completion Audit,docs,1985,report/audit,keep
+docs/VENDOR_INDEPENDENCE_REPORT.md,Vendor Independence Audit Report — Phase 3A.5,docs,1221,report/audit,keep
+docs/WDW_ANALYSIS.md,Phase 37.0 - Wheeler-DeWitt Analysis,docs,2134,documentation,keep
+mathematics/README.md,Mathematics Domain,mathematics,1438,README,keep
+papers/README.md,Papers,papers,1330,README,keep
+physics/LIMITATIONS.md,Threats to Validity,physics,2360,documentation,keep
+physics/PROJECT_HISTORY.md,Project History: The Evolution of Asymmetric Representational Decay,physics,6482,documentation,keep
+physics/README.md,Physics Domain,physics,1518,README,keep
+physics/telemetry_report.md,Reporte Cuantitativo de Telemetría (Stress Testing Heurístico),physics,3337,report/audit,keep
+quantum/README.md,Quantum Algorithm Discovery Engine (QADE),quantum,5158,README,keep
+satelite/api_reality_audit.md,Spacecraft Thermal OS (AST-OS) - REST API Reality Check Audit,satelite,2300,report/audit,keep
+satelite/api_reference.md,Spacecraft Thermal OS (AST-OS) - SaaS REST API Reference Manual,satelite,4672,documentation,keep
+satelite/ARCHITECTURE.md,AST-OS Core Architecture & Mathematical Formulations,satelite,4129,documentation,keep
+satelite/astos_cfs_architecture.md,AST-OS Core Flight cFS Architecture,satelite,3766,documentation,keep
+satelite/audit_summary.md,Spacecraft Thermal OS (AST-OS) - Independent V&V Qualification Audit Summary,satelite,1176,report/audit,keep
+satelite/auth_design.md,Spacecraft Thermal OS (AST-OS) - SaaS Authentication & Security Design,satelite,2659,documentation,keep
+satelite/billing_architecture.md,Spacecraft Thermal OS (AST-OS) - SaaS Billing & stripe Integration Architecture,satelite,2322,documentation,keep
+satelite/black_compliance_report.md,Black Compliance Report,satelite,1680,report/audit,keep
+satelite/cad_importer_performance_review.md,Performance Engineering Audit — CAD Thermal Importer,satelite,6544,documentation,keep
+satelite/cdr_action_item_status.md,Spacecraft Thermal OS (AST-OS) — CDR Action Item Status Ledger,satelite,3222,documentation,keep
+satelite/cdr_final_review_board_report.md,CDR Final Review Board Report,satelite,3270,report/audit,keep
+satelite/CDR_READINESS_REVIEW.md,Spacecraft Thermal OS (AST-OS) — Critical Design Review (CDR) Readiness Report,satelite,10018,report/audit,keep
+satelite/cfs_integration_report.md,NASA cFS Application Flight Compatibility Validation Report,satelite,2954,report/audit,keep
+satelite/coverage_report.md,Spacecraft Thermal OS (AST-OS) — Test Coverage Verification Report,satelite,5774,report/audit,keep
+satelite/credibility_update_report.md,Credibility Update Report,satelite,3023,report/audit,keep
+satelite/dataset_authenticity_report.md,Spacecraft Thermal OS (AST-OS) - Space Datasets Authenticity Analysis,satelite,1552,report/audit,keep
+satelite/DEPENDENCY_GRAPH.md,AST-OS Software Architecture & Dependency Graph,satelite,7826,documentation,keep
+satelite/deployment_guide.md,Spacecraft Thermal OS (AST-OS) - Production SaaS Deployment Guide,satelite,2270,documentation,keep
+satelite/deployment_status.md,Spacecraft Thermal OS (AST-OS) - Production SaaS Deployment Status,satelite,2663,documentation,keep
+satelite/deployment_targets.md,Spacecraft Thermal OS (AST-OS) - SaaS Cloud Deployment Targets,satelite,1637,documentation,keep
+satelite/dns_setup.md,Spacecraft Thermal OS (AST-OS) - SaaS Domain & DNS Configuration,satelite,1595,documentation,keep
+satelite/ekf_validation_report.md,Spacecraft Thermal OS (AST-OS) — Nominal EKF Verification & Validation Report,satelite,4020,report/audit,keep
+satelite/external_user_acquisition_report.md,Spacecraft Thermal OS (AST-OS) - External User Acquisition Catalog,satelite,2207,report/audit,keep
+satelite/external_validation_report.md,Spacecraft Thermal OS (AST-OS) - SaaS External Validation Report,satelite,869,report/audit,keep
+satelite/flight_heritage_calibration_report.md,Flight Heritage Calibration Report,satelite,3391,report/audit,keep
+satelite/hil_report.md,Hardware-in-the-Loop (HIL) Real-Time Validation Report,satelite,1909,report/audit,keep
+satelite/INDEPENDENT_AUDIT_REPORT_v1.md,Spacecraft Thermal OS (AST-OS) — Independent IV&V Software Audit Report,satelite,15387,report/audit,keep
+satelite/landing_page_claims_audit.md,Landing Page Claims Audit,satelite,3241,report/audit,keep
+satelite/memory_budget.md,AST-OS cFS Application Memory Budget,satelite,4233,documentation,keep
+satelite/MIGRATION_REPORT.md,AST-OS Migration & Compliance Audit Report,satelite,4107,report/audit,keep
+satelite/mock_detection_report.md,Spacecraft Thermal OS (AST-OS) - Mock & Synthetic Pattern Detection Report,satelite,23140,report/audit,keep
+satelite/pydantic_migration_report.md,Pydantic Migration Report,satelite,1286,report/audit,keep
+satelite/README.md,Satellite Domain: AST-OS,satelite,1589,README,keep
+satelite/ROADMAP.md,AST-OS Mission Milestone & Qualification Roadmap,satelite,2793,report/audit,keep
+satelite/timing_analysis.md,AST-OS cFS Application Timing Analysis,satelite,3283,documentation,keep
+satelite/VALIDATION_REPORT.md,AST-OS Systems Engineering Validation Report (Honest Version),satelite,2883,report/audit,keep
+satelite/walkthrough.md,"AST-OS flight software Hardening, Ground-Space Loop, Qualification, and MPC Walkthrough",satelite,18635,documentation,keep
+.agent/skills/git-repo-guardian/SKILL.md,git-repo-guardian,.agent,1947,documentation,review
+.agent/skills/nextjs-app-router-architect/SKILL.md,nextjs-app-router-architect,.agent,3235,documentation,review
+.agent/skills/python-telemetry-executor/SKILL.md,python-telemetry-executor,.agent,1841,documentation,review
+.agent/skills/ui-ux-pro-max/SKILL.md,ui-ux-pro-max,.agent,10651,documentation,review
+benchmarks/reports/CALIBRATION_AWARE_REPORT.md,Calibration-Aware Performance Report,benchmarks,3153,report/audit,review
+benchmarks/reports/COMMERCIAL_POSITION_FINAL.md,Commercial Position Final Audit,benchmarks,889,report/audit,review
+benchmarks/reports/COMPILER_COMPARISON_REPORT.md,Compiler Comparison Report,benchmarks,2098,report/audit,review
+benchmarks/reports/EVOLUTION_ABLATION_REPORT.md,Evolution Engine Ablation Report,benchmarks,1251,report/audit,review
+benchmarks/reports/investor_executive_summary.md,QADE Phase III Investor Summary,benchmarks,904,report/audit,review
+benchmarks/reports/PHASE3_HARDWARE_AWARE_REPORT.md,QADE Phase III Hardware-Aware Validation Report,benchmarks,2665,report/audit,review
+benchmarks/reports/PHASE3_INVESTOR_SUMMARY.md,QADE Phase III Investor Summary,benchmarks,904,report/audit,review
+benchmarks/reports/PHASE4_COMMERCIAL_POSITIONING.md,QADE Phase IV Commercial Positioning,benchmarks,2440,report/audit,review
+benchmarks/reports/PHASE4_COMPETITIVE_ADVANTAGE_REPORT.md,QADE Phase IV Competitive Advantage Report,benchmarks,9454,report/audit,review
+benchmarks/reports/PHASE4_INVESTOR_SUMMARY.md,QADE Phase IV Investor Summary,benchmarks,1005,report/audit,review
+benchmarks/reports/PHASE5_INVESTOR_SUMMARY.md,QADE Phase V Investor Summary,benchmarks,811,report/audit,review
+benchmarks/reports/PHASE5_IP_REPORT.md,QADE Phase V IP Report,benchmarks,2411,report/audit,review
+benchmarks/reports/PHASE6_COMPETITIVE_MOAT_REPORT.md,QADE Phase VI Competitive Moat Report,benchmarks,841,report/audit,review
+benchmarks/reports/PHASE6_ECONOMIC_IMPACT_REPORT.md,QADE Phase VI Economic Impact Report,benchmarks,1269,report/audit,review
+benchmarks/reports/PHASE6_INVESTOR_SUMMARY.md,QADE Phase VI Investor Summary,benchmarks,1019,report/audit,review
+benchmarks/reports/PHASE6_IP_VALUATION_REPORT.md,QADE Phase VI IP Valuation Report,benchmarks,366,report/audit,review
+benchmarks/reports/PHASE6_LICENSING_MODEL.md,QADE Phase VI Licensing Model,benchmarks,285,report/audit,review
+benchmarks/reports/PHASE6_RISK_ANALYSIS.md,QADE Phase VI Risk Analysis,benchmarks,1134,report/audit,review
+benchmarks/reports/PHASE7_COMPETITIVE_GAP_REPORT.md,QADE Phase VII Competitive Gap Report,benchmarks,678,report/audit,review
+benchmarks/reports/PHASE7_ECONOMIC_MOAT_REPORT.md,QADE Phase VII Economic Moat Report,benchmarks,1070,report/audit,review
+benchmarks/reports/PHASE7_EXECUTIVE_SUMMARY.md,QADE Phase VII Executive Summary,benchmarks,1305,report/audit,review
+benchmarks/reports/PHASE7_INVESTOR_POSITIONING.md,QADE Phase VII Investor Positioning,benchmarks,748,report/audit,review
+benchmarks/reports/PHASE7_KNOWLEDGE_FLYWHEEL_REPORT.md,QADE Phase VII Knowledge Flywheel Report,benchmarks,1096,report/audit,review
+benchmarks/reports/PHASE7_NETWORK_EFFECT_REPORT.md,QADE Phase VII Network Effect Report,benchmarks,823,report/audit,review
+benchmarks/reports/PHASE7_PLATFORM_ANALYSIS.md,QADE Phase VII Platform Analysis,benchmarks,581,report/audit,review
+benchmarks/reports/PLACEMENT_ABLATION_REPORT.md,Qubit Placement Ablation Report,benchmarks,1053,report/audit,review
+benchmarks/reports/REPRODUCIBILITY_GUIDE.md,QADE Phase III Reproducibility Guide,benchmarks,494,report/audit,review
+benchmarks/reports/ROUTING_COMPARISON_REPORT.md,Routing Heuristics Comparison Report,benchmarks,1745,report/audit,review
+benchmarks/reports/SCALING_REPORT.md,Scaling and Complexity Analysis Report,benchmarks,1038,report/audit,review
+mathematics/symbolic/README.md,Mathematics Symbolic Subdomain,mathematics,1157,README,keep
+papers/qg/README.md,Quantum Gravity Papers,papers,1122,README,keep
+papers/thermal/README.md,Thermal Papers,papers,1135,README,keep
+physics/artifacts/ablation_report.md,Phase 8B — Ablation Study Report,physics,2588,report/audit,keep
+physics/artifacts/adversarial_validation_report.md,Adversarial Scientific Validation Audit Report,physics,1538,report/audit,keep
+physics/artifacts/adversarial_validation_summary.md,AdversarialScientificValidation,physics,603,report/audit,keep
+physics/artifacts/agent_specialization_report.md,Agent Specialization Report,physics,296,report/audit,keep
+physics/artifacts/autonomous_cycle_benchmark.md,Autonomous Scientific Cycle Benchmark,physics,249,documentation,keep
+physics/artifacts/autonomous_cycle_report.md,Autonomous Scientific Cycle,physics,582,report/audit,keep
+physics/artifacts/benchmark_report.md,Unified Scientific Pipeline Performance Benchmark Report,physics,5999,report/audit,keep
+physics/artifacts/bias_report.md,BiasDetector,physics,643,report/audit,keep
+physics/artifacts/bias_report.tagged.md,BiasDetector,physics,643,report/audit,keep
+physics/artifacts/blind_benchmark_report.md,BlindScientificBenchmark,physics,562,report/audit,keep
+physics/artifacts/claim_level_report.md,Claim Level Report,physics,348,report/audit,keep
+physics/artifacts/cross_domain_report.md,CrossDomainTransfer,physics,354,report/audit,keep
+physics/artifacts/discovery_report.md,Scientific Discovery Loop Report,physics,1807,report/audit,keep
+physics/artifacts/domain_adaptation_report.md,DomainAdaptation,physics,595,report/audit,keep
+physics/artifacts/epistemic_calibration_report.md,Epistemic Calibration Audit Report,physics,1762,report/audit,keep
+physics/artifacts/epistemic_calibration_summary.md,EpistemicCalibrationAudit,physics,450,report/audit,keep
+physics/artifacts/epistemic_hardening_report.md,Epistemic Hardening Engine Audit Report,physics,1651,report/audit,keep
+physics/artifacts/epistemic_hardening_summary.md,EpistemicHardeningEngine,physics,457,report/audit,keep
+physics/artifacts/expert_validation_report.md,ExpertValidation,physics,830,report/audit,keep
+physics/artifacts/final_scientific_assessment.md,Unified Final Scientific Assessment Report,physics,2385,documentation,keep
+physics/artifacts/frontier_report.md,FrontierDiscovery,physics,375,report/audit,keep
+physics/artifacts/generated_experiment_001.md,Diseño de Experimento: Falsación de Conjetura 1,physics,887,documentation,keep
+physics/artifacts/generated_experiment_002.md,Diseño de Experimento: Falsación de Conjetura 2,physics,928,documentation,keep
+physics/artifacts/hpc_benchmark.md,DistributedExecution,physics,471,documentation,keep
+physics/artifacts/hpc_efficiency_report.md,HPC Efficiency Report,physics,555,report/audit,keep
+physics/artifacts/knowledge_report.md,Epistemological Knowledge Graph Report (Neo4j),physics,398,report/audit,keep
+physics/artifacts/longitudinal_stability_report.md,Longitudinal Scientific Stability Audit Report,physics,2808,report/audit,keep
+physics/artifacts/longitudinal_stability_summary.md,LongitudinalStabilityAudit,physics,516,report/audit,keep
+physics/artifacts/memory_consolidation_report.md,Scientific Memory Consolidation Audit Report,physics,2964,report/audit,keep
+physics/artifacts/memory_consolidation_summary.md,MemoryConsolidationEngine,physics,481,report/audit,keep
+physics/artifacts/memory_report.md,ScientificMemoryAdvanced,physics,526,report/audit,keep
+physics/artifacts/memory_stress_report.md,Memory Stress Report,physics,616,report/audit,keep
+physics/artifacts/meta_learning_benchmark.md,Meta Learning Benchmark,physics,556,documentation,keep
+physics/artifacts/meta_learning_expansion_report.md,Meta-Learning Expansion Report,physics,1268,report/audit,keep
+physics/artifacts/meta_learning_report.md,MetaLearningEngine,physics,548,report/audit,keep
+physics/artifacts/multi_agent_benchmark.md,MultiAgentSystem,physics,1403,documentation,keep
+physics/artifacts/phase8_completion_report.md,Phase 8 — Completion Report,physics,1525,report/audit,keep
+physics/artifacts/physical_validation_report.md,PhysicalLabInterface,physics,442,report/audit,keep
+physics/artifacts/pinn_sigma_diagnosis.md,PINN Sigma Discrepancy Diagnosis Report,physics,2075,documentation,keep
+physics/artifacts/qg_discovery_report.md,Autonomous Quantum Gravity Discovery Report,physics,2032,report/audit,keep
+physics/artifacts/reality_gap_report.md,Reality Gap Audit Report,physics,1641,report/audit,keep
+physics/artifacts/reality_gap_summary.md,RealityGapAudit,physics,311,report/audit,keep
+physics/artifacts/real_data_ingestion_report.md,RealDataIngestor,physics,452,report/audit,keep
+physics/artifacts/redundancy_report.md,Feature Redundancy & Dimensional Pruning Report,physics,891,report/audit,keep
+physics/artifacts/reproducibility_report.md,ReproducibilityVerification,physics,491,report/audit,keep
+physics/artifacts/review_cycle_log.md,Review Cycle - 2026-05-31T18:25:59,physics,704,documentation,keep
+physics/artifacts/robustness_report.md,Phase 8E — Robustness Stress Test Report,physics,7783,report/audit,keep
+physics/artifacts/sanity_report.md,PhysicsSanityEngine,physics,333,report/audit,keep
+physics/artifacts/sanity_report.tagged.md,PhysicsSanityEngine,physics,333,report/audit,keep
+physics/artifacts/scientific_impact_report.md,Scientific Impact Assessment Report,physics,3610,report/audit,keep
+physics/artifacts/scientific_impact_summary.md,ScientificImpactAssessment,physics,561,report/audit,keep
+physics/artifacts/scientific_readiness_report.md,Scientific Readiness Assessment Report,physics,2112,report/audit,keep
+physics/artifacts/scientific_readiness_summary.md,ScientificReadinessAssessment,physics,364,report/audit,keep
+physics/artifacts/sota_report.md,Phase 8C — SOTA Benchmark Report,physics,2313,report/audit,keep
+physics/artifacts/stress_test_report.md,Autonomous Scientist Loop Stress Test Diagnostic Report,physics,1072,report/audit,keep
+physics/artifacts/system_health_report.md,System Health Report - Phase 18A,physics,1188,report/audit,keep
+physics/artifacts/system_maturity_assessment.md,System Maturity Assessment Report,physics,4398,documentation,keep
+physics/artifacts/system_maturity_report.md,System Maturity Report,physics,431,report/audit,keep
+physics/artifacts/system_maturity_summary.md,SystemMaturityAssessment,physics,1391,report/audit,keep
+physics/artifacts/test_knowledge_report.md,Epistemological Knowledge Graph Report (Neo4j),physics,398,report/audit,keep
+physics/artifacts/theory_autowriter_report.md,Theory Autowriter,physics,372,report/audit,keep
+physics/artifacts/theory_demo.md,Theory Autowriter Demo,physics,2145,documentation,keep
+physics/artifacts/universal_atlas_report.md,Reporte de Universalidad Topológica (Atractores 3D y Mapas 1D),physics,1117,report/audit,keep
+physics/data/real_data_catalog.md,Real Data Catalog,physics,482,documentation,keep
+physics/papers/system_paper.md,Neuro-Symbolic Dynamic Atlas: Comprehensive Evaluation Report,physics,13577,documentation,keep
+physics/unification_search/QG_Discovery_Report.md,,physics,1782,report/audit,keep
+quantum/circuits/README.md,QADE Circuits,quantum,1147,README,keep
+satelite/astos_cfs_app/fault_injection_report.md,cFS Hardening Fault Injection Simulation Report,satelite,1439,report/audit,keep
+satelite/astos_cfs_app/mpc_benchmark.md,Model Predictive Control (MPC) vs. PID Benchmark Report,satelite,2942,documentation,keep
+satelite/benchmarks/deterministic_execution.md,Deterministic Benchmark Execution Guide — AST-OS,satelite,2149,documentation,keep
+satelite/dashboard/AGENTS.md,This is NOT the Next.js you know,satelite,327,documentation,keep
+satelite/dashboard/CLAUDE.md,,satelite,11,documentation,keep
+satelite/dashboard/README.md,Satellite Dashboard,satelite,1131,README,keep
+satelite/docs/analog_experiment_design.md,Lab Analog Experiment Design: Acoustic/Optical Metamaterial Warp Metric Emulator (TRL 2-3),satelite,5063,documentation,keep
+satelite/docs/README.md,Satellite Documentation,satelite,1134,README,keep
+satelite/docs/SOFTWARE_DEVELOPMENT_PLAN.md,Software Development Plan (SDP) — ASTOS Thermal OS,satelite,4703,documentation,keep
+satelite/docs/SOFTWARE_VERIFICATION_PLAN.md,Software Verification Plan (SVP) — ASTOS Thermal OS,satelite,4759,documentation,keep
+satelite/openmdao_integration/mdo_benchmarks.md,AST-OS OpenMDAO Multidisciplinary Design Optimization Benchmarks,satelite,3020,documentation,keep
+satelite/real_telemetry_pipeline/nasa_dataset_inventory.md,NASA Spacecraft Thermal Dataset Inventory,satelite,2912,documentation,keep
+satelite/real_telemetry_pipeline/real_vs_synthetic_comparison.md,Reality-to-Simulation Gap Report: ISS Telemetry vs AST-OS Models,satelite,2859,documentation,keep
+satelite/real_telemetry_pipeline/telemetry_validation_report.md,AST-OS Telemetry Filtering & Data Validation Report,satelite,2781,report/audit,keep
+satelite/reports/aging_report.md,Spacecraft Material Degradation & Thermal Drift Report,satelite,4316,report/audit,keep
+satelite/reports/cad_optimization_report.md,CAD-Aware 3D Geometry Voxelization & Thermal Optimization Report,satelite,2610,report/audit,keep
+satelite/reports/cavity_radiation_report.md,Informe de Radiación Interna de Cavidad (Fase T36),satelite,2695,report/audit,keep
+satelite/reports/closed_loop_report.md,Closed-Loop Thermo-Avionics Active Predictive Control Report,satelite,2618,report/audit,keep
+satelite/reports/constellation_report.md,Multi-Spacecraft Constellation Modeler Report (Phase T24),satelite,2938,report/audit,keep
+satelite/reports/discovery_report.md,Autonomous Thermal Discovery Report,satelite,3610,report/audit,keep
+satelite/reports/ecss_margins_summary.md,ESA ECSS Spacecraft Thermal Margins Verification Summary,satelite,1829,report/audit,keep
+satelite/reports/experiment_report.md,Experimental Calibration and Hardware Validation Report,satelite,1930,report/audit,keep
+satelite/reports/fdir_report.md,Informe de Diagnóstico y Mitigación Térmica FDIR (Fase T33),satelite,3060,report/audit,keep
+satelite/reports/fem_correlation_report.md,FEA/FEM Professional Correlation Report,satelite,3016,report/audit,keep
+satelite/reports/geometry_optimization_report.md,Radiator Geometry and Topology Optimization Report,satelite,2791,report/audit,keep
+satelite/reports/hil_real_report.md,Informe de Validación de Bucle Hardware-in-the-Loop Real (Fase T34),satelite,3868,report/audit,keep
+satelite/reports/hil_report.md,Hardware-in-the-Loop (HIL) Real-Time Validation Report,satelite,1915,report/audit,keep
+satelite/reports/hpc_report.md,Spacecraft Thermal Twin HPC & GPU Acceleration Report,satelite,2381,report/audit,keep
+satelite/reports/material_comparison_report.md,Biblioteca de Materiales COTS Aeroespaciales y Envejecimiento (Fase T32),satelite,3778,report/audit,keep
+satelite/reports/observability_report.md,Informe de Observabilidad Formal y Sensibilidad del EKF (Fase T30),satelite,3695,report/audit,keep
+satelite/reports/operational_validation_report.md,Operational Flight Validation Report (Phases T22),satelite,3021,report/audit,keep
+satelite/reports/real_data_report.md,Spacecraft Telemetry Ingestion & Real-Data Calibration Report,satelite,1436,report/audit,keep
+satelite/reports/stiffness_report.md,Spacecraft Thermo-Avionics Numerical Stiffness Report,satelite,2238,report/audit,keep
+satelite/reports/stiff_benchmark_report.md,Informe de Estabilidad Numérica y Solvers Stiff (Fase T29),satelite,3983,report/audit,keep
+satelite/reports/thermal_os_final_report.md,Informe de Calificación Final de Misión de 30 días (Thermal OS) (Fase T50),satelite,2434,report/audit,keep
+satelite/reports/thermal_validation_report.md,Thermal Model Physical Validation Report,satelite,2073,report/audit,keep
+satelite/reports/transient_power_report.md,Informe de Perfiles de Potencia Transitorios y Eventos de Shock (Fase T37),satelite,1880,report/audit,keep
+satelite/reports/tvac_correlation_report.md,TVAC Thermal Telemetry Correlation & Calibration Report,satelite,2579,report/audit,keep
+satelite/reports/uncertainty_report.md,Thermodynamic Uncertainty and Reliability Analysis Report,satelite,1656,report/audit,keep
+satelite/satellite/API_DOCS.md,Spacecraft Thermal Twin Commercial API Technical Documentation,satelite,5503,documentation,keep
+satelite/satellite/ARCHITECTURE.md,Architecture — Orbital Thermal Digital Twin,satelite,8235,documentation,keep
+satelite/satellite/BUSINESS_CASE.md,Commercial Business Case & ROI: DeepSpace ThermalTwin™,satelite,4858,documentation,keep
+satelite/satellite/CHANGELOG.md,Changelog — Orbital Thermal Platform,satelite,1104,documentation,keep
+satelite/satellite/DEMO_SCRIPT.md,DeepSpace ThermalTwin™ — 5-Minute Live Commercial Demonstration Script,satelite,6090,documentation,keep
+satelite/satellite/DEPLOYMENT.md,Spacecraft Thermal Digital Twin Deployment Manual,satelite,4116,documentation,keep
+satelite/satellite/LICENSE.md,Orbital Digital Twin Commercial License Agreement,satelite,630,documentation,keep
+satelite/satellite/PRICING.md,Commercial SaaS Pricing Matrix,satelite,599,documentation,keep
+satelite/satellite/README.md,Satellite Python Package,satelite,1171,README,keep
+satelite/satellite/ROADMAP.md,Roadmap — Orbital Thermal Digital Twin,satelite,4862,report/audit,keep
+satelite/satellite/WHITEPAPER.md,DeepSpace ThermalTwin™: A Neurosymbolic Digital Twin Pipeline for Spacecraft Transient Thermodynamic Calibration and Layout Optimization in LEO,satelite,9139,documentation,keep
+satelite/verification/audit_history.md,Independent Technical Audit History — AST-OS,satelite,1529,report/audit,keep
+satelite/verification/benchmark_status.md,AST-OS Core Module & Benchmark Status Board,satelite,2288,documentation,keep
+satelite/verification/calibration_requirements.md,Calibration Requirements — Flight Heritage & Lumped Parameter Networks,satelite,2911,documentation,keep
+satelite/verification/fake_claims.md,Scientific Integrity & Exaggerated Claims Report,satelite,2002,documentation,keep
+satelite/verification/index.md,Public Verification & Validation (V&V) Portal — AST-OS,satelite,2838,documentation,keep
+satelite/verification/known_limitations.md,Known Technical Limitations & Constraints — AST-OS,satelite,2104,documentation,keep
+satelite/verification/reproducibility.md,Scientific Reproducibility Checklist — AST-OS,satelite,1556,documentation,keep
+satelite/verification/reproducibility_scorecard.md,Verification Hardening Reproducibility Scorecard,satelite,1848,documentation,keep
+satelite/verification/synthetic_vs_real.md,Real Physics vs. Demo-Physics Software-in-the-Loop Audit,satelite,2065,documentation,keep
+satelite/verification/trl_assessment.md,ESA/NASA Technology Readiness Level (TRL) Assessment,satelite,2974,documentation,keep
+satelite/verification/verified_claims_only.md,Verified Capabilities & Technical Statements — AST-OS,satelite,2724,documentation,keep
+satelite/VERIFICATION_BASELINE_v1/ACCEPTANCE_STATUS.md,VERIFICATION BASELINE v1 — Acceptance Status & Readiness Gate Assessment,satelite,6812,documentation,keep
+satelite/VERIFICATION_BASELINE_v1/BASELINE_MANIFEST.md,VERIFICATION BASELINE v1 — Configuration Manifest,satelite,4594,documentation,keep
+satelite/VERIFICATION_BASELINE_v1/fail_resolution_report.md,AST-OS Chief Systems Engineering — FAIL Resolution Report,satelite,10127,report/audit,keep
+satelite/VERIFICATION_BASELINE_v1/regression_campaign_report.md,AST-OS — Post-Correction Regression Campaign Report,satelite,8721,report/audit,keep
+satelite/VERIFICATION_BASELINE_v1/verification_dashboard.md,Spacecraft Thermal OS (AST-OS) — Verification Requirements Dashboard,satelite,3041,documentation,keep
+satelite/VERIFICATION_BASELINE_v2/ACCEPTANCE_STATUS.md,VERIFICATION BASELINE v2 — Acceptance Status & Readiness Gate Assessment,satelite,4362,documentation,keep
+satelite/VERIFICATION_BASELINE_v2/BASELINE_MANIFEST.md,VERIFICATION BASELINE v2 — Configuration Manifest,satelite,2650,documentation,keep
+satelite/VERIFICATION_BASELINE_v2/ekf_validation_report.md,Spacecraft Thermal OS (AST-OS) — Nominal EKF Verification & Validation Report,satelite,4020,report/audit,keep
+satelite/VERIFICATION_BASELINE_v2/fail_resolution_report.md,AST-OS Chief Systems Engineering — FAIL Resolution Report,satelite,10127,report/audit,keep
+satelite/VERIFICATION_BASELINE_v2/regression_campaign_report.md,AST-OS — Post-Correction Regression Campaign Report,satelite,8721,report/audit,keep
+satelite/VERIFICATION_BASELINE_v2/verification_dashboard.md,Spacecraft Thermal OS (AST-OS) — Verification Requirements Dashboard (v2),satelite,2909,documentation,keep
+satelite/VERIFICATION_BASELINE_v3/BASELINE_MANIFEST.md,VERIFICATION BASELINE v3 - Configuration Manifest,satelite,4784,documentation,keep
+satelite/VERIFICATION_BASELINE_v3/cdr_action_item_status.md,Spacecraft Thermal OS (AST-OS) - CDR Action Item Status Ledger,satelite,2805,documentation,keep
+satelite/VERIFICATION_BASELINE_v3/CDR_READINESS_REVIEW.md,Spacecraft Thermal OS (AST-OS) — Critical Design Review (CDR) Readiness Report,satelite,10018,report/audit,keep
+satelite/VERIFICATION_BASELINE_v3/CDR_STATUS.md,CDR Status,satelite,2430,documentation,keep
+satelite/VERIFICATION_BASELINE_v3/CDR_V2_V3_COMPARISON.md,v2 vs v3 Baseline Comparison,satelite,2475,documentation,keep
+satelite/VERIFICATION_BASELINE_v3/coverage_report.md,Spacecraft Thermal OS (AST-OS) - Test Coverage Verification Report,satelite,2900,report/audit,keep
+satelite/VERIFICATION_BASELINE_v3/ekf_validation_report.md,Spacecraft Thermal OS (AST-OS) — Nominal EKF Verification & Validation Report,satelite,4020,report/audit,keep
+satelite/VERIFICATION_BASELINE_v3/fail_resolution_report.md,AST-OS Chief Systems Engineering — FAIL Resolution Report,satelite,10127,report/audit,keep
+satelite/VERIFICATION_BASELINE_v3/FREEZE_POLICY.md,Freeze Policy,satelite,1038,documentation,keep
+satelite/VERIFICATION_BASELINE_v3/regression_campaign_report.md,AST-OS — Post-Correction Regression Campaign Report,satelite,8721,report/audit,keep
+satelite/VERIFICATION_BASELINE_v3/verification_dashboard.md,Spacecraft Thermal OS (AST-OS) — Verification Requirements Dashboard (v2),satelite,2909,documentation,keep
+satelite/VERIFICATION_BASELINE_v4/BASELINE_CERTIFICATE.md,Baseline Certificate,satelite,776,documentation,keep
+satelite/VERIFICATION_BASELINE_v4/BASELINE_MANIFEST.md,VERIFICATION BASELINE v4 - Configuration Manifest,satelite,4681,documentation,keep
+satelite/VERIFICATION_BASELINE_v4/black_compliance_report.md,Black Compliance Report,satelite,1680,report/audit,keep
+satelite/VERIFICATION_BASELINE_v4/cdr_action_item_status.md,CDR Action Item Status Ledger,satelite,990,documentation,keep
+satelite/VERIFICATION_BASELINE_v4/cdr_final_review_board_report.md,CDR Final Review Board Report,satelite,3270,report/audit,keep
+satelite/VERIFICATION_BASELINE_v4/CDR_STATUS.md,CDR Status,satelite,1355,documentation,keep
+satelite/VERIFICATION_BASELINE_v4/ekf_validation_report.md,Spacecraft Thermal OS (AST-OS) — Nominal EKF Verification & Validation Report,satelite,4020,report/audit,keep
+satelite/VERIFICATION_BASELINE_v4/fail_resolution_report.md,AST-OS Chief Systems Engineering — FAIL Resolution Report,satelite,10127,report/audit,keep
+satelite/VERIFICATION_BASELINE_v4/flight_heritage_calibration_report.md,Flight Heritage Calibration Report,satelite,3391,report/audit,keep
+satelite/VERIFICATION_BASELINE_v4/FREEZE_POLICY.md,Freeze Policy,satelite,901,documentation,keep
+satelite/VERIFICATION_BASELINE_v4/heritage_report.md,Flight Heritage Validation Report,satelite,5602,report/audit,keep
+satelite/VERIFICATION_BASELINE_v4/pydantic_migration_report.md,Pydantic Migration Report,satelite,1286,report/audit,keep
+satelite/VERIFICATION_BASELINE_v4/regression_campaign_report_v3.md,AST-OS — Post-Correction Regression Campaign Report,satelite,8721,report/audit,keep
+satelite/VERIFICATION_BASELINE_v4/verification_dashboard.md,Spacecraft Thermal OS (AST-OS) — Verification Requirements Dashboard (v2),satelite,2909,documentation,keep
+satelite/astos_cfs_app/integration_tests/README.md,ASTOS cFS Integration Tests,satelite,1132,README,keep
+satelite/docs/papers/README.md,Satellite Papers,satelite,1129,README,keep
+satelite/satellite/adcs/adcs_thermal_report.md,Informe de Acoplamiento Térmico con la Dinámica de Actitud (ADCS) (Fase T42),satelite,2041,report/audit,keep
+satelite/satellite/auth/README.md,Satellite Auth,satelite,1146,README,keep
+satelite/satellite/autonomy/evolving_twin_report.md,Self-Evolving Digital Twin Verification Report,satelite,2072,report/audit,keep
+satelite/satellite/autonomy/fault_recovery_report.md,Autonomous Fault Recovery FDIR AI Report,satelite,3068,report/audit,keep
+satelite/satellite/autonomy/planner_report.md,Autonomous Spacecraft AI Mission Planner Report,satelite,5821,report/audit,keep
+satelite/satellite/autonomy/rl_control_report.md,Reinforcement Learning Thermal Control Report,satelite,2009,report/audit,keep
+satelite/satellite/autonomy/self_healing_report.md,Informe de Autosanación y Autocalibración del Gemelo Digital (Fase T46),satelite,1337,report/audit,keep
+satelite/satellite/comms/protocol_documentation.md,Space Communications Protocol Stack (T68),satelite,2991,documentation,keep
+satelite/satellite/comms/sync_simulation_report.md,10-Orbit Ground-Space state Synchronization Campaign Report,satelite,1541,report/audit,keep
+satelite/satellite/constellation/cooperative_report.md,Informe de Inteligencia Térmica Cooperativa en Constelación (Fase T47),satelite,2332,report/audit,keep
+satelite/satellite/constellation/swarm_report.md,Swarm Intelligence Constellation Coordination Report,satelite,2042,report/audit,keep
+satelite/satellite/db/README.md,Satellite Database,satelite,1144,README,keep
+satelite/satellite/deploy/DEPLOYMENT.md,Deployment Guide: Autonomous Spacecraft Thermal OS Production Platform,satelite,4054,documentation,keep
+satelite/satellite/deploy/PUBLIC_DEMO.md,Public Demo Cloud Deployment & Architecture (T55),satelite,2836,documentation,keep
+satelite/satellite/docs/WHITEPAPER_TECHNICAL.md,Technical Whitepaper: Autonomous Spacecraft Thermal OS,satelite,12702,documentation,keep
+satelite/satellite/emc/emc_report.md,Informe de Compatibilidad Electromagnética (EMC / EMI) (Fase T41),satelite,2155,report/audit,keep
+satelite/satellite/estimation/los_ekf_report.md,Informe de EKF Robusto con Resiliencia ante Pérdidas de Señal (Fase T38),satelite,2129,report/audit,keep
+satelite/satellite/flight/assurance_report.md,Informe de Aseguramiento de Calidad de Software de Vuelo (ECSS + MISRA) (Fase T45),satelite,2175,report/audit,keep
+satelite/satellite/flight/export_report.md,Informe de Exportación de Modelos de Vuelo (ONNX/C) (Fase T31),satelite,2487,report/audit,keep
+satelite/satellite/flight/misra_check_report.md,MISRA-C:2012 Static Compliance Report,satelite,1817,report/audit,keep
+satelite/satellite/flight/radiation_hardened_report.md,Radiation-Hardened AI Runtime Report,satelite,2409,report/audit,keep
+satelite/satellite/flight/rtos_runtime_report.md,Informe de Restricciones de Vuelo RTOS y Determinismo (Fase T40),satelite,3475,report/audit,keep
+satelite/satellite/investor/INVESTOR_PACKAGE_README.md,Venture Capital & Incubator Package (T70),satelite,944,documentation,keep
+satelite/satellite/investor/market_sizing.md,TAM / SAM / SOM Market Sizing,satelite,1124,documentation,keep
+satelite/satellite/investor/pilot_program.md,Flight Trial & Pilot Program (T70),satelite,1434,documentation,keep
+satelite/satellite/investor/pitch_deck.md,Autonomous Spacecraft Thermal OS: Investor Pitch Deck,satelite,3730,documentation,keep
+satelite/satellite/investor/pricing.md,SaaS Multi-Tenant Pricing Structure,satelite,1254,documentation,keep
+satelite/satellite/investor/roadmap.md,Spacecraft Thermal OS Development Roadmap,satelite,1781,report/audit,keep
+satelite/satellite/investor/technical_pitch.md,Autonomous Spacecraft Thermal OS: Technical Pitch,satelite,1844,documentation,keep
+satelite/satellite/ops/mission_ops_report.md,Informe de Simulación de Operaciones de Misión (Fase T43),satelite,5438,report/audit,keep
+satelite/satellite/patents/thermal_equations_candidates.md,Spacecraft Radiator Design - Discovered Equations Candidates,satelite,1555,documentation,keep
+satelite/satellite/platform/thermal_os_architecture.md,Arquitectura del Sistema Operativo Térmico Autónomo (Thermal OS),satelite,1961,documentation,keep
+satelite/satellite/platform/thermal_os_final_report.md,Informe de Calificación Final de Misión de 30 días (Thermal OS) (Fase T50),satelite,2434,report/audit,keep
+satelite/satellite/qualification/gap_analysis.md,Análisis de Brechas y Necesidades de Calibración TRL 6 (Gap Analysis),satelite,1813,documentation,keep
+satelite/satellite/qualification/hazard_analysis.md,"Failure Mode, Effects, and Criticality Analysis (FMECA)",satelite,3399,documentation,keep
+satelite/satellite/qualification/QUALIFICATION_PACKAGE_README.md,ESA/NASA Space Qualification Package (T69),satelite,1121,documentation,keep
+satelite/satellite/qualification/software_assurance_summary.md,Software Assurance & Compliance Summary,satelite,2226,report/audit,keep
+satelite/satellite/qualification/trl6_package.md,Paquete Documental de Calificación Pre-Vuelo TRL 6 (Phase T49),satelite,3386,documentation,keep
+satelite/satellite/radiation/radiation_qualification_report.md,Space Qualification Radiation Analysis Report,satelite,3133,report/audit,keep
+satelite/satellite/radiation/seu_report.md,Informe de Space Radiation & Análisis SEU (Fase T39),satelite,2202,report/audit,keep
+satelite/satellite/streaming/README.md,Satellite Streaming,satelite,1148,README,keep
+satelite/satellite/structural/structural_analysis_report.md,Vibration & Structural Thermal Coupling Report,satelite,2754,report/audit,keep
+satelite/satellite/tests/complexity_analysis.md,Computational Complexity & Scaling Analysis — Voxel Thermal Solvers,satelite,1772,documentation,keep
+satelite/satellite/tests/profiling_report.md,HPC Performance Profiling Report — CAD Importer Vectorization,satelite,6276,report/audit,keep
+satelite/satellite/thermal/aging_report.md,Spacecraft Material Degradation & Thermal Drift Report,satelite,4316,report/audit,keep
+satelite/satellite/thermal/cad_optimization_report.md,CAD-Aware 3D Geometry Voxelization & Thermal Optimization Report,satelite,2610,report/audit,keep
+satelite/satellite/thermal/cavity_radiation_report.md,Informe de Radiación Interna de Cavidad (Fase T36),satelite,2695,report/audit,keep
+satelite/satellite/thermal/closed_loop_report.md,Closed-Loop Thermo-Avionics Active Predictive Control Report,satelite,2618,report/audit,keep
+satelite/satellite/thermal/constellation_report.md,Multi-Spacecraft Constellation Modeler Report (Phase T24),satelite,2938,report/audit,keep
+satelite/satellite/thermal/discovery_report.md,Autonomous Thermal Discovery Report,satelite,3610,report/audit,keep
+satelite/satellite/thermal/ecss_margins_summary.md,ESA ECSS Spacecraft Thermal Margins Verification Summary,satelite,1829,report/audit,keep
+satelite/satellite/thermal/experiment_report.md,Experimental Calibration and Hardware Validation Report,satelite,1930,report/audit,keep
+satelite/satellite/thermal/fdir_report.md,Informe de Diagnóstico y Mitigación Térmica FDIR (Fase T33),satelite,3060,report/audit,keep
+satelite/satellite/thermal/fem_correlation_report.md,FEA/FEM Professional Correlation Report,satelite,3082,report/audit,keep
+satelite/satellite/thermal/hil_real_report.md,Informe de Validación de Bucle Hardware-in-the-Loop Real (Fase T34),satelite,3868,report/audit,keep
+satelite/satellite/thermal/hil_report.md,Hardware-in-the-Loop (HIL) Real-Time Validation Report,satelite,1915,report/audit,keep
+satelite/satellite/thermal/hpc_report.md,Spacecraft Thermal Twin HPC & GPU Acceleration Report,satelite,2381,report/audit,keep
+satelite/satellite/thermal/material_comparison_report.md,Biblioteca de Materiales COTS Aeroespaciales y Envejecimiento (Fase T32),satelite,3778,report/audit,keep
+satelite/satellite/thermal/observability_report.md,Informe de Observabilidad Formal y Sensibilidad del EKF (Fase T30),satelite,3695,report/audit,keep
+satelite/satellite/thermal/operational_validation_report.md,Operational Flight Validation Report (Phases T22),satelite,3021,report/audit,keep
+satelite/satellite/thermal/real_data_report.md,Spacecraft Telemetry Ingestion & Real-Data Calibration Report,satelite,1436,report/audit,keep
+satelite/satellite/thermal/stiffness_report.md,Spacecraft Thermo-Avionics Numerical Stiffness Report,satelite,2238,report/audit,keep
+satelite/satellite/thermal/stiff_benchmark_report.md,Informe de Estabilidad Numérica y Solvers Stiff (Fase T29),satelite,3983,report/audit,keep
+satelite/satellite/thermal/thermal_validation_report.md,Thermal Model Physical Validation Report,satelite,2073,report/audit,keep
+satelite/satellite/thermal/transient_power_report.md,Informe de Perfiles de Potencia Transitorios y Eventos de Shock (Fase T37),satelite,1880,report/audit,keep
+satelite/satellite/thermal/tvac_correlation_report.md,TVAC Thermal Telemetry Correlation & Calibration Report,satelite,2579,report/audit,keep
+satelite/satellite/thermal/uncertainty_report.md,Thermodynamic Uncertainty and Reliability Analysis Report,satelite,1656,report/audit,keep
+satelite/satellite/trl/DEMO_MISSION_PLAN.md,1U Cubesat Space Flight Demonstration Plan (TRL 7),satelite,4664,documentation,keep
+satelite/satellite/trl/INVESTOR_BRIEF.md,Executive Investor Brief: Smallsat Thermal Digital Twins,satelite,3552,documentation,keep
+satelite/satellite/trl/QUALIFICATION_PACKAGE.md,Environmental Qualification Package & FMECA,satelite,3882,documentation,keep
+satelite/satellite/trl/TRL_ASSESSMENT.md,Technology Readiness Level (TRL) Assessment,satelite,4120,documentation,keep
+satelite/satellite/tvac/tvac_qualification_report.md,Space Qualification TVAC Campaign Report,satelite,2418,report/audit,keep
+satelite/satellite/uq/montecarlo_report.md,Informe de Campaña de Órbitas Monte Carlo y Análisis de Sensibilidad (Fase T44),satelite,2113,report/audit,keep
+satelite/satellite/validation/assimilation_report.md,Real Telemetry Assimilation Report,satelite,1860,report/audit,keep
+satelite/satellite/validation/fem_correlation_report.md,Finite Element Method (FEM) Correlation Report,satelite,2745,report/audit,keep
+satelite/satellite/validation/heritage_report.md,Flight Heritage Validation Report,satelite,5602,report/audit,keep
+satelite/satellite/validation/satellite/validation/heritage_report.md,Informe de Validación de Vuelo Histórico (Flight Heritage) (Fase T48),satelite,2083,report/audit,keep
