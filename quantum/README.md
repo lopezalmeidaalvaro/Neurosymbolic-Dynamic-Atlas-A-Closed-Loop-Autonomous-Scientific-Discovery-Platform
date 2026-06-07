@@ -32,7 +32,7 @@ quantum/
 
 ## Folder Structure
 
-The QADE source tree is organized around optimization, integration, evolution, knowledge, hardware validation, benchmark, and test modules. Generated benchmark outputs currently live in the repository-level `benchmarks/` and `docs/` folders; the migration plan recommends moving or wrapping those outputs through a QADE-owned CLI boundary.
+The QADE source tree is organized around optimization, integration, evolution, knowledge, hardware validation, benchmark, and test modules. The QADE benchmark implementation now lives under `quantum/benchmarks/`; repository-level benchmark files are compatibility shims. Generated benchmark outputs remain in `benchmarks/results/`, `benchmarks/reports/`, and `docs/` for reproducibility.
 
 ## Confirmed Capabilities
 
@@ -68,8 +68,16 @@ The QADE source tree is organized around optimization, integration, evolution, k
 ## Usage
 
 ```bash
-python run_all_benchmarks.py
+pip install -r quantum/requirements.txt
+python -m quantum.benchmarks.run_all
 pytest quantum/tests/test_hardware_aware_optimization.py quantum/tests/test_qiskit_plugin.py -q
+```
+
+Compatibility commands remain supported:
+
+```bash
+python run_all_benchmarks.py
+python benchmarks/run_all_benchmarks.py
 ```
 
 ## Dependencies
@@ -83,7 +91,7 @@ Active product-grade research platform. QADE has reproducible reports through Ph
 ## Roadmap
 
 - Package QADE as an independently installable domain.
-- Move benchmarks/ under quantum/benchmarks or expose a domain-local entrypoint.
+- Complete the remaining `core.domains` / `core.orchestration` split into `ia_core` or QADE-local adapters.
 - Add formal versioning for motif databases.
 - Validate economic and fidelity claims on live provider data.
 - Add enterprise API wrappers around motif reuse and hardware-aware compilation.
@@ -92,6 +100,10 @@ Active product-grade research platform. QADE has reproducible reports through Ph
 
 - docs/QADE_MASTER_WALKTHROUGH.md
 - docs/QADE_TECHNICAL_DOSSIER.md
+- docs/qade/README.md
+- docs/QADE_EXTRACTION_PROGRESS_REPORT.md
+- docs/QADE_STANDALONE_READINESS_REPORT.md
+- docs/BENCHMARK_RESTRUCTURE_REPORT.md
 - docs/QADE_IP_ASSET_REGISTER.md
 - benchmarks/reports/PHASE3_HARDWARE_AWARE_REPORT.md
 - benchmarks/reports/PHASE4_COMPETITIVE_ADVANTAGE_REPORT.md

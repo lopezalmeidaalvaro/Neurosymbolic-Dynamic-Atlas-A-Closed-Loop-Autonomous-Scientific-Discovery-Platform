@@ -1,0 +1,2 @@
+"""QADE quantum optimization package."""
+

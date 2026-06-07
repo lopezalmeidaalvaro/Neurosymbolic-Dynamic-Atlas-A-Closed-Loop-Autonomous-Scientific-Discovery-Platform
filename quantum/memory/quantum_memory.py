@@ -1,7 +1,7 @@
 import math
 import copy
 from typing import Any, List, Dict, Optional
-from core.abstractions.base_memory import BaseMemory
+from quantum.interfaces import BaseMemory
 from quantum.knowledge.context_schema import Context
 
 class QuantumMemory(BaseMemory):

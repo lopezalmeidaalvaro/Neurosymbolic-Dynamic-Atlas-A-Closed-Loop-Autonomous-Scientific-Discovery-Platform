@@ -1,6 +1,6 @@
 import json
 from typing import Dict, Any
-from core.abstractions.base_sandbox import BaseSandbox
+from quantum.interfaces import BaseSandbox
 
 class QuantumSandbox(BaseSandbox):
     """

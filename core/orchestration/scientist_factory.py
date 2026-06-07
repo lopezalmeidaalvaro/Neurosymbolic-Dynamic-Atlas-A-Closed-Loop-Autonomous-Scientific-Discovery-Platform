@@ -1,28 +1,47 @@
+from importlib import import_module
+from typing import Any
+
 from core.domains.domain_registry import DomainRegistry
 from core.domains.plugin_loader import discover_domains
-from physics.core.autonomous.autonomous_scientist import AutonomousScientist
 
-# Asegurar el autodescubrimiento al importar
-discover_domains()
 
-def create_scientist(domain_name: str, **kwargs) -> AutonomousScientist:
+DEFAULT_ORCHESTRATOR = "physics.core.autonomous.autonomous_scientist:AutonomousScientist"
+
+
+def _load_symbol(path: str) -> Any:
+    """Load "module:attribute" without importing any domain at module import time."""
+    module_name, _, attr_name = path.partition(":")
+    if not module_name or not attr_name:
+        raise ValueError(f"Invalid orchestrator path: {path!r}")
+    return getattr(import_module(module_name), attr_name)
+
+
+def create_scientist(domain_name: str, **kwargs) -> Any:
     """
-    Crea una instancia de AutonomousScientist configurada dinámicamente
-    con los componentes del dominio especificado cargados vía DomainRegistry.
+    Create a domain scientist from the domain registry.
+
+    Core stays domain-neutral: domain orchestrators are resolved lazily from a
+    container-provided class/path or, for legacy compatibility, from the default
+    physics AutonomousScientist path.
     """
-    # Ejecutar descubrimiento para garantizar que todos los plugins estén en el registro
     discover_domains()
 
-    # Obtener especificación del dominio y fabricar su contenedor
     spec = DomainRegistry.get_domain(domain_name)
     container = spec.factory()
 
-    # Retornar el orquestador inyectando sus dependencias
-    return AutonomousScientist(
+    orchestrator_cls = getattr(container, "orchestrator_class", None)
+    if orchestrator_cls is None:
+        orchestrator_path = kwargs.pop(
+            "orchestrator_path",
+            getattr(container, "orchestrator_path", DEFAULT_ORCHESTRATOR),
+        )
+        orchestrator_cls = _load_symbol(orchestrator_path)
+
+    return orchestrator_cls(
         generator=container.generator,
         critic=container.critic,
         sandbox=container.sandbox,
         memory=container.memory,
         llm_reasoner=container.llm_reasoner,
-        **kwargs
+        **kwargs,
     )

@@ -1,0 +1,7 @@
+qiskit
+numpy
+pandas
+networkx
+scipy
+pytest
+

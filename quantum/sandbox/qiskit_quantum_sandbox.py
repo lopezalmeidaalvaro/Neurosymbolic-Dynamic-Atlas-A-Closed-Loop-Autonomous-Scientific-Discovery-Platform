@@ -3,7 +3,7 @@ import time
 from typing import Dict, Any, List
 from qiskit import QuantumCircuit
 from qiskit.quantum_info import Statevector
-from core.abstractions.base_sandbox import BaseSandbox
+from quantum.interfaces import BaseSandbox
 
 class QiskitQuantumSandbox(BaseSandbox):
     """

@@ -1,6 +1,6 @@
 import random
 from typing import Dict, Any
-from core.abstractions.base_hypothesis_generator import BaseHypothesisGenerator
+from quantum.interfaces import BaseHypothesisGenerator
 
 class QuantumHypothesisGenerator(BaseHypothesisGenerator):
     """

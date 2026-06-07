@@ -1,5 +1,5 @@
 from typing import Dict, Any, List
-from core.abstractions.base_critic import BaseCritic
+from quantum.interfaces import BaseCritic
 
 class QuantumCriticVerdict(dict):
     """

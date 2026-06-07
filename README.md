@@ -26,7 +26,7 @@ ia-matematica-github/
 |-- mathematics/      # Symbolic mathematics and formal verification roadmap
 |-- papers/           # Manuscripts and publication assets
 |-- docs/             # Cross-domain audits, phase reports, dossiers, and grant materials
-|-- benchmarks/       # QADE reproducible competitive benchmark suite
+|-- benchmarks/       # Raw QADE benchmark outputs and compatibility runner
 |-- core/             # Shared abstractions, domain registry, orchestration, observability
 |-- tests/            # Root-level tests for shared infrastructure
 ```
@@ -96,6 +96,10 @@ IA-MATEMATICA is being organized as a deep-tech portfolio with multiple commerci
 - [QADE Master Walkthrough](docs/QADE_MASTER_WALKTHROUGH.md)
 - [QADE Technical Dossier](docs/QADE_TECHNICAL_DOSSIER.md)
 - [QADE IP Asset Register](docs/QADE_IP_ASSET_REGISTER.md)
+- [QADE Documentation Index](docs/qade/README.md)
+- [QADE Extraction Progress Report](docs/QADE_EXTRACTION_PROGRESS_REPORT.md)
+- [QADE Standalone Readiness Report](docs/QADE_STANDALONE_READINESS_REPORT.md)
+- [Benchmark Restructure Report](docs/BENCHMARK_RESTRUCTURE_REPORT.md)
 - [Deep Tech Grant Readiness](docs/DEEPTECH_GRANT_READINESS.md)
 - [Document Consolidation Report](docs/DOCUMENT_CONSOLIDATION_REPORT.md)
 - [Files Safe To Delete](docs/FILES_SAFE_TO_DELETE.md)
@@ -105,7 +109,10 @@ IA-MATEMATICA is being organized as a deep-tech portfolio with multiple commerci
 ```bash
 pip install -r requirements.txt
 pip install -r requirements-dev.txt
-python run_all_benchmarks.py
+python -m quantum.benchmarks.run_all
+# Compatibility shims remain available:
+# python run_all_benchmarks.py
+# python benchmarks/run_all_benchmarks.py
 pytest quantum/tests/test_hardware_aware_optimization.py quantum/tests/test_qiskit_plugin.py -q
 cd dashboard && npm install && npm run dev
 ```
