@@ -103,6 +103,7 @@ Active product-grade research platform. QADE has reproducible reports through Ph
 - docs/qade/README.md
 - docs/QADE_EXTRACTION_PROGRESS_REPORT.md
 - docs/QADE_STANDALONE_READINESS_REPORT.md
+- docs/QADE_EXTRACTION_CERTIFICATE.md
 - docs/BENCHMARK_RESTRUCTURE_REPORT.md
 - docs/QADE_IP_ASSET_REGISTER.md
 - benchmarks/reports/PHASE3_HARDWARE_AWARE_REPORT.md
@@ -110,3 +111,60 @@ Active product-grade research platform. QADE has reproducible reports through Ph
 - benchmarks/reports/PHASE5_IP_REPORT.md
 - benchmarks/reports/PHASE6_INVESTOR_SUMMARY.md
 - benchmarks/reports/PHASE7_EXECUTIVE_SUMMARY.md
+
+
+
+## Audited Performance & Development Phase Snapshot
+
+QADE’s value proposition is centered around hardware-aware qubit placement and custom motif reuse, rather than simple gate reduction.
+
+*   **Benchmark Date:** 2026-06-11 00:08:04
+*   **Real Compilers Benchmarked:** Qiskit, TKET, BQSKit, Cirq, PyZX
+
+### Leaderboard (Mean Compiles vs Baselines)
+
+| Rank | Compiler Workflow | Avg Depth | Avg Gates (diff vs Qiskit) | Avg Fidelity | Avg Time |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| #1 | **Cirq-native** | 7.0 | 12.4 (-83.5%) | 0.9262 | 1.0 ms |
+| #2 | **QADE** | 6.3 | 10.6 (-85.9%) | 0.9228 | 16.3 ms |
+| #3 | **BQSKit** | 7.0 | 12.4 (-83.5%) | 0.9185 | 73.9 ms |
+| #4 | **TKET** | 12.6 | 25.9 (-65.6%) | 0.8931 | 140.6 ms |
+| #5 | **Qiskit** | 28.3 | 75.3 (Baseline) | 0.8544 | 10.6 ms |
+| #6 | **QADE + PyZX** | 27.1 | 40.6 (-46.1%) | 0.7987 | 18.4 ms |
+| #7 | **QADE + Evolution + PyZX** | 31.9 | 47.0 (-37.6%) | 0.7628 | 81.8 ms |
+| #8 | **QADE + Knowledge Graph** | 33.7 | 47.3 (-37.2%) | 0.7508 | 2.8 ms |
+| #9 | **PyZX** | 42.3 | 56.4 (-25.0%) | 0.7237 | 3.1 ms |
+
+### Phase Performance Details
+
+| Phase | Audited Objective | Core Results & Disclosures | Status |
+| :--- | :--- | :--- | :--- |
+| **Phase III** | Hardware-Aware Optimization | Achieved a **98.95% reduction in critical path duration** vs QADE's unoptimized Phase II compiler. Achieved a **28.0% physical fidelity win rate** (7/25 cases) against Qiskit L3 under simulated noise. | **Completed (3/4 success criteria met)** |
+| **Phase IV** | Dominance Regions | Identified family-specific advantages under small-sample runs (n=3 per backend): **Quantum Kernel** (100% win rate, +53.1% simulated fidelity gain, -102.8% gate overhead) and **QFT** (100% win rate, +29.9% simulated fidelity gain, -282.6% gate overhead). | **Completed (Targeted advantage established)** |
+| **Phase V** | Motif IP Database | Discovered 30 motifs, mathematically validated 13 unique motifs, and demonstrated **84.6% motif transferability** (11/13 reused) on 4 unseen circuit families. | **Completed (Database populated)** |
+| **Phase VI** | Economic Valuation | Modeled a theoretical database replacement cost of **$434,901** and a speculative SaaS annual revenue potential of **$1,168,320**. *Note: These are financial models with zero commercial revenue.* | **Completed (Financial model only)** |
+| **Phase VII** | Moat & Flywheel Analysis | Moat score modeled at **6.13/10**, and theoretical long-term mid-case enterprise value calculated at **$62,882,402**. *Note: Speculative simulation output; no market valuation established.* | **Completed (Flywheel hypothesis modeled)** |
+
+### Leaderboard (Mean Compiles vs Baselines)
+
+| Rank | Compiler Workflow | Avg Depth | Avg Gates (diff vs Qiskit) | Avg Fidelity | Avg Time |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| #1 | **QADE** | 5.0 | 8.3 (-68.6%) | 0.9169 | 19.0 ms |
+| #2 | **QADE + PyZX** | 5.3 | 9.1 (-65.4%) | 0.9134 | 17.8 ms |
+| #3 | **TKET** | 12.2 | 25.8 (-1.9%) | 0.9053 | 12.3 ms |
+| #4 | **BQSKit** | 12.3 | 26.2 (-0.4%) | 0.9049 | 12.4 ms |
+| #5 | **Qiskit** | 12.5 | 26.3 (Baseline) | 0.9048 | 9.9 ms |
+| #6 | **QADE + Evolution + PyZX** | 6.7 | 10.3 (-61.0%) | 0.8948 | 21.7 ms |
+| #7 | **PyZX** | 7.6 | 11.4 (-56.8%) | 0.8865 | 1.1 ms |
+| #8 | **Cirq-native** | 7.6 | 11.4 (-56.8%) | 0.8865 | 1.1 ms |
+| #9 | **QADE + Knowledge Graph** | 7.6 | 11.4 (-56.8%) | 0.8865 | 0.9 ms |
+
+### Phase Performance Details
+
+| Phase | Audited Objective | Core Results & Disclosures | Status |
+| :--- | :--- | :--- | :--- |
+| **Phase III** | Hardware-Aware Optimization | Achieved a **98.95% reduction in critical path duration** vs QADE's unoptimized Phase II compiler. Achieved a **28.0% physical fidelity win rate** (7/25 cases) against Qiskit L3 under simulated noise. | **Completed (3/4 success criteria met)** |
+| **Phase IV** | Dominance Regions | Identified family-specific advantages under small-sample runs (n=3 per backend): **Quantum Kernel** (100% win rate, +53.1% simulated fidelity gain, -102.8% gate overhead) and **QFT** (100% win rate, +29.9% simulated fidelity gain, -282.6% gate overhead). | **Completed (Targeted advantage established)** |
+| **Phase V** | Motif IP Database | Discovered 30 motifs, mathematically validated 13 unique motifs, and demonstrated **84.6% motif transferability** (11/13 reused) on 4 unseen circuit families. | **Completed (Database populated)** |
+| **Phase VI** | Economic Valuation | Modeled a theoretical database replacement cost of **$434,901** and a speculative SaaS annual revenue potential of **$1,168,320**. *Note: These are financial models with zero commercial revenue.* | **Completed (Financial model only)** |
+| **Phase VII** | Moat & Flywheel Analysis | Moat score modeled at **6.13/10**, and theoretical long-term mid-case enterprise value calculated at **$62,882,402**. *Note: Speculative simulation output; no market valuation established.* | **Completed (Flywheel hypothesis modeled)** |

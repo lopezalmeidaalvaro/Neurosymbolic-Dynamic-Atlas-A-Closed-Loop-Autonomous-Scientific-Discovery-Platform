@@ -30,8 +30,11 @@ This folder is the curated public entry point for Quantum Algorithm Discovery En
 | --- | --- |
 | [QADE Extraction Progress](../QADE_EXTRACTION_PROGRESS_REPORT.md) | Decoupling progress and remaining extraction blockers |
 | [QADE Standalone Readiness](../QADE_STANDALONE_READINESS_REPORT.md) | Install/test/benchmark readiness |
+| [QADE Extraction Certificate](../QADE_EXTRACTION_CERTIFICATE.md) | Final extractability verdict and required bundle |
 | [Benchmark Restructure](../BENCHMARK_RESTRUCTURE_REPORT.md) | QADE-owned benchmark CLI and compatibility shims |
 | [Data Room Validation](../DATA_ROOM_VALIDATION_REPORT.md) | Data-room path and evidence validation |
+| [Final Cleanup Validation](../FINAL_CLEANUP_VALIDATION_REPORT.md) | Cleanup, tests, benchmark, and extraction validation |
+| [Repository Final Status](../REPOSITORY_FINAL_STATUS_REPORT.md) | Final restructuring status before Phase VIII |
 | [Restructure Completion](../PHASE_RESTRUCTURE_COMPLETION_REPORT.md) | Final execution summary |
 
 ## One-Command Benchmark

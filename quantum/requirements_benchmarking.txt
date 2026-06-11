@@ -1,0 +1,13 @@
+# Core (obligatorio)
+qiskit>=2.0.0
+qiskit-ibm-runtime>=0.20.0
+numpy>=1.22.0
+pandas>=1.5.0
+networkx>=2.8.0
+psutil>=5.9.0
+# Compiladores reales para benchmarking (opcionales pero preferidos)
+# Instalar todos los que sea posible para benchmarks reales
+pytket>=1.20.0
+bqskit>=1.0.0
+cirq>=1.3.0
+pyzx>=0.8.0

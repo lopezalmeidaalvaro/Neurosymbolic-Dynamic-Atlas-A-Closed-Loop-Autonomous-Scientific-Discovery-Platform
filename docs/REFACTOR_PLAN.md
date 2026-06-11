@@ -33,7 +33,7 @@ Para soportar múltiples dominios de forma simultánea, proponemos reorganizar e
 │   ├── benchmark/                # Simuladores LTB-LQC y revalidación
 │   └── tests/
 │
-├── satelite/                     # Dominio de Control Térmico Espacial (AST-OS)
+├── satellite/                     # Dominio de Control Térmico Espacial (AST-OS)
 │   ├── satellite/                # EKF, simuladores orbitales y térmicos
 │   └── tests/
 │

@@ -67,6 +67,34 @@ BENCHMARKS_DIR.mkdir(exist_ok=True)
 (BENCHMARKS_DIR / "results").mkdir(exist_ok=True)
 (BENCHMARKS_DIR / "reports").mkdir(exist_ok=True)
 
+
+def write_benchmark_compatibility_shim() -> None:
+    """Preserve the historical benchmark command without duplicating this suite."""
+    shim = '''"""Compatibility shim for the QADE benchmark suite.
+
+The executable benchmark implementation now lives in ``quantum.benchmarks``.
+This file preserves the historical command:
+
+    python benchmarks/run_all_benchmarks.py
+"""
+
+from pathlib import Path
+import sys
+
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from quantum.benchmarks.phase_suite import main
+
+
+if __name__ == "__main__":
+    main()
+'''
+    (BENCHMARKS_DIR / "run_all_benchmarks.py").write_text(shim, encoding="utf-8")
+
+
 # Helper to permute statevector for verification
 def permute_statevector(sv: Statevector, layout: Dict[int, int]) -> Statevector:
     data = sv.data
@@ -1083,8 +1111,8 @@ All raw benchmark databases are exported to:
     for p in report_paths:
         p.write_text(guide_content, encoding="utf-8")
         
-    # Copy this script into benchmarks/ as well
-    shutil.copy2(__file__, BENCHMARKS_DIR / "run_all_benchmarks.py")
+    # Preserve the historical benchmark command as a shim.
+    write_benchmark_compatibility_shim()
     print("REPRODUCIBILITY_GUIDE.md written and package structure initialized.")
 
 # ----------------- PHASE 8 - COMMERCIAL POSITIONING AUDIT -----------------
@@ -1663,7 +1691,7 @@ Outputs:
 * `benchmarks/reports/PHASE3_INVESTOR_SUMMARY.md`
 """
     (BENCHMARKS_DIR / "reports" / "REPRODUCIBILITY_GUIDE.md").write_text(reproducibility, encoding="utf-8")
-    shutil.copy2(__file__, BENCHMARKS_DIR / "run_all_benchmarks.py")
+    write_benchmark_compatibility_shim()
     print("PHASE III reports written.")
 
 
@@ -2333,7 +2361,7 @@ QADE's advantage appears when backend-aware qubit selection and calibrated candi
         writer.writeheader()
         writer.writerows(family_rows)
 
-    shutil.copy2(__file__, BENCHMARKS_DIR / "run_all_benchmarks.py")
+    write_benchmark_compatibility_shim()
     print("PHASE IV reports written.")
 
 
@@ -2617,7 +2645,7 @@ QADE {'generates reusable proprietary optimization knowledge' if stats['reusable
     shutil.copy2(BENCHMARKS_DIR / "results" / "PHASE5_MOTIF_DATABASE.csv", Path("docs") / "PHASE5_MOTIF_DATABASE.csv")
     shutil.copy2(BENCHMARKS_DIR / "results" / "PHASE5_MOTIF_DATABASE.json", Path("docs") / "PHASE5_MOTIF_DATABASE.json")
     shutil.copy2(BENCHMARKS_DIR / "results" / "PHASE5_TOP_MOTIFS.csv", Path("docs") / "PHASE5_TOP_MOTIFS.csv")
-    shutil.copy2(__file__, BENCHMARKS_DIR / "run_all_benchmarks.py")
+    write_benchmark_compatibility_shim()
     print("PHASE V reports written.")
 
 
@@ -2824,7 +2852,7 @@ def run_phase6_economic_valuation() -> Tuple[List[Dict[str, Any]], List[Dict[str
         BENCHMARKS_DIR / "reports",
         docs_dir,
     )
-    shutil.copy2(__file__, BENCHMARKS_DIR / "run_all_benchmarks.py")
+    write_benchmark_compatibility_shim()
     return motif_economics, workload_economics, portfolio_row
 
 
@@ -3064,7 +3092,7 @@ def run_phase7_knowledge_flywheel() -> Dict[str, Any]:
         "long_term_enterprise_value_high": growth_rows[-1]["high_value"] * 5.0 + annual_revenue * 4.0,
     }
     generate_phase7_reports(phase7)
-    shutil.copy2(__file__, BENCHMARKS_DIR / "run_all_benchmarks.py")
+    write_benchmark_compatibility_shim()
     return phase7
 
 

@@ -21,11 +21,18 @@ Generated: 2026-06-06
 | 13 | docs/QADE_ISOLATION_REPORT.md | Isolation report | Independent extraction readiness |
 | 14 | docs/DOMAIN_DEPENDENCY_REPORT.md | Domain dependencies | Cross-domain coupling audit |
 | 15 | docs/FINAL_RESTRUCTURE_EXECUTION_PLAN.md | Restructure plan | How to professionalize repo safely |
-| 16 | docs/DEEPTECH_GRANT_READINESS_V2.md | Grant readiness V2 | Program-specific readiness and gaps |
-| 17 | docs/SAFE_DELETE_CANDIDATES.md | Cleanup candidates | Non-destructive cleanup review |
-| 18 | benchmarks/results/PHASE4_WORKLOAD_ANALYSIS.csv | Raw Phase IV data | Detailed workload metrics |
-| 19 | benchmarks/results/PHASE5_MOTIF_DATABASE.csv | Motif database | Raw motif evidence |
-| 20 | benchmarks/results/PHASE6_MOTIF_ECONOMICS.csv | Motif economics | Raw economic model output |
+| 16 | docs/QADE_EXTRACTION_PROGRESS_REPORT.md | Extraction progress | Executed decoupling and remaining blockers |
+| 17 | docs/QADE_STANDALONE_READINESS_REPORT.md | Standalone readiness | QADE install/test/benchmark readiness |
+| 18 | docs/QADE_EXTRACTION_CERTIFICATE.md | Extraction certificate | Final standalone extraction answer |
+| 19 | docs/BENCHMARK_RESTRUCTURE_REPORT.md | Benchmark restructure | QADE-owned benchmark CLI and compatibility shims |
+| 20 | docs/FINAL_CLEANUP_VALIDATION_REPORT.md | Cleanup validation | Final test and benchmark evidence |
+| 21 | docs/REPOSITORY_FINAL_STATUS_REPORT.md | Final status | Repository state before QADE Phase VIII |
+| 22 | docs/DATA_ROOM_VALIDATION_REPORT.md | Data-room validation | Evidence path validation |
+| 23 | docs/DEEPTECH_GRANT_READINESS_V2.md | Grant readiness V2 | Program-specific readiness and gaps |
+| 24 | docs/SAFE_DELETE_CANDIDATES.md | Cleanup candidates | Historical cleanup review |
+| 25 | benchmarks/results/PHASE4_WORKLOAD_ANALYSIS.csv | Raw Phase IV data | Detailed workload metrics |
+| 26 | benchmarks/results/PHASE5_MOTIF_DATABASE.csv | Motif database | Raw motif evidence |
+| 27 | benchmarks/results/PHASE6_MOTIF_ECONOMICS.csv | Motif economics | Raw economic model output |
 
 ## Due-Diligence Categories
 
@@ -33,8 +40,15 @@ Generated: 2026-06-06
 
 - docs/QADE_TECHNICAL_DOSSIER.md
 - docs/QADE_MASTER_WALKTHROUGH.md
+- docs/qade/README.md
 - docs/DOMAIN_DEPENDENCY_REPORT.md
 - docs/QADE_ISOLATION_REPORT.md
+- docs/QADE_EXTRACTION_PROGRESS_REPORT.md
+- docs/QADE_STANDALONE_READINESS_REPORT.md
+- docs/QADE_EXTRACTION_CERTIFICATE.md
+- docs/BENCHMARK_RESTRUCTURE_REPORT.md
+- docs/FINAL_CLEANUP_VALIDATION_REPORT.md
+- docs/REPOSITORY_FINAL_STATUS_REPORT.md
 
 ### Commercial and Grant
 
@@ -53,6 +67,8 @@ Generated: 2026-06-06
 
 - run_all_benchmarks.py
 - benchmarks/run_all_benchmarks.py
+- quantum/benchmarks/run_all.py
+- quantum/benchmarks/phase_suite.py
 - benchmarks/results/*.csv
 - benchmarks/reports/*.md
 

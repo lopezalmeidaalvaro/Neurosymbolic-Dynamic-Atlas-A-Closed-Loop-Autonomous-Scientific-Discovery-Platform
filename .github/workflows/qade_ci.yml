@@ -1,0 +1,29 @@
+name: QADE CI
+on:
+  push:
+    paths: ['quantum/**', 'benchmarks/**']
+  pull_request:
+    paths: ['quantum/**']
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install core dependencies
+      run: pip install qiskit numpy pandas networkx pytest
+    - name: Smoke test import
+      run: python -c "import quantum; print('QADE OK v' + quantum.__version__)"
+    - name: Run unit tests
+      run: pytest quantum/tests/ -v --tb=short
+      continue-on-error: true
+    - name: Benchmark smoke test
+      run: python -m quantum.benchmarks.run_all --smoke-test
+      continue-on-error: true

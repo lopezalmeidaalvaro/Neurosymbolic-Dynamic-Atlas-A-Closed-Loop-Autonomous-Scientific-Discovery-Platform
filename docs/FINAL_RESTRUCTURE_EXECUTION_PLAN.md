@@ -25,7 +25,7 @@ This is an execution plan only. No destructive changes are authorized by this do
 
 | Action | Rationale | Risks | Dependencies | Estimated Effort | Rollback Strategy |
 | --- | --- | --- | --- | --- | --- |
-| Rename satelite/ to satellite/ | Corrects public-facing spelling and aligns with target architecture | Internal imports use satellite.* while folder is satelite; path/package confusion likely | SATELLITE_RENAME_PLAN.md, satellite tests | 2-4 days | Git mv back to satelite/ and restore import map |
+| Rename satellite/ to satellite/ | Corrects public-facing spelling and aligns with target architecture | Internal imports use satellite.* while folder is satellite; path/package confusion likely | SATELLITE_RENAME_PLAN.md, satellite tests | 2-4 days | Git mv back to satellite/ and restore import map |
 | Rename benchmark/ or merge it into benchmarks/ | Eliminates singular/plural ambiguity | Links may reference benchmark/README.md | DOCUMENTATION_CONSOLIDATION_REPORT.md | 0.5 day | Restore legacy README path |
 | Rename root generated reports only through archive manifest | Improves organization | Scripts may write/read fixed names | Generated artifact inventory | 1 day | Keep compatibility copies for one release |
 
@@ -35,7 +35,7 @@ This is an execution plan only. No destructive changes are authorized by this do
 | --- | --- | --- | --- | --- | --- |
 | Remove core -> physics reverse import in core/orchestration/scientist_factory.py | Shared core must not depend on a domain | Factory behavior may change | CORE_SPLIT_STRATEGY.md; domain registry tests | 1 day | Restore direct import and mark core non-extractable |
 | Replace quantum -> core imports with ia_core package or quantum-local interfaces | QADE must become independently installable | Many test/import paths need updates | QADE_ISOLATION_REPORT.md | 2-5 days | Keep compatibility imports from core during transition |
-| Replace satelite -> physics neurosymbolic imports with adapter/protocol | Satellite should be independently removable | PINN/Neural ODE training may need wrappers | SATELLITE_RENAME_PLAN.md and satellite tests | 3-5 days | Keep optional physics plugin fallback |
+| Replace satellite -> physics neurosymbolic imports with adapter/protocol | Satellite should be independently removable | PINN/Neural ODE training may need wrappers | SATELLITE_RENAME_PLAN.md and satellite tests | 3-5 days | Keep optional physics plugin fallback |
 | Move tests that import physics from quantum into integration tests | QADE extraction should not require physics | Coverage may split across packages | IMPORT_GRAPH.csv | 0.5 day | Keep root integration test suite separate |
 
 ## Phase 4: Documentation Consolidation
@@ -67,4 +67,4 @@ This is an execution plan only. No destructive changes are authorized by this do
 
 ## Execution Recommendation
 
-Do not start with folder renames. Start with dependency decoupling and compatibility wrappers, then move artifacts, then rename `satelite/` after the test surface is known.
+Do not start with folder renames. Start with dependency decoupling and compatibility wrappers, then move artifacts, then rename `satellite/` after the test surface is known.

@@ -1,65 +1,29 @@
 {
-  "metadata": {
-    "version": "Phase 2",
-    "timestamp": "2026-05-24T18:04:57.872979"
-  },
-  "statistics": {
-    "total_systems": 5,
-    "total_iterations": 5,
-    "successes": 2,
-    "success_rate": 0.4
-  },
-  "results": [
-    {
-      "system": "lorenz",
-      "method": "sindy",
-      "discovered": {
-        "dx": "-9.978 x0 +  9.978 x1",
-        "dy": " 27.809 x0 + -0.964 x1 + -0.995 x0 x2",
-        "dz": "-2.659 x2 +  0.997 x0 x1"
-      },
-      "jaccard_terms": 0.7222222222222222,
-      "match": false
+  "verdict": "H1_SUPPORTED",
+  "h0_rejected": true,
+  "comparison": {
+    "generated": {
+      "representation": "CNOT",
+      "utility": 0.9992,
+      "synergy": 0.4992,
+      "transferability_probability": 0.9,
+      "mitigated_noise_fidelity": 0.9992,
+      "compression_ratio": 1.0,
+      "gate_reduction": 0.0
     },
-    {
-      "system": "rossler",
-      "method": "sindy",
-      "discovered": {
-        "dx": "-1.000 x1 + -1.000 x2",
-        "dy": " 1.000 x0 +  0.200 x1",
-        "dz": " 0.200 1 + -5.697 x2 +  0.999 x0 x2"
-      },
-      "jaccard_terms": 0.8888888888888888,
-      "match": true
-    },
-    {
-      "system": "duffing",
-      "method": "sindy",
-      "discovered": {
-        "dx": " 0.490 1 + -0.977 x0 +  1.340 x1 + -0.453 x0^2 +  0.556 x0 x1 + -0.111 x1^2",
-        "dv": " 17.523 1 + -0.998 x0 + -23.640 x1 +  0.125 x0^2 +  6.998 x0 x1 +  0.519 x1^2 + -0.143 x0 x1^2"
-      },
-      "jaccard_terms": 0.24285714285714285,
-      "match": false
-    },
-    {
-      "system": "van_der_pol",
-      "method": "sindy",
-      "discovered": {
-        "dx": " 1.000 x1",
-        "dv": "-1.000 x0 +  1.499 x1 + -1.499 x0^2 x1"
-      },
-      "jaccard_terms": 1.0,
-      "match": true
-    },
-    {
-      "system": "logistic",
-      "method": "sindy",
-      "discovered": {
-        "x_next": "-0.67*x**3 + 0.15*sin(x)"
-      },
-      "jaccard_terms": 0.0,
-      "match": false
+    "baseline": {
+      "representation": "H->CNOT->H(q0)->CNOT(q0,q1)",
+      "utility": 0.3,
+      "synergy": 0.478,
+      "transferability_probability": 0.9,
+      "mitigated_noise_fidelity": 0.997,
+      "compression_ratio": 1.0,
+      "gate_reduction": 0.0
     }
-  ]
+  },
+  "outperforms": {
+    "utility": true,
+    "synergy": true,
+    "noise_robustness": true
+  }
 }

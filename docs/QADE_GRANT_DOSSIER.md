@@ -1,5 +1,12 @@
 # QADE Grant and Investor Dossier
 
+> **⚠️ DISCLOSURE:** All financial figures in this document
+> are outputs of internal simulation models.
+> They represent theoretical scenarios assuming full market
+> adoption. Zero commercial revenue has been generated to date.
+> These figures should not be interpreted as valuations,
+> commitments, or revenue forecasts.
+
 Generated: 2026-06-06
 
 Audience: ENISA, CDTI, NEOTEC, EIC Accelerator, Deep Tech funds, VCs, innovation agencies.

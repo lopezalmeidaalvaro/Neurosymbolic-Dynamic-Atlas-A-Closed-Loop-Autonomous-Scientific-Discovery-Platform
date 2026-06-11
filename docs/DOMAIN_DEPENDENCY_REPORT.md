@@ -4,7 +4,7 @@ Generated: 2026-06-06
 
 ## Summary
 
-The target architecture requires each domain to be independently removable. The current repository is close for dashboard/, mathematics/, and papers/, but not for physics/, quantum/, satelite/, or shared core/.
+The target architecture requires each domain to be independently removable. The current repository is close for dashboard/, mathematics/, and papers/, but not for physics/, quantum/, satellite/, or shared core/.
 
 ## Domain Import Edges
 
@@ -16,14 +16,14 @@ The target architecture requires each domain to be independently removable. The 
 | quantum | core | 34 |
 | root | quantum | 29 |
 | benchmarks | quantum | 29 |
-| satelite | satellite | 22 |
+| satellite | satellite | 22 |
 | tests | core | 20 |
 | core | core | 13 |
 | tests | quantum | 11 |
-| satelite | physics | 10 |
+| satellite | physics | 10 |
 | tests | physics | 9 |
 | physics | satellite | 3 |
-| satelite | core | 2 |
+| satellite | core | 2 |
 | core | physics | 1 |
 | quantum | physics | 1 |
 
@@ -36,9 +36,9 @@ The target architecture requires each domain to be independently removable. The 
 | core/orchestration/scientist_factory.py | core | physics | physics.core.autonomous.autonomous_scientist |
 | quantum/plugin.py | quantum | core | core.domains.domain_registry |
 | quantum/sandbox/qiskit_quantum_sandbox.py | quantum | core | core.abstractions.base_sandbox |
-| satelite/plugin.py | satelite | core | core.domains.domain_registry |
-| satelite/satellite/thermal/train_thermal_pinn.py | satelite | physics | physics.core.neurosymbolic.pinn |
-| satelite/satellite/thermal/train_thermal_neural_ode.py | satelite | physics | physics.core.neurosymbolic.neural_ode |
+| satellite/plugin.py | satellite | core | core.domains.domain_registry |
+| satellite/satellite/thermal/train_thermal_pinn.py | satellite | physics | physics.core.neurosymbolic.pinn |
+| satellite/satellite/thermal/train_thermal_neural_ode.py | satellite | physics | physics.core.neurosymbolic.neural_ode |
 | benchmarks/run_all_benchmarks.py | benchmarks | quantum | quantum.optimization.* |
 
 ## Hidden Dependencies
@@ -46,7 +46,7 @@ The target architecture requires each domain to be independently removable. The 
 - core/ is nominally shared infrastructure but imports physics in scientist_factory.py, creating reverse coupling.
 - quantum/ uses core abstractions for plugin, sandbox, memory, critic, and observability behavior.
 - physics/ uses root core modules and satellite lab-interface imports.
-- satelite/ imports physics.core.neurosymbolic for PINN/Neural ODE training and uses internal imports under package name satellite.* despite the root folder being satelite/.
+- satellite/ imports physics.core.neurosymbolic for PINN/Neural ODE training and uses internal imports under package name satellite.* despite the root folder being satellite/.
 
 ## Circular / Risky Dependencies
 
@@ -54,7 +54,7 @@ The target architecture requires each domain to be independently removable. The 
 core -> physics
 physics -> core
 
-satelite -> physics
+satellite -> physics
 physics -> satellite
 ```
 
@@ -77,5 +77,5 @@ physics -> satellite
 | papers/ | Yes | Documentation-only |
 | quantum/ | No | Root benchmarks and tests import it |
 | physics/ | No | Shared core and satellite modules import physics |
-| satelite/ | No | Naming mismatch and physics coupling |
+| satellite/ | No | Naming mismatch and physics coupling |
 | core/ | No | Shared dependency for physics and quantum |

@@ -58,7 +58,7 @@ Identificamos los candidatos principales para convertirse en interfaces abstract
    Aproximadamente el **`10%`** de los archivos Python del dominio `physics/` importan `sympy` (15 de ~150 archivos). Está confinado a validadores analíticos, calculadores de curvatura y equivalencias del scorer.
    
 3. **¿Qué porcentaje depende de física clásica?**
-   Cerca del **`50%`** del código total (40% de `physics/` enfocado en wormholes/warp drives y 100% de `satelite/` enfocado en termodinámica clásica de naves).
+   Cerca del **`50%`** del código total (40% de `physics/` enfocado en wormholes/warp drives y 100% de `satellite/` enfocado en termodinámica clásica de naves).
 
 ---
 

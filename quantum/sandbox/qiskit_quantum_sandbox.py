@@ -55,6 +55,12 @@ class QiskitQuantumSandbox(BaseSandbox):
                     "error": "El número de qubits debe ser mayor que 0."
                 }
 
+            if qubits > 20:
+                return {
+                    "success": False,
+                    "error": f"Circuit has {qubits} qubits. Statevector simulation is disabled for >20 qubits to prevent memory exhaustion."
+                }
+
             # 1. Crear el QuantumCircuit
             qc = QuantumCircuit(qubits)
 

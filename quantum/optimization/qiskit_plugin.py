@@ -107,19 +107,6 @@ class QADEOptimizerPass(TransformationPass):
                 if edge[0] in active_qs and edge[1] in active_qs
             ]
 
-        # D. Statevector target definition using the sandbox
-        target_qade_json = {
-            "qubits": num_pop_qubits,
-            "gates": qade_json.get("gates", [])
-        }
-        sandbox = QiskitQuantumSandbox()
-        initial_sim = sandbox.execute(target_qade_json)
-        if not initial_sim.get("success", False):
-            # If simulation fails, return original circuit
-            return qc
-            
-        target_statevector = initial_sim["result"]["statevector"]
-
         # Calculate a safe max_gates limit based on the routed input size to prevent truncation
         safe_max_gates = max(80, len(routed_json.get("gates", [])) + 20)
 
@@ -128,11 +115,26 @@ class QADEOptimizerPass(TransformationPass):
         # requires simulating 2^num_pop_qubits amplitudes through thousands of gates.
         # In these cases, skip evolution and apply algebraic simplification directly.
         EVOLUTION_GATE_THRESHOLD = 500
-        if len(routed_json.get("gates", [])) > EVOLUTION_GATE_THRESHOLD:
-            logger.info(f"Routed circuit has {len(routed_json['gates'])} gates (>{EVOLUTION_GATE_THRESHOLD}). "
+        bypass_evolution = len(routed_json.get("gates", [])) > EVOLUTION_GATE_THRESHOLD or num_pop_qubits > 20
+
+        if bypass_evolution:
+            logger.info(f"Routed circuit has {len(routed_json.get('gates', []))} gates or {num_pop_qubits} qubits. "
                         f"Bypassing evolutionary search, applying algebraic simplification only.")
             best_evolved_circuit = routed_json
         else:
+            # D. Statevector target definition using the sandbox
+            target_qade_json = {
+                "qubits": num_pop_qubits,
+                "gates": qade_json.get("gates", [])
+            }
+            sandbox = QiskitQuantumSandbox()
+            initial_sim = sandbox.execute(target_qade_json)
+            if not initial_sim.get("success", False):
+                # If simulation fails, return original circuit
+                return qc
+                
+            target_statevector = initial_sim["result"]["statevector"]
+
             pop_manager = QuantumPopulationManager(
                 qubits=num_pop_qubits,
                 population_size=self.population_size,

@@ -15,7 +15,7 @@ No files were deleted. This report lists candidates only.
 | benchmark/README.md | Legacy benchmark note | Medium | benchmarks/ or domain docs | Folder conflicts with benchmarks/ naming |
 | benchmarks/results/COMPLETE_PHASE3_RESULTS.csv | Duplicate result CSV | Medium | PHASE3_HARDWARE_AWARE_RESULTS.csv | Hash duplicate detected |
 | docs/PHASE5_MOTIF_DATABASE.csv/json | Mirrored generated data | Medium | benchmarks/results/PHASE5_MOTIF_DATABASE.* | Canonical generated data should live in results |
-| satelite/VERIFICATION_BASELINE_v1-v3/ | Historical baselines | Medium | v4 plus archive | Keep archived if audit traceability matters |
+| satellite/VERIFICATION_BASELINE_v1-v3/ | Historical baselines | Medium | v4 plus archive | Keep archived if audit traceability matters |
 | root *_report.json files | Generated research outputs in root | Medium | docs/archive/ or owner artifacts | They clutter root |
 | outputs/*/checkpoint.pkl | Evolution checkpoints | Medium | Archive or re-run | Useful only for exact run continuation |
 | .agent/ | Local agent tooling | Low for publication | Local tool config | Already ignored and not product source |

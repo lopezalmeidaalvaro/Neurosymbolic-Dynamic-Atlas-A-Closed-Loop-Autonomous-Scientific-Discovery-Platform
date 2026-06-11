@@ -1274,58 +1274,58 @@ No files were deleted. This report is generated from STALE_FILE_INVENTORY.csv, D
 | physics/artifacts/results/harmonic/pipeline.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
 | physics/papers/papers/texput.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
 | results/harmonic/pipeline.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/audit_execution_logs/astos_cfs_app_check_misra.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/audit_execution_logs/astos_cfs_app_fault_injection.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/audit_execution_logs/astos_cfs_app_mpc_benchmark.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/audit_execution_logs/benchmarks_run_cad_benchmark.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/audit_execution_logs/benchmarks_run_pinn_benchmark.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/audit_execution_logs/benchmarks_run_tvac_benchmark.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/audit_execution_logs/real_telemetry_pipeline_pipeline.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/audit_execution_logs/satellite_comms_model_update.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/audit_execution_logs/satellite_comms_state_sync.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/dashboard/next-start-observability-3051.err.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/dashboard/next-start-observability-3051.out.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/dashboard/next-start-observability-3052.err.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/dashboard/next-start-observability-3052.out.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/dashboard/next-start-observability.err.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/dashboard/next-start-observability.out.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/logs/thermal_api.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
-| satelite/VERIFICATION_BASELINE_v1/ACCEPTANCE_STATUS.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v1/BASELINE_MANIFEST.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v1/fail_resolution_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v1/regression_campaign_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v1/verification_dashboard.csv | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v1/verification_dashboard.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v2/ACCEPTANCE_STATUS.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v2/BASELINE_MANIFEST.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v2/ekf_residuals.csv | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v2/ekf_validation_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v2/fail_resolution_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v2/regression_campaign_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v2/verification_dashboard.csv | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v2/verification_dashboard.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/BASELINE_MANIFEST.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/cdr_action_item_status.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/CDR_READINESS_REVIEW.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/CDR_STATUS.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/CDR_V2_V3_COMPARISON.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/coverage_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/coverage_summary.json | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/ekf_residuals.csv | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/ekf_validation_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/fail_resolution_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/FREEZE_POLICY.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/regression_campaign_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/SHA256SUMS.txt | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/verification_dashboard.csv | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
-| satelite/VERIFICATION_BASELINE_v3/verification_dashboard.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/audit_execution_logs/astos_cfs_app_check_misra.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/audit_execution_logs/astos_cfs_app_fault_injection.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/audit_execution_logs/astos_cfs_app_mpc_benchmark.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/audit_execution_logs/benchmarks_run_cad_benchmark.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/audit_execution_logs/benchmarks_run_pinn_benchmark.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/audit_execution_logs/benchmarks_run_tvac_benchmark.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/audit_execution_logs/real_telemetry_pipeline_pipeline.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/audit_execution_logs/satellite_comms_model_update.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/audit_execution_logs/satellite_comms_state_sync.py.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/dashboard/next-start-observability-3051.err.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/dashboard/next-start-observability-3051.out.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/dashboard/next-start-observability-3052.err.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/dashboard/next-start-observability-3052.out.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/dashboard/next-start-observability.err.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/dashboard/next-start-observability.out.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/logs/thermal_api.log | rebuildable generated/cache/log output | Low | YES | rebuild, rerun, or archive current version | YES |
+| satellite/VERIFICATION_BASELINE_v1/ACCEPTANCE_STATUS.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v1/BASELINE_MANIFEST.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v1/fail_resolution_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v1/regression_campaign_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v1/verification_dashboard.csv | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v1/verification_dashboard.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v2/ACCEPTANCE_STATUS.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v2/BASELINE_MANIFEST.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v2/ekf_residuals.csv | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v2/ekf_validation_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v2/fail_resolution_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v2/regression_campaign_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v2/verification_dashboard.csv | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v2/verification_dashboard.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/BASELINE_MANIFEST.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/cdr_action_item_status.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/CDR_READINESS_REVIEW.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/CDR_STATUS.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/CDR_V2_V3_COMPARISON.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/coverage_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/coverage_summary.json | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/ekf_residuals.csv | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/ekf_validation_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/fail_resolution_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/FREEZE_POLICY.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/regression_campaign_report.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/SHA256SUMS.txt | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/verification_dashboard.csv | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
+| satellite/VERIFICATION_BASELINE_v3/verification_dashboard.md | historical baseline; archive if v4 is current | Medium | REVIEW | rebuild, rerun, or archive current version | REVIEW |
 | cad_thermal_network.json | Duplicate file group 1 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/cad_thermal_network.json | Duplicate file group 1 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/cad_thermal_network.json | Duplicate file group 1 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | geometry_optimal_design.json | Duplicate file group 2 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/geometry_optimal_design.json | Duplicate file group 2 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/datasets/geometry_optimal_design.json | Duplicate file group 2 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/geometry_optimal_design.json | Duplicate file group 2 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/datasets/geometry_optimal_design.json | Duplicate file group 2 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | geometry_optimization_report.md | Duplicate file group 3 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/reports/geometry_optimization_report.md | Duplicate file group 3 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/reports/geometry_optimization_report.md | Duplicate file group 3 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | QUANTUM_DOMAIN_REPORT.md | Duplicate file group 4 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | docs/QUANTUM_DOMAIN_REPORT.md | Duplicate file group 4 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | QUANTUM_FITNESS_REPORT.md | Duplicate file group 5 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
@@ -1341,31 +1341,31 @@ No files were deleted. This report is generated from STALE_FILE_INVENTORY.csv, D
 | artifacts/sota_results.csv | Duplicate file group 10 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | results/phase8c/sota_benchmark.csv | Duplicate file group 10 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/.gitignore | Duplicate file group 11 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/.gitignore | Duplicate file group 11 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/.gitignore | Duplicate file group 11 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/AGENTS.md | Duplicate file group 12 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/AGENTS.md | Duplicate file group 12 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/AGENTS.md | Duplicate file group 12 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/CLAUDE.md | Duplicate file group 13 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/CLAUDE.md | Duplicate file group 13 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/CLAUDE.md | Duplicate file group 13 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/next-env.d.ts | Duplicate file group 14 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/next-env.d.ts | Duplicate file group 14 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/next-env.d.ts | Duplicate file group 14 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | physics/benchmark_log.txt | Duplicate file group 15 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | physics/agents/__init__.py | Duplicate file group 15 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | physics/core/__init__.py | Duplicate file group 15 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | physics/unification_search/__init__.py | Duplicate file group 15 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | physics/warp/__init__.py | Duplicate file group 15 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/satellite/warp/__init__.py | Duplicate file group 15 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/satellite/warp/__init__.py | Duplicate file group 15 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/next.config.ts | Duplicate file group 20 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/next.config.ts | Duplicate file group 20 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/next.config.ts | Duplicate file group 20 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/package-lock.json | Duplicate file group 21 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/package-lock.json | Duplicate file group 21 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/package-lock.json | Duplicate file group 21 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/package.json | Duplicate file group 22 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/package.json | Duplicate file group 22 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/package.json | Duplicate file group 22 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/playwright.config.ts | Duplicate file group 23 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/playwright.config.ts | Duplicate file group 23 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/playwright.config.ts | Duplicate file group 23 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/postcss.config.mjs | Duplicate file group 24 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/postcss.config.mjs | Duplicate file group 24 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/postcss.config.mjs | Duplicate file group 24 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/tsconfig.json | Duplicate file group 25 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/tsconfig.json | Duplicate file group 25 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/tsconfig.json | Duplicate file group 25 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | docs/PHASE3_HARDWARE_AWARE_REPORT.md | Duplicate file group 26 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | benchmarks/reports/PHASE3_HARDWARE_AWARE_REPORT.md | Duplicate file group 26 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | docs/PHASE3_HARDWARE_AWARE_RESULTS.csv | Duplicate file group 27 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
@@ -1439,40 +1439,40 @@ No files were deleted. This report is generated from STALE_FILE_INVENTORY.csv, D
 | docs/REPRODUCIBILITY_30_SEED_FINAL_REPORT.md | Duplicate file group 59 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | docs/REPRODUCIBILITY_IMPROVED_30_SEED_FINAL_REPORT.md | Duplicate file group 59 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | physics/__init__.py | Duplicate file group 60 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/physics/__init__.py | Duplicate file group 60 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/black_compliance_report.md | Duplicate file group 61 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/VERIFICATION_BASELINE_v4/black_compliance_report.md | Duplicate file group 61 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/cdr_final_review_board_report.md | Duplicate file group 62 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/VERIFICATION_BASELINE_v4/cdr_final_review_board_report.md | Duplicate file group 62 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/CDR_READINESS_REVIEW.md | Duplicate file group 63 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/coverage_summary.json | Duplicate file group 64 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/coverage_summary_v4_candidate.json | Duplicate file group 65 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/VERIFICATION_BASELINE_v4/coverage_summary.json | Duplicate file group 65 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/ekf_validation_report.md | Duplicate file group 66 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/VERIFICATION_BASELINE_v4/ekf_validation_report.md | Duplicate file group 66 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/flight_heritage_calibration_report.md | Duplicate file group 67 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/VERIFICATION_BASELINE_v4/flight_heritage_calibration_report.md | Duplicate file group 67 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/flight_heritage_calibration_results.csv | Duplicate file group 68 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/VERIFICATION_BASELINE_v4/flight_heritage_calibration_results.csv | Duplicate file group 68 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/VERIFICATION_BASELINE_v4/heritage_comparison.csv | Duplicate file group 68 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/satellite/validation/heritage_comparison.csv | Duplicate file group 68 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/geometry_pareto_front.csv | Duplicate file group 69 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/datasets/geometry_pareto_front.csv | Duplicate file group 69 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/hil_results.csv | Duplicate file group 70 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/datasets/hil_results.csv | Duplicate file group 70 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/satellite/thermal/hil_results.csv | Duplicate file group 70 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/pydantic_migration_report.md | Duplicate file group 71 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/VERIFICATION_BASELINE_v4/pydantic_migration_report.md | Duplicate file group 71 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/verification_dashboard.csv | Duplicate file group 72 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/physics/__init__.py | Duplicate file group 60 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/black_compliance_report.md | Duplicate file group 61 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/VERIFICATION_BASELINE_v4/black_compliance_report.md | Duplicate file group 61 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/cdr_final_review_board_report.md | Duplicate file group 62 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/VERIFICATION_BASELINE_v4/cdr_final_review_board_report.md | Duplicate file group 62 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/CDR_READINESS_REVIEW.md | Duplicate file group 63 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/coverage_summary.json | Duplicate file group 64 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/coverage_summary_v4_candidate.json | Duplicate file group 65 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/VERIFICATION_BASELINE_v4/coverage_summary.json | Duplicate file group 65 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/ekf_validation_report.md | Duplicate file group 66 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/VERIFICATION_BASELINE_v4/ekf_validation_report.md | Duplicate file group 66 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/flight_heritage_calibration_report.md | Duplicate file group 67 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/VERIFICATION_BASELINE_v4/flight_heritage_calibration_report.md | Duplicate file group 67 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/flight_heritage_calibration_results.csv | Duplicate file group 68 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/VERIFICATION_BASELINE_v4/flight_heritage_calibration_results.csv | Duplicate file group 68 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/VERIFICATION_BASELINE_v4/heritage_comparison.csv | Duplicate file group 68 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/satellite/validation/heritage_comparison.csv | Duplicate file group 68 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/geometry_pareto_front.csv | Duplicate file group 69 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/datasets/geometry_pareto_front.csv | Duplicate file group 69 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/hil_results.csv | Duplicate file group 70 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/datasets/hil_results.csv | Duplicate file group 70 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/satellite/thermal/hil_results.csv | Duplicate file group 70 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/pydantic_migration_report.md | Duplicate file group 71 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/VERIFICATION_BASELINE_v4/pydantic_migration_report.md | Duplicate file group 71 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/verification_dashboard.csv | Duplicate file group 72 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/e2e/scientificQA.spec.ts | Duplicate file group 74 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/e2e/scientificQA.spec.ts | Duplicate file group 74 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/e2e/scientificQA.spec.ts | Duplicate file group 74 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/public/file.svg | Duplicate file group 75 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/public/file.svg | Duplicate file group 75 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/public/file.svg | Duplicate file group 75 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/public/globe.svg | Duplicate file group 76 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/public/globe.svg | Duplicate file group 76 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/public/globe.svg | Duplicate file group 76 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/public/next.svg | Duplicate file group 77 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/public/next.svg | Duplicate file group 77 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/public/next.svg | Duplicate file group 77 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/public/vercel.svg | Duplicate file group 78 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/public/vercel.svg | Duplicate file group 78 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/public/vercel.svg | Duplicate file group 78 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
 | dashboard/public/window.svg | Duplicate file group 79 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
-| satelite/dashboard/public/window.svg | Duplicate file group 79 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |
+| satellite/dashboard/public/window.svg | Duplicate file group 79 | Medium | REVIEW | Canonical duplicate group owner | REVIEW |

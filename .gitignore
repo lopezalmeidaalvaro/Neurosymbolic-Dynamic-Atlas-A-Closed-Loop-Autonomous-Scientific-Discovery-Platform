@@ -76,3 +76,11 @@ pnpm-debug.log*
 *.log
 coverage/
 *.tsbuildinfo
+
+# ====================================================================
+# BENCHMARK & REGENERABLE OUTPUTS
+# ====================================================================
+outputs/
+**/outputs/
+quantum/outputs/
+benchmarks/outputs/

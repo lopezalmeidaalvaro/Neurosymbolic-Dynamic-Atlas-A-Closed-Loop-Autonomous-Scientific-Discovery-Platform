@@ -1,0 +1,47 @@
+{
+  "Qiskit": {
+    "available": true,
+    "version": "2.4.1",
+    "max_qubits": 127,
+    "max_acceptable_time_seconds": 10.0,
+    "supports_routing": true,
+    "supports_layout": true,
+    "supports_optimization": true
+  },
+  "TKET": {
+    "available": true,
+    "version": "2.18.0",
+    "max_qubits": 100,
+    "max_acceptable_time_seconds": 10.0,
+    "supports_routing": true,
+    "supports_layout": true,
+    "supports_optimization": true
+  },
+  "BQSKit": {
+    "available": true,
+    "version": "1.2.1",
+    "max_qubits": 20,
+    "max_acceptable_time_seconds": 30.0,
+    "supports_routing": false,
+    "supports_layout": false,
+    "supports_optimization": true
+  },
+  "Cirq": {
+    "available": true,
+    "version": "1.6.1",
+    "max_qubits": 50,
+    "max_acceptable_time_seconds": 10.0,
+    "supports_routing": false,
+    "supports_layout": false,
+    "supports_optimization": true
+  },
+  "PyZX": {
+    "available": true,
+    "version": "0.10.3",
+    "max_qubits": 100,
+    "max_acceptable_time_seconds": 10.0,
+    "supports_routing": false,
+    "supports_layout": false,
+    "supports_optimization": true
+  }
+}

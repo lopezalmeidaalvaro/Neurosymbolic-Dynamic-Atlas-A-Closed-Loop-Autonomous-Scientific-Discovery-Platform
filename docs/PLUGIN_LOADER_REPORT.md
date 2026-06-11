@@ -12,7 +12,7 @@ Cuando la factoría de científicos es importada o solicitada (`create_scientist
 
 Este método:
 1. Obtiene la ruta del directorio raíz del proyecto de forma dinámica.
-2. Comprueba la existencia física de las carpetas de dominio (`physics/`, `satellite/`, `satelite/`, `quantum/`).
+2. Comprueba la existencia física de las carpetas de dominio (`physics/`, `satellite/`, `satellite/`, `quantum/`).
 3. Busca el archivo `plugin.py` en cada carpeta.
 4. Si el archivo existe, realiza una importación dinámica mediante `importlib.import_module()`.
 5. Si el módulo ya había sido cargado, utiliza `importlib.reload()` para asegurar que cualquier modificación en caliente o pruebas unitarias sucesivas no dejen un estado sucio en el registro global.
@@ -25,7 +25,7 @@ Hemos creado e integrado los siguientes puntos de entrada de plugin:
 
 - **Physics Plugin ([physics/plugin.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/physics/plugin.py)):** Registra el dominio clásico de física general utilizando la factoría `create_classical_container()` y su configuración YAML.
 - **Quantum Plugin ([quantum/plugin.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/quantum/plugin.py)):** Registra un stub/molde para computación cuántica, aislando el espacio de trabajo para el desarrollo futuro de circuitos hamiltonianos y mapeo simbólico.
-- **Satellite Plugin ([satelite/plugin.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satelite/plugin.py)):** Registra un stub de telemetría de satélites y calibración de filtros de Kalman (EKF).
+- **Satellite Plugin ([satellite/plugin.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/satellite/plugin.py)):** Registra un stub de telemetría de satélites y calibración de filtros de Kalman (EKF).
 
 ---
 

@@ -30,7 +30,7 @@ Determine what belongs in shared infrastructure, physics, quantum, and satellite
 | Path | Problem | Rewrite Strategy |
 | --- | --- | --- |
 | core/orchestration/scientist_factory.py | Imports physics.core.autonomous.autonomous_scientist | Replace direct import with registry lookup, entry points, or injected factory callable |
-| core/orchestration/scientific_container.py | Used by quantum and satelite plugins | Keep API stable but remove domain assumptions if any appear |
+| core/orchestration/scientific_container.py | Used by quantum and satellite plugins | Keep API stable but remove domain assumptions if any appear |
 | core/observability/dashboard.py | Imported by QADE benchmarks | Keep domain-neutral or move dashboard-specific rendering out of core |
 
 ## Files To Move
@@ -39,7 +39,7 @@ No mandatory physical moves are recommended before decoupling. If a shared packa
 
 - `quantum/interfaces/` for QADE extraction.
 - `physics/core/interfaces/` for physics-only operation.
-- `satelite/satellite/interfaces/` for AST-OS extraction.
+- `satellite/satellite/interfaces/` for AST-OS extraction.
 
 ## Reverse Dependencies
 
@@ -49,7 +49,7 @@ No mandatory physical moves are recommended before decoupling. If a shared packa
 
 ## Domain Imports From Core
 
-Core is imported by `quantum/`, `physics/`, `satelite/`, and root tests. This is acceptable only if `core/` becomes a real shared package. If the repository is split into independent repos, each domain must either depend on a versioned `ia_core` package or vendor the minimal interfaces.
+Core is imported by `quantum/`, `physics/`, `satellite/`, and root tests. This is acceptable only if `core/` becomes a real shared package. If the repository is split into independent repos, each domain must either depend on a versioned `ia_core` package or vendor the minimal interfaces.
 
 ## Recommended Split Model
 

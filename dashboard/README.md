@@ -30,7 +30,7 @@ python run_all_benchmarks.py
 cd dashboard && npm run dev
 
 # Satellite
-cd satelite && pytest tests/ -q
+cd satellite && pytest tests/ -q
 ```
 
 ## Dependencies

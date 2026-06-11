@@ -124,40 +124,15 @@ def tket_to_qade_json(tket_circuit: Any) -> Dict[str, Any]:
 def compile_with_tket(qade_json: Dict[str, Any], coupling_map: Optional[Any] = None, return_layout: bool = False) -> Any:
     """
     Compiles a circuit using TKET's FullPeepholeOptimise and optional layout mapping pass.
-    Falls back to Qiskit transpile(optimization_level=3) if TKET is not installed.
+    Raises RuntimeError if pytket is not installed.
     """
     n_q = qade_json.get("qubits", 5)
     if not PYTKET_AVAILABLE:
-        # Fall back to Qiskit Level 3 transpilation as emulation
-        from qiskit.providers.fake_provider import GenericBackendV2
-        from qiskit import transpile
-        from quantum.integration.qiskit_adapter import qade_json_to_qiskit, qiskit_to_qade_json
-        
-        qc = qade_json_to_qiskit(qade_json)
-        if coupling_map is not None and len(coupling_map) > 0:
-            max_q = max(max(edge) for edge in coupling_map) + 1
-            num_backend_qubits = max(n_q, max_q)
-        else:
-            num_backend_qubits = n_q
-        backend = GenericBackendV2(num_qubits=num_backend_qubits, coupling_map=coupling_map)
-        transpiled_qc = transpile(qc, backend=backend, optimization_level=3)
-        res_json = qiskit_to_qade_json(transpiled_qc)
-        
-        # Extract layout
-        layout = {}
-        if transpiled_qc.layout and transpiled_qc.layout.initial_layout:
-            for qubit, phys in transpiled_qc.layout.initial_layout.get_virtual_bits().items():
-                try:
-                    v_idx = qc.find_bit(qubit).index
-                    layout[v_idx] = phys
-                except Exception:
-                    layout[getattr(qubit, "index", 0)] = phys
-        else:
-            layout = {i: i for i in range(n_q)}
-            
-        if return_layout:
-            return res_json, layout
-        return res_json
+        raise RuntimeError(
+            "TKET is not installed. "
+            "Run: pip install pytket>=1.20.0 "
+            "This compiler will be excluded from benchmarks."
+        )
         
     try:
         c = qade_json_to_tket(qade_json)

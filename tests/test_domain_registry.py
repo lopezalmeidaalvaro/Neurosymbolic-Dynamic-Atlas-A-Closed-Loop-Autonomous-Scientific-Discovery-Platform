@@ -63,7 +63,7 @@ def test_plugin_loader_discovers_plugins():
     """Valida que discover_domains() encuentra y carga al menos el dominio de physics, satellite y quantum."""
     discovered = discover_domains()
     assert "physics" in discovered
-    assert "satelite" in discovered or "satellite" in discovered
+    assert "satellite" in discovered or "satellite" in discovered
     assert "quantum" in discovered
     
     # physics, satellite y quantum deben estar registrados

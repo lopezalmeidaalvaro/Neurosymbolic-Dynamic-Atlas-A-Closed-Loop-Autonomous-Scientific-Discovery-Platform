@@ -1,0 +1,12 @@
+{
+  "timestamp": "20260611_000451",
+  "real_compilers_used": [
+    "Qiskit",
+    "TKET",
+    "BQSKit",
+    "Cirq",
+    "PyZX"
+  ],
+  "benchmark_type": "REAL_COMPILERS_ONLY",
+  "excluded_compilers": []
+}

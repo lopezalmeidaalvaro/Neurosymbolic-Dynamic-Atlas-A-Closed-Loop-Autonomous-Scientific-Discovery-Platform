@@ -4,7 +4,7 @@ import importlib
 
 def discover_domains():
     """
-    Busca y carga dinámicamente archivos plugin.py en physics, satellite (o satelite) y quantum.
+    Busca y carga dinámicamente archivos plugin.py en physics, satellite (o satellite) y quantum.
     """
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     
@@ -14,7 +14,7 @@ def discover_domains():
 
     discovered = []
     # Lista de carpetas de dominio candidatas
-    domains = ["physics", "satellite", "satelite", "quantum"]
+    domains = ["physics", "satellite", "satellite", "quantum"]
     
     for domain in domains:
         plugin_path = os.path.join(base_dir, domain, "plugin.py")

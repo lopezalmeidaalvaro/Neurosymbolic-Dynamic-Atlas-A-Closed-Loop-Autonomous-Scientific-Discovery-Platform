@@ -8,7 +8,7 @@ If `quantum/` is extracted into a separate repository, QADE must still function 
 
 ## Current Status
 
-QADE is mostly isolated from product domains outside `core/`. The import graph shows no production imports from QADE into `dashboard/`, `papers/`, `mathematics/`, or `satelite/`. The only `quantum -> physics` edge appears in `quantum/tests/test_quantum_domain.py`, not in the QADE optimization modules.
+QADE is mostly isolated from product domains outside `core/`. The import graph shows no production imports from QADE into `dashboard/`, `papers/`, `mathematics/`, or `satellite/`. The only `quantum -> physics` edge appears in `quantum/tests/test_quantum_domain.py`, not in the QADE optimization modules.
 
 Observed cross-domain targets from `quantum/`:
 
@@ -33,7 +33,7 @@ Observed cross-domain targets from `quantum/`:
 | Domain | Status | Comment |
 | --- | --- | --- |
 | physics/ | Not required for production QADE | Only test-level dependency observed from quantum into physics |
-| satelite/ / satellite/ | No direct QADE dependency observed | QADE extraction does not require satellite code |
+| satellite/ / satellite/ | No direct QADE dependency observed | QADE extraction does not require satellite code |
 | dashboard/ | No direct QADE dependency observed | Dashboard may present QADE artifacts but QADE does not import it |
 | papers/ | No runtime dependency | Documentation only |
 | mathematics/ | No runtime dependency | Future formal verification can consume exported motifs/specs |

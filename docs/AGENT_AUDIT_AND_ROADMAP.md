@@ -77,7 +77,7 @@ graph TD
     
     subgraph Validation Twin [Gemelo de AST-OS]
         ExpPlanner -->|Inyecta Térmico| ThermalTwin[(Thermal Network Simulator)]
-        ThermalTwin <-->|Monitorea Anomalias| FDIREngine[(FDIR Engine - satelite)]
+        ThermalTwin <-->|Monitorea Anomalias| FDIREngine[(FDIR Engine - satellite)]
     end
 ```
 

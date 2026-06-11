@@ -14,6 +14,17 @@ except ImportError:
     BQSKIT_AVAILABLE = False
     logger.warning("bqskit is not installed. BQSKit adapter will use emulated fallbacks.")
 
+_COMPILER = None
+
+def get_bqskit_compiler():
+    global _COMPILER
+    if _COMPILER is None and BQSKIT_AVAILABLE:
+        try:
+            _COMPILER = BQCompiler(num_workers=1)
+        except Exception as e:
+            logger.error(f"Failed to create BQCompiler: {e}")
+    return _COMPILER
+
 def qade_json_to_bqskit(qade_json: Dict[str, Any]) -> Any:
     """
     Translates a QADE JSON circuit to a BQSKit Circuit.
@@ -105,48 +116,45 @@ def bqskit_to_qade_json(bqskit_circuit: Any) -> Dict[str, Any]:
 def compile_with_bqskit(qade_json: Dict[str, Any], coupling_map: Optional[Any] = None, return_layout: bool = False) -> Any:
     """
     Compiles a circuit using BQSKit synthesis/partitioning search optimization.
-    Falls back to a standard Qiskit transpilation flow if BQSKit is not available.
+    Raises RuntimeError if BQSKit is not available or circuit size exceeds 20 qubits.
     """
     num_qubits = qade_json.get("qubits", 0)
-    if not BQSKIT_AVAILABLE or num_qubits > 5:
-        # Fall back to Qiskit Level 3 transpilation as emulation
-        from qiskit.providers.fake_provider import GenericBackendV2
-        from qiskit import transpile
-        from quantum.integration.qiskit_adapter import qade_json_to_qiskit, qiskit_to_qade_json
-        
-        qc = qade_json_to_qiskit(qade_json)
-        n_q = qade_json.get("qubits", 5)
-        if coupling_map is not None and len(coupling_map) > 0:
-            max_q = max(max(edge) for edge in coupling_map) + 1
-            num_backend_qubits = max(n_q, max_q)
-        else:
-            num_backend_qubits = n_q
-        backend = GenericBackendV2(num_qubits=num_backend_qubits, coupling_map=coupling_map)
-        transpiled_qc = transpile(qc, backend=backend, optimization_level=3)
-        res_json = qiskit_to_qade_json(transpiled_qc)
-        
-        # Extract layout
-        layout = {}
-        if transpiled_qc.layout and transpiled_qc.layout.initial_layout:
-            for qubit, phys in transpiled_qc.layout.initial_layout.get_virtual_bits().items():
-                try:
-                    v_idx = qc.find_bit(qubit).index
-                    layout[v_idx] = phys
-                except Exception:
-                    layout[getattr(qubit, "index", 0)] = phys
-        else:
-            layout = {i: i for i in range(n_q)}
-            
-        if return_layout:
-            return res_json, layout
-        return res_json
+    
+    # SI BQSKit no está disponible → NO compilar, NO emular
+    if not BQSKIT_AVAILABLE:
+        raise RuntimeError(
+            "BQSKit is not installed. "
+            "Run: pip install bqskit>=1.0.0 "
+            "This compiler will be excluded from benchmarks."
+        )
+    
+    # Detección dinámica de límite de qubits
+    import os
+    import json
+    max_qubits = 20
+    try:
+        cap_file = os.path.join("benchmarks", "results", "COMPILER_CAPABILITIES.json")
+        if os.path.exists(cap_file):
+            with open(cap_file, "r") as f:
+                caps = json.load(f)
+                max_qubits = caps.get("BQSKit", {}).get("max_qubits", 20)
+    except Exception:
+        pass
+
+    if num_qubits > max_qubits:
+        raise RuntimeError(
+            f"Circuit has {num_qubits} qubits. "
+            f"BQSKit real compilation limit is {max_qubits} qubits. "
+            f"This circuit will be excluded from BQSKit comparison."
+        )
         
     try:
         c = qade_json_to_bqskit(qade_json)
         # BQSKit synthesis compilation
-        with BQCompiler(num_workers=1) as compiler:
-            # Run quick synthesis partitioning pass
-            c_opt = compiler.compile(c, [QuickPartitioner()])
+        compiler = get_bqskit_compiler()
+        if compiler is None:
+            raise RuntimeError("BQSKit compiler could not be initialized.")
+        c_opt = compiler.compile(c, [QuickPartitioner()])
         res_json = bqskit_to_qade_json(c_opt)
         layout = {i: i for i in range(num_qubits)}
         if return_layout:

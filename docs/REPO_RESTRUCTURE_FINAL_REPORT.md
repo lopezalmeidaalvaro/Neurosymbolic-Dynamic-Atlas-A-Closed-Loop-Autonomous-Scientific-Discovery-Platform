@@ -8,7 +8,7 @@ Generated: 2026-06-06
 - Generated a non-destructive migration plan.
 - Updated the root README to represent the complete IA-MATEMATICA ecosystem.
 - Rewrote the QADE README to reflect the actual Phase I-VII platform state.
-- Standardized domain README files for dashboard, physics, quantum, satellite/satelite, mathematics, and papers.
+- Standardized domain README files for dashboard, physics, quantum, satellite/satellite, mathematics, and papers.
 - Generated repository audit, domain dependency report, document consolidation report, cleanup candidate report, QADE master walkthrough, QADE technical dossier, IP asset register, and grant readiness assessment.
 
 ## Files Generated or Updated
@@ -17,7 +17,7 @@ Generated: 2026-06-06
 - quantum/README.md
 - physics/README.md
 - dashboard/README.md
-- satelite/README.md
+- satellite/README.md
 - mathematics/README.md
 - papers/README.md
 - docs/REPOSITORY_AUDIT.md
@@ -47,7 +47,7 @@ Generated: 2026-06-06
 ## Recommended Actions
 
 1. Review the migration plan before moving or deleting anything.
-2. Rename satelite/ to satellite/ in a controlled branch.
+2. Rename satellite/ to satellite/ in a controlled branch.
 3. Decouple core/ from physics/ by replacing direct imports with registration.
 4. Move QADE benchmark orchestration into the quantum domain or expose a stable CLI.
 5. Archive generated root artifacts by owning domain.

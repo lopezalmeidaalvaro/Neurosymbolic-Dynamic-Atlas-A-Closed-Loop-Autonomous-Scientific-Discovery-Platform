@@ -1,6 +1,6 @@
 # Auditoría Arquitectónica del Sistema Científico Autónomo (Fase 0.1)
 
-Este documento presenta una auditoría detallada de la arquitectura actual del repositorio `Neurosymbolic-Dynamic-Atlas` y `satelite` (AST-OS), identificando módulos, componentes reutilizables, dependencias físicas clásicas y áreas de acoplamiento crítico para preparar la transición hacia un marco multi-dominio (clásico, satelital y cuántico).
+Este documento presenta una auditoría detallada de la arquitectura actual del repositorio `Neurosymbolic-Dynamic-Atlas` y `satellite` (AST-OS), identificando módulos, componentes reutilizables, dependencias físicas clásicas y áreas de acoplamiento crítico para preparar la transición hacia un marco multi-dominio (clásico, satelital y cuántico).
 
 ---
 
@@ -16,7 +16,7 @@ La disposición actual de directorios y subdirectorios de primer nivel en el pro
     - `schemas/` y `io/`: Serialización y bases de conocimiento.
   - `benchmark/`: Suites de revalidación estadística y colapso gravitatorio.
   - `tests/`: Pruebas de regresión e integración.
-- **`satelite/`**: Subsistema para control térmico espacial (AST-OS), acoplado a simulaciones de órbita y telemetry de naves.
+- **`satellite/`**: Subsistema para control térmico espacial (AST-OS), acoplado a simulaciones de órbita y telemetry de naves.
   - `satellite/`: Lógica de estimación de órbita, simulaciones térmicas, UQ y validación.
 - **`quantum/`**: Directorio preparado para el futuro dominio cuántico, actualmente conteniendo plantillas básicas de circuitos.
 - **`docs/`**: Documentación técnica, física y observacional.
@@ -42,7 +42,7 @@ Identificamos los módulos encargados de realizar tareas clave en la plataforma 
 ### C. Motores de Simulación (Simulation Engines)
 - **`physics/benchmark/run_inhomogeneous_collapse.py`:**
   - **Líneas 1-320:** Resolvedor de diferencias finitas en tiempo y espacio comóvil para el colapso gravitatorio modificado LTB-LQC.
-- **`satelite/satellite/run_thermal_pipeline.py` y `run_warp_simulation.py`:**
+- **`satellite/satellite/run_thermal_pipeline.py` y `run_warp_simulation.py`:**
   - **Líneas 1-180:** Simulaciones de redes térmicas de satélites en órbita y órbitas en eclipse.
 
 ### D. Memoria Científica (Memory)

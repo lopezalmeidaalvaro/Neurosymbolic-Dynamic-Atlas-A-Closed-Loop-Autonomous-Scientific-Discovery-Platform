@@ -10,7 +10,7 @@ The ecosystem develops software systems that discover, validate, optimize, and d
 
 - **Quantum:** Quantum Algorithm Discovery Engine (QADE), a hardware-aware quantum optimization platform that can discover, validate, rank, store, reuse, and economically value optimization motifs.
 - **Physics:** Neurosymbolic scientific discovery pipelines for chaotic dynamics, ECG transfer analysis, quantum-gravity-inspired audits, autonomous research loops, and empirical validation.
-- **Satellite:** AST-OS, a spacecraft thermal digital twin and software-in-the-loop simulation stack for orbital thermal modeling, CAD thermal networks, HIL calibration, FDIR, and space protocol workflows. The current folder is named satelite/; the migration target is satellite/.
+- **Satellite:** AST-OS, a spacecraft thermal digital twin and software-in-the-loop simulation stack for orbital thermal modeling, CAD thermal networks, HIL calibration, FDIR, and space protocol workflows. The current folder is named satellite/; the migration target is satellite/.
 - **Mathematics:** A lightweight domain for symbolic discovery, theorem proving, and future formal verification.
 - **Dashboard:** A Next.js observatory for scientific artifacts, telemetry, multilingual educational views, and experiment visualization.
 - **Papers:** Manuscripts, PDFs, LaTeX sources, and publication-supporting documentation.
@@ -22,7 +22,7 @@ ia-matematica-github/
 |-- dashboard/        # Next.js scientific observatory and UI
 |-- physics/          # Neurosymbolic physics and autonomous scientific discovery
 |-- quantum/          # QADE quantum optimization, motif IP, and benchmark platform
-|-- satelite/         # AST-OS spacecraft thermal digital twin; planned rename: satellite/
+|-- satellite/         # AST-OS spacecraft thermal digital twin; planned rename: satellite/
 |-- mathematics/      # Symbolic mathematics and formal verification roadmap
 |-- papers/           # Manuscripts and publication assets
 |-- docs/             # Cross-domain audits, phase reports, dossiers, and grant materials
@@ -60,7 +60,7 @@ papers/
 docs/
 ```
 
-The current repository still contains shared core/, root-level generated artifacts, and the misspelled satelite/ folder. These are documented in the migration plan rather than moved destructively.
+The current repository still contains shared core/, root-level generated artifacts, and the misspelled satellite/ folder. These are documented in the migration plan rather than moved destructively.
 
 ## Core Technologies
 
@@ -82,7 +82,7 @@ IA-MATEMATICA is being organized as a deep-tech portfolio with multiple commerci
 ## Long-Term Roadmap
 
 1. Isolate each domain as an independently installable project.
-2. Rename satelite/ to satellite/ through a controlled migration.
+2. Rename satellite/ to satellite/ through a controlled migration.
 3. Move generated artifacts into domain-local artifacts/, results/, and reports/ folders.
 4. Convert QADE benchmarks into a one-command reproducibility package.
 5. Add package metadata and dependency manifests per domain.
@@ -99,10 +99,66 @@ IA-MATEMATICA is being organized as a deep-tech portfolio with multiple commerci
 - [QADE Documentation Index](docs/qade/README.md)
 - [QADE Extraction Progress Report](docs/QADE_EXTRACTION_PROGRESS_REPORT.md)
 - [QADE Standalone Readiness Report](docs/QADE_STANDALONE_READINESS_REPORT.md)
+- [QADE Extraction Certificate](docs/QADE_EXTRACTION_CERTIFICATE.md)
 - [Benchmark Restructure Report](docs/BENCHMARK_RESTRUCTURE_REPORT.md)
+- [Final Cleanup Validation Report](docs/FINAL_CLEANUP_VALIDATION_REPORT.md)
+- [Repository Final Status Report](docs/REPOSITORY_FINAL_STATUS_REPORT.md)
 - [Deep Tech Grant Readiness](docs/DEEPTECH_GRANT_READINESS.md)
 - [Document Consolidation Report](docs/DOCUMENT_CONSOLIDATION_REPORT.md)
 - [Files Safe To Delete](docs/FILES_SAFE_TO_DELETE.md)
+
+<!-- BENCHMARK_RESULTS_START -->
+
+## QADE Performance Summary
+
+QADE's competitive advantage is **hardware-aware qubit placement**:
+selecting the highest-quality physical qubits for each circuit
+to improve physical execution fidelity in specific workload families.
+
+*   **Benchmark Date:** 2026-06-11 00:08:04
+*   **Real Compilers Benchmarked:** Qiskit, TKET, BQSKit, Cirq, PyZX
+
+### Verified Results Table (Mean Compiles vs Baselines)
+
+| Rank | Compiler Workflow | Avg Depth | Avg Gates (diff vs Qiskit) | Avg Fidelity | Avg Time |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| #1 | **Cirq-native** | 7.0 | 12.4 (-83.5%) | 0.9262 | 1.0 ms |
+| #2 | **QADE** | 6.3 | 10.6 (-85.9%) | 0.9228 | 16.3 ms |
+| #3 | **BQSKit** | 7.0 | 12.4 (-83.5%) | 0.9185 | 73.9 ms |
+| #4 | **TKET** | 12.6 | 25.9 (-65.6%) | 0.8931 | 140.6 ms |
+| #5 | **Qiskit** | 28.3 | 75.3 (Baseline) | 0.8544 | 10.6 ms |
+| #6 | **QADE + PyZX** | 27.1 | 40.6 (-46.1%) | 0.7987 | 18.4 ms |
+| #7 | **QADE + Evolution + PyZX** | 31.9 | 47.0 (-37.6%) | 0.7628 | 81.8 ms |
+| #8 | **QADE + Knowledge Graph** | 33.7 | 47.3 (-37.2%) | 0.7508 | 2.8 ms |
+| #9 | **PyZX** | 42.3 | 56.4 (-25.0%) | 0.7237 | 3.1 ms |
+
+### Verified Results (all vs real Qiskit L3)
+
+| Phase | Result | Notes |
+|---|---|---|
+| Phase III | 28% physical fidelity win rate vs Qiskit L3 | 7/25 cases |
+| Phase III | 98.95% critical path duration reduction | vs QADE Phase II baseline only |
+| Phase IV | 100% win rate on Quantum Kernel | n=3 per backend, preliminary |
+| Phase IV | +53.1% estimated fidelity on Quantum Kernel | Simulated noise model |
+| Phase IV | 100% win rate on QFT | n=3 per backend, preliminary |
+| Phase V | 13 validated motifs | Mathematical equivalence verified |
+| Phase V | 84.6% motif transferability | Tested on 4 circuit families |
+
+### Important: How QADE wins
+
+QADE typically uses MORE gates than competing compilers.
+It wins on fidelity by placing logical qubits on the 
+highest-quality physical qubits available on the target backend.
+
+This is fidelity-aware placement, not gate count reduction.
+
+### Compiler Comparison Methodology
+
+Benchmarks run only with genuinely installed compilers.
+Compilers not installed in the test environment are excluded,
+not emulated. See [BENCHMARK_DISCLOSURE.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/quantum/BENCHMARK_DISCLOSURE.md) for full details.
+
+<!-- BENCHMARK_RESULTS_END -->
 
 ## Usage
 

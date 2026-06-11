@@ -99,14 +99,14 @@ def pyzx_to_qade_json(zx_circuit: Any) -> Dict[str, Any]:
 def simplify_zx_circuit(qade_json: Dict[str, Any]) -> Dict[str, Any]:
     """
     Runs full ZX graph simplification on the QADE JSON circuit.
-    Falls back to simple algebraic cancels if PyZX is not available.
+    Raises RuntimeError if PyZX is not available.
     """
     if not PYZX_AVAILABLE:
-        # Fall back to custom algebraic cancels
-        from quantum.optimization.pyzx_optimizer import PyZXOptimizer
-        opt = PyZXOptimizer()
-        res, _ = opt.optimize_circuit(qade_json)
-        return res
+        raise RuntimeError(
+            "PyZX is not installed. "
+            "Run: pip install pyzx>=0.8.0 "
+            "This compiler will be excluded from benchmarks."
+        )
         
     try:
         # 1. Translate QADE JSON to PyZX Circuit
@@ -120,8 +120,5 @@ def simplify_zx_circuit(qade_json: Dict[str, Any]) -> Dict[str, Any]:
         # 5. Translate back to QADE JSON
         return pyzx_to_qade_json(c_opt)
     except Exception as e:
-        logger.error(f"PyZX full reduction failed: {e}. Falling back to algebraic passes.")
-        from quantum.optimization.pyzx_optimizer import PyZXOptimizer
-        opt = PyZXOptimizer()
-        res, _ = opt.optimize_circuit(qade_json)
-        return res
+        logger.error(f"PyZX full reduction failed: {e}. Raising error.")
+        raise RuntimeError(f"PyZX optimization failed: {e}")
