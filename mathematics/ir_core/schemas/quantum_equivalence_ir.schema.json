@@ -1,0 +1,122 @@
+{
+  "$defs": {
+    "GateNode": {
+      "properties": {
+        "gate_type": {
+          "$ref": "#/$defs/GateType",
+          "description": "The type of quantum gate"
+        },
+        "qubits": {
+          "description": "Indices of the qubits affected by this gate",
+          "items": {
+            "type": "integer"
+          },
+          "title": "Qubits",
+          "type": "array"
+        },
+        "parameters": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional list of float parameters (e.g. rotation angles)",
+          "title": "Parameters"
+        }
+      },
+      "required": [
+        "gate_type",
+        "qubits"
+      ],
+      "title": "GateNode",
+      "type": "object"
+    },
+    "GateType": {
+      "enum": [
+        "H",
+        "X",
+        "Y",
+        "Z",
+        "CNOT",
+        "SWAP",
+        "RX",
+        "RY",
+        "RZ"
+      ],
+      "title": "GateType",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "schema_id": {
+      "const": "quantum_equivalence_ir",
+      "default": "quantum_equivalence_ir",
+      "description": "Fixed schema identifier",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "description": "Fixed schema version",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "motif_id": {
+      "description": "Identifier of the equivalent quantum motif",
+      "title": "Motif Id",
+      "type": "string"
+    },
+    "source_system": {
+      "description": "Traceability source system",
+      "title": "Source System",
+      "type": "string"
+    },
+    "created_at": {
+      "description": "Timestamp when the IR was created",
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lhs": {
+      "description": "Left-hand side quantum gate sequence",
+      "items": {
+        "$ref": "#/$defs/GateNode"
+      },
+      "title": "Lhs",
+      "type": "array"
+    },
+    "rhs": {
+      "description": "Right-hand side quantum gate sequence",
+      "items": {
+        "$ref": "#/$defs/GateNode"
+      },
+      "title": "Rhs",
+      "type": "array"
+    },
+    "assumptions": {
+      "description": "List of logical assumptions for this equivalence",
+      "items": {
+        "type": "string"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "motif_id",
+    "source_system",
+    "created_at",
+    "lhs",
+    "rhs"
+  ],
+  "title": "QuantumEquivalenceIR",
+  "type": "object"
+}

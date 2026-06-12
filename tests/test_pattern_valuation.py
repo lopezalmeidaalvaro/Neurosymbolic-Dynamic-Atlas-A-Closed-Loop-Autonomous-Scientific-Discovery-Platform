@@ -1,12 +1,13 @@
 import pytest
 from quantum.knowledge.pattern_valuation import PatternValuationEngine
 
+
 class MockMemory:
     def __init__(self, patterns, causal_records, knowledge_graph):
         self.store = {
             "quantum:distillation:patterns": patterns,
             "quantum:distillation:causal_records": causal_records,
-            "quantum:distillation:knowledge_graph": knowledge_graph
+            "quantum:distillation:knowledge_graph": knowledge_graph,
         }
 
     def query_patterns(self):
@@ -18,6 +19,7 @@ class MockMemory:
     def get_knowledge_graph(self):
         return self.store["quantum:distillation:knowledge_graph"]
 
+
 def test_pattern_valuation_engine_logic():
     # 1. Mock patterns
     patterns = [
@@ -27,7 +29,7 @@ def test_pattern_valuation_engine_logic():
             "frequency": 8,
             "avg_score": 0.5,
             "type": "entanglement_motif",
-            "representation": "H(q0)->CNOT(q0,q1)"
+            "representation": "H(q0)->CNOT(q0,q1)",
         },
         {
             "pattern_id": "pat_2",
@@ -35,7 +37,7 @@ def test_pattern_valuation_engine_logic():
             "frequency": 3,
             "avg_score": 0.2,
             "type": "repeated_subsequence",
-            "representation": "X(q0)->X(q0)"
+            "representation": "X(q0)->X(q0)",
         },
         {
             "pattern_id": "pat_3",
@@ -43,39 +45,76 @@ def test_pattern_valuation_engine_logic():
             "frequency": 12,
             "avg_score": 0.9,
             "type": "repeated_subsequence",
-            "representation": "H->CNOT"
-        }
+            "representation": "H->CNOT",
+        },
     ]
 
     # 2. Mock causal records
     causal_records = [
-        {"pattern": "H(q0)->CNOT(q0,q1)", "delta_score": -0.15, "survival_status": False},
-        {"pattern": "H(q0)->CNOT(q0,q1)", "delta_score": -0.25, "survival_status": False},
+        {
+            "pattern": "H(q0)->CNOT(q0,q1)",
+            "delta_score": -0.15,
+            "survival_status": False,
+        },
+        {
+            "pattern": "H(q0)->CNOT(q0,q1)",
+            "delta_score": -0.25,
+            "survival_status": False,
+        },
         {"pattern": "H->CNOT", "delta_score": 0.1, "survival_status": True},
-        {"pattern": "H->CNOT", "delta_score": 0.2, "survival_status": True}
+        {"pattern": "H->CNOT", "delta_score": 0.2, "survival_status": True},
     ]
 
     # 3. Mock knowledge graph
     knowledge_graph = {
         "nodes": {
             # Pattern Nodes
-            "pattern_pat_1": {"type": "Pattern", "attributes": {"sequence": ["H(q0)", "CNOT(q0,q1)"], "type": "entanglement_motif"}},
-            "pattern_pat_2": {"type": "Pattern", "attributes": {"sequence": ["X(q0)", "X(q0)"], "type": "repeated_subsequence"}},
-            "pattern_pat_3": {"type": "Pattern", "attributes": {"sequence": ["H", "CNOT"], "type": "repeated_subsequence"}},
-            
+            "pattern_pat_1": {
+                "type": "Pattern",
+                "attributes": {
+                    "sequence": ["H(q0)", "CNOT(q0,q1)"],
+                    "type": "entanglement_motif",
+                },
+            },
+            "pattern_pat_2": {
+                "type": "Pattern",
+                "attributes": {
+                    "sequence": ["X(q0)", "X(q0)"],
+                    "type": "repeated_subsequence",
+                },
+            },
+            "pattern_pat_3": {
+                "type": "Pattern",
+                "attributes": {
+                    "sequence": ["H", "CNOT"],
+                    "type": "repeated_subsequence",
+                },
+            },
             # Circuit Nodes
-            "circ_1": {"type": "Circuit", "attributes": {"raw": True, "score": 0.45, "fidelity": 0.5}},
-            "circ_2": {"type": "Circuit", "attributes": {"raw": True, "score": 0.95, "fidelity": 0.99}},
-            "circ_3": {"type": "Circuit", "attributes": {"raw": True, "score": 0.98, "fidelity": 1.0}},
-            "circ_4": {"type": "Circuit", "attributes": {"raw": False}} # Canonical, should be skipped
+            "circ_1": {
+                "type": "Circuit",
+                "attributes": {"raw": True, "score": 0.45, "fidelity": 0.5},
+            },
+            "circ_2": {
+                "type": "Circuit",
+                "attributes": {"raw": True, "score": 0.95, "fidelity": 0.99},
+            },
+            "circ_3": {
+                "type": "Circuit",
+                "attributes": {"raw": True, "score": 0.98, "fidelity": 1.0},
+            },
+            "circ_4": {
+                "type": "Circuit",
+                "attributes": {"raw": False},
+            },  # Canonical, should be skipped
         },
         "edges": [
             # contains_pattern edges
             {"source": "circ_1", "target": "pattern_pat_1", "type": "contains_pattern"},
             {"source": "circ_2", "target": "pattern_pat_1", "type": "contains_pattern"},
             {"source": "circ_3", "target": "pattern_pat_3", "type": "contains_pattern"},
-            {"source": "circ_4", "target": "pattern_pat_3", "type": "contains_pattern"}
-        ]
+            {"source": "circ_4", "target": "pattern_pat_3", "type": "contains_pattern"},
+        ],
     }
 
     memory = MockMemory(patterns, causal_records, knowledge_graph)

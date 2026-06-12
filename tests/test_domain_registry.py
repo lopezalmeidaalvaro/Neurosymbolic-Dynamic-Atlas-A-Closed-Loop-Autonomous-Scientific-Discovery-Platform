@@ -12,8 +12,10 @@ from core.orchestration.scientist_factory import create_scientist
 from core.orchestration.scientific_container import ScientificContainer
 from physics.core.autonomous.autonomous_scientist import AutonomousScientist
 
+
 def test_registry_registration_and_unregistration():
     """Valida el registro manual, obtención y desregistro de dominios en DomainRegistry."""
+
     def dummy_factory():
         return ScientificContainer()
 
@@ -22,7 +24,7 @@ def test_registry_registration_and_unregistration():
         version="2.1.0",
         factory=dummy_factory,
         config_path="configs/domains/test_domain.yaml",
-        description="Dominio de prueba unitaria"
+        description="Dominio de prueba unitaria",
     )
 
     DomainRegistry.register_domain(spec)
@@ -39,6 +41,7 @@ def test_registry_registration_and_unregistration():
 
 def test_registry_register_with_kwargs():
     """Valida que register_domain funciona también pasando argumentos nombrados directamente (ejemplo del prompt)."""
+
     def dummy_factory():
         return ScientificContainer()
 
@@ -46,7 +49,7 @@ def test_registry_register_with_kwargs():
         name="test_kwargs",
         factory=dummy_factory,
         config="configs/domains/test_kwargs.yaml",
-        version="1.2.3"
+        version="1.2.3",
     )
 
     assert "test_kwargs" in DomainRegistry.list_domains()
@@ -65,7 +68,7 @@ def test_plugin_loader_discovers_plugins():
     assert "physics" in discovered
     assert "satellite" in discovered or "satellite" in discovered
     assert "quantum" in discovered
-    
+
     # physics, satellite y quantum deben estar registrados
     registered = DomainRegistry.list_domains()
     assert "physics" in registered

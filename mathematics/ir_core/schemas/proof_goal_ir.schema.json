@@ -1,0 +1,59 @@
+{
+  "properties": {
+    "schema_id": {
+      "const": "proof_goal_ir",
+      "default": "proof_goal_ir",
+      "description": "Fixed schema identifier",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "description": "Fixed schema version",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "goal_id": {
+      "description": "Unique identifier for the proof goal",
+      "title": "Goal Id",
+      "type": "string"
+    },
+    "domain": {
+      "description": "Logical domain of the theorem statement",
+      "enum": [
+        "quantum",
+        "physics",
+        "mathematics"
+      ],
+      "title": "Domain",
+      "type": "string"
+    },
+    "theorem_statement": {
+      "description": "Logical target representation of the theorem (e.g. in Lean format or prefix logic)",
+      "title": "Theorem Statement",
+      "type": "string"
+    },
+    "assumptions": {
+      "description": "List of proof hypotheses or assumptions",
+      "items": {
+        "type": "string"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "source_reference": {
+      "description": "Reference identifier linking to the original quantum or physics IR",
+      "title": "Source Reference",
+      "type": "string"
+    }
+  },
+  "required": [
+    "goal_id",
+    "domain",
+    "theorem_statement",
+    "source_reference"
+  ],
+  "title": "ProofGoalIR",
+  "type": "object"
+}

@@ -1,0 +1,108 @@
+{
+  "$defs": {
+    "ExpressionNode": {
+      "properties": {
+        "operator": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional operator name (e.g. '+', '*', 'd/dt')",
+          "title": "Operator"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional leaf value (constant, variable name, etc.)",
+          "title": "Value"
+        },
+        "children": {
+          "description": "List of child sub-expressions",
+          "items": {
+            "$ref": "#/$defs/ExpressionNode"
+          },
+          "title": "Children",
+          "type": "array"
+        }
+      },
+      "title": "ExpressionNode",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "schema_id": {
+      "const": "physics_law_ir",
+      "default": "physics_law_ir",
+      "description": "Fixed schema identifier",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "description": "Fixed schema version",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "system_id": {
+      "description": "Identifier of the physical system",
+      "title": "System Id",
+      "type": "string"
+    },
+    "source_system": {
+      "description": "Traceability source system",
+      "title": "Source System",
+      "type": "string"
+    },
+    "created_at": {
+      "description": "Timestamp when the IR was created",
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "differential_equation_ast": {
+      "$ref": "#/$defs/ExpressionNode",
+      "description": "Abstract Syntax Tree of the differential equation"
+    },
+    "state_variables": {
+      "description": "List of system state variables",
+      "items": {
+        "type": "string"
+      },
+      "title": "State Variables",
+      "type": "array"
+    },
+    "invariants": {
+      "description": "List of system conservation laws or invariants",
+      "items": {
+        "type": "string"
+      },
+      "title": "Invariants",
+      "type": "array"
+    }
+  },
+  "required": [
+    "system_id",
+    "source_system",
+    "created_at",
+    "differential_equation_ast",
+    "state_variables"
+  ],
+  "title": "PhysicsLawIR",
+  "type": "object"
+}

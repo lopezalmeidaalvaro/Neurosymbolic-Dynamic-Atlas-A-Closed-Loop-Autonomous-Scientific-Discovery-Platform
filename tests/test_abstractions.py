@@ -13,10 +13,12 @@ from physics.adapters.classical_hypothesis_generator import ClassicalHypothesisG
 from physics.adapters.classical_physics_critic import ClassicalPhysicsCritic
 from physics.agents.hypothesis_generator import Hypothesis
 
+
 # Stubs para verificar instanciabilidad de BaseSandbox y BaseMemory
 class StubSandbox(BaseSandbox):
     def execute(self, code, input_data=None):
         return {"success": True, "result": {"value": 42}}
+
 
 class StubMemory(BaseMemory):
     def __init__(self):
@@ -33,7 +35,7 @@ def test_abstractions_instantiation():
     """Verifica que las interfaces no se instancien directamente pero sí mediante stubs."""
     with pytest.raises(TypeError):
         BaseSandbox()
-        
+
     with pytest.raises(TypeError):
         BaseMemory()
 
@@ -49,7 +51,7 @@ def test_classical_hypothesis_generator_adapter():
     """Verifica la instanciación y delegación del ClassicalHypothesisGenerator."""
     adapter = ClassicalHypothesisGenerator(exploration_rate=0.5)
     assert isinstance(adapter, BaseHypothesisGenerator)
-    
+
     # Mock context to avoid heavy graph loading in HypoGen propose method
     context = {"exploration_history": []}
     hypo = adapter.propose(context, metric_type="wormhole")
@@ -64,7 +66,9 @@ def test_classical_physics_critic_adapter():
     assert isinstance(adapter, BaseCritic)
 
     # Valid wormhole hypothesis that passes fast throat closed check (no spaces around equal sign)
-    h = Hypothesis("b(r)=0.5*exp(-3.2*(r-0.5)**2)", confidence=0.8, metric_type="wormhole")
+    h = Hypothesis(
+        "b(r)=0.5*exp(-3.2*(r-0.5)**2)", confidence=0.8, metric_type="wormhole"
+    )
     verdict = adapter.validate(h)
     assert verdict.verdict == "ACCEPTED"
     assert verdict.wec_violation >= 0.0
