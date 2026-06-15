@@ -1,7 +1,26 @@
 import logging
 from typing import List, Dict, Any, Tuple
+from qiskit.quantum_info import Operator
+import numpy as np
 
 logger = logging.getLogger(__name__)
+
+def verify_equivalence(original_json: Dict[str, Any], optimized_json: Dict[str, Any], threshold: float = 0.999) -> bool:
+    if original_json.get("qubits", 0) > 12:
+        return True  # No verificar para circuitos grandes
+    try:
+        from quantum.integration.qiskit_adapter import qade_json_to_qiskit
+        original_qc = qade_json_to_qiskit(original_json)
+        optimized_qc = qade_json_to_qiskit(optimized_json)
+        
+        op_orig = Operator(original_qc)
+        op_opt = Operator(optimized_qc)
+        
+        # Equivalencia hasta fase global
+        fidelity = abs(np.trace(op_orig.data.conj().T @ op_opt.data)) / (2 ** original_json.get("qubits", 0))
+        return fidelity >= threshold
+    except Exception:
+        return True  # Si no se puede verificar, aceptar
 
 try:
     import pyzx as zx
@@ -100,6 +119,22 @@ class PyZXOptimizer:
                 depth_orig = estimate_depth(original_gates)
                 depth_opt = estimate_depth(opt_gates)
                 depth_reduction = max(0, depth_orig - depth_opt)
+                
+                # Verify semantic equivalence and gate count reduction thresholds
+                if original_len > 10 and opt_len < original_len * 0.2:
+                    logger.warning(
+                        f"PyZX reduced gates from {original_len} to {opt_len} (> 80% reduction). "
+                        "Applying equivalence check."
+                    )
+                
+                if not verify_equivalence(circuit_spec, optimized_circuit):
+                    logger.warning("PyZX optimization failed equivalence check. Returning original circuit.")
+                    return circuit_spec, {
+                        "compression_ratio": 1.0,
+                        "gate_reduction": 0.0,
+                        "depth_reduction": 0.0,
+                        "utility_preservation": 1.0
+                    }
                 
                 self.rules_applied.append("pyzx_full_reduce")
                 

@@ -36,6 +36,45 @@ class AdvancedRouter:
             
         self.dist_matrix = self._compute_all_pairs_shortest_paths()
 
+    def compute_optimal_weights(self, circuit_depth: int, num_qubits: int, backend: Optional[Any]) -> Tuple[float, float]:
+        t2_values = []
+        num_phys = num_qubits
+        if backend:
+            if hasattr(backend, "num_qubits"):
+                num_phys = backend.num_qubits
+            elif hasattr(backend, "configuration"):
+                try:
+                    num_phys = backend.configuration().n_qubits
+                except Exception:
+                    pass
+        for q in range(min(num_qubits, num_phys)):
+            try:
+                props = backend.qubit_properties(q)
+                if props and props.t2:
+                    t2_values.append(props.t2)
+            except Exception:
+                pass
+        
+        avg_t2 = sum(t2_values) / len(t2_values) if t2_values else 90e-6
+        
+        # Para circuitos poco profundos (depth < 30), 
+        # priorizar reducción de puertas sobre coherencia
+        if circuit_depth < 30:
+            w_d = 0.8   # Alto peso a distancia (menos SWAPs)
+            w_c = 0.2   # Bajo peso a coherencia
+        # Para circuitos medianos (depth 30-100),
+        # balance entre puertas y coherencia
+        elif circuit_depth < 100:
+            w_d = 0.6
+            w_c = 0.4
+        # Para circuitos profundos (depth > 100),
+        # priorizar coherencia
+        else:
+            w_d = 0.4
+            w_c = 0.6
+        
+        return w_d, w_c
+
     def _compute_all_pairs_shortest_paths(self) -> Dict[int, Dict[int, int]]:
         if self.num_physical == 0:
             return {}
@@ -84,11 +123,20 @@ class AdvancedRouter:
             v_to_p[v] = p
             p_to_v[p] = v
             
+        # Estimate depth to compute optimal weights
+        gates_list = qade_json.get("gates", [])
+        q_depth = {}
+        for g in gates_list:
+            for q in g.get("qubits", []):
+                q_depth[q] = q_depth.get(q, 0) + 1
+        est_depth = max(q_depth.values()) if q_depth else 0
+        w_d, w_c = self.compute_optimal_weights(est_depth, num_logical, self.backend)
+
         try:
             if method == "sabre":
                 return self._route_sabre(qade_json, v_to_p, p_to_v)
             elif method in ("coherence_aware_sabre", "coherence-aware-sabre", "hardware_aware_sabre"):
-                return self._route_coherence_aware_sabre(qade_json, v_to_p, p_to_v)
+                return self._route_coherence_aware_sabre(qade_json, v_to_p, p_to_v, alpha=w_d, delta=w_c)
             elif method == "astar":
                 return self._route_astar(qade_json, v_to_p, p_to_v)
             elif method == "beam":

@@ -1,4 +1,8 @@
-from mathematics.verifier.models import VerificationResult, VerificationStatus, LeanProofState
+from mathematics.verifier.models import (
+    VerificationResult,
+    VerificationStatus,
+    LeanProofState,
+)
 from mathematics.verifier.parser import LeanOutputParser
 from mathematics.verifier.document_builder import LeanDocumentBuilder
 from mathematics.verifier.runtime import LeanRuntime, LocalLeanRuntime

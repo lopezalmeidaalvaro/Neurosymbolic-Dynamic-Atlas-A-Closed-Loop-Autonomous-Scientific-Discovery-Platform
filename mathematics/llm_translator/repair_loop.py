@@ -10,17 +10,20 @@ from mathematics.llm_translator.prompts import (
     build_correction_prompt,
 )
 from mathematics.translator.exceptions import FormalizationFailure
+from mathematics.prover.rewards import map_status_to_reward
 
 
 class AutoFormalizationLoop:
     def __init__(self, client: LLMClient, evaluator: ProofEvaluator) -> None:
         self.client = client
         self.evaluator = evaluator
+        self.trajectories: list[dict] = []
 
     def run(
         self, ir: FormalizableIR, max_attempts: int = 3
     ) -> tuple[VerificationResult, str, list[FormalizationAttempt]]:
         """Orchestrates the iterative proof-repair loop against the Lean 4 compiler feedback."""
+        self.trajectories = []
         # 1. Translate FormalizableIR into ProofGoalIR dynamically if needed
         if hasattr(ir, "lhs") and hasattr(ir, "rhs"):
             lhs_gates = getattr(ir, "lhs")
@@ -94,6 +97,22 @@ class AutoFormalizationLoop:
                     lean_output=f"JSON extraction failed: {str(e)}\nRaw Response: {raw_response}",
                 )
                 attempts.append(attempt)
+
+                # Context before this attempt is either "Initial state" or previous attempt's output
+                if attempt_idx == 1:
+                    state_context = "Initial state"
+                else:
+                    state_context = attempts[-2].lean_output or "Initial state"
+
+                self.trajectories.append(
+                    {
+                        "state_context": state_context,
+                        "tactic_applied": "",
+                        "status": VerificationStatus.INTERNAL_ERROR.value,
+                        "reward": -1.0,
+                    }
+                )
+
                 user_prompt = build_correction_prompt(attempt.lean_output)
                 continue
 
@@ -108,6 +127,22 @@ class AutoFormalizationLoop:
                 lean_output=result.error_details or result.output,
             )
             attempts.append(attempt)
+
+            # Record trajectory
+            if attempt_idx == 1:
+                state_context = "Initial state"
+            else:
+                state_context = attempts[-2].lean_output or "Initial state"
+
+            reward = map_status_to_reward(result.status)
+            self.trajectories.append(
+                {
+                    "state_context": state_context,
+                    "tactic_applied": proof_script,
+                    "status": result.status.value,
+                    "reward": reward,
+                }
+            )
 
             # 6. Check if Verified
             if result.status == VerificationStatus.VERIFIED:

@@ -53,50 +53,37 @@ mathematics/
 ├── orchestrator/         # Chain of Responsibility coordinator
 ├── verifier/             # Lean 4 proof assembly & runtime
 ├── knowledge_base/       # Relational SQLite formal library
-└── leanlib/              # Lean 4 base definitions and proof axioms
+├── leanlib/              # Lean 4 base definitions and proof axioms
+├── bootstrap.py          # Composition Root bootstrap manager
+└── engine.py             # MathEngine Facade entrypoint
 ```
 
 ## Usage
 
-Process an IR through the full pipeline:
+Use the packaged domain API to bootstrap the engine and verify discovery hypotheses:
 
 ```python
 from datetime import datetime, timezone
-from mathematics.ir_core.quantum_ir import QuantumEquivalenceIR, GateNode, GateType
-from mathematics.translator import RuleRegistry, DoubleHadamardRule, QuantumEquivalenceTranslator
-from mathematics.verifier import LocalLeanRuntime, ProofEvaluator
-from mathematics.llm_translator import OpenAICompatibleClient, AutoFormalizationLoop
-from mathematics.prover import MonteCarloTreeSearch
-from mathematics.orchestrator import DeterministicHandler, LLMHandler, MCTSHandler, DomainOrchestrator
-from mathematics.knowledge_base import FormalKnowledgeBase
+from mathematics import (
+    bootstrap_math_engine,
+    QuantumEquivalenceIR,
+    GateNode,
+    GateType
+)
 
-# 1. Initialize Verifier & Knowledge Base
-runtime = LocalLeanRuntime()
-evaluator = ProofEvaluator(runtime)
-kb = FormalKnowledgeBase()
+# 1. Bootstrap the engine Composition Root
+engine = bootstrap_math_engine(
+    db_path="mathematics/artifacts/knowledge.db",
+    llm_api_url="https://api.openai.com/v1/chat/completions",
+    llm_api_key="your_api_key",
+    llm_model="gpt-4o",
+    lean_executable="lean"
+)
 
-# 2. Build Translation Chain
-registry = RuleRegistry()
-registry.register(DoubleHadamardRule())
-translator = QuantumEquivalenceTranslator(registry)
-
-client = OpenAICompatibleClient(api_url="http://api.local/v1/chat/completions", api_key="secret", model_name="gpt-4o")
-repair_loop = AutoFormalizationLoop(client, evaluator)
-mcts = MonteCarloTreeSearch(client, evaluator)
-
-deterministic_handler = DeterministicHandler(translator, evaluator)
-llm_handler = LLMHandler(repair_loop)
-mcts_handler = MCTSHandler(mcts, kb)
-
-deterministic_handler.set_next(llm_handler)
-llm_handler.set_next(mcts_handler)
-
-orchestrator = DomainOrchestrator(deterministic_handler, kb)
-
-# 3. Process equivalence
+# 2. Define your quantum discovery hypothesis
 equivalence = QuantumEquivalenceIR(
-    motif_id="h_h_identity",
-    source_system="qade_discovery",
+    motif_id="h_h_ident",
+    source_system="empirical_miner",
     created_at=datetime.now(timezone.utc),
     lhs=[
         GateNode(gate_type=GateType.H, qubits=[0]),
@@ -106,8 +93,11 @@ equivalence = QuantumEquivalenceIR(
     assumptions=[]
 )
 
-res_tuple = orchestrator.process(equivalence)
-if res_tuple:
-    result, proof_script, provenance = res_tuple
-    print(f"Verified via: {provenance}")
+# 3. Call Facade to run the verification chain
+response = engine.verify_discovery(equivalence)
+
+print(f"Verification Success: {response['success']}")
+print(f"Compiler Outcome: {response['status']}")
+print(f"Proof Lineage: {response['provenance']}")
+print(f"Generated proof script:\n{response['proof_script']}")
 ```

@@ -1,4 +1,5 @@
 import hashlib
+import json
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
@@ -75,6 +76,28 @@ class FormalKnowledgeBase:
                         created_at TEXT NOT NULL
                     );
                     """)
+
+                # Create proof_trajectories table for DPO dataset generation
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS proof_trajectories (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        run_id TEXT NOT NULL,
+                        state_context TEXT NOT NULL,
+                        tactic_applied TEXT NOT NULL,
+                        status TEXT NOT NULL,
+                        reward REAL NOT NULL,
+                        created_at TEXT NOT NULL,
+                        metadata TEXT
+                    );
+                    """)
+
+                # Dynamic schema migration for older databases
+                cursor = conn.execute("PRAGMA table_info(proof_trajectories);")
+                columns = [r["name"] for r in cursor.fetchall()]
+                if columns and "metadata" not in columns:
+                    conn.execute(
+                        "ALTER TABLE proof_trajectories ADD COLUMN metadata TEXT;"
+                    )
         finally:
             conn.close()
 
@@ -172,6 +195,49 @@ class FormalKnowledgeBase:
                         created_at,
                     ),
                 )
+        finally:
+            conn.close()
+
+    def log_trajectory(
+        self,
+        run_id: str,
+        state_context: str,
+        tactic_applied: str,
+        status: str,
+        reward: float,
+        metadata: dict = None,
+    ) -> None:
+        """Logs a proof step trajectory in the database for DPO or reinforcement learning."""
+        created_at = datetime.now(timezone.utc).isoformat()
+        metadata_str = json.dumps(metadata) if metadata is not None else None
+
+        conn = self._connect()
+        try:
+            with conn:
+                conn.execute(
+                    """
+                    INSERT INTO proof_trajectories (run_id, state_context, tactic_applied, status, reward, created_at, metadata)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        run_id,
+                        state_context,
+                        tactic_applied,
+                        status,
+                        reward,
+                        created_at,
+                        metadata_str,
+                    ),
+                )
+        finally:
+            conn.close()
+
+    def get_all_trajectories(self) -> list[dict]:
+        """Retrieves all proof step trajectories from the knowledge base."""
+        conn = self._connect()
+        try:
+            rows = conn.execute("SELECT * FROM proof_trajectories").fetchall()
+            return [dict(r) for r in rows]
         finally:
             conn.close()
 

@@ -5,6 +5,7 @@ from pydantic import BaseModel, Field, ConfigDict
 
 
 class GateType(str, Enum):
+    I = "I"
     H = "H"
     X = "X"
     Y = "Y"
@@ -50,4 +51,8 @@ class QuantumEquivalenceIR(BaseModel):
     assumptions: list[str] = Field(
         default_factory=list,
         description="List of logical assumptions for this equivalence",
+    )
+    metadata: dict = Field(
+        default_factory=dict,
+        description="Metadata dictionary for curriculum learning",
     )

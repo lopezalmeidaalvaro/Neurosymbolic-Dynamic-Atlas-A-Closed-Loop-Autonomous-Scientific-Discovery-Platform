@@ -105,6 +105,11 @@ def qade_json_to_qiskit(qade_circuit_json: Dict[str, Any]) -> QuantumCircuit:
         elif g_type == "CP":
             val = float(params[0] if params else 0.0)
             qc.cp(val, q[0], q[1])
+        elif g_type == "MEASURE":
+            if qc.num_clbits == 0:
+                from qiskit import ClassicalRegister
+                qc.add_register(ClassicalRegister(qc.num_qubits, "meas"))
+            qc.measure(q[0], q[0])
         else:
             raise ValueError(f"Unsupported gate type: {g_type}")
             

@@ -18,6 +18,7 @@ class MonteCarloTreeSearch:
     def __init__(self, client: LLMClient, evaluator: ProofEvaluator) -> None:
         self.client = client
         self.evaluator = evaluator
+        self.trajectories: list[dict] = []
 
     def _generate_state_id(self, accumulated_script: tuple[str, ...]) -> str:
         """Helper to generate a unique hash for a state based on its tactic script."""
@@ -31,6 +32,7 @@ class MonteCarloTreeSearch:
 
         Returns (VerificationResult, proof_script_str, telemetry_dict).
         """
+        self.trajectories = []
         # 1. Initialize root node by running evaluation with 'sorry' to extract initial goals
         initial_res = self.evaluator.evaluate(goal, "sorry")
         initial_feedback = ""
@@ -171,6 +173,22 @@ class MonteCarloTreeSearch:
                 curr_node = updated_node
 
                 reward = map_status_to_reward(res.status)
+
+                # Log evaluated transition trajectory
+                parent_feedback = "Initial state"
+                if curr_node.parent_id and curr_node.parent_id in tree.nodes:
+                    parent_node = tree.nodes[curr_node.parent_id]
+                    if parent_node.lean_feedback:
+                        parent_feedback = parent_node.lean_feedback
+
+                self.trajectories.append(
+                    {
+                        "state_context": parent_feedback,
+                        "tactic_applied": curr_node.tactic_applied,
+                        "status": res.status.value,
+                        "reward": reward,
+                    }
+                )
 
                 # Keep track of the best result
                 if res.status == VerificationStatus.VERIFIED:

@@ -1,0 +1,10 @@
+{
+  "reproduction_script_packaged": "YES",
+  "script_path": "reproduce\\reproduce_experiments.py",
+  "metadata_path": "reproduce\\preregistered_metadata.json",
+  "external_replication_score": 1.0,
+  "status": "PASSED",
+  "rates_by_prediction": {
+    "PRED_001": 1.0
+  }
+}

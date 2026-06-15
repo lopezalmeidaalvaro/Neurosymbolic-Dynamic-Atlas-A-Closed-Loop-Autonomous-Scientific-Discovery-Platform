@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-06-15T21:59:16.773735+00:00",
+  "success_rate_by_difficulty": {},
+  "metrics_by_family": {},
+  "metrics_by_proof_origin": {},
+  "dataset_metrics": {
+    "total_pairs": 1,
+    "unique_prompts": 1,
+    "avg_pairs_per_prompt": 1.0
+  }
+}

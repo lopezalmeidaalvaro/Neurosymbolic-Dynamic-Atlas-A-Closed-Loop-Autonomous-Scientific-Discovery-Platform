@@ -1,0 +1,14 @@
+{
+  "timestamp": "20260614_210334",
+  "backend": "ibm_marrakesh",
+  "job_ids": {
+    "GHZ_5q_qiskit": "d8ngicbnn5bs738uj1d0",
+    "GHZ_5q_qade": "d8ngicg32u0s73fce0g0",
+    "Quantum_Kernel_5q_qiskit": "d8ngidjnn5bs738uj1f0",
+    "Quantum_Kernel_5q_qade": "d8ngie032u0s73fce0hg",
+    "QFT_5q_qiskit": "d8ngif032u0s73fce0jg",
+    "QFT_5q_qade": "d8ngif832u0s73fce0l0",
+    "VQE_5q_qiskit": "d8ngigb2d42s73cdr8v0",
+    "VQE_5q_qade": "d8ngigjnn5bs738uj1ig"
+  }
+}

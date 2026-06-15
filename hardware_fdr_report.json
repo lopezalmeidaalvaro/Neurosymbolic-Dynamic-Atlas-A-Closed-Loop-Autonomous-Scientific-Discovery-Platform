@@ -1,0 +1,21 @@
+{
+  "total_tested": 1,
+  "confirmed_discoveries": 1,
+  "false_discoveries_estimated": 0,
+  "fdr_rate": 0.0,
+  "status": "PASSED",
+  "predictions": [
+    {
+      "id": "PRED_001",
+      "raw_p_value": 0.0,
+      "bh_adjusted_p_value": 0.0,
+      "by_adjusted_p_value": 0.0,
+      "effect_size": 0.4793,
+      "bootstrap_ci_95": [
+        0.4633,
+        0.4913
+      ],
+      "status": "CONFIRMED"
+    }
+  ]
+}

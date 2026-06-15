@@ -63,8 +63,23 @@ class QADEOptimizerPass(TransformationPass):
         if qc.num_qubits == 0:
             return qc
 
+        # Extract measurements
+        measures = []
+        cregs = qc.cregs
+        
+        # Build unitary-only circuit
+        qc_unitary = QuantumCircuit(*qc.qregs)
+        for instr in qc.data:
+            if instr.operation.name == "measure":
+                q_idx = qc.find_bit(instr.qubits[0]).index
+                c_idx = qc.find_bit(instr.clbits[0]).index
+                measures.append((q_idx, c_idx))
+            else:
+                qubits = [qc_unitary.qubits[qc.find_bit(q).index] for q in instr.qubits]
+                qc_unitary.append(instr.operation, qubits, [])
+
         # A. Translate Qiskit Circuit -> QADE JSON representation
-        qade_json = qiskit_to_qade_json(qc)
+        qade_json = qiskit_to_qade_json(qc_unitary)
 
         # B. Retrieve coupling map from target Qiskit Backend
         coupling_map = None
@@ -96,7 +111,7 @@ class QADEOptimizerPass(TransformationPass):
         for gate in routed_json.get("gates", []):
             active_qs.update(gate.get("qubits", []))
         if not active_qs:
-            active_qs = set(range(qc.num_qubits)) if qc.num_qubits > 0 else {0}
+            active_qs = set(range(qc_unitary.num_qubits)) if qc_unitary.num_qubits > 0 else {0}
             
         num_pop_qubits = max(active_qs) + 1
         
@@ -172,6 +187,16 @@ class QADEOptimizerPass(TransformationPass):
             final_routed_circuit = route_circuit(zx_reduced_circuit, coupling_map)
 
         # H. Translate QADE JSON -> Qiskit QuantumCircuit
-        optimized_qc = qade_json_to_qiskit(final_routed_circuit)
+        optimized_unitary = qade_json_to_qiskit(final_routed_circuit)
         
-        return optimized_qc
+        # Re-add classical registers and measurements
+        final_qc = QuantumCircuit(*optimized_unitary.qregs, *cregs)
+        for instr in optimized_unitary.data:
+            qubits = [final_qc.qubits[optimized_unitary.find_bit(q).index] for q in instr.qubits]
+            clbits = [final_qc.clbits[optimized_unitary.find_bit(c).index] for c in instr.clbits]
+            final_qc.append(instr.operation, qubits, clbits)
+            
+        for q_idx, c_idx in measures:
+            final_qc.measure(final_qc.qubits[q_idx], final_qc.clbits[c_idx])
+            
+        return final_qc

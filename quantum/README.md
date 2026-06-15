@@ -96,6 +96,18 @@ Active product-grade research platform. QADE has reproducible reports through Ph
 - Validate economic and fidelity claims on live provider data.
 - Add enterprise API wrappers around motif reuse and hardware-aware compilation.
 
+## Phase V: Formal Verification & IP Certification (QADE-MathEngine Integration)
+
+QADE is integrated with the formal verification engine (`MathEngine`) through a defensive **Adapter Pattern** and application-level Dependency Injection:
+- **Application Bootstrap** (`app/bootstrap.py`): The global Composition Root boots `MathEngine` and the quantum container, dynamically injecting the adapter and certifier.
+- **Defensive Adapter** (`FormalVerificationAdapter`): Maps raw quantum motifs to strict `QuantumEquivalenceIR` schemas, capturing conversion errors defensively to prevent pipeline crashes.
+- **In-Memory Caching**: Implements a localized query cache to prevent redundant mathematical proof requests, optimizing the logical engine's processing bandwidth.
+- **Gate Filtering**: Screens gate configurations before translation, rejecting motifs containing gates unsupported by the math engine (supported gates: `I`, `H`, `X`, `Y`, `Z`, `CNOT`, `SWAP`).
+- **Phase V Motif Certifier** (`QADEMotifCertifier`): Filters discovered motifs by a confidence threshold (default: `0.95`) and executes formal certification.
+
+### IP Moat Transformation
+By attaching verification metadata (`certified_at` and `certificate_version`) to each motif, QADE transforms topological optimization discoveries into **auditable IP assets**. This provides mathematical guarantees of semantic preservation, enabling compliance audits, secure licensing models, and risk-free compiler optimization loops.
+
 ## Related Documents
 
 - docs/QADE_MASTER_WALKTHROUGH.md

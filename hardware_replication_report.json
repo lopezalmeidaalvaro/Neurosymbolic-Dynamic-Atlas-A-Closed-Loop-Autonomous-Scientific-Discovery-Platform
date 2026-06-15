@@ -1,0 +1,45 @@
+[
+  {
+    "id": "PRED_001",
+    "replication_rate": 0.76,
+    "cross_vendor_agreement": 0.75,
+    "device_variance": 0.001418,
+    "device_details": {
+      "ibm_brisbane": {
+        "replication_rate": 0.8,
+        "mean_effect": 0.2924,
+        "effect_stability": 0.0181,
+        "gate_error": 0.012,
+        "readout_error": 0.025
+      },
+      "ibm_sherbrooke": {
+        "replication_rate": 0.99,
+        "mean_effect": 0.3254,
+        "effect_stability": 0.0181,
+        "gate_error": 0.005,
+        "readout_error": 0.01
+      },
+      "rigetti_aspen_m3": {
+        "replication_rate": 0.01,
+        "mean_effect": 0.2429,
+        "effect_stability": 0.0181,
+        "gate_error": 0.025,
+        "readout_error": 0.045
+      },
+      "ionq_aria": {
+        "replication_rate": 1.0,
+        "mean_effect": 0.3389,
+        "effect_stability": 0.0181,
+        "gate_error": 0.001,
+        "readout_error": 0.005
+      },
+      "quantinuum_h1": {
+        "replication_rate": 1.0,
+        "mean_effect": 0.3448,
+        "effect_stability": 0.0181,
+        "gate_error": 0.0001,
+        "readout_error": 0.002
+      }
+    }
+  }
+]

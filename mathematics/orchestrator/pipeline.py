@@ -21,7 +21,38 @@ class DomainOrchestrator:
 
         If verification succeeds, it persists the result in the formal knowledge base.
         """
+        import uuid
+
+        run_id = f"run_{uuid.uuid4().hex}"
+
         res_tuple = self.chain.handle(ir)
+
+        # Extract trajectories from handlers in the chain
+        trajectories = []
+        curr = self.chain
+        while curr:
+            if hasattr(curr, "repair_loop") and getattr(curr, "repair_loop"):
+                loop = getattr(curr, "repair_loop")
+                if hasattr(loop, "trajectories") and loop.trajectories:
+                    trajectories.extend(loop.trajectories)
+            elif hasattr(curr, "mcts") and getattr(curr, "mcts"):
+                mcts_inst = getattr(curr, "mcts")
+                if hasattr(mcts_inst, "trajectories") and mcts_inst.trajectories:
+                    trajectories.extend(mcts_inst.trajectories)
+            curr = getattr(curr, "_next_handler", None)
+
+        # Bulk log trajectories
+        ir_metadata = getattr(ir, "metadata", None)
+        for traj in trajectories:
+            self.kb.log_trajectory(
+                run_id=run_id,
+                state_context=traj["state_context"],
+                tactic_applied=traj["tactic_applied"],
+                status=traj["status"],
+                reward=traj["reward"],
+                metadata=ir_metadata,
+            )
+
         if res_tuple is None:
             return None
 

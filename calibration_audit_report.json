@@ -1,0 +1,18 @@
+[
+  {
+    "id": "PRED_001",
+    "device": "ibm_sherbrooke",
+    "effects_by_state": {
+      "high_fidelity": 0.3429,
+      "nominal": 0.3274,
+      "degraded": 0.2818
+    },
+    "replication_rates_by_state": {
+      "high_fidelity": 1.0,
+      "nominal": 1.0,
+      "degraded": 0.54
+    },
+    "robustness_coefficient": 0.9183,
+    "status": "PASSED"
+  }
+]

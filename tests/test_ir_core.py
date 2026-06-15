@@ -32,6 +32,7 @@ def test_quantum_ir_valid():
         lhs=[lhs_gate],
         rhs=[rhs_gate],
         assumptions=["qubit_0_initialized"],
+        metadata={"difficulty": 1},
     )
 
     assert ir.schema_id == "quantum_equivalence_ir"
@@ -40,6 +41,7 @@ def test_quantum_ir_valid():
     assert ir.lhs[0].gate_type == GateType.H
     assert ir.rhs[0].parameters == [3.14159]
     assert ir.created_at == now
+    assert ir.metadata == {"difficulty": 1}
 
 
 def test_quantum_ir_immutability():

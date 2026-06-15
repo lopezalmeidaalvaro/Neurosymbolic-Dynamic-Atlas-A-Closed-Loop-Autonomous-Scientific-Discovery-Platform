@@ -204,7 +204,7 @@
     "path": "C:\\Users\\Alvaro\\Desktop\\ia-matematica-github\\physics\\models\\embeddings_cache",
     "exists": true,
     "size_bytes": 262144,
-    "updated_at": "2026-06-12T15:36:43",
+    "updated_at": "2026-06-15T22:59:12",
     "metadata": {
       "model_name": "allenai/specter2_base",
       "storage": "sha256 .npy cache"

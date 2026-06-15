@@ -537,3 +537,18 @@ Enterprise customers will ask whether their circuits are stored, whether motifs 
 ### 14. Final Technical Position
 
 QADE's strongest technical position is disciplined and specific: it has implemented a path from hardware-aware compilation to reusable validated motif knowledge, with evidence from generated benchmark and economic reports. The remaining work is to harden this into an independently installable product, validate it against live hardware, and govern the motif database as a proprietary asset.
+
+### 15. Phase V Integration: MathEngine & IP Certification
+
+In Phase V, QADE's heuristic and empirical optimization motifs are integrated with the formal verification engine (`MathEngine`) to enforce mathematical correctness and enable IP audits.
+
+#### Architectural Integration (Composition Root & Adapter Pattern)
+1. **Composition Root (`app/bootstrap.py`):** Establishes global application bootstrapping, initializing the formal `MathEngine` and the quantum container, injecting dependencies dynamically.
+2. **Defensive Adapter (`FormalVerificationAdapter`):** Bridges QADE's raw quantum circuit representations with `MathEngine`'s strict `QuantumEquivalenceIR` contracts. It intercepts conversion errors defensively to prevent pipeline crashes.
+3. **In-Memory Caching:** Implements a localized query cache to prevent redundant mathematical proof requests, optimizing the logical engine's processing bandwidth.
+4. **Gate Filtering:** Screens gate configurations before translation, rejecting motifs containing gates unsupported by the math engine (supported gates: `I`, `H`, `X`, `Y`, `Z`, `CNOT`, `SWAP`).
+5. **Phase V Motif Certifier (`QADEMotifCertifier`):** Filters discovered motifs by a confidence threshold (default: `0.95`) and executes formal certification.
+
+#### Commercial Value of IP Certification
+By attaching verification metadata (`certified_at` and `certificate_version`) to each motif, QADE transforms topological optimization discoveries into **auditable IP assets**. This provides mathematical guarantees of semantic preservation, enabling compliance audits, secure licensing models, and risk-free compiler optimization loops.
+

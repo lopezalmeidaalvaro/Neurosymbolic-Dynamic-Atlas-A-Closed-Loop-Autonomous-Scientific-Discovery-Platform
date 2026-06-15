@@ -1,0 +1,730 @@
+[
+  {
+    "motif_id": "QADE-M-0001",
+    "version": "1.0.0",
+    "status": "REUSABLE",
+    "created_date": "2026-06-07T19:01:00Z",
+    "last_updated": "2026-06-12T21:29:04Z",
+    "pattern_before": {
+      "gates": [
+        { "type": "H", "qubits": [0] },
+        { "type": "H", "qubits": [0] }
+      ],
+      "qubit_count": 1,
+      "gate_count": 2
+    },
+    "pattern_after": {
+      "gates": [],
+      "qubit_count": 0,
+      "gate_count": 0
+    },
+    "workload_families": ["Quantum Kernel", "QFT", "Error Mitigation", "ADAPT-VQE"],
+    "hardware_context": {
+      "backends_tested": ["ibm_brisbane"],
+      "topology_types": ["heavy_hex"],
+      "qubit_range": { "min": 1, "max": 1 }
+    },
+    "validation": {
+      "method": "statevector_equivalence",
+      "fidelity_threshold": 0.999999,
+      "fidelity_achieved": 1.0,
+      "validator_version": "0.1.0",
+      "validation_date": "2026-06-07T19:01:00Z"
+    },
+    "performance": {
+      "gate_reduction": 2.0,
+      "depth_reduction": 2.0,
+      "fidelity_improvement": 0.9870646407180846,
+      "application_count": 44,
+      "success_count": 44,
+      "failure_count": 0
+    },
+    "transferability": {
+      "score": 1.0,
+      "tested_families": ["Quantum Kernel", "QFT", "Error Mitigation", "ADAPT-VQE"],
+      "confidence": 1.0
+    },
+    "ip": {
+      "licensing_boundary": "PROPRIETARY",
+      "economic_contribution": 108074.0,
+      "patentability_note": "Cancelación obvia de compuertas autoinversas consecutivas. No patentable por sí misma, protegible bajo secreto comercial (know-how). (modelo especulativo — sin revenue real)"
+    },
+    "provenance": {
+      "origin_phase": "Phase V",
+      "benchmark_source": "COMPILER_COMPARISON_REAL.csv",
+      "discovery_algorithm": "RedundantPatternDiscovery"
+    }
+  },
+  {
+    "motif_id": "QADE-M-0002",
+    "version": "1.0.0",
+    "status": "REUSABLE",
+    "created_date": "2026-06-07T19:01:00Z",
+    "last_updated": "2026-06-12T21:29:04Z",
+    "pattern_before": {
+      "gates": [
+        { "type": "RZ", "qubits": [0], "theta": 0.03 },
+        { "type": "RZ", "qubits": [0], "theta": -0.03 }
+      ],
+      "qubit_count": 1,
+      "gate_count": 2
+    },
+    "pattern_after": {
+      "gates": [],
+      "qubit_count": 0,
+      "gate_count": 0
+    },
+    "workload_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+    "hardware_context": {
+      "backends_tested": ["ibm_brisbane"],
+      "topology_types": ["heavy_hex"],
+      "qubit_range": { "min": 1, "max": 1 }
+    },
+    "validation": {
+      "method": "statevector_equivalence",
+      "fidelity_threshold": 0.999999,
+      "fidelity_achieved": 1.0,
+      "validator_version": "0.1.0",
+      "validation_date": "2026-06-07T19:01:00Z"
+    },
+    "performance": {
+      "gate_reduction": 2.0,
+      "depth_reduction": 2.0,
+      "fidelity_improvement": 0.02783203125,
+      "application_count": 5,
+      "success_count": 5,
+      "failure_count": 0
+    },
+    "transferability": {
+      "score": 1.0,
+      "tested_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+      "confidence": 1.0
+    },
+    "ip": {
+      "licensing_boundary": "PROPRIETARY",
+      "economic_contribution": 12281.0,
+      "patentability_note": "Cancelación de rotación RZ inversa. Protegible como secreto comercial. (modelo especulativo — sin revenue real)"
+    },
+    "provenance": {
+      "origin_phase": "Phase V",
+      "benchmark_source": "COMPILER_COMPARISON_REAL.csv",
+      "discovery_algorithm": "RedundantPatternDiscovery"
+    }
+  },
+  {
+    "motif_id": "QADE-M-0003",
+    "version": "1.0.0",
+    "status": "REUSABLE",
+    "created_date": "2026-06-07T19:01:00Z",
+    "last_updated": "2026-06-12T21:29:04Z",
+    "pattern_before": {
+      "gates": [
+        { "type": "RZ", "qubits": [0], "theta": 0.06 },
+        { "type": "RZ", "qubits": [0], "theta": -0.06 }
+      ],
+      "qubit_count": 1,
+      "gate_count": 2
+    },
+    "pattern_after": {
+      "gates": [],
+      "qubit_count": 0,
+      "gate_count": 0
+    },
+    "workload_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+    "hardware_context": {
+      "backends_tested": ["ibm_brisbane"],
+      "topology_types": ["heavy_hex"],
+      "qubit_range": { "min": 1, "max": 1 }
+    },
+    "validation": {
+      "method": "statevector_equivalence",
+      "fidelity_threshold": 0.999999,
+      "fidelity_achieved": 1.0,
+      "validator_version": "0.1.0",
+      "validation_date": "2026-06-07T19:01:00Z"
+    },
+    "performance": {
+      "gate_reduction": 2.0,
+      "depth_reduction": 2.0,
+      "fidelity_improvement": 0.02783203125,
+      "application_count": 5,
+      "success_count": 5,
+      "failure_count": 0
+    },
+    "transferability": {
+      "score": 1.0,
+      "tested_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+      "confidence": 1.0
+    },
+    "ip": {
+      "licensing_boundary": "PROPRIETARY",
+      "economic_contribution": 12281.0,
+      "patentability_note": "Cancelación de rotación RZ inversa. Protegible como secreto comercial. (modelo especulativo — sin revenue real)"
+    },
+    "provenance": {
+      "origin_phase": "Phase V",
+      "benchmark_source": "COMPILER_COMPARISON_REAL.csv",
+      "discovery_algorithm": "RedundantPatternDiscovery"
+    }
+  },
+  {
+    "motif_id": "QADE-M-0004",
+    "version": "1.0.0",
+    "status": "REUSABLE",
+    "created_date": "2026-06-07T19:01:00Z",
+    "last_updated": "2026-06-12T21:29:04Z",
+    "pattern_before": {
+      "gates": [
+        { "type": "RZ", "qubits": [0], "theta": 0.09 },
+        { "type": "RZ", "qubits": [0], "theta": -0.09 }
+      ],
+      "qubit_count": 1,
+      "gate_count": 2
+    },
+    "pattern_after": {
+      "gates": [],
+      "qubit_count": 0,
+      "gate_count": 0
+    },
+    "workload_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+    "hardware_context": {
+      "backends_tested": ["ibm_brisbane"],
+      "topology_types": ["heavy_hex"],
+      "qubit_range": { "min": 1, "max": 1 }
+    },
+    "validation": {
+      "method": "statevector_equivalence",
+      "fidelity_threshold": 0.999999,
+      "fidelity_achieved": 1.0,
+      "validator_version": "0.1.0",
+      "validation_date": "2026-06-07T19:01:00Z"
+    },
+    "performance": {
+      "gate_reduction": 2.0,
+      "depth_reduction": 2.0,
+      "fidelity_improvement": 0.02783203125,
+      "application_count": 5,
+      "success_count": 5,
+      "failure_count": 0
+    },
+    "transferability": {
+      "score": 1.0,
+      "tested_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+      "confidence": 1.0
+    },
+    "ip": {
+      "licensing_boundary": "PROPRIETARY",
+      "economic_contribution": 12281.0,
+      "patentability_note": "Cancelación de rotación RZ inversa. Protegible como secreto comercial. (modelo especulativo — sin revenue real)"
+    },
+    "provenance": {
+      "origin_phase": "Phase V",
+      "benchmark_source": "COMPILER_COMPARISON_REAL.csv",
+      "discovery_algorithm": "RedundantPatternDiscovery"
+    }
+  },
+  {
+    "motif_id": "QADE-M-0005",
+    "version": "1.0.0",
+    "status": "REUSABLE",
+    "created_date": "2026-06-07T19:01:00Z",
+    "last_updated": "2026-06-12T21:29:04Z",
+    "pattern_before": {
+      "gates": [
+        { "type": "RZ", "qubits": [0], "theta": 0.12 },
+        { "type": "RZ", "qubits": [0], "theta": -0.12 }
+      ],
+      "qubit_count": 1,
+      "gate_count": 2
+    },
+    "pattern_after": {
+      "gates": [],
+      "qubit_count": 0,
+      "gate_count": 0
+    },
+    "workload_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+    "hardware_context": {
+      "backends_tested": ["ibm_brisbane"],
+      "topology_types": ["heavy_hex"],
+      "qubit_range": { "min": 1, "max": 1 }
+    },
+    "validation": {
+      "method": "statevector_equivalence",
+      "fidelity_threshold": 0.999999,
+      "fidelity_achieved": 1.0,
+      "validator_version": "0.1.0",
+      "validation_date": "2026-06-07T19:01:00Z"
+    },
+    "performance": {
+      "gate_reduction": 2.0,
+      "depth_reduction": 2.0,
+      "fidelity_improvement": 0.02783203125,
+      "application_count": 5,
+      "success_count": 5,
+      "failure_count": 0
+    },
+    "transferability": {
+      "score": 1.0,
+      "tested_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+      "confidence": 1.0
+    },
+    "ip": {
+      "licensing_boundary": "PROPRIETARY",
+      "economic_contribution": 12281.0,
+      "patentability_note": "Cancelación de rotación RZ inversa. Protegible como secreto comercial. (modelo especulativo — sin revenue real)"
+    },
+    "provenance": {
+      "origin_phase": "Phase V",
+      "benchmark_source": "COMPILER_COMPARISON_REAL.csv",
+      "discovery_algorithm": "RedundantPatternDiscovery"
+    }
+  },
+  {
+    "motif_id": "QADE-M-0006",
+    "version": "1.0.0",
+    "status": "REUSABLE",
+    "created_date": "2026-06-07T19:01:00Z",
+    "last_updated": "2026-06-12T21:29:04Z",
+    "pattern_before": {
+      "gates": [
+        { "type": "RZ", "qubits": [0], "theta": 0.15 },
+        { "type": "RZ", "qubits": [0], "theta": -0.15 }
+      ],
+      "qubit_count": 1,
+      "gate_count": 2
+    },
+    "pattern_after": {
+      "gates": [],
+      "qubit_count": 0,
+      "gate_count": 0
+    },
+    "workload_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+    "hardware_context": {
+      "backends_tested": ["ibm_brisbane"],
+      "topology_types": ["heavy_hex"],
+      "qubit_range": { "min": 1, "max": 1 }
+    },
+    "validation": {
+      "method": "statevector_equivalence",
+      "fidelity_threshold": 0.999999,
+      "fidelity_achieved": 1.0,
+      "validator_version": "0.1.0",
+      "validation_date": "2026-06-07T19:01:00Z"
+    },
+    "performance": {
+      "gate_reduction": 2.0,
+      "depth_reduction": 2.0,
+      "fidelity_improvement": 0.02783203125,
+      "application_count": 5,
+      "success_count": 5,
+      "failure_count": 0
+    },
+    "transferability": {
+      "score": 1.0,
+      "tested_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+      "confidence": 1.0
+    },
+    "ip": {
+      "licensing_boundary": "PROPRIETARY",
+      "economic_contribution": 12281.0,
+      "patentability_note": "Cancelación de rotación RZ inversa. Protegible como secreto comercial. (modelo especulativo — sin revenue real)"
+    },
+    "provenance": {
+      "origin_phase": "Phase V",
+      "benchmark_source": "COMPILER_COMPARISON_REAL.csv",
+      "discovery_algorithm": "RedundantPatternDiscovery"
+    }
+  },
+  {
+    "motif_id": "QADE-M-0007",
+    "version": "1.0.0",
+    "status": "REUSABLE",
+    "created_date": "2026-06-07T19:01:00Z",
+    "last_updated": "2026-06-12T21:29:04Z",
+    "pattern_before": {
+      "gates": [
+        { "type": "RZ", "qubits": [0], "theta": 0.18 },
+        { "type": "RZ", "qubits": [0], "theta": -0.18 }
+      ],
+      "qubit_count": 1,
+      "gate_count": 2
+    },
+    "pattern_after": {
+      "gates": [],
+      "qubit_count": 0,
+      "gate_count": 0
+    },
+    "workload_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+    "hardware_context": {
+      "backends_tested": ["ibm_brisbane"],
+      "topology_types": ["heavy_hex"],
+      "qubit_range": { "min": 1, "max": 1 }
+    },
+    "validation": {
+      "method": "statevector_equivalence",
+      "fidelity_threshold": 0.999999,
+      "fidelity_achieved": 1.0,
+      "validator_version": "0.1.0",
+      "validation_date": "2026-06-07T19:01:00Z"
+    },
+    "performance": {
+      "gate_reduction": 2.0,
+      "depth_reduction": 2.0,
+      "fidelity_improvement": 0.02783203125,
+      "application_count": 5,
+      "success_count": 5,
+      "failure_count": 0
+    },
+    "transferability": {
+      "score": 1.0,
+      "tested_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+      "confidence": 1.0
+    },
+    "ip": {
+      "licensing_boundary": "PROPRIETARY",
+      "economic_contribution": 12281.0,
+      "patentability_note": "Cancelación de rotación RZ inversa. Protegible como secreto comercial. (modelo especulativo — sin revenue real)"
+    },
+    "provenance": {
+      "origin_phase": "Phase V",
+      "benchmark_source": "COMPILER_COMPARISON_REAL.csv",
+      "discovery_algorithm": "RedundantPatternDiscovery"
+    }
+  },
+  {
+    "motif_id": "QADE-M-0008",
+    "version": "1.0.0",
+    "status": "REUSABLE",
+    "created_date": "2026-06-07T19:01:00Z",
+    "last_updated": "2026-06-12T21:29:04Z",
+    "pattern_before": {
+      "gates": [
+        { "type": "CNOT", "qubits": [0, 1] },
+        { "type": "CNOT", "qubits": [0, 1] }
+      ],
+      "qubit_count": 2,
+      "gate_count": 2
+    },
+    "pattern_after": {
+      "gates": [],
+      "qubit_count": 0,
+      "gate_count": 0
+    },
+    "workload_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+    "hardware_context": {
+      "backends_tested": ["ibm_brisbane"],
+      "topology_types": ["heavy_hex"],
+      "qubit_range": { "min": 2, "max": 2 }
+    },
+    "validation": {
+      "method": "statevector_equivalence",
+      "fidelity_threshold": 0.999999,
+      "fidelity_achieved": 1.0,
+      "validator_version": "0.1.0",
+      "validation_date": "2026-06-07T19:01:00Z"
+    },
+    "performance": {
+      "gate_reduction": 2.0,
+      "depth_reduction": 2.0,
+      "fidelity_improvement": 0.9880052439772314,
+      "application_count": 83,
+      "success_count": 83,
+      "failure_count": 0
+    },
+    "transferability": {
+      "score": 1.0,
+      "tested_families": ["Quantum Kernel", "QFT", "Error Mitigation"],
+      "confidence": 1.0
+    },
+    "ip": {
+      "licensing_boundary": "PROPRIETARY",
+      "economic_contribution": 203940.0,
+      "patentability_note": "Cancelación de puertas CNOT redundantes. Altamente crítica para mejorar la fidelidad física al reducir operaciones de dos qubits propensas a error. Protegible como secreto comercial clave. (modelo especulativo — sin revenue real)"
+    },
+    "provenance": {
+      "origin_phase": "Phase V",
+      "benchmark_source": "COMPILER_COMPARISON_REAL.csv",
+      "discovery_algorithm": "RedundantPatternDiscovery"
+    }
+  },
+  {
+    "motif_id": "QADE-M-0009",
+    "version": "1.0.0",
+    "status": "REUSABLE",
+    "created_date": "2026-06-07T19:01:00Z",
+    "last_updated": "2026-06-12T21:29:04Z",
+    "pattern_before": {
+      "gates": [
+        { "type": "RX", "qubits": [0], "theta": 0.04 },
+        { "type": "RX", "qubits": [0], "theta": -0.04 }
+      ],
+      "qubit_count": 1,
+      "gate_count": 2
+    },
+    "pattern_after": {
+      "gates": [],
+      "qubit_count": 0,
+      "gate_count": 0
+    },
+    "workload_families": ["ADAPT-VQE"],
+    "hardware_context": {
+      "backends_tested": ["ibm_brisbane"],
+      "topology_types": ["heavy_hex"],
+      "qubit_range": { "min": 1, "max": 1 }
+    },
+    "validation": {
+      "method": "statevector_equivalence",
+      "fidelity_threshold": 0.999999,
+      "fidelity_achieved": 1.0,
+      "validator_version": "0.1.0",
+      "validation_date": "2026-06-07T19:01:00Z"
+    },
+    "performance": {
+      "gate_reduction": 2.0,
+      "depth_reduction": 2.0,
+      "fidelity_improvement": 0.9871088053152317,
+      "application_count": 6,
+      "success_count": 6,
+      "failure_count": 0
+    },
+    "transferability": {
+      "score": 1.0,
+      "tested_families": ["ADAPT-VQE"],
+      "confidence": 1.0
+    },
+    "ip": {
+      "licensing_boundary": "PROPRIETARY",
+      "economic_contribution": 14737.0,
+      "patentability_note": "Cancelación de rotación RX inversa en ansatz VQE. Protegible como secreto comercial. (modelo especulativo — sin revenue real)"
+    },
+    "provenance": {
+      "origin_phase": "Phase V",
+      "benchmark_source": "COMPILER_COMPARISON_REAL.csv",
+      "discovery_algorithm": "RedundantPatternDiscovery"
+    }
+  },
+  {
+    "motif_id": "QADE-M-0010",
+    "version": "1.0.0",
+    "status": "VALIDATED",
+    "created_date": "2026-06-07T19:01:00Z",
+    "last_updated": "2026-06-12T21:29:04Z",
+    "pattern_before": {
+      "gates": [
+        { "type": "RX", "qubits": [0], "theta": 0.08 },
+        { "type": "RX", "qubits": [0], "theta": -0.08 }
+      ],
+      "qubit_count": 1,
+      "gate_count": 2
+    },
+    "pattern_after": {
+      "gates": [],
+      "qubit_count": 0,
+      "gate_count": 0
+    },
+    "workload_families": ["ADAPT-VQE"],
+    "hardware_context": {
+      "backends_tested": ["ibm_brisbane"],
+      "topology_types": ["heavy_hex"],
+      "qubit_range": { "min": 1, "max": 1 }
+    },
+    "validation": {
+      "method": "statevector_equivalence",
+      "fidelity_threshold": 0.999999,
+      "fidelity_achieved": 1.0,
+      "validator_version": "0.1.0",
+      "validation_date": "2026-06-07T19:01:00Z"
+    },
+    "performance": {
+      "gate_reduction": 2.0,
+      "depth_reduction": 2.0,
+      "fidelity_improvement": 0.9871088053152317,
+      "application_count": 6,
+      "success_count": 6,
+      "failure_count": 0
+    },
+    "transferability": {
+      "score": 0.0,
+      "tested_families": ["ADAPT-VQE"],
+      "confidence": 0.5
+    },
+    "ip": {
+      "licensing_boundary": "PROPRIETARY",
+      "economic_contribution": 14737.0,
+      "patentability_note": "Cancelación de rotación RX inversa en ansatz VQE. No transferible a otras familias. Secreto comercial. (modelo especulativo — sin revenue real)"
+    },
+    "provenance": {
+      "origin_phase": "Phase V",
+      "benchmark_source": "COMPILER_COMPARISON_REAL.csv",
+      "discovery_algorithm": "RedundantPatternDiscovery"
+    }
+  },
+  {
+    "motif_id": "QADE-M-0011",
+    "version": "1.0.0",
+    "status": "VALIDATED",
+    "created_date": "2026-06-07T19:01:00Z",
+    "last_updated": "2026-06-12T21:29:04Z",
+    "pattern_before": {
+      "gates": [
+        { "type": "RX", "qubits": [0], "theta": 0.12 },
+        { "type": "RX", "qubits": [0], "theta": -0.12 }
+      ],
+      "qubit_count": 1,
+      "gate_count": 2
+    },
+    "pattern_after": {
+      "gates": [],
+      "qubit_count": 0,
+      "gate_count": 0
+    },
+    "workload_families": ["ADAPT-VQE"],
+    "hardware_context": {
+      "backends_tested": ["ibm_brisbane"],
+      "topology_types": ["heavy_hex"],
+      "qubit_range": { "min": 1, "max": 1 }
+    },
+    "validation": {
+      "method": "statevector_equivalence",
+      "fidelity_threshold": 0.999999,
+      "fidelity_achieved": 1.0,
+      "validator_version": "0.1.0",
+      "validation_date": "2026-06-07T19:01:00Z"
+    },
+    "performance": {
+      "gate_reduction": 2.0,
+      "depth_reduction": 2.0,
+      "fidelity_improvement": 0.9871088053152317,
+      "application_count": 6,
+      "success_count": 6,
+      "failure_count": 0
+    },
+    "transferability": {
+      "score": 0.0,
+      "tested_families": ["ADAPT-VQE"],
+      "confidence": 0.5
+    },
+    "ip": {
+      "licensing_boundary": "PROPRIETARY",
+      "economic_contribution": 14737.0,
+      "patentability_note": "Cancelación de rotación RX inversa en ansatz VQE. No transferible a otras familias. Secreto comercial. (modelo especulativo — sin revenue real)"
+    },
+    "provenance": {
+      "origin_phase": "Phase V",
+      "benchmark_source": "COMPILER_COMPARISON_REAL.csv",
+      "discovery_algorithm": "RedundantPatternDiscovery"
+    }
+  },
+  {
+    "motif_id": "QADE-M-0012",
+    "version": "1.0.0",
+    "status": "REUSABLE",
+    "created_date": "2026-06-07T19:01:00Z",
+    "last_updated": "2026-06-12T21:29:04Z",
+    "pattern_before": {
+      "gates": [
+        { "type": "RZ", "qubits": [0], "theta": 0.21 },
+        { "type": "RZ", "qubits": [0], "theta": -0.21 }
+      ],
+      "qubit_count": 1,
+      "gate_count": 2
+    },
+    "pattern_after": {
+      "gates": [],
+      "qubit_count": 0,
+      "gate_count": 0
+    },
+    "workload_families": ["Error Mitigation"],
+    "hardware_context": {
+      "backends_tested": ["ibm_brisbane"],
+      "topology_types": ["heavy_hex"],
+      "qubit_range": { "min": 1, "max": 1 }
+    },
+    "validation": {
+      "method": "statevector_equivalence",
+      "fidelity_threshold": 0.999999,
+      "fidelity_achieved": 1.0,
+      "validator_version": "0.1.0",
+      "validation_date": "2026-06-07T19:01:00Z"
+    },
+    "performance": {
+      "gate_reduction": 2.0,
+      "depth_reduction": 2.0,
+      "fidelity_improvement": 0.02783203125,
+      "application_count": 1,
+      "success_count": 1,
+      "failure_count": 0
+    },
+    "transferability": {
+      "score": 1.0,
+      "tested_families": ["Error Mitigation"],
+      "confidence": 0.8
+    },
+    "ip": {
+      "licensing_boundary": "PROPRIETARY",
+      "economic_contribution": 2457.0,
+      "patentability_note": "Cancelación de rotación RZ inversa en mitigación de errores (ZNE). Protegible como secreto comercial. (modelo especulativo — sin revenue real)"
+    },
+    "provenance": {
+      "origin_phase": "Phase V",
+      "benchmark_source": "COMPILER_COMPARISON_REAL.csv",
+      "discovery_algorithm": "RedundantPatternDiscovery"
+    }
+  },
+  {
+    "motif_id": "QADE-M-0013",
+    "version": "1.0.0",
+    "status": "REUSABLE",
+    "created_date": "2026-06-07T19:01:00Z",
+    "last_updated": "2026-06-12T21:29:04Z",
+    "pattern_before": {
+      "gates": [
+        { "type": "RZ", "qubits": [0], "theta": 0.24 },
+        { "type": "RZ", "qubits": [0], "theta": -0.24 }
+      ],
+      "qubit_count": 1,
+      "gate_count": 2
+    },
+    "pattern_after": {
+      "gates": [],
+      "qubit_count": 0,
+      "gate_count": 0
+    },
+    "workload_families": ["Error Mitigation"],
+    "hardware_context": {
+      "backends_tested": ["ibm_brisbane"],
+      "topology_types": ["heavy_hex"],
+      "qubit_range": { "min": 1, "max": 1 }
+    },
+    "validation": {
+      "method": "statevector_equivalence",
+      "fidelity_threshold": 0.999999,
+      "fidelity_achieved": 1.0,
+      "validator_version": "0.1.0",
+      "validation_date": "2026-06-07T19:01:00Z"
+    },
+    "performance": {
+      "gate_reduction": 2.0,
+      "depth_reduction": 2.0,
+      "fidelity_improvement": 0.02783203125,
+      "application_count": 1,
+      "success_count": 1,
+      "failure_count": 0
+    },
+    "transferability": {
+      "score": 1.0,
+      "tested_families": ["Error Mitigation"],
+      "confidence": 0.8
+    },
+    "ip": {
+      "licensing_boundary": "PROPRIETARY",
+      "economic_contribution": 2457.0,
+      "patentability_note": "Cancelación de rotación RZ inversa en mitigación de errores (ZNE). Protegible como secreto comercial. (modelo especulativo — sin revenue real)"
+    },
+    "provenance": {
+      "origin_phase": "Phase V",
+      "benchmark_source": "COMPILER_COMPARISON_REAL.csv",
+      "discovery_algorithm": "RedundantPatternDiscovery"
+    }
+  }
+]
