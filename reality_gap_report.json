@@ -1,0 +1,27 @@
+{
+  "predictions": [],
+  "mechanisms": [
+    {
+      "theory_id": "THEORY_001",
+      "edge": "gate_entropy -> structural_coherence",
+      "sim_score": 0.8,
+      "hw_score": 0.7667,
+      "reality_gap": 0.0333
+    },
+    {
+      "theory_id": "THEORY_001",
+      "edge": "structural_coherence -> transferability",
+      "sim_score": 0.85,
+      "hw_score": 0.8513,
+      "reality_gap": -0.0013
+    }
+  ],
+  "theories": [],
+  "laws": [],
+  "summary": {
+    "mean_prediction_gap": 0.0,
+    "mean_mechanism_gap": 0.016,
+    "mean_theory_gap": 0.0,
+    "mean_law_gap": 0.0
+  }
+}

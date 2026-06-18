@@ -4,9 +4,9 @@ Audits the physical distinctness of discovered noise meta-laws using Minimum Des
 
 ## Discovered Noise Laws Statements
 
-- **`NOISE_LAW_001`**: `Prediction Residual (Reality Gap) scales as R = 1.4907 * E_gate + 1.5060 * E_readout + 0.0215`
-- **`NOISE_LAW_002`**: `Decoherence Sensitivity under depth expansion degrades baseline fidelity by Delta_F = 12.3500 * E_gate + 0.0200`
-- **`NOISE_LAW_003`**: `Calibration Drift scaling reduces replication rate by Delta_C = 8.7600 * E_readout + 0.0500 under degraded environments`
+- **`NOISE_LAW_001`**: `mock`
+- **`NOISE_LAW_002`**: `mock`
+- **`NOISE_LAW_003`**: `mock`
 
 ## Information Theory Analysis
 

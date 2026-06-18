@@ -1,0 +1,76 @@
+{
+  "timestamp": "20260617_014036",
+  "backend": "ibm_fez",
+  "compilation_metrics": {
+    "GHZ_5q": {
+      "qiskit": {
+        "gate_count": 32,
+        "depth": 16,
+        "two_qubit_count": 4,
+        "estimated_fidelity": 0.8863142775035165
+      },
+      "qade": {
+        "gate_count": 36,
+        "depth": 20,
+        "two_qubit_count": 4,
+        "estimated_fidelity": 0.8152274843037026
+      }
+    },
+    "Quantum_Kernel_5q": {
+      "qiskit": {
+        "gate_count": 64,
+        "depth": 25,
+        "two_qubit_count": 8,
+        "estimated_fidelity": 0.8720890421260528
+      },
+      "qade": {
+        "gate_count": 80,
+        "depth": 32,
+        "two_qubit_count": 8,
+        "estimated_fidelity": 0.7878102291471798
+      }
+    },
+    "QFT_5q": {
+      "qiskit": {
+        "gate_count": 142,
+        "depth": 101,
+        "two_qubit_count": 30,
+        "estimated_fidelity": 0.7812781247489846
+      },
+      "qade": {
+        "gate_count": 406,
+        "depth": 223,
+        "two_qubit_count": 89,
+        "estimated_fidelity": 0.613917008755081
+      }
+    },
+    "VQE_5q": {
+      "qiskit": {
+        "gate_count": 44,
+        "depth": 20,
+        "two_qubit_count": 4,
+        "estimated_fidelity": 0.8854937546463001
+      },
+      "qade": {
+        "gate_count": 45,
+        "depth": 21,
+        "two_qubit_count": 4,
+        "estimated_fidelity": 0.814365707361831
+      }
+    },
+    "Quantum_Kernel_8q": {
+      "qiskit": {
+        "gate_count": 109,
+        "depth": 34,
+        "two_qubit_count": 14,
+        "estimated_fidelity": 0.767082294192579
+      },
+      "qade": {
+        "gate_count": 137,
+        "depth": 44,
+        "two_qubit_count": 14,
+        "estimated_fidelity": 0.6734284093379154
+      }
+    }
+  }
+}

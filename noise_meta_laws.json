@@ -1,0 +1,20 @@
+[
+  {
+    "id": "NOISE_LAW_001",
+    "statement": "Prediction Residual (Reality Gap) scales as R = 2.4500 * E_gate + 1.1200 * E_readout + 0.0100",
+    "type": "Noise Amplification Scaling",
+    "r_squared": 0.8415
+  },
+  {
+    "id": "NOISE_LAW_002",
+    "statement": "Decoherence Sensitivity under depth expansion degrades baseline fidelity by Delta_F = 12.3500 * E_gate + 0.0200",
+    "type": "Decoherence Sensitivity",
+    "r_squared": 0.9102
+  },
+  {
+    "id": "NOISE_LAW_003",
+    "statement": "Calibration Drift scaling reduces replication rate by Delta_C = 8.7600 * E_readout + 0.0500 under degraded environments",
+    "type": "Calibration Drift Amplification",
+    "r_squared": 0.8876
+  }
+]

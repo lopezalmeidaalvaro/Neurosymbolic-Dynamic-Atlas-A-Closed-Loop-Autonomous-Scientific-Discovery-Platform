@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-06-16 15:01:15",
+  "pattern_growth": {
+    "total_patterns": 0,
+    "unique_patterns": 0,
+    "frequency_distribution": {}
+  },
+  "knowledge_reuse": {
+    "selected_from_memory": 0,
+    "injection_attempts": 0,
+    "injected_patterns": 0,
+    "successful_injections": 0,
+    "patterns_survived": 0,
+    "patterns_improved_score": 0,
+    "injection_success_rate": 0.0,
+    "utilization_rate": 0.0,
+    "survival_rate": 0.0,
+    "improvement_rate": 0.0
+  },
+  "causal_audit": {
+    "motif_ranking": []
+  },
+  "evolution_metrics": {
+    "best_score": 0.0,
+    "average_score": 0.0,
+    "diversity": 0.0
+  },
+  "transfer_metrics": {
+    "cold_convergence_generations": "N/A",
+    "warm_convergence_generations": "N/A",
+    "speedup": "N/A"
+  }
+}

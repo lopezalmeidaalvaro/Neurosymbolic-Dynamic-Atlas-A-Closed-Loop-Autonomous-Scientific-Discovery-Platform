@@ -1,0 +1,12 @@
+{
+  "residuals": [],
+  "correlations": {
+    "gate_error_correlation": 0.0,
+    "readout_error_correlation": 0.0
+  },
+  "dominant_factor": "Gate Defect Rate",
+  "hidden_variables_identified": [
+    "Readout Crosstalk Rate",
+    "Coherence Degeneracy Level"
+  ]
+}

@@ -1,32 +1,55 @@
 import json
 import math
+import logging
 from typing import Dict, Any
 from qiskit import QuantumCircuit
 from qiskit.qasm3 import dumps
+
+logger = logging.getLogger(__name__)
 
 def qiskit_to_qade_json(quantum_circuit: QuantumCircuit) -> Dict[str, Any]:
     """
     Converts a Qiskit QuantumCircuit to QADE's internal JSON-compatible dictionary format.
     Supports single-qubit gates (H, X, Y, Z), rotation gates (RX, RY, RZ),
-    and multi-qubit gates (CX, CZ, SWAP).
+    and multi-qubit gates (CX, CZ, SWAP, ECR).
     """
     gates = []
     for instr in quantum_circuit.data:
         name = instr.operation.name.upper()
-        # Normalize gate name
-        if name == "CX":
-            name = "CNOT"
-            
         qubits = [quantum_circuit.find_bit(q).index for q in instr.qubits]
         gate_dict = {"type": name, "qubits": qubits}
         
-        # Extract rotation parameters for RX, RY, RZ
-        if name in ("RX", "RY", "RZ") and instr.operation.params:
-            gate_dict["theta"] = float(instr.operation.params[0])
-            
         # Extract general parameters if present
         if instr.operation.params:
             gate_dict["params"] = [float(p) for p in instr.operation.params]
+            
+        # Extract rotation parameters for RX, RY, RZ
+        if name in ("RX", "RY", "RZ") and instr.operation.params:
+            gate_dict["theta"] = float(instr.operation.params[0])
+
+        # Normalize and map gates
+        if name == "CX":
+            gate_dict["type"] = "CNOT"
+        elif name == "SX":
+            gate_dict["type"] = "RX"
+            gate_dict["theta"] = math.pi / 2
+        elif name == "ECR":
+            gate_dict["type"] = "ECR"
+        elif name in ("ID", "I"):
+            gate_dict["type"] = "ID"
+        elif name == "RESET":
+            logger.debug("RESET instruction skipped (non-unitary)")
+            continue
+        elif name in ("H", "X", "Y", "Z", "RX", "RY", "RZ", "CZ", "SWAP", "P", "U", "U1", "U2", "U3", "CP", "MEASURE", "BARRIER"):
+            pass
+        else:
+            logger.warning(
+                f"Unmapped gate: {name} on qubits {qubits}. "
+                f"This gate will be DROPPED. "
+                f"This may cause semantic corruption of the circuit. "
+                f"Add mapping for {name} to prevent data loss."
+            )
+            continue
             
         gates.append(gate_dict)
         
@@ -110,6 +133,8 @@ def qade_json_to_qiskit(qade_circuit_json: Dict[str, Any]) -> QuantumCircuit:
                 from qiskit import ClassicalRegister
                 qc.add_register(ClassicalRegister(qc.num_qubits, "meas"))
             qc.measure(q[0], q[0])
+        elif g_type == "BARRIER":
+            qc.barrier(*q)
         else:
             raise ValueError(f"Unsupported gate type: {g_type}")
             

@@ -6,14 +6,11 @@ Analyzes diversity and coverage across quantum circuit families to ensure the va
 
 | Circuit Family / Task | Occurrence Count | Proportional Weight | Representation Status |
 | :--- | :---: | :---: | :--- |
-| Bell | 1 | 33.33% | **`REPRESENTED`** |
-| GHZ | 1 | 33.33% | **`REPRESENTED`** |
-| Transfer Learning | 1 | 33.33% | **`REPRESENTED`** |
 
 ## Task Diversity Diagnostics
 
-- **Total Circuit Families Evaluated**: **`3`** (Target >= 10)
-- **Benchmark Entropy ($H$)**: `1.0986`
-- **Task Diversity Index (Gini-Simpson)**: `0.6667`
-- **Benchmark Coverage Score**: **`0.3000`**
+- **Total Circuit Families Evaluated**: **`0`** (Target >= 10)
+- **Benchmark Entropy ($H$)**: `0.0000`
+- **Task Diversity Index (Gini-Simpson)**: `0.0000`
+- **Benchmark Coverage Score**: **`0.0000`**
 - **Audit Verdict**: **`FAILED`**

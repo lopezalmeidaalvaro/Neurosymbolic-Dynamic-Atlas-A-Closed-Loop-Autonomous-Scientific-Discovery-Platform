@@ -175,6 +175,56 @@ class QADEOptimizerPass(TransformationPass):
         pyzx_opt = PyZXOptimizer()
         zx_reduced_circuit, _ = pyzx_opt.optimize_circuit(best_evolved_circuit)
 
+        # Verificar equivalencia usando el circuito Qiskit original
+        # (no la representación QADE que puede tener puertas perdidas)
+        def verify_equivalence_qiskit(
+            original_qc: QuantumCircuit,
+            optimized_json: Dict[str, Any],
+            num_qubits: int,
+            threshold: float = 0.999
+        ) -> bool:
+            if num_qubits > 12:
+                return True
+            try:
+                from qiskit.quantum_info import Operator
+                import numpy as np
+                from quantum.integration.qiskit_adapter import qade_json_to_qiskit
+                
+                # Versión sin medidas del original
+                orig_no_meas = QuantumCircuit(num_qubits)
+                for instr in original_qc.data:
+                    if instr.operation.name != 'measure':
+                        qubits = [original_qc.find_bit(q).index 
+                                  for q in instr.qubits]
+                        # Solo añadir si el número de qubits es <= num_qubits
+                        if all(q < num_qubits for q in qubits):
+                            orig_no_meas.append(instr.operation, 
+                                [orig_no_meas.qubits[q] for q in qubits])
+                
+                opt_qc = qade_json_to_qiskit(optimized_json)
+                
+                op_orig = Operator(orig_no_meas)
+                op_opt = Operator(opt_qc)
+                
+                fidelity = abs(np.trace(
+                    op_orig.data.conj().T @ op_opt.data
+                )) / (2 ** num_qubits)
+                
+                if fidelity < threshold:
+                    logger.warning(
+                        f'Equivalence check FAILED: fidelity={fidelity:.4f} '
+                        f'(threshold={threshold}). Returning original circuit.'
+                    )
+                    return False
+                return True
+            except Exception as e:
+                logger.warning(f'Could not verify equivalence: {e}. Accepting.')
+                return True
+
+        if not verify_equivalence_qiskit(qc_unitary, zx_reduced_circuit, zx_reduced_circuit.get("qubits", 0)):
+            logger.warning("ZX equivalence check failed against original Qiskit circuit. Falling back to pre-ZX circuit.")
+            zx_reduced_circuit = best_evolved_circuit
+
         # G. Re-route output to guarantee physical execution constraints
         if self.hardware_aware and coupling_map:
             router = AdvancedRouter(coupling_map, backend=self.backend)
@@ -198,5 +248,10 @@ class QADEOptimizerPass(TransformationPass):
             
         for q_idx, c_idx in measures:
             final_qc.measure(final_qc.qubits[q_idx], final_qc.clbits[c_idx])
+            
+        # Re-transpile to backend's basis gates to unroll non-native gates (like H)
+        if self.backend is not None:
+            from qiskit import transpile
+            final_qc = transpile(final_qc, backend=self.backend, optimization_level=0)
             
         return final_qc

@@ -156,3 +156,34 @@ def test_no_semantic_destruction():
     except Exception:
         pass  # Si no se puede verificar, el test pasa
 
+
+def test_gate_conversion_no_loss():
+    from quantum.integration.qiskit_adapter import (
+        qiskit_to_qade_json
+    )
+    from qiskit.circuit.library import QFT
+    
+    backend = GenericBackendV2(num_qubits=127)
+    
+    qft = QuantumCircuit(5)
+    qft.compose(QFT(5), inplace=True)
+    qft.measure_all()
+    
+    transpiled = transpile(qft, backend=backend, 
+                           optimization_level=1)
+    non_measure = [i for i in transpiled.data 
+                   if i.operation.name != 'measure']
+    
+    qade_json = qiskit_to_qade_json(transpiled)
+    qade_gates = qade_json.get('gates', [])
+    
+    loss_pct = ((len(non_measure) - len(qade_gates)) 
+                / max(len(non_measure), 1)) * 100
+    
+    assert loss_pct < 10, (
+        f'Gate loss too high: {loss_pct:.1f}%. '
+        f'Unmapped gates: '
+        f'{set(i.operation.name for i in non_measure) - set(g["type"].lower() for g in qade_gates)}'
+    )
+
+

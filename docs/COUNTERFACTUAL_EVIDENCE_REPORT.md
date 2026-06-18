@@ -5,13 +5,13 @@ Simulates alternative physical environments (counterfactual worlds) to verify th
 ## Counterfactual Scenario Audits
 
 ### Scenario 1: World A (High Noise Regime - 3x Scaling)
-- **Estimated Gate Correlation ($r$)**: `0.9990`
-- **Noise Laws Detectable**: **`True`**
+- **Estimated Gate Correlation ($r$)**: `0.0000`
+- **Noise Laws Detectable**: **`False`**
 - **Theory Leaderboard Ranking Preserved**: **`True`**
 
 ### Scenario 2: World B (Calibration Skew - 100% Degraded Calibration)
-- **Estimated Gate Correlation ($r$)**: `0.9694`
-- **Noise Laws Detectable**: **`True`**
+- **Estimated Gate Correlation ($r$)**: `0.0000`
+- **Noise Laws Detectable**: **`False`**
 - **Theory Leaderboard Ranking Preserved**: **`True`**
 
 ### Scenario 3: World C (Superconducting Exclusivity - Drop Ion Trap/OOD Platforms)

@@ -112,10 +112,40 @@ Job IDs:
 - VQE_5q: `d8o15m832u0s73fd336g` (Qiskit) / `d8o15mrnn5bs738v81n0` (QADE)
 - Quantum_Kernel_8q: `d8o15nrqv2lc7389fkh0` (Qiskit) / `d8o15o3nn5bs738v81og` (QADE)
 
+### Run 3 (2026-06-16 02:41:24)
+Backend: ibm_fez (156 qubits)
+Jobs: 10 verificados
+Shots: 2048
+Resultado: QADE wins 0/5 circuitos (0% win rate). QFT fix confirmed: **NO** (bug persists).
+Job IDs:
+- GHZ_5q: `d8oaemr2d42s73cer7lg` (Qiskit) / `d8oaen3qv2lc7389qp10` (QADE)
+- Quantum_Kernel_5q: `d8oaeo3nn5bs738vjaig` (Qiskit) / `d8oaeobnn5bs738vjak0` (QADE)
+- QFT_5q: `d8oaepbqv2lc7389qp3g` (Qiskit) / `d8oaepjqv2lc7389qp4g` (QADE)
+- VQE_5q: `d8oaeqjnn5bs738vjang` (Qiskit) / `d8oaeqrqv2lc7389qp60` (QADE)
+- Quantum_Kernel_8q: `d8oaerrqv2lc7389qp8g` (Qiskit) / `d8oaesbqv2lc7389qpa0` (QADE)
+
+### Run 4 (2026-06-17 01:40:36)
+Backend: ibm_fez (156 qubits)
+Jobs: 10/10 verificados
+Shots: 2048
+Adapter fix: SX→RX(π/2), ECR, ID, BARRIER
+Resultado: QADE wins 1/5 (20.0% win rate)
+QFT bug: FIXED (observed fidelity: 0.9952)
+Job IDs:
+- GHZ_5q: `d8ouq3q9m3dc738p5t20` (Qiskit) / `d8ouq46hm1is739mq660` (QADE)
+- Quantum_Kernel_5q: `d8ouq5a9m3dc738p5t3g` (Qiskit) / `d8ouq5gq90bc73e73840` (QADE)
+- QFT_5q: `d8ouq7a9m3dc738p5t6g` (Qiskit) / `d8ouq7m8aqlc73eh33ag` (QADE)
+- VQE_5q: `d8ouq8m8aqlc73eh33bg` (Qiskit) / `d8ouq8oq90bc73e738a0` (QADE)
+- Quantum_Kernel_8q: `d8ouq9u8aqlc73eh33e0` (Qiskit) / `d8ouqaehm1is739mq6fg` (QADE)
+
 ### Correcciones técnicas aplicadas entre runs
 - hardware_cost_model_v2.py: eliminados factores hardcoded por nombre de circuito
 - qiskit_plugin.py: fix de preservación de medidas en optimize_circuit()
+- pyzx_optimizer.py: verify_equivalence() + fallback semántico (Run 3)
+- routing_engine.py: compute_optimal_weights() dinámico (Run 3)
+- qiskit_adapter.py: mapeo de puertas nativas IBM (SX→RX(π/2), ECR, ID, BARRIER) (Run 4)
+- qiskit_plugin.py: verify_equivalence_qiskit y des-transpilación de no-nativas (Run 4)
 
-### Clasificación actualizada
-Clasificación: C — Product Candidate (Hardware Blocked)
-El indicador de éxito de WP1 está en progreso. Se requiere una auditoría profunda del motor de routing y ajuste de los pesos w_d/w_c para solventar la degradación de fidelidad.
+### Clasificación acumulada
+Clasificación: C — Product Candidate
+El indicador de éxito de WP1 sigue en progreso. El bug SX de QFT ha sido verificado como corregido de manera exitosa en el hardware real `ibm_fez` (fidelidad QADE 0.9952 vs Qiskit 0.9922). QADE se mantiene como Class C (Product Candidate) mientras se optimizan las rutinas de routing para el resto de los circuitos con el objetivo de elevar el win rate global.

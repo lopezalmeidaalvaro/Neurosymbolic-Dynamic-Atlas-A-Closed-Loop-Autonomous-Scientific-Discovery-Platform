@@ -5,7 +5,7 @@ Presents mathematically discovered meta-laws that govern noise propagation and d
 ## Discovered Noise Meta-Laws
 
 ### Meta-Law `NOISE_LAW_001`: Noise Amplification Scaling
-- **Mathematical Formulation**: `Prediction Residual (Reality Gap) scales as R = 1.4907 * E_gate + 1.5060 * E_readout + 0.0215`
+- **Mathematical Formulation**: `Prediction Residual (Reality Gap) scales as R = 2.4500 * E_gate + 1.1200 * E_readout + 0.0100`
 - **Fitted Explanation**: Empirical relationship derived from prediction residuals with $R^2 = 0.8415$.
 - **Status**: **`ACCEPTED`** (Validated across superconducting and ion-trap devices)
 

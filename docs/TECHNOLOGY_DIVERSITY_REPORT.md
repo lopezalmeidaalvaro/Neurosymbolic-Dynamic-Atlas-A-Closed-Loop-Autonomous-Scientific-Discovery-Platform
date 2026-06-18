@@ -6,16 +6,16 @@ Measures the variety and balance of physical quantum hardware architectures repr
 
 | Hardware Paradigm | Execution Count | Percentage Coverage | Status |
 | :--- | :---: | :---: | :--- |
-| Superconducting | 3 | 37.50% | `REPRESENTED` |
-| Ion Trap | 2 | 25.00% | `REPRESENTED` |
-| Neutral Atom | 1 | 12.50% | `REPRESENTED` |
-| Photonic | 1 | 12.50% | `REPRESENTED` |
-| Silicon Spin | 1 | 12.50% | `REPRESENTED` |
+| Superconducting | 0 | 0.00% | `ABSENT` |
+| Ion Trap | 0 | 0.00% | `ABSENT` |
+| Neutral Atom | 0 | 0.00% | `ABSENT` |
+| Photonic | 0 | 0.00% | `ABSENT` |
+| Silicon Spin | 0 | 0.00% | `ABSENT` |
 
 ## Diversity Diagnostics
 
-- **Active Physical Paradigms Count ($K$)**: **`5`** (Target >= 3)
-- **Technology Coverage Entropy ($H$)**: `1.4942`
-- **Hardware Family Balance (Normalized Entropy)**: `0.9284`
-- **Aggregate Technology Diversity Score**: **`0.9284`**
-- **Audit Verdict**: **`PASSED`**
+- **Active Physical Paradigms Count ($K$)**: **`0`** (Target >= 3)
+- **Technology Coverage Entropy ($H$)**: `0.0000`
+- **Hardware Family Balance (Normalized Entropy)**: `0.0000`
+- **Aggregate Technology Diversity Score**: **`0.0000`**
+- **Audit Verdict**: **`FAILED`**

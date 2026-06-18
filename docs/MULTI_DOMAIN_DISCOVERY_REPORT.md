@@ -4,13 +4,13 @@ Documents the candidate reality-native theories discovered in parallel across al
 
 | Theory ID | Physical Domain | Discovered Equation | Confidence (R2) | Discovery Timestamp | Database Path |
 | :--- | :--- | :--- | :---: | :--- | :--- |
-| `RTHEORY_001` | `quantum_hardware_noise` | `Gap = -1.4876 * E_gate + -1.5034 * E_readout + -0.0021` | `0.9995` | `2026-06-04T23:42:46.655502+00:00` | `databases_test_diversity\reality_native_quantum_hardware_noise.db` |
-| `RTHEORY_002` | `calibration_drift` | `Gap = -1.8570 * E_gate + -1.2489 * E_readout + -0.0049` | `0.9994` | `2026-06-04T23:42:46.681493+00:00` | `databases_test_diversity\reality_native_calibration_drift.db` |
-| `RTHEORY_003` | `readout_error` | `Gap = -0.4877 * E_gate + -2.4980 * E_readout + -0.0102` | `0.9996` | `2026-06-04T23:42:46.706298+00:00` | `databases_test_diversity\reality_native_readout_error.db` |
-| `RTHEORY_004` | `gate_error` | `Gap = -3.1974 * E_gate + -0.3977 * E_readout + -0.0030` | `0.9995` | `2026-06-04T23:42:46.729253+00:00` | `databases_test_diversity\reality_native_gate_error.db` |
-| `RTHEORY_005` | `cross_vendor_transfer` | `Gap = -1.1158 * E_gate + -1.9090 * E_readout + -0.0057` | `0.9996` | `2026-06-04T23:42:46.752813+00:00` | `databases_test_diversity\reality_native_cross_vendor_transfer.db` |
-| `RTHEORY_006` | `device_aging` | `Gap = -2.0518 * E_gate + -1.6477 * E_readout + -0.0080` | `0.9996` | `2026-06-04T23:42:46.780315+00:00` | `databases_test_diversity\reality_native_device_aging.db` |
-| `RTHEORY_007` | `hardware_stability` | `Gap = -1.3553 * E_gate + -1.1515 * E_readout + -0.0010` | `0.9991` | `2026-06-04T23:42:46.805371+00:00` | `databases_test_diversity\reality_native_hardware_stability.db` |
-| `RTHEORY_008` | `spectator_crosstalk` | `Gap = -2.4140 * E_gate + -0.8972 * E_readout + -0.0040` | `0.9993` | `2026-06-04T23:42:46.829275+00:00` | `databases_test_diversity\reality_native_spectator_crosstalk.db` |
-| `RTHEORY_009` | `thermal_relaxation` | `Gap = -1.5774 * E_gate + -1.8093 * E_readout + -0.0071` | `0.9997` | `2026-06-04T23:42:46.853640+00:00` | `databases_test_diversity\reality_native_thermal_relaxation.db` |
-| `RTHEORY_010` | `leakage_rate` | `Gap = -2.9426 * E_gate + -1.3469 * E_readout + -0.0091` | `0.9997` | `2026-06-04T23:42:46.877984+00:00` | `databases_test_diversity\reality_native_leakage_rate.db` |
+| `RTHEORY_001` | `quantum_hardware_noise` | `Gap = -1.4876 * E_gate + -1.5034 * E_readout + -0.0021` | `0.9995` | `2026-06-16T14:01:17.808694+00:00` | `databases_test_diversity\reality_native_quantum_hardware_noise.db` |
+| `RTHEORY_002` | `calibration_drift` | `Gap = -1.8570 * E_gate + -1.2489 * E_readout + -0.0049` | `0.9994` | `2026-06-16T14:01:17.831705+00:00` | `databases_test_diversity\reality_native_calibration_drift.db` |
+| `RTHEORY_003` | `readout_error` | `Gap = -0.4877 * E_gate + -2.4980 * E_readout + -0.0102` | `0.9996` | `2026-06-16T14:01:17.854781+00:00` | `databases_test_diversity\reality_native_readout_error.db` |
+| `RTHEORY_004` | `gate_error` | `Gap = -3.1974 * E_gate + -0.3977 * E_readout + -0.0030` | `0.9995` | `2026-06-16T14:01:17.877930+00:00` | `databases_test_diversity\reality_native_gate_error.db` |
+| `RTHEORY_005` | `cross_vendor_transfer` | `Gap = -1.1158 * E_gate + -1.9090 * E_readout + -0.0057` | `0.9996` | `2026-06-16T14:01:17.899054+00:00` | `databases_test_diversity\reality_native_cross_vendor_transfer.db` |
+| `RTHEORY_006` | `device_aging` | `Gap = -2.0518 * E_gate + -1.6477 * E_readout + -0.0080` | `0.9996` | `2026-06-16T14:01:17.923170+00:00` | `databases_test_diversity\reality_native_device_aging.db` |
+| `RTHEORY_007` | `hardware_stability` | `Gap = -1.3553 * E_gate + -1.1515 * E_readout + -0.0010` | `0.9991` | `2026-06-16T14:01:17.944170+00:00` | `databases_test_diversity\reality_native_hardware_stability.db` |
+| `RTHEORY_008` | `spectator_crosstalk` | `Gap = -2.4140 * E_gate + -0.8972 * E_readout + -0.0040` | `0.9993` | `2026-06-16T14:01:17.968170+00:00` | `databases_test_diversity\reality_native_spectator_crosstalk.db` |
+| `RTHEORY_009` | `thermal_relaxation` | `Gap = -1.5774 * E_gate + -1.8093 * E_readout + -0.0071` | `0.9997` | `2026-06-16T14:01:17.990541+00:00` | `databases_test_diversity\reality_native_thermal_relaxation.db` |
+| `RTHEORY_010` | `leakage_rate` | `Gap = -2.9426 * E_gate + -1.3469 * E_readout + -0.0091` | `0.9997` | `2026-06-16T14:01:18.012542+00:00` | `databases_test_diversity\reality_native_leakage_rate.db` |

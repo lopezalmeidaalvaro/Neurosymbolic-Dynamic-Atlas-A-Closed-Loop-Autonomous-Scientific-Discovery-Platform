@@ -4,44 +4,29 @@ Presents the compiled inventory of physical quantum hardware execution data coll
 
 ## Core Inventory Metrics
 
-- **Total Hardware Runs (Executions)**: `190`
-- **Unique Hardware Experiments**: `190`
-- **Total Shot-Level Observations**: `190000`
-- **Independent Observational Records**: `190`
-- **Unique Hardware Platforms**: `5`
-- **Unique Quantum Vendors**: `7`
-- **Unique Calibration Epochs/States**: `3`
+- **Total Hardware Runs (Executions)**: `0`
+- **Unique Hardware Experiments**: `0`
+- **Total Shot-Level Observations**: `0`
+- **Independent Observational Records**: `0`
+- **Unique Hardware Platforms**: `0`
+- **Unique Quantum Vendors**: `0`
+- **Unique Calibration Epochs/States**: `0`
 - **Unique Circuit Families**: `8`
 
 ## Technology Domain Coverage
 
 ### Physical Hardware Platforms
-- **`Superconducting`**
-- **`Ion Trap`**
-- **`Photonic`**
-- **`Silicon Spin`**
-- **`Neutral Atom`**
 
 ### Registered Quantum Hardware Vendors
-- **`IonQ`**
-- **`Silicon Spin Tech`**
-- **`Rigetti`**
-- **`IBM`**
-- **`Neutral Phoenix`**
-- **`Photonic Helios`**
-- **`Quantinuum`**
 
 ### Evaluated Calibration States
-- **`NOMINAL`**
-- **`HIGH_FIDELITY`**
-- **`DEGRADED`**
 
 ### Circuit Families Represented
-- **`Error Correction`**
-- **`QAOA`**
-- **`QFT`**
 - **`State Preparation`**
+- **`Error Correction`**
+- **`Synergy Discovery`**
+- **`Grover`**
+- **`QAOA`**
 - **`Transfer Learning`**
 - **`VQE`**
-- **`Grover`**
-- **`Synergy Discovery`**
+- **`QFT`**

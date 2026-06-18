@@ -60,11 +60,11 @@ To transition QADE from a Product Candidate (Class C) to a Pilot-Ready Product (
 ### WP1: Physical Hardware Validation (STATUS: EN PROGRESO)
 *   **Objective**: Validate QADE's compiler cost models by executing compiled workloads on real quantum processors (IBM, IonQ).
 *   **Deliverable**: Verifiable Hardware Execution Report ([HARDWARE_VALIDATION_REPORT.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/docs/quantum/HARDWARE_VALIDATION_REPORT.md)) containing job IDs, calibration snapshots, and observed-vs-predicted metrics.
-*   **Execution Summary**: The first hardware validation run on `ibm_marrakesh` (156 qubits, 2026-06-14, 8 verified jobs) demonstrated QADE's operational capability on real quantum hardware and identified a calibration gap in the physical cost model. QADE outperformed Qiskit L3 on VQE circuits (+1.25% Hellinger fidelity, job IDs publicly verifiable). A second validation run with the corrected cost model v2 (clean, no artificial multipliers) and calibration drift monitoring successfully executed on `ibm_fez` (2026-06-15 15:58:12), resulting in a **0/5 win rate** (0.0%). Therefore, WP1 remains in progress pending routing weight tuning to meet success criteria on all circuits.
+*   **Execution Summary**: The first hardware validation run on `ibm_marrakesh` (156 qubits, 2026-06-14, 8 verified jobs) demonstrated QADE's operational capability on real quantum hardware and identified a calibration gap in the physical cost model. QADE outperformed Qiskit L3 on VQE circuits (+1.25% Hellinger fidelity, job IDs publicly verifiable). A second validation run with the corrected cost model v2 (clean, no artificial multipliers) and calibration drift monitoring successfully executed on `ibm_fez` (2026-06-15 15:58:12), resulting in a **0/5 win rate** (0.0%). A third validation run (Run 3) targeting QFT gate conservation and routing enhancements was executed on `ibm_fez` (2026-06-16 02:41:24), resulting in a **0/5 win rate** (0.0%) because the QFT circuit optimization was bypassed due to the physical backend size (156 qubits > 12 qubits verification limit in `verify_equivalence()`), which caused the SX gates to be destroyed. A fourth validation run (Run 4) with the IBM native gate mapping fix (SX→RX(π/2)) and Qiskit-level equivalence verification executed on `ibm_fez` (2026-06-17 01:40:36), resulting in a **1/5 win rate** (20.0%) where QADE successfully outperformed Qiskit L3 on the QFT_5q circuit (0.9952 vs 0.9922) and verified the QFT bug correction. Therefore, WP1 remains in progress for routing optimizations on the remaining circuits.
 *   **Execution Metadata**:
      *   *Backend Used*: `ibm_fez` (156 physical qubits)
-     *   *Execution Dates*: Run 1: 2026-06-14 21:05:15 | Run 2 (V2): 2026-06-15 15:58:12
-     *   *Results*: Run 1: QADE wins 1/4 circuits (VQE_5q). Run 2 (V2): QADE wins 0/5 circuits.
+     *   *Execution Dates*: Run 1: 2026-06-14 21:05:15 | Run 2 (V2): 2026-06-15 15:58:12 | Run 3 (V3): 2026-06-16 02:41:24 | Run 4 (V4): 2026-06-17 01:40:36
+     *   *Results*: Run 1: QADE wins 1/4 circuits (VQE_5q). Run 2 (V2): QADE wins 0/5 circuits. Run 3 (V3): QADE wins 0/5 circuits. Run 4 (V4): QADE wins 1/5 circuits (QFT bug fixed).
      *   *Evidence (Job IDs - Run 1)*:
          *   `d8ngicbnn5bs738uj1d0` (GHZ Qiskit) / `d8ngicg32u0s73fce0g0` (GHZ QADE)
          *   `d8ngidjnn5bs738uj1f0` (Kernel Qiskit) / `d8ngie032u0s73fce0hg` (Kernel QADE)
@@ -76,11 +76,23 @@ To transition QADE from a Product Candidate (Class C) to a Pilot-Ready Product (
          *   `d8o15l3nn5bs738v81kg` / `d8o15lb2d42s73ceg0bg` (QFT_5q)
          *   `d8o15m832u0s73fd336g` / `d8o15mrnn5bs738v81n0` (VQE_5q)
          *   `d8o15nrqv2lc7389fkh0` / `d8o15o3nn5bs738v81og` (Quantum_Kernel_8q)
+     *   *Evidence (Job IDs - Run 3)*: Verifiable via jobs registry with job IDs recorded in [job_ids_20260616_023057.json](file:///benchmarks/results/hardware_real/job_ids_20260616_023057.json).
+         *   `d8oaemr2d42s73cer7lg` / `d8oaen3qv2lc7389qp10` (GHZ_5q)
+         *   `d8oaeo3nn5bs738vjaig` / `d8oaeobnn5bs738vjak0` (Quantum_Kernel_5q)
+         *   `d8oaepbqv2lc7389qp3g` / `d8oaepjqv2lc7389qp4g` (QFT_5q)
+         *   `d8oaeqjnn5bs738vjang` / `d8oaeqrqv2lc7389qp60` (VQE_5q)
+         *   `d8oaerrqv2lc7389qp8g` / `d8oaesbqv2lc7389qpa0` (Quantum_Kernel_8q)
+     *   *Evidence (Job IDs - Run 4)*: Verifiable via jobs registry with job IDs recorded in [job_ids_20260617_014036.json](file:///benchmarks/results/hardware_real/job_ids_20260617_014036.json).
+         *   `d8ouq3q9m3dc738p5t20` / `d8ouq46hm1is739mq660` (GHZ_5q)
+         *   `d8ouq5a9m3dc738p5t3g` / `d8ouq5gq90bc73e73840` (Quantum_Kernel_5q)
+         *   `d8ouq7a9m3dc738p5t6g` / `d8ouq7m8aqlc73eh33ag` (QFT_5q)
+         *   `d8ouq8m8aqlc73eh33bg` / `d8ouq8oq90bc73e738a0` (VQE_5q)
+         *   `d8ouq9u8aqlc73eh33e0` / `d8ouqaehm1is739mq6fg` (Quantum_Kernel_8q)
      *   *Verification Link*: [https://quantum.ibm.com/jobs](https://quantum.ibm.com/jobs)
 *   **Duration**: 3 months (In Progress).
 *   **Cost**: €20,000 (comprising €5,000 engineering and €15,000 hardware credits). (modelo especulativo — sin revenue real)
 *   **Success Indicator**: Hellinger fidelity difference is positive ($\Delta F > 0$) and the predicted-vs-observed deviation is less than 20% on corrected models.
-    *   *WP1: EN PROGRESO — se requiere ajuste de pesos de routing para alcanzar criterio de éxito*
+    *   *WP1: EN PROGRESO — win rate mejorado, optimización de routing pendiente*
 
 ### WP2: Enterprise API v1
 *   **Objective**: Build a secure REST API wrapper to allow remote compilation calls with minimal latency.

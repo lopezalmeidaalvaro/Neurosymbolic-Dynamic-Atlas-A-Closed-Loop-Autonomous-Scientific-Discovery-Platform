@@ -2,20 +2,20 @@
 
 ## Consensus Verdict
 
-**`PARTIALLY_SUFFICIENT_EVIDENCE`**
+**`INSUFFICIENT_HARDWARE_EVIDENCE`**
 
 ### Rationale
 
-Most criteria pass, but minor deficiencies remain in calibration or technology representation, blocking Phase 3B.
+Critical thresholds are violated. The evidence base is insufficient to support reality-native theory discovery, blocking Phase 3B.
 
 ## Consolidation Scores Ledger
 
-- **Evidence Sufficiency Score**: `15.9660` (Kish ESS relative to discovery baseline)
+- **Evidence Sufficiency Score**: `23.4580` (Kish ESS relative to discovery baseline)
 - **Evidence Independence Score**: `99.50%` (Unleaked independent variance)
-- **Hardware Diversity Score**: `1.0000` (Technology balance index)
+- **Hardware Diversity Score**: `0.0000` (Technology balance index)
 - **Leakage Score**: `0.50%`
 - **Discovery Readiness Score**: **`nan`** (Target >= 0.80)
-- **Epistemic Confidence Score**: **`77.78%`** (Target >= 80.0%)
+- **Epistemic Confidence Score**: **`44.44%`** (Target >= 80.0%)
 
 ## Scientific Acceptance Criteria Compliance
 
@@ -24,9 +24,9 @@ Most criteria pass, but minor deficiencies remain in calibration or technology r
 | ESS > 500 | True | **`PASSED`** |
 | Evidence Independence > 90% | True | **`PASSED`** |
 | Leakage Score < 5% | True | **`PASSED`** |
-| Technology Diversity >= 3 | True | **`PASSED`** |
-| Vendor Diversity >= 4 | True | **`PASSED`** |
-| Calibration Diversity >= 20 | True | **`PASSED`** |
+| Technology Diversity >= 3 | False | `FAILED` |
+| Vendor Diversity >= 4 | False | `FAILED` |
+| Calibration Diversity >= 20 | False | `FAILED` |
 | Benchmark Diversity >= 10 | False | `FAILED` |
 | Correlation Stability >= 80% | True | **`PASSED`** |
 | Evidence Robustness >= 85% | False | `FAILED` |

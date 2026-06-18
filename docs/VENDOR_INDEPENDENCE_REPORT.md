@@ -6,19 +6,11 @@ Evaluates scientific dependencies on specific hardware providers to ensure findi
 
 | Theory ID | Successful Vendors | Exclusivity Classification | Status |
 | :--- | :--- | :--- | :--- |
-| `THEORY_001` | IBM, IonQ, Quantinuum | `Shared (Independent)` | **`PASSED`** |
-| `THEORY_002` | *None* | `None (No hardware success)` | **`PASSED`** |
-| `THEORY_004` | *None* | `None (No hardware success)` | **`PASSED`** |
-| `THEORY_003` | *None* | `None (No hardware success)` | **`PASSED`** |
 
 ## Cross-Vendor Agreement Matrix
 
-| Vendor | `IBM` | `Rigetti` | `IonQ` | `Quantinuum` |
-| :--- | :---: | :---: | :---: | :---: |
-| `IBM` | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
-| `Rigetti` | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
-| `IonQ` | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
-| `Quantinuum` | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+| Vendor |  |
+| :--- |  |
 
 ## Independence Metrics Summary
 

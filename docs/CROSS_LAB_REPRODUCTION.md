@@ -6,9 +6,9 @@ Documents the independent reimplementation outcomes from three simulated laborat
 
 | Lab Identifier | Measured MAE | Measured Calibration |
 | :--- | :---: | :---: |
-| **Lab_A** | `0.000240` | `0.019760` |
-| **Lab_B** | `0.000240` | `0.019760` |
-| **Lab_C** | `0.000240` | `0.019760` |
+| **Lab_A** | `0.009700` | `0.010300` |
+| **Lab_B** | `0.009700` | `0.010300` |
+| **Lab_C** | `0.009700` | `0.010300` |
 
 ## Pairwise Implementation Agreement Matrix
 
