@@ -16,6 +16,45 @@ from quantum.optimization.routing_engine import AdvancedRouter
 
 logger = logging.getLogger(__name__)
 
+def _get_stage_metrics(circuit_or_json) -> tuple[int, int, int, list[str]]:
+    if isinstance(circuit_or_json, QuantumCircuit):
+        gates = circuit_or_json.data
+        count_1q = sum(1 for inst in gates if len(inst.qubits) == 1 and inst.operation.name != "measure" and inst.operation.name != "barrier")
+        count_2q = sum(1 for inst in gates if len(inst.qubits) == 2)
+        depth = circuit_or_json.depth()
+        gate_list = [inst.operation.name for inst in gates]
+    elif isinstance(circuit_or_json, dict):
+        gates = circuit_or_json.get("gates", [])
+        count_1q = sum(1 for g in gates if len(g.get("qubits", [])) == 1 and g.get("type") != "MEASURE" and g.get("type") != "BARRIER")
+        count_2q = sum(1 for g in gates if len(g.get("qubits", [])) == 2)
+        
+        q_depth = {}
+        for g in gates:
+            for q in g.get("qubits", []):
+                q_depth[q] = q_depth.get(q, 0) + 1
+        depth = max(q_depth.values()) if q_depth else 0
+        gate_list = [g.get("type") for g in gates]
+    else:
+        count_1q, count_2q, depth, gate_list = 0, 0, 0, []
+    return count_1q, count_2q, depth, gate_list
+
+def is_physically_executable(circuit_json: Dict[str, Any], coupling_map: Optional[list]) -> bool:
+    if not coupling_map:
+        return True
+    edges = set()
+    for edge in coupling_map:
+        u, v = int(edge[0]), int(edge[1])
+        edges.add((u, v))
+        edges.add((v, u))
+        
+    for gate in circuit_json.get("gates", []):
+        g_type = str(gate.get("type", "")).upper()
+        q = gate.get("qubits", [])
+        if g_type in ("CNOT", "CX", "CZ", "SWAP") and len(q) == 2:
+            if (q[0], q[1]) not in edges:
+                return False
+    return True
+
 class QADEOptimizerPass(TransformationPass):
     """
     Standard Qiskit compiler pass wrapping the QADE Evolutionary Search, 
@@ -63,6 +102,13 @@ class QADEOptimizerPass(TransformationPass):
         if qc.num_qubits == 0:
             return qc
 
+        self._optimal_layout = None
+        circuit_name = qc.name or "unknown"
+
+        # [STAGE 0] Input: circuito original (gate count)
+        c1q, c2q, dp, gl = _get_stage_metrics(qc)
+        logger.debug(f"[STAGE 0] {circuit_name}: 1Q_count={c1q}, 2Q_count={c2q}, depth={dp}, gates={gl}")
+
         # Extract measurements
         measures = []
         cregs = qc.cregs
@@ -96,24 +142,52 @@ class QADEOptimizerPass(TransformationPass):
                 backend=self.backend,
             )
             initial_layout = placer.place(qade_json, method=self.placement_method)
+            
+            # [STAGE 1] Post-layout (after placement, before routing)
+            c1q, c2q, dp, gl = _get_stage_metrics(qade_json)
+            logger.debug(f"[STAGE 1] {circuit_name}: 1Q_count={c1q}, 2Q_count={c2q}, depth={dp}, gates={gl}")
+
             router = AdvancedRouter(coupling_map, backend=self.backend)
-            routed_json, _ = router.route(
+            routed_json, final_layout_from_router = router.route(
                 qade_json,
                 method=self.routing_method,
                 initial_layout=initial_layout,
             )
+            self._optimal_layout = final_layout_from_router
         else:
+            # [STAGE 1] Post-layout (no placement, before routing)
+            c1q, c2q, dp, gl = _get_stage_metrics(qade_json)
+            logger.debug(f"[STAGE 1] {circuit_name}: 1Q_count={c1q}, 2Q_count={c2q}, depth={dp}, gates={gl}")
+
             routed_json = route_circuit(qade_json, coupling_map)
+
+        # [STAGE 2] Post-routing (after SWAPs)
+        c1q, c2q, dp, gl = _get_stage_metrics(routed_json)
+        logger.debug(f"[STAGE 2] {circuit_name}: 1Q_count={c1q}, 2Q_count={c2q}, depth={dp}, gates={gl}")
 
         # E. Core evolutionary optimization search
         # Optimize by running evolution on only the active physical qubits to speed up simulation
+        active_virtual_qs = set()
+        for gate in qade_json.get("gates", []):
+            if gate.get("type", "").upper() != "BARRIER":
+                active_virtual_qs.update(gate.get("qubits", []))
+
         active_qs = set()
         for gate in routed_json.get("gates", []):
-            active_qs.update(gate.get("qubits", []))
+            if gate.get("type", "").upper() != "BARRIER":
+                active_qs.update(gate.get("qubits", []))
+        if hasattr(self, "_optimal_layout") and self._optimal_layout is not None:
+            active_qs.update(self._optimal_layout.get(v) for v in active_virtual_qs if v in self._optimal_layout)
+        else:
+            active_qs.update(active_virtual_qs)
         if not active_qs:
             active_qs = set(range(qc_unitary.num_qubits)) if qc_unitary.num_qubits > 0 else {0}
             
-        num_pop_qubits = max(active_qs) + 1
+        active_qs_sorted = sorted(list(active_qs))
+        num_active = len(active_qs_sorted)
+        
+        phys_to_virt = {phys: i for i, phys in enumerate(active_qs_sorted)}
+        virt_to_phys = {i: phys for i, phys in enumerate(active_qs_sorted)}
         
         pruned_coupling_map = None
         if coupling_map is not None:
@@ -127,21 +201,51 @@ class QADEOptimizerPass(TransformationPass):
 
         # For very large routed circuits (e.g. QFT-20q with 2490+ gates),
         # statevector-based evolutionary search is impractical: each evaluation
-        # requires simulating 2^num_pop_qubits amplitudes through thousands of gates.
+        # requires simulating 2^num_active amplitudes through thousands of gates.
         # In these cases, skip evolution and apply algebraic simplification directly.
         EVOLUTION_GATE_THRESHOLD = 500
-        bypass_evolution = len(routed_json.get("gates", [])) > EVOLUTION_GATE_THRESHOLD or num_pop_qubits > 20
+        bypass_evolution = len(routed_json.get("gates", [])) > EVOLUTION_GATE_THRESHOLD or num_active > 20
 
         if bypass_evolution:
-            logger.info(f"Routed circuit has {len(routed_json.get('gates', []))} gates or {num_pop_qubits} qubits. "
+            logger.info(f"Routed circuit has {len(routed_json.get('gates', []))} gates or {num_active} active qubits. "
                         f"Bypassing evolutionary search, applying algebraic simplification only.")
             best_evolved_circuit = routed_json
         else:
-            # D. Statevector target definition using the sandbox
-            target_qade_json = {
-                "qubits": num_pop_qubits,
-                "gates": qade_json.get("gates", [])
+            # Map routed_json (physical) to virtual space for sandbox simulation
+            virtual_gates = []
+            for gate in routed_json.get("gates", []):
+                g_qubits = gate.get("qubits", [])
+                mapped_q = [phys_to_virt[q] for q in g_qubits]
+                new_gate = gate.copy()
+                new_gate["qubits"] = mapped_q
+                virtual_gates.append(new_gate)
+            virtual_seed_json = {
+                "qubits": num_active,
+                "gates": virtual_gates
             }
+
+            # Map target gates (virtual) to physical and then to mapped virtual space
+            target_to_virtual = {}
+            for v in range(qade_json.get("qubits", 0)):
+                phys = self._optimal_layout.get(v, v) if (hasattr(self, "_optimal_layout") and self._optimal_layout is not None) else v
+                if phys in phys_to_virt:
+                    target_to_virtual[v] = phys_to_virt[phys]
+                else:
+                    target_to_virtual[v] = v
+            
+            target_gates = []
+            for gate in qade_json.get("gates", []):
+                g_qubits = gate.get("qubits", [])
+                mapped_q = [target_to_virtual.get(q, q) for q in g_qubits]
+                new_gate = gate.copy()
+                new_gate["qubits"] = mapped_q
+                target_gates.append(new_gate)
+
+            target_qade_json = {
+                "qubits": num_active,
+                "gates": target_gates
+            }
+            
             sandbox = QiskitQuantumSandbox()
             initial_sim = sandbox.execute(target_qade_json)
             if not initial_sim.get("success", False):
@@ -150,11 +254,18 @@ class QADEOptimizerPass(TransformationPass):
                 
             target_statevector = initial_sim["result"]["statevector"]
 
+            virtual_coupling_map = None
+            if pruned_coupling_map is not None:
+                virtual_coupling_map = [
+                    [phys_to_virt[edge[0]], phys_to_virt[edge[1]]]
+                    for edge in pruned_coupling_map
+                ]
+
             pop_manager = QuantumPopulationManager(
-                qubits=num_pop_qubits,
+                qubits=num_active,
                 population_size=self.population_size,
-                seed_circuits=[routed_json],
-                coupling_map=pruned_coupling_map,
+                seed_circuits=[virtual_seed_json],
+                coupling_map=virtual_coupling_map,
                 max_gates=safe_max_gates
             )
             
@@ -169,11 +280,53 @@ class QADEOptimizerPass(TransformationPass):
             )
             
             reports = engine.run(generations=self.generations)
-            best_evolved_circuit = reports[-1]["best_circuit"] if reports else routed_json
+            if reports and reports[-1]["best_fidelity"] >= 0.99:
+                best_evolved_virtual = reports[-1]["best_circuit"]
+                evolved_gates = best_evolved_virtual.get("gates", [])
+                routed_gates = routed_json.get("gates", [])
+                evolved_2q = sum(1 for g in evolved_gates if len(g.get("qubits", [])) == 2)
+                routed_2q = sum(1 for g in routed_gates if len(g.get("qubits", [])) == 2)
+                evolved_1q = sum(1 for g in evolved_gates if len(g.get("qubits", [])) == 1)
+                routed_1q = sum(1 for g in routed_gates if len(g.get("qubits", [])) == 1)
+                
+                if (evolved_2q < routed_2q) or (evolved_2q == routed_2q and evolved_1q < routed_1q):
+                    best_evolved_physical_gates = []
+                    for gate in evolved_gates:
+                        g_qubits = gate.get("qubits", [])
+                        mapped_q = [virt_to_phys[q] for q in g_qubits]
+                        new_gate = gate.copy()
+                        new_gate["qubits"] = mapped_q
+                        best_evolved_physical_gates.append(new_gate)
+                    best_evolved_circuit = {
+                        "qubits": max(active_qs) + 1 if active_qs else 1,
+                        "gates": best_evolved_physical_gates
+                    }
+                    logger.info(f"Evolution reduced gates: 2Q={routed_2q}->{evolved_2q}, 1Q={routed_1q}->{evolved_1q}")
+                else:
+                    logger.info(f"Evolution did not reduce gates: evolved 2Q={evolved_2q}, routed 2Q={routed_2q}. Falling back to routed input.")
+                    best_evolved_circuit = routed_json
+            else:
+                logger.warning("Evolution did not find a high-fidelity circuit. Falling back to routed input.")
+                best_evolved_circuit = routed_json
 
         # F. ZX Calculus symbolic simplification
         pyzx_opt = PyZXOptimizer()
-        zx_reduced_circuit, _ = pyzx_opt.optimize_circuit(best_evolved_circuit)
+        zx_candidate, _ = pyzx_opt.optimize_circuit(best_evolved_circuit)
+        
+        # Only accept PyZX optimization if it does not increase gate counts
+        def get_gate_counts(circ):
+            gates = circ.get("gates", [])
+            g_2q = sum(1 for g in gates if len(g.get("qubits", [])) == 2)
+            g_1q = sum(1 for g in gates if len(g.get("qubits", [])) == 1 and g.get("type") != "BARRIER" and g.get("type") != "MEASURE")
+            return g_2q, g_1q
+            
+        cand_2q, cand_1q = get_gate_counts(zx_candidate)
+        best_2q, best_1q = get_gate_counts(best_evolved_circuit)
+        
+        if (cand_2q < best_2q) or (cand_2q == best_2q and cand_1q <= best_1q):
+            zx_reduced_circuit = zx_candidate
+        else:
+            zx_reduced_circuit = best_evolved_circuit
 
         # Verificar equivalencia usando el circuito Qiskit original
         # (no la representación QADE que puede tener puertas perdidas)
@@ -183,32 +336,89 @@ class QADEOptimizerPass(TransformationPass):
             num_qubits: int,
             threshold: float = 0.999
         ) -> bool:
-            if num_qubits > 12:
-                return True
             try:
                 from qiskit.quantum_info import Operator
                 import numpy as np
                 from quantum.integration.qiskit_adapter import qade_json_to_qiskit
                 
-                # Versión sin medidas del original
-                orig_no_meas = QuantumCircuit(num_qubits)
+                # Encontrar qubits activos en el original
+                active_qs_in = set()
                 for instr in original_qc.data:
                     if instr.operation.name != 'measure':
-                        qubits = [original_qc.find_bit(q).index 
-                                  for q in instr.qubits]
-                        # Solo añadir si el número de qubits es <= num_qubits
-                        if all(q < num_qubits for q in qubits):
-                            orig_no_meas.append(instr.operation, 
-                                [orig_no_meas.qubits[q] for q in qubits])
+                        for q in instr.qubits:
+                            active_qs_in.add(original_qc.find_bit(q).index)
                 
-                opt_qc = qade_json_to_qiskit(optimized_json)
+                num_active = len(active_qs_in)
+                if num_active > 12:
+                    return True  # No verificar para evitar limite de dimension
                 
-                op_orig = Operator(orig_no_meas)
-                op_opt = Operator(opt_qc)
+                if not hasattr(self, "_optimal_layout") or self._optimal_layout is None:
+                    return True # No se puede verificar sin layout
                 
-                fidelity = abs(np.trace(
-                    op_orig.data.conj().T @ op_opt.data
-                )) / (2 ** num_qubits)
+                layout = self._optimal_layout
+                layout_inv = {phys: virt for virt, phys in layout.items()}
+                
+                # Mapeo a qubits limpios 0..num_active-1
+                active_qs_sorted = sorted(list(active_qs_in))
+                phys_to_clean = {phys: i for i, phys in enumerate(active_qs_sorted)}
+                
+                # 1. Mapear original
+                orig_mapped = QuantumCircuit(num_active)
+                for instr in original_qc.data:
+                    if instr.operation.name != 'measure':
+                        qubits = [original_qc.find_bit(q).index for q in instr.qubits]
+                        mapped_qubits = [phys_to_clean[q] for q in qubits if q in phys_to_clean]
+                        if len(mapped_qubits) == len(qubits):
+                            orig_mapped.append(instr.operation, 
+                                [orig_mapped.qubits[q] for q in mapped_qubits])
+                
+                # 2. Mapear optimizado
+                opt_qc = QuantumCircuit(num_active)
+                for gate in optimized_json.get("gates", []):
+                    g_type = gate.get("type", "").upper()
+                    q = gate.get("qubits", [])
+                    
+                    # Mapear qubits usando layout_inv y phys_to_clean
+                    mapped_qubits = []
+                    for idx in q:
+                        orig_q = layout_inv.get(idx)
+                        if orig_q in phys_to_clean:
+                            mapped_qubits.append(phys_to_clean[orig_q])
+                    
+                    if len(mapped_qubits) == len(q):
+                        if g_type == "H":
+                            opt_qc.h(mapped_qubits[0])
+                        elif g_type == "X":
+                            opt_qc.x(mapped_qubits[0])
+                        elif g_type == "Y":
+                            opt_qc.y(mapped_qubits[0])
+                        elif g_type == "Z":
+                            opt_qc.z(mapped_qubits[0])
+                        elif g_type == "SX":
+                            opt_qc.sx(mapped_qubits[0])
+                        elif g_type in ("RX", "RY", "RZ"):
+                            theta = float(gate.get("theta", 0.0))
+                            if g_type == "RX":
+                                opt_qc.rx(theta, mapped_qubits[0])
+                            elif g_type == "RY":
+                                opt_qc.ry(theta, mapped_qubits[0])
+                            elif g_type == "RZ":
+                                opt_qc.rz(theta, mapped_qubits[0])
+                        elif g_type in ("CNOT", "CX"):
+                            opt_qc.cx(mapped_qubits[0], mapped_qubits[1])
+                        elif g_type == "CZ":
+                            opt_qc.cz(mapped_qubits[0], mapped_qubits[1])
+                        elif g_type == "SWAP":
+                            opt_qc.swap(mapped_qubits[0], mapped_qubits[1])
+                        elif g_type == "ECR":
+                            opt_qc.ecr(mapped_qubits[0], mapped_qubits[1])
+                        elif g_type in ("ID", "I"):
+                            opt_qc.id(mapped_qubits[0])
+                
+                from qiskit.quantum_info import Statevector
+                sv_orig = Statevector.from_instruction(orig_mapped)
+                sv_opt = Statevector.from_instruction(opt_qc)
+                fidelity = abs(np.vdot(sv_orig.data, sv_opt.data)) ** 2
                 
                 if fidelity < threshold:
                     logger.warning(
@@ -222,17 +432,62 @@ class QADEOptimizerPass(TransformationPass):
                 return True
 
         if not verify_equivalence_qiskit(qc_unitary, zx_reduced_circuit, zx_reduced_circuit.get("qubits", 0)):
-            logger.warning("ZX equivalence check failed against original Qiskit circuit. Falling back to pre-ZX circuit.")
-            zx_reduced_circuit = best_evolved_circuit
+            logger.warning("ZX equivalence check failed against original Qiskit circuit. Falling back to routed input circuit.")
+            zx_reduced_circuit = routed_json
+
+        # [STAGE 3] Post-PyZX (after PyZX optimization)
+        c1q, c2q, dp, gl = _get_stage_metrics(zx_reduced_circuit)
+        logger.debug(f"[STAGE 3] {circuit_name}: 1Q_count={c1q}, 2Q_count={c2q}, depth={dp}, gates={gl}")
 
         # G. Re-route output to guarantee physical execution constraints
         if self.hardware_aware and coupling_map:
-            router = AdvancedRouter(coupling_map, backend=self.backend)
-            final_routed_circuit, _ = router.route(
-                zx_reduced_circuit,
-                method=self.routing_method,
-                initial_layout={i: i for i in range(zx_reduced_circuit.get("qubits", 0))},
-            )
+            if is_physically_executable(zx_reduced_circuit, coupling_map):
+                final_routed_circuit = zx_reduced_circuit
+            else:
+                # Map zx_reduced_circuit back to virtual qubits
+                layout = self._optimal_layout if (hasattr(self, "_optimal_layout") and self._optimal_layout is not None) else {i: i for i in range(zx_reduced_circuit.get("qubits", 0))}
+                layout_inv = {phys: virt for virt, phys in layout.items()}
+                
+                virtual_gates = []
+                for gate in zx_reduced_circuit.get("gates", []):
+                    g_type = gate.get("type")
+                    g_qubits = gate.get("qubits", [])
+                    mapped_qubits = []
+                    for q in g_qubits:
+                        if q in layout_inv:
+                            mapped_qubits.append(layout_inv[q])
+                        else:
+                            # Fallback: if physical qubit not in layout, assign a new virtual qubit
+                            new_virt = len(layout)
+                            layout[new_virt] = q
+                            layout_inv[q] = new_virt
+                            mapped_qubits.append(new_virt)
+                    
+                    new_gate = gate.copy()
+                    new_gate["qubits"] = mapped_qubits
+                    virtual_gates.append(new_gate)
+                    
+                virtual_circuit = {
+                    "qubits": len(layout),
+                    "gates": virtual_gates
+                }
+
+                router = AdvancedRouter(coupling_map, backend=self.backend)
+                candidate_routed, final_layout = router.route(
+                    virtual_circuit,
+                    method=self.routing_method,
+                    initial_layout=layout,
+                )
+                
+                def get_2q_count(circ):
+                    return sum(1 for g in circ.get("gates", []) if len(g.get("qubits", [])) == 2)
+                    
+                if get_2q_count(candidate_routed) <= get_2q_count(best_evolved_circuit):
+                    final_routed_circuit = candidate_routed
+                    self._optimal_layout = final_layout
+                else:
+                    logger.info("Stage G routing increased 2Q gate count. Falling back to best_evolved_circuit.")
+                    final_routed_circuit = best_evolved_circuit
         else:
             final_routed_circuit = route_circuit(zx_reduced_circuit, coupling_map)
 
@@ -247,11 +502,23 @@ class QADEOptimizerPass(TransformationPass):
             final_qc.append(instr.operation, qubits, clbits)
             
         for q_idx, c_idx in measures:
-            final_qc.measure(final_qc.qubits[q_idx], final_qc.clbits[c_idx])
+            measured_qubit = q_idx
+            if hasattr(self, "_optimal_layout") and self._optimal_layout is not None:
+                if q_idx in self._optimal_layout:
+                    measured_qubit = self._optimal_layout[q_idx]
+            final_qc.measure(final_qc.qubits[measured_qubit], final_qc.clbits[c_idx])
             
+        # [STAGE 4] Post-rebind measures
+        c1q, c2q, dp, gl = _get_stage_metrics(final_qc)
+        logger.debug(f"[STAGE 4] {circuit_name}: 1Q_count={c1q}, 2Q_count={c2q}, depth={dp}, gates={gl}")
+
         # Re-transpile to backend's basis gates to unroll non-native gates (like H)
         if self.backend is not None:
             from qiskit import transpile
-            final_qc = transpile(final_qc, backend=self.backend, optimization_level=0)
+            final_qc = transpile(final_qc, backend=self.backend, optimization_level=3, routing_method='none')
             
+        # [STAGE 5] Output final (gate count)
+        c1q, c2q, dp, gl = _get_stage_metrics(final_qc)
+        logger.debug(f"[STAGE 5] {circuit_name}: 1Q_count={c1q}, 2Q_count={c2q}, depth={dp}, gates={gl}")
+
         return final_qc

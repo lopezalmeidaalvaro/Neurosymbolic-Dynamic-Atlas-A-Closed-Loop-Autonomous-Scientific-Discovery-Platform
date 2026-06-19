@@ -1,0 +1,6 @@
+circuit_name,qiskit_1q_count,qade_1q_count,delta_1q,qiskit_2q_count,qade_2q_count,delta_2q,qiskit_total_depth,qade_total_depth,qiskit_fidelity,qade_fidelity
+GHZ_5q,23,23,0,4,4,0,16,13,0.869459,0.873274
+QFT_5q,106,162,56,28,38,10,79,112,0.689676,0.640321
+Quantum_Kernel_5q,51,47,-4,8,8,0,25,24,0.817043,0.817043
+Quantum_Kernel_8q,87,81,-6,14,14,0,34,32,0.728771,0.728771
+VQE_5q,35,34,-1,4,4,0,20,19,0.868452,0.868452

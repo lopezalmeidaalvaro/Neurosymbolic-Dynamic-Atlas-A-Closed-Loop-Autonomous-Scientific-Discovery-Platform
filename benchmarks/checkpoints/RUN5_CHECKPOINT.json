@@ -1,0 +1,17 @@
+{
+  "timestamp": "20260618_023242",
+  "backend": "ibm_fez",
+  "shots": 8192,
+  "jobs": {
+    "GHZ_5q_qiskit": "d8pklf6gbcrc73f26p60",
+    "GHZ_5q_qade": "d8pklfegbcrc73f26p70",
+    "Quantum_Kernel_5q_qiskit": "d8pklgugbcrc73f26p9g",
+    "Quantum_Kernel_5q_qade": "d8pklh6gbcrc73f26pa0",
+    "QFT_5q_qiskit": "d8pklj201fac73d1t1m0",
+    "QFT_5q_qade": "d8pkljegbcrc73f26peg",
+    "VQE_5q_qiskit": "d8pklkeab0ds73dp8qn0",
+    "VQE_5q_qade": "d8pklkmkodhs738215og",
+    "Quantum_Kernel_8q_qiskit": "d8pklma01fac73d1t1pg",
+    "Quantum_Kernel_8q_qade": "d8pklmi01fac73d1t1r0"
+  }
+}

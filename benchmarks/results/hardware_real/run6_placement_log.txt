@@ -1,0 +1,41 @@
+Circuit: GHZ_5q
+  - Selected Physical Qubits: [0, 1, 2, 3, 4]
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 32 gates | QADE = 32 gates (Delta = +0)
+  - Evolution Log:
+Evolution reduced gates: 2Q=4->4, 1Q=27->1
+
+------------------------------------------------------------
+Circuit: Quantum_Kernel_5q
+  - Selected Physical Qubits: [0, 1, 2, 3, 4]
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 64 gates | QADE = 62 gates (Delta = -2)
+  - Evolution Log:
+Evolution did not reduce gates: evolved 2Q=8, routed 2Q=8. Falling back to routed input.
+
+------------------------------------------------------------
+Circuit: QFT_5q
+  - Selected Physical Qubits: []
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 143 gates | QADE = 193 gates (Delta = +50)
+  - Evolution Log:
+Evolution reduced gates: 2Q=41->41, 1Q=165->164
+Stage G routing increased 2Q gate count. Falling back to best_evolved_circuit.
+
+------------------------------------------------------------
+Circuit: VQE_5q
+  - Selected Physical Qubits: [0, 1, 2, 3, 4]
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 44 gates | QADE = 43 gates (Delta = -1)
+  - Evolution Log:
+Evolution did not reduce gates: evolved 2Q=4, routed 2Q=4. Falling back to routed input.
+
+------------------------------------------------------------
+Circuit: Quantum_Kernel_8q
+  - Selected Physical Qubits: [0, 1, 2, 3, 4, 5, 6, 7]
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 109 gates | QADE = 104 gates (Delta = -5)
+  - Evolution Log:
+Evolution did not reduce gates: evolved 2Q=14, routed 2Q=14. Falling back to routed input.
+
+------------------------------------------------------------

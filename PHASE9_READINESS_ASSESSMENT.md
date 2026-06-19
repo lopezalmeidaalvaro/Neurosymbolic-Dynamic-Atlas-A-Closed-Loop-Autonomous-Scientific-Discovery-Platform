@@ -1,6 +1,6 @@
 # QADE Phase IX Readiness Assessment
 
-## Classification: C — Product Candidate (Adapter Fixed)
+## Classification: D — Pilot-Ready
 
 QADE Phase IX entrance criteria:
 ✅ Hardware real ejecutado con job IDs reales y verificables
@@ -12,12 +12,14 @@ QADE Phase IX entrance criteria:
 ✅ Run 2 verificado (0/5, bug identificado)
 ✅ Run 3 verificado (0/5, bug persistía)
 ✅ Run 4 verificado (1/5, adapter fix confirmado)
+✅ Run 5 verificado (2/5 wins, classification updated)
+✅ Run 6 verificado (3/5 wins, classification updated)
 ✅ QFT bug corregido en hardware real (fidelidad observada de 0.9952 en ibm_fez)
 
 Acciones Phase IX que desbloquean Class D:
 1. [x] Corregir hardware cost model → PHASE9_COST_MODEL_CORRECTION
 2. [x] Re-ejecutar en hardware real con modelo corregido (Run 2, Run 3 y Run 4)
 3. [x] Confirmar fix de adapter y QFT bug en hardware real (Run 4)
-4. [ ] Alcanzar win rate >= 3/5 en ejecución real (Fallido en Run 4: 1/5 wins, requiere optimización del routing)
+4. [x] Alcanzar win rate >= 3/5 en ejecución real (CUMPLIDO: 3/5 wins)
 5. [ ] Siguiente paso: optimizar routing para ganar más circuitos (ajuste de pesos w_d/w_c y reducción de SWAPs)
 

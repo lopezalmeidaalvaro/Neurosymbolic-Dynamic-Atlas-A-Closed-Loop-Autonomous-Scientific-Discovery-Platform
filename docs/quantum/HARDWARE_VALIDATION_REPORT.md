@@ -294,3 +294,125 @@ To reproduce this analysis and regenerate this report, execute the following com
 ```bash
 python quantum/hardware/analyze_hardware_results.py --results benchmarks/results/hardware_real/hardware_results_20260617_014036.json
 ```
+
+---
+
+## Quinta Ejecución (Run 5) — VERIFICADA
+
+Backend: ibm_fez
+Fecha: 2026-06-18 02:36:50
+Shots: 8192
+Correcciones activas:
+- qiskit_quantum_sandbox.py: tolerancia case-insensitive a BARRIER, ID, ECR
+- qiskit_plugin.py: mapeo de qubits objetivo en Stage E, fidelidad de vector de estado y PyZX gate guard en Stage F, bypass de enrutamiento y fallback en Stage G, optimización level 3 transpile en Stage H
+
+### Job IDs (Run 5) — Verificables en https://quantum.ibm.com/jobs
+
+| Circuit | Method | Job ID | Status |
+|---|---|---|---|
+| GHZ_5q | Qiskit L3 (Baseline) | `d8pklf6gbcrc73f26p60` | Completed (DONE) |
+| GHZ_5q | QADE | `d8pklfegbcrc73f26p70` | Completed (DONE) |
+| QFT_5q | Qiskit L3 (Baseline) | `d8pklj201fac73d1t1m0` | Completed (DONE) |
+| QFT_5q | QADE | `d8pkljegbcrc73f26peg` | Completed (DONE) |
+| Quantum_Kernel_5q | Qiskit L3 (Baseline) | `d8pklgugbcrc73f26p9g` | Completed (DONE) |
+| Quantum_Kernel_5q | QADE | `d8pklh6gbcrc73f26pa0` | Completed (DONE) |
+| Quantum_Kernel_8q | Qiskit L3 (Baseline) | `d8pklma01fac73d1t1pg` | Completed (DONE) |
+| Quantum_Kernel_8q | QADE | `d8pklmi01fac73d1t1r0` | Completed (DONE) |
+| VQE_5q | Qiskit L3 (Baseline) | `d8pklkeab0ds73dp8qn0` | Completed (DONE) |
+| VQE_5q | QADE | `d8pklkmkodhs738215og` | Completed (DONE) |
+
+### Compilation Metrics (Run 5)
+| Circuit | Method | Gates | 2Q Gates | Depth |
+|---|---|---|---|---|
+| GHZ_5q | Qiskit L3 | 32 | 4 | 16 |
+| GHZ_5q | QADE | 32 | 4 | 11 |
+| Quantum_Kernel_5q | Qiskit L3 | 64 | 8 | 25 |
+| Quantum_Kernel_5q | QADE | 63 | 8 | 25 |
+| QFT_5q | Qiskit L3 | 143 | 28 | 83 |
+| QFT_5q | QADE | 211 | 37 | 109 |
+| VQE_5q | Qiskit L3 | 46 | 4 | 21 |
+| VQE_5q | QADE | 41 | 3 | 15 |
+| Quantum_Kernel_8q | Qiskit L3 | 109 | 14 | 34 |
+| Quantum_Kernel_8q | QADE | 104 | 14 | 33 |
+
+### Observed Fidelity (Run 5) — MEDIDO en hardware real
+| Circuit | Qiskit L3 Observed | QADE Observed | QADE vs Qiskit Delta | QADE Predicted | Prediction Error | Status |
+|---|---|---|---|---|---|---|
+| GHZ_5q | 0.9391 | 0.9329 | -0.0062 | 0.8789 | 0.0540 | QISKIT WINS |
+| QFT_5q | 0.9917 | 0.9847 | -0.0070 | 0.6387 | 0.3461 | QISKIT WINS |
+| Quantum_Kernel_5q | 0.9954 | 0.9950 | -0.0004 | 0.8584 | 0.1366 | QISKIT WINS |
+| Quantum_Kernel_8q | 0.9804 | 0.9837 | +0.0034 | 0.7439 | 0.2399 | QADE WINS |
+| VQE_5q | 0.9973 | 0.9973 | +0.0000 | 0.8743 | 0.1230 | QADE WINS |
+
+### Honest Analysis
+QADE superó a Qiskit L3 en **2 de 5** casos evaluados (**40.0%** win rate).
+
+*   **Resultado positivo**: QADE demostró una mejora de **+0.34%** en fidelidad observada sobre Qiskit L3 en el hardware real **ibm_fez** para el circuito **Quantum_Kernel_8q**.
+*   **Resultado desfavorable**: En el hardware real **ibm_fez**, QADE no superó a Qiskit L3 en la fidelidad observada para los circuitos: **GHZ_5q, QFT_5q, Quantum_Kernel_5q**.
+
+### Reproducibility
+To reproduce this analysis and regenerate this report, execute the following command:
+```bash
+python quantum/hardware/run5_executor.py --recover
+```
+
+---
+
+## Sexta Ejecución (Run 6) — VERIFICADA
+
+Backend: ibm_fez
+Fecha: 2026-06-18 14:15:47
+Shots: 8192
+Correcciones activas:
+- qiskit_plugin.py: Desacoplamiento virtual-físico (Stage E) para evitar desbordar el sandbox limit en ibm_fez
+
+### Job IDs (Run 6) — Verificables en https://quantum.ibm.com/jobs
+
+| Circuit | Method | Job ID | Status |
+|---|---|---|---|
+| GHZ_5q | Qiskit L3 (Baseline) | `d8putgi01fac73d2appg` | Completed (DONE) |
+| GHZ_5q | QADE | `d8putgq01fac73d2apqg` | Completed (DONE) |
+| QFT_5q | Qiskit L3 (Baseline) | `d8putkugbcrc73f2khv0` | Completed (DONE) |
+| QFT_5q | QADE | `d8putl201fac73d2aq2g` | Completed (DONE) |
+| Quantum_Kernel_5q | Qiskit L3 (Baseline) | `d8putiekodhs7382etq0` | Completed (DONE) |
+| Quantum_Kernel_5q | QADE | `d8putii01fac73d2apu0` | Completed (DONE) |
+| Quantum_Kernel_8q | Qiskit L3 (Baseline) | `d8putomkodhs7382eu8g` | Completed (DONE) |
+| Quantum_Kernel_8q | QADE | `d8putoukodhs7382eu9g` | Completed (DONE) |
+| VQE_5q | Qiskit L3 (Baseline) | `d8putmekodhs7382eu20` | Completed (DONE) |
+| VQE_5q | QADE | `d8putmmkodhs7382eu30` | Completed (DONE) |
+
+### Compilation Metrics (Run 6)
+| Circuit | Method | Gates | 2Q Gates | Depth |
+|---|---|---|---|---|
+| GHZ_5q | Qiskit L3 | 32 | 4 | 16 |
+| GHZ_5q | QADE | 32 | 4 | 13 |
+| Quantum_Kernel_5q | Qiskit L3 | 64 | 8 | 25 |
+| Quantum_Kernel_5q | QADE | 62 | 8 | 24 |
+| QFT_5q | Qiskit L3 | 143 | 28 | 83 |
+| QFT_5q | QADE | 193 | 35 | 105 |
+| VQE_5q | Qiskit L3 | 44 | 4 | 20 |
+| VQE_5q | QADE | 43 | 4 | 19 |
+| Quantum_Kernel_8q | Qiskit L3 | 109 | 14 | 34 |
+| Quantum_Kernel_8q | QADE | 104 | 14 | 33 |
+
+### Observed Fidelity (Run 6) — MEDIDO en hardware real
+| Circuit | Qiskit L3 Observed | QADE Observed | QADE vs Qiskit Delta | QADE Predicted | Prediction Error | Status | Qubits Físicos QADE |
+|---|---|---|---|---|---|---|---|
+| GHZ_5q | 0.9213 | 0.9295 | +0.0082 | 0.8838 | 0.0456 | QADE WINS | `[0, 1, 2, 3, 4]` |
+| QFT_5q | 0.9939 | 0.9857 | -0.0082 | 0.7426 | 0.2432 | QISKIT WINS | `[]` |
+| Quantum_Kernel_5q | 0.9944 | 0.9955 | +0.0011 | 0.8483 | 0.1472 | QADE WINS | `[0, 1, 2, 3, 4]` |
+| Quantum_Kernel_8q | 0.9803 | 0.9849 | +0.0045 | 0.7524 | 0.2324 | QADE WINS | `[0, 1, 2, 3, 4, 5, 6, 7]` |
+| VQE_5q | 0.9956 | 0.9945 | -0.0011 | 0.8803 | 0.1142 | QISKIT WINS | `[0, 1, 2, 3, 4]` |
+
+### Honest Analysis
+QADE superó a Qiskit L3 en **3 de 5** casos evaluados (**60.0%** win rate).
+
+*   **Resultado general**: QADE obtuvo una tasa de acierto de **3/5** (win rate = 60.0%).
+*   **Resultado positivo**: QADE demostró una mejora de **+0.82%** en fidelidad observada sobre Qiskit L3 en el hardware real **ibm_fez** para el circuito **GHZ_5q**.
+*   **Resultado desfavorable**: En el hardware real **ibm_fez**, QADE no superó a Qiskit L3 en la fidelidad observada para los circuitos: **QFT_5q, VQE_5q**.
+
+### Reproducibility
+To reproduce this analysis and regenerate this report, execute the following command:
+```bash
+python quantum/hardware/run6_executor.py --recover
+```

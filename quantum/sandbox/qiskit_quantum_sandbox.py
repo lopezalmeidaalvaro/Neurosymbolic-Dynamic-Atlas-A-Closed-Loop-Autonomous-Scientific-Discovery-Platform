@@ -66,7 +66,7 @@ class QiskitQuantumSandbox(BaseSandbox):
 
             # 2. Aplicar las puertas
             for idx, gate in enumerate(gates):
-                g_type = gate.get("type")
+                g_type = str(gate.get("type", "")).upper()
                 g_qubits = gate.get("qubits", [])
                 
                 # Validar índices de qubits
@@ -120,6 +120,14 @@ class QiskitQuantumSandbox(BaseSandbox):
                     if len(g_qubits) != 2:
                         return {"success": False, "error": f"Puerta SWAP requiere exactamente 2 qubits en la puerta {idx}."}
                     qc.swap(g_qubits[0], g_qubits[1])
+                elif g_type == "BARRIER":
+                    pass  # Ignore silently (does not affect statevector simulation)
+                elif g_type == "ID":
+                    pass  # Ignore silently (identity)
+                elif g_type == "ECR":
+                    if len(g_qubits) != 2:
+                        return {"success": False, "error": f"Puerta ECR requiere exactamente 2 qubits en la puerta {idx}."}
+                    qc.ecr(g_qubits[0], g_qubits[1])
                 else:
                     return {
                         "success": False, 
