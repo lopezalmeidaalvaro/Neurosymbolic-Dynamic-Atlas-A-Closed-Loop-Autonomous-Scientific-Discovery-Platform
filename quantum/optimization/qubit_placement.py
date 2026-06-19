@@ -152,7 +152,103 @@ class QubitPlacement:
             physical_scores.append((p, score))
         physical_scores.sort(key=lambda item: item[1], reverse=True)
 
-        quality_rank = {p: score for p, score in physical_scores}
+        qubit_scores = {p: score for p, score in physical_scores}
+
+        # Subgraph path-based search for small linear circuits (num_logical <= 8)
+        if self.num_logical <= 8:
+            interactions = self._build_interaction_graph(qade_json)
+            
+            # Helper to find logical chain structure
+            def find_logical_chain(num_logical: int, inters: Dict[int, Dict[int, float]]) -> Optional[List[int]]:
+                neighbors = {i: [] for i in range(num_logical)}
+                for u in range(num_logical):
+                    for v, weight in inters[u].items():
+                        if weight > 0:
+                            neighbors[u].append(v)
+                for i in range(num_logical):
+                    if len(neighbors[i]) > 2:
+                        return None
+                endpoints = [i for i in range(num_logical) if len(neighbors[i]) == 1]
+                isolated = [i for i in range(num_logical) if len(neighbors[i]) == 0]
+                if len(isolated) == num_logical:
+                    return list(range(num_logical))
+                if len(endpoints) != 2:
+                    if len(endpoints) == 0 and len(isolated) == 0:
+                        start = 0
+                    else:
+                        return None
+                else:
+                    start = endpoints[0]
+                chain = [start]
+                visited = {start}
+                current = start
+                while len(chain) < (num_logical - len(isolated)):
+                    next_nodes = [n for n in neighbors[current] if n not in visited]
+                    if not next_nodes:
+                        break
+                    next_node = next_nodes[0]
+                    chain.append(next_node)
+                    visited.add(next_node)
+                    current = next_node
+                for i in range(num_logical):
+                    if i not in visited:
+                        chain.append(i)
+                return chain
+
+            # Helper to find all physical paths of length N in coupling map
+            def find_all_physical_paths(adj: Dict[int, set], length: int, max_paths: int = 5000) -> List[List[int]]:
+                paths = []
+                def dfs(node, current_path):
+                    if len(paths) >= max_paths:
+                        return
+                    if len(current_path) == length:
+                        paths.append(list(current_path))
+                        return
+                    for neighbor in adj[node]:
+                        if neighbor not in current_path:
+                            current_path.append(neighbor)
+                            dfs(neighbor, current_path)
+                            current_path.pop()
+                for start_node in range(len(adj)):
+                    if len(paths) >= max_paths:
+                        break
+                    dfs(start_node, [start_node])
+                return paths
+
+            # Helper to calculate 2Q edge error
+            def get_edge_error(u: int, v: int) -> float:
+                if self.backend is None:
+                    return 0.01
+                two_q_errors = []
+                for gate_name in ("cx", "ecr", "cz"):
+                    try:
+                        err = get_gate_properties(self.backend, gate_name, (u, v))["error"]
+                        two_q_errors.append(err)
+                    except Exception:
+                        pass
+                return min(two_q_errors) if two_q_errors else 0.01
+
+            logical_chain = find_logical_chain(self.num_logical, interactions)
+            if logical_chain is not None:
+                physical_paths = find_all_physical_paths(self.adj, self.num_logical, max_paths=5000)
+                if physical_paths:
+                    best_path = None
+                    best_path_score = -float("inf")
+                    for path in physical_paths:
+                        q_score = sum(qubit_scores.get(p, 0.0) for p in path)
+                        path_gate_err = sum(get_edge_error(path[i], path[i+1]) for i in range(len(path) - 1))
+                        path_score = q_score - path_gate_err
+                        if path_score > best_path_score:
+                            best_path_score = path_score
+                            best_path = path
+                    
+                    if best_path is not None:
+                        layout = {}
+                        for i, logical in enumerate(logical_chain):
+                            layout[logical] = best_path[i]
+                        return layout
+
+        # Fallback to greedy algorithm if num_logical > 8, or not linear, or no physical paths found
         interactions = self._build_interaction_graph(qade_json)
         layout = {}
         placed_physical = set()

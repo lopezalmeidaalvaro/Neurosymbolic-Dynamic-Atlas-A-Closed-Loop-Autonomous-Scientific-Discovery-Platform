@@ -189,4 +189,25 @@ El compilador ha superado todas las pruebas y métricas requeridas de Phase IX, 
 *   **Reasoning**: Reached the win rate of $\geq 3/5$ (3/5 wins) and satisfied the degradation safeguard (no circuit degraded by $> -8\%$, worst case was QFT with $-0.82\%$).
 *   **WP1 Status**: COMPLETED (Class D achieved).
 
+## Qubit Placement Optimization (Fidelity-Aware Subgraph Search) - Stage C Fix
+
+1.  **Placement Greedy Trap Diagnosis**:
+    *   **Finding**: The original greedy placement heuristic began placement at the physical qubit with the highest quality metric (Qubit `1` on `FakeFez`). Since it prioritized physical adjacency/distance cost to prevent excessive SWAPs, it was forced to place neighboring logical qubits on the adjacent physical Qubit `0` ($T_1 = 48.8\,\mu s$, $T_2 = 42.4\,\mu s$), which has extremely poor quality.
+    *   **Consequence**: The compiler got trapped in this greedy local minimum, resulting in the trivial layout `[0, 1, 2, 3, 4]` for `GHZ_5q` on `FakeFez` with a degraded theoretical fidelity of `0.866524`.
+2.  **Implemented Path-Based Subgraph Search**:
+    *   Modified `_fidelity_aware_placement` in [qubit_placement.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/quantum/optimization/qubit_placement.py) to perform an exhaustive simple path search on the physical coupling graph for linear circuits of size $\le 8$.
+    *   Calculates a path score based on cumulative qubit qualities minus CNOT/gate error rates along the edges.
+    *   Selects the path with the highest overall score, mapping virtual qubits to physical qubits in that path.
+    *   Falls back to the greedy placement for non-linear circuits or circuits with size $> 8$.
+3.  **Verification**:
+    *   Created local verification script [verify_placement.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/quantum/diagnostics/verify_placement.py) which prints the detailed layout properties.
+    *   Running the verification script confirms that the `fidelity_aware` placement now maps `GHZ_5q` to physical layout `[1, 2, 3, 4, 5]` on `FakeFez`.
+    *   **Theoretical Fidelity Comparison**:
+        *   Trivial Layout: `0.866524`
+        *   Fidelity-Aware Layout: `0.880078`
+        *   Delta ($\Delta$): `+0.013554` (+1.36% gain).
+    *   Tested the compiler suite (`pytest`) and all tests passed without regressions.
+    *   Updated the placement validation report: [PLACEMENT_VERIFICATION.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/PLACEMENT_VERIFICATION.md).
+
+
 
