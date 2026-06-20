@@ -9,9 +9,9 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from mathematics.knowledge_base.library_manager import FormalKnowledgeBase
-from mlops.analytics.trajectory_analytics import TrajectoryAnalytics
-from mlops.analytics.dataset_analytics import DatasetAnalytics
-from mlops.analytics.report_generator import ReportGenerator
+from core.mlops.analytics.trajectory_analytics import TrajectoryAnalytics
+from core.mlops.analytics.dataset_analytics import DatasetAnalytics
+from core.mlops.analytics.report_generator import ReportGenerator
 
 
 @pytest.fixture

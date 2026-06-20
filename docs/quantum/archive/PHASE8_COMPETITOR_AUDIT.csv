@@ -1,6 +1,0 @@
-Competitor,Real_Execution,Real_Installation,Adapter_Used,Fallback_Behavior,Result_Is_Real,Confidence_Level,Notes
-Qiskit L3,YES,YES,YES,None,YES,HIGH,Uses real Qiskit transpile() at optimization_level=3 on GenericBackendV2.
-TKET,PARTIAL,YES,YES,Falls back to Qiskit L3 transpilation,PARTIAL,HIGH,Emulates TKET via Qiskit L3 transpilation if pytket is missing.
-BQSKit,PARTIAL,YES,YES,Falls back to Qiskit L3 transpilation if >5 qubits or unavailable,PARTIAL,HIGH,Hardcoded size limit (>5 qubits) triggers Qiskit L3 emulation.
-Cirq,NO,YES,YES,Returns untouched input circuit,NO,HIGH,No native Cirq optimization is executed; only format conversion and QADE routing.
-PyZX,PARTIAL,YES,YES,Falls back to QADE PyZXOptimizer algebraic cancels,PARTIAL,HIGH,Uses pyzx library if installed; otherwise runs QADE algebraic cancel pass.

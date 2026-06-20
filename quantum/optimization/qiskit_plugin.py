@@ -142,6 +142,7 @@ class QADEOptimizerPass(TransformationPass):
                 backend=self.backend,
             )
             initial_layout = placer.place(qade_json, method=self.placement_method)
+            self._placer = placer
             
             # [STAGE 1] Post-layout (after placement, before routing)
             c1q, c2q, dp, gl = _get_stage_metrics(qade_json)

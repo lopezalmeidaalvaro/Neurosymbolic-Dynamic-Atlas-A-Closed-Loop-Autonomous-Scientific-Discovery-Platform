@@ -1,3 +1,4 @@
+"""QADE — Quantum Algorithm Discovery Engine v0.1.0"""
 import sys
 
 try:

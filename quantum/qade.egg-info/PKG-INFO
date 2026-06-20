@@ -1,0 +1,128 @@
+Metadata-Version: 2.4
+Name: qade
+Version: 0.1.0
+Summary: Hardware-aware quantum compiler with fidelity-aware qubit placement
+Author: Alvaro Lopez Almeida
+License: Proprietary
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: qiskit>=1.0.0
+Requires-Dist: qiskit-ibm-runtime>=0.20.0
+Requires-Dist: pyzx>=0.7.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: scipy>=1.10.0
+Provides-Extra: qade
+Requires-Dist: qiskit>=1.0.0; extra == "qade"
+Requires-Dist: qiskit-ibm-runtime>=0.20.0; extra == "qade"
+Requires-Dist: pyzx>=0.7.0; extra == "qade"
+Requires-Dist: numpy>=1.24.0; extra == "qade"
+Requires-Dist: scipy>=1.10.0; extra == "qade"
+Provides-Extra: api
+Requires-Dist: fastapi>=0.110.0; extra == "api"
+Requires-Dist: uvicorn>=0.29.0; extra == "api"
+Requires-Dist: pydantic>=2.0.0; extra == "api"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+
+# QADE — Quantum Algorithm Discovery Engine v0.1.0
+
+QADE (Quantum Algorithm Discovery Engine) is a hardware-aware quantum compiler designed to automatically optimize quantum circuits. It integrates calibration-aware qubit placement (Stage C) and Sabre routing (Stage G) with evolutionary search and symbolic ZX-calculus reductions to maximize gate fidelity on real quantum processing units (QPUs).
+
+By targeting physical metrics like qubit coherence times ($T_1, T_2$), single-qubit errors, and two-qubit gate errors, QADE finds optimal subgraphs and routes gates to minimize two-qubit gate count and depth, leading to substantial gains in Hellinger fidelity compared to standard industry compilers.
+
+## Installation
+
+Extract the `qade` package and install it locally in editable mode:
+```bash
+pip install -e ".[qade]"
+```
+
+For development dependencies (like pytest) or running the REST API, use:
+```bash
+pip install -e ".[api,dev]"
+```
+
+## Quick Start
+
+You can import and run the `QADEOptimizerPass` as a standard Qiskit transpilation pass:
+
+```python
+from qiskit import QuantumCircuit, transpile
+from qiskit.transpiler import PassManager
+from quantum import QADEOptimizerPass
+from quantum.optimization.calibration_model import get_fake_backend
+
+# 1. Create your quantum circuit
+qc = QuantumCircuit(5)
+qc.h(0)
+for i in range(4):
+    qc.cx(i, i+1)
+qc.measure_all()
+
+# 2. Retrieve target backend configuration (e.g., FakeFez mock backend)
+backend = get_fake_backend("FakeFez")
+
+# 3. Transpile with Qiskit first (Level 1 unrolls gates to basis set)
+transpiled = transpile(qc, backend=backend, optimization_level=1)
+
+# 4. Apply QADE optimization pass
+qade_pass = QADEOptimizerPass(backend=backend, hardware_aware=True)
+pm = PassManager(qade_pass)
+optimized = pm.run(transpiled)
+
+print("Optimized circuit depth:", optimized.depth())
+```
+
+## CLI Usage
+
+QADE provides executable scripts defined as project entry points:
+
+### 1. Compile QASM (`qade compile`)
+Compile an OpenQASM 2.0 file for a specific backend:
+```bash
+qade compile path/to/circuit.qasm --backend ibm_fez --output compiled.qasm
+```
+
+### 2. Validate QASM (`qade validate`)
+Validate the syntax of an OpenQASM 2.0 file:
+```bash
+qade validate path/to/circuit.qasm
+```
+
+### 3. Local Benchmarks (`qade benchmark`)
+Run comparisons of standard Qiskit Level 3 vs QADE without needing active IBM credentials:
+```bash
+qade benchmark --backend fake_fez --circuits ghz,qft,kernel,vqe
+```
+
+### 4. Version (`qade --version`)
+Print version string:
+```bash
+qade --version
+```
+
+## Hardware Results (Run 6)
+
+QADE has been validated on real quantum hardware (`ibm_fez` QPU, 156 physical qubits). The results below compare Qiskit L3 against QADE (Run 6 baseline before Stage C placement optimization):
+
+| Circuit | Qiskit L3 Hellinger Fidelity | QADE Hellinger Fidelity | Delta | Winner |
+|---|---|---|---|---|
+| **GHZ_5q** | 0.9213 | 0.9295 | +0.82% | QADE |
+| **Quantum_Kernel_5q** | 0.9944 | 0.9955 | +0.11% | QADE |
+| **Quantum_Kernel_8q** | 0.9803 | 0.9849 | +0.45% | QADE |
+| **QFT_5q** | 0.9939 | 0.9857 | -0.82% | Qiskit |
+| **VQE_5q** | 0.9956 | 0.9945 | -0.11% | Qiskit |
+
+*Overall Win Rate:* **3/5 (60%)** on real quantum hardware.
+*(Note: Economic metrics, hardware costs, and licensing models mentioned in project context represent speculative simulation projections only and do not reflect real-world revenues).*
+
+## Known Limitations
+
+*   **QFT Gate Overhead**: On circuits with high density of CNOT gates (like QFT), routing constraints on heavy-hex QPUs (like `ibm_fez`) can introduce additional SWAP gates that standard transpilers may optimize better under certain conditions.
+*   **Prediction Error**: Coherence-aware estimation models are based on static calibration snapshots; real-world hardware undergoes drift that can alter fidelity outcomes over time.
+*   **Active Qubit Limit**: Statevector-based evolutionary search is bypassed when the circuit exceeds 20 active qubits to avoid exponential slowdowns.
+
+## License
+
+Proprietary. All rights reserved.

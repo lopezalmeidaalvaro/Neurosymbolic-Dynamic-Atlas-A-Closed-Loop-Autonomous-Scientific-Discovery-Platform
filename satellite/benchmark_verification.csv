@@ -1,5 +1,0 @@
-Benchmark,Reported_Value,Recalculated_Value,Relative_Error,Verified
-CAD Speedup (Vectorized),3120.00x,66.69x,97.86%,FALSE
-PINN Physics Loss MSE,0.000100,0.039413,38923.32%,FALSE
-TVAC NM RMSE (5 Steps),0.2240,0.3067,36.93%,FALSE
-MPC Solver WCET (ms),0.385 ms,0.385 ms,0.00%,TRUE

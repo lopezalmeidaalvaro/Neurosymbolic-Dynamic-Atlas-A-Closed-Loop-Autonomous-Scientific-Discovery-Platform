@@ -154,24 +154,47 @@ class QubitPlacement:
 
         qubit_scores = {p: score for p, score in physical_scores}
 
-        # Subgraph path-based search for small linear circuits (num_logical <= 8)
-        if self.num_logical <= 8:
-            interactions = self._build_interaction_graph(qade_json)
+        # Get active qubits
+        active_qs = set()
+        for gate in qade_json.get("gates", []):
+            if gate.get("type", "").upper() not in ("BARRIER", "MEASURE"):
+                active_qs.update(gate.get("qubits", []))
+        active_list = sorted(list(active_qs))
+        num_active = len(active_list) if active_list else self.num_logical
+
+        # Subgraph path-based search for small linear active circuits (num_active <= 8)
+        if num_active <= 8:
+            active_to_idx = {q: i for i, q in enumerate(active_list)}
+            idx_to_active = {i: q for i, q in enumerate(active_list)}
             
-            # Helper to find logical chain structure
-            def find_logical_chain(num_logical: int, inters: Dict[int, Dict[int, float]]) -> Optional[List[int]]:
-                neighbors = {i: [] for i in range(num_logical)}
-                for u in range(num_logical):
+            active_gates = []
+            for gate in qade_json.get("gates", []):
+                if gate.get("type", "").upper() not in ("BARRIER", "MEASURE"):
+                    g_qs = gate.get("qubits", [])
+                    if all(q in active_to_idx for q in g_qs):
+                        new_gate = gate.copy()
+                        new_gate["qubits"] = [active_to_idx[q] for q in g_qs]
+                        active_gates.append(new_gate)
+                        
+            active_qade_json = {
+                "qubits": num_active,
+                "gates": active_gates
+            }
+            
+            # Helper to find logical chain structure (using num_active)
+            def find_logical_chain(n_act: int, inters: Dict[int, Dict[int, float]]) -> Optional[List[int]]:
+                neighbors = {i: [] for i in range(n_act)}
+                for u in range(n_act):
                     for v, weight in inters[u].items():
                         if weight > 0:
                             neighbors[u].append(v)
-                for i in range(num_logical):
+                for i in range(n_act):
                     if len(neighbors[i]) > 2:
                         return None
-                endpoints = [i for i in range(num_logical) if len(neighbors[i]) == 1]
-                isolated = [i for i in range(num_logical) if len(neighbors[i]) == 0]
-                if len(isolated) == num_logical:
-                    return list(range(num_logical))
+                endpoints = [i for i in range(n_act) if len(neighbors[i]) == 1]
+                isolated = [i for i in range(n_act) if len(neighbors[i]) == 0]
+                if len(isolated) == n_act:
+                    return list(range(n_act))
                 if len(endpoints) != 2:
                     if len(endpoints) == 0 and len(isolated) == 0:
                         start = 0
@@ -182,7 +205,7 @@ class QubitPlacement:
                 chain = [start]
                 visited = {start}
                 current = start
-                while len(chain) < (num_logical - len(isolated)):
+                while len(chain) < (n_act - len(isolated)):
                     next_nodes = [n for n in neighbors[current] if n not in visited]
                     if not next_nodes:
                         break
@@ -190,47 +213,61 @@ class QubitPlacement:
                     chain.append(next_node)
                     visited.add(next_node)
                     current = next_node
-                for i in range(num_logical):
+                for i in range(n_act):
                     if i not in visited:
                         chain.append(i)
                 return chain
 
-            # Helper to find all physical paths of length N in coupling map
-            def find_all_physical_paths(adj: Dict[int, set], length: int, max_paths: int = 5000) -> List[List[int]]:
-                paths = []
-                def dfs(node, current_path):
-                    if len(paths) >= max_paths:
-                        return
-                    if len(current_path) == length:
-                        paths.append(list(current_path))
-                        return
-                    for neighbor in adj[node]:
-                        if neighbor not in current_path:
-                            current_path.append(neighbor)
-                            dfs(neighbor, current_path)
-                            current_path.pop()
-                for start_node in range(len(adj)):
-                    if len(paths) >= max_paths:
-                        break
-                    dfs(start_node, [start_node])
-                return paths
+            # Build interaction graph for active qubits
+            def build_active_interactions(json_data: Dict[str, Any], n_act: int) -> Dict[int, Dict[int, float]]:
+                inters = {i: {j: 0.0 for j in range(n_act)} for i in range(n_act)}
+                for gate in json_data.get("gates", []):
+                    q = gate.get("qubits", [])
+                    if len(q) == 2:
+                        q0, q1 = q[0], q[1]
+                        if q0 < n_act and q1 < n_act:
+                            inters[q0][q1] += 1.0
+                            inters[q1][q0] += 1.0
+                return inters
 
-            # Helper to calculate 2Q edge error
-            def get_edge_error(u: int, v: int) -> float:
-                if self.backend is None:
-                    return 0.01
-                two_q_errors = []
-                for gate_name in ("cx", "ecr", "cz"):
-                    try:
-                        err = get_gate_properties(self.backend, gate_name, (u, v))["error"]
-                        two_q_errors.append(err)
-                    except Exception:
-                        pass
-                return min(two_q_errors) if two_q_errors else 0.01
-
-            logical_chain = find_logical_chain(self.num_logical, interactions)
+            active_interactions = build_active_interactions(active_qade_json, num_active)
+            logical_chain = find_logical_chain(num_active, active_interactions)
+            
             if logical_chain is not None:
-                physical_paths = find_all_physical_paths(self.adj, self.num_logical, max_paths=5000)
+                # Helper to find all physical paths of length N in coupling map
+                def find_all_physical_paths(adj: Dict[int, set], length: int, max_paths: int = 5000) -> List[List[int]]:
+                    paths = []
+                    def dfs(node, current_path):
+                        if len(paths) >= max_paths:
+                            return
+                        if len(current_path) == length:
+                            paths.append(list(current_path))
+                            return
+                        for neighbor in adj[node]:
+                            if neighbor not in current_path:
+                                current_path.append(neighbor)
+                                dfs(neighbor, current_path)
+                                current_path.pop()
+                    for start_node in range(len(adj)):
+                        if len(paths) >= max_paths:
+                            break
+                        dfs(start_node, [start_node])
+                    return paths
+
+                # Helper to calculate 2Q edge error
+                def get_edge_error(u: int, v: int) -> float:
+                    if self.backend is None:
+                        return 0.01
+                    two_q_errors = []
+                    for gate_name in ("cx", "ecr", "cz"):
+                        try:
+                            err = get_gate_properties(self.backend, gate_name, (u, v))["error"]
+                            two_q_errors.append(err)
+                        except Exception:
+                            pass
+                    return min(two_q_errors) if two_q_errors else 0.01
+
+                physical_paths = find_all_physical_paths(self.adj, num_active, max_paths=5000)
                 if physical_paths:
                     best_path = None
                     best_path_score = -float("inf")
@@ -243,9 +280,29 @@ class QubitPlacement:
                             best_path = path
                     
                     if best_path is not None:
+                        # Compute trivial path score for logging
+                        trivial_path = list(range(min(num_active, self.num_physical)))
+                        trivial_q_score = sum(qubit_scores.get(p, 0.0) for p in trivial_path)
+                        trivial_gate_err = sum(get_edge_error(trivial_path[i], trivial_path[i+1]) for i in range(len(trivial_path) - 1))
+                        self.last_trivial_path_score = trivial_q_score - trivial_gate_err
+                        self.last_selected_path_score = best_path_score
+                        
                         layout = {}
-                        for i, logical in enumerate(logical_chain):
-                            layout[logical] = best_path[i]
+                        placed_physical = set()
+                        for i, logical_idx in enumerate(logical_chain):
+                            layout[idx_to_active[logical_idx]] = best_path[i]
+                            placed_physical.add(best_path[i])
+                            
+                        # Map remaining idle logical qubits to remaining physical qubits
+                        for logical in range(self.num_logical):
+                            if logical not in layout:
+                                for phys, _ in physical_scores:
+                                    if phys not in placed_physical:
+                                        layout[logical] = phys
+                                        placed_physical.add(phys)
+                                        break
+                                else:
+                                    layout[logical] = logical
                         return layout
 
         # Fallback to greedy algorithm if num_logical > 8, or not linear, or no physical paths found

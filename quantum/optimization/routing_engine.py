@@ -228,7 +228,7 @@ class AdvancedRouter:
                 for idx in front_layer:
                     gate = gates[idx]
                     q = gate.get("qubits", [])
-                    if len(q) == 1:
+                    if len(q) != 2:
                         to_execute.append(idx)
                     elif len(q) == 2:
                         p0 = v_to_p[q[0]]
@@ -402,7 +402,7 @@ class AdvancedRouter:
                 for idx in front_layer:
                     gate = gates[idx]
                     q = gate.get("qubits", [])
-                    if len(q) == 1:
+                    if len(q) != 2:
                         to_execute.append(idx)
                     elif len(q) == 2:
                         p0 = v_to_p[q[0]]
@@ -537,8 +537,11 @@ class AdvancedRouter:
         
         for gate in gates:
             q = gate.get("qubits", [])
-            if len(q) == 1:
-                routed_gates.append({"type": gate["type"], "qubits": [v_to_p[q[0]]]})
+            if len(q) != 2:
+                mapped_q = [v_to_p[qubit] for qubit in q]
+                new_gate = gate.copy()
+                new_gate["qubits"] = mapped_q
+                routed_gates.append(new_gate)
             elif len(q) == 2:
                 # Find path to bring v_to_p[q[0]] adjacent to v_to_p[q[1]]
                 p0 = v_to_p[q[0]]
@@ -607,8 +610,11 @@ class AdvancedRouter:
         
         for gate in gates:
             q = gate.get("qubits", [])
-            if len(q) == 1:
-                routed_gates.append({"type": gate["type"], "qubits": [v_to_p[q[0]]]})
+            if len(q) != 2:
+                mapped_q = [v_to_p[qubit] for qubit in q]
+                new_gate = gate.copy()
+                new_gate["qubits"] = mapped_q
+                routed_gates.append(new_gate)
             elif len(q) == 2:
                 p0 = v_to_p[q[0]]
                 p1 = v_to_p[q[1]]
@@ -746,7 +752,7 @@ class AdvancedRouter:
                 for idx in front_layer:
                     gate = gates[idx]
                     q = gate.get("qubits", [])
-                    if len(q) == 1:
+                    if len(q) != 2:
                         to_execute.append(idx)
                     elif len(q) == 2:
                         p0 = sim_v[q[0]]

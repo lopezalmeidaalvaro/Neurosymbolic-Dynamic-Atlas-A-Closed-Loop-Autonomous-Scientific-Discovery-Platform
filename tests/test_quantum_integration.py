@@ -7,7 +7,7 @@ import pytest
 # Add project root to sys.path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from app.bootstrap import bootstrap_application
+from core.bootstrap import bootstrap_application
 from quantum.adapters.formal_verifier import FormalVerificationAdapter
 from quantum.pipeline.phase_v_certification import QADEMotifCertifier
 from mathematics.engine import MathEngine

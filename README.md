@@ -1,182 +1,63 @@
 # IA-MATEMATICA
 
-IA-MATEMATICA is a multi-domain AI-for-science and deep-tech research portfolio. The repository combines quantum optimization, neurosymbolic physics, spacecraft thermal digital twins, mathematical formalization, scientific dashboards, and publication assets into one evolving technology ecosystem.
+IA-MATEMATICA is a multi-domain AI-for-science and deep-tech research portfolio. The repository combines quantum compiler optimization, neurosymbolic physics discovery, spacecraft thermal digital twins, mathematical formalization, scientific dashboards, and publication assets into one evolving technology ecosystem.
 
-The current repository is not a single-purpose QADE repository. QADE is one major product line inside the broader IA-MATEMATICA ecosystem.
+## Project Structure
 
-## Project Overview
+The repository is organized under strict domain boundaries to maximize isolation and prevent cross-pollution:
 
-The ecosystem develops software systems that discover, validate, optimize, and document scientific structure. Its main domains are:
+- **[`quantum/`](quantum/)**: Quantum Algorithm Discovery Engine (QADE), a hardware-aware quantum optimization platform that automatically places and routes quantum circuits to maximize physical gate fidelity.
+- **[`physics/`](physics/)**: Neurosymbolic scientific discovery pipelines, chaotic dynamics solvers, ECG transfer analytics, and autonomous research loop engines.
+- **[`satellite/`](satellite/)**: AST-OS digital twin and software-in-the-loop simulation stack for orbital thermal modeling.
+- **[`mathematics/`](mathematics/)**: Intermediate representations, theorem proving tactic engines (MCTS), and Lean 4 formal verification pipelines.
+- **[`core/`](core/)**: Shared domain-agnostic abstractions, orchestration containers, and helper scripts.
+- **[`dashboard/`](dashboard/)**: Next.js scientific observatory and UI layer.
+- **[`docs/`](docs/)**: Centralized cross-domain documentation, guidelines, and monorepo governance policies.
+- **[`papers/`](papers/)**: Scientific publications and supporting assets.
+- **[`tests/`](tests/)**: Root-level integration test suites.
 
-- **Quantum:** Quantum Algorithm Discovery Engine (QADE), a hardware-aware quantum optimization platform that can discover, validate, rank, store, reuse, and economically value optimization motifs.
-- **Physics:** Neurosymbolic scientific discovery pipelines for chaotic dynamics, ECG transfer analysis, quantum-gravity-inspired audits, autonomous research loops, and empirical validation.
-- **Satellite:** AST-OS, a spacecraft thermal digital twin and software-in-the-loop simulation stack for orbital thermal modeling, CAD thermal networks, HIL calibration, FDIR, and space protocol workflows. The current folder is named satellite/; the migration target is satellite/.
-- **Mathematics:** A lightweight domain for symbolic discovery, theorem proving, and future formal verification.
-- **Dashboard:** A Next.js observatory for scientific artifacts, telemetry, multilingual educational views, and experiment visualization.
-- **Papers:** Manuscripts, PDFs, LaTeX sources, and publication-supporting documentation.
+---
 
-## Ecosystem Architecture
+## Domain Overview and Quick Links
 
-```text
-ia-matematica-github/
-|-- dashboard/        # Next.js scientific observatory and UI
-|-- physics/          # Neurosymbolic physics and autonomous scientific discovery
-|-- quantum/          # QADE quantum optimization, motif IP, and benchmark platform
-|-- satellite/         # AST-OS spacecraft thermal digital twin; planned rename: satellite/
-|-- mathematics/      # Symbolic mathematics and formal verification roadmap
-|-- papers/           # Manuscripts and publication assets
-|-- docs/             # Cross-domain audits, phase reports, dossiers, and grant materials
-|-- benchmarks/       # Raw QADE benchmark outputs and compatibility runner
-|-- core/             # Shared abstractions, domain registry, orchestration, observability
-|-- tests/            # Root-level tests for shared infrastructure
-```
+### 1. Quantum / QADE
+- **Readme:** [quantum/README.md](quantum/README.md)
+- **Workflows:** Compile QASM circuits using hardware-aware placement (`qade compile`). Run benchmarks (`qade benchmark`).
+- **Dossiers:**
+  - [QADE Technical Dossier](quantum/docs/QADE_TECHNICAL_DOSSIER.md)
+  - [QADE Benchmark Dossier](quantum/docs/QADE_BENCHMARK_DOSSIER.md)
+  - [QADE Product Dossier](quantum/docs/QADE_PRODUCT_DOSSIER.md)
 
-## Current Status
+### 2. Physics Discovery
+- **Readme:** [physics/README.md](physics/README.md)
+- **Workflows:** Autonomous Scientist loop sweep (`python physics/run_autonomous_sweep.py`), ECG metrics extractor (`python physics/compute_ptbxl_metrics.py`).
+- **Dossiers:**
+  - [Quantum Gravity Dossier](physics/docs/QUANTUM_GRAVITY_DOSSIER.md)
+  - [Discovery Engine Dossier](physics/docs/DISCOVERY_ENGINE_DOSSIER.md)
+  - [Physics Validation Dossier](physics/docs/PHYSICS_VALIDATION_DOSSIER.md)
 
-| Domain | Status | Evidence |
-| --- | --- | --- |
-| Quantum / QADE | Active product-grade research platform | Hardware-aware optimization, competitive benchmarks, motif IP, economic valuation, platform moat reports |
-| Physics | Active research system | Neurosymbolic discovery, ECG/chaos validation, QG audit reports, autonomous scientist modules |
-| Satellite / AST-OS | Active engineering research system | Thermal solver, CAD voxelization, HIL, FDIR, verification baselines |
-| Dashboard | Active frontend | Next.js app, telemetry hooks, artifact visualization, Playwright tests |
-| Mathematics | Early roadmap | README and symbolic verification direction |
-| Papers | Supporting documentation | System, thermal, and QG manuscript folders |
+### 3. Satellite / AST-OS
+- **Readme:** [satellite/README.md](satellite/README.md)
+- **Workflows:** Mesh voxelization and conductor resistance network solver. Real-time HIL/SIL operations checks.
+- **Dossiers:**
+  - [ASTOS Technical Dossier](satellite/docs/ASTOS_TECHNICAL_DOSSIER.md)
+  - [ASTOS Validation Dossier](satellite/docs/ASTOS_VALIDATION_DOSSIER.md)
+  - [ASTOS Mission Dossier](satellite/docs/ASTOS_MISSION_DOSSIER.md)
 
-## Repository Structure
+### 4. Mathematics Formalization
+- **Readme:** [mathematics/README.md](mathematics/README.md)
+- **Workflows:** Translation of discovered equivalences to Lean 4, tree-search tactic solver, and proof verification.
+- **Dossiers:**
+  - [Formal Verification Dossier](mathematics/docs/FORMAL_VERIFICATION_DOSSIER.md)
+  - [Theorem Validation Dossier](mathematics/docs/THEOREM_VALIDATION_DOSSIER.md)
 
-The target professional structure is:
+---
 
-```text
-README.md
-.gitignore
-.github/
-.agent/
-dashboard/
-physics/
-mathematics/
-quantum/
-satellite/
-papers/
-docs/
-```
+## Centralized Governance
 
-The current repository still contains shared core/, root-level generated artifacts, and the misspelled satellite/ folder. These are documented in the migration plan rather than moved destructively.
-
-## Core Technologies
-
-Python, Qiskit, PyZX, optional TKET/BQSKit/Cirq integrations, NumPy, SciPy, pandas, scikit-learn, PyTorch, NetworkX, Next.js, React, TypeScript, Playwright, SQLite, CSV/JSON reproducibility artifacts, and LaTeX.
-
-## Research Areas
-
-Quantum compilation and circuit optimization; calibration-aware and coherence-aware routing; motif discovery and knowledge reuse; autonomous scientific discovery; chaotic dynamical systems; clinical ECG feature transfer; spacecraft thermal simulation; CAD-derived thermal networks; formal symbolic mathematics; scientific observability and reproducibility.
-
-## Commercial Vision
-
-IA-MATEMATICA is being organized as a deep-tech portfolio with multiple commercialization paths:
-
-- QADE as a quantum optimization knowledge platform and licensable motif database.
-- AST-OS as a spacecraft thermal digital-twin and software-in-the-loop validation stack.
-- Physics discovery modules as AI4Science research tooling and validation infrastructure.
-- Dashboard and documentation systems as enterprise-facing evidence and observability layers.
-
-## Long-Term Roadmap
-
-1. Isolate each domain as an independently installable project.
-2. Rename satellite/ to satellite/ through a controlled migration.
-3. Move generated artifacts into domain-local artifacts/, results/, and reports/ folders.
-4. Convert QADE benchmarks into a one-command reproducibility package.
-5. Add package metadata and dependency manifests per domain.
-6. Prepare grant, investor, and enterprise technical dossiers from the consolidated documentation.
-
-## Documentation Links
-
-- [Repository Audit](docs/REPOSITORY_AUDIT.md)
-- [Domain Dependency Report](docs/DOMAIN_DEPENDENCY_REPORT.md)
-- [Repository Migration Plan](docs/REPOSITORY_MIGRATION_PLAN.md)
-- [QADE Master Walkthrough](docs/QADE_MASTER_WALKTHROUGH.md)
-- [QADE Technical Dossier](docs/QADE_TECHNICAL_DOSSIER.md)
-- [QADE IP Asset Register](docs/QADE_IP_ASSET_REGISTER.md)
-- [QADE Documentation Index](docs/qade/README.md)
-- [QADE Extraction Progress Report](docs/QADE_EXTRACTION_PROGRESS_REPORT.md)
-- [QADE Standalone Readiness Report](docs/QADE_STANDALONE_READINESS_REPORT.md)
-- [QADE Extraction Certificate](docs/QADE_EXTRACTION_CERTIFICATE.md)
-- [Benchmark Restructure Report](docs/BENCHMARK_RESTRUCTURE_REPORT.md)
-- [Final Cleanup Validation Report](docs/FINAL_CLEANUP_VALIDATION_REPORT.md)
-- [Repository Final Status Report](docs/REPOSITORY_FINAL_STATUS_REPORT.md)
-- [Deep Tech Grant Readiness](docs/DEEPTECH_GRANT_READINESS.md)
-- [Document Consolidation Report](docs/DOCUMENT_CONSOLIDATION_REPORT.md)
-- [Files Safe To Delete](docs/FILES_SAFE_TO_DELETE.md)
-
-<!-- BENCHMARK_RESULTS_START -->
-
-## QADE Performance Summary
-
-QADE's competitive advantage is **hardware-aware qubit placement**:
-selecting the highest-quality physical qubits for each circuit
-to improve physical execution fidelity in specific workload families.
-
-*   **Benchmark Date:** 2026-06-11 00:08:04
-*   **Real Compilers Benchmarked:** Qiskit, TKET, BQSKit, Cirq, PyZX
-
-### Verified Results Table (Mean Compiles vs Baselines)
-
-| Rank | Compiler Workflow | Avg Depth | Avg Gates (diff vs Qiskit) | Avg Fidelity | Avg Time |
-| :--- | :--- | :---: | :---: | :---: | :---: |
-| #1 | **Cirq-native** | 7.0 | 12.4 (-83.5%) | 0.9262 | 1.0 ms |
-| #2 | **QADE** | 6.3 | 10.6 (-85.9%) | 0.9228 | 16.3 ms |
-| #3 | **BQSKit** | 7.0 | 12.4 (-83.5%) | 0.9185 | 73.9 ms |
-| #4 | **TKET** | 12.6 | 25.9 (-65.6%) | 0.8931 | 140.6 ms |
-| #5 | **Qiskit** | 28.3 | 75.3 (Baseline) | 0.8544 | 10.6 ms |
-| #6 | **QADE + PyZX** | 27.1 | 40.6 (-46.1%) | 0.7987 | 18.4 ms |
-| #7 | **QADE + Evolution + PyZX** | 31.9 | 47.0 (-37.6%) | 0.7628 | 81.8 ms |
-| #8 | **QADE + Knowledge Graph** | 33.7 | 47.3 (-37.2%) | 0.7508 | 2.8 ms |
-| #9 | **PyZX** | 42.3 | 56.4 (-25.0%) | 0.7237 | 3.1 ms |
-
-### Verified Results (all vs real Qiskit L3)
-
-| Phase | Result | Notes |
-|---|---|---|
-| Phase III | 28% physical fidelity win rate vs Qiskit L3 | 7/25 cases |
-| Phase III | 98.95% critical path duration reduction | vs QADE Phase II baseline only |
-| Phase IV | 100% win rate on Quantum Kernel | n=3 per backend, preliminary |
-| Phase IV | +53.1% estimated fidelity on Quantum Kernel | Simulated noise model |
-| Phase IV | 100% win rate on QFT | n=3 per backend, preliminary |
-| Phase V | 13 validated motifs | Mathematical equivalence verified |
-| Phase V | 84.6% motif transferability | Tested on 4 circuit families |
-
-### Important: How QADE wins
-
-QADE typically uses MORE gates than competing compilers.
-It wins on fidelity by placing logical qubits on the 
-highest-quality physical qubits available on the target backend.
-
-This is fidelity-aware placement, not gate count reduction.
-
-### Compiler Comparison Methodology
-
-Benchmarks run only with genuinely installed compilers.
-Compilers not installed in the test environment are excluded,
-not emulated. See [BENCHMARK_DISCLOSURE.md](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/quantum/BENCHMARK_DISCLOSURE.md) for full details.
-
-<!-- BENCHMARK_RESULTS_END -->
-
-## Usage
-
-```bash
-pip install -r requirements.txt
-pip install -r requirements-dev.txt
-python -m quantum.benchmarks.run_all
-# Compatibility shims remain available:
-# python run_all_benchmarks.py
-# python benchmarks/run_all_benchmarks.py
-pytest quantum/tests/test_hardware_aware_optimization.py quantum/tests/test_qiskit_plugin.py -q
-cd dashboard && npm install && npm run dev
-```
-
-## License
-
-See [LICENSE](LICENSE). The current repository declares proprietary and confidential rights for Alvaro Lopez Almeida unless a separate written permission or license applies.
-
-## Contributing
-
-Treat each domain as an independent subsystem. Avoid cross-domain imports unless they pass through an explicit interface. Generated artifacts should be reproducible, documented, and placed in domain-local reports/results folders.
+To maintain monorepo clean-root governance, refer to:
+- [Repository Architecture](docs/ARCHITECTURE.md)
+- [Monorepo Overview](docs/MONOREPO_OVERVIEW.md)
+- [Root Governance Policy](docs/ROOT_GOVERNANCE.md)
+- [Development Guide](docs/DEVELOPMENT_GUIDE.md)
+- [Contributing Guidelines](docs/CONTRIBUTING.md)

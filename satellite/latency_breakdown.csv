@@ -1,4 +1,0 @@
-endpoint,internal_ms,network_ms,total_ms
-/simulate,0.1073,638.5463,638.6536
-/thermal/predict,0.0024,751.4316,751.4340
-/fault-detect,0.0018,841.9560,841.9578

@@ -1,0 +1,5 @@
+[console_scripts]
+qade = quantum.cli:main
+qade-benchmark = quantum.cli:benchmark_command
+qade-compile = quantum.cli:compile_command
+qade-validate = quantum.cli:validate_command

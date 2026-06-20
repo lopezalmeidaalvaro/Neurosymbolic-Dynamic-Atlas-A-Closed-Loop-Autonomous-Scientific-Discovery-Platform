@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QADE — Calculador de ROI de Piloto para CTOs</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            color: #60a5fa;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .input-with-value {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        input[type="number"], select {
+            width: 100%;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="number"]:focus, select:focus {
+            border-color: var(--accent-color);
+        }
+
+        .input-short {
+            width: 80px !important;
+            text-align: center;
+            padding: 0.5rem !important;
+        }
+
+        .scenarios {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-scenario {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.75rem 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .btn-scenario:hover {
+            border-color: var(--accent-color);
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        .btn-active {
+            border-color: var(--accent-color);
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-active:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .results-list {
+            list-style: none;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+            padding-top: 1rem;
+        }
+
+        .result-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .result-val {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .val-highlight {
+            color: var(--success-color);
+            font-size: 1.4rem;
+        }
+
+        .val-info {
+            color: #60a5fa;
+        }
+
+        .disclaimer {
+            margin-top: 2rem;
+            background-color: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .disclaimer strong {
+            color: var(--warning-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculador de ROI Operacional — QADE</h1>
+            <p>Mide el ahorro mensual directo en tiempo de QPU de IBM Quantum basado en la mejora de fidelidad de QADE.</p>
+        </header>
+
+        <div class="grid">
+            <!-- panel de control -->
+            <div class="card">
+                <div class="card-title">Configuración del Trabajo</div>
+                
+                <div class="form-group">
+                    <label>Escenario Preconfigurado</label>
+                    <div class="scenarios">
+                        <button class="btn-scenario" id="btn-a" onclick="loadScenario('A')">A: Académico</button>
+                        <button class="btn-scenario" id="btn-b" onclick="loadScenario('B')">B: Fintech</button>
+                        <button class="btn-scenario" id="btn-c" onclick="loadScenario('C')">C: Pharma</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobs">Trabajos (Jobs) por Mes</label>
+                    <div class="input-with-value">
+                        <input type="range" id="jobs" min="10" max="10000" step="10" value="500" oninput="updateFromSlider()">
+                        <input type="number" id="jobs-val" class="input-short" min="10" max="10000" value="500" oninput="updateFromNum()">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="circuit">Circuito Dominante</label>
+                    <select id="circuit" onchange="calculate()">
+                        <option value="0.0082">GHZ 5q (+0.82% fidelidad de Hellinger)</option>
+                        <option value="0.0045" selected>Quantum Kernel 8q (+0.45% fidelidad de Hellinger)</option>
+                        <option value="0.0011">Quantum Kernel 5q (+0.11% fidelidad de Hellinger)</option>
+                        <option value="0.0000">Mix Promedio (+0.25% fidelidad de Hellinger)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Precio por Segundo de QPU ($) (*)</label>
+                    <input type="number" id="price" step="0.10" value="1.60" oninput="calculate()">
+                </div>
+
+                <div class="form-group">
+                    <label for="seconds">Segundos promedio de QPU por Job</label>
+                    <input type="number" id="seconds" step="1" value="30" oninput="calculate()">
+                </div>
+
+                <div class="form-group">
+                    <label for="shots">Shots Base por Job</label>
+                    <input type="number" id="shots" step="100" value="8192" oninput="calculate()">
+                </div>
+            </div>
+
+            <!-- resultados -->
+            <div class="card">
+                <div class="card-title">Retorno de Inversión Estimado</div>
+                <ul class="results-list">
+                    <li class="result-item">
+                        <span class="result-label">Mejora de Fidelidad Aplicada</span>
+                        <span class="result-val val-info" id="res-fidelity">+0.45%</span>
+                    </li>
+                    <li class="result-item">
+                        <span class="result-label">Shots Ahorrados por Job</span>
+                        <span class="result-val" id="res-shots-job">37</span>
+                    </li>
+                    <li class="result-item">
+                        <span class="result-label">Shots Ahorrados por Mes</span>
+                        <span class="result-val" id="res-shots-month">18,500</span>
+                    </li>
+                    <li class="result-item">
+                        <span class="result-label">Segundos de QPU Ahorrados/mes</span>
+                        <span class="result-val" id="res-seconds-month">1.35s</span>
+                    </li>
+                    <li class="result-item">
+                        <span class="result-label">Coste Mensual sin QADE</span>
+                        <span class="result-val" id="res-cost-without">$240.00</span>
+                    </li>
+                    <li class="result-item">
+                        <span class="result-label">Equivalente en Jobs Gratis/mes</span>
+                        <span class="result-val" id="res-jobs-free">2.2 jobs</span>
+                    </li>
+                    <li class="result-item" style="border-top: 1px solid var(--border-color); margin-top: 1rem; padding-top: 1.5rem;">
+                        <span class="result-label" style="font-weight: 700;">Ahorro Mensual Estimado</span>
+                        <span class="result-val val-highlight" id="res-save-month">$1.08</span>
+                    </li>
+                    <li class="result-item">
+                        <span class="result-label" style="font-weight: 700;">Ahorro Anual Estimado</span>
+                        <span class="result-val val-highlight" id="res-save-year">$12.96</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <strong>Estimaciones de modelo financiero:</strong> Todos los cálculos corresponden a un modelo financiero especulativo basado en tarifas públicas de IBM Cloud Pay-As-You-Go ($1.60/segundo, Junio 2026) y mejoras de fidelidad de Hellinger medidas en el Run 6 sobre hardware real (QPU <em>ibm_fez</em>). El ahorro real dependerá de la complejidad de los circuitos, la carga de trabajo y el nivel de error del hardware. <strong>QADE no dispone de contratos comerciales ni ingresos reales.</strong>
+        </div>
+    </div>
+
+    <script>
+        function loadScenario(type) {
+            // Remove active class from all scenario buttons
+            document.querySelectorAll('.btn-scenario').forEach(btn => btn.classList.remove('btn-active'));
+            
+            const jobsSlider = document.getElementById('jobs');
+            const jobsVal = document.getElementById('jobs-val');
+            const circuit = document.getElementById('circuit');
+            const seconds = document.getElementById('seconds');
+            const shots = document.getElementById('shots');
+
+            if (type === 'A') {
+                document.getElementById('btn-a').classList.add('btn-active');
+                jobsSlider.value = 50;
+                jobsVal.value = 50;
+                circuit.value = "0.0082"; // GHZ
+                seconds.value = 30;
+                shots.value = 8192;
+            } else if (type === 'B') {
+                document.getElementById('btn-b').classList.add('btn-active');
+                jobsSlider.value = 500;
+                jobsVal.value = 500;
+                circuit.value = "0.0045"; // Kernel 8q
+                seconds.value = 30;
+                shots.value = 8192;
+            } else if (type === 'C') {
+                document.getElementById('btn-c').classList.add('btn-active');
+                jobsSlider.value = 5000;
+                jobsVal.value = 5000;
+                circuit.value = "0.0000"; // Mix (average) -> we override calculation below
+                seconds.value = 30;
+                shots.value = 8192;
+            }
+            calculate();
+        }
+
+        function updateFromSlider() {
+            document.getElementById('jobs-val').value = document.getElementById('jobs').value;
+            // Clear scenario active states since user is customizing
+            document.querySelectorAll('.btn-scenario').forEach(btn => btn.classList.remove('btn-active'));
+            calculate();
+        }
+
+        function updateFromNum() {
+            document.getElementById('jobs').value = document.getElementById('jobs-val').value;
+            document.querySelectorAll('.btn-scenario').forEach(btn => btn.classList.remove('btn-active'));
+            calculate();
+        }
+
+        function calculate() {
+            const jobs = parseInt(document.getElementById('jobs').value) || 0;
+            let fidelityVal = parseFloat(document.getElementById('circuit').value);
+            
+            // Mix/Average scenario override
+            if (document.getElementById('circuit').value === "0.0000") {
+                fidelityVal = 0.0046; // Average of GHZ (+0.82%) and Kernel_8q (+0.45%) and Kernel_5q (+0.11%) -> ~0.46%
+            }
+            
+            const price = parseFloat(document.getElementById('price').value) || 0;
+            const seconds = parseFloat(document.getElementById('seconds').value) || 0;
+            const shots = parseInt(document.getElementById('shots').value) || 0;
+
+            // Formats
+            document.getElementById('res-fidelity').innerText = "+" + (fidelityVal * 100).toFixed(2) + "%";
+
+            // Shots savings math
+            // shots_needed = shots_base / (1 + fidelity_improvement)
+            const shotsNeeded = shots / (1 + fidelityVal);
+            const shotsSavedJob = Math.round(shots - shotsNeeded);
+            const totalShotsSavedMonth = shotsSavedJob * jobs;
+            
+            document.getElementById('res-shots-job').innerText = shotsSavedJob.toLocaleString();
+            document.getElementById('res-shots-month').innerText = totalShotsSavedMonth.toLocaleString();
+
+            // QPU seconds saved per month
+            const secondsSavedMonth = (shotsSavedJob / shots) * seconds * jobs;
+            document.getElementById('res-seconds-month').innerText = secondsSavedMonth.toFixed(2) + "s";
+
+            // Costs
+            const totalCostWithout = jobs * seconds * price;
+            const monthlySavings = secondsSavedMonth * price;
+            const yearlySavings = monthlySavings * 12;
+            const jobsFree = monthlySavings / (seconds * price);
+
+            document.getElementById('res-cost-without').innerText = "$" + totalCostWithout.toFixed(2);
+            document.getElementById('res-jobs-free').innerText = jobsFree.toFixed(1) + " jobs";
+            document.getElementById('res-save-month').innerText = "$" + monthlySavings.toFixed(2);
+            document.getElementById('res-save-year').innerText = "$" + yearlySavings.toFixed(2);
+        }
+
+        // Load scenario B on default start
+        loadScenario('B');
+    </script>
+</body>
+</html>

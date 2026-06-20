@@ -9,10 +9,10 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from mathematics import MathEngine, DPODatasetGenerator, QuantumEquivalenceIR
-from mlops.self_play.generators import SyntheticQuantumMotifGenerator
-from mlops.self_play.worker import SelfPlayWorker
-from mlops.pipeline.dpo_orchestrator import DPOPipelineOrchestrator
-from mlops.bootstrap import bootstrap_mlops, run_training_cycle
+from core.mlops.self_play.generators import SyntheticQuantumMotifGenerator
+from core.mlops.self_play.worker import SelfPlayWorker
+from core.mlops.pipeline.dpo_orchestrator import DPOPipelineOrchestrator
+from core.mlops.bootstrap import bootstrap_mlops, run_training_cycle
 
 
 def test_synthetic_motif_generator():

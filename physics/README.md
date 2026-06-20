@@ -1,55 +1,37 @@
 # Physics Domain
 
-## Purpose
-
-The physics domain contains IA-MATEMATICA neurosymbolic AI-for-science research: chaotic dynamics, ECG transfer analysis, quantum-gravity-inspired audits, autonomous scientific discovery, empirical validation, scientific memory, and reproducibility tooling.
-
-## Architecture
-
-```text
-physics/
-|-- core/
-|-- agents/
-|-- artifacts/
-|-- data/
-|-- models/
-|-- tests/
-```
+This domain contains IA-MATEMATICA's neurosymbolic AI-for-science research. It focuses on chaotic dynamics reconstruction, ECG transfer analysis, quantum-gravity-inspired thermodynamic audits, and autonomous scientific discovery loops.
 
 ## Folder Structure
 
-Source code and durable documentation should remain separate from generated artifacts, caches, and transient experiment outputs. Domain-specific generated evidence should be placed in domain-local artifacts, results, or reports folders.
+- **`core/`**: Main engines, including `autonomous_scientific_cycle.py`, causal estimators, and report managers.
+- **`agents/`**: LLM-agent implementations for autonomous hypothesis generation.
+- **`artifacts/`**: Discovered laws, trajectory CSVs, and model check-points.
+- **`databases/`**: Relational knowledge databases (`scientific_kb.db`, `reality_native.db`, `theory_memory.db`).
+- **`docs/`**: Domain documentation dossiers.
+- **`tests/`**: Unit and integration test suites.
 
-## Usage
+## Workflows
 
-```bash
-# QADE
-python run_all_benchmarks.py
+1. **Autonomous Scientist Loop**: 
+   Runs an end-to-end iteration that observes chaotic trajectories, proposes candidate symbolic equations (via PySR/SINDy), and applies epistemic hardening validations.
+   ```bash
+   python physics/run_autonomous_sweep.py
+   ```
+2. **ECG Representation Auditing**:
+   Loads patient datasets, runs the convolutional network features extractor, and audits transferability across domains.
+   ```bash
+   python physics/compute_ptbxl_metrics.py
+   ```
 
-# Dashboard
-cd dashboard && npm run dev
+## Datasets & Benchmarks
 
-# Satellite
-cd satellite && pytest tests/ -q
-```
+- **Chaotic Trajectories**: Synthetic datasets for Duffing, Van der Pol, and Lorenz oscillators.
+- **ECG Telemetry**: Ingested patient data profiles (PTB-XL baseline).
 
-## Dependencies
+## Consolidated Dossiers
 
-Dependencies are inherited from the owning domain manifest where available. Cross-domain imports are documented in docs/DOMAIN_DEPENDENCY_REPORT.md and should be reduced during migration.
-
-## Status
-
-Documented during the repository consolidation audit on 2026-06-06.
-
-## Roadmap
-
-- Make the domain independently installable and removable.
-- Move generated outputs into domain-local artifact folders.
-- Replace hidden cross-domain imports with explicit adapters or exported data contracts.
-- Keep README, usage, dependencies, status, roadmap, and related documents current.
-
-## Related Documents
-
-- docs/REPOSITORY_AUDIT.md
-- docs/DOMAIN_DEPENDENCY_REPORT.md
-- docs/DOCUMENT_CONSOLIDATION_REPORT.md
+- **[Knowledge Index](docs/INDEX.md)**: Navigation hub for the domain.
+- **[QUANTUM_GRAVITY_DOSSIER](docs/QUANTUM_GRAVITY_DOSSIER.md)**: Models, audits, and mathematical formulations for spinfoams and GR emergence.
+- **[DISCOVERY_ENGINE_DOSSIER](docs/DISCOVERY_ENGINE_DOSSIER.md)**: AI-for-Science pipeline architecture and symbolic solver configurations.
+- **[PHYSICS_VALIDATION_DOSSIER](docs/PHYSICS_VALIDATION_DOSSIER.md)**: Validation scores, noise tolerances, and empirical results.

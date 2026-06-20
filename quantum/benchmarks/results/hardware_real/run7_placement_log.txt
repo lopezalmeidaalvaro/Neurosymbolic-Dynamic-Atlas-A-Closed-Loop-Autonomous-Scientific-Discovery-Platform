@@ -1,0 +1,51 @@
+Circuit: GHZ_5q
+  - Selected Physical Qubits: [0, 1, 2, 3, 4]
+  - Path Score (Selected): 2.441309170396348
+  - Path Score (Trivial [0..N-1]): 1.7052596253524082
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 32 gates | QADE = 32 gates (Delta = +0)
+  - Evolution Log:
+Evolution reduced gates: 2Q=4->4, 1Q=27->1
+
+------------------------------------------------------------
+Circuit: Quantum_Kernel_5q
+  - Selected Physical Qubits: [0, 1, 2, 3, 4]
+  - Path Score (Selected): 2.441309170396348
+  - Path Score (Trivial [0..N-1]): 1.7052596253524082
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 64 gates | QADE = 62 gates (Delta = -2)
+  - Evolution Log:
+Evolution did not reduce gates: evolved 2Q=8, routed 2Q=8. Falling back to routed input.
+
+------------------------------------------------------------
+Circuit: QFT_5q
+  - Selected Physical Qubits: [123, 136, 142, 143, 144]
+  - Path Score (Selected): None
+  - Path Score (Trivial [0..N-1]): None
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 143 gates | QADE = 192 gates (Delta = +49)
+  - Evolution Log:
+Evolution reduced gates: 2Q=41->40, 1Q=165->165
+Stage G routing increased 2Q gate count. Falling back to best_evolved_circuit.
+
+------------------------------------------------------------
+Circuit: VQE_5q
+  - Selected Physical Qubits: [0, 1, 2, 3, 4]
+  - Path Score (Selected): 2.441309170396348
+  - Path Score (Trivial [0..N-1]): 1.7052596253524082
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 46 gates | QADE = 42 gates (Delta = -4)
+  - Evolution Log:
+Evolution did not reduce gates: evolved 2Q=4, routed 2Q=4. Falling back to routed input.
+
+------------------------------------------------------------
+Circuit: Quantum_Kernel_8q
+  - Selected Physical Qubits: [0, 1, 2, 3, 4, 5, 6, 7]
+  - Path Score (Selected): 3.724710109682179
+  - Path Score (Trivial [0..N-1]): 2.885257340147524
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 109 gates | QADE = 103 gates (Delta = -6)
+  - Evolution Log:
+Evolution reduced gates: 2Q=14->14, 1Q=115->114
+
+------------------------------------------------------------

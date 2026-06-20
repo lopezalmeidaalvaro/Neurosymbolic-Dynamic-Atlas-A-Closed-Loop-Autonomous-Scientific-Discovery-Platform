@@ -1,0 +1,22 @@
+name: Repository Root Sanitization Enforcement
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  root-clean-check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Run Root Clean Enforcement Check
+      run: python core/scripts/check_root_clean.py

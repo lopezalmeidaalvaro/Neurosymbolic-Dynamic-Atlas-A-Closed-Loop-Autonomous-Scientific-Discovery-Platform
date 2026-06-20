@@ -1,4 +1,0 @@
-Optimizer_Run,Opt_Area_m2,Opt_Emissivity,Opt_Mass_kg,Opt_Temp_C,Status
-Radiator_Sizing,0.038545,0.950000,0.208143,85.000001,CONVERGED
-Power_Scheduling,2.466898,0.850000,74.073152,84.999993,CONVERGED
-Margin_Maximization,0.400000,0.950000,107.287140,-22.287140,CONVERGED
