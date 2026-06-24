@@ -93,6 +93,17 @@ class AdvancedRouter:
                         dist[i][j] = dist[i][k] + dist[k][j]
         return dist
 
+    def is_physically_executable(self, qade_json: Dict[str, Any]) -> bool:
+        if not self.coupling_map:
+            return True
+        for gate in qade_json.get("gates", []):
+            g_type = str(gate.get("type", "")).upper()
+            q = gate.get("qubits", [])
+            if len(q) == 2 and g_type != "BARRIER":
+                if (q[0], q[1]) not in self.edges:
+                    return False
+        return True
+
     def route(self, qade_json: Dict[str, Any], method: str = "sabre", initial_layout: Optional[Dict[int, int]] = None) -> Tuple[Dict[str, Any], Dict[int, int]]:
         """
         Routes the circuit using the specified method.
@@ -107,6 +118,8 @@ class AdvancedRouter:
         # Setup initial layout (virtual -> physical)
         if initial_layout is not None:
             v_to_p = initial_layout.copy()
+        elif self.is_physically_executable(qade_json):
+            v_to_p = {i: i for i in range(num_logical)}
         else:
             v_to_p = {i: i for i in range(num_logical)}
             
@@ -122,6 +135,21 @@ class AdvancedRouter:
         for p, v in zip(rem_phys, rem_virt):
             v_to_p[v] = p
             p_to_v[p] = v
+            
+        # Gate reordering for dense circuits (QFT-like)
+        gates_list = qade_json.get("gates", [])
+        num_2q = sum(1 for g in gates_list if len(g.get("qubits", [])) == 2)
+        active_2q_qubits = set()
+        for g in gates_list:
+            q_list = g.get("qubits", [])
+            if len(q_list) == 2:
+                active_2q_qubits.update(q_list)
+        num_active = len(active_2q_qubits) if active_2q_qubits else num_logical
+        threshold = num_active * (num_active - 1) / 4
+        if num_2q > threshold and self.dist_matrix:
+            reordered_gates = self._reorder_gates_lookahead(gates_list, v_to_p)
+            qade_json = copy.deepcopy(qade_json)
+            qade_json["gates"] = reordered_gates
             
         # Estimate depth to compute optimal weights
         gates_list = qade_json.get("gates", [])
@@ -883,3 +911,83 @@ class AdvancedRouter:
         """Hybrid Router: uses A* pathfinding but fallback-inserts SWAPs adjacent to target lines."""
         # Combines features of A* path routing with local BFS fallback routing
         return self._route_astar(qade_json, v_to_p, p_to_v)
+
+    def _reorder_gates_lookahead(self, gates: List[Dict[str, Any]], initial_layout: Dict[int, int]) -> List[Dict[str, Any]]:
+        # 1. Build DAG representing dependency constraints with diagonal commutativity
+        num_gates = len(gates)
+        adj = {i: set() for i in range(num_gates)}
+        predecessors = {i: set() for i in range(num_gates)}
+        
+        # Diagonal quantum gates commute under matrix multiplication
+        DIAGONAL_TYPES = {"CZ", "CP", "RZ", "Z", "PHASE", "P", "U1"}
+        
+        last_non_diagonal = {}  # qubit -> gate_idx
+        diagonal_gates_since = {}  # qubit -> list of gate_idx
+        
+        for i, gate in enumerate(gates):
+            g_type = str(gate.get("type", "")).upper()
+            qubits = gate.get("qubits", [])
+            is_diag = g_type in DIAGONAL_TYPES
+            
+            for q in qubits:
+                if q in last_non_diagonal:
+                    predecessors[i].add(last_non_diagonal[q])
+                if not is_diag:
+                    if q in diagonal_gates_since:
+                        for diag_idx in diagonal_gates_since[q]:
+                            predecessors[i].add(diag_idx)
+                            
+            for q in qubits:
+                if is_diag:
+                    if q not in diagonal_gates_since:
+                        diagonal_gates_since[q] = []
+                    diagonal_gates_since[q].append(i)
+                else:
+                    last_non_diagonal[q] = i
+                    diagonal_gates_since[q] = []
+                    
+        in_degree = {i: len(predecessors[i]) for i in range(num_gates)}
+        for i in range(num_gates):
+            for pred in predecessors[i]:
+                adj[pred].add(i)
+                
+        # 2. Greedy topological sort to schedule adjacent gates first
+        ready_gates = [i for i in range(num_gates) if in_degree[i] == 0]
+        reordered_indices = []
+        
+        while ready_gates:
+            best_idx = None
+            best_score = float("inf")
+            
+            for idx in ready_gates:
+                gate = gates[idx]
+                qubits = gate.get("qubits", [])
+                if len(qubits) < 2:
+                    score = 0
+                else:
+                    q0 = qubits[0]
+                    q1 = qubits[1]
+                    p0 = initial_layout.get(q0, q0)
+                    p1 = initial_layout.get(q1, q1)
+                    if p0 in self.dist_matrix and p1 in self.dist_matrix[p0]:
+                        score = self.dist_matrix[p0][p1]
+                    else:
+                        score = 999
+                
+                # Minimum distance first, break ties with original index order
+                if score < best_score:
+                    best_score = score
+                    best_idx = idx
+                elif score == best_score:
+                    if idx < best_idx:
+                        best_idx = idx
+                        
+            ready_gates.remove(best_idx)
+            reordered_indices.append(best_idx)
+            
+            for succ in adj[best_idx]:
+                in_degree[succ] -= 1
+                if in_degree[succ] == 0:
+                    ready_gates.append(succ)
+                    
+        return [gates[i] for i in reordered_indices]

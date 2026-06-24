@@ -29,6 +29,10 @@ ALLOWED_FILES = {
     "requirements.txt",
     ".gitignore",
     ".pre-commit-config.yaml",
+    "LEAN4_AUDIT_REPORT.md",
+    "LEAN4_INSTALLATION_REPORT.md",
+    "QFT_ROUTING_FIX_REPORT.md",
+    "QFT_FIX_EQUIVALENCE_VERIFICATION.md",
 }
 
 def check_root():

@@ -1,0 +1,93 @@
+Circuit: GHZ_5q
+  - Selected Physical Qubits: [131, 132, 133, 134, 135]
+  - Path Score (Selected): 1.986739514999874
+  - Path Score (Trivial [0..N-1]): 1.4192033233474568
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 32 gates | QADE = 36 gates (Delta = +4)
+  - Evolution Log:
+Evolution reduced gates: 2Q=4->4, 1Q=27->1
+
+------------------------------------------------------------
+Circuit: Quantum_Kernel_5q
+  - Selected Physical Qubits: [131, 132, 133, 134, 135]
+  - Path Score (Selected): 1.986739514999874
+  - Path Score (Trivial [0..N-1]): 1.4192033233474568
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 64 gates | QADE = 65 gates (Delta = +1)
+  - Evolution Log:
+Evolution reduced gates: 2Q=8->8, 1Q=67->65
+
+------------------------------------------------------------
+Circuit: QFT_5q
+  - Selected Physical Qubits: [19, 35, 15, 13, 14]
+  - Path Score (Selected): None
+  - Path Score (Trivial [0..N-1]): None
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 139 gates | QADE = 248 gates (Delta = +109)
+  - Evolution Log:
+Evolution did not reduce gates: evolved 2Q=51, routed 2Q=51. Falling back to routed input.
+Stage G routing increased 2Q gate count. Falling back to best_evolved_circuit.
+
+------------------------------------------------------------
+Circuit: VQE_5q
+  - Selected Physical Qubits: [131, 132, 133, 134, 135]
+  - Path Score (Selected): 1.986739514999874
+  - Path Score (Trivial [0..N-1]): 1.4192033233474568
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 46 gates | QADE = 45 gates (Delta = -1)
+  - Evolution Log:
+Evolution did not reduce gates: evolved 2Q=4, routed 2Q=4. Falling back to routed input.
+
+------------------------------------------------------------
+Circuit: Quantum_Kernel_8q
+  - Selected Physical Qubits: [132, 131, 130, 129, 128, 127, 137, 147]
+  - Path Score (Selected): 3.0437065782094654
+  - Path Score (Trivial [0..N-1]): 2.251950323287575
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 109 gates | QADE = 137 gates (Delta = +28)
+  - Evolution Log:
+Evolution did not reduce gates: evolved 2Q=14, routed 2Q=14. Falling back to routed input.
+
+------------------------------------------------------------
+Circuit: QFT_8q
+  - Selected Physical Qubits: [14, 15, 35, 19, 13, 12, 11, 10]
+  - Path Score (Selected): None
+  - Path Score (Trivial [0..N-1]): None
+  - Bypass Evolution: True
+  - Gate Count: Qiskit L3 = 442 gates | QADE = 786 gates (Delta = +344)
+  - Evolution Log:
+Routed circuit has 686 gates or 8 active qubits. Bypassing evolutionary search, applying algebraic simplification only.
+Stage G routing increased 2Q gate count. Falling back to best_evolved_circuit.
+
+------------------------------------------------------------
+Circuit: GHZ_15q
+  - Selected Physical Qubits: [14, 15, 19, 35, 34, 33, 39, 53, 54, 55, 59, 75, 74, 73, 79]
+  - Path Score (Selected): None
+  - Path Score (Trivial [0..N-1]): None
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 102 gates | QADE = 116 gates (Delta = +14)
+  - Evolution Log:
+Evolution reduced gates: 2Q=14->14, 1Q=87->1
+
+------------------------------------------------------------
+Circuit: Quantum_Kernel_15q
+  - Selected Physical Qubits: [14, 15, 19, 35, 34, 33, 39, 53, 54, 55, 59, 75, 74, 73, 79]
+  - Path Score (Selected): None
+  - Path Score (Trivial [0..N-1]): None
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 214 gates | QADE = 270 gates (Delta = +56)
+  - Evolution Log:
+Evolution did not reduce gates: evolved 2Q=28, routed 2Q=28. Falling back to routed input.
+
+------------------------------------------------------------
+Circuit: QAOA_10q
+  - Selected Physical Qubits: [129, 130, 58, 19, 35, 118, 34, 109, 97, 51, 52, 53, 32]
+  - Path Score (Selected): None
+  - Path Score (Trivial [0..N-1]): None
+  - Bypass Evolution: True
+  - Gate Count: Qiskit L3 = 593 gates | QADE = 2713 gates (Delta = +2120)
+  - Evolution Log:
+Routed circuit has 847 gates or 65 active qubits. Bypassing evolutionary search, applying algebraic simplification only.
+Stage G routing increased 2Q gate count. Falling back to best_evolved_circuit.
+
+------------------------------------------------------------

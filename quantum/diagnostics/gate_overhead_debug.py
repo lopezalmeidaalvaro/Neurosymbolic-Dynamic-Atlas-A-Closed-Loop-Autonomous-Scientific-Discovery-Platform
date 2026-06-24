@@ -123,53 +123,72 @@ def run_diagnostics():
         pm = PassManager(qade_pass)
         qade_compiled = pm.run(transpiled_in)
         
+        # 3. Compile with QADE (L3 input)
+        qade_l3_pass = QADEOptimizerPass(backend=backend, hardware_aware=True)
+        pm_l3 = PassManager(qade_l3_pass)
+        qade_l3_compiled = pm_l3.run(qiskit_compiled)
+        
         # Gate counts
         qiskit_1q, qiskit_2q = get_1q_2q_counts(qiskit_compiled)
         qade_1q, qade_2q = get_1q_2q_counts(qade_compiled)
+        qade_l3_1q, qade_l3_2q = get_1q_2q_counts(qade_l3_compiled)
         
         qiskit_depth = qiskit_compiled.depth()
         qade_depth = qade_compiled.depth()
+        qade_l3_depth = qade_l3_compiled.depth()
         
         qiskit_fid = predict_hellinger_fidelity(qiskit_compiled, backend)
         qade_fid = predict_hellinger_fidelity(qade_compiled, backend)
+        qade_l3_fid = predict_hellinger_fidelity(qade_l3_compiled, backend)
         
         delta_1q = qade_1q - qiskit_1q
         delta_2q = qade_2q - qiskit_2q
+        delta_l3_1q = qade_l3_1q - qiskit_1q
+        delta_l3_2q = qade_l3_2q - qiskit_2q
         
         csv_rows.append({
             "circuit_name": name,
             "qiskit_1q_count": qiskit_1q,
             "qade_1q_count": qade_1q,
+            "qade_l3_1q_count": qade_l3_1q,
             "delta_1q": delta_1q,
+            "delta_l3_1q": delta_l3_1q,
             "qiskit_2q_count": qiskit_2q,
             "qade_2q_count": qade_2q,
+            "qade_l3_2q_count": qade_l3_2q,
             "delta_2q": delta_2q,
+            "delta_l3_2q": delta_l3_2q,
             "qiskit_total_depth": qiskit_depth,
             "qade_total_depth": qade_depth,
+            "qade_l3_total_depth": qade_l3_depth,
             "qiskit_fidelity": round(qiskit_fid, 6),
             "qade_fidelity": round(qade_fid, 6),
+            "qade_l3_fidelity": round(qade_l3_fid, 6),
         })
         
         # Print side-by-side comparison of gates by type
         qiskit_ops = qiskit_compiled.count_ops()
         qade_ops = qade_compiled.count_ops()
-        all_keys = sorted(list(set(qiskit_ops.keys()) | set(qade_ops.keys())))
+        qade_l3_ops = qade_l3_compiled.count_ops()
+        all_keys = sorted(list(set(qiskit_ops.keys()) | set(qade_ops.keys()) | set(qade_l3_ops.keys())))
         
         print(f"Gate count breakdown by type for {name}:")
-        print(f"{'Gate Type':<15} | {'Qiskit L3':<10} | {'QADE':<10} | {'Delta':<10}")
-        print("-" * 53)
+        print(f"{'Gate Type':<15} | {'Qiskit L3':<10} | {'QADE (L1)':<10} | {'QADE (L3)':<10} | {'Delta L1':<10} | {'Delta L3':<10}")
+        print("-" * 79)
         for k in all_keys:
             qis_val = qiskit_ops.get(k, 0)
             qad_val = qade_ops.get(k, 0)
-            diff = qad_val - qis_val
-            print(f"{k:<15} | {qis_val:<10} | {qad_val:<10} | {diff:+10}")
+            qad_l3_val = qade_l3_ops.get(k, 0)
+            diff_l1 = qad_val - qis_val
+            diff_l3 = qad_l3_val - qis_val
+            print(f"{k:<15} | {qis_val:<10} | {qad_val:<10} | {qad_l3_val:<10} | {diff_l1:<+10} | {diff_l3:<+10}")
             
     # Write to CSV
     csv_fields = [
-        "circuit_name", "qiskit_1q_count", "qade_1q_count", "delta_1q",
-        "qiskit_2q_count", "qade_2q_count", "delta_2q",
-        "qiskit_total_depth", "qade_total_depth",
-        "qiskit_fidelity", "qade_fidelity"
+        "circuit_name", "qiskit_1q_count", "qade_1q_count", "qade_l3_1q_count", "delta_1q", "delta_l3_1q",
+        "qiskit_2q_count", "qade_2q_count", "qade_l3_2q_count", "delta_2q", "delta_l3_2q",
+        "qiskit_total_depth", "qade_total_depth", "qade_l3_total_depth",
+        "qiskit_fidelity", "qade_fidelity", "qade_l3_fidelity"
     ]
     csv_path = "gate_overhead_debug_results_v2.csv"
     with open(csv_path, mode='w', newline='') as f:
@@ -178,18 +197,18 @@ def run_diagnostics():
         writer.writerows(csv_rows)
         
     print(f"\nCSV exported to {csv_path}")
-    print("\n" + "="*80)
+    print("\n" + "="*110)
     print("COMPILATION SUMMARY TABLE:")
-    print("="*80)
-    print(f"{'Circuit':<20} | {'1Q (Qis/QAD/Delta)':<20} | {'2Q (Qis/QAD/Delta)':<20} | {'Depth (Qis/QAD)':<20} | {'Fidelity (Qis/QAD)':<20}")
-    print("-" * 109)
+    print("="*110)
+    print(f"{'Circuit':<20} | {'1Q (Qis/QA1/QA3)':<20} | {'2Q (Qis/QA1/QA3)':<20} | {'Depth (Qis/QA1/QA3)':<20} | {'Fidelity (Qis/QA1/QA3)':<25}")
+    print("-" * 115)
     for r in csv_rows:
-        q1 = f"{r['qiskit_1q_count']}/{r['qade_1q_count']}/{r['delta_1q']:+d}"
-        q2 = f"{r['qiskit_2q_count']}/{r['qade_2q_count']}/{r['delta_2q']:+d}"
-        dep = f"{r['qiskit_total_depth']}/{r['qade_total_depth']}"
-        fid = f"{r['qiskit_fidelity']:.4f}/{r['qade_fidelity']:.4f}"
-        print(f"{r['circuit_name']:<20} | {q1:<20} | {q2:<20} | {dep:<20} | {fid:<20}")
-    print("="*109)
+        q1 = f"{r['qiskit_1q_count']}/{r['qade_1q_count']}/{r['qade_l3_1q_count']}"
+        q2 = f"{r['qiskit_2q_count']}/{r['qade_2q_count']}/{r['qade_l3_2q_count']}"
+        dep = f"{r['qiskit_total_depth']}/{r['qade_total_depth']}/{r['qade_l3_total_depth']}"
+        fid = f"{r['qiskit_fidelity']:.4f}/{r['qade_fidelity']:.4f}/{r['qade_l3_fidelity']:.4f}"
+        print(f"{r['circuit_name']:<20} | {q1:<20} | {q2:<20} | {dep:<20} | {fid:<25}")
+    print("="*115)
 
 if __name__ == "__main__":
     run_diagnostics()

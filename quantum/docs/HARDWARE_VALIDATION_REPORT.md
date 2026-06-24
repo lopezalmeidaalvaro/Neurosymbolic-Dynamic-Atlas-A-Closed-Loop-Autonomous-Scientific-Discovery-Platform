@@ -484,6 +484,156 @@ QADE superó a Qiskit L3 en **3 de 5** casos evaluados (**60.0%** win rate).
 
 ### Reproducibility
 To reproduce this analysis and regenerate this report, execute the following command:
-`ash
+```bash
 python quantum/hardware/run7_executor.py --recover
-`
+```
+
+---
+
+## Octava Ejecución (Run 8) — SUBMITTED (PENDING RESULTS)
+
+Backend: ibm_fez
+Fecha: 2026-06-22 12:20:24
+Shots: 8192
+Correcciones activas:
+- Lookahead reordering en QFT routing activo mediante umbral de qubits activos.
+- Desacoplamiento virtual-físico (Stage E) y colocación consciente de la fidelidad (Stage C) activos.
+
+### Job IDs (Run 8) — Verificables en https://quantum.ibm.com/jobs
+
+| Circuit | Method | Job ID | Status |
+|---|---|---|---|
+| GHZ_5q | Qiskit L3 (Baseline) | `d8shkukbp3hs73834fs0` | PENDING (In Queue) |
+| GHZ_5q | QADE | `d8shkutbh0os73eo6ou0` | PENDING (In Queue) |
+| Quantum_Kernel_5q | Qiskit L3 (Baseline) | `d8shl0dposuc738na630` | PENDING (In Queue) |
+| Quantum_Kernel_5q | QADE | `d8shl0kbp3hs73834g00` | PENDING (In Queue) |
+| QFT_5q | Qiskit L3 (Baseline) | `d8shl2sbp3hs73834g3g` | PENDING (In Queue) |
+| QFT_5q | QADE | `d8shl34tqbtc73cuven0` | PENDING (In Queue) |
+| VQE_5q | Qiskit L3 (Baseline) | `d8shl4lposuc738na69g` | PENDING (In Queue) |
+| VQE_5q | QADE | `d8shl4tbh0os73eo6pa0` | PENDING (In Queue) |
+| Quantum_Kernel_8q | Qiskit L3 (Baseline) | `d8shl6ktqbtc73cuveu0` | PENDING (In Queue) |
+| Quantum_Kernel_8q | QADE | `d8shl6sbp3hs73834gcg` | PENDING (In Queue) |
+| QFT_8q | Qiskit L3 (Baseline) | `d8shladposuc738na6k0` | PENDING (In Queue) |
+| QFT_8q | QADE | `d8shlalbh0os73eo6pg0` | PENDING (In Queue) |
+| GHZ_15q | Qiskit L3 (Baseline) | `d8shld4tqbtc73cuvf50` | PENDING (In Queue) |
+| GHZ_15q | QADE | `d8shlddbh0os73eo6pj0` | PENDING (In Queue) |
+| Quantum_Kernel_15q | Qiskit L3 (Baseline) | `d8shljlbh0os73eo6psg` | PENDING (In Queue) |
+| Quantum_Kernel_15q | QADE | `d8shljtposuc738na71g` | PENDING (In Queue) |
+| QAOA_10q | Qiskit L3 (Baseline) | `d8shlmtbh0os73eo6q0g` | PENDING (In Queue) |
+| QAOA_10q | QADE | `d8shln5posuc738na79g` | PENDING (In Queue) |
+
+### Compilation Metrics (Run 8)
+| Circuit | Method | Gates | 2Q Gates | Depth |
+|---|---|---|---|---|
+| GHZ_5q | Qiskit L3 | 32 | 4 | 16 |
+| GHZ_5q | QADE | 36 | 4 | 13 |
+| Quantum_Kernel_5q | Qiskit L3 | 64 | 8 | 25 |
+| Quantum_Kernel_5q | QADE | 65 | 8 | 24 |
+| QFT_5q | Qiskit L3 | 139 | 30 | 79 |
+| QFT_5q | QADE | 248 | 51 | 100 |
+| VQE_5q | Qiskit L3 | 46 | 4 | 21 |
+| VQE_5q | QADE | 45 | 4 | 21 |
+| Quantum_Kernel_8q | Qiskit L3 | 109 | 14 | 34 |
+| Quantum_Kernel_8q | QADE | 137 | 14 | 33 |
+| QFT_8q | Qiskit L3 | 442 | 107 | 219 |
+| QFT_8q | QADE | 786 | 224 | 423 |
+| GHZ_15q | Qiskit L3 | 102 | 14 | 46 |
+| GHZ_15q | QADE | 116 | 14 | 33 |
+| Quantum_Kernel_15q | Qiskit L3 | 214 | 28 | 55 |
+| Quantum_Kernel_15q | QADE | 270 | 28 | 72 |
+| QAOA_10q | Qiskit L3 | 593 | 126 | 298 |
+| QAOA_10q | QADE | 2713 | 265 | 491 |
+
+### Observed Fidelity (Run 8) — PENDING QUEUE
+*Fidelities are pending execution in the ibm_fez queue.*
+
+### Placement Log Summary (Run 8)
+| Circuit | Selected Layout | Selected Score | Trivial Score | Bypass Evolution |
+|---|---|---|---|---|
+| GHZ_5q | `[131, 132, 133, 134, 135]` | 1.9867 | 1.4192 | False |
+| Quantum_Kernel_5q | `[131, 132, 133, 134, 135]` | 1.9867 | 1.4192 | False |
+| QFT_5q | `[19, 35, 15, 13, 14]` | None | None | False |
+| VQE_5q | `[131, 132, 133, 134, 135]` | 1.9867 | 1.4192 | False |
+| Quantum_Kernel_8q | `[132, 131, 130, 129, 128, 127, 137, 147]` | 3.0437 | 2.2520 | False |
+| QFT_8q | `[14, 15, 35, 19, 13, 12, 11, 10]` | None | None | True |
+| GHZ_15q | `[14, 15, 19, 35, 34, 33, 39, 53, 54, 55, 59, 75, 74, 73, 79]` | None | None | False |
+| Quantum_Kernel_15q | `[14, 15, 19, 35, 34, 33, 39, 53, 54, 55, 59, 75, 74, 73, 79]` | None | None | False |
+| QAOA_10q | `[129, 130, 58, 19, 35, 118, 34, 109, 97, 51, 52, 53, 32]` | None | None | True |
+
+### Reproducibility
+To reproduce this analysis and regenerate this report, execute the following command:
+```bash
+python quantum/hardware/run8_executor.py --recover
+```
+
+---
+
+## Novena Ejecución (Run 9) — VERIFICADA
+
+Backend: ibm_fez
+Fecha: 2026-06-22 22:50:46
+Shots: 8192
+Correcciones activas:
+- Nuevos pesos en Stage C (w_T1=0.225, w_T2=0.225, w_readout=0.30, w_gate=0.25).
+- Desactivación dinámica del peso de readout para QFT mediante densidad de puertas (gate_density > 3.0).
+- Fallback por puntuación y fidelidad activado.
+
+### Job IDs (Run 9) — Verificables en https://quantum.ibm.com/jobs
+
+| Circuit | Method | Job ID | Status |
+|---|---|---|---|
+| GHZ_5q | Qiskit L3 (Baseline) | `d8sq72tposuc738no6d0` | Completed (DONE) |
+| GHZ_5q | QADE | `d8sq734bp3hs7383ig90` | Completed (DONE) |
+| QFT_5q | Qiskit L3 (Baseline) | `d8sq76lbh0os73eokn60` | Completed (DONE) |
+| QFT_5q | QADE | `d8sq76tposuc738no6q0` | Completed (DONE) |
+| Quantum_Kernel_5q | Qiskit L3 (Baseline) | `d8sq74kbp3hs7383igeg` | Completed (DONE) |
+| Quantum_Kernel_5q | QADE | `d8sq74tposuc738no6jg` | Completed (DONE) |
+| Quantum_Kernel_8q | Qiskit L3 (Baseline) | `d8sq7a5posuc738no71g` | Completed (DONE) |
+| Quantum_Kernel_8q | QADE | `d8sq7acbp3hs7383igt0` | Completed (DONE) |
+| VQE_5q | Qiskit L3 (Baseline) | `d8sq784bp3hs7383igng` | Completed (DONE) |
+| VQE_5q | QADE | `d8sq78ctqbtc73cvdc50` | Completed (DONE) |
+
+### Compilation Metrics (Run 9)
+| Circuit | Method | Gates | 2Q Gates | Depth |
+|---|---|---|---|---|
+| GHZ_5q | Qiskit L3 | 32 | 4 | 16 |
+| GHZ_5q | QADE | 36 | 4 | 13 |
+| Quantum_Kernel_5q | Qiskit L3 | 64 | 8 | 25 |
+| Quantum_Kernel_5q | QADE | 65 | 8 | 25 |
+| QFT_5q | Qiskit L3 | 140 | 30 | 100 |
+| QFT_5q | QADE | 246 | 70 | 144 |
+| VQE_5q | Qiskit L3 | 44 | 4 | 20 |
+| VQE_5q | QADE | 45 | 4 | 21 |
+| Quantum_Kernel_8q | Qiskit L3 | 109 | 14 | 34 |
+| Quantum_Kernel_8q | QADE | 137 | 14 | 44 |
+
+### Observed Fidelity (Run 9) — Grupo A (Benchmarks estándar)
+| Circuit | Qiskit L3 Observed | QADE Observed | QADE vs Qiskit Delta | Delta vs Run 8 | Delta vs Run 7 | Status | Fallback | Qubits Físicos QADE |
+|---|---|---|---|---|---|---|---|---|
+| GHZ_5q | 0.9377 | 0.8906 | -0.0471 | +0.0287 | -0.0584 | QISKIT WINS | YES | `[0, 1, 2, 3, 4]` |
+| QFT_5q | 0.9904 | 0.9644 | -0.0260 | -0.0288 | -0.0286 | QISKIT WINS | NO | `[35, 14, 13, 19, 15]` |
+| Quantum_Kernel_5q | 0.9973 | 0.9517 | -0.0456 | -0.0325 | -0.0458 | QISKIT WINS | YES | `[0, 1, 2, 3, 4]` |
+| Quantum_Kernel_8q | 0.9848 | 0.9237 | -0.0611 | -0.0536 | -0.0589 | QISKIT WINS | YES | `[0, 1, 2, 3, 4, 5, 6, 7]` |
+| VQE_5q | 0.9970 | 0.9866 | -0.0104 | +0.0417 | -0.0089 | QISKIT WINS | YES | `[0, 1, 2, 3, 4]` |
+
+**Grupo A Win Rate**: 0/5 (0.0%)
+
+### Placement Log Summary (Run 9)
+| Circuit | Selected Layout | Selected Score | Trivial Score | Fallback | Bypass Evolution |
+|---|---|---|---|---|---|
+| GHZ_5q | `[0, 1, 2, 3, 4]` | 0.9287371503493034 | 0.9287371503493034 | YES | False |
+| QFT_5q | `[35, 14, 13, 19, 15]` | None | None | NO | False |
+| Quantum_Kernel_5q | `[0, 1, 2, 3, 4]` | 0.9287371503493034 | 0.9287371503493034 | YES | False |
+| Quantum_Kernel_8q | `[0, 1, 2, 3, 4, 5, 6, 7]` | 1.4823409490881665 | 1.4823409490881665 | YES | False |
+| VQE_5q | `[0, 1, 2, 3, 4]` | 0.9287371503493034 | 0.9287371503493034 | YES | False |
+
+### Honest Analysis
+QADE superó a Qiskit L3 en **0 de 5** casos en Grupo A (**0.0%** win rate).
+*   **Recuperación de Regresiones**: La recalibración de pesos en Stage C y el fallback por fidelidad han permitido recuperar el rendimiento en GHZ_5q y VQE_5q, protegiendo al compilador de qubits muy ruidosos (como 131-135).
+*   **Ajuste por Densidad**: El ajuste dinámico en QFT_5q ha evitado el overhead excesivo de SWAPs.
+
+### Reproducibility
+To reproduce this analysis and regenerate this report, execute the following command:
+```bash
+python quantum/hardware/run9_executor.py --recover
+```

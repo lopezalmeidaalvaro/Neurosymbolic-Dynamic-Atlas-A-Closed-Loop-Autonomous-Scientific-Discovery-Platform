@@ -121,6 +121,7 @@ class QubitPlacement:
 
     def _fidelity_aware_placement(self, qade_json: Dict[str, Any]) -> Dict[int, int]:
         """Assigns the most active logical qubits to highest-quality physical qubits."""
+        self.fallback_activated = False
         qualities = {}
         max_t1 = DEFAULT_T1_SEC
         max_t2 = DEFAULT_T2_SEC
@@ -139,7 +140,24 @@ class QubitPlacement:
             max_t1 = max(max_t1, quality["t1"])
             max_t2 = max(max_t2, quality["t2"])
 
-        w1, w2, w3, w4 = 0.35, 0.35, 0.15, 0.15
+        # Calculate active qubit interaction density to dynamically adjust weights.
+        # Dense circuits (like QFT) suffer from routing overhead when we avoid readout-noisy qubits.
+        active_qs = set()
+        num_2q_gates = 0
+        for gate in qade_json.get("gates", []):
+            if gate.get("type", "").upper() not in ("BARRIER", "MEASURE"):
+                q = gate.get("qubits", [])
+                active_qs.update(q)
+                if len(q) == 2:
+                    num_2q_gates += 1
+        
+        n_act = len(active_qs)
+        gate_density = num_2q_gates / n_act if n_act > 0 else 0.0
+        
+        if gate_density > 3.0:
+            w1, w2, w3, w4 = 0.35, 0.35, 0.15, 0.15
+        else:
+            w1, w2, w3, w4 = 0.225, 0.225, 0.30, 0.25
         physical_scores = []
         for p, quality in qualities.items():
             score = (
@@ -287,6 +305,54 @@ class QubitPlacement:
                         self.last_trivial_path_score = trivial_q_score - trivial_gate_err
                         self.last_selected_path_score = best_path_score
                         
+                        # Fallback logic check
+                        use_fallback = False
+                        fallback_reason = ""
+                        
+                        if best_path_score < self.last_trivial_path_score:
+                            use_fallback = True
+                            fallback_reason = f"Selected path score ({best_path_score:.4f}) is lower than trivial path score ({self.last_trivial_path_score:.4f})"
+                        
+                        # Estimate physical state fidelity for both paths
+                        def estimate_path_fidelity(p_path):
+                            fid = 1.0
+                            for p in p_path:
+                                qual = qualities.get(p, {})
+                                ro_err = qual.get("readout_error", DEFAULT_READOUT_ERROR)
+                                fid *= (1.0 - ro_err)
+                            for i in range(len(p_path) - 1):
+                                g_err = get_edge_error(p_path[i], p_path[i+1])
+                                fid *= (1.0 - g_err)
+                            return fid
+                            
+                        selected_fid = estimate_path_fidelity(best_path)
+                        trivial_fid = estimate_path_fidelity(trivial_path)
+                        
+                        max_allowed_ro = 0.05
+                        max_allowed_gate = 0.03
+                        
+                        has_high_noise = False
+                        for p in best_path:
+                            qual = qualities.get(p, {})
+                            ro_err = qual.get("readout_error", DEFAULT_READOUT_ERROR)
+                            gate_err = qual.get("avg_gate_error", 0.01)
+                            if ro_err > max_allowed_ro or gate_err > max_allowed_gate:
+                                has_high_noise = True
+                                
+                        if not use_fallback:
+                            if selected_fid < trivial_fid:
+                                use_fallback = True
+                                fallback_reason = f"Selected path estimated fidelity ({selected_fid:.4f}) is lower than trivial path estimated fidelity ({trivial_fid:.4f})"
+                            elif has_high_noise and trivial_fid > selected_fid * 0.95:
+                                use_fallback = True
+                                fallback_reason = "Selected path contains high-noise qubits (readout > 5% or gate > 3%)"
+                                
+                        if use_fallback:
+                            print(f"  [Placement Fallback] Trivial layout [0..N-1] selected. Reason: {fallback_reason}")
+                            self.last_selected_path_score = self.last_trivial_path_score
+                            self.fallback_activated = True
+                            return {logical: logical for logical in range(self.num_logical)}
+
                         layout = {}
                         placed_physical = set()
                         for i, logical_idx in enumerate(logical_chain):
@@ -306,6 +372,28 @@ class QubitPlacement:
                         return layout
 
         # Fallback to greedy algorithm if num_logical > 8, or not linear, or no physical paths found
+        # Fix 2: For dense circuits (like QFT with all-to-all connectivity), the greedy
+        # algorithm scatters qubits across the chip causing massive SWAP overhead.
+        # Force trivial layout for these cases since trivially-placed qubits on
+        # ibm_fez [0,1,2,3,4...] are linearly connected and minimize routing.
+        interaction_pairs = set()
+        for gate in qade_json.get("gates", []):
+            q = gate.get("qubits", [])
+            if len(q) == 2:
+                pair = (min(q[0], q[1]), max(q[0], q[1]))
+                interaction_pairs.add(pair)
+        n_pairs = len(interaction_pairs)
+        max_pairs = n_act * (n_act - 1) / 2 if n_act > 1 else 1
+        pair_density = n_pairs / max_pairs if max_pairs > 0 else 0.0
+
+        if pair_density > 0.5:
+            # Dense circuit: trivial layout avoids routing overhead
+            print(f"  [Placement Fallback] Dense circuit detected (pair_density={pair_density:.2f}). Using trivial layout.")
+            self.fallback_activated = True
+            self.last_trivial_path_score = None
+            self.last_selected_path_score = None
+            return {i: i for i in range(self.num_logical)}
+
         interactions = self._build_interaction_graph(qade_json)
         layout = {}
         placed_physical = set()

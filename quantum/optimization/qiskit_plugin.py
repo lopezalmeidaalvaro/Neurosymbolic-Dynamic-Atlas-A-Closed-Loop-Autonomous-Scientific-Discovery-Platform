@@ -50,7 +50,7 @@ def is_physically_executable(circuit_json: Dict[str, Any], coupling_map: Optiona
     for gate in circuit_json.get("gates", []):
         g_type = str(gate.get("type", "")).upper()
         q = gate.get("qubits", [])
-        if g_type in ("CNOT", "CX", "CZ", "SWAP") and len(q) == 2:
+        if len(q) == 2 and g_type != "BARRIER":
             if (q[0], q[1]) not in edges:
                 return False
     return True
@@ -109,6 +109,10 @@ class QADEOptimizerPass(TransformationPass):
         c1q, c2q, dp, gl = _get_stage_metrics(qc)
         logger.debug(f"[STAGE 0] {circuit_name}: 1Q_count={c1q}, 2Q_count={c2q}, depth={dp}, gates={gl}")
 
+        # Save the original input circuit for the final gate-count guard (Fix 1 + Fix 3).
+        # If QADE's pipeline produces more gates than the input, we fall back to this.
+        _original_input_qc = qc.copy()
+
         # Extract measurements
         measures = []
         cregs = qc.cregs
@@ -143,6 +147,7 @@ class QADEOptimizerPass(TransformationPass):
             )
             initial_layout = placer.place(qade_json, method=self.placement_method)
             self._placer = placer
+            self._initial_layout = initial_layout
             
             # [STAGE 1] Post-layout (after placement, before routing)
             c1q, c2q, dp, gl = _get_stage_metrics(qade_json)
@@ -382,7 +387,8 @@ class QADEOptimizerPass(TransformationPass):
                     # Mapear qubits usando layout_inv y phys_to_clean
                     mapped_qubits = []
                     for idx in q:
-                        orig_q = layout_inv.get(idx)
+                        phys_q = virt_to_phys.get(idx, idx)
+                        orig_q = layout_inv.get(phys_q)
                         if orig_q in phys_to_clean:
                             mapped_qubits.append(phys_to_clean[orig_q])
                     
@@ -422,18 +428,17 @@ class QADEOptimizerPass(TransformationPass):
                 fidelity = abs(np.vdot(sv_orig.data, sv_opt.data)) ** 2
                 
                 if fidelity < threshold:
-                    logger.warning(
-                        f'Equivalence check FAILED: fidelity={fidelity:.4f} '
-                        f'(threshold={threshold}). Returning original circuit.'
-                    )
+                    print(f"[VERIFY] Equivalence check FAILED: fidelity={fidelity:.6f} (threshold={threshold})")
                     return False
+                print(f"[VERIFY] Equivalence check PASSED: fidelity={fidelity:.6f}")
                 return True
             except Exception as e:
-                logger.warning(f'Could not verify equivalence: {e}. Accepting.')
+                print(f"[VERIFY] Could not verify equivalence: {e}. Accepting.")
+                import traceback; traceback.print_exc()
                 return True
 
         if not verify_equivalence_qiskit(qc_unitary, zx_reduced_circuit, zx_reduced_circuit.get("qubits", 0)):
-            logger.warning("ZX equivalence check failed against original Qiskit circuit. Falling back to routed input circuit.")
+            print("[VERIFY] ZX equivalence check failed against original Qiskit circuit. Falling back to routed input circuit.")
             zx_reduced_circuit = routed_json
 
         # [STAGE 3] Post-PyZX (after PyZX optimization)
@@ -446,7 +451,7 @@ class QADEOptimizerPass(TransformationPass):
                 final_routed_circuit = zx_reduced_circuit
             else:
                 # Map zx_reduced_circuit back to virtual qubits
-                layout = self._optimal_layout if (hasattr(self, "_optimal_layout") and self._optimal_layout is not None) else {i: i for i in range(zx_reduced_circuit.get("qubits", 0))}
+                layout = self._optimal_layout.copy() if (hasattr(self, "_optimal_layout") and self._optimal_layout is not None) else {i: i for i in range(zx_reduced_circuit.get("qubits", 0))}
                 layout_inv = {phys: virt for virt, phys in layout.items()}
                 
                 virtual_gates = []
@@ -516,10 +521,23 @@ class QADEOptimizerPass(TransformationPass):
         # Re-transpile to backend's basis gates to unroll non-native gates (like H)
         if self.backend is not None:
             from qiskit import transpile
-            final_qc = transpile(final_qc, backend=self.backend, optimization_level=3, routing_method='none')
+            final_qc = transpile(final_qc, backend=self.backend, optimization_level=1, layout_method='trivial', routing_method='none')
             
         # [STAGE 5] Output final (gate count)
         c1q, c2q, dp, gl = _get_stage_metrics(final_qc)
         logger.debug(f"[STAGE 5] {circuit_name}: 1Q_count={c1q}, 2Q_count={c2q}, depth={dp}, gates={gl}")
+
+        # ── Fix 1 + Fix 3: Post-transpile gate count guard ──────────────────
+        # Compare QADE's final output against the original input circuit.
+        # If QADE added overhead (more 2Q gates, or same 2Q but more total gates),
+        # fall back to the original input to avoid hardware fidelity regressions.
+        input_1q, input_2q, _, _ = _get_stage_metrics(_original_input_qc)
+        if c2q > input_2q or (c2q == input_2q and (c1q + c2q) > (input_1q + input_2q)):
+            logger.info(
+                f"[GATE GUARD] QADE output has more gates than input "
+                f"(QADE: 1Q={c1q}, 2Q={c2q} vs Input: 1Q={input_1q}, 2Q={input_2q}). "
+                f"Falling back to original input circuit."
+            )
+            return _original_input_qc
 
         return final_qc
