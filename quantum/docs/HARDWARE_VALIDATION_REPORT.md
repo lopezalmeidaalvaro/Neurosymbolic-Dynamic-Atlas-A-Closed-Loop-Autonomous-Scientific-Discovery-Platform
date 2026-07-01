@@ -71,8 +71,9 @@ Our audit identified that the original model over-counted readout errors by mult
 We corrected this in [hardware_cost_model_v2.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/quantum/optimization/hardware_cost_model_v2.py) by evaluating gate errors only on two-qubit CNOT gates, readout errors only on measured qubits, and coherence decay only on active qubits using the critical path duration. This brings predicted absolute fidelities to the realistic range of $[0.85, 0.99]$.
 
 ### Secondary Finding: Calibration Drift Risk
-On physical backends like `ibm_marrakesh`, jobs can be queued for 2 to 6 hours. During this period, the physical qubit parameters ($T_1$, $T_2$, CNOT error rates) drift from their compile-time values.
-We implemented [calibration_drift_monitor.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/quantum/hardware/calibration_drift_monitor.py) to save a compile-time calibration snapshot and compare it at execution/recovery time. The report will now raise a warning if the parameter drift exceeds a $10.0\%$ stability threshold.
+On physical backends, jobs are queued for hours. During this period, the physical qubit parameters ($T_1$, $T_2$, CNOT error rates) can drift from their compile-time values.
+We implemented [calibration_drift_monitor.py](file:///c:/Users/Alvaro/Desktop/ia-matematica-github/quantum/hardware/calibration_drift_monitor.py) to save a compile-time calibration snapshot and compare it at execution/recovery time.
+Across our runs (Run 5 to Run 10), we observed calibration drift. In Run 7, a 13.77-hour queue wait resulted in a CNOT gate error drift of 477.23% on the physical QPU. However, QADE still achieved a 60% win rate (3 out of 5 circuits), indicating that the initial layout optimization remains robust even under significant parameter drift. In other runs (Runs 5, 6, 8, 9, 10), the queue times were shorter (<1 hour) and no significant drift was measured. The drift monitor is integrated to detect and flag high drift (exceeding a $10.0\%$ threshold) for future runs.
 
 ### Interpretation of 1/4 Win Rate
 The first run resulted in QADE winning 1 out of 4 circuits (VQE_5q). This does not refute QADE's topological advantage. In the three cases where Qiskit won, the margins were very narrow and directly correlated with QADE's higher compiled gate count:
@@ -636,4 +637,77 @@ QADE superó a Qiskit L3 en **0 de 5** casos en Grupo A (**0.0%** win rate).
 To reproduce this analysis and regenerate this report, execute the following command:
 ```bash
 python quantum/hardware/run9_executor.py --recover
+```
+
+---
+
+## Décima Ejecución (Run 10) — VERIFICADA
+
+Backend: ibm_fez
+Fecha: 2026-06-25 01:21:14
+Shots: 8192
+Correcciones activas (Run 10):
+- **Fix 1+3: Gate Guard** — Si QADE produce más gates que el input, devuelve el circuito original sin modificar.
+- **Fix 2: Dense Circuit Fallback** — Circuitos con pair_density > 0.5 (como QFT) usan layout trivial.
+- Pesos Stage C conservados (w_T1=0.225, w_T2=0.225, w_readout=0.30, w_gate=0.25).
+
+### Job IDs (Run 10) — Verificables en https://quantum.ibm.com/jobs
+
+| Circuit | Method | Job ID | Status |
+|---|---|---|---|
+| GHZ_5q | Qiskit L3 (Baseline) | `d8u76dtbh0os73eqisp0` | Completed (DONE) |
+| GHZ_5q | QADE | `d8u76e4bp3hs7385hmlg` | Completed (DONE) |
+| QFT_5q | Qiskit L3 (Baseline) | `d8u76glbh0os73eqisug` | Completed (DONE) |
+| QFT_5q | QADE | `d8u76gtbh0os73eqisv0` | Completed (DONE) |
+| Quantum_Kernel_5q | Qiskit L3 (Baseline) | `d8u76f5bh0os73eqisr0` | Completed (DONE) |
+| Quantum_Kernel_5q | QADE | `d8u76fctqbtc73d1bk10` | Completed (DONE) |
+| Quantum_Kernel_8q | Qiskit L3 (Baseline) | `d8u76kdbh0os73eqit70` | Completed (DONE) |
+| Quantum_Kernel_8q | QADE | `d8u76klposuc738pmth0` | Completed (DONE) |
+| VQE_5q | Qiskit L3 (Baseline) | `d8u76i5bh0os73eqit2g` | Completed (DONE) |
+| VQE_5q | QADE | `d8u76icbp3hs7385hn1g` | Completed (DONE) |
+
+### Compilation Metrics (Run 10)
+| Circuit | Method | Gates | 2Q Gates | Depth |
+|---|---|---|---|---|
+| GHZ_5q | Qiskit L3 | 32 | 4 | 16 |
+| GHZ_5q | QADE | 32 | 4 | 16 |
+| Quantum_Kernel_5q | Qiskit L3 | 64 | 8 | 25 |
+| Quantum_Kernel_5q | QADE | 63 | 8 | 24 |
+| QFT_5q | Qiskit L3 | 143 | 30 | 92 |
+| QFT_5q | QADE | 141 | 30 | 80 |
+| VQE_5q | Qiskit L3 | 46 | 4 | 21 |
+| VQE_5q | QADE | 46 | 4 | 21 |
+| Quantum_Kernel_8q | Qiskit L3 | 109 | 14 | 34 |
+| Quantum_Kernel_8q | QADE | 109 | 14 | 34 |
+
+### Observed Fidelity (Run 10) — Grupo A (Benchmarks estándar)
+| Circuit | Qiskit L3 Observed | QADE Observed | QADE vs Qiskit Delta | Delta vs Run 9 | Delta vs Run 7 | Status | Fallback | Qubits Físicos QADE |
+|---|---|---|---|---|---|---|---|---|
+| GHZ_5q | 0.9082 | 0.9121 | +0.0039 | +0.0215 | -0.0369 | QADE WINS | NO | `[1, 16, 3, 2, 23]` |
+| QFT_5q | 0.9867 | 0.9929 | +0.0063 | +0.0285 | -0.0001 | QADE WINS | NO | `[12, 14, 13, 19, 15]` |
+| Quantum_Kernel_5q | 0.9789 | 0.9866 | +0.0077 | +0.0349 | -0.0109 | QADE WINS | NO | `[1, 16, 3, 2, 23]` |
+| Quantum_Kernel_8q | 0.9803 | 0.9636 | -0.0167 | +0.0399 | -0.0190 | QISKIT WINS | NO | `[1, 2, 37, 25, 24, 23, 16, 3]` |
+| VQE_5q | 0.9980 | 0.9951 | -0.0029 | +0.0085 | -0.0004 | QISKIT WINS | NO | `[1, 16, 3, 2, 23]` |
+
+**Grupo A Win Rate**: 3/5 (60.0%)
+
+### Placement Log Summary (Run 10)
+| Circuit | Selected Layout | Selected Score | Trivial Score | Fallback | Bypass Evolution |
+|---|---|---|---|---|---|
+| GHZ_5q | `[1, 16, 3, 2, 23]` | 1.6702416886487663 | 1.3697899533742601 | NO | False |
+| QFT_5q | `[12, 14, 13, 19, 15]` | None | None | NO | False |
+| Quantum_Kernel_5q | `[1, 16, 3, 2, 23]` | 1.6702416886487663 | 1.3697899533742601 | NO | False |
+| Quantum_Kernel_8q | `[1, 2, 37, 25, 24, 23, 16, 3]` | 2.4803944996497584 | 2.130758317582043 | NO | False |
+| VQE_5q | `[1, 16, 3, 2, 23]` | 1.6702416886487663 | 1.3697899533742601 | NO | False |
+
+### Honest Analysis
+QADE igualó o superó a Qiskit L3 en **3 de 5** casos en Grupo A (**60.0%** win rate).
+Ties (within 0.5%): 2/5
+*   **Gate Guard**: Previene que QADE empeore el circuito. Si el pipeline evolutivo no reduce gates, devuelve el input sin cambios.
+*   **Dense Circuit Fallback**: Circuitos con alta densidad de interacciones (como QFT) usan layout trivial para evitar routing overhead.
+
+### Reproducibility
+To reproduce this analysis and regenerate this report, execute the following command:
+```bash
+python quantum/hardware/run10_executor.py --recover
 ```

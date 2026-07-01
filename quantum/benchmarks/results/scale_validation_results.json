@@ -1,0 +1,102 @@
+{
+  "GHZ_20q": {
+    "success": true,
+    "qiskit_l3": {
+      "gates": 138,
+      "gates_2q": 19,
+      "depth": 61,
+      "time_s": 0.12287592887878418
+    },
+    "qade": {
+      "gates": 138,
+      "gates_2q": 19,
+      "depth": 61,
+      "time_s": 2.7786216735839844
+    },
+    "active_qubits": 20,
+    "bypass_evolution": true,
+    "dense_fallback": false,
+    "gate_guard_triggered": true,
+    "log": "Routed circuit has 135 gates or 32 active qubits. Bypassing evolutionary search, applying algebraic simplification only.\n[GATE GUARD] QADE output has more gates than input (QADE: 1Q=200, 2Q=70 vs Input: 1Q=98, 2Q=19). Falling back to original input circuit.\n"
+  },
+  "GHZ_30q": {
+    "success": true,
+    "qiskit_l3": {
+      "gates": 208,
+      "gates_2q": 29,
+      "depth": 91,
+      "time_s": 0.09268665313720703
+    },
+    "qade": {
+      "gates": 208,
+      "gates_2q": 29,
+      "depth": 91,
+      "time_s": 2.9450583457946777
+    },
+    "active_qubits": 30,
+    "bypass_evolution": true,
+    "dense_fallback": false,
+    "gate_guard_triggered": true,
+    "log": "Routed circuit has 220 gates or 46 active qubits. Bypassing evolutionary search, applying algebraic simplification only.\n[GATE GUARD] QADE output has more gates than input (QADE: 1Q=369, 2Q=155 vs Input: 1Q=148, 2Q=29). Falling back to original input circuit.\n"
+  },
+  "QAOA_20q": {
+    "success": true,
+    "qiskit_l3": {
+      "gates": 1134,
+      "gates_2q": 237,
+      "depth": 528,
+      "time_s": 0.0758054256439209
+    },
+    "qade": {
+      "gates": 1134,
+      "gates_2q": 237,
+      "depth": 528,
+      "time_s": 12.321006298065186
+    },
+    "active_qubits": 20,
+    "bypass_evolution": true,
+    "dense_fallback": false,
+    "gate_guard_triggered": true,
+    "log": "Routed circuit has 1426 gates or 50 active qubits. Bypassing evolutionary search, applying algebraic simplification only.\n[GATE GUARD] QADE output has more gates than input (QADE: 1Q=2646, 2Q=1173 vs Input: 1Q=876, 2Q=237). Falling back to original input circuit.\n"
+  },
+  "VQE_25q": {
+    "success": true,
+    "qiskit_l3": {
+      "gates": 562,
+      "gates_2q": 72,
+      "depth": 94,
+      "time_s": 0.04705619812011719
+    },
+    "qade": {
+      "gates": 562,
+      "gates_2q": 72,
+      "depth": 94,
+      "time_s": 6.035233497619629
+    },
+    "active_qubits": 25,
+    "bypass_evolution": true,
+    "dense_fallback": false,
+    "gate_guard_triggered": true,
+    "log": "Routed circuit has 665 gates or 46 active qubits. Bypassing evolutionary search, applying algebraic simplification only.\nStage G routing increased 2Q gate count. Falling back to best_evolved_circuit.\n[GATE GUARD] QADE output has more gates than input (QADE: 1Q=1201, 2Q=456 vs Input: 1Q=464, 2Q=72). Falling back to original input circuit.\n"
+  },
+  "Quantum_Kernel_20q": {
+    "success": true,
+    "qiskit_l3": {
+      "gates": 290,
+      "gates_2q": 38,
+      "depth": 70,
+      "time_s": 0.025626420974731445
+    },
+    "qade": {
+      "gates": 290,
+      "gates_2q": 38,
+      "depth": 70,
+      "time_s": 6.457948684692383
+    },
+    "active_qubits": 20,
+    "bypass_evolution": true,
+    "dense_fallback": false,
+    "gate_guard_triggered": true,
+    "log": "Routed circuit has 286 gates or 26 active qubits. Bypassing evolutionary search, applying algebraic simplification only.\n[GATE GUARD] QADE output has more gates than input (QADE: 1Q=325, 2Q=86 vs Input: 1Q=231, 2Q=38). Falling back to original input circuit.\n"
+  }
+}

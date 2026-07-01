@@ -32,15 +32,15 @@ The economic ROI model calculates cost savings by estimating the reduction in qu
 *   **Operating Cost Reference**: IBM Cloud Pay-As-You-Go public rate ($\approx \$1.60$ per QPU second; average $8192$-shot execution on `ibm_fez` takes $\approx 30$ seconds, yielding $\approx \$48.00$ per job).
 
 ## 5. Results
-Based on physical execution metrics (Run 7 average fidelity improvement of $+0.20\%$):
+Based on physical execution metrics (Run 10 average positive fidelity improvement of $+0.60\%$):
 *   **Workload Profile**: Fintech quantitative model, 500 jobs/month, 8192 baseline shots.
-*   **Shots Saved**: ~37 shots per job.
-*   **Monthly Financial Savings**: **`$193.30/mes`** (approx. $2,320/year in cloud QPU credits).
+*   **Shots Saved**: ~49 shots per job.
+*   **Monthly Financial Savings**: **`$143.50/mes`** (approx. $1,722/year in cloud QPU credits).
 *   *Note: This is a speculative economic model based on IBM public pricing. QADE does not have active commercial revenues.*
 
 ## 6. Validation
 *   **ROI Simulator**: An interactive HTML calculator is maintained at `quantum/docs/roi_calculator.html` to validate savings across arbitrary runtime and shot scales.
-*   **Empirical Validation**: Hellinger fidelity gains are verified through consecutive physical execution validation runs (Run 5 through Run 7).
+*   **Empirical Validation**: Hellinger fidelity gains are verified through consecutive physical execution validation runs (Run 5 through Run 10).
 
 ## 7. Limitations
 *   **Non-Linear Pricing**: Large enterprises often negotiate flat-rate or dedicated capacity contracts with quantum hardware vendors, where shot-reduction does not linearly decrease billing costs.

@@ -1,0 +1,57 @@
+Circuit: GHZ_5q
+  - Selected Physical Qubits: [1, 16, 3, 2, 23]
+  - Path Score (Selected): 1.6702416886487663
+  - Path Score (Trivial [0..N-1]): 1.3697899533742601
+  - Fallback Activated: NO
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 32 gates | QADE = 32 gates (Delta = +0)
+  - Evolution Log:
+Evolution reduced gates: 2Q=4->4, 1Q=23->1
+[GATE GUARD] QADE output has more gates than input (QADE: 1Q=27, 2Q=4 vs Input: 1Q=23, 2Q=4). Falling back to original input circuit.
+
+------------------------------------------------------------
+Circuit: Quantum_Kernel_5q
+  - Selected Physical Qubits: [1, 16, 3, 2, 23]
+  - Path Score (Selected): 1.6702416886487663
+  - Path Score (Trivial [0..N-1]): 1.3697899533742601
+  - Fallback Activated: NO
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 64 gates | QADE = 63 gates (Delta = -1)
+  - Evolution Log:
+Evolution reduced gates: 2Q=8->8, 1Q=51->50
+
+------------------------------------------------------------
+Circuit: QFT_5q
+  - Selected Physical Qubits: [12, 14, 13, 19, 15]
+  - Path Score (Selected): None
+  - Path Score (Trivial [0..N-1]): None
+  - Fallback Activated: NO
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 143 gates | QADE = 141 gates (Delta = -2)
+  - Evolution Log:
+Evolution reduced gates: 2Q=40->40, 1Q=106->105
+[GATE GUARD] QADE output has more gates than input (QADE: 1Q=152, 2Q=60 vs Input: 1Q=106, 2Q=30). Falling back to original input circuit.
+
+------------------------------------------------------------
+Circuit: VQE_5q
+  - Selected Physical Qubits: [1, 16, 3, 2, 23]
+  - Path Score (Selected): 1.6702416886487663
+  - Path Score (Trivial [0..N-1]): 1.3697899533742601
+  - Fallback Activated: NO
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 46 gates | QADE = 46 gates (Delta = +0)
+  - Evolution Log:
+Evolution did not reduce gates: evolved 2Q=4, routed 2Q=4. Falling back to routed input.
+
+------------------------------------------------------------
+Circuit: Quantum_Kernel_8q
+  - Selected Physical Qubits: [1, 2, 37, 25, 24, 23, 16, 3]
+  - Path Score (Selected): 2.4803944996497584
+  - Path Score (Trivial [0..N-1]): 2.130758317582043
+  - Fallback Activated: NO
+  - Bypass Evolution: False
+  - Gate Count: Qiskit L3 = 109 gates | QADE = 109 gates (Delta = +0)
+  - Evolution Log:
+Evolution did not reduce gates: evolved 2Q=14, routed 2Q=14. Falling back to routed input.
+
+------------------------------------------------------------

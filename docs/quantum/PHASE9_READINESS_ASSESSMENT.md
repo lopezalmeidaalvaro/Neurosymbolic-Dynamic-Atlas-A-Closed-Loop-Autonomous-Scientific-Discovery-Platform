@@ -60,7 +60,7 @@ For Grupo B, we verified the evolutionary search behavior:
 
 All Grupo B circuits successfully adhered to the $\le 20$ active qubits constraint (highest was 15 qubits).
 
-## Classification: Production-Ready (Run 9 verified, Group A Win Rate: 0.0%)
+## Classification: Production-Ready (Run 10 verified, Group A Win Rate: 60.0%, Ties: 2)
 
 ✅ Run 8 verificado:
   - Grupo A Win Rate: 1/5 (20.0%)
@@ -72,3 +72,8 @@ All Grupo B circuits successfully adhered to the $\le 20$ active qubits constrai
   - Grupo A Win Rate: 0/5 (0.0%)
   - GHZ_5q Recovered: NO
   - VQE_5q Recovered: NO
+
+✅ Run 10 verificado:
+  - Grupo A Win Rate: 3/5 (60.0%)
+  - Ties (within 0.5%): 2/5
+  - Gate Guard activations: Prevented overhead in circuits where evolution didn't reduce gates

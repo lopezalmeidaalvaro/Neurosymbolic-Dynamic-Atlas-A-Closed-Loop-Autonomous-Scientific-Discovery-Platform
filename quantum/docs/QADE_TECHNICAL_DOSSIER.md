@@ -42,7 +42,7 @@ QADE is structured as a multi-stage compilation pipeline:
 *   **Genetic Sandbox (`evolution/`)**: Executes evolutionary search for gate simplification on systems $\le 20$ qubits.
 
 ## 4. Methodology
-*   **Stage C Qubit Placement**: Evaluates physical coupling maps to find high-coherence subgraphs. It bypasses low $T_1$ or high readout error qubits globally rather than greedily.
+*   **Stage C Qubit Placement**: Evaluates physical coupling maps to find high-coherence subgraphs. It bypasses low $T_1$ or high readout error qubits globally rather than greedily. It accepts pre-transpiled Level 3 Qiskit circuits as inputs (Fix 4) to ensure a highly optimized starting point.
 *   **Stage E Genetic Search**: For active systems of size $\le 20$ qubits, a genetic search is executed in the `QiskitQuantumSandbox` (simulated via statevector targets). Supported gates (`SX`, `ECR`, `BARRIER`, `ID`) are normalized and mutated, testing correctness against the target statevector.
 *   **Stage G SABRE Routing**: Autotunes routing weights ($w_d/w_c$) dynamically based on circuit depth (e.g., $w_d = 0.8$, $w_c = 0.2$ for shallow circuits) to minimize swap gate count and coherence decay.
 *   **PyZX Clifford+T Reductions**: Translates the circuit into PyZX graph form, simplifies it using rule-based transformations, and translates it back.
@@ -53,8 +53,9 @@ QADE is structured as a multi-stage compilation pipeline:
 
 ## 6. Validation
 *   **Born Rule / Statevector Equivalence**: Unidad and semantic correctness are verified by comparing the final compiled statevector or unitary matrix against the input.
-*   **Equivalence Safeguards**: `verify_equivalence_qiskit()` serves as a fallback path. If PyZX optimization or routing introduces a fidelity drop or drops native gates, QADE rejects the optimization and falls back to a safe Level 1 transpiled baseline.
-*   **Overhead Audit Filter**: Optimization passes are rejected if they result in an increased gate count compared to the pre-optimization step.
+*   **Equivalence Safeguards**: `verify_equivalence_qiskit()` serves as a fallback path. If PyZX optimization or routing introduces a fidelity drop or drops native gates, QADE rejects the optimization and falls back to the Qiskit L3 baseline.
+*   **Post-Transpile Gate-Count Guard (Fix 1+3)**: Ingests the baseline transpilation and compares the final QADE output gate count against it. If QADE added gate count overhead (higher 2Q or same 2Q but higher 1Q counts), the compilation is aborted and the Qiskit L3 baseline is returned.
+*   **Dense Circuit Fallback (Fix 2)**: For circuits with interaction density `pair_density > 0.5` (such as QFT), QADE forces a trivial layout to bypass SABRE routing swap overhead.
 
 ## 7. Limitations
 *   **Classical Simulation Limit**: Verifying quantum states classically requires calculating full statevectors, which is memory-constrained to circuits of $\le 20$ qubits. Above this limit, QADE bypasses evolutionary mutation and utilizes pre-validated motif libraries.

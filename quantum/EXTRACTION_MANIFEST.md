@@ -14,6 +14,17 @@ quantum/                       →  qade/
   critics/                     →  qade/critics/
   evolution/                   →  qade/evolution/
   hardware/                    →  qade/hardware/
+    run5_executor.py
+    run6_executor.py
+    run7_executor.py
+    run8_executor.py           [NEW]
+    run9_executor.py           [NEW]
+    run10_executor.py          [NEW]
+  diagnostics/                 →  qade/diagnostics/
+    qft_routing_diagnosis.py   [NEW]
+    placement_score_diagnosis.py
+  tests/                       →  qade/tests/
+    test_placement_freshness.py [NEW]
   cli.py                       →  qade/cli.py
   __init__.py                  →  qade/__init__.py
   pyproject.toml               →  pyproject.toml
@@ -59,8 +70,13 @@ Additional optional dependency groups are available for the REST API (`api`) and
 
 ## Archivos de evidencia a copiar (Hardware Runs)
 
-To document validation history on real hardware, copy the following results and reports from `benchmarks/results/hardware_real/` to the `docs/hardware_runs/` directory in the new repository:
-*   `hardware_results_20260618_141205.json` (Run 6 results)
-*   `report_20260618_141205.md` (Run 6 report)
+To document validation history on real hardware, copy the following results and reports from `quantum/benchmarks/results/hardware_real/` to the `docs/hardware_runs/` directory in the new repository:
+*   `hardware_results_20260618_141230.json` (Run 6 results)
+*   `report_20260618_141230.md` (Run 6 report)
 *   `run7_placement_log.txt` (Run 7 execution logs)
-*   `docs/quantum/HARDWARE_VALIDATION_REPORT.md` (Cumulative execution logs)
+*   `hardware_results_20260622_220512.json` (Run 9 results)
+*   `report_20260622_220512.md` (Run 9 report)
+*   `compilation_metrics_20260625_011549.json` (Run 10 metrics)
+*   `run8_placement_log.txt`, `run9_placement_log.txt`, `run10_placement_log.txt`
+*   `docs/quantum/HARDWARE_VALIDATION_REPORT.md` (Cumulative execution logs - moved to `docs/quantum/` in monorepo)
+*   `quantum/docs/QADE_MASTER_SUMMARY.md` (Standalone master summary document)

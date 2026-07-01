@@ -1,3 +1,30 @@
+Metadata-Version: 2.4
+Name: qade
+Version: 0.1.0
+Summary: Hardware-aware quantum compiler with fidelity-aware qubit placement
+Author: Alvaro Lopez Almeida
+License: Proprietary
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: qiskit>=1.0.0
+Requires-Dist: qiskit-ibm-runtime>=0.20.0
+Requires-Dist: pyzx>=0.7.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: scipy>=1.10.0
+Provides-Extra: qade
+Requires-Dist: qiskit>=1.0.0; extra == "qade"
+Requires-Dist: qiskit-ibm-runtime>=0.20.0; extra == "qade"
+Requires-Dist: pyzx>=0.7.0; extra == "qade"
+Requires-Dist: numpy>=1.24.0; extra == "qade"
+Requires-Dist: scipy>=1.10.0; extra == "qade"
+Provides-Extra: api
+Requires-Dist: fastapi>=0.110.0; extra == "api"
+Requires-Dist: uvicorn>=0.29.0; extra == "api"
+Requires-Dist: pydantic>=2.0.0; extra == "api"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+
 # QADE — Quantum Algorithm Discovery Engine v0.1.0
 
 QADE (Quantum Algorithm Discovery Engine) is a hardware-aware quantum compiler designed to automatically optimize quantum circuits. It integrates calibration-aware qubit placement (Stage C) and Sabre routing (Stage G) with evolutionary search and symbolic ZX-calculus reductions to maximize gate fidelity on real quantum processing units (QPUs).
@@ -110,7 +137,7 @@ qade benchmark --backend fake_fez --circuits ghz,qft,kernel,vqe
 ## Known Limitations
 
 1. **Statevector Simulation Scale**: Classical verification and evolutionary search (Stage E) scale exponentially and are limited to circuits of $\le 20$ qubits. Above this scale, QADE bypasses evolutionary steps and uses pre-verified motif replacements.
-2. **QPU Calibration Drift**: Physical QPU parameters fluctuate over time. Across our validation runs (Runs 5-10), the calibration drift was measured. In Run 7, despite a queue wait of 13.77 hours causing a CNOT gate error drift of 477.23%, QADE still outperformed Qiskit L3 on 3 out of 5 circuits (60% win rate), showing that the fidelity-aware placement (Stage C) remains robust. While the drift monitor is active to detect changes, no significant degradation of QADE's advantage has been observed to date.
+2. **QPU Calibration Drift**: Physical QPU parameters fluctuate over time. Execution delays in long public queues exceeding 4 hours may invalidate routing/placement optimizations computed at compile time.
 3. **Compilation Latency**: Due to genetic optimization and equivalence checking, QADE has a higher compilation time (~429 ms vs ~37 ms for Qiskit), making it more suitable for production batch compile than interactive developer iterations.
 
 ---
